@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>resources/settings.png</file>
+        <file>resources/help.png</file>
+        <file>resources/apply.png</file>
+        <file>resources/back.png</file>
+        <file>resources/quit.png</file>
+        <file>resources/locale.png</file>
+        <file>resources/keyboard.png</file>
+        <file>resources/locale-package.png</file>
+        <file>resources/language.png</file>
+    </qresource>
+</RCC>

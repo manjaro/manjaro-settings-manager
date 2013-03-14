@@ -1,0 +1,34 @@
+##
+## Package : Language Package
+##
+
+## Examples how % will be replaced
+##
+##                   |-> firefox-i18n-en-US
+##                   |-> firefox-i18n-en-us
+## firefox-i18n-% -> |-> firefox-i18n-en_US
+##                   |-> firefox-i18n-en_us
+##                   |-> firefox-i18n-en
+
+
+
+##
+## Split language packages
+##
+firefox:firefox-i18n-%
+thunderbird:thunderbird-i18n-%
+aspell:aspell-%
+calligra-words:calligra-l10n-%
+gimp:gimp-help-%
+hunspell:hunspell-%
+hyphen:hyphen-%
+kdebase-workspace:kde-l10n-%
+libreoffice-common:libreoffice-%
+man-pages:man-pages-%
+libmythes:mythes-%
+vim:vim-spell-%
+
+##
+## Global language packages
+##
+psi:psi-i18n
