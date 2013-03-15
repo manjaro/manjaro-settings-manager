@@ -66,7 +66,6 @@ private:
     Ui::MainWindow *ui;
     Page_LanguagePackages page_LanguagePackages;
 
-    void checkDaemonAutostart();
     void checkAppArguments();
     void addPageWidget(PageWidget &page);
 

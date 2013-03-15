@@ -127,7 +127,7 @@ void ApplyDialog::closeTimer_timeout() {
 
 
 void ApplyDialog::process_readyRead() {
-    QString data = process.readAll().trimmed();
+    QString data = QString::fromUtf8(process.readAll()).trimmed();
 
     if (!data.isEmpty())
         ui->textEdit->append(data);

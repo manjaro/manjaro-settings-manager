@@ -68,10 +68,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonAllSettings, SIGNAL(clicked())    ,   this, SLOT(buttonShowAllSettings_clicked()));
     connect(ui->buttonApply, SIGNAL(clicked())  ,   this, SLOT(buttonApply_clicked()));
 
-    // Check if daemon autostart file is present
-    //checkDaemonAutostart();
-    // Currently disabled.
-
     // Check passed application arguments
     checkAppArguments();
 }
@@ -90,7 +86,7 @@ MainWindow::~MainWindow()
 //###
 
 
-void MainWindow::checkDaemonAutostart() {
+/*void MainWindow::checkDaemonAutostart() {
     if (QFile::exists(QDir::homePath() + QString(DAEMON_AUTOSTART_FILE)))
         return;
 
@@ -121,7 +117,7 @@ void MainWindow::checkDaemonAutostart() {
     out << "Hidden=false";
 
     file.close();
-}
+}*/
 
 
 void MainWindow::checkAppArguments() {
