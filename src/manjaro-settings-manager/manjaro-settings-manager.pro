@@ -11,8 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += "-DDEFAULT_PATH_VALUE=global/"
-
 SOURCES += main.cpp\
         mainwindow.cpp \
     toolbarstylewidget.cpp \
