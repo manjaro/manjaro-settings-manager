@@ -9,5 +9,6 @@
         <file>resources/keyboard.png</file>
         <file>resources/locale-package.png</file>
         <file>resources/language.png</file>
+        <file>resources/restore.png</file>
     </qresource>
 </RCC>

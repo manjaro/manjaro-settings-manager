@@ -39,6 +39,7 @@
 #include "const.h"
 #include "pagewidget.h"
 #include "pages/page_languagepackages.h"
+#include "pages/page_keyboard.h"
 
 
 namespace Ui {
@@ -65,6 +66,7 @@ private:
 
     Ui::MainWindow *ui;
     Page_LanguagePackages page_LanguagePackages;
+    Page_Keyboard page_Keyboard;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

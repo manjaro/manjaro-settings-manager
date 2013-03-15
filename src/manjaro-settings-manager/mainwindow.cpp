@@ -55,11 +55,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->listWidget->addSeparator(tr("Hardware"));
 
-    item = new ListWidgetItem();
-    item->setText(tr("Keyboard Settings"));
-    item->setIcon(QIcon(":/images/resources/keyboard.png"));
-    item->setSizeHint(QSize(135, 100));
-    ui->listWidget->addItem(item);
+    addPageWidget(page_Keyboard);
 
 
     // Connect signals and slots
@@ -186,6 +182,10 @@ void MainWindow::listWidget_itemClicked(QListWidgetItem *current) {
 
 
 void MainWindow::buttonShowAllSettings_clicked() {
+    PageWidget *page = dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget());
+    if (page && !page->showAllSettingsRequested())
+        return;
+
     // Remove list widget selection
     ui->listWidget->clearSelection();
 

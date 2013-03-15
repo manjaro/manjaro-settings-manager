@@ -24,6 +24,7 @@
 
 #define LANGUAGE_PACKAGES_FILE  "/var/lib/manjaro-system-settings/language_packages.list"
 #define LOCALE_GEN              "/etc/locale.gen"
+#define XKB_FILE "/usr/share/X11/xkb/rules/base.lst"
 
 
 #endif // CONST_H

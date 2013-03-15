@@ -21,14 +21,17 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#include <QList>
 #include <QString>
-#include <QStringList>
-#include <QProcess>
-#include <QDebug>
 #include <QFile>
 #include <QTextStream>
+#include <QDir>
+#include <QStringList>
+#include <QList>
+#include <QHash>
+#include <QMap>
 #include <QRegExp>
+#include <QDebug>
+#include <QProcess>
 #include "const.h"
 
 
@@ -39,8 +42,18 @@ public:
         QString languagePackage, parentPackage, locale;
     };
 
+    struct KeyboardInfo {
+        QString description;
+        QMap< QString, QString > variants;
+    };
+
+
     static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
     static bool isSystemUpToDate();
+
+    static QMap< QString, KeyboardInfo > getKeyboardLayouts();
+    static QMap<QString, QString> getKeyboardModels();
+
 
 private:
     struct Locale {

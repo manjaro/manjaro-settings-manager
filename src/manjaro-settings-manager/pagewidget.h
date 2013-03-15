@@ -37,6 +37,7 @@ public:
     bool getShowApplyButton();
 
     virtual void activated() {}
+    virtual bool showAllSettingsRequested() { return true; }
     virtual void apply_clicked() {}
 
 signals:

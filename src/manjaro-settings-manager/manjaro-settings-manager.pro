@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
 
+QMAKE_CXXFLAGS += "-DDEFAULT_PATH_VALUE=global/"
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -18,7 +19,9 @@ SOURCES += main.cpp\
     listwidget.cpp \
     pages/page_languagepackages.cpp \
     pagewidget.cpp \
-    applydialog.cpp
+    applydialog.cpp \
+    pages/page_keyboard.cpp \
+    widgets/keyboardpreview.cpp
 
 HEADERS  += mainwindow.h \
     toolbarstylewidget.h \
@@ -26,11 +29,14 @@ HEADERS  += mainwindow.h \
     pages/page_languagepackages.h \
     pagewidget.h \
     const.h \
-    applydialog.h
+    applydialog.h \
+    pages/page_keyboard.h \
+    widgets/keyboardpreview.h
 
 FORMS    += mainwindow.ui \
     pages/page_languagepackages.ui \
-    applydialog.ui
+    applydialog.ui \
+    pages/page_keyboard.ui
 
 RESOURCES += \
     resources.qrc
