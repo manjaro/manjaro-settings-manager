@@ -36,10 +36,10 @@
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
-#include "const.h"
 #include "pagewidget.h"
 #include "pages/page_languagepackages.h"
 #include "pages/page_keyboard.h"
+#include "pages/page_language.h"
 
 
 namespace Ui {
@@ -59,7 +59,7 @@ private:
     class ListWidgetItem : public QListWidgetItem
     {
     public:
-        ListWidgetItem() { page = NULL; }
+        ListWidgetItem(QListWidget *parent) : QListWidgetItem(parent) { page = NULL; }
 
         PageWidget *page;
     };
@@ -67,6 +67,7 @@ private:
     Ui::MainWindow *ui;
     Page_LanguagePackages page_LanguagePackages;
     Page_Keyboard page_Keyboard;
+    Page_Language page_Language;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

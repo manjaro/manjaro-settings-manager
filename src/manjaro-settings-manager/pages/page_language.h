@@ -18,57 +18,53 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_KEYBOARD_H
-#define PAGE_KEYBOARD_H
+#ifndef PAGE_LANGUAGE_H
+#define PAGE_LANGUAGE_H
 
 #include "pagewidget.h"
-#include <QMap>
-#include <QMapIterator>
-#include <QListWidgetItem>
-#include <QProcess>
-#include <stdlib.h>
-#include <global.h>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QRadioButton>
+#include <QList>
+#include <QStringList>
 #include <QMessageBox>
-#include "widgets/keyboardpreview.h"
+#include <global.h>
+#include <const.h>
 #include "applydialog.h"
+#include "widgets/selectlocalesdialog.h"
 
 
 
 namespace Ui {
-class Page_Keyboard;
+class Page_Language;
 }
 
 
-class Page_Keyboard : public PageWidget
+class Page_Language : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_Keyboard(QWidget *parent = 0);
-    ~Page_Keyboard();
+    explicit Page_Language(QWidget *parent = 0);
+    ~Page_Language();
 
-    void updateApplyEnabledState();
     void activated();
     void apply_clicked();
     
 private:
-    class LayoutItem : public QListWidgetItem {
+    class TreeWidgetItem : public QTreeWidgetItem {
     public:
-        LayoutItem(QListWidget *parent) : QListWidgetItem(parent) {}
-        QString data;
-        Global::KeyboardInfo info;
+        TreeWidgetItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
+        QRadioButton radioButton;
     };
 
-    Ui::Page_Keyboard *ui;
-    KeyBoardPreview keyboardPreview;
-    int defaultIndex;
-    QMap<QString, QString> models;
+    Ui::Page_Language *ui;
 
 protected slots:
-    void listLayout_currentItemChanged(QListWidgetItem * current, QListWidgetItem * previous);
-    void listVariant_currentItemChanged(QListWidgetItem * current, QListWidgetItem * previous);
+    void buttonRemove_clicked();
+    void buttonAdd_clicked();
     void buttonRestore_clicked();
 
 };
 
-#endif // PAGE_KEYBOARD_H
+#endif // PAGE_LANGUAGE_H

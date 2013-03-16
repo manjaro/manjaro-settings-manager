@@ -19,22 +19,27 @@ SOURCES += main.cpp\
     pagewidget.cpp \
     applydialog.cpp \
     pages/page_keyboard.cpp \
-    widgets/keyboardpreview.cpp
+    widgets/keyboardpreview.cpp \
+    pages/page_language.cpp \
+    widgets/selectlocalesdialog.cpp
 
 HEADERS  += mainwindow.h \
     toolbarstylewidget.h \
     listwidget.h \
     pages/page_languagepackages.h \
     pagewidget.h \
-    const.h \
     applydialog.h \
     pages/page_keyboard.h \
-    widgets/keyboardpreview.h
+    widgets/keyboardpreview.h \
+    pages/page_language.h \
+    widgets/selectlocalesdialog.h
 
 FORMS    += mainwindow.ui \
     pages/page_languagepackages.ui \
     applydialog.ui \
-    pages/page_keyboard.ui
+    pages/page_keyboard.ui \
+    pages/page_language.ui \
+    widgets/selectlocalesdialog.ui
 
 RESOURCES += \
     resources.qrc

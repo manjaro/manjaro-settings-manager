@@ -85,33 +85,9 @@ void Page_Keyboard::activated() {
 
     //### Detect current keyboard layout and variant
     QString currentLayout, currentVariant;
-    QProcess process;
-    process.start("setxkbmap", QStringList() << "-print");
 
-    if (process.waitForFinished()) {
-        QStringList list = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
-
-        foreach(QString line, list) {
-            line = line.trimmed();
-            if (!line.startsWith("xkb_symbols"))
-                continue;
-
-            line = line.remove("}").remove("{").remove(";");
-            line = line.mid(line.indexOf("\"") + 1);
-
-            QStringList split = line.split("+", QString::SkipEmptyParts);
-            if (split.size() >= 2) {
-                currentLayout = split.at(1);
-
-                if (currentLayout.contains("(")) {
-                    currentVariant = currentLayout.mid(currentLayout.indexOf("(") + 1);
-                    currentVariant = currentVariant.mid(0, currentVariant.lastIndexOf(")")).trimmed();
-                    currentLayout = currentLayout.mid(0, currentLayout.indexOf("(")).trimmed();
-                }
-            }
-        }
-    }
-
+    if (!Global::getCurrentXorgKeyboardLayout(currentLayout, currentVariant))
+        QMessageBox::warning(this, tr("Error"), tr("Failed to determind current Xorg keyboard layout!"), QMessageBox::Ok, QMessageBox::Ok);
 
 
     //### Models
@@ -152,13 +128,12 @@ void Page_Keyboard::activated() {
     while (li.hasNext()) {
         li.next();
 
-        LayoutItem *item = new LayoutItem();
+        LayoutItem *item = new LayoutItem(ui->listLayout);
         Global::KeyboardInfo info = li.value();
 
         item->setText(info.description);
         item->data = li.key();
         item->info = info;
-        ui->listLayout->addItem(item);
 
         // Find current layout index
         if (li.key() == currentLayout)
@@ -223,10 +198,9 @@ void Page_Keyboard::listLayout_currentItemChanged(QListWidgetItem * current, QLi
     while (li.hasNext()) {
         li.next();
 
-        item = new LayoutItem();
+        item = new LayoutItem(ui->listVariant);
         item->setText(li.key());
         item->data = li.value();
-        ui->listVariant->addItem(item);
 
         if (li.value() == "")
             defaultItem = item;

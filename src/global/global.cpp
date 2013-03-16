@@ -29,7 +29,7 @@
 bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages) {
     QList<Global::LanguagePackage> languagePackages;
     QStringList parentPackages, checkLP;
-    QList<Global::Locale> locales = getAllEnabledLocales();
+    QList<Global::LocaleSplit> locales = getAllEnabledLocalesSplit();
 
     if (locales.isEmpty()) {
         qDebug() << "error: didn't find any enabled locales!";
@@ -77,7 +77,7 @@ bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackag
         }
 
         for (int i = 0; i < locales.size(); i++) {
-            Locale *locale = &locales[i];
+            LocaleSplit *locale = &locales[i];
 
             // Example: firefox-i18n-% -> firefox-i18n-en-US
             checkLP.append(QString(lp->languagePackage).replace("%", QString("%1-%2").arg(locale->language.toLower(), locale->territory)));
@@ -133,7 +133,7 @@ bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackag
         }
 
         for (int i = 0; i < locales.size(); i++) {
-            Locale *locale = &locales[i];
+            LocaleSplit *locale = &locales[i];
 
             checkLP.clear();
 
@@ -325,6 +325,218 @@ QMap<QString, Global::KeyboardInfo> Global::getKeyboardLayouts() {
 
 
 
+bool Global::getCurrentXorgKeyboardLayout(QString & layout, QString & variant) {
+    layout.clear();
+    variant.clear();
+
+    QProcess process;
+    process.start("setxkbmap", QStringList() << "-print");
+
+    if (!process.waitForFinished())
+        return false;
+
+    QStringList list = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
+
+    foreach(QString line, list) {
+        line = line.trimmed();
+        if (!line.startsWith("xkb_symbols"))
+            continue;
+
+        line = line.remove("}").remove("{").remove(";");
+        line = line.mid(line.indexOf("\"") + 1);
+
+        QStringList split = line.split("+", QString::SkipEmptyParts);
+        if (split.size() >= 2) {
+            layout = split.at(1);
+
+            if (layout.contains("(")) {
+                variant = layout.mid(layout.indexOf("(") + 1);
+                variant = variant.mid(0, variant.lastIndexOf(")")).trimmed();
+                layout = layout.mid(0, layout.indexOf("(")).trimmed();
+            }
+        }
+    }
+
+    return !layout.isEmpty();
+}
+
+
+
+QStringList Global::getAllEnabledLocales() {
+    QStringList locales;
+
+    QFile file(LOCALE_GEN);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "error: failed to open '" << LOCALE_GEN << "'!";
+        return locales;
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
+        if (line.isEmpty())
+            continue;
+
+        locales.append(line.split(" ", QString::SkipEmptyParts).first());
+    }
+
+    file.close();
+
+    locales.removeDuplicates();
+    return locales;
+}
+
+
+
+QString Global::getCurrentLocale() {
+    QString locale;
+
+    QFile file(LOCALE_CONF);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "error: failed to open '" << LOCALE_CONF << "'!";
+        return "";
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
+        if (line.isEmpty() || !QString(line).toLower().startsWith("lang="))
+            continue;
+
+        locale = line.mid(line.indexOf("=") + 1).trimmed();
+    }
+
+    file.close();
+
+    return locale;
+}
+
+
+
+
+QHash<QString, QHash<QString, QList<Global::Locale> > > Global::getAllLocales() {
+    QHash<QString, QHash<QString, QList<Global::Locale> > > locales;
+    QList<Global::LocaleInfo> localeInfoList;
+
+    QFile file(LOCALESINFO);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return locales;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
+        QStringList split = line.split("|", QString::SkipEmptyParts);
+        if (split.size() < 4)
+            continue;
+
+        bool skip = false;
+        foreach (QString str, split) {
+            if (str.trimmed().isEmpty()) {
+                skip = true;
+                break;
+            }
+        }
+
+        if (skip)
+            continue;
+
+        LocaleInfo locale;
+        locale.locale = split.at(0).trimmed();
+        locale.language = split.at(1).trimmed();
+        locale.territory = split.at(2).trimmed();
+        locale.description = split.at(3).trimmed();
+        localeInfoList.append(locale);
+    }
+
+    file.close();
+
+
+
+    file.setFileName(LOCALESSUPPORTED);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return locales;
+
+    QStringList listLocales;
+    in.setDevice(&file);
+    bool found=false;
+
+    while (!in.atEnd()) {
+        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
+        if (line.startsWith("SUPPORTED-LOCALES=")) {
+            found = true;
+            line = line.remove("SUPPORTED-LOCALES=").trimmed();
+        }
+
+        if (found && !line.isEmpty())
+            listLocales.append(line.mid(0, line.indexOf("/")).remove("\\").trimmed());
+    }
+    file.close();
+
+    listLocales.removeAll("");
+    listLocales.removeDuplicates();
+
+
+
+    foreach (QString l, listLocales) {
+        bool found = false;
+
+        for (int i = 0; i < localeInfoList.size(); i++) {
+            const LocaleInfo *localeInfo = &localeInfoList.at(i);
+            if (l != localeInfo->locale)
+                continue;
+
+            Locale item;
+            item.locale = l;
+            item.description = localeInfo->description;
+            locales[localeInfo->language][localeInfo->territory].append(item);
+
+            found = true;
+            break;
+        }
+
+        if (found)
+            continue;
+
+        QString lShort = l.split(QRegExp("[ .@]"), QString::KeepEmptyParts).first().trimmed();
+
+        for (int i = 0; i < localeInfoList.size(); i++) {
+            const LocaleInfo *localeInfo = &localeInfoList.at(i);
+            if (lShort != localeInfo->locale)
+                continue;
+
+            Locale item;
+            item.locale = l;
+            item.description = localeInfo->description;
+            locales[localeInfo->language][localeInfo->territory].append(item);
+            break;
+        }
+    }
+
+    return locales;
+}
+
+
+
+QString Global::localeToValidLocaleGenString(QString locale) {
+    QFile file(LOCALESSUPPORTED);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return "";
+
+    QTextStream in(&file);
+
+    while (!in.atEnd()) {
+        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().remove("\\").trimmed();
+        if (line.startsWith(locale + "/"))
+            return line.replace("/", " ");
+    }
+    file.close();
+
+    return "";
+}
+
+
+
+
 
 //###
 //### Private
@@ -389,26 +601,16 @@ QStringList Global::getAllAvailableRepoPackages(const QStringList & checkPackage
 
 
 
-QList<Global::Locale> Global::getAllEnabledLocales() {
-    QList<Global::Locale> locales;
+QList<Global::LocaleSplit> Global::getAllEnabledLocalesSplit() {
+    QStringList strLocales = getAllEnabledLocales();
+    QList<Global::LocaleSplit> locales;
 
-    QFile file(LOCALE_GEN);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "error: failed to open '" << LOCALE_GEN << "'!";
-        return locales;
-    }
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine().split("#", QString::KeepEmptyParts).first();
-        if (line.isEmpty())
-            continue;
-
-        QStringList split = line.split(QRegExp("[ .@]"), QString::SkipEmptyParts).first().split("_", QString::SkipEmptyParts);
+    foreach (QString locale, strLocales) {
+        QStringList split = locale.split(QRegExp("[ .@]"), QString::SkipEmptyParts).first().split("_", QString::SkipEmptyParts);
         if (split.size() < 2)
             continue;
 
-        Locale lc;
+        LocaleSplit lc;
         lc.language = split.at(0);
         lc.territory = split.at(1);
 
@@ -424,8 +626,6 @@ QList<Global::Locale> Global::getAllEnabledLocales() {
         if (!found)
             locales.append(lc);
     }
-
-    file.close();
 
     return locales;
 }

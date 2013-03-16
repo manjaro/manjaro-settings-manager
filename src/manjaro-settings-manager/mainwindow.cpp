@@ -43,18 +43,13 @@ MainWindow::MainWindow(QWidget *parent) :
     buttonShowAllSettings_clicked();
 
     ui->listWidget->addSeparator(tr("System"));
-
     addPageWidget(page_LanguagePackages);
+    addPageWidget(page_Language);
 
-    ListWidgetItem *item = new ListWidgetItem();
-    item->setText(tr("Language"));
-    item->setIcon(QIcon(":/images/resources/locale.png"));
-    item->setSizeHint(QSize(135, 100));
-    ui->listWidget->addItem(item);
-
+    //
+    // Add printer page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     ui->listWidget->addSeparator(tr("Hardware"));
-
     addPageWidget(page_Keyboard);
 
 
@@ -136,12 +131,11 @@ void MainWindow::checkAppArguments() {
 
 void MainWindow::addPageWidget(PageWidget &page) {
     // Add list widget item
-    ListWidgetItem *item = new ListWidgetItem();
+    ListWidgetItem *item = new ListWidgetItem(ui->listWidget);
     item->setText(page.getTitel());
     item->setIcon(QIcon(page.getIcon()));
     item->setSizeHint(QSize(135, 100));
     item->page = &page;
-    ui->listWidget->addItem(item);
 
     // Add to stacked widget
     ui->stackedWidget->addWidget(&page);

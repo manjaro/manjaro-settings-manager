@@ -47,22 +47,35 @@ public:
         QMap< QString, QString > variants;
     };
 
+    struct Locale {
+        QString description, locale;
+    };
 
     static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
     static bool isSystemUpToDate();
 
     static QMap< QString, KeyboardInfo > getKeyboardLayouts();
     static QMap<QString, QString> getKeyboardModels();
+    static bool getCurrentXorgKeyboardLayout(QString & layout, QString & variant);
+
+    static QStringList getAllEnabledLocales();
+    static QString getCurrentLocale();
+    static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
+    static QString localeToValidLocaleGenString(QString locale);
 
 
 private:
-    struct Locale {
+    struct LocaleInfo {
+        QString locale, language, territory, description;
+    };
+
+    struct LocaleSplit {
         QString language, territory;
     };
 
     static QStringList getAllInstalledPackages(const QStringList & checkPackages);
     static QStringList getAllAvailableRepoPackages(const QStringList & checkPackages);
-    static QList<Locale> getAllEnabledLocales();
+    static QList<LocaleSplit> getAllEnabledLocalesSplit();
 
 };
 
