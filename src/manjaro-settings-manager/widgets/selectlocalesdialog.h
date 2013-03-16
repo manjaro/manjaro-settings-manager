@@ -47,7 +47,7 @@ public:
 
     int exec();
     bool localeAdded();
-    QString getLocale();
+    Global::LocaleInfo getLocale();
     
 private:
     Ui::SelectLocalesDialog *ui;

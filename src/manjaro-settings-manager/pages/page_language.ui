@@ -68,6 +68,16 @@
      </column>
      <column>
       <property name="text">
+       <string>Language</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Territory</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
        <string>Current System Locale</string>
       </property>
      </column>

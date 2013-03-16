@@ -30,8 +30,10 @@ Page_Language::Page_Language(QWidget *parent) :
     setIcon(QPixmap(":/images/resources/locale.png"));
     setShowApplyButton(true);
 
-    ui->treeWidget->setColumnWidth(0, 350);
-    ui->treeWidget->setColumnWidth(1, 30);
+    ui->treeWidget->setColumnWidth(0, 190);
+    ui->treeWidget->setColumnWidth(1, 190);
+    ui->treeWidget->setColumnWidth(2, 190);
+    ui->treeWidget->setColumnWidth(3, 30);
 
     connect(ui->buttonRemove, SIGNAL(clicked()) ,   this, SLOT(buttonRemove_clicked()));
     connect(ui->buttonRestore, SIGNAL(clicked())    ,   this, SLOT(buttonRestore_clicked()));
@@ -51,16 +53,20 @@ void Page_Language::activated() {
     ui->treeWidget->clear();
 
     QString currentLocale = Global::getCurrentLocale();
-    QStringList locales = Global::getAllEnabledLocales();
+    QList<Global::LocaleInfo> locales = Global::getAllEnabledLocales();
 
-    foreach (QString locale, locales) {
+    for (int i = 0; i < locales.size(); i++) {
+        const Global::LocaleInfo *locale = &locales.at(i);
+
         TreeWidgetItem *item = new TreeWidgetItem(ui->treeWidget);
-        item->setText(0, locale);
+        item->setText(0, locale->locale);
+        item->setText(1, locale->language);
+         item->setText(2, locale->territory);
 
-        if (currentLocale == locale)
+        if (currentLocale == locale->locale)
             item->radioButton.setChecked(true);
 
-        ui->treeWidget->setItemWidget(item, 1, &item->radioButton);
+        ui->treeWidget->setItemWidget(item, 3, &item->radioButton);
     }
 }
 
@@ -241,17 +247,20 @@ void Page_Language::buttonAdd_clicked() {
     if (!dialog.localeAdded())
         return;
 
-    QString locale = dialog.getLocale();
-    if (locale.isEmpty())
+    Global::LocaleInfo locale = dialog.getLocale();
+    if (locale.locale.isEmpty())
         return;
 
     // Check if already in list
     for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
-       if (ui->treeWidget->topLevelItem(i)->text(0) == locale)
+       if (ui->treeWidget->topLevelItem(i)->text(0) == locale.locale)
            return;
     }
 
     TreeWidgetItem *item = new TreeWidgetItem(ui->treeWidget);
-    item->setText(0, locale);
-    ui->treeWidget->setItemWidget(item, 1, &item->radioButton);
+    item->setText(0, locale.locale);
+    item->setText(1, locale.language);
+    item->setText(2, locale.territory);
+    ui->treeWidget->setItemWidget(item, 3, &item->radioButton);
+    ui->treeWidget->sortItems(0, Qt::AscendingOrder);
 }

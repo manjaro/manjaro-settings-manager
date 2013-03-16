@@ -48,11 +48,18 @@ bool SelectLocalesDialog::localeAdded() {
 }
 
 
-QString SelectLocalesDialog::getLocale() {
-    if (ui->comboBoxLocale->count() <= 0)
-        return "";
+Global::LocaleInfo SelectLocalesDialog::getLocale() {
+    Global::LocaleInfo info;
 
-    return ui->comboBoxLocale->currentText();
+    if (ui->comboBoxLocale->count() <= 0)
+        return info;
+
+    info.locale = ui->comboBoxLocale->currentText();
+    info.language = ui->listWidgetLanguage->currentItem()->text();
+    info.territory = ui->listWidgetTerritory->currentItem()->text();
+    info.description = ui->labelDescription->text();
+
+    return info;
 }
 
 

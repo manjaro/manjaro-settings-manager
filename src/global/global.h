@@ -51,6 +51,10 @@ public:
         QString description, locale;
     };
 
+    struct LocaleInfo {
+        QString locale, language, territory, description;
+    };
+
     static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
     static bool isSystemUpToDate();
 
@@ -58,17 +62,13 @@ public:
     static QMap<QString, QString> getKeyboardModels();
     static bool getCurrentXorgKeyboardLayout(QString & layout, QString & variant);
 
-    static QStringList getAllEnabledLocales();
+    static QList<Global::LocaleInfo> getAllEnabledLocales();
     static QString getCurrentLocale();
     static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
     static QString localeToValidLocaleGenString(QString locale);
 
 
 private:
-    struct LocaleInfo {
-        QString locale, language, territory, description;
-    };
-
     struct LocaleSplit {
         QString language, territory;
     };
@@ -76,6 +76,7 @@ private:
     static QStringList getAllInstalledPackages(const QStringList & checkPackages);
     static QStringList getAllAvailableRepoPackages(const QStringList & checkPackages);
     static QList<LocaleSplit> getAllEnabledLocalesSplit();
+    static QList<Global::LocaleInfo> getLocaleInfoList();
 
 };
 
