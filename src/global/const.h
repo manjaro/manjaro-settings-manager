@@ -22,6 +22,8 @@
 #define CONST_H
 
 
+#define CONF_DIR "/.config/manjaro-settings-manager"
+#define DAEMON_CONF_FILE "/.config/manjaro-settings-manager/daemon.conf"
 #define LANGUAGE_PACKAGES_FILE  "/var/lib/manjaro-system-settings/language_packages.list"
 #define LOCALE_GEN              "/etc/locale.gen"
 #define LOCALE_CONF              "/etc/locale.conf"

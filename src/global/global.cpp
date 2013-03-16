@@ -26,6 +26,83 @@
 //###
 
 
+
+QString Global::getConfigValue(QString value, QString config) {
+    QFile file(config);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "error: failed to open '" << config << "'!";
+        return "";
+    }
+
+    QString result;
+    QTextStream in(&file);
+
+    while (!in.atEnd()) {
+        QStringList split = in.readLine().split("#", QString::KeepEmptyParts).first().split("=", QString::SkipEmptyParts);
+        if (split.size() < 2 || split.at(0).trimmed() != value)
+            continue;
+
+        result = split.at(1).trimmed();
+    }
+
+    return result;
+}
+
+
+
+bool Global::setConfigValue(QString value, QString text, QString config) {
+    QString confDir = QDir::homePath() + CONF_DIR;
+
+    if (!QDir(confDir).exists() && !QDir().mkpath(confDir)) {
+        qDebug() << "error: failed to create directory '" << confDir << "'!";
+        return false;
+    }
+
+    QFile file(config);
+    QStringList content;
+
+    if (file.exists()) {
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qDebug() << "error: failed to open '" << config << "'!";
+            return false;
+        }
+
+        QTextStream in (&file);
+        bool found = false;
+
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            content.append(line);
+
+            QStringList split = line.trimmed().split("#", QString::KeepEmptyParts).first().split("=", QString::SkipEmptyParts);
+            if (split.size() < 2 || split.at(0).trimmed() != value)
+                continue;
+
+            content.removeLast();
+            content.append(value + "=" + text.trimmed());
+            found = true;
+        }
+        file.close();
+
+        if (!found)
+            content.append(value + "=" + text.trimmed());
+    }
+
+
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "error: failed to open '" << config << "'!";
+        return false;
+    }
+
+    QTextStream out(&file);
+    out << content.join("\n");
+    file.close();
+
+    return true;
+}
+
+
+
 bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages) {
     QList<Global::LanguagePackage> languagePackages;
     QStringList parentPackages, checkLP;

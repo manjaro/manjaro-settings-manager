@@ -68,6 +68,8 @@ void Page_Language::activated() {
 
         ui->treeWidget->setItemWidget(item, 3, &item->radioButton);
     }
+
+    ui->treeWidget->sortItems(0, Qt::AscendingOrder);
 }
 
 

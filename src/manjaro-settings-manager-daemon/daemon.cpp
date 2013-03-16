@@ -45,14 +45,39 @@ void Daemon::start() {
 
 void Daemon::run() {
     // Check if language packages are available
-    QList<Global::LanguagePackage> availablePackages, installedPackages;
+    QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
+    Global::getLanguagePackages(&availablePackages, &installedPackages);
 
-    if (Global::getLanguagePackages(&availablePackages, &installedPackages) && !availablePackages.isEmpty()) {
+    // Check if packages should be ignored
+    for (int i = 0; i < availablePackages.size(); i++) {
+        const Global::LanguagePackage *l = &availablePackages.at(i);
+        QString value = Global::getConfigValue("notify_count_" + l->languagePackage, QDir::homePath() + DAEMON_CONF_FILE);
+
+        if (value.isEmpty() || value.toInt() < 2)
+            packages.append(*l);
+    }
+
+    if (!packages.isEmpty()) {
         if (!trayIcon.isVisible()) {
             trayIcon.setIcon(QIcon(":/images/resources/language.png"));
             trayIcon.show();
             showMessage(tr("Additional Language Packages"),
-                        tr("%1 additional language packages available").arg(QString::number(availablePackages.size())));
+                        tr("%1 new additional language package(s) available").arg(QString::number(packages.size())));
+
+            // Add to Config
+            for (int i = 0; i < packages.size(); i++) {
+                const Global::LanguagePackage *l = &packages.at(i);
+                QString value = Global::getConfigValue("notify_count_" + l->languagePackage, QDir::homePath() + DAEMON_CONF_FILE);
+                int count = 0;
+
+                if (!value.isEmpty() && value.toInt() > 0)
+                    count = value.toInt();
+
+                ++count;
+
+                if (count < 3)
+                    Global::setConfigValue("notify_count_" + l->languagePackage, QString::number(count), QDir::homePath() + DAEMON_CONF_FILE);
+            }
         }
     }
     else {

@@ -32,6 +32,7 @@
 #include <QRegExp>
 #include <QDebug>
 #include <QProcess>
+#include <QDir>
 #include "const.h"
 
 
@@ -54,6 +55,9 @@ public:
     struct LocaleInfo {
         QString locale, language, territory, description;
     };
+
+    static QString getConfigValue(QString value, QString config);
+    static bool setConfigValue(QString value, QString text, QString config);
 
     static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
     static bool isSystemUpToDate();

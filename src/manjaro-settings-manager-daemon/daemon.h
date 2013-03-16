@@ -26,6 +26,7 @@
 #include <QIcon>
 #include <QProcess>
 #include <QStringList>
+#include <QDir>
 #include <global.h>
 
 
