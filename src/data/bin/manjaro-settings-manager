@@ -3,9 +3,9 @@
 PROGRAM="/usr/bin/manjaro-settings-manager-gui"
 
 if which gksu >/dev/null; then
-	gksu "$PROGRAM"
+	gksu "$PROGRAM" -- $@
 elif which kdesu >/dev/null; then
-	kdesu "$PROGRAM"
+	kdesu "$PROGRAM" -- $@
 else
 	echo "error: no sudo/su frontend application found! Abording..." 1>&2
 	exit 1
