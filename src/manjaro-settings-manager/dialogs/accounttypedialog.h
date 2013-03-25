@@ -18,48 +18,51 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef APPLYDIALOG_H
-#define APPLYDIALOG_H
+#ifndef ACCOUNTTYPEDIALOG_H
+#define ACCOUNTTYPEDIALOG_H
 
 #include <QDialog>
-#include <QProcess>
-#include <QString>
+#include <QMessageBox>
 #include <QStringList>
-#include <QPushButton>
-#include <QTextEdit>
-#include <QTimer>
+#include <QTreeWidgetItem>
+#include <QFile>
+#include <QTextStream>
+#include <const.h>
+#include <global.h>
 
 
 namespace Ui {
-class ApplyDialog;
+class AccountTypeDialog;
 }
 
 
 
-class ApplyDialog : public QDialog
+class AccountTypeDialog : public QDialog
 {
     Q_OBJECT
     
 public:
-    explicit ApplyDialog(QWidget *parent = 0);
-    ~ApplyDialog();
+    explicit AccountTypeDialog(QWidget *parent = 0);
+    ~AccountTypeDialog();
 
-    int exec(QString cmd, QStringList arguments, QString infoText = "",bool skipCloseTimer = false);
-    bool processSuccess();
+    bool userGroupsChanged() { return userGroupDataChanged; }
+
+public slots:
+    int exec(QString username);
     
 private:
-    Ui::ApplyDialog *ui;
-    QProcess process;
-    QTimer closeTimer;
-    int closeSec;
-    bool skipCloseTimer;
+    Ui::AccountTypeDialog *ui;
+    QString username;
+    bool userGroupDataChanged;
 
-protected slots:
-    void buttonCancel_clicked();
-    void processFinished(int exitCode);
-    void closeTimer_timeout();
-    void process_readyRead();
+    void checkSudoersFile();
+
+private slots:
+    void buttonApply_clicked();
+    void checkBoxShowGroups_toggled(bool toggled);
+    void treeWidget_itemChanged(QTreeWidgetItem * item, int column);
+    void comboBoxAccountType_currentIndexChanged(int index);
 
 };
 
-#endif // APPLYDIALOG_H
+#endif // ACCOUNTTYPEDIALOG_H

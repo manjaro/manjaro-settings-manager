@@ -56,6 +56,18 @@ public:
         QString locale, language, territory, description;
     };
 
+    struct User {
+        QString username, homePath;
+        int uuid;
+    };
+
+    struct Group {
+        QString name;
+        QStringList members;
+    };
+
+    static int runProcess(QString cmd, QStringList args, QStringList writeArgs, QString & error);
+
     static QString getConfigValue(QString value, QString config);
     static bool setConfigValue(QString value, QString text, QString config);
 
@@ -70,6 +82,9 @@ public:
     static QString getCurrentLocale();
     static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
     static QString localeToValidLocaleGenString(QString locale);
+
+    static QList<Global::User> getAllUsers();
+    static QList<Global::Group> getAllGroups();
 
 
 private:

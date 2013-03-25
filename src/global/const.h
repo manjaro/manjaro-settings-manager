@@ -30,6 +30,13 @@
 #define LOCALESSUPPORTED "/usr/share/i18n/SUPPORTED"
 #define LOCALESINFO "/usr/share/i18n/LOCALESINFO"
 #define XKB_FILE "/usr/share/X11/xkb/rules/base.lst"
+#define MIN_USER_UUID 1000
+#define PASSWD "/etc/passwd"
+#define GROUPCONF "/etc/group"
+#define FACES_IMAGE_FOLDER "/usr/share/pixmaps/faces"
+#define DEFAULT_USER_GROUPS "video,audio,power,disk,storage,optical,network,lp,scanner"
+#define ADMIN_GROUP "wheel"
+#define SUDOERSFILE "/etc/sudoers"
 
 
 #endif // CONST_H

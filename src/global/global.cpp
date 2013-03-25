@@ -27,6 +27,28 @@
 
 
 
+int Global::runProcess(QString cmd, QStringList args, QStringList writeArgs, QString & error) {
+    QProcess process;
+    process.setProcessChannelMode(QProcess::MergedChannels);
+    process.start(cmd, args);
+
+    if (!process.waitForStarted(5000))
+        return -1;
+
+    foreach (QString arg, writeArgs)
+        process.write(QString(arg + "\n").toUtf8());
+
+    process.closeWriteChannel();
+
+    if (!process.waitForFinished(15000))
+        return -1;
+
+    error = QString::fromUtf8(process.readAll());
+    return process.exitCode();
+}
+
+
+
 QString Global::getConfigValue(QString value, QString config) {
     QFile file(config);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -620,6 +642,68 @@ QString Global::localeToValidLocaleGenString(QString locale) {
     return "";
 }
 
+
+
+QList<Global::User> Global::getAllUsers() {
+    QList<Global::User> users;
+
+    QFile file(PASSWD);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return users;
+
+    QTextStream in(&file);
+
+    while (!in.atEnd()) {
+        QStringList split = in.readLine().split("#", QString::KeepEmptyParts).first().split(":", QString::KeepEmptyParts);
+        if (split.size() < 7)
+            continue;
+
+        User user;
+        user.username = split.at(0);
+        user.homePath = split.at(5);
+        user.uuid = split.at(2).toInt();
+
+        if (user.uuid < MIN_USER_UUID || user.username.isEmpty() || user.homePath.isEmpty())
+            continue;
+
+        users.append(user);
+    }
+
+    file.close();
+
+    return users;
+}
+
+
+
+QList<Global::Group> Global::getAllGroups() {
+    QList<Global::Group> groups;
+
+    QFile file(GROUPCONF);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return groups;
+
+    QTextStream in(&file);
+
+    while (!in.atEnd()) {
+        QStringList split = in.readLine().split("#", QString::KeepEmptyParts).first().split(":", QString::KeepEmptyParts);
+        if (split.size() < 4)
+            continue;
+
+        Group group;
+        group.name = split.at(0);
+        group.members = split.at(3).split(",", QString::SkipEmptyParts);
+
+        if (group.name.isEmpty())
+            continue;
+
+        groups.append(group);
+    }
+
+    file.close();
+
+    return groups;
+}
 
 
 

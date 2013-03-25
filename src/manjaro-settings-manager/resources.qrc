@@ -10,5 +10,11 @@
         <file>resources/locale-package.png</file>
         <file>resources/language.png</file>
         <file>resources/restore.png</file>
+        <file>resources/user.png</file>
+        <file>resources/users.png</file>
+        <file>resources/add.png</file>
+        <file>resources/remove.png</file>
+        <file>resources/adduser.png</file>
+        <file>resources/lock.png</file>
     </qresource>
 </RCC>

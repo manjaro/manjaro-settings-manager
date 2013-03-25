@@ -13,33 +13,47 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    toolbarstylewidget.cpp \
-    listwidget.cpp \
+    widgets/toolbarstylewidget.cpp \
+    widgets/listwidget.cpp \
     pages/page_languagepackages.cpp \
-    pagewidget.cpp \
-    applydialog.cpp \
+    widgets/pagewidget.cpp \
+    dialogs/applydialog.cpp \
     pages/page_keyboard.cpp \
     widgets/keyboardpreview.cpp \
     pages/page_language.cpp \
-    widgets/selectlocalesdialog.cpp
+    widgets/selectlocalesdialog.cpp \
+    pages/page_users.cpp \
+    widgets/flatbutton.cpp \
+    dialogs/adduserdialog.cpp \
+    dialogs/changepassworddialog.cpp \
+    dialogs/accounttypedialog.cpp
 
 HEADERS  += mainwindow.h \
-    toolbarstylewidget.h \
-    listwidget.h \
+    widgets/toolbarstylewidget.h \
+    widgets/listwidget.h \
     pages/page_languagepackages.h \
-    pagewidget.h \
-    applydialog.h \
+    widgets/pagewidget.h \
+    dialogs/applydialog.h \
     pages/page_keyboard.h \
     widgets/keyboardpreview.h \
     pages/page_language.h \
-    widgets/selectlocalesdialog.h
+    widgets/selectlocalesdialog.h \
+    pages/page_users.h \
+    widgets/flatbutton.h \
+    dialogs/adduserdialog.h \
+    dialogs/changepassworddialog.h \
+    dialogs/accounttypedialog.h
 
 FORMS    += mainwindow.ui \
     pages/page_languagepackages.ui \
-    applydialog.ui \
+    dialogs/applydialog.ui \
     pages/page_keyboard.ui \
     pages/page_language.ui \
-    widgets/selectlocalesdialog.ui
+    widgets/selectlocalesdialog.ui \
+    pages/page_users.ui \
+    dialogs/adduserdialog.ui \
+    dialogs/changepassworddialog.ui \
+    dialogs/accounttypedialog.ui
 
 RESOURCES += \
     resources.qrc

@@ -18,53 +18,39 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_LANGUAGE_H
-#define PAGE_LANGUAGE_H
+#ifndef CHANGEPASSWORDDIALOG_H
+#define CHANGEPASSWORDDIALOG_H
 
-#include "widgets/pagewidget.h"
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QRadioButton>
-#include <QList>
-#include <QStringList>
+#include <QDialog>
 #include <QMessageBox>
-#include <global.h>
+#include <QStringList>
 #include <const.h>
-#include "dialogs/applydialog.h"
-#include "widgets/selectlocalesdialog.h"
-
+#include <global.h>
 
 
 namespace Ui {
-class Page_Language;
+class ChangePasswordDialog;
 }
 
-
-class Page_Language : public PageWidget
+class ChangePasswordDialog : public QDialog
 {
     Q_OBJECT
     
 public:
-    explicit Page_Language(QWidget *parent = 0);
-    ~Page_Language();
+    explicit ChangePasswordDialog(QWidget *parent = 0);
+    ~ChangePasswordDialog();
 
-    void activated();
-    void apply_clicked();
+public slots:
+    int exec(QString username);
     
 private:
-    class TreeWidgetItem : public QTreeWidgetItem {
-    public:
-        TreeWidgetItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
-        QRadioButton radioButton;
-    };
+    Ui::ChangePasswordDialog *ui;
+    QString username;
 
-    Ui::Page_Language *ui;
-
-protected slots:
-    void buttonRemove_clicked();
-    void buttonAdd_clicked();
-    void buttonRestore_clicked();
+private slots:
+    void buttonApply_clicked();
+    void textbox_textChanged();
 
 };
 
-#endif // PAGE_LANGUAGE_H
+#endif // CHANGEPASSWORDDIALOG_H

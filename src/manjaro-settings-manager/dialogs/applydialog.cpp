@@ -79,6 +79,9 @@ bool ApplyDialog::processSuccess() {
 
 
 void ApplyDialog::buttonCancel_clicked() {
+    //if (QMessageBox::No == QMessageBox::question(this, tr("Continue?"), tr("Do you really want to cancel the process?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No))
+    //    return;
+
     ui->buttonCancel->setEnabled(false);
 
     if (process.state() != QProcess::NotRunning) {

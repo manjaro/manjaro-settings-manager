@@ -18,53 +18,43 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_LANGUAGE_H
-#define PAGE_LANGUAGE_H
+#ifndef ADDUSERDIALOG_H
+#define ADDUSERDIALOG_H
 
-#include "widgets/pagewidget.h"
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QRadioButton>
-#include <QList>
-#include <QStringList>
+#include <QDialog>
 #include <QMessageBox>
-#include <global.h>
+#include <QStringList>
+#include <QRegExp>
+#include <QRegExpValidator>
 #include <const.h>
-#include "dialogs/applydialog.h"
-#include "widgets/selectlocalesdialog.h"
-
+#include <global.h>
 
 
 namespace Ui {
-class Page_Language;
+class AddUserDialog;
 }
 
 
-class Page_Language : public PageWidget
+class AddUserDialog : public QDialog
 {
     Q_OBJECT
     
 public:
-    explicit Page_Language(QWidget *parent = 0);
-    ~Page_Language();
+    explicit AddUserDialog(QWidget *parent = 0);
+    ~AddUserDialog();
 
-    void activated();
-    void apply_clicked();
-    
+    bool userDataChanged() { return dataChanged; }
+
+public slots:
+    int exec();
+
 private:
-    class TreeWidgetItem : public QTreeWidgetItem {
-    public:
-        TreeWidgetItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
-        QRadioButton radioButton;
-    };
+    Ui::AddUserDialog *ui;
+    bool dataChanged;
 
-    Ui::Page_Language *ui;
-
-protected slots:
-    void buttonRemove_clicked();
-    void buttonAdd_clicked();
-    void buttonRestore_clicked();
-
+private slots:
+    void buttonCreate_clicked();
+    void textbox_textChanged();
 };
 
-#endif // PAGE_LANGUAGE_H
+#endif // ADDUSERDIALOG_H

@@ -18,45 +18,27 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_LANGUAGEPACKAGES_H
-#define PAGE_LANGUAGEPACKAGES_H
+
+#include "flatbutton.h"
 
 
-#include "widgets/pagewidget.h"
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QMap>
-#include <QMapIterator>
-#include <QMessageBox>
-#include <global.h>
-#include "dialogs/applydialog.h"
-
-
-namespace Ui {
-class Page_LanguagePackages;
+FlatButton::FlatButton(QWidget *parent) :
+    QPushButton(parent)
+{
+    setFlat(true);
 }
 
 
 
-class Page_LanguagePackages : public PageWidget
-{
-    Q_OBJECT
-    
-public:
-    explicit Page_LanguagePackages(QWidget *parent = 0);
-    ~Page_LanguagePackages();
+void FlatButton::enterEvent(QEvent *) {
+    if (!isEnabled())
+        setFlat(true);
+    else
+        setFlat(false);
+}
 
-    void activated();
-    void apply_clicked();
-    
-private:
-    Ui::Page_LanguagePackages *ui;
 
-    void addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable);
 
-protected slots:
-    void updateApplyEnabledState();
-
-};
-
-#endif // PAGE_LANGUAGEPACKAGES_H
+void FlatButton::leaveEvent(QEvent *) {
+    setFlat(true);
+}

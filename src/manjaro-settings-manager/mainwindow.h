@@ -36,10 +36,11 @@
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
-#include "pagewidget.h"
+#include "widgets/pagewidget.h"
 #include "pages/page_languagepackages.h"
 #include "pages/page_keyboard.h"
 #include "pages/page_language.h"
+#include "pages/page_users.h"
 
 
 namespace Ui {
@@ -68,6 +69,7 @@ private:
     Page_LanguagePackages page_LanguagePackages;
     Page_Keyboard page_Keyboard;
     Page_Language page_Language;
+    Page_Users page_Users;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

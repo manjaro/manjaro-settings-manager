@@ -18,53 +18,60 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_LANGUAGE_H
-#define PAGE_LANGUAGE_H
+#ifndef PAGE_USERS_H
+#define PAGE_USERS_H
 
 #include "widgets/pagewidget.h"
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QRadioButton>
-#include <QList>
-#include <QStringList>
+#include <QIcon>
+#include <QPixmap>
+#include <QFile>
+#include <QListWidgetItem>
+#include <QFileDialog>
 #include <QMessageBox>
 #include <global.h>
 #include <const.h>
-#include "dialogs/applydialog.h"
-#include "widgets/selectlocalesdialog.h"
+#include <unistd.h>
+#include <pwd.h>
+#include <grp.h>
+#include "dialogs/adduserdialog.h"
+#include "dialogs/changepassworddialog.h"
+#include "dialogs/accounttypedialog.h"
 
 
 
 namespace Ui {
-class Page_Language;
+class Page_Users;
 }
 
 
-class Page_Language : public PageWidget
+class Page_Users : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_Language(QWidget *parent = 0);
-    ~Page_Language();
+    explicit Page_Users(QWidget *parent = 0);
+    ~Page_Users();
 
     void activated();
-    void apply_clicked();
     
 private:
-    class TreeWidgetItem : public QTreeWidgetItem {
+    class ListWidgetItem : public QListWidgetItem
+    {
     public:
-        TreeWidgetItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
-        QRadioButton radioButton;
+        ListWidgetItem(QListWidget *parent) : QListWidgetItem(parent) {}
+        Global::User user;
     };
 
-    Ui::Page_Language *ui;
+    Ui::Page_Users *ui;
 
-protected slots:
-    void buttonRemove_clicked();
-    void buttonAdd_clicked();
-    void buttonRestore_clicked();
+private slots:
+    void setupUserData(QListWidgetItem* current);
+    void buttonImage_clicked();
+    void buttonAddUser_clicked();
+    void buttonRemoveUser_clicked();
+    void buttonChangePassword_clicked();
+    void buttonChangeAccountType_clicked();
 
 };
 
-#endif // PAGE_LANGUAGE_H
+#endif // PAGE_USERS_H

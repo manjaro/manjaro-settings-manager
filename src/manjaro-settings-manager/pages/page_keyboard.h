@@ -21,7 +21,7 @@
 #ifndef PAGE_KEYBOARD_H
 #define PAGE_KEYBOARD_H
 
-#include "pagewidget.h"
+#include "widgets/pagewidget.h"
 #include <QMap>
 #include <QMapIterator>
 #include <QListWidgetItem>
@@ -30,7 +30,7 @@
 #include <global.h>
 #include <QMessageBox>
 #include "widgets/keyboardpreview.h"
-#include "applydialog.h"
+#include "dialogs/applydialog.h"
 
 
 
