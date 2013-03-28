@@ -104,38 +104,86 @@ void Page_Users::setupUserData(QListWidgetItem* current) {
 
 
 void Page_Users::buttonImage_clicked() {
-    QString fileName = QFileDialog::getOpenFileName(this,
-                                                    tr("Select Image"),
-                                                    FACES_IMAGE_FOLDER,
-                                                    tr("Image Files (*.png *.jpg *.bmp)"));
-
-    if (fileName.isEmpty())
-        return;
-
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->currentItem());
     if (!item)
         return;
 
+    PreviewFileDialog dialog(this);
+    dialog.setFileMode(QFileDialog::ExistingFile);
+    dialog.setNameFilter(tr("Images (*.png *.jpg *.bmp)"));
+    dialog.setViewMode(QFileDialog::Detail);
+    dialog.setDirectory(FACES_IMAGE_FOLDER);
+
+    if (!dialog.exec() || dialog.selectedFiles().isEmpty())
+        return;
+
+    QString fileName = dialog.selectedFiles().first();
+    QString fileNameEnding = fileName.split(".", QString::KeepEmptyParts).last();
+
+    // Set icon in our GUI
     item->setIcon(QIcon(fileName));
     ui->buttonImage->setIcon(item->icon());
 
-    // Copy new image to home folder
-    QString face = item->user.homePath + "/.face";
 
-    if (QFile::exists(face))
-        QFile::remove(face);
+    // Paths to copy/symlink
+    QStringList copyDest, symlinkHomeDest;
 
-    if (!QFile::copy(fileName, face)) {
-        QMessageBox::warning(this, tr("Error!"), tr("Failed to copy image to '%1'!").arg(face), QMessageBox::Ok, QMessageBox::Ok);
-        return;
-    }
+    // Fill lists
+    copyDest << QString("%1/.face").arg(item->user.homePath)
+             << QString("/var/lib/AccountsService/icons/%1.%2").arg(item->user.username, fileNameEnding)
+             << QString("/usr/share/apps/sddm/faces/%1.face.icon").arg(item->user.username);
 
-    // Set right permission
+    symlinkHomeDest << QString("%1/.face.icon").arg(item->user.homePath)
+                    << QString("%1/.icon").arg(item->user.homePath);
+
+
+    // Structs to set permission
     struct passwd *pwd = getpwnam(item->user.username.toStdString().c_str());
     struct group *grp = getgrnam("users");
 
-    if (!pwd || !grp || chown(face.toStdString().c_str(), pwd->pw_uid, grp->gr_gid) < 0)
-        QMessageBox::warning(this, tr("Error!"), tr("Failed to set permission of image '%1'!").arg(face), QMessageBox::Ok, QMessageBox::Ok);
+    if (!pwd || !grp) {
+        QMessageBox::warning(this, tr("Error!"), tr("Failed to get user permission structs!"), QMessageBox::Ok, QMessageBox::Ok);
+        return;
+    }
+
+
+    // Copy files
+    foreach (QString dest, copyDest) {
+        if (!QDir(dest.mid(0, dest.lastIndexOf("/"))).exists())
+            continue;
+
+        if (QFile::exists(dest))
+            QFile::remove(dest);
+
+        if (!QFile::copy(fileName, dest)) {
+            QMessageBox::warning(this, tr("Error!"), tr("Failed to copy image to '%1'!").arg(dest), QMessageBox::Ok, QMessageBox::Ok);
+            return;
+        }
+
+        // Set right permission if file is inside the home path
+        if (dest.startsWith(item->user.homePath) && chown(dest.toStdString().c_str(), pwd->pw_uid, grp->gr_gid) < 0) {
+            QMessageBox::warning(this, tr("Error!"), tr("Failed to set permission of file '%1'!").arg(dest), QMessageBox::Ok, QMessageBox::Ok);
+            return;
+        }
+    }
+
+
+    // Create symlinks to ~/.face
+    foreach (QString dest, symlinkHomeDest) {
+        if (QFile::exists(dest))
+            QFile::remove(dest);
+
+        if (!QFile::link(".face", dest)) {
+            QMessageBox::warning(this, tr("Error!"), tr("Failed to symlink '%1' to '%2'!").arg(".face", dest), QMessageBox::Ok, QMessageBox::Ok);
+            return;
+        }
+
+        // Set right permission
+        if (chown(dest.toStdString().c_str(), pwd->pw_uid, grp->gr_gid) < 0) {
+            QMessageBox::warning(this, tr("Error!"), tr("Failed to set permission of file '%1'!").arg(dest), QMessageBox::Ok, QMessageBox::Ok);
+            return;
+        }
+    }
 }
 
 

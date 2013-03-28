@@ -36,6 +36,7 @@
 #include "dialogs/adduserdialog.h"
 #include "dialogs/changepassworddialog.h"
 #include "dialogs/accounttypedialog.h"
+#include "dialogs/previewfiledialog.h"
 
 
 

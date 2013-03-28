@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     widgets/flatbutton.cpp \
     dialogs/adduserdialog.cpp \
     dialogs/changepassworddialog.cpp \
-    dialogs/accounttypedialog.cpp
+    dialogs/accounttypedialog.cpp \
+    dialogs/previewfiledialog.cpp
 
 HEADERS  += mainwindow.h \
     widgets/toolbarstylewidget.h \
@@ -42,7 +43,8 @@ HEADERS  += mainwindow.h \
     widgets/flatbutton.h \
     dialogs/adduserdialog.h \
     dialogs/changepassworddialog.h \
-    dialogs/accounttypedialog.h
+    dialogs/accounttypedialog.h \
+    dialogs/previewfiledialog.h
 
 FORMS    += mainwindow.ui \
     pages/page_languagepackages.ui \
