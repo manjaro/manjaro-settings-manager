@@ -29,3 +29,7 @@ RESOURCES += \
 
 target.path = /usr/bin
 INSTALLS += target
+
+
+
+include(qtsingleapplication/src/qtsingleapplication.pri)

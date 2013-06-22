@@ -18,13 +18,24 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <iostream>
 #include <QApplication>
+#include <QtSingleApplication>
 #include "daemon.h"
+
+
+using namespace std;
+
 
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QtSingleApplication app(argc, argv);
+
+    if (app.isRunning()) {
+        cerr << "warning: an instance of the application is already running..." << endl;
+        return 0;
+    }
 
     Daemon daemon(&app);
     daemon.start();
