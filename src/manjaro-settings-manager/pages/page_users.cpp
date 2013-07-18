@@ -130,7 +130,7 @@ void Page_Users::buttonImage_clicked() {
 
     // Fill lists
     copyDest << QString("%1/.face").arg(item->user.homePath)
-             << QString("/var/lib/AccountsService/icons/%1.%2").arg(item->user.username, fileNameEnding)
+             << QString("/var/lib/AccountsService/icons/%1").arg(item->user.username)
              << QString("/usr/share/apps/sddm/faces/%1.face.icon").arg(item->user.username);
 
     symlinkHomeDest << QString("%1/.face.icon").arg(item->user.homePath)
