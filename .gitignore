@@ -2,3 +2,5 @@
 *.pro.user
 build
 build-debug
+build-manjaro-settings-manager-Desktop
+build-manjaro-settings-manager-Desktop-Debug
