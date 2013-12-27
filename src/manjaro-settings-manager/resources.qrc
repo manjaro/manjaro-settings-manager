@@ -17,4 +17,11 @@
         <file>resources/adduser.png</file>
         <file>resources/lock.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>translations/msm_ca.qm</file>
+        <file>translations/msm_de.qm</file>
+        <file>translations/msm_es.qm</file>
+        <file>translations/msm_fr.qm</file>
+        <file>translations/msm_it.qm</file>
+    </qresource>
 </RCC>

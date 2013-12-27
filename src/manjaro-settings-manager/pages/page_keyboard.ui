@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -42,7 +42,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../../../../minst/src/minst_resources.qrc">
+        <iconset resource="../resources.qrc">
          <normaloff>:/images/resources/restore.png</normaloff>:/images/resources/restore.png</iconset>
        </property>
        <property name="iconSize">
@@ -137,6 +137,8 @@
   <tabstop>listVariant</tabstop>
   <tabstop>buttonRestore</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

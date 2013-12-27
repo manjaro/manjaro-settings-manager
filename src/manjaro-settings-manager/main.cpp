@@ -20,11 +20,17 @@
 
 #include <QApplication>
 #include "mainwindow.h"
-
+#include <QTranslator>
+#include <QFile>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+
+    QTranslator appTranslator;
+    appTranslator.load(":/translations/msm_" + QLocale::system().name());
+    app.installTranslator(&appTranslator);
+
     MainWindow w;
     w.show();
     return app.exec();

@@ -57,6 +57,12 @@ FORMS    += mainwindow.ui \
     dialogs/changepassworddialog.ui \
     dialogs/accounttypedialog.ui
 
+TRANSLATIONS += translations/msm_ca.ts \
+                translations/msm_de.ts \
+                translations/msm_es.ts \
+                translations/msm_fr.ts \
+                translations/msm_it.ts
+
 RESOURCES += \
     resources.qrc
 
