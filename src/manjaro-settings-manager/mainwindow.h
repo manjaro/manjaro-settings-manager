@@ -41,6 +41,7 @@
 #include "pages/page_keyboard.h"
 #include "pages/page_language.h"
 #include "pages/page_users.h"
+#include "pages/page_gpudriver.h"
 
 
 namespace Ui {
@@ -70,6 +71,7 @@ private:
     Page_Keyboard page_Keyboard;
     Page_Language page_Language;
     Page_Users page_Users;
+    Page_GPUDriver page_GPUDriver;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

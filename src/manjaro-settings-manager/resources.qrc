@@ -16,9 +16,15 @@
         <file>resources/remove.png</file>
         <file>resources/adduser.png</file>
         <file>resources/lock.png</file>
+        <file>resources/ati.png</file>
+        <file>resources/gpudriver.png</file>
+        <file>resources/nvidia.png</file>
     </qresource>
     <qresource prefix="/">
         <file>translations/msm_ca.qm</file>
         <file>translations/msm_de.qm</file>
+        <file>translations/msm_cs-CZ.qm</file>
+        <file>translations/msm_pl.qm</file>
+        <file>translations/msm_pt-BR.qm</file>
     </qresource>
 </RCC>
