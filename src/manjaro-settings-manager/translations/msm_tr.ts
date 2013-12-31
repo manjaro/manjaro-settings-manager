@@ -388,7 +388,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Ek dil paketleri yüklenebilirsin:</translation>
+        <translation>Ek dil paketleri yüklenebilir:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
@@ -410,12 +410,12 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Yüklü Dil Paketleri</translation>
+        <translation>Dil Paketleri Yüklendi</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Yüklü dil paketleri:</translation>
+        <translation>Dil paketleri yüklendi:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
