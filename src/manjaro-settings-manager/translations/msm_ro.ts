@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ro">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -243,27 +241,9 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="188"/>
         <source>Manjaro Settings</source>
         <translation>Setări Manjaro</translation>
-    </message>
-</context>
-<context>
-    <name>Page_GPUDriver</name>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="30"/>
-        <source>Graphics Driver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="90"/>
-        <source>free</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="92"/>
-        <source>nonfree</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -295,12 +275,8 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Failed to determind current Xorg keyboard layout!</source>
-        <translation type="obsolete">Nu se poate determina aranjamentul de tastatură Xorg curent!</translation>
+        <translation>Nu se poate determina aranjamentul de tastatură Xorg curent!</translation>
     </message>
 </context>
 <context>
@@ -476,7 +452,7 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <source>Password</source>
         <translation>Parolă</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
@@ -513,13 +489,9 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <translation>Eroare!</translation>
     </message>
     <message>
-        <source>Failed to get user permission structs!</source>
-        <translation type="obsolete">Nu se pot prelua permisiunile de utilizator!</translation>
-    </message>
-    <message>
         <location filename="../pages/page_users.cpp" line="145"/>
-        <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"></translation>
+        <source>Failed to get user permission structs!</source>
+        <translation>Nu se pot prelua permisiunile de utilizator!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>

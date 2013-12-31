@@ -1,51 +1,51 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs_CZ" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Hesap Türü</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standart</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Yetkili Kullanıcı</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation type="unfinished"/>
+        <translation>Grupları Göster</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation type="unfinished"/>
+        <translation>Grup</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation type="unfinished"/>
+        <translation>Üye</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Vazgeç</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Uygula</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>Uyarı!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -243,27 +241,9 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="188"/>
         <source>Manjaro Settings</source>
         <translation>Configurações do Manjaro</translation>
-    </message>
-</context>
-<context>
-    <name>Page_GPUDriver</name>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="30"/>
-        <source>Graphics Driver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="90"/>
-        <source>free</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="92"/>
-        <source>nonfree</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -295,12 +275,8 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Failed to determind current Xorg keyboard layout!</source>
-        <translation type="obsolete">Falha ao detectar o layout do teclado em uso!</translation>
+        <translation>Falha ao detectar o layout do teclado em uso!</translation>
     </message>
 </context>
 <context>
@@ -476,7 +452,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <source>Password</source>
         <translation>Senha</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
@@ -513,13 +489,9 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Erro!</translation>
     </message>
     <message>
-        <source>Failed to get user permission structs!</source>
-        <translation type="obsolete">Falha ao carregar as estruturas de permissão do usuário!</translation>
-    </message>
-    <message>
         <location filename="../pages/page_users.cpp" line="145"/>
-        <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"></translation>
+        <source>Failed to get user permission structs!</source>
+        <translation>Falha ao carregar as estruturas de permissão do usuário!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
