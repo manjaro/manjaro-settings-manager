@@ -424,17 +424,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>अपने सिस्टम को करने की तारीख नहीं है! आप जारी रखने के लिए पहली बार इसे अद्यतन करने के लिए है!</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation type="unfinished"/>
+        <translation>भाषा संकुल का अधिष्ठापन ...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>% 1 भाषा संकुल</translation>
     </message>
 </context>
 <context>
@@ -442,48 +442,48 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>छवि</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>प्रयोक्ता नाम</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>खाते का प्रकार</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>पासवर्ड</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>उपयोगकर्ता खाते</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>मानक</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>व्यवस्थापक</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>छवियाँ (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -493,53 +493,53 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>त्रुटि!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structs!</source>
-        <translation type="unfinished"/>
+        <translation>उपयोगकर्ता की अनुमति structs पाने में विफल!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>&apos;% 1&apos; के लिए छवि की नकल करने में विफल!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
         <location filename="../pages/page_users.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>फ़ाइल की अनुमति &apos;% 1&apos; सेट करने में विफल!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>&apos;% 2&apos; से &apos;% 1&apos; सांकेतिक कड़ी में विफल!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>जारी रखें?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>आप वास्तव में उपयोगकर्ता% 1 को हटाना चाहते हैं?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>होम निकालें?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>आप उपयोगकर्ता% 1 के घर फोल्डर को दूर करना चाहते हैं?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation type="unfinished"/>
+        <translation>उपयोक्ता% 1 को हटाने में विफल!</translation>
     </message>
 </context>
 <context>
@@ -547,28 +547,28 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="91"/>
         <source>Width:</source>
-        <translation type="unfinished"/>
+        <translation>चौड़ाई:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="92"/>
         <source>Height:</source>
-        <translation type="unfinished"/>
+        <translation>लंबाई:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
         <source>Ratio:</source>
-        <translation type="unfinished"/>
+        <translation>अनुपात:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
         <location filename="../dialogs/previewfiledialog.cpp" line="95"/>
         <source>%1 px</source>
-        <translation type="unfinished"/>
+        <translation>%1 px</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="96"/>
         <source>%1</source>
-        <translation type="unfinished"/>
+        <translation>%1</translation>
     </message>
 </context>
 <context>
@@ -576,42 +576,42 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation type="unfinished"/>
+        <translation>वातावरण जोड़ें</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>भाषा</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
         <source>Territory</source>
-        <translation type="unfinished"/>
+        <translation>क्षेत्र</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>विवरण</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>विवरण:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
         <source>Locale:</source>
-        <translation type="unfinished"/>
+        <translation>वातावरण:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>जोड़ना</translation>
     </message>
 </context>
 </TS>
