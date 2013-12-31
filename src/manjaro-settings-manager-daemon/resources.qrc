@@ -2,4 +2,18 @@
     <qresource prefix="/images">
         <file>resources/language.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>translations/msmd_ca.qm</file>
+        <file>translations/msmd_cs-CZ.qm</file>
+        <file>translations/msmd_de.qm</file>
+        <file>translations/msmd_en.qm</file>
+        <file>translations/msmd_es.qm</file>
+        <file>translations/msmd_hi.qm</file>
+        <file>translations/msmd_ja.qm</file>
+        <file>translations/msmd_nl.qm</file>
+        <file>translations/msmd_pl.qm</file>
+        <file>translations/msmd_pt-BR.qm</file>
+        <file>translations/msmd_ro.qm</file>
+        <file>translations/msmd_tr.qm</file>
+    </qresource>
 </RCC>

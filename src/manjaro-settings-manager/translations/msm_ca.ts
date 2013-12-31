@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -241,9 +241,27 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <translation>Maquinari</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="188"/>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
         <translation>Configuració de Manjaro</translation>
+    </message>
+</context>
+<context>
+    <name>Page_GPUDriver</name>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="30"/>
+        <source>Graphics Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="90"/>
+        <source>free</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="92"/>
+        <source>nonfree</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -275,7 +293,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determind current Xorg keyboard layout!</source>
+        <source>Failed to determine current Xorg keyboard layout!</source>
         <translation>No s&apos;ha pogut determinar la distribució del teclat Xorg actual!</translation>
     </message>
 </context>
@@ -452,7 +470,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
@@ -490,7 +508,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
-        <source>Failed to get user permission structs!</source>
+        <source>Failed to get user permission structures!</source>
         <translation>No s&apos;ha pogut obtenir els permisos de l&apos;usuari!</translation>
     </message>
     <message>

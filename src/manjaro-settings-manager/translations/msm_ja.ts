@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -239,8 +239,26 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="188"/>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Page_GPUDriver</name>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="30"/>
+        <source>Graphics Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="90"/>
+        <source>free</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="92"/>
+        <source>nonfree</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -273,7 +291,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determind current Xorg keyboard layout!</source>
+        <source>Failed to determine current Xorg keyboard layout!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -450,7 +468,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <source>Password</source>
         <translation type="unfinished"/>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation type="unfinished"/>
@@ -488,7 +506,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
-        <source>Failed to get user permission structs!</source>
+        <source>Failed to get user permission structures!</source>
         <translation type="unfinished"/>
     </message>
     <message>

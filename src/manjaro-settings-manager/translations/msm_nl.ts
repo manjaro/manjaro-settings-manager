@@ -1,73 +1,75 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Account Type</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standaard</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Beheerder</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation type="unfinished"/>
+        <translation>Toon Groepen</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation type="unfinished"/>
+        <translation>Groep</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation type="unfinished"/>
+        <translation>Lid</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Afbreken</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Toepassen</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>Waarschuwing!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation type="unfinished"/>
+        <translation>Admin groep %1 is niet geactiveerd in &apos;%2&apos;! Je moet het nodig activeren om Admin rechten in te stellen...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Volgende de standaard gebruikers groepen zijn gedeactiveerd:
+%1
+Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Fout!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation type="unfinished"/>
+        <translation>Gefaald bij instellen groepen!</translation>
     </message>
 </context>
 <context>
@@ -75,59 +77,59 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation type="unfinished"/>
+        <translation>Voeg gebruiker toe</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik´s naam</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>Hertype Wachtwoord</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Afbreken</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Maak</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation type="unfinished"/>
+        <translation>Uw gebruiknaam bevat foute karakters!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation type="unfinished"/>
+        <translation>Uw wachtwoord komen niet over heen!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Fout!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation type="unfinished"/>
+        <translation>Gebruiker toevoegen is gefaald!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation type="unfinished"/>
+        <translation>Gefaald om gebruiker´s wachtwoord in te stellen!</translation>
     </message>
 </context>
 <context>
@@ -135,23 +137,23 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation type="unfinished"/>
+        <translation>Processen...</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Afbreken</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation type="unfinished"/>
+        <translation>Proces is klaar!</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
@@ -239,8 +241,26 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="188"/>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Page_GPUDriver</name>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="30"/>
+        <source>Graphics Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="90"/>
+        <source>free</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="92"/>
+        <source>nonfree</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -273,7 +293,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determind current Xorg keyboard layout!</source>
+        <source>Failed to determine current Xorg keyboard layout!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -450,7 +470,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <source>Password</source>
         <translation type="unfinished"/>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation type="unfinished"/>
@@ -488,7 +508,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
-        <source>Failed to get user permission structs!</source>
+        <source>Failed to get user permission structures!</source>
         <translation type="unfinished"/>
     </message>
     <message>

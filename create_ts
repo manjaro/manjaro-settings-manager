@@ -1,0 +1,4 @@
+#! /bin/sh
+
+lupdate src/manjaro-settings-manager/manjaro-settings-manager.pro -ts src/manjaro-settings-manager/translations/msm_en.ts
+lupdate src/manjaro-settings-manager-daemon/manjaro-settings-manager-daemon.pro -ts src/manjaro-settings-manager-daemon/translations/msmd_en.ts
