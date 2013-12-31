@@ -65,6 +65,7 @@ TRANSLATIONS += translations/msm_ca.ts \
                 translations/msm_cs-CZ.ts \
                 translations/msm_de.ts \
                 translations/msm_en.ts \
+                translations/msm_es.ts \
                 translations/msm_hi.ts \
                 translations/msm_ja.ts \
                 translations/msm_nl.ts \

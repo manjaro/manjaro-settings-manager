@@ -1,75 +1,73 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Hesap Türü</translation>
+        <translation>Tipo de cuenta</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Standart</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Yetkili Kullanıcı</translation>
+        <translation>Administrador</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Grupları Göster</translation>
+        <translation>Mostrar grupos</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation>Grup</translation>
+        <translation>Grupo</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation>Üye</translation>
+        <translation>Miembro</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation>Vazgeç</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation>Uygula</translation>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation>Uyarı!</translation>
+        <translation>Aviso</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>&apos;%2&apos; içinde %1 Yönetici grubu etkin değil! Yönetici haklarını ayarlamak için bu etkinleştirilmelidir.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Aşağıdaki varsayılan kullanıcı grupları devre dışı bırakıldı:
-%1
-Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation>Hata!</translation>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>Grup ayarlaması başarısız!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -77,59 +75,59 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Kullanıcı Ekle</translation>
+        <translation>Añadir usuario</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Şifre</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Şifreyi tekrarla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation>Vazgeç</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Oluştur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>Kullanıcı adınız geçersiz karakterler içeriyor!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>Şifreleriniz eşleşmiyor!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation>Hata!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation>Kullanıcı eklemesi başarısız!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Kullanıcı şifre ayarlaması başarısız!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -137,34 +135,34 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation>İşleniliyor...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation>Vazgeç</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation>Kapat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation>İşlem tamamlandı!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
         <location filename="../dialogs/applydialog.cpp" line="122"/>
         <source>Close (%1)</source>
-        <translation>Kapat (%1)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>İşlem başarısız!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -173,38 +171,38 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Yeni Şifre</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Şifreyi Tekrarla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation>Vazgeç</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="149"/>
         <source>Apply</source>
-        <translation>Uygula</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation>Hata!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>Şifreleriniz eşleşmiyor!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Kullanıcı şifre ayarlamaları başarısız!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -212,38 +210,38 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Yönetim Merkezi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation>Tüm Ayarlar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
         <location filename="../mainwindow.ui" line="285"/>
         <source>Quit</source>
-        <translation>Çıkış</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Apply</source>
-        <translation>Uygula</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="45"/>
         <source>System</source>
-        <translation>Sistem</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
-        <translation>Donanım</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
-        <translation>Manjaro Ayarları</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -269,7 +267,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Klavye Modeli:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
