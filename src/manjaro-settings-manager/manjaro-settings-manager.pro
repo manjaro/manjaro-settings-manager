@@ -8,6 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+LIBS += -lmhwd
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
 
@@ -27,7 +28,8 @@ SOURCES += main.cpp\
     dialogs/adduserdialog.cpp \
     dialogs/changepassworddialog.cpp \
     dialogs/accounttypedialog.cpp \
-    dialogs/previewfiledialog.cpp
+    dialogs/previewfiledialog.cpp \
+    pages/page_gpudriver.cpp
 
 HEADERS  += mainwindow.h \
     widgets/toolbarstylewidget.h \
@@ -44,7 +46,8 @@ HEADERS  += mainwindow.h \
     dialogs/adduserdialog.h \
     dialogs/changepassworddialog.h \
     dialogs/accounttypedialog.h \
-    dialogs/previewfiledialog.h
+    dialogs/previewfiledialog.h \
+    pages/page_gpudriver.h
 
 FORMS    += mainwindow.ui \
     pages/page_languagepackages.ui \
@@ -55,11 +58,15 @@ FORMS    += mainwindow.ui \
     pages/page_users.ui \
     dialogs/adduserdialog.ui \
     dialogs/changepassworddialog.ui \
-    dialogs/accounttypedialog.ui
+    dialogs/accounttypedialog.ui \
+    pages/page_gpudriver.ui
 
-TRANSLATIONS += translations/msm_en.ts \
-                translations/msm_ca.ts \
-                translations/msm_de.ts
+TRANSLATIONS += translations/msm_ca.ts \
+                translations/msm_cs-CZ.ts \
+                translations/msm_de.ts \
+                translations/msm_en.ts \
+                translations/msm_pl.ts \
+                translations/msm_pt-BR.ts
 
 RESOURCES += \
     resources.qrc

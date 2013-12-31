@@ -142,7 +142,7 @@ void Page_Users::buttonImage_clicked() {
     struct group *grp = getgrnam("users");
 
     if (!pwd || !grp) {
-        QMessageBox::warning(this, tr("Error!"), tr("Failed to get user permission structs!"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Error!"), tr("Failed to get user permission structures!"), QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
 
