@@ -1,0 +1,4 @@
+#! /bin/sh
+
+lrelease src/manjaro-settings-manager/manjaro-settings-manager.pro
+lrelease src/manjaro-settings-manager-daemon/manjaro-settings-manager-daemon.pro

@@ -29,6 +29,7 @@ TRANSLATIONS += translations/msmd_ca.ts \
                 translations/msmd_en.ts \
                 translations/msmd_es.ts \
                 translations/msmd_hi.ts \
+                translations/msmd_it.ts \
                 translations/msmd_ja.ts \
                 translations/msmd_nl.ts \
                 translations/msmd_pl.ts \

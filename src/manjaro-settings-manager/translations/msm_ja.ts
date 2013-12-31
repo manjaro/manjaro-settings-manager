@@ -4,70 +4,71 @@
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>アカウントの種類</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>標準</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>管理者</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation type="unfinished"/>
+        <translation>グループの表示</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation type="unfinished"/>
+        <translation>グループ</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation type="unfinished"/>
+        <translation>メンバー</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>適用</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>警告!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation type="unfinished"/>
+        <translation>管理者グループ %1は &apos;%2&apos;では使用可能ではありません。</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>次のデフォルトユーザーグループは使用できません: %1
+これらのグループを使用できるようにすることを推奨します。本当に続行しますか?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>エラー!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation type="unfinished"/>
+        <translation>グループの設定に失敗しました。</translation>
     </message>
 </context>
 <context>
@@ -75,59 +76,59 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーの追加</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワード</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを再度入力</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>作成</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名に不適切な文字が含まれています!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが一致しません!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>エラー!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーの追加に失敗しました!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーパスワードの設定に失敗しました!</translation>
     </message>
 </context>
 <context>
@@ -135,34 +136,34 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation type="unfinished"/>
+        <translation>進行中...</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>閉じる</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation type="unfinished"/>
+        <translation>作業が終了しました!</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
         <location filename="../dialogs/applydialog.cpp" line="122"/>
         <source>Close (%1)</source>
-        <translation type="unfinished"/>
+        <translation>閉じる(%1)</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation type="unfinished"/>
+        <translation>作業が失敗しました!</translation>
     </message>
 </context>
 <context>
@@ -171,38 +172,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation type="unfinished"/>
+        <translation>新しいパスワード</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードの再入力</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="149"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>適用</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>エラー!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが一致しません!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation type="unfinished"/>
+        <translation>パスワードの設定に失敗しました!</translation>
     </message>
 </context>
 <context>
@@ -210,38 +211,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaroセッティングマネージャー</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>全ての設定</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
         <location filename="../mainwindow.ui" line="285"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>終了</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>適用</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="45"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>システム</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>ハードウェア</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro セッティング</translation>
     </message>
 </context>
 <context>
@@ -267,22 +268,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>キーボードのモデル:</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>キーボードの設定のためにここにタイプしてください。</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>キーボードの設定</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>新しいキーボード配列の設定...</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
