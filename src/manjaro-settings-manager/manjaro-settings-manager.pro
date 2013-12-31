@@ -62,11 +62,15 @@ FORMS    += mainwindow.ui \
     pages/page_gpudriver.ui
 
 TRANSLATIONS += translations/msm_ca.ts \
-                translations/msm_cs-CZ.ts \
                 translations/msm_de.ts \
+                translations/msm_hi.ts \
+                translations/msm_nl.ts \
+                translations/msm_pt-BR.ts \
+                translations/msm_cs-CZ.ts \
                 translations/msm_en.ts \
+                translations/msm_ja.ts \
                 translations/msm_pl.ts \
-                translations/msm_pt-BR.ts
+                translations/msm_ro.ts
 
 RESOURCES += \
     resources.qrc

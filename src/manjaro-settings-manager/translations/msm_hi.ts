@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hi" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="hi">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -248,9 +250,27 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>हार्डवेयर</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="188"/>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
         <translation>मनज।रॊ सेटिंग्स</translation>
+    </message>
+</context>
+<context>
+    <name>Page_GPUDriver</name>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="30"/>
+        <source>Graphics Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="90"/>
+        <source>free</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="92"/>
+        <source>nonfree</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -282,8 +302,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
+        <source>Failed to determine current Xorg keyboard layout!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Failed to determind current Xorg keyboard layout!</source>
-        <translation>वर्तमान Xorg कीबोर्ड लेआउट निर्धारित करने में विफल!</translation>
+        <translation type="obsolete">वर्तमान Xorg कीबोर्ड लेआउट निर्धारित करने में विफल!</translation>
     </message>
 </context>
 <context>
@@ -459,7 +483,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <source>Password</source>
         <translation>पासवर्ड</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
@@ -496,9 +520,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>त्रुटि!</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structs!</source>
-        <translation>उपयोगकर्ता की अनुमति structs पाने में विफल!</translation>
+        <translation type="obsolete">उपयोगकर्ता की अनुमति structs पाने में विफल!</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_users.cpp" line="145"/>
+        <source>Failed to get user permission structures!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>

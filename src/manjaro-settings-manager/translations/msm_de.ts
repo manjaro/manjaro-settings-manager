@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="de">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -241,9 +243,27 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="188"/>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro Einstellungen</translation>
+    </message>
+</context>
+<context>
+    <name>Page_GPUDriver</name>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="30"/>
+        <source>Graphics Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="90"/>
+        <source>free</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_gpudriver.cpp" line="92"/>
+        <source>nonfree</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -275,8 +295,12 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
+        <source>Failed to determine current Xorg keyboard layout!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Failed to determind current Xorg keyboard layout!</source>
-        <translation>Konnte aktuelles Xorg Tastaturlayout nicht herausfinden!</translation>
+        <translation type="obsolete">Konnte aktuelles Xorg Tastaturlayout nicht herausfinden!</translation>
     </message>
 </context>
 <context>
@@ -452,7 +476,7 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
         <source>Password</source>
         <translation>Passwort</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
@@ -489,9 +513,13 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
         <translation>Fehler!</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structs!</source>
-        <translation>Konnte Benutzerberechtigungsstrukturen nicht herausfinden!</translation>
+        <translation type="obsolete">Konnte Benutzerberechtigungsstrukturen nicht herausfinden!</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_users.cpp" line="145"/>
+        <source>Failed to get user permission structures!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
