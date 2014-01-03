@@ -251,17 +251,17 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="30"/>
         <source>Graphics Driver</source>
-        <translation type="unfinished"/>
+        <translation>Driver grafic</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="90"/>
         <source>free</source>
-        <translation type="unfinished"/>
+        <translation>liber</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="92"/>
         <source>nonfree</source>
-        <translation type="unfinished"/>
+        <translation>proprietar</translation>
     </message>
 </context>
 <context>
