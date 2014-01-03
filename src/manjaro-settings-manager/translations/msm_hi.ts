@@ -258,17 +258,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="30"/>
         <source>Graphics Driver</source>
-        <translation type="unfinished"/>
+        <translation>ग्राफिक्स चालक</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="90"/>
         <source>free</source>
-        <translation type="unfinished"/>
+        <translation>मुक्त</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="92"/>
         <source>nonfree</source>
-        <translation type="unfinished"/>
+        <translation>गैर मुक्त</translation>
     </message>
 </context>
 <context>

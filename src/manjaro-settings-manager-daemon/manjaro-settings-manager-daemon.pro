@@ -23,7 +23,8 @@ DEPENDPATH += $$PWD/../global
 
 unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../global/libglobal.a
 
-TRANSLATIONS += translations/msmd_ca.ts \
+TRANSLATIONS += translations/msmd_ast.ts \
+                translations/msmd_ca.ts \
                 translations/msmd_cs-CZ.ts \
                 translations/msmd_de.ts \
                 translations/msmd_en.ts \
@@ -33,6 +34,7 @@ TRANSLATIONS += translations/msmd_ca.ts \
                 translations/msmd_hi.ts \
                 translations/msmd_it.ts \
                 translations/msmd_ja.ts \
+                translations/msmd_nb.ts \
                 translations/msmd_nl.ts \
                 translations/msmd_pl.ts \
                 translations/msmd_pt-BR.ts \

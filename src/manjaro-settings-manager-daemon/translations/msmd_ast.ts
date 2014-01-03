@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ast" version="2.1">
 <context>
     <name>Daemon</name>
     <message>
         <location filename="../daemon.cpp" line="64"/>
         <source>Additional Language Packages</source>
-        <translation>Ek Dil Paketleri</translation>
+        <translation>Paquetes de llingua adicionales</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="65"/>
         <source>%1 new additional language package(s) available</source>
-        <translation>%1 yeni ek dil paketi(leri) kullanılabilir durumda</translation>
+        <translation>Disponible/es %1 paquete(es) adicional/es de llingua</translation>
     </message>
 </context>
 </TS>

@@ -21,6 +21,7 @@
         <file>resources/nvidia.png</file>
     </qresource>
     <qresource prefix="/">
+        <file>translations/msm_ast.qm</file>
         <file>translations/msm_ca.qm</file>
         <file>translations/msm_cs-CZ.qm</file>
         <file>translations/msm_de.qm</file>
@@ -31,6 +32,7 @@
         <file>translations/msm_hi.qm</file>
         <file>translations/msm_it.qm</file>
         <file>translations/msm_ja.qm</file>
+        <file>translations/msm_nb.qm</file>
         <file>translations/msm_nl.qm</file>
         <file>translations/msm_pl.qm</file>
         <file>translations/msm_pt-BR.qm</file>

@@ -1,40 +1,40 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ast" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Tipo de  conta</translation>
+        <translation>Triba de cuenta</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Padrão</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Administrador</translation>
+        <translation>Alministrador</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Exibir Grupos</translation>
+        <translation>Amosar grupos</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation>Grupo</translation>
+        <translation>Grupu</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation>Membro</translation>
+        <translation>Miembru</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
@@ -45,31 +45,31 @@
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation>Aviso!</translation>
+        <translation>¡CURIÁU!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>grupo Admin %1 não está habilitado em &apos;%2&apos;! Você deve habilita-lo para adquirir os direitos de administrador...</translation>
+        <translation>¡El grupu d&apos;alministración %1 nun ta habilitáu en &apos;%2&apos;! Tienes d&apos;habilitalu p&apos;afitar drechos alministrativos...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Os seguintes grupos de usuários estão desabilitados:
+        <translation>Desabilitáronse  los grupos d&apos;usuariu d&apos;embaxo:
 %1
-É recomendado habilitar estes grupos. Você realmente deseja continuar?</translation>
+Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation>Erro!</translation>
+        <translation>¡Erru!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>Falha ao ajustar os grupos!</translation>
+        <translation>¡Fallu al afitar los grupos!</translation>
     </message>
 </context>
 <context>
@@ -77,27 +77,27 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Adicionar usuário</translation>
+        <translation>Amestar usuariu</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Nome do usuário</translation>
+        <translation>Viesu d&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Senha</translation>
+        <translation>Conseña</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Confimar Senha</translation>
+        <translation>Reescribir conseña</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
@@ -107,29 +107,29 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>O seu nome de usuário contém caracteres inválidos!</translation>
+        <translation>¡El to viesu d&apos;usuariu caltien caráuteres inválidos!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>Suas senhas não correspondem!</translation>
+        <translation>¡Les tos conseñes nun concasen!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation>Erro!</translation>
+        <translation>¡Erru!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation>Falha ao adicionar usuário!</translation>
+        <translation>¡Fallu al amestar l&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Falha ao configurar a senha de usuário!</translation>
+        <translation>¡Fallu al afitar la conseña d&apos;usuariu</translation>
     </message>
 </context>
 <context>
@@ -137,34 +137,34 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation>Processando...</translation>
+        <translation>En procesando...</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation>Fechar</translation>
+        <translation>Zarrar</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation>Processo finalizado!</translation>
+        <translation>¡Procesu fináu!</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
         <location filename="../dialogs/applydialog.cpp" line="122"/>
         <source>Close (%1)</source>
-        <translation>Fechar (%1)</translation>
+        <translation>Zarrar (%1)</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>Falha no processo!</translation>
+        <translation>¡Fallu nel procesu!</translation>
     </message>
 </context>
 <context>
@@ -173,17 +173,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Nova senha</translation>
+        <translation>Conseña nueva</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Confirmar Senha</translation>
+        <translation>Reescribir conseña</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="149"/>
@@ -194,17 +194,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation>Erro!</translation>
+        <translation>¡Erru!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>Suas senhas não correspondem!</translation>
+        <translation>¡Les tos conseñes nun concasen!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Falha ao configurar a senha de usuário!</translation>
+        <translation>¡Fallu al afitar la conseña d&apos;usuariu!</translation>
     </message>
 </context>
 <context>
@@ -212,18 +212,18 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Gerenciador de Configurações do Manjaro</translation>
+        <translation>Alministrador d&apos;axustes Manjaro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation>Todas as configurações</translation>
+        <translation>Tolos axustes</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
         <location filename="../mainwindow.ui" line="285"/>
         <source>Quit</source>
-        <translation>Sair</translation>
+        <translation>Colar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
@@ -243,7 +243,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
-        <translation>Configurações do Manjaro</translation>
+        <translation>Axustes Manjaro</translation>
     </message>
 </context>
 <context>
@@ -251,17 +251,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="30"/>
         <source>Graphics Driver</source>
-        <translation>Driver Gráficos</translation>
+        <translation>Controldor gráficu</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="90"/>
         <source>free</source>
-        <translation>livre</translation>
+        <translation>free</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="92"/>
         <source>nonfree</source>
-        <translation>não livre</translation>
+        <translation>nonfree</translation>
     </message>
 </context>
 <context>
@@ -269,32 +269,32 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Modelo do teclado:</translation>
+        <translation>Modelu&apos;l tecláu:</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>Digite aqui para testar seu teclado</translation>
+        <translation>Escribi daqué equí pa comprobrar el to tecláu</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
         <source>Keyboard Settings</source>
-        <translation>Configurações do teclado</translation>
+        <translation>Axustes del tecláu</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation>Configurando um novo layout para o teclado...</translation>
+        <translation>N&apos;axustando la nueva triba tecláu...</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Error</source>
-        <translation>Erro</translation>
+        <translation>Erru</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Falha ao detectar o layout do teclado em uso!</translation>
+        <translation>¡Fallu al determinar la triba de tecláu Xorg d&apos;anguaño!</translation>
     </message>
 </context>
 <context>
@@ -302,17 +302,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.ui" line="22"/>
         <source>System Locales</source>
-        <translation>Locales do sistema</translation>
+        <translation>Llingües del sistema</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="42"/>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Amestar</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="49"/>
         <source>Remove</source>
-        <translation>Remover</translation>
+        <translation>Esniciar</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="56"/>
@@ -322,23 +322,23 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.ui" line="66"/>
         <source>Locale</source>
-        <translation>Locale</translation>
+        <translation>Llingua</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="71"/>
         <location filename="../pages/page_language.cpp" line="29"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation>Llingua</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="76"/>
         <source>Territory</source>
-        <translation>Território</translation>
+        <translation>Territoriu</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>Current System Locale</source>
-        <translation>Locale atual do sistema</translation>
+        <translation>Llingua del sistema anguaño</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="95"/>
@@ -347,7 +347,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_language.cpp" line="160"/>
         <location filename="../pages/page_language.cpp" line="188"/>
         <source>Error!</source>
-        <translation>Erro!</translation>
+        <translation>¡Erru!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="95"/>
@@ -355,27 +355,27 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_language.cpp" line="160"/>
         <location filename="../pages/page_language.cpp" line="188"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>Falha ao abrir arquivo &apos;%1&apos;!</translation>
+        <translation>¡Fallu al abrir el ficheru &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="138"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Falha ao obter uma string de locale válida para o locale &apos;%1&apos;!</translation>
+        <translation>¡Fallu al consigir una cadena válida pa la llingua &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>Generating locale.gen file...</source>
-        <translation>Gerando arquivo locale.gen...</translation>
+        <translation>En xenerando ficheru locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="202"/>
         <source>Hint</source>
-        <translation>Dica</translation>
+        <translation>Conseyu</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="202"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Você pode ter que reiniciar o ambiente gráfico para que as novas configurações tenham efeito...</translation>
+        <translation>Tienes de reaniciar l&apos;entornu gráficu p&apos;aplicar los axustes nuevos...</translation>
     </message>
 </context>
 <context>
@@ -383,24 +383,24 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Pacotes de idiomas disponíveis</translation>
+        <translation>Paquetes de llingua disponibles</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Pacotes de idiomas adicionais podem ser instalados:</translation>
+        <translation>Puen instalase paquetes de llingua adicionales:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
         <location filename="../pages/page_languagepackages.ui" line="101"/>
         <source>Package</source>
-        <translation>Pacote</translation>
+        <translation>Paquete</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation>Pacote pai</translation>
+        <translation>Paquete padre</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
@@ -410,42 +410,42 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Pacotes de idiomas instalados</translation>
+        <translation>Paquetes de llingua instalaos</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Pacotes de idiomas instalados:</translation>
+        <translation>Paquetes de llingua instalaos:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Pacotes de idiomas</translation>
+        <translation>Paquetes de llingua</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation>Atualizando banco de dados do pacman...</translation>
+        <translation>N&apos;anovando bases de datos pacman...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation>O sistema está desatualizado</translation>
+        <translation>El to sistema ta anováu</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Seu sistema está desatualizado! Você deve atualizá-lo primeiro para continuar!</translation>
+        <translation>¡El to sistema nun ta anováu! ¡Tienes d&apos;anovalu primero pa siguir!</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation>Instalando pacotes de idiomas...</translation>
+        <translation>N&apos;instalando paquetes de llingua...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation>%1 pacotes de idiomas</translation>
+        <translation>%1 paquetes de llingua</translation>
     </message>
 </context>
 <context>
@@ -453,22 +453,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation>Imagem</translation>
+        <translation>Imax</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation>Nome de usuário</translation>
+        <translation>Viesu d&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
         <source>Account Type</source>
-        <translation>Tipo de conta</translation>
+        <translation>Triba de cuenta</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation>Senha</translation>
+        <translation>Conseña</translation>
     </message>
     <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
@@ -478,23 +478,23 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>Contas de usuário</translation>
+        <translation>Cuentes d&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation>Padrão</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
         <source>Administrator</source>
-        <translation>Administrador</translation>
+        <translation>Alministrador</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Imagens (*.png *.jpg *.bmp)</translation>
+        <translation>Imaxes (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -504,53 +504,53 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation>Erro!</translation>
+        <translation>¡Erru!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation>Falha ao carregar as estruturas de permissão do usuário!</translation>
+        <translation>¡Fallu al consiguir cadarmes de permisu d&apos;usuariu!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>Falha ao copiar imagem para &apos;%1&apos;!</translation>
+        <translation>¡Fallu al copiar la imax a &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
         <location filename="../pages/page_users.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>Falha ao ajustar permissão do arquivo &apos;%1&apos;!</translation>
+        <translation>¡Fallu al afitar permisos del ficheru &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Falha ao criar link &apos;%1&apos; para &apos;%2&apos;!</translation>
+        <translation>Fallu al faer l&apos;enllaz simbólicu de &apos;%1&apos; a &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Continue?</source>
-        <translation>Continuar?</translation>
+        <translation>¿Siguir?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>Você deseja realmente remover o usuário %1?</translation>
+        <translation>¿De xuru quies esniciar l&apos;usuariu %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation>Remover a pasta Home?</translation>
+        <translation>¿Esniciar Home?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>Você deseja realmente remover a pasta Home do usuário %1?</translation>
+        <translation>¿De xuru quies esniciar el direutoriu Home del usuariu %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation>Falha ao remover usuário %1!</translation>
+        <translation>¡Fallu al esniciar l&apos;usuariu %1!</translation>
     </message>
 </context>
 <context>
@@ -558,17 +558,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="91"/>
         <source>Width:</source>
-        <translation>Largura:</translation>
+        <translation>Anchor:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="92"/>
         <source>Height:</source>
-        <translation>Altura:</translation>
+        <translation>Altor:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
         <source>Ratio:</source>
-        <translation>Proporção:</translation>
+        <translation>Tasa:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
@@ -587,42 +587,42 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Adicionar Locale</translation>
+        <translation>Amestar llingua</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation>Llingua</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
         <source>Territory</source>
-        <translation>Território</translation>
+        <translation>Territoriu</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
         <source>Description</source>
-        <translation>Descrição</translation>
+        <translation>Descripción</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
         <source>Description:</source>
-        <translation>Descrição:</translation>
+        <translation>Descripción:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
         <source>Locale:</source>
-        <translation>Locale:</translation>
+        <translation>Llingua:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
         <source>Add</source>
-        <translation>Adicionar</translation>
+        <translation>Amestar</translation>
     </message>
 </context>
 </TS>

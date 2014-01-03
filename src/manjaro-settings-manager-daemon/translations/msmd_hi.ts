@@ -4,12 +4,12 @@
     <message>
         <location filename="../daemon.cpp" line="64"/>
         <source>Additional Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>अतिरिक्त भाषा संकुल</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="65"/>
         <source>%1 new additional language package(s) available</source>
-        <translation type="unfinished"/>
+        <translation>%1 नए अतिरिक्त भाषा पैकेज (ओं) उपलब्ध</translation>
     </message>
 </context>
 </TS>

@@ -383,7 +383,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Kullanılabilir Dil Paketleri</translation>
+        <translation>Yüklenecek Dil Paketleri</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
@@ -494,7 +494,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Resimler (*.png *.jpg *.bmp)</translation>
+        <translation>Kullanabileceğiniz resim uzantıları (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>

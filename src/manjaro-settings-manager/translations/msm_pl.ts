@@ -212,7 +212,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Menadżer ustawień Manjaro</translation>
+        <translation>Menedżer ustawień Manjaro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
@@ -251,17 +251,17 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="30"/>
         <source>Graphics Driver</source>
-        <translation type="unfinished"/>
+        <translation>Sterownik karty graficznej</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="90"/>
         <source>free</source>
-        <translation type="unfinished"/>
+        <translation>wolny</translation>
     </message>
     <message>
         <location filename="../pages/page_gpudriver.cpp" line="92"/>
         <source>nonfree</source>
-        <translation type="unfinished"/>
+        <translation>niewolny</translation>
     </message>
 </context>
 <context>

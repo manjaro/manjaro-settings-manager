@@ -3,6 +3,7 @@
         <file>resources/language.png</file>
     </qresource>
     <qresource prefix="/">
+        <file>translations/msmd_ast.qm</file>
         <file>translations/msmd_ca.qm</file>
         <file>translations/msmd_cs-CZ.qm</file>
         <file>translations/msmd_de.qm</file>
@@ -13,6 +14,7 @@
         <file>translations/msmd_hi.qm</file>
         <file>translations/msmd_it.qm</file>
         <file>translations/msmd_ja.qm</file>
+        <file>translations/msmd_nb.qm</file>
         <file>translations/msmd_nl.qm</file>
         <file>translations/msmd_pl.qm</file>
         <file>translations/msmd_pt-BR.qm</file>
