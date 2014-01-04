@@ -61,14 +61,18 @@ FORMS    += mainwindow.ui \
     dialogs/accounttypedialog.ui \
     pages/page_gpudriver.ui
 
-TRANSLATIONS += translations/msm_ca.ts \
+TRANSLATIONS += translations/msm_ast.ts \
+                translations/msm_ca.ts \
                 translations/msm_cs-CZ.ts \
                 translations/msm_de.ts \
                 translations/msm_en.ts \
+                translations/msm_el.ts \
                 translations/msm_es.ts \
+                translations/msm_fa.ts \
                 translations/msm_hi.ts \
                 translations/msm_it.ts \
                 translations/msm_ja.ts \
+                translations/msm_nb.ts \
                 translations/msm_nl.ts \
                 translations/msm_pl.ts \
                 translations/msm_pt-BR.ts \
