@@ -28,6 +28,7 @@
 #include <QList>
 #include <QListWidgetItem>
 #include <QIcon>
+#include <QMenu>
 #include <string>
 #include <vector>
 #include <mhwd.h>
@@ -54,6 +55,8 @@ private:
 private slots:
     void buttonInstallFree_clicked();
     void buttonInstallNonFree_clicked();
+    void showContextMenuForListWidget(const QPoint &);
+
 };
 
 #endif // PAGE_GPUDRIVER_H

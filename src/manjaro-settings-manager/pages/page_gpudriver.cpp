@@ -30,10 +30,15 @@ Page_GPUDriver::Page_GPUDriver(QWidget *parent) :
     setTitel(tr("Graphics Driver"));
     setIcon(QPixmap(":/images/resources/gpudriver.png"));
     setShowApplyButton(true);
+    ui->listWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 
     // Connect signals and slots
-    connect(ui->buttonInstallFree, SIGNAL(clicked())  ,   this, SLOT(buttonInstallFree_clicked()));
-    connect(ui->buttonInstallNonFree, SIGNAL(clicked())  ,   this, SLOT(buttonInstallNonFree_clicked()));
+    connect(ui->buttonInstallFree, SIGNAL(clicked()),
+            this, SLOT(buttonInstallFree_clicked()));
+    connect(ui->buttonInstallNonFree, SIGNAL(clicked()),
+            this, SLOT(buttonInstallNonFree_clicked()));
+    connect(ui->listWidget, SIGNAL(customContextMenuRequested(const QPoint &)),
+            SLOT(showContextMenuForListWidget(const QPoint &)));
 }
 
 
@@ -56,23 +61,34 @@ void Page_GPUDriver::activated() {
     QStringList addedToList;
 
     for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin(); iterator != data.PCIDevices.end(); iterator++) {
-        for (std::vector<mhwd::Config*>::iterator ci = (*iterator)->availableConfigs.begin(); ci != (*iterator)->availableConfigs.end(); ci++) {
-            QString freedriver, name;
-            name = QString::fromStdString((*ci)->name);
+        for (std::vector<mhwd::Config*>::iterator config = (*iterator)->availableConfigs.begin(); config != (*iterator)->availableConfigs.end(); config++) {
+            QString freedriver, name, installed;
+            name = QString::fromStdString((*config)->name);
 
+            //Check if already in the list
             if (addedToList.contains(name))
                 continue;
-
             addedToList.append(name);
 
-            if ((*ci)->freedriver)
+            //Check if installed
+            installed = ", ";
+            mhwd::Config *installedConfig = getInstalledConfig(&data, (*config)->name, (*config)->type);
+            if (installedConfig == NULL)
+                installed = "";
+            else if (installedConfig->basePath != (*config)->basePath) {
+                installed.append(tr("custom installed"));
+            }
+            else
+                installed.append(tr("installed"));
+
+            //Check if freedriver
+            if ((*config)->freedriver)
                 freedriver = tr("free");
             else
                 freedriver = tr("nonfree");
 
             QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
-            item->setText(QString("%1 (%2)").arg(name, freedriver));
-            //item->setBackgroundColor("green");
+            item->setText(QString("%1 (%2%3)").arg(name, freedriver, installed));
 
             if (name.toLower().contains("nvidia") && name.toLower().contains("intel"))
                 item->setIcon(QIcon(":/images/resources/intel-nvidia.png"));
@@ -98,4 +114,21 @@ void Page_GPUDriver::buttonInstallFree_clicked() {
 void Page_GPUDriver::buttonInstallNonFree_clicked() {
     ApplyDialog dialog(this);
     dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing non-free driver..."), false);
+}
+
+void Page_GPUDriver::showContextMenuForListWidget(const QPoint &pos)
+{
+    QMenu contextMenu(this);
+    QListWidgetItem* temp = ui->listWidget->itemAt(pos);
+    if (temp != NULL)
+    {
+        if(temp->text().contains("installed"))
+        {
+            contextMenu.addAction(new QAction(tr("Remove"), this));
+            contextMenu.addAction(new QAction(tr("Force Reinstall"), this));
+        }
+        else
+            contextMenu.addAction(new QAction(tr("Install"), this));
+        contextMenu.exec(mapToGlobal(pos));
+    }
 }
