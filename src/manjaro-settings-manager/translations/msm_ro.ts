@@ -509,7 +509,7 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation>Nu se pot prelua permisiunile de utilizator!</translation>
+        <translation>Nu se pot prelua structurile permisiunilor de utilizator!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
