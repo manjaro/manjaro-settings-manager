@@ -30,6 +30,10 @@ Page_GPUDriver::Page_GPUDriver(QWidget *parent) :
     setTitel(tr("Graphics Driver"));
     setIcon(QPixmap(":/images/resources/gpudriver.png"));
     setShowApplyButton(true);
+
+    // Connect signals and slots
+    connect(ui->buttonInstallFree, SIGNAL(clicked())  ,   this, SLOT(buttonInstallFree_clicked()));
+    connect(ui->buttonInstallNonFree, SIGNAL(clicked())  ,   this, SLOT(buttonInstallNonFree_clicked()));
 }
 
 
@@ -50,37 +54,12 @@ void Page_GPUDriver::activated() {
     mhwd::fillData(&data);
 
     QStringList addedToList;
-/*
-    for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin(); iterator != data.PCIDevices.end(); iterator++) {
-        //for (std::vector<mhwd::Config*>::iterator ci = (*iterator)->availableConfigs.begin(); ci != (*iterator)->availableConfigs.end(); ci++) {
-            QString freedriver, name;
-            name = QString::fromStdString((*iterator)->vendorName);
-
-            //if (addedToList.contains(name))
-              //  continue;
-
-            addedToList.append(name);
-
-
-
-            QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
-            item->setText(QString("%1 (%2)").arg(name, "hola"));
-
-            if (name.toLower().contains("nvidia"))
-                item->setIcon(QIcon(":/images/resources/nvidia.png"));
-            else if (name.toLower().contains("catalyst"))
-                item->setIcon(QIcon(":/images/resources/ati.png"));
-            else
-                item->setIcon(QIcon(":/images/resources/gpudriver.png"));
-       // }
-    }
-    */
 
     for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin(); iterator != data.PCIDevices.end(); iterator++) {
         for (std::vector<mhwd::Config*>::iterator ci = (*iterator)->availableConfigs.begin(); ci != (*iterator)->availableConfigs.end(); ci++) {
             QString freedriver, name;
             name = QString::fromStdString((*ci)->name);
-            qDebug() << name;
+
             if (addedToList.contains(name))
                 continue;
 
@@ -93,16 +72,30 @@ void Page_GPUDriver::activated() {
 
             QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
             item->setText(QString("%1 (%2)").arg(name, freedriver));
+            //item->setBackgroundColor("green");
 
-            if (name.toLower().contains("nvidia"))
+            if (name.toLower().contains("nvidia") && name.toLower().contains("intel"))
+                item->setIcon(QIcon(":/images/resources/intel-nvidia.png"));
+            else if (name.toLower().contains("intel"))
+                item->setIcon(QIcon(":/images/resources/intel.png"));
+            else if (name.toLower().contains("nvidia"))
                 item->setIcon(QIcon(":/images/resources/nvidia.png"));
             else if (name.toLower().contains("catalyst"))
                 item->setIcon(QIcon(":/images/resources/ati.png"));
             else
                 item->setIcon(QIcon(":/images/resources/gpudriver.png"));
-        }
+       }
     }
-
     // Free data object again
     mhwd::freeData(&data);
+}
+
+void Page_GPUDriver::buttonInstallFree_clicked() {
+    ApplyDialog dialog(this);
+    dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing free driver..."), false);
+}
+
+void Page_GPUDriver::buttonInstallNonFree_clicked() {
+    ApplyDialog dialog(this);
+    dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing non-free driver..."), false);
 }

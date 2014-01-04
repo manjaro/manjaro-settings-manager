@@ -32,7 +32,7 @@
 #include <vector>
 #include <mhwd.h>
 #include "global.h"
-
+#include "dialogs/applydialog.h"
 
 namespace Ui {
 class Page_GPUDriver;
@@ -50,6 +50,10 @@ public:
     
 private:
     Ui::Page_GPUDriver *ui;
+
+private slots:
+    void buttonInstallFree_clicked();
+    void buttonInstallNonFree_clicked();
 };
 
 #endif // PAGE_GPUDRIVER_H

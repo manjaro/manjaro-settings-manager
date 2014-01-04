@@ -19,6 +19,8 @@
         <file>resources/ati.png</file>
         <file>resources/gpudriver.png</file>
         <file>resources/nvidia.png</file>
+        <file>resources/intel.png</file>
+        <file>resources/intel-nvidia.png</file>
     </qresource>
     <qresource prefix="/">
         <file>translations/msm_ca.qm</file>
