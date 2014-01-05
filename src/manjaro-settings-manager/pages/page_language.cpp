@@ -164,25 +164,30 @@ void Page_Language::apply_clicked() {
 
     content.clear();
     in.setDevice(&file);
-    bool found = false;
-
+    bool isLangFound = false;
+    bool isLcMessagesFound = false;
     while (!in.atEnd()) {
         QString line = in.readLine();
         content.append(line);
         line = line.trimmed();
 
-        if (!line.startsWith("LANG="))
-            continue;
-
-        content.removeLast();
-        content.append("LANG=" + systemLocale);
-        found = true;
+        if (line.startsWith("LANG=")) {
+            content.removeLast();
+            content.append("LANG=" + systemLocale);
+            isLangFound = true;
+        }
+        else if (line.startsWith("LC_MESSAGES=")) {
+            content.removeLast();
+            content.append("LC_MESSAGES=" + systemLocale);
+            isLcMessagesFound = true;
+        }
     }
     file.close();
 
-    if (!found)
+    if (!isLangFound)
         content.append("LANG=" + systemLocale);
-
+    if (!isLcMessagesFound)
+        content.append("LC_MESSAGES=" + systemLocale);
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QMessageBox::warning(this, tr("Error!"), tr("Failed to open file '%1'!").arg(LOCALE_CONF), QMessageBox::Ok, QMessageBox::Ok);
