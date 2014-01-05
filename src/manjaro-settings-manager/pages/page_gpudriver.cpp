@@ -86,12 +86,11 @@ void Page_GPUDriver::activated() {
 
             QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
             item->setText(QString("%1 (%2%3)").arg(name, freedriver, installed));
-
-            if (name.toLower().contains("nvidia") && name.toLower().contains("intel"))
+            if ((name.toLower().contains("nvidia") || name.toLower().contains("nouveau")) && name.toLower().contains("intel"))
                 item->setIcon(QIcon(":/images/resources/intel-nvidia.png"));
             else if (name.toLower().contains("intel"))
                 item->setIcon(QIcon(":/images/resources/intel.png"));
-            else if (name.toLower().contains("nvidia"))
+            else if (name.toLower().contains("nvidia") || name.toLower().contains("nouveau"))
                 item->setIcon(QIcon(":/images/resources/nvidia.png"));
             else if (name.toLower().contains("catalyst"))
                 item->setIcon(QIcon(":/images/resources/ati.png"));
