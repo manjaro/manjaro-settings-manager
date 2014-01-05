@@ -75,9 +75,6 @@ void Page_GPUDriver::activated() {
             mhwd::Config *installedConfig = getInstalledConfig(&data, (*config)->name, (*config)->type);
             if (installedConfig == NULL)
                 installed = "";
-            else if (installedConfig->basePath != (*config)->basePath) {
-                installed.append(tr("custom installed"));
-            }
             else
                 installed.append(tr("installed"));
 
