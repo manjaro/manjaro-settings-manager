@@ -184,7 +184,7 @@ void Page_Language::apply_clicked() {
                << QString("LC_TELEPHONE=%1").arg(systemFormats)
                << QString("LC_MEASUREMENT=%1").arg(systemFormats)
                << QString("LC_IDENTIFICATION=%1").arg(systemFormats);
-    qDebug() << localeList;
+
     process.start("localectl", localeList);
 
     ApplyDialog dialog(this);

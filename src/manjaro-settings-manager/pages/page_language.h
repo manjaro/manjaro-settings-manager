@@ -35,8 +35,6 @@
 #include "dialogs/applydialog.h"
 #include "widgets/selectlocalesdialog.h"
 
-#include <QDebug>
-
 
 namespace Ui {
 class Page_Language;
