@@ -25,14 +25,17 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QRadioButton>
+#include <QButtonGroup>
 #include <QList>
 #include <QStringList>
 #include <QMessageBox>
+#include <QProcess>
 #include <global.h>
 #include <const.h>
 #include "dialogs/applydialog.h"
 #include "widgets/selectlocalesdialog.h"
 
+#include <QDebug>
 
 
 namespace Ui {
@@ -55,10 +58,13 @@ private:
     class TreeWidgetItem : public QTreeWidgetItem {
     public:
         TreeWidgetItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
-        QRadioButton radioButton;
+        QRadioButton localeRadioButton;
+        QRadioButton formatsRadioButton;
     };
-
+    QButtonGroup groupLocale;
+    QButtonGroup groupFormats;
     Ui::Page_Language *ui;
+    QProcess process;
 
 protected slots:
     void buttonRemove_clicked();

@@ -30,10 +30,13 @@ Page_Language::Page_Language(QWidget *parent) :
     setIcon(QPixmap(":/images/resources/locale.png"));
     setShowApplyButton(true);
 
-    ui->treeWidget->setColumnWidth(0, 190);
-    ui->treeWidget->setColumnWidth(1, 190);
-    ui->treeWidget->setColumnWidth(2, 190);
-    ui->treeWidget->setColumnWidth(3, 30);
+    ui->treeWidget->setColumnWidth(0, 150);
+    ui->treeWidget->setColumnWidth(1, 150);
+    ui->treeWidget->setColumnWidth(2, 150);
+    ui->treeWidget->setColumnWidth(3, 150);
+    ui->treeWidget->setColumnWidth(4, 150);
+
+    process.setProcessChannelMode(QProcess::MergedChannels);
 
     connect(ui->buttonRemove, SIGNAL(clicked()) ,   this, SLOT(buttonRemove_clicked()));
     connect(ui->buttonRestore, SIGNAL(clicked())    ,   this, SLOT(buttonRestore_clicked()));
@@ -53,7 +56,10 @@ void Page_Language::activated() {
     ui->treeWidget->clear();
 
     QString currentLocale = Global::getCurrentLocale();
+    QString currentFormats = Global::getCurrentFormats();
+
     QList<Global::LocaleInfo> locales = Global::getAllEnabledLocales();
+
 
     for (int i = 0; i < locales.size(); i++) {
         const Global::LocaleInfo *locale = &locales.at(i);
@@ -61,12 +67,17 @@ void Page_Language::activated() {
         TreeWidgetItem *item = new TreeWidgetItem(ui->treeWidget);
         item->setText(0, locale->locale);
         item->setText(1, locale->language);
-         item->setText(2, locale->territory);
+        item->setText(2, locale->territory);
 
         if (currentLocale == locale->locale)
-            item->radioButton.setChecked(true);
+            item->localeRadioButton.setChecked(true);
+        ui->treeWidget->setItemWidget(item, 3, &item->localeRadioButton);
+        groupLocale.addButton(&item->localeRadioButton);
 
-        ui->treeWidget->setItemWidget(item, 3, &item->radioButton);
+        if (currentFormats == locale->locale)
+            item->formatsRadioButton.setChecked(true);
+        ui->treeWidget->setItemWidget(item, 4, &item->formatsRadioButton);
+        groupFormats.addButton(&item->formatsRadioButton);
     }
 
     ui->treeWidget->sortItems(0, Qt::AscendingOrder);
@@ -76,6 +87,7 @@ void Page_Language::activated() {
 
 void Page_Language::apply_clicked() {
     QString systemLocale;
+    QString systemFormats;
     QStringList locales;
 
     for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
@@ -85,8 +97,11 @@ void Page_Language::apply_clicked() {
 
        locales.append(item->text(0));
 
-       if (item->radioButton.isChecked())
+       if (item->localeRadioButton.isChecked())
            systemLocale = item->text(0);
+
+       if (item->formatsRadioButton.isChecked())
+           systemFormats = item->text(0);
     }
 
 
@@ -153,52 +168,24 @@ void Page_Language::apply_clicked() {
     out << content.join("\n");
     file.close();
 
-
-
-    file.setFileName(LOCALE_CONF);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, tr("Error!"), tr("Failed to open file '%1'!").arg(LOCALE_CONF), QMessageBox::Ok, QMessageBox::Ok);
-        activated();
-        return;
-    }
-
-    content.clear();
-    in.setDevice(&file);
-    bool isLangFound = false;
-    bool isLcMessagesFound = false;
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        content.append(line);
-        line = line.trimmed();
-
-        if (line.startsWith("LANG=")) {
-            content.removeLast();
-            content.append("LANG=" + systemLocale);
-            isLangFound = true;
-        }
-        else if (line.startsWith("LC_MESSAGES=")) {
-            content.removeLast();
-            content.append("LC_MESSAGES=" + systemLocale);
-            isLcMessagesFound = true;
-        }
-    }
-    file.close();
-
-    if (!isLangFound)
-        content.append("LANG=" + systemLocale);
-    if (!isLcMessagesFound)
-        content.append("LC_MESSAGES=" + systemLocale);
-
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, tr("Error!"), tr("Failed to open file '%1'!").arg(LOCALE_CONF), QMessageBox::Ok, QMessageBox::Ok);
-        activated();
-        return;
-    }
-
-    out.setDevice(&file);
-    out << content.join("\n");
-    file.close();
-
+    QStringList localeList;
+    localeList << QString("set-locale")
+               << QString("LANG=%1").arg(systemLocale)
+               << QString("LANGUAGE=%1").arg(systemLocale)
+               << QString("LC_CTYPE=%1").arg(systemLocale)
+               << QString("LC_NUMERIC=%1").arg(systemFormats)
+               << QString("LC_TIME=%1").arg(systemFormats)
+               << QString("LC_COLLATE=%1").arg(systemLocale)
+               << QString("LC_MONETARY=%1").arg(systemFormats)
+               << QString("LC_MESSAGES=%1").arg(systemLocale)
+               << QString("LC_PAPER=%1").arg(systemFormats)
+               << QString("LC_NAME=%1").arg(systemFormats)
+               << QString("LC_ADDRESS=%1").arg(systemFormats)
+               << QString("LC_TELEPHONE=%1").arg(systemFormats)
+               << QString("LC_MEASUREMENT=%1").arg(systemFormats)
+               << QString("LC_IDENTIFICATION=%1").arg(systemFormats);
+    qDebug() << localeList;
+    process.start("localectl", localeList);
 
     ApplyDialog dialog(this);
     dialog.exec("locale-gen", QStringList(), tr("Generating locale.gen file..."), false);
@@ -224,15 +211,28 @@ void Page_Language::buttonRemove_clicked() {
         return;
 
     // Set check on another item if this one had the check
-    if (item->radioButton.isChecked()) {
+    if (item->localeRadioButton.isChecked()) {
         TreeWidgetItem *checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemAbove(item));
         if (checkItem) {
-            checkItem->radioButton.setChecked(true);
+            checkItem->localeRadioButton.setChecked(true);
         }
         else {
             checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemBelow(item));
             if (checkItem)
-                checkItem->radioButton.setChecked(true);
+                checkItem->localeRadioButton.setChecked(true);
+        }
+    }
+
+    // Set check on another item if this one had the check
+    if (item->formatsRadioButton.isChecked()) {
+        TreeWidgetItem *checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemAbove(item));
+        if (checkItem) {
+            checkItem->formatsRadioButton.setChecked(true);
+        }
+        else {
+            checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemBelow(item));
+            if (checkItem)
+                checkItem->formatsRadioButton.setChecked(true);
         }
     }
 
@@ -268,6 +268,9 @@ void Page_Language::buttonAdd_clicked() {
     item->setText(0, locale.locale);
     item->setText(1, locale.language);
     item->setText(2, locale.territory);
-    ui->treeWidget->setItemWidget(item, 3, &item->radioButton);
+    ui->treeWidget->setItemWidget(item, 3, &item->localeRadioButton);
+    groupLocale.addButton(&item->localeRadioButton);
+    ui->treeWidget->setItemWidget(item, 4, &item->formatsRadioButton);
+    groupFormats.addButton(&item->formatsRadioButton);
     ui->treeWidget->sortItems(0, Qt::AscendingOrder);
 }

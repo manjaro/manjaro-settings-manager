@@ -552,6 +552,36 @@ QString Global::getCurrentLocale() {
     return locale;
 }
 
+// Return the formats defined in the locale.conf.
+// If its not defined returns the language.
+// TODO: Improve the detection of formats
+QString Global::getCurrentFormats() {
+    QString formats;
+    QString locale;
+
+    QFile file(LOCALE_CONF);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "error: failed to open '" << LOCALE_CONF << "'!";
+        return "";
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
+        if (line.isEmpty())
+            continue;
+        else if (QString(line).toLower().startsWith("lc_numeric="))
+            formats = line.mid(line.indexOf("=") + 1).trimmed();
+        else if (QString(line).toLower().startsWith("lang="))
+            locale = line.mid(line.indexOf("=") + 1).trimmed();
+    }
+
+    file.close();
+
+    if (formats=="")
+        formats = locale;
+    return formats;
+}
 
 
 
