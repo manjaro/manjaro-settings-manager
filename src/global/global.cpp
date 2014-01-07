@@ -286,13 +286,14 @@ bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackag
 bool Global::isSystemUpToDate() {
     QProcess process;
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
-    process.start("pacman", QStringList() << "-Qu");
+    process.start("pacman", QStringList() << "-Sup");
     if (!process.waitForFinished()) {
         qDebug() << "error: failed to determind if system is up-to-date (pacman)!";
         return false;
     }
 
-    return QString(process.readAll()).split("\n", QString::SkipEmptyParts).isEmpty();
+    return QString(process.readAll()).split("\n", QString::SkipEmptyParts) ==
+               (QStringList() << ":: Starting full system upgrade...");
 }
 
 
