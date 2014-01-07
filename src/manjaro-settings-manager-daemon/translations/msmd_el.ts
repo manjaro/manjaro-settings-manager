@@ -4,12 +4,12 @@
     <message>
         <location filename="../daemon.cpp" line="64"/>
         <source>Additional Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Πρόσθετα πακέτα γλωσών</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="65"/>
         <source>%1 new additional language package(s) available</source>
-        <translation type="unfinished"/>
+        <translation> %1Ένα νέο πρόσθετο πακέτο γλώσσας είνα διαθέσιμο</translation>
     </message>
 </context>
 </TS>
