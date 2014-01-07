@@ -36,8 +36,6 @@ Page_Language::Page_Language(QWidget *parent) :
     ui->treeWidget->setColumnWidth(3, 150);
     ui->treeWidget->setColumnWidth(4, 150);
 
-    process.setProcessChannelMode(QProcess::MergedChannels);
-
     connect(ui->buttonRemove, SIGNAL(clicked()) ,   this, SLOT(buttonRemove_clicked()));
     connect(ui->buttonRestore, SIGNAL(clicked())    ,   this, SLOT(buttonRestore_clicked()));
     connect(ui->buttonAdd, SIGNAL(clicked())    ,   this, SLOT(buttonAdd_clicked()));
@@ -168,6 +166,7 @@ void Page_Language::apply_clicked() {
     out << content.join("\n");
     file.close();
 
+    // Modify /etc/locale.conf using localectl
     QStringList localeList;
     localeList << QString("set-locale")
                << QString("LANG=%1").arg(systemLocale)
@@ -185,7 +184,13 @@ void Page_Language::apply_clicked() {
                << QString("LC_MEASUREMENT=%1").arg(systemFormats)
                << QString("LC_IDENTIFICATION=%1").arg(systemFormats);
 
-    process.start("localectl", localeList);
+    QString errorMessage;
+    if (Global::runProcess("localectl",
+                           localeList,
+                           QStringList(),
+                           errorMessage) != 0)
+        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set locale!") + "\n" + errorMessage), QMessageBox::Ok, QMessageBox::Ok);
+
 
     ApplyDialog dialog(this);
     dialog.exec("locale-gen", QStringList(), tr("Generating locale.gen file..."), false);

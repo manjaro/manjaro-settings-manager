@@ -29,7 +29,6 @@
 #include <QList>
 #include <QStringList>
 #include <QMessageBox>
-#include <QProcess>
 #include <global.h>
 #include <const.h>
 #include "dialogs/applydialog.h"
@@ -62,7 +61,6 @@ private:
     QButtonGroup groupLocale;
     QButtonGroup groupFormats;
     Ui::Page_Language *ui;
-    QProcess process;
 
 protected slots:
     void buttonRemove_clicked();
