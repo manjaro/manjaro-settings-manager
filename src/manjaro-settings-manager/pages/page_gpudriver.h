@@ -29,6 +29,7 @@
 #include <QListWidgetItem>
 #include <QIcon>
 #include <QMenu>
+#include <QAction>
 #include <string>
 #include <vector>
 #include <mhwd.h>
@@ -51,12 +52,17 @@ public:
     
 private:
     Ui::Page_GPUDriver *ui;
+    QAction *installAction;
+    QAction *removeAction;
+    QAction *forceReinstallationAction;
 
 private slots:
     void buttonInstallFree_clicked();
     void buttonInstallNonFree_clicked();
     void showContextMenuForListWidget(const QPoint &);
-
+    void installAction_triggered();
+    void removeAction_triggered();
+    void forceReinstallationAction_triggered();
 };
 
 #endif // PAGE_GPUDRIVER_H

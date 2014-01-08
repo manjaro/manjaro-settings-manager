@@ -35,6 +35,14 @@ Page_GPUDriver::Page_GPUDriver(QWidget *parent) :
     ui->treeWidget->setColumnWidth(1, 75);
     ui->treeWidget->setColumnWidth(2, 75);
 
+    // Context menu actions
+    installAction = new QAction(tr("Install"), ui->treeWidget);
+    installAction->setIcon(QPixmap(":/images/resources/add.png"));
+    removeAction = new QAction(tr("Remove"), ui->treeWidget);
+    removeAction->setIcon(QPixmap(":/images/resources/remove.png"));
+    forceReinstallationAction = new QAction(tr("Force Reinstallation"), ui->treeWidget);
+    forceReinstallationAction->setIcon(QPixmap(":/images/resources/restore.png"));
+
     // Connect signals and slots
     connect(ui->buttonInstallFree, SIGNAL(clicked()),
             this, SLOT(buttonInstallFree_clicked()));
@@ -42,6 +50,12 @@ Page_GPUDriver::Page_GPUDriver(QWidget *parent) :
             this, SLOT(buttonInstallNonFree_clicked()));
     connect(ui->treeWidget, SIGNAL(customContextMenuRequested(const QPoint &)),
             SLOT(showContextMenuForListWidget(const QPoint &)));
+    connect(installAction, SIGNAL(triggered()),
+            this, SLOT(installAction_triggered()));
+    connect(removeAction, SIGNAL(triggered()),
+            this, SLOT(removeAction_triggered()));
+    connect(forceReinstallationAction, SIGNAL(triggered()),
+            this, SLOT(forceReinstallationAction_triggered()));
 }
 
 
@@ -133,15 +147,57 @@ void Page_GPUDriver::showContextMenuForListWidget(const QPoint &pos)
 {
     QMenu contextMenu(this);
     QTreeWidgetItem* temp = ui->treeWidget->itemAt(pos);
-    if (temp != NULL)
+    if (temp != NULL && (temp->text(0).contains("video-") || temp->text(0).contains("network-")) )
     {
-        if(temp->text(2).contains("installed"))
+        if(temp->checkState(2))
         {
-            contextMenu.addAction(new QAction(tr("Remove"), this));
-            contextMenu.addAction(new QAction(tr("Force Reinstall"), this));
+            contextMenu.addAction(removeAction);
+            contextMenu.addAction(forceReinstallationAction);
         }
         else
-            contextMenu.addAction(new QAction(tr("Install"), this));
+        {
+            contextMenu.addAction(installAction);
+        }
         contextMenu.exec(mapToGlobal(pos));
     }
 }
+
+void Page_GPUDriver::installAction_triggered() {
+    QTreeWidgetItem* temp = ui->treeWidget->currentItem();
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,
+                                  tr("Install Configuration"),
+                                  tr("Do you really want to install\n%1?").arg(temp->text(0)),
+                                  QMessageBox::Ok|QMessageBox::Cancel);
+    if (reply == QMessageBox::Ok) {
+        ApplyDialog dialog(this);
+        dialog.exec("mhwd", QStringList() << "-i" << "pci" << temp->text(0), tr("Installing driver..."), false);
+    }
+}
+
+void Page_GPUDriver::removeAction_triggered() {
+    QTreeWidgetItem* temp = ui->treeWidget->currentItem();
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,
+                                  tr("Remove Configuration"),
+                                  tr("Do you really want to remove\n%1?").arg(temp->text(0)),
+                                  QMessageBox::Ok|QMessageBox::Cancel);
+    if (reply == QMessageBox::Ok) {
+        ApplyDialog dialog(this);
+        dialog.exec("mhwd", QStringList() << "-r" << "pci" << temp->text(0), tr("Removing driver..."), false);
+    }
+}
+
+void Page_GPUDriver::forceReinstallationAction_triggered() {
+    QTreeWidgetItem* temp = ui->treeWidget->currentItem();
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,
+                                  tr("Force Reinstallation"),
+                                  tr("Do you really want to force reinstall\n%1?").arg(temp->text(0)),
+                                  QMessageBox::Ok|QMessageBox::Cancel);
+    if (reply == QMessageBox::Ok) {
+        ApplyDialog dialog(this);
+        dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << temp->text(0), tr("Reinstalling driver..."), false);
+    }
+}
+
