@@ -288,7 +288,7 @@ bool Global::isSystemUpToDate() {
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
     process.start("pacman", QStringList() << "-Sup");
     if (!process.waitForFinished()) {
-        qDebug() << "error: failed to determind if system is up-to-date (pacman)!";
+        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
         return false;
     }
 

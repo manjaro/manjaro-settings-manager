@@ -30,14 +30,17 @@ Page_GPUDriver::Page_GPUDriver(QWidget *parent) :
     setTitel(tr("Graphics Driver"));
     setIcon(QPixmap(":/images/resources/gpudriver.png"));
     setShowApplyButton(true);
-    ui->listWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->treeWidget->setColumnWidth(0, 400);
+    ui->treeWidget->setColumnWidth(1, 75);
+    ui->treeWidget->setColumnWidth(2, 75);
 
     // Connect signals and slots
     connect(ui->buttonInstallFree, SIGNAL(clicked()),
             this, SLOT(buttonInstallFree_clicked()));
     connect(ui->buttonInstallNonFree, SIGNAL(clicked()),
             this, SLOT(buttonInstallNonFree_clicked()));
-    connect(ui->listWidget, SIGNAL(customContextMenuRequested(const QPoint &)),
+    connect(ui->treeWidget, SIGNAL(customContextMenuRequested(const QPoint &)),
             SLOT(showContextMenuForListWidget(const QPoint &)));
 }
 
@@ -52,52 +55,66 @@ Page_GPUDriver::~Page_GPUDriver()
 
 void Page_GPUDriver::activated() {
 
-    ui->listWidget->clear();
+    ui->treeWidget->clear();
     // Create mhwd data object and fill it with hardware informations
     mhwd::Data data;
     mhwd::initData(&data);
     mhwd::fillData(&data);
 
-    QStringList addedToList;
+    QTreeWidgetItem *displayController = new QTreeWidgetItem(ui->treeWidget);
+    displayController->setText(0, "Display controller");
+    displayController->setExpanded(true);
+    QTreeWidgetItem *networkController = new QTreeWidgetItem(ui->treeWidget);
+    networkController->setText(0, "Network controller");
+    networkController->setExpanded(true);
 
     for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin(); iterator != data.PCIDevices.end(); iterator++) {
-        for (std::vector<mhwd::Config*>::iterator config = (*iterator)->availableConfigs.begin(); config != (*iterator)->availableConfigs.end(); config++) {
-            QString freedriver, name, installed;
-            name = QString::fromStdString((*config)->name);
+        QString deviceClassName = QString::fromStdString((*iterator)->className);
+        QTreeWidgetItem *device = new QTreeWidgetItem();
+        if (deviceClassName == QString("Display controller"))
+            displayController->addChild(device);
+        else if (deviceClassName == QString("Network controller"))
+            networkController->addChild(device);
+        else
+            continue;
 
-            //Check if already in the list
-            if (addedToList.contains(name))
-                continue;
-            addedToList.append(name);
+        QString deviceName = QString::fromStdString((*iterator)->deviceName);
+        device->setText(0, deviceName);
+        device->setExpanded(true);
 
-            //Check if installed
-            installed = ", ";
-            mhwd::Config *installedConfig = getInstalledConfig(&data, (*config)->name, (*config)->type);
-            if (installedConfig == NULL)
-                installed = "";
+        for (std::vector<mhwd::Config*>::iterator config = (*iterator)->availableConfigs.begin();
+             config != (*iterator)->availableConfigs.end(); config++) {
+            QTreeWidgetItem *item = new QTreeWidgetItem(device);
+            item->setFlags(Qt::ItemIsEnabled);
+            QString configName = QString::fromStdString((*config)->name);
+            item->setText(0, configName);
+            if ((configName.toLower().contains("nvidia") || configName.toLower().contains("nouveau")) &&
+                    configName.toLower().contains("intel"))
+                item->setIcon(0, QIcon(":/images/resources/intel-nvidia.png"));
+            else if (configName.toLower().contains("intel"))
+                item->setIcon(0, QIcon(":/images/resources/intel.png"));
+            else if (configName.toLower().contains("nvidia") || configName.toLower().contains("nouveau"))
+                item->setIcon(0, QIcon(":/images/resources/nvidia.png"));
+            else if (configName.toLower().contains("catalyst"))
+                item->setIcon(0, QIcon(":/images/resources/ati.png"));
             else
-                installed.append(tr("installed"));
+                item->setIcon(0, QIcon(":/images/resources/gpudriver.png"));
 
             //Check if freedriver
             if ((*config)->freedriver)
-                freedriver = tr("free");
+                item->setCheckState(1, Qt::Checked);
             else
-                freedriver = tr("nonfree");
+                item->setCheckState(1, Qt::Unchecked);
 
-            QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
-            item->setText(QString("%1 (%2%3)").arg(name, freedriver, installed));
-            if ((name.toLower().contains("nvidia") || name.toLower().contains("nouveau")) && name.toLower().contains("intel"))
-                item->setIcon(QIcon(":/images/resources/intel-nvidia.png"));
-            else if (name.toLower().contains("intel"))
-                item->setIcon(QIcon(":/images/resources/intel.png"));
-            else if (name.toLower().contains("nvidia") || name.toLower().contains("nouveau"))
-                item->setIcon(QIcon(":/images/resources/nvidia.png"));
-            else if (name.toLower().contains("catalyst"))
-                item->setIcon(QIcon(":/images/resources/ati.png"));
+            //Check if installed
+            mhwd::Config *installedConfig = getInstalledConfig(&data, (*config)->name, (*config)->type);
+            if (installedConfig == NULL)
+                item->setCheckState(2, Qt::Unchecked);
             else
-                item->setIcon(QIcon(":/images/resources/gpudriver.png"));
-       }
+                item->setCheckState(2, Qt::Checked);
+        }
     }
+
     // Free data object again
     mhwd::freeData(&data);
 }
@@ -115,10 +132,10 @@ void Page_GPUDriver::buttonInstallNonFree_clicked() {
 void Page_GPUDriver::showContextMenuForListWidget(const QPoint &pos)
 {
     QMenu contextMenu(this);
-    QListWidgetItem* temp = ui->listWidget->itemAt(pos);
+    QTreeWidgetItem* temp = ui->treeWidget->itemAt(pos);
     if (temp != NULL)
     {
-        if(temp->text().contains("installed"))
+        if(temp->text(2).contains("installed"))
         {
             contextMenu.addAction(new QAction(tr("Remove"), this));
             contextMenu.addAction(new QAction(tr("Force Reinstall"), this));

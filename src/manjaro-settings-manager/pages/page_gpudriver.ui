@@ -27,13 +27,28 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QTreeWidget" name="treeWidget">
      <property name="iconSize">
       <size>
        <width>36</width>
        <height>36</height>
       </size>
      </property>
+     <column>
+      <property name="text">
+       <string>Driver</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Free</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Installed</string>
+      </property>
+     </column>
     </widget>
    </item>
    <item>
