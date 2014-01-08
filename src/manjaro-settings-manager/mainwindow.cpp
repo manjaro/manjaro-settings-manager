@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->listWidget->addSeparator(tr("Hardware"));
     addPageWidget(page_Keyboard);
-    addPageWidget(page_GPUDriver);
+    addPageWidget(page_MHWD);
 
 
     // Connect signals and slots

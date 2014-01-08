@@ -19,20 +19,21 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "page_gpudriver.h"
-#include "ui_page_gpudriver.h"
+#include "page_mhwd.h"
+#include "ui_page_mhwd.h"
 
 
-Page_GPUDriver::Page_GPUDriver(QWidget *parent) :
+Page_MHWD::Page_MHWD(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::Page_GPUDriver)
+    ui(new Ui::Page_MHWD)
 {
     ui->setupUi(this);
-    setTitel(tr("Graphics Driver"));
+    setTitel(tr("Hardware Detection"));
     setIcon(QPixmap(":/images/resources/gpudriver.png"));
-    setShowApplyButton(true);
+    setShowApplyButton(false);
+
     ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    ui->treeWidget->setColumnWidth(0, 400);
+    ui->treeWidget->setColumnWidth(0, 450);
     ui->treeWidget->setColumnWidth(1, 75);
     ui->treeWidget->setColumnWidth(2, 75);
 
@@ -61,15 +62,15 @@ Page_GPUDriver::Page_GPUDriver(QWidget *parent) :
 
 
 
-Page_GPUDriver::~Page_GPUDriver()
+Page_MHWD::~Page_MHWD()
 {
     delete ui;
 }
 
 
 
-void Page_GPUDriver::activated() {
-
+void Page_MHWD::activated()
+{
     ui->treeWidget->clear();
     // Create mhwd data object and fill it with hardware informations
     mhwd::Data data;
@@ -77,13 +78,16 @@ void Page_GPUDriver::activated() {
     mhwd::fillData(&data);
 
     QTreeWidgetItem *displayController = new QTreeWidgetItem(ui->treeWidget);
-    displayController->setText(0, "Display controller");
+    displayController->setText(0, tr("Display controller"));
     displayController->setExpanded(true);
     QTreeWidgetItem *networkController = new QTreeWidgetItem(ui->treeWidget);
-    networkController->setText(0, "Network controller");
+    networkController->setText(0, tr("Network controller"));
     networkController->setExpanded(true);
 
-    for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin(); iterator != data.PCIDevices.end(); iterator++) {
+    for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin();
+         iterator != data.PCIDevices.end();
+         iterator++)
+    {
         QString deviceClassName = QString::fromStdString((*iterator)->className);
         QTreeWidgetItem *device = new QTreeWidgetItem();
         if (deviceClassName == QString("Display controller"))
@@ -94,13 +98,19 @@ void Page_GPUDriver::activated() {
             continue;
 
         QString deviceName = QString::fromStdString((*iterator)->deviceName);
-        device->setText(0, deviceName);
+        QString vendorName = QString::fromStdString((*iterator)->vendorName);
+        if (deviceName.isEmpty())
+            deviceName = tr("Unknown device name");
+        device->setText(0, QString("%1 (%2)").arg(deviceName, vendorName));
         device->setExpanded(true);
 
         for (std::vector<mhwd::Config*>::iterator config = (*iterator)->availableConfigs.begin();
-             config != (*iterator)->availableConfigs.end(); config++) {
+             config != (*iterator)->availableConfigs.end();
+             config++)
+        {
             QTreeWidgetItem *item = new QTreeWidgetItem(device);
             item->setFlags(Qt::ItemIsEnabled);
+
             QString configName = QString::fromStdString((*config)->name);
             item->setText(0, configName);
             if ((configName.toLower().contains("nvidia") || configName.toLower().contains("nouveau")) &&
@@ -134,17 +144,25 @@ void Page_GPUDriver::activated() {
     mhwd::freeData(&data);
 }
 
-void Page_GPUDriver::buttonInstallFree_clicked() {
+
+
+void Page_MHWD::buttonInstallFree_clicked()
+{
     ApplyDialog dialog(this);
     dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing free driver..."), false);
 }
 
-void Page_GPUDriver::buttonInstallNonFree_clicked() {
+
+
+void Page_MHWD::buttonInstallNonFree_clicked()
+{
     ApplyDialog dialog(this);
     dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing non-free driver..."), false);
 }
 
-void Page_GPUDriver::showContextMenuForListWidget(const QPoint &pos)
+
+
+void Page_MHWD::showContextMenuForListWidget(const QPoint &pos)
 {
     QMenu contextMenu(this);
     QTreeWidgetItem* temp = ui->treeWidget->itemAt(pos);
@@ -163,45 +181,57 @@ void Page_GPUDriver::showContextMenuForListWidget(const QPoint &pos)
     }
 }
 
-void Page_GPUDriver::installAction_triggered() {
+
+
+void Page_MHWD::installAction_triggered()
+{
     QTreeWidgetItem* temp = ui->treeWidget->currentItem();
+    QString configuration = temp->text(0);
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
                                   tr("Install Configuration"),
-                                  tr("Do you really want to install\n%1?").arg(temp->text(0)),
+                                  tr("Do you really want to install\n%1?").arg(configuration),
                                   QMessageBox::Ok | QMessageBox::Cancel);
     if (reply == QMessageBox::Ok)
     {
         ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-i" << "pci" << temp->text(0), tr("Installing driver..."), false);
+        dialog.exec("mhwd", QStringList() << "-i" << "pci" << configuration, tr("Installing driver..."), false);
     }
 }
 
-void Page_GPUDriver::removeAction_triggered() {
+
+
+void Page_MHWD::removeAction_triggered()
+{
     QTreeWidgetItem* temp = ui->treeWidget->currentItem();
+    QString configuration = temp->text(0);
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
                                   tr("Remove Configuration"),
-                                  tr("Do you really want to remove\n%1?").arg(temp->text(0)),
+                                  tr("Do you really want to remove\n%1?").arg(configuration),
                                   QMessageBox::Ok | QMessageBox::Cancel);
     if (reply == QMessageBox::Ok)
     {
         ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-r" << "pci" << temp->text(0), tr("Removing driver..."), false);
+        dialog.exec("mhwd", QStringList() << "-r" << "pci" << configuration, tr("Removing driver..."), false);
     }
 }
 
-void Page_GPUDriver::forceReinstallationAction_triggered() {
+
+
+void Page_MHWD::forceReinstallationAction_triggered()
+{
     QTreeWidgetItem* temp = ui->treeWidget->currentItem();
+    QString configuration = temp->text(0);
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
                                   tr("Force Reinstallation"),
-                                  tr("Do you really want to force reinstall\n%1?").arg(temp->text(0)),
+                                  tr("Do you really want to force the reinstallation of\n%1?").arg(configuration),
                                   QMessageBox::Ok | QMessageBox::Cancel);
     if (reply == QMessageBox::Ok)
     {
         ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << temp->text(0), tr("Reinstalling driver..."), false);
+        dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr("Reinstalling driver..."), false);
     }
 }
 

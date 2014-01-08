@@ -20,8 +20,8 @@
  */
 
 
-#ifndef PAGE_GPUDRIVER_H
-#define PAGE_GPUDRIVER_H
+#ifndef PAGE_MHWD_H
+#define PAGE_MHWD_H
 
 #include "widgets/pagewidget.h"
 #include <QString>
@@ -38,21 +38,21 @@
 #include "dialogs/applydialog.h"
 
 namespace Ui {
-class Page_GPUDriver;
+class Page_MHWD;
 }
 
-class Page_GPUDriver : public PageWidget
+class Page_MHWD : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_GPUDriver(QWidget *parent = 0);
-    ~Page_GPUDriver();
+    explicit Page_MHWD(QWidget *parent = 0);
+    ~Page_MHWD();
 
     void activated();
     
 private:
-    Ui::Page_GPUDriver *ui;
+    Ui::Page_MHWD *ui;
     QAction *installAction;
     QAction *removeAction;
     QAction *forceReinstallationAction;
@@ -66,4 +66,4 @@ private slots:
     void forceReinstallationAction_triggered();
 };
 
-#endif // PAGE_GPUDRIVER_H
+#endif // PAGE_MHWD_H

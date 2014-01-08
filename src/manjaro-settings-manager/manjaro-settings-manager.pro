@@ -19,9 +19,9 @@ SOURCES  += main.cpp \
             dialogs/applydialog.cpp \
             dialogs/changepassworddialog.cpp \
             dialogs/previewfiledialog.cpp \
-            pages/page_gpudriver.cpp \
             pages/page_language.cpp \
             pages/page_languagepackages.cpp \
+            pages/page_mhwd.cpp \
             pages/page_keyboard.cpp \
             pages/page_users.cpp \
             widgets/flatbutton.cpp \
@@ -31,15 +31,16 @@ SOURCES  += main.cpp \
             widgets/selectlocalesdialog.cpp \
             widgets/toolbarstylewidget.cpp
 
+
 HEADERS  += mainwindow.h \
             dialogs/accounttypedialog.h \
             dialogs/adduserdialog.h \
             dialogs/applydialog.h \
             dialogs/changepassworddialog.h \
             dialogs/previewfiledialog.h \
-            pages/page_gpudriver.h \
             pages/page_language.h \
             pages/page_languagepackages.h \
+            pages/page_mhwd.h \
             pages/page_keyboard.h \
             pages/page_users.h \
             widgets/flatbutton.h \
@@ -47,19 +48,21 @@ HEADERS  += mainwindow.h \
             widgets/keyboardpreview.h \
             widgets/pagewidget.h \
             widgets/selectlocalesdialog.h \
-            widgets/toolbarstylewidget.h \
+            widgets/toolbarstylewidget.h
+
 
 FORMS    += mainwindow.ui \
             dialogs/adduserdialog.ui \
             dialogs/accounttypedialog.ui \
             dialogs/applydialog.ui \
             dialogs/changepassworddialog.ui \
-            pages/page_gpudriver.ui \
-            pages/page_language.ui \
             pages/page_keyboard.ui \
+            pages/page_language.ui \
             pages/page_languagepackages.ui \
+            pages/page_mhwd.ui \
             pages/page_users.ui \
             widgets/selectlocalesdialog.ui
+
 
 TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_ca.ts \
