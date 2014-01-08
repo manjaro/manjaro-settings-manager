@@ -1,6 +1,7 @@
 /*
- *  Manjaro Installation Framework
+ *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <rbuldo@gmail.com>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *

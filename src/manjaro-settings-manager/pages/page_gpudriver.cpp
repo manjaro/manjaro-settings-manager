@@ -1,6 +1,7 @@
 /*
- *  Manjaro Installation Framework
+ *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <rbuldo@gmail.com>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -168,8 +169,9 @@ void Page_GPUDriver::installAction_triggered() {
     reply = QMessageBox::question(this,
                                   tr("Install Configuration"),
                                   tr("Do you really want to install\n%1?").arg(temp->text(0)),
-                                  QMessageBox::Ok|QMessageBox::Cancel);
-    if (reply == QMessageBox::Ok) {
+                                  QMessageBox::Ok | QMessageBox::Cancel);
+    if (reply == QMessageBox::Ok)
+    {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-i" << "pci" << temp->text(0), tr("Installing driver..."), false);
     }
@@ -181,8 +183,9 @@ void Page_GPUDriver::removeAction_triggered() {
     reply = QMessageBox::question(this,
                                   tr("Remove Configuration"),
                                   tr("Do you really want to remove\n%1?").arg(temp->text(0)),
-                                  QMessageBox::Ok|QMessageBox::Cancel);
-    if (reply == QMessageBox::Ok) {
+                                  QMessageBox::Ok | QMessageBox::Cancel);
+    if (reply == QMessageBox::Ok)
+    {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-r" << "pci" << temp->text(0), tr("Removing driver..."), false);
     }
@@ -194,8 +197,9 @@ void Page_GPUDriver::forceReinstallationAction_triggered() {
     reply = QMessageBox::question(this,
                                   tr("Force Reinstallation"),
                                   tr("Do you really want to force reinstall\n%1?").arg(temp->text(0)),
-                                  QMessageBox::Ok|QMessageBox::Cancel);
-    if (reply == QMessageBox::Ok) {
+                                  QMessageBox::Ok | QMessageBox::Cancel);
+    if (reply == QMessageBox::Ok)
+    {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << temp->text(0), tr("Reinstalling driver..."), false);
     }
