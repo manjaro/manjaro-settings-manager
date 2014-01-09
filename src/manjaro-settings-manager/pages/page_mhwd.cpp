@@ -58,6 +58,8 @@ Page_MHWD::Page_MHWD(QWidget *parent) :
             this, SLOT(removeAction_triggered()));
     connect(forceReinstallationAction, SIGNAL(triggered()),
             this, SLOT(forceReinstallationAction_triggered()));
+    connect(ui->checkBoxShowAll, SIGNAL(toggled(bool)),
+            this, SLOT(checkBoxShowAll_toggled()));
 }
 
 
@@ -77,38 +79,42 @@ void Page_MHWD::activated()
     mhwd::initData(&data);
     mhwd::fillData(&data);
 
-    QTreeWidgetItem *displayController = new QTreeWidgetItem(ui->treeWidget);
-    displayController->setText(0, tr("Display controller"));
-    displayController->setExpanded(true);
-    QTreeWidgetItem *networkController = new QTreeWidgetItem(ui->treeWidget);
-    networkController->setText(0, tr("Network controller"));
-    networkController->setExpanded(true);
-
     for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin();
          iterator != data.PCIDevices.end();
          iterator++)
     {
+        QTreeWidgetItem *deviceItem = new QTreeWidgetItem();
+        // Check if deviceClass node its already added
         QString deviceClassName = QString::fromStdString((*iterator)->className);
-        QTreeWidgetItem *device = new QTreeWidgetItem();
-        if (deviceClassName == QString("Display controller"))
-            displayController->addChild(device);
-        else if (deviceClassName == QString("Network controller"))
-            networkController->addChild(device);
+        QList<QTreeWidgetItem*> found = ui->treeWidget->findItems(deviceClassName, Qt::MatchCaseSensitive, 0);
+        if (found.isEmpty())
+        {
+            QTreeWidgetItem *deviceClassItem = new QTreeWidgetItem(ui->treeWidget);
+            deviceClassItem->setText(0, deviceClassName);
+            deviceClassItem->addChild(deviceItem);
+            if (!ui->checkBoxShowAll->isChecked())
+                deviceClassItem->setHidden(true);
+        }
         else
-            continue;
+            found.first()->addChild(deviceItem);
 
         QString deviceName = QString::fromStdString((*iterator)->deviceName);
         QString vendorName = QString::fromStdString((*iterator)->vendorName);
         if (deviceName.isEmpty())
             deviceName = tr("Unknown device name");
-        device->setText(0, QString("%1 (%2)").arg(deviceName, vendorName));
-        device->setExpanded(true);
+        deviceItem->setText(0, QString("%1 (%2)").arg(deviceName, vendorName));
+
 
         for (std::vector<mhwd::Config*>::iterator config = (*iterator)->availableConfigs.begin();
              config != (*iterator)->availableConfigs.end();
              config++)
         {
-            QTreeWidgetItem *item = new QTreeWidgetItem(device);
+            //Always expand and show devices with configuration
+            deviceItem->parent()->setHidden(false);
+            deviceItem->parent()->setExpanded(true);
+            deviceItem->setExpanded(true);
+
+            QTreeWidgetItem *item = new QTreeWidgetItem(deviceItem);
             item->setFlags(Qt::ItemIsEnabled);
 
             QString configName = QString::fromStdString((*config)->name);
@@ -150,6 +156,7 @@ void Page_MHWD::buttonInstallFree_clicked()
 {
     ApplyDialog dialog(this);
     dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing free driver..."), false);
+    activated();
 }
 
 
@@ -158,6 +165,7 @@ void Page_MHWD::buttonInstallNonFree_clicked()
 {
     ApplyDialog dialog(this);
     dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing non-free driver..."), false);
+    activated();
 }
 
 
@@ -197,6 +205,7 @@ void Page_MHWD::installAction_triggered()
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-i" << "pci" << configuration, tr("Installing driver..."), false);
     }
+    activated();
 }
 
 
@@ -215,6 +224,7 @@ void Page_MHWD::removeAction_triggered()
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-r" << "pci" << configuration, tr("Removing driver..."), false);
     }
+    activated();
 }
 
 
@@ -233,5 +243,10 @@ void Page_MHWD::forceReinstallationAction_triggered()
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr("Reinstalling driver..."), false);
     }
+    activated();
 }
 
+void Page_MHWD::checkBoxShowAll_toggled()
+{
+    activated();
+}

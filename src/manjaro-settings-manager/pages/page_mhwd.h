@@ -64,6 +64,7 @@ private slots:
     void installAction_triggered();
     void removeAction_triggered();
     void forceReinstallationAction_triggered();
+    void checkBoxShowAll_toggled();
 };
 
 #endif // PAGE_MHWD_H
