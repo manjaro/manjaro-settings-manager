@@ -247,24 +247,6 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     </message>
 </context>
 <context>
-    <name>Page_GPUDriver</name>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="30"/>
-        <source>Graphics Driver</source>
-        <translation>Driver della scheda grafica</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="90"/>
-        <source>free</source>
-        <translation>free</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="92"/>
-        <source>nonfree</source>
-        <translation>nonfree</translation>
-    </message>
-</context>
-<context>
     <name>Page_Keyboard</name>
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
@@ -337,43 +319,50 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
-        <source>Current System Locale</source>
-        <translation>Attuale Impostazioni locali di sistema</translation>
+        <source>System Language</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="138"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.ui" line="86"/>
+        <source>System Formats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="108"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation>Impossibile aprire il file &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="138"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation>Impossibile ottenere la stringa locale valida per le impostazioni di locale &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
+        <source>Failed to set locale!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
         <translation>Generazione del file locale.gen...</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
         <translation>Suggerimento</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation>Potrebbe essere necessario riavviare l&apos;ambiente grafico per applicare le nuove impostazioni...</translation>
     </message>
@@ -446,6 +435,138 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
         <translation>%1 pacchetti di lingua</translation>
+    </message>
+</context>
+<context>
+    <name>Page_MHWD</name>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="41"/>
+        <source>Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="46"/>
+        <source>Free</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="51"/>
+        <source>Installed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="59"/>
+        <source>Show all devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="73"/>
+        <source>Auto Install
+Free Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="81"/>
+        <source>Auto Install
+Non-Free Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="31"/>
+        <source>Hardware Detection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="41"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="43"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="45"/>
+        <location filename="../pages/page_mhwd.cpp" line="253"/>
+        <source>Force Reinstallation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <source>Unknown device name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="158"/>
+        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <source>Auto Install Configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <source>Do you really want to auto install
+ the free graphic driver?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <source>Installing free graphic driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <source>Do you really want to auto install
+ the non-free graphic driver?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <source>Installing non-free graphic driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <source>Install Configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <source>Do you really want to install
+%1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <source>Installing driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <source>Remove Configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <source>Do you really want to remove
+%1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="240"/>
+        <source>Removing driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="254"/>
+        <source>Do you really want to force the reinstallation of
+%1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <source>Reinstalling driver...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

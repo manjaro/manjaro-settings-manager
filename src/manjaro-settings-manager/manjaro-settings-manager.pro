@@ -80,6 +80,7 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_pl.ts \
                 translations/msm_pt-BR.ts \
                 translations/msm_ro.ts \
+                translations/msm_sk-SK.ts \
                 translations/msm_tr.ts
 
 RESOURCES += \

@@ -19,6 +19,7 @@
         <file>translations/msmd_pl.qm</file>
         <file>translations/msmd_pt-BR.qm</file>
         <file>translations/msmd_ro.qm</file>
+        <file>translations/msmd_sk-SK.qm</file>
         <file>translations/msmd_tr.qm</file>
     </qresource>
 </RCC>
