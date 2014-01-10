@@ -27,7 +27,6 @@
 #include <QString>
 #include <QStringList>
 #include <QList>
-#include <QListWidgetItem>
 #include <QIcon>
 #include <QMenu>
 #include <QAction>
@@ -60,7 +59,7 @@ private:
 private slots:
     void buttonInstallFree_clicked();
     void buttonInstallNonFree_clicked();
-    void showContextMenuForListWidget(const QPoint &);
+    void showContextMenuForTreeWidget(const QPoint &);
     void installAction_triggered();
     void removeAction_triggered();
     void forceReinstallationAction_triggered();

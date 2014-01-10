@@ -51,7 +51,7 @@ Page_MHWD::Page_MHWD(QWidget *parent) :
     connect(ui->buttonInstallNonFree, SIGNAL(clicked()),
             this, SLOT(buttonInstallNonFree_clicked()));
     connect(ui->treeWidget, SIGNAL(customContextMenuRequested(const QPoint &)),
-            SLOT(showContextMenuForListWidget(const QPoint &)));
+            SLOT(showContextMenuForTreeWidget(const QPoint &)));
     connect(installAction, SIGNAL(triggered()),
             this, SLOT(installAction_triggered()));
     connect(removeAction, SIGNAL(triggered()),
@@ -145,7 +145,6 @@ void Page_MHWD::activated()
                 item->setCheckState(2, Qt::Checked);
         }
     }
-
     // Free data object again
     mhwd::freeData(&data);
 }
@@ -154,8 +153,16 @@ void Page_MHWD::activated()
 
 void Page_MHWD::buttonInstallFree_clicked()
 {
-    ApplyDialog dialog(this);
-    dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing free driver..."), false);
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,
+                                  tr("Auto Install Configuration"),
+                                  tr("Do you really want to auto install\n the free graphic driver?"),
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes)
+    {
+        ApplyDialog dialog(this);
+        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing free graphic driver..."), false);
+    }
     activated();
 }
 
@@ -163,14 +170,22 @@ void Page_MHWD::buttonInstallFree_clicked()
 
 void Page_MHWD::buttonInstallNonFree_clicked()
 {
-    ApplyDialog dialog(this);
-    dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing non-free driver..."), false);
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,
+                                  tr("Auto Install Configuration"),
+                                  tr("Do you really want to auto install\n the non-free graphic driver?"),
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes)
+    {
+        ApplyDialog dialog(this);
+        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing non-free graphic driver..."), false);
+    }
     activated();
 }
 
 
 
-void Page_MHWD::showContextMenuForListWidget(const QPoint &pos)
+void Page_MHWD::showContextMenuForTreeWidget(const QPoint &pos)
 {
     QMenu contextMenu(this);
     QTreeWidgetItem* temp = ui->treeWidget->itemAt(pos);
@@ -199,8 +214,8 @@ void Page_MHWD::installAction_triggered()
     reply = QMessageBox::question(this,
                                   tr("Install Configuration"),
                                   tr("Do you really want to install\n%1?").arg(configuration),
-                                  QMessageBox::Ok | QMessageBox::Cancel);
-    if (reply == QMessageBox::Ok)
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes)
     {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-i" << "pci" << configuration, tr("Installing driver..."), false);
@@ -218,8 +233,8 @@ void Page_MHWD::removeAction_triggered()
     reply = QMessageBox::question(this,
                                   tr("Remove Configuration"),
                                   tr("Do you really want to remove\n%1?").arg(configuration),
-                                  QMessageBox::Ok | QMessageBox::Cancel);
-    if (reply == QMessageBox::Ok)
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes)
     {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-r" << "pci" << configuration, tr("Removing driver..."), false);
@@ -237,8 +252,8 @@ void Page_MHWD::forceReinstallationAction_triggered()
     reply = QMessageBox::question(this,
                                   tr("Force Reinstallation"),
                                   tr("Do you really want to force the reinstallation of\n%1?").arg(configuration),
-                                  QMessageBox::Ok | QMessageBox::Cancel);
-    if (reply == QMessageBox::Ok)
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes)
     {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr("Reinstalling driver..."), false);
