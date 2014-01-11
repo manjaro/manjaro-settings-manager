@@ -81,7 +81,8 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_pt-BR.ts \
                 translations/msm_ro.ts \
                 translations/msm_sk-SK.ts \
-                translations/msm_tr.ts
+                translations/msm_tr.ts \
+                translations/msm_uk.ts
 
 RESOURCES += \
     resources.qrc

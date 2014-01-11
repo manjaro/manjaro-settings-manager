@@ -40,7 +40,8 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_pt-BR.ts \
                 translations/msmd_ro.ts \
                 translations/msmd_sk-SK.ts \
-                translations/msmd_tr.ts
+                translations/msmd_tr.ts \
+                translations/msmd_uk.ts
 
 RESOURCES += \
     resources.qrc

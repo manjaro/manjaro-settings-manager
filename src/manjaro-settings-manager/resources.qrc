@@ -41,5 +41,6 @@
         <file>translations/msm_ro.qm</file>
         <file>translations/msm_sk-SK.qm</file>
         <file>translations/msm_tr.qm</file>
+        <file>translations/msm_uk.qm</file>
     </qresource>
 </RCC>

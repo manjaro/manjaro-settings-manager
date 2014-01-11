@@ -1,75 +1,73 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Account Type</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Standaard</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Beheerder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Toon Groepen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation>Groep</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation>Lid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation>Toepassen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation>Waarschuwing!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>Admin groep %1 is niet geactiveerd in &apos;%2&apos;! Je moet het nodig activeren om Admin rechten in te stellen...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Volgende de standaard gebruikers groepen zijn gedeactiveerd:
-%1
-Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation>Fout!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>Gefaald bij instellen groepen!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -77,59 +75,59 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Voeg gebruiker toe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Gebruik´s naam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Hertype Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Maak</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>Uw gebruiknaam bevat foute karakters!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>Uw wachtwoord komen niet over heen!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation>Fout!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation>Gebruiker toevoegen is gefaald!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Gefaald om gebruiker´s wachtwoord in te stellen!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -137,34 +135,34 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation>Processen...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation>Sluiten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation>Proces is klaar!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
         <location filename="../dialogs/applydialog.cpp" line="122"/>
         <source>Close (%1)</source>
-        <translation>Sluiten (%1)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>Proces gefaald!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -173,38 +171,38 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Nieuw Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Hertype Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="149"/>
         <source>Apply</source>
-        <translation>Toepassen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation>Fout!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>Uw wachtwoord komt niet overheen!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Gefaald by instellen van gebruiker´s wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -212,38 +210,38 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Instellingen Beheerder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation>Alle Instelingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
         <location filename="../mainwindow.ui" line="285"/>
         <source>Quit</source>
-        <translation>Afsluiten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Apply</source>
-        <translation>Toepassen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="45"/>
         <source>System</source>
-        <translation>Systeem</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
-        <translation>Hardware</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
-        <translation>Manjaro Instellingen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -251,27 +249,27 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Toetsenbord model:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>Type hier om de toetsenbord te testen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
         <source>Keyboard Settings</source>
-        <translation>Toetsenbord Instellingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation>Instellingen van nieuwe toetsenbord opmaak..</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Error</source>
-        <translation>Fout</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
@@ -284,38 +282,38 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
     <message>
         <location filename="../pages/page_language.ui" line="22"/>
         <source>System Locales</source>
-        <translation>Landinstellingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="42"/>
         <source>Add</source>
-        <translation>Toevoegen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="49"/>
         <source>Remove</source>
-        <translation>Verwijderen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="56"/>
         <source>Restore</source>
-        <translation>Herstellen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="66"/>
         <source>Locale</source>
-        <translation>Locale</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="71"/>
         <location filename="../pages/page_language.cpp" line="29"/>
         <source>Language</source>
-        <translation>Taal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="76"/>
         <source>Territory</source>
-        <translation>Gebied</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
@@ -333,18 +331,18 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
         <location filename="../pages/page_language.cpp" line="160"/>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
-        <translation>Fout!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>Gefaald om bestand &apos;%1&apos; te openen!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Mislukt geldig locale string voor locale verkrijgen &apos;%1&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
@@ -354,17 +352,17 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation>Genereer locale.gen bestand...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
-        <translation>Hint</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Je moet misschien je grafische omgeving herstarten om je nieuwe instellingen te gebruiken..</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -372,69 +370,69 @@ Het het aan te raden deze groepen te activeren. Wil je echt verder gaan?</transl
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Beschikbare Taal Pakketten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Extra taal pakketten can worden geinstalleerd:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
         <location filename="../pages/page_languagepackages.ui" line="101"/>
         <source>Package</source>
-        <translation>Pakket</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation>Hoofd Pakket</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
         <source>Install</source>
-        <translation>Install</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Geinstalleerd Taal Pakketten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>geinstalleerde taal pakketten:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Taalk Pakketten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation>Opwaardeer pacman database..</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation>Systeem is out-of-date</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Uw systeem is niet up-to-date! U zal eerst moeten updaten om verder te gaan!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation>Installeer Taal Pakketten..</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation>%1 taal pakketten</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -574,48 +572,48 @@ Non-Free Driver</source>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation>Image</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation>Gebruikersnaam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
         <source>Account Type</source>
-        <translation>Type Account</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation>Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation>●●●●●●</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>Gebruikers Accouns</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation>Standaard</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
         <source>Administrator</source>
-        <translation>Beheerder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Afbeeldingen (*.png *.jpg *.bmp)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -625,7 +623,7 @@ Non-Free Driver</source>
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation>Fout !</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -635,7 +633,7 @@ Non-Free Driver</source>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>Gefaald om foto te kopieeren naar &apos;%1&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
