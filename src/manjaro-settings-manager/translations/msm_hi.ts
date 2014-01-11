@@ -327,7 +327,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>सिस्टम की भाषा</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
@@ -491,7 +491,7 @@ Non-Free Driver</source>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>हटाएँ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>

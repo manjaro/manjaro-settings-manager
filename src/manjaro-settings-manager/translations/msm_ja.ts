@@ -319,12 +319,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>システムの言語</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>システムのフォーマット</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -348,7 +348,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>ロケールの設定に失敗しました!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
@@ -441,131 +441,138 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_mhwd.ui" line="41"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>ドライバ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation type="unfinished"/>
+        <translation>フリー</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>インストール済み</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="59"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>全てのデバイスを表示</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>自動インストール
+フリーのドライバ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>自動インストール
+非フリーのドライバ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>ハードウェアの検出</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>インストール</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>強制的に再インストール</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>未知のデバイス名</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>自動インストール設定</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>本当に自動インストールを行いますか?
+フリーのグラフィックドライバ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>フリーのグラフィックドライバのインストール中...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>本当に自動インストールを行いますか?
+非フリーのグラフィックドライバ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>非フリーのグラフィックドライバのインストール中...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>インストール設定</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>本当にインストールを行いますか?
+%1</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>ドライバのインストール中...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>設定の削除</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>本当に削除しますか?
+%1</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>ドライバの削除中...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>本当に強制再インストールを行いますか?
+%1</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>ドライバの再インストール中...</translation>
     </message>
 </context>
 <context>

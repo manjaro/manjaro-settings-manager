@@ -320,12 +320,12 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Lingua di sistema </translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatti di sistema</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -349,7 +349,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile impostare locale!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
@@ -442,131 +442,138 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/page_mhwd.ui" line="41"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>Driver</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation type="unfinished"/>
+        <translation>Libero</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Installato</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="59"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>Mostra tutti i dispositivi</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto installazione
+Driver libero</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto installazione
+Driver non-libero</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Rilevamento hardware</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Installa</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovere</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Forza reinstallazione</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Nome del dispositivo sconosciuto</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Installazione automatica configurazione</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi veramente installare automaticamente
+ il driver grafico libero?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installazione del driver grafico libero...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi veramente installare automaticamente
+  il driver grafico non-libero?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installazione del driver grafico non-libero...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Installa configurazione</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi veramente installare
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installazione driver...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi configurazione</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi veramente rimuovere
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Rimozione driver...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi veramente forzare la reinstallazione di
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Reinstallazione driver...</translation>
     </message>
 </context>
 <context>
