@@ -36,6 +36,9 @@
          <height>36</height>
         </size>
        </property>
+       <property name="allColumnsShowFocus">
+        <bool>true</bool>
+       </property>
        <column>
         <property name="text">
          <string>Driver</string>
