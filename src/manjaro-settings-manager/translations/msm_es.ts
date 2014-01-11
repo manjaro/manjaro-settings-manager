@@ -164,7 +164,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>Proceso fallido</translation>
+        <translation>Falló el proceso</translation>
     </message>
 </context>
 <context>
@@ -247,24 +247,6 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     </message>
 </context>
 <context>
-    <name>Page_GPUDriver</name>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="30"/>
-        <source>Graphics Driver</source>
-        <translation>Controlador de gráficos</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="90"/>
-        <source>free</source>
-        <translation>libre</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_gpudriver.cpp" line="92"/>
-        <source>nonfree</source>
-        <translation>privativo</translation>
-    </message>
-</context>
-<context>
     <name>Page_Keyboard</name>
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
@@ -337,43 +319,50 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
-        <source>Current System Locale</source>
-        <translation>Configuración regional actual del sistema</translation>
+        <source>System Language</source>
+        <translation>Idioma del sistema</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="138"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.ui" line="86"/>
+        <source>System Formats</source>
+        <translation>Formatos del sistema</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="108"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation>No se pudo abrir el archivo «%1».</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="138"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation>No se pudo obtener la cadena válida de la configuración regional «%1».</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
+        <source>Failed to set locale!</source>
+        <translation>No se pudo establecer la configuración regional.</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
         <translation>Generando el archivo locale.gen…</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
         <translation>Consejo</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation>Puede que necesite reiniciar el entorno gráfico para que los cambios surtan efecto…</translation>
     </message>
@@ -446,6 +435,145 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
         <translation>%1 paquetes de idioma</translation>
+    </message>
+</context>
+<context>
+    <name>Page_MHWD</name>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="41"/>
+        <source>Driver</source>
+        <translation>Controlador</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="46"/>
+        <source>Free</source>
+        <translation>Libre</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="51"/>
+        <source>Installed</source>
+        <translation>Instalado</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="59"/>
+        <source>Show all devices</source>
+        <translation>Mostrar todos los dispositivos</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="73"/>
+        <source>Auto Install
+Free Driver</source>
+        <translation>Instalar controlador
+libre automáticamente</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="81"/>
+        <source>Auto Install
+Non-Free Driver</source>
+        <translation>Instalar controlador
+privativo automáticamente</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="31"/>
+        <source>Hardware Detection</source>
+        <translation>Detección de hardware</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="41"/>
+        <source>Install</source>
+        <translation>Instalar</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="43"/>
+        <source>Remove</source>
+        <translation>Desinstalar</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="45"/>
+        <location filename="../pages/page_mhwd.cpp" line="253"/>
+        <source>Force Reinstallation</source>
+        <translation>Forzar reinstalación</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <source>Unknown device name</source>
+        <translation>Nombre de dispositivo desconocido</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="158"/>
+        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <source>Auto Install Configuration</source>
+        <translation>Instalar configuración autom.</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <source>Do you really want to auto install
+ the free graphic driver?</source>
+        <translation>¿Está seguro de que quiere instalar
+automáticamente el controlador libre?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <source>Installing free graphic driver...</source>
+        <translation>Instalando el controlador gráfico libre…</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <source>Do you really want to auto install
+ the non-free graphic driver?</source>
+        <translation>¿Está seguro de que quiere instalar
+automáticamente el controlador privativo?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <source>Installing non-free graphic driver...</source>
+        <translation>Instalando el controlador gráfico privativo…</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <source>Install Configuration</source>
+        <translation>Instalar configuración</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <source>Do you really want to install
+%1?</source>
+        <translation>¿Está seguro de que quiere instalar
+%1?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <source>Installing driver...</source>
+        <translation>Instalando el controlador…</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <source>Remove Configuration</source>
+        <translation>Desinstalar configuración</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <source>Do you really want to remove
+%1?</source>
+        <translation>¿Está seguro de que quiere desinstalar
+%1?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="240"/>
+        <source>Removing driver...</source>
+        <translation>Desinstalando el controlador…</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="254"/>
+        <source>Do you really want to force the reinstallation of
+%1?</source>
+        <translation>¿Está seguro de que quiere forzar la reinstalación de
+%1?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <source>Reinstalling driver...</source>
+        <translation>Reinstalando el controlador…</translation>
     </message>
 </context>
 <context>

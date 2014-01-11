@@ -39,6 +39,7 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_pl.ts \
                 translations/msmd_pt-BR.ts \
                 translations/msmd_ro.ts \
+                translations/msmd_sk-SK.ts \
                 translations/msmd_tr.ts
 
 RESOURCES += \

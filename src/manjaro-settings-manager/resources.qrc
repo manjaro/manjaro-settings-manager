@@ -39,6 +39,7 @@
         <file>translations/msm_pl.qm</file>
         <file>translations/msm_pt-BR.qm</file>
         <file>translations/msm_ro.qm</file>
+        <file>translations/msm_sk-SK.qm</file>
         <file>translations/msm_tr.qm</file>
     </qresource>
 </RCC>
