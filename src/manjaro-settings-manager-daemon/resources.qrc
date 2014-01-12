@@ -5,7 +5,7 @@
     <qresource prefix="/">
         <file>translations/msmd_ast.qm</file>
         <file>translations/msmd_ca.qm</file>
-        <file>translations/msmd_cs-CZ.qm</file>
+        <file>translations/msmd_cs_CZ.qm</file>
         <file>translations/msmd_de.qm</file>
         <file>translations/msmd_en.qm</file>
         <file>translations/msmd_el.qm</file>
@@ -17,9 +17,9 @@
         <file>translations/msmd_nb.qm</file>
         <file>translations/msmd_nl.qm</file>
         <file>translations/msmd_pl.qm</file>
-        <file>translations/msmd_pt-BR.qm</file>
+        <file>translations/msmd_pt_BR.qm</file>
         <file>translations/msmd_ro.qm</file>
-        <file>translations/msmd_sk-SK.qm</file>
+        <file>translations/msmd_sk_SK.qm</file>
         <file>translations/msmd_tr.qm</file>
         <file>translations/msmd_uk.qm</file>
     </qresource>

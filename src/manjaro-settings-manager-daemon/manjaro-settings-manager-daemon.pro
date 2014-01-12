@@ -25,7 +25,7 @@ unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../global/libglobal.a
 
 TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_ca.ts \
-                translations/msmd_cs-CZ.ts \
+                translations/msmd_cs_CZ.ts \
                 translations/msmd_de.ts \
                 translations/msmd_en.ts \
                 translations/msmd_el.ts \
@@ -37,9 +37,9 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_nb.ts \
                 translations/msmd_nl.ts \
                 translations/msmd_pl.ts \
-                translations/msmd_pt-BR.ts \
+                translations/msmd_pt_BR.ts \
                 translations/msmd_ro.ts \
-                translations/msmd_sk-SK.ts \
+                translations/msmd_sk_SK.ts \
                 translations/msmd_tr.ts \
                 translations/msmd_uk.ts
 

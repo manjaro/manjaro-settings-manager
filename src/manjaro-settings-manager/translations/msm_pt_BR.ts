@@ -522,12 +522,12 @@ o driver gráfico livre?</translation>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
         <translation>Você realmente deseja auto instalar
-o driver gráfico não-livre?</translation>
+o driver gráfico proprietário?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation>Instalando o driver gráfico não-livre...</translation>
+        <translation>Instalando o driver gráfico proprietário...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
