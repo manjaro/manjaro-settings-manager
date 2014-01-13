@@ -36,6 +36,7 @@
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
+#include <QSettings>
 #include "widgets/pagewidget.h"
 #include "pages/page_languagepackages.h"
 #include "pages/page_keyboard.h"
@@ -56,7 +57,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+    void readPositionSettings();
+
 private:
     class ListWidgetItem : public QListWidgetItem
     {
@@ -75,6 +77,8 @@ private:
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);
+    void closeEvent(QCloseEvent *);
+    void writePositionSettings();
 
 protected slots:
     void listWidget_itemClicked(QListWidgetItem *);

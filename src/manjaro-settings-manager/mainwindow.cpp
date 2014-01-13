@@ -224,3 +224,45 @@ void MainWindow::closePageRequested(PageWidget *page) {
 
     buttonShowAllSettings_clicked();
 }
+
+
+
+void MainWindow::writePositionSettings()
+{
+    QSettings settings("Manjaro", "Manjaro Settings Manager");
+
+    settings.beginGroup("mainwindow");
+
+    settings.setValue("geometry", saveGeometry());
+    settings.setValue("savestate", saveState());
+    settings.setValue("maximized", isMaximized());
+    if (!isMaximized()) {
+        settings.setValue("pos", pos());
+        settings.setValue("size", size());
+    }
+
+    settings.endGroup();
+}
+
+
+
+void MainWindow::readPositionSettings()
+{
+    QSettings settings("Manjaro", "Manjaro Settings Manager");
+
+    settings.beginGroup("mainwindow");
+
+    restoreGeometry(settings.value("geometry", saveGeometry()).toByteArray());
+    restoreState(settings.value( "savestate", saveState()).toByteArray());
+    move(settings.value("pos", pos()).toPoint());
+    resize(settings.value("size", size()).toSize());
+    if ( settings.value("maximized", isMaximized() ).toBool())
+        showMaximized();
+
+    settings.endGroup();
+}
+
+void MainWindow::closeEvent(QCloseEvent *)
+{
+    writePositionSettings();
+}
