@@ -48,7 +48,7 @@ void Daemon::run() {
     QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
     Global::getLanguagePackages(&availablePackages, &installedPackages);
 
-    QSettings settings("manjaro-settings-manager", "daemon");
+    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
     settings.clear();
     // Check if packages should be ignored
     for (int i = 0; i < availablePackages.size(); i++) {
