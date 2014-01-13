@@ -27,6 +27,7 @@
 #include <QProcess>
 #include <QStringList>
 #include <QDir>
+#include <QSettings>
 #include <global.h>
 
 

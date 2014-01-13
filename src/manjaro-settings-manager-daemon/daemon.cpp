@@ -48,12 +48,13 @@ void Daemon::run() {
     QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
     Global::getLanguagePackages(&availablePackages, &installedPackages);
 
+    QSettings settings("manjaro-settings-manager", "daemon");
+    settings.clear();
     // Check if packages should be ignored
     for (int i = 0; i < availablePackages.size(); i++) {
         const Global::LanguagePackage *l = &availablePackages.at(i);
-        QString value = Global::getConfigValue("notify_count_" + l->languagePackage, QDir::homePath() + DAEMON_CONF_FILE);
-
-        if (value.isEmpty() || value.toInt() < 2)
+        int value = settings.value("notify_count_" + l->languagePackage, "0").toInt();
+        if (value < 2)
             packages.append(*l);
     }
 
@@ -67,16 +68,10 @@ void Daemon::run() {
             // Add to Config
             for (int i = 0; i < packages.size(); i++) {
                 const Global::LanguagePackage *l = &packages.at(i);
-                QString value = Global::getConfigValue("notify_count_" + l->languagePackage, QDir::homePath() + DAEMON_CONF_FILE);
-                int count = 0;
-
-                if (!value.isEmpty() && value.toInt() > 0)
-                    count = value.toInt();
-
-                ++count;
-
-                if (count < 3)
-                    Global::setConfigValue("notify_count_" + l->languagePackage, QString::number(count), QDir::homePath() + DAEMON_CONF_FILE);
+                int value = settings.value("notify_count_" + l->languagePackage, "0").toInt();
+                ++value;
+                if (value < 3)
+                    settings.setValue("notify_count_" + l->languagePackage, value);
             }
         }
     }

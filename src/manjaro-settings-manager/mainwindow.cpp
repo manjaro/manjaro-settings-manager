@@ -229,7 +229,7 @@ void MainWindow::closePageRequested(PageWidget *page) {
 
 void MainWindow::writePositionSettings()
 {
-    QSettings settings("Manjaro", "Manjaro Settings Manager");
+    QSettings settings("manjaro", "manjaro-settings-manager");
 
     settings.beginGroup("mainwindow");
 
@@ -248,7 +248,7 @@ void MainWindow::writePositionSettings()
 
 void MainWindow::readPositionSettings()
 {
-    QSettings settings("Manjaro", "Manjaro Settings Manager");
+    QSettings settings("manjaro", "manjaro-settings-manager");
 
     settings.beginGroup("mainwindow");
 
