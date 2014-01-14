@@ -79,13 +79,13 @@ void Page_MHWD::activated()
     mhwd::initData(&data);
     mhwd::fillData(&data);
 
-    for (std::vector<mhwd::Device*>::iterator iterator = data.PCIDevices.begin();
-         iterator != data.PCIDevices.end();
-         iterator++)
+    for (std::vector<mhwd::Device*>::iterator dev_iter = data.PCIDevices.begin();
+         dev_iter != data.PCIDevices.end();
+         dev_iter++)
     {
         QTreeWidgetItem *deviceItem = new QTreeWidgetItem();
         // Check if deviceClass node its already added
-        QString deviceClassName = QString::fromStdString((*iterator)->className);
+        QString deviceClassName = QString::fromStdString((*dev_iter)->className);
         QList<QTreeWidgetItem*> found = ui->treeWidget->findItems(deviceClassName, Qt::MatchCaseSensitive, 0);
         if (found.isEmpty())
         {
@@ -98,16 +98,16 @@ void Page_MHWD::activated()
         else
             found.first()->addChild(deviceItem);
 
-        QString deviceName = QString::fromStdString((*iterator)->deviceName);
-        QString vendorName = QString::fromStdString((*iterator)->vendorName);
+        QString deviceName = QString::fromStdString((*dev_iter)->deviceName);
+        QString vendorName = QString::fromStdString((*dev_iter)->vendorName);
         if (deviceName.isEmpty())
             deviceName = tr("Unknown device name");
         deviceItem->setText(0, QString("%1 (%2)").arg(deviceName, vendorName));
 
 
-        for (std::vector<mhwd::Config*>::iterator config = (*iterator)->availableConfigs.begin();
-             config != (*iterator)->availableConfigs.end();
-             config++)
+        for (std::vector<mhwd::Config*>::iterator conf_iter = (*dev_iter)->availableConfigs.begin();
+             conf_iter != (*dev_iter)->availableConfigs.end();
+             conf_iter++)
         {
             //Always expand and show devices with configuration
             deviceItem->parent()->setHidden(false);
@@ -117,7 +117,7 @@ void Page_MHWD::activated()
             QTreeWidgetItem *item = new QTreeWidgetItem(deviceItem);
             item->setFlags(Qt::ItemIsEnabled);
 
-            QString configName = QString::fromStdString((*config)->name);
+            QString configName = QString::fromStdString((*conf_iter)->name);
             item->setText(0, configName);
             if ((configName.toLower().contains("nvidia") || configName.toLower().contains("nouveau")) &&
                     configName.toLower().contains("intel"))
@@ -132,13 +132,13 @@ void Page_MHWD::activated()
                 item->setIcon(0, QIcon(":/images/resources/gpudriver.png"));
 
             //Check if freedriver
-            if ((*config)->freedriver)
+            if ((*conf_iter)->freedriver)
                 item->setCheckState(1, Qt::Checked);
             else
                 item->setCheckState(1, Qt::Unchecked);
 
             //Check if installed
-            mhwd::Config *installedConfig = getInstalledConfig(&data, (*config)->name, (*config)->type);
+            mhwd::Config *installedConfig = getInstalledConfig(&data, (*conf_iter)->name, (*conf_iter)->type);
             if (installedConfig == NULL)
                 item->setCheckState(2, Qt::Unchecked);
             else
