@@ -212,7 +212,7 @@ Odporúčame ich povoliť. Naozaj chcete pokračovať?</translation>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Nastavenie systému Manjaro</translation>
+        <translation>Nastavenia systému Manjaro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
@@ -320,12 +320,12 @@ Odporúčame ich povoliť. Naozaj chcete pokračovať?</translation>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk systému</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formáty systému</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -349,7 +349,7 @@ Odporúčame ich povoliť. Naozaj chcete pokračovať?</translation>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Zlyhalo nastavenie lokalizácie!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
@@ -442,131 +442,139 @@ Odporúčame ich povoliť. Naozaj chcete pokračovať?</translation>
     <message>
         <location filename="../pages/page_mhwd.ui" line="41"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>Ovládač</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation type="unfinished"/>
+        <translation>Slobodný</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Nainštalovaný</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="59"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>Zobraziť všetky zariadenia</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>Automatická inštalácia
+Slobodný ovládač</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>Automatická inštalácia
+Neslobodný ovládač</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Detekcia hardvéru</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Inštalovať</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Odstrániť</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Vynútená reinštálacia</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Neznámy názov zariadenia</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Automatická konfigurácia inštalácie</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Naozaj chcete vykonať automatickú inštaláciu
+slobodného grafického ovládača?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Inštalujem slobodný grafický ovládač...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Naozaj chcete vykonať automatickú inštaláciu
+neslobodného grafického ovládača?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Inštalujem neslobodný grafický ovládač...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurácia inštalácie</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Naozaj chcete nainštalovať
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Inštalujem ovládač...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Odstrániť konfiguráciu</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Naozaj chcete odstrániť
+
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Odstraňujem ovládač...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Naozaj chcete vynútiť reinštaláciu
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Reinštalujem ovládač...</translation>
     </message>
 </context>
 <context>

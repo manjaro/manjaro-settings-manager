@@ -332,7 +332,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>सिस्टम प्रारूप</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -356,7 +356,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>स्थान निर्धारित करने में विफल!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
@@ -449,44 +449,46 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_mhwd.ui" line="41"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>ड्राइवर</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation type="unfinished"/>
+        <translation>मुक्त</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>स्थापित</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="59"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>सभी उपकरणों दिखाएँ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>स्वतः संसाधन 
+मुक्त ड्राइवर</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>स्वतः संसाधन 
+गैर मुक्त ड्राइवर</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>हार्डवेयर का पता लगाने</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>स्थापित करें</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
@@ -497,83 +499,88 @@ Non-Free Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>सेना के पुनः अधिष्ठापन</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>अज्ञात डिवाइस का नाम</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>ऑटो विन्यास स्थापित करें</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>आप वास्तव में ऑटो स्थापित करना चाहते हैं 
+मुफ्त ग्राफिक ड्राइवर?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>मुफ्त ग्राफिक ड्राइवर स्थापित ...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>आप वास्तव में ऑटो स्थापित करना चाहते हैं 
+गैर मुक्त ग्राफिक ड्राइवर?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>गैर मुक्त ग्राफिक ड्राइवर स्थापित ...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>विन्यास स्थापित करें</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>आप वास्तव में स्थापित करना चाहते हैं 
+% 1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>चालक की स्थापना ...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>विन्यास निकालें</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>आप वास्तव में दूर करने के लिए करना चाहते हैं 
+% 1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>ड्राइवर निकाल रहा है ...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>क्या तुम सच में की पुनर्स्थापना के लिए मजबूर करना चाहते हैं 
+% 1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>चालक की स्थापना रे ...</translation>
     </message>
 </context>
 <context>

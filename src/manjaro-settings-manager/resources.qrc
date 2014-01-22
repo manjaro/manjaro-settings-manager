@@ -24,6 +24,7 @@
     </qresource>
     <qresource prefix="/">
         <file>translations/msm_ast.qm</file>
+        <file>translations/msm_bg_BG.qm</file>
         <file>translations/msm_ca.qm</file>
         <file>translations/msm_cs_CZ.qm</file>
         <file>translations/msm_de.qm</file>
@@ -44,5 +45,6 @@
         <file>translations/msm_sk_SK.qm</file>
         <file>translations/msm_tr.qm</file>
         <file>translations/msm_uk.qm</file>
+        <file>translations/msm_zh_CN.qm</file>
     </qresource>
 </RCC>

@@ -65,6 +65,7 @@ FORMS    += mainwindow.ui \
 
 
 TRANSLATIONS += translations/msm_ast.ts \
+                translations/msm_bg_BG.ts \
                 translations/msm_ca.ts \
                 translations/msm_cs_CZ.ts \
                 translations/msm_de.ts \
@@ -84,7 +85,8 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_ro.ts \
                 translations/msm_sk_SK.ts \
                 translations/msm_tr.ts \
-                translations/msm_uk.ts
+                translations/msm_uk.ts \
+                translations/msm_zh_CN.ts
 
 RESOURCES += \
     resources.qrc

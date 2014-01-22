@@ -24,6 +24,7 @@ DEPENDPATH += $$PWD/../global
 unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../global/libglobal.a
 
 TRANSLATIONS += translations/msmd_ast.ts \
+                translations/msmd_bg_BG.ts \
                 translations/msmd_ca.ts \
                 translations/msmd_cs_CZ.ts \
                 translations/msmd_de.ts \
@@ -43,7 +44,8 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_ro.ts \
                 translations/msmd_sk_SK.ts \
                 translations/msmd_tr.ts \
-                translations/msmd_uk.ts
+                translations/msmd_uk.ts \
+                translations/msmd_zh_CN.ts
 
 RESOURCES += \
     resources.qrc
