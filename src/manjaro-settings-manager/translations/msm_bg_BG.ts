@@ -4,7 +4,7 @@
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Тип на акаунта</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
@@ -90,7 +90,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>Повторете паролата</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
@@ -122,7 +122,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation type="unfinished"/>
+        <translation>Грешка при добавяне на потребител!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
@@ -176,7 +176,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>Повторете паролата</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
@@ -210,7 +210,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro мениджър на настройките</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
@@ -231,7 +231,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.cpp" line="45"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Система</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="53"/>
@@ -357,7 +357,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
-        <translation type="unfinished"/>
+        <translation>Съвет</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
@@ -397,7 +397,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Инсталирани езикови пакети</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
@@ -445,7 +445,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation type="unfinished"/>
+        <translation>Свободен</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
@@ -490,7 +490,7 @@ Non-Free Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Принудително преинсталиране </translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
@@ -727,12 +727,12 @@ Non-Free Driver</source>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Описание</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>Описание:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
