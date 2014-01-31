@@ -463,14 +463,14 @@ Odporúčame ich povoliť. Naozaj chcete pokračovať?</translation>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation>Automatická inštalácia
+        <translation>Automaticky nainštalovať
 Slobodný ovládač</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation>Automatická inštalácia
+        <translation>Automaticky nainštalovať
 Neslobodný ovládač</translation>
     </message>
     <message>

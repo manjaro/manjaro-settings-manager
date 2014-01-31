@@ -9,7 +9,7 @@
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Standart</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
@@ -50,16 +50,16 @@
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>Admingruppe %1 ist nicht in &apos;%2&apos; aktviert! Sie müssen diese erst freischalten um Adminrechte vergeben zu können ...</translation>
+        <translation>Admingruppe %1 ist nicht in &apos;%2&apos; aktviert! Sie müssen diese erst freischalten, um Adminrechte vergeben zu können ...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Folgende vorgegebenen Gruppen wurde deaktviert:
+        <translation>Folgende vorgegebenen Gruppen wurden deaktiviert:
 %1
-Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translation>
+Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
@@ -102,7 +102,7 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Erstelle</translation>
+        <translation>Erstellen</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
@@ -251,12 +251,12 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Tastaturmodel:</translation>
+        <translation>Tastaturmodell:</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>Tippen Sie hier um Ihre Tastatur zu testen</translation>
+        <translation>Tippen Sie hier, um Ihre Tastatur zu testen</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
@@ -364,7 +364,7 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Sie müssten ggf. die grafische Umgebung neustarten um die Veränderungen anzuwenden ...</translation>
+        <translation>Sie müssten ggf. die grafische Umgebung neustarten, um die Veränderungen anzuwenden ...</translation>
     </message>
 </context>
 <context>
@@ -424,7 +424,7 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Ihr System ist nicht aktuell! Sie müssen es zuerst erneuern um fortfahren zu können!</translation>
+        <translation>Ihr System ist nicht aktuell! Sie müssen es zuerst erneuern, um fortfahren zu können!</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
@@ -463,14 +463,14 @@ Es ist empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translati
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation>Auto. Installation
+        <translation>Autom. Installation
 Freie Treiber</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation>Auto. Installation
+        <translation>Autom. Installation
 Unfreie Treiber</translation>
     </message>
     <message>
@@ -503,13 +503,13 @@ Unfreie Treiber</translation>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation>Auto. Installationskonfiguration</translation>
+        <translation>Autom. Installationskonfiguration</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation>Wollen Sie wirklich frei Treiber
+        <translation>Wollen Sie wirklich freie Treiber
 automatisch installieren?</translation>
     </message>
     <message>
@@ -527,7 +527,7 @@ automatisch installieren?</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation>Installiere unfreien Grafik-Treiber ...</translation>
+        <translation>Installiere unfreie Grafik-Treiber ...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
@@ -612,7 +612,7 @@ automatisch installieren?</translation>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation>Standart</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
