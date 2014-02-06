@@ -73,6 +73,7 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_el.ts \
                 translations/msm_es.ts \
                 translations/msm_fa.ts \
+                translations/msm_fo.ts \
                 translations/msm_fr.ts \
                 translations/msm_he.ts \
                 translations/msm_hi.ts \

@@ -364,7 +364,7 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Ar putea fi nevoie restartarea mediului grafic pentru a aplica noile setări...</translation>
+        <translation>Ar putea fi nevoie de restartarea mediului grafic pentru a aplica noile setări...</translation>
     </message>
 </context>
 <context>
@@ -471,7 +471,7 @@ driverul liber</translation>
         <source>Auto Install
 Non-Free Driver</source>
         <translation>Autoinstalează
-Driverul proprietar</translation>
+driverul proprietar</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
