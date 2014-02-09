@@ -24,6 +24,7 @@
         <file>translations/msmd_ro.qm</file>
         <file>translations/msmd_sk_SK.qm</file>
         <file>translations/msmd_sl.qm</file>
+        <file>translations/msmd_sr@latin.qm</file>
         <file>translations/msmd_tr.qm</file>
         <file>translations/msmd_uk.qm</file>
     </qresource>

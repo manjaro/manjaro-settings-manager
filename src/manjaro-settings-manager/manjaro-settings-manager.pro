@@ -86,6 +86,7 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_ro.ts \
                 translations/msm_sk_SK.ts \
                 translations/msm_sl.ts \
+                translations/msm_sr@latin.ts \
                 translations/msm_tr.ts \
                 translations/msm_uk.ts \
                 translations/msm_zh_CN.ts
