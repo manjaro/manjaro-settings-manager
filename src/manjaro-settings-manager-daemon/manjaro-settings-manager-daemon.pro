@@ -43,6 +43,7 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_pl.ts \
                 translations/msmd_pt_BR.ts \
                 translations/msmd_ro.ts \
+                translations/msmd_ru.ts \
                 translations/msmd_sk_SK.ts \
                 translations/msmd_sl.ts \
                 translations/msmd_sr@latin.ts \

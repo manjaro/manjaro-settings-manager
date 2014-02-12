@@ -1,75 +1,75 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nb" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Kontotype</translation>
+        <translation>Тип аккаунта</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Standard</translation>
+        <translation>Стандартный</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Administrator</translation>
+        <translation>Администратор</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Vis grupper</translation>
+        <translation>Показать группы</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation>Gruppe</translation>
+        <translation>Группа</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation>Medlem</translation>
+        <translation>Участник</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation>Bruk</translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation>Advarsel!</translation>
+        <translation>Предупреждение!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>Admin gruppe %1 er ikke aktivert i &apos;% 2&apos;! Du må aktivere den for å være i stand til å sette administratorrettigheter...</translation>
+        <translation>Группа Админ %1 не включена &apos;%2&apos;! Вы должны предоставить возможность установить права администратора...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Følgende standard brukergrupper har blitt deaktivert:
+        <translation>Следуя умолчанию, группы пользователей были отключены:
 %1
-Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</translation>
+Рекомендуется включить эти группы. Вы действительно хотите продолжить?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation>Feil!</translation>
+        <translation>Ошибка!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>Klarte ikke å angi grupper!</translation>
+        <translation>Не удалось установить группы!</translation>
     </message>
 </context>
 <context>
@@ -77,59 +77,59 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Legg til bruker</translation>
+        <translation>Добавить пользователя</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Brukernavn</translation>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Passord</translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Skriv passord på nytt</translation>
+        <translation>Повторите пароль</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Lag</translation>
+        <translation>Создать</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>Brukernavnet inneholder ugyldige tegn!</translation>
+        <translation>Ваше имя пользователя содержит недопустимые символы!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>Passordene stemmer ikke overens!</translation>
+        <translation>Ваши пароли не совпадают!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation>Feil!</translation>
+        <translation>Ошибка!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation>Klarte ikke å legge til bruker!</translation>
+        <translation>Не удалось добавить пользователя!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Klarte ikke å angi brukerens passord!</translation>
+        <translation>Не удалось установить пароль пользователя!</translation>
     </message>
 </context>
 <context>
@@ -137,34 +137,34 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation>Behandler...</translation>
+        <translation>Обработка...</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation>Lukk</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation>Prosess ferdig!</translation>
+        <translation>Процесс завершен!</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
         <location filename="../dialogs/applydialog.cpp" line="122"/>
         <source>Close (%1)</source>
-        <translation>Lukk (%1)</translation>
+        <translation>Закрыть (%1)</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>Prosessen mislyktes!</translation>
+        <translation>Ошибка процесса!</translation>
     </message>
 </context>
 <context>
@@ -173,38 +173,38 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Nytt passord</translation>
+        <translation>Новый пароль</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Skriv passord på nytt</translation>
+        <translation>Повторите пароль</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="149"/>
         <source>Apply</source>
-        <translation>Bruk</translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation>Feil!</translation>
+        <translation>Ошибка!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>Passordene stemmer ikke overens!</translation>
+        <translation>Ваши пароли не совпадают!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Klarte ikke å angi brukerens passord!</translation>
+        <translation>Не удалось установить пароль пользователя!</translation>
     </message>
 </context>
 <context>
@@ -212,38 +212,38 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Settings Manager</translation>
+        <translation>Менеджер настроек Manjaro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation>Alle innstillinger</translation>
+        <translation>Все настройки</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
         <location filename="../mainwindow.ui" line="285"/>
         <source>Quit</source>
-        <translation>Avslutt</translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Apply</source>
-        <translation>Bruk</translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="45"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation>Система</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
-        <translation>Maskinvare</translation>
+        <translation>Оборудование</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
-        <translation>Manjaro Innstillinger</translation>
+        <translation>Настройки Manjaro</translation>
     </message>
 </context>
 <context>
@@ -251,32 +251,32 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Keyboard Modell:</translation>
+        <translation>Модель клавиатуры:</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>Skriv inn her for å teste tastaturet</translation>
+        <translation>Введите сюда, для проверки вашей клавиатуры</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
         <source>Keyboard Settings</source>
-        <translation>Tastaturinnstillinger</translation>
+        <translation>Настройки клавиатуры</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation>Setter opp nytt tastaturoppsettet...</translation>
+        <translation>Настройка новой раскладки клавиатуры...</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Error</source>
-        <translation>Feil</translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Klarte ikke å bestemme den aktuelle Xorg tastaturoppsettet!</translation>
+        <translation>Не удалось определить текущую раскладку Xorg клавиатуры!</translation>
     </message>
 </context>
 <context>
@@ -284,48 +284,48 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/page_language.ui" line="22"/>
         <source>System Locales</source>
-        <translation>System Nasjonale</translation>
+        <translation>Языки системы</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="42"/>
         <source>Add</source>
-        <translation>Legg til</translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="49"/>
         <source>Remove</source>
-        <translation>Fjern</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="56"/>
         <source>Restore</source>
-        <translation>Gjenopprett</translation>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="66"/>
         <source>Locale</source>
-        <translation>Nasjonale</translation>
+        <translation>Локализация</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="71"/>
         <location filename="../pages/page_language.cpp" line="29"/>
         <source>Language</source>
-        <translation>Språk</translation>
+        <translation>Язык</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="76"/>
         <source>Territory</source>
-        <translation>Territorium</translation>
+        <translation>Территория</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation>System Språk</translation>
+        <translation>Язык системы</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation>System Formater</translation>
+        <translation>Формат системы</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -333,38 +333,38 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
         <location filename="../pages/page_language.cpp" line="160"/>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
-        <translation>Feil!</translation>
+        <translation>Ошибка!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>Klarte ikke å åpne filen &apos;%1&apos;!</translation>
+        <translation>Не удалось открыть фил &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Klarte ikke å skaffe gyldig stedsstreng for nasjonal innstilling &apos;%1&apos;!</translation>
+        <translation>Не удалось получить верную строку локализации &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation>Klarte ikke å sette nasjonal innstilling!</translation>
+        <translation>Не удалось установить локализацию!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation>Genererer locale.gen fil...</translation>
+        <translation>Генерируется файл locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
-        <translation>Hint</translation>
+        <translation>Намёк</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Du må kanskje starte om det grafiske miljøet for å bruke de nye innstillingene...</translation>
+        <translation>Возможно, вам придется перезапустить графическую среду для применения новых настроек...</translation>
     </message>
 </context>
 <context>
@@ -372,69 +372,69 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Tilgjengelige Språkpakker</translation>
+        <translation>Имеются пакеты языка</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Ekstra språkpakker kan installeres:</translation>
+        <translation>Могут быть установлены дополнительные языковые пакеты:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
         <location filename="../pages/page_languagepackages.ui" line="101"/>
         <source>Package</source>
-        <translation>Pakke</translation>
+        <translation>Пакет</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation>Forelder Pakke</translation>
+        <translation>Родительский пакет</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
         <source>Install</source>
-        <translation>Installer</translation>
+        <translation>Установить</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Installerte Språkpakker</translation>
+        <translation>Установленные Языковые пакеты</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Installerte språkpakker:</translation>
+        <translation>Установленные языковые пакеты:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Språkpakker</translation>
+        <translation>Языковые пакеты</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation>Oppdaterer pacman databaser...</translation>
+        <translation>Обновление базы данных pacman...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation>Systemet er utdatert</translation>
+        <translation>Система устарела</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Systemet er ikke oppdatert! Du må oppdatere den først for å fortsette!</translation>
+        <translation>Ваша система не обновлена! Вы должны обновить её прежде, чтобы продолжить!</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation>Installerer språkpakker...</translation>
+        <translation>Установка языковых пакетов...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation>%1 språkpakker</translation>
+        <translation>%1 Языковые пакеты</translation>
     </message>
 </context>
 <context>
@@ -442,138 +442,138 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/page_mhwd.ui" line="41"/>
         <source>Driver</source>
-        <translation>Driver</translation>
+        <translation>Драйвер</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation>Gratis</translation>
+        <translation>Бесплатно</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
         <source>Installed</source>
-        <translation>Installert</translation>
+        <translation>Установлено</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="59"/>
         <source>Show all devices</source>
-        <translation>Vis alle enheter</translation>
+        <translation>Показать все устройства</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation>Auto Installer
-Gratis Driver</translation>
+        <translation>Авто установка
+свободный драйвер</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation>Auto Installer
-Ikke-Gratis Driver</translation>
+        <translation>Авто установка
+проприетарнай драйвер</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation>Maskinvare Gjenkjenning</translation>
+        <translation>Определение оборудования</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation>Installer</translation>
+        <translation>Установить</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation>Fjern</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation>Tving Reinstallering</translation>
+        <translation>Форсированная переустановка</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation>Ukjent enhetsnavn</translation>
+        <translation>Название неизвестного устройства</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation>Auto Installer Konfigurasjon</translation>
+        <translation>Конфигурация авто установки</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation>Vill du virkelig automatisk instalere
-den gratise grafikkdriveren?</translation>
+        <translation>Вы действительно хотите автоматически установить
+ свободный видео драйвер?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation>Installerer gratis grafikkdriver...</translation>
+        <translation>Установка свободного видео драйвера...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation>Vill du virkelig automatisk instalere
-den ikke-gratise grafikkdriveren?</translation>
+        <translation>Вы действительно хотите автоматически установить
+ проприетарный видео драйвер?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation>Installerer ikke-gratis grafikkdriver...</translation>
+        <translation>Установка проприетарного видео драйвера...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation>Installer Konfigurasjon</translation>
+        <translation>Конфигурация установки</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation>Ønsker du virkelig å installere
+        <translation>Вы действительно хотите установить
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation>Installerer driver...</translation>
+        <translation>Установка драйвера...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation>Fjern Konfigurasjon</translation>
+        <translation>Удаление конфигурации</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation>Ønsker du virkelig å fjerne
+        <translation>Вы действительно хотите удалить
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation>Fjerner driver...</translation>
+        <translation>Удаление драйвера...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation>Ønsker du virkelig å tvinge reinstallering av
+        <translation>Вы действительно хотите, форсировать переустановку
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation>Reinstallerer driver...</translation>
+        <translation>Переустановка драйвера ...</translation>
     </message>
 </context>
 <context>
@@ -581,22 +581,22 @@ den ikke-gratise grafikkdriveren?</translation>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation>Bilde</translation>
+        <translation>Изображение</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation>Brukernavn</translation>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
         <source>Account Type</source>
-        <translation>Kontotype</translation>
+        <translation>Тип аккаунта</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation>Passord</translation>
+        <translation>Пароль</translation>
     </message>
     <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
@@ -606,23 +606,23 @@ den ikke-gratise grafikkdriveren?</translation>
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>Brukerkontoer</translation>
+        <translation>Учетные записи пользователя</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation>Standard</translation>
+        <translation>Стандартный</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
         <source>Administrator</source>
-        <translation>Administrator</translation>
+        <translation>Администратор</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Bilder (*.png *.jpg *.bmp)</translation>
+        <translation>Изображения (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -632,53 +632,53 @@ den ikke-gratise grafikkdriveren?</translation>
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation>Feil!</translation>
+        <translation>Ошибка!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation>Klarte ikke å få brukerrettighetsstrukturer!</translation>
+        <translation>Не удалось получить разрешение пользователя!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>Klarte ikke å kopiere bildet til &apos;%1&apos;!</translation>
+        <translation>Не удалось скопировать изображение в &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
         <location filename="../pages/page_users.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>Klarte ikke å sette tillatelse fra filen &apos;%1&apos;!</translation>
+        <translation>Не удалось установить разрешение файла &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Klarte ikke å symlenke &apos;%1&apos; til &apos;%2&apos;!</translation>
+        <translation>Ошибка символической ссылки &apos;%1&apos; на &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Continue?</source>
-        <translation>Fortsette?</translation>
+        <translation>Продолжить?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>Vil du virkelig fjerne brukeren %1?</translation>
+        <translation>Вы действительно хотите удалить данного  пользователя %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation>Fjern Hjem?</translation>
+        <translation>Удалить Домашнюю папку?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>Ønsker du å fjerne hjemmemappen til brukeren %1?</translation>
+        <translation>Вы хотите, удалить домашнюю папку данного пользователя %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation>Kunne ikke fjerne bruker %1!</translation>
+        <translation>Не удалось удалить пользователя %1!</translation>
     </message>
 </context>
 <context>
@@ -686,17 +686,17 @@ den ikke-gratise grafikkdriveren?</translation>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="91"/>
         <source>Width:</source>
-        <translation>Bredde:</translation>
+        <translation>Ширина:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="92"/>
         <source>Height:</source>
-        <translation>Høyde:</translation>
+        <translation>Высота:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
         <source>Ratio:</source>
-        <translation>Ratio:</translation>
+        <translation>Соотношение:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
@@ -715,42 +715,42 @@ den ikke-gratise grafikkdriveren?</translation>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Legg til Nasjonale</translation>
+        <translation>Добавить локализацию</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
         <source>Language</source>
-        <translation>Språk</translation>
+        <translation>Язык</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
         <source>Territory</source>
-        <translation>Territorium</translation>
+        <translation>Территория</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
         <source>Description</source>
-        <translation>Beskrivelse</translation>
+        <translation>Описание</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
         <source>Description:</source>
-        <translation>Beskrivelse:</translation>
+        <translation>Описание:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
         <source>Locale:</source>
-        <translation>Nasjonale:</translation>
+        <translation>Локализация:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
         <source>Add</source>
-        <translation>Legg til</translation>
+        <translation>Добавить</translation>
     </message>
 </context>
 </TS>

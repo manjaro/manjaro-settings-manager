@@ -204,7 +204,7 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Napak pri nastavitvi uporabniških gesel!</translation>
+        <translation>Nastavljanje uporabniškega gesla spodletelo!</translation>
     </message>
 </context>
 <context>
