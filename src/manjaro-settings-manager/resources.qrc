@@ -27,6 +27,7 @@
         <file>translations/msm_bg_BG.qm</file>
         <file>translations/msm_ca.qm</file>
         <file>translations/msm_cs_CZ.qm</file>
+        <file>translations/msm_da.qm</file>
         <file>translations/msm_de.qm</file>
         <file>translations/msm_en.qm</file>
         <file>translations/msm_el.qm</file>
@@ -44,11 +45,13 @@
         <file>translations/msm_nl.qm</file>
         <file>translations/msm_pl.qm</file>
         <file>translations/msm_pt_BR.qm</file>
+        <file>translations/msm_pt_PT.qm</file>
         <file>translations/msm_ro.qm</file>
         <file>translations/msm_ru.qm</file>
         <file>translations/msm_sk_SK.qm</file>
         <file>translations/msm_sl.qm</file>
         <file>translations/msm_sr@latin.qm</file>
+        <file>translations/msm_sv.qm</file>
         <file>translations/msm_tr.qm</file>
         <file>translations/msm_uk.qm</file>
         <file>translations/msm_zh_CN.qm</file>

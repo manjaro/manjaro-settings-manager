@@ -68,6 +68,7 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_bg_BG.ts \
                 translations/msm_ca.ts \
                 translations/msm_cs_CZ.ts \
+                translations/msm_da.ts \
                 translations/msm_de.ts \
                 translations/msm_en.ts \
                 translations/msm_el.ts \
@@ -85,11 +86,13 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_nl.ts \
                 translations/msm_pl.ts \
                 translations/msm_pt_BR.ts \
+                translations/msm_pt_PT.ts \
                 translations/msm_ro.ts \
                 translations/msm_ru.ts \
                 translations/msm_sk_SK.ts \
                 translations/msm_sl.ts \
                 translations/msm_sr@latin.ts \
+                translations/msm_sv.ts \
                 translations/msm_tr.ts \
                 translations/msm_uk.ts \
                 translations/msm_zh_CN.ts \
