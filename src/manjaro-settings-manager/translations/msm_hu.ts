@@ -1,76 +1,75 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs_CZ" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Typ účtu</translation>
+        <translation>Felhasználói fiók típusa</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Běžný</translation>
+        <translation>Normál</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Administrátor</translation>
+        <translation>Adminisztrátor</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Ukaž skupiny</translation>
+        <translation>Mutassa a csoportokat</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation>Skupina</translation>
+        <translation>Csoport</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation>Uživatel</translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation>Použít</translation>
+        <translation>Alkalmaz</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation>Varování!</translation>
+        <translation>Figyelem!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>Sprácova skupina %1 není připojena v &apos;%2&apos;! Přihlašte se pro užívání práv správce...</translation>
+        <translation>Adminisztrátor csoport %1 nem engedélyezett a &apos;%2&apos;! Engedélyezned kell hogy adminisztrátori jogokat tudj beállítani...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Následující výchozí skupiny uživatelů budou odpojeny:
+        <translation>Következő alapértelmezett felhasználói csoportok le lettek tiltva:
 %1
-Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
-</translation>
+Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation>Chyba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>Selhalo nastavení skupin!</translation>
+        <translation>Nem sikerült a csoportok beállítása!</translation>
     </message>
 </context>
 <context>
@@ -78,59 +77,59 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Přidat uživatele</translation>
+        <translation>Felhasználó hozzáadása</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Jméno uživatele</translation>
+        <translation>Felhasználó név</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Heslo</translation>
+        <translation>Jelszó</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Opakujte heslo</translation>
+        <translation>Jelszó újra</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Vytvořit</translation>
+        <translation>Létrehoz</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>Vaše uživatelské jméno obsahuje neplatné znaky!</translation>
+        <translation>A felhasználó név nem engedélyezett karaktereket tartalmaz!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>Vaše hesla se neshodují!</translation>
+        <translation>A jelszavak nem egyeznek!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation>Chyba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation>Selhalo přidání uživatele!</translation>
+        <translation>Nem sikerült a felhasználót hozzáadni!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Selhalo nastavení hesla uživatele!</translation>
+        <translation>Nem sikerült a felhasználói jelszó beállítása!</translation>
     </message>
 </context>
 <context>
@@ -138,34 +137,34 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation>Zpracovávám...</translation>
+        <translation>Feldolgozás...</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation>Zavřít</translation>
+        <translation>Bezár</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation>Proces dokončen!</translation>
+        <translation>Feldolgozás befejeződött!</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
         <location filename="../dialogs/applydialog.cpp" line="122"/>
         <source>Close (%1)</source>
-        <translation>Zavřít (%1)</translation>
+        <translation>Bezár (%1)</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>Proces selhal!</translation>
+        <translation>Feldolgozás nem sikerült!</translation>
     </message>
 </context>
 <context>
@@ -174,38 +173,38 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Nové heslo</translation>
+        <translation>Új jelszó</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Opakujte heslo</translation>
+        <translation>Jelszó újra</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="149"/>
         <source>Apply</source>
-        <translation>Použij</translation>
+        <translation>Alkalmaz</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation>Chyba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>Vaše hesla se neshodují!</translation>
+        <translation>A jelszavak nem egyeznek!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Selhalo nastavení uživatelova hesla!</translation>
+        <translation>Nem sikerült a felhasználói jelszót beállítani!</translation>
     </message>
 </context>
 <context>
@@ -213,28 +212,28 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Správce nastavení Manjaro</translation>
+        <translation>Manjaro Beállításkezelő</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation>Všechna nastavení</translation>
+        <translation>Összes beállítás</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
         <location filename="../mainwindow.ui" line="285"/>
         <source>Quit</source>
-        <translation>Ukončit</translation>
+        <translation>Kilépés</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Apply</source>
-        <translation>Použij</translation>
+        <translation>Alkalmaz</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="45"/>
         <source>System</source>
-        <translation>Systém</translation>
+        <translation>Rendszer</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="53"/>
@@ -244,7 +243,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
-        <translation>Nastavení Manjaro</translation>
+        <translation>Manjaro Beállítások</translation>
     </message>
 </context>
 <context>
@@ -252,32 +251,32 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Typ klávesnice:</translation>
+        <translation>Billentyűzet modell:</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>Pište zde pro vyzkoušení vaší klávesnice</translation>
+        <translation>Gépelj itt a billentyűzet teszteléséhez</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
         <source>Keyboard Settings</source>
-        <translation>Nastavení klávesnice</translation>
+        <translation>Billentyűzet Beállítások</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation>Nastavení nového rozložení klávesnice...</translation>
+        <translation>Új billentyűzet elrendezés beállítása...</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Error</source>
-        <translation>Chyba</translation>
+        <translation>Hiba</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Selhalo určení současného Xorg nastavení klávesnice!</translation>
+        <translation>Nem sikerült meghatározni a jelenlegi Xorg billentyűzet kiosztást!</translation>
     </message>
 </context>
 <context>
@@ -285,48 +284,48 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/page_language.ui" line="22"/>
         <source>System Locales</source>
-        <translation>Lokalizace systému</translation>
+        <translation>Rendszer Változók</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="42"/>
         <source>Add</source>
-        <translation>Přidat</translation>
+        <translation>Hozzáad</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="49"/>
         <source>Remove</source>
-        <translation>Vymazat</translation>
+        <translation>Eltávolít</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="56"/>
         <source>Restore</source>
-        <translation>Obnovit</translation>
+        <translation>Visszaállít</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="66"/>
         <source>Locale</source>
-        <translation>Lokalizace</translation>
+        <translation>Helyi</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="71"/>
         <location filename="../pages/page_language.cpp" line="29"/>
         <source>Language</source>
-        <translation>Jazyk</translation>
+        <translation>Nyelv</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="76"/>
         <source>Territory</source>
-        <translation>Oblast</translation>
+        <translation>Terület</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation>Jazyk systému</translation>
+        <translation>Rendszer Nyelv</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation>Systémové formáty</translation>
+        <translation>Rendszer Formátumok </translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -334,38 +333,38 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <location filename="../pages/page_language.cpp" line="160"/>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
-        <translation>Chyba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>Selhalo otevření souboru &apos;%1&apos;!</translation>
+        <translation>Nem sikerült megnyitni a fájlt &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Selhalo získávání platného řetězce pro umístění &apos;%1&apos;!</translation>
+        <translation>Nem sikerült előállítani érvényes karakterláncot a nyelvhez &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation>Selhalo nastavení lokalizace!</translation>
+        <translation>Nem sikerült beállítani a helyet!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation>Vytváření souboru locale.gen...</translation>
+        <translation>locale.gen fájl létrehozása...</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
-        <translation>Rada</translation>
+        <translation>Segítség</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>K uplatnění nových nastavení budete muset restartovat grafické prostředí...</translation>
+        <translation>Lehetséges újra kell indítanod a grafikus környezetet a változtatások érvényesítéséhez...</translation>
     </message>
 </context>
 <context>
@@ -373,69 +372,69 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Dostupné jazykové balíčky</translation>
+        <translation>Elérhető Nyelvi Csomagok</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Můžete nainstalovat dodatečné jazykové balíčky:</translation>
+        <translation>További nyelvi csomagok telepíthetőek:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
         <location filename="../pages/page_languagepackages.ui" line="101"/>
         <source>Package</source>
-        <translation>Balíček</translation>
+        <translation>Csomag</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation>Původní balíček</translation>
+        <translation>Szülő Csomag</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
         <source>Install</source>
-        <translation>Instalace</translation>
+        <translation>Telepít</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Instalované jazykové balíčky</translation>
+        <translation>Telepített Nyelvi Csomagok</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Instalované jazykové balíčky:</translation>
+        <translation>Telepített nyelvi csomagok:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Jazykové balíčky</translation>
+        <translation>Nyelvi Csomagok</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation>Aktualizace databází pacmanu...</translation>
+        <translation>Pacman adatbázis frissítése...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation>Systém není aktuální</translation>
+        <translation>Rendszer elavult</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Váš systém není aktuální! Abyste mohli pokračovat, musíte ho nejdříve aktualizovat!</translation>
+        <translation>A rendszered nem naprakész! Előbb frissítened kell mielőtt folytatod!</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation>Instalace jazykových balíčků...</translation>
+        <translation>Nyelvi csomagok telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation>%1 jazykových balíčků</translation>
+        <translation>%1 nyelvi csomag</translation>
     </message>
 </context>
 <context>
@@ -443,138 +442,136 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/page_mhwd.ui" line="41"/>
         <source>Driver</source>
-        <translation>Ovladač</translation>
+        <translation>Meghajtó</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation>Svobodný</translation>
+        <translation>Szabad</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
         <source>Installed</source>
-        <translation>Instalováno</translation>
+        <translation>Telepített</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="59"/>
         <source>Show all devices</source>
-        <translation>Ukázat všechna zařízení</translation>
+        <translation>Mutasson minden eszközt</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation>Automatická instalace
-Svobodný ovladač</translation>
+        <translation>Automata Telepítő
+Ingyenes meghajtóprogram</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation>Automatická instalace
-Uzavřený ovladač</translation>
+        <translation>Automata telepítő
+Nem ingyenes meghajtóprogram</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation>Detekce hardware</translation>
+        <translation>Hardware érzékelés</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation>Instalovat</translation>
+        <translation>Telepít</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation>Odebrat</translation>
+        <translation>Eltávolít</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation>Vynutit přeinstalaci</translation>
+        <translation>Újratelepítés kényszerítése</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation>Neznámý název zařízení</translation>
+        <translation>Ismeretlen eszköznév</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation>Konfigurace automatické instalace</translation>
+        <translation>Automata telepítő konfigurálása</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation>Opravdu chcete automaticky nainstalovat
-svobodný ovladač grafické karty?</translation>
+        <translation>Valóban automata telepítésű ingyenes grafikus meghajtót akarsz?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation>Instaluji svobodný ovladač grafické karty...</translation>
+        <translation>Ingyenes grafikus meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation>Opravdu chcete automaticky nainstalovat
-uzavřený ovladač grafické karty?</translation>
+        <translation>Valóban automata telepítésű nem ingyenes grafikus meghajtót akarsz?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation>Instaluji uzavřený ovladač grafické karty...</translation>
+        <translation>Nem ingyenes grafikus meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation>Konfigurace instalace</translation>
+        <translation>Konfiguráció telepítése</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation>Opravdu chcete nainstalovat
+        <translation>Valóban telepíteni akarod
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation>Instaluji ovladač...</translation>
+        <translation>Meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation>Smazat konfiguraci</translation>
+        <translation>Konfiguráció eltávolítása</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation>Opravdu chcete vymazat
+        <translation>Valóban eltávolítod
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation>Odstraňuji ovladač...</translation>
+        <translation>Eszközmeghajtó eltávolítása...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation>Opravdu chcete vynutit přeinstalování
+        <translation>Valóban kényszeríteni akarod az újratelepítését a
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation>Probíhá přeinstalace ovladače...</translation>
+        <translation>Eszközmeghajtó újratelepítése...</translation>
     </message>
 </context>
 <context>
@@ -582,22 +579,22 @@ uzavřený ovladač grafické karty?</translation>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation>Obrázek</translation>
+        <translation>Kép</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation>Jméno uživatele</translation>
+        <translation>Felhasználó név</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
         <source>Account Type</source>
-        <translation>Druh účtu</translation>
+        <translation>Fiók típusa</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation>Heslo</translation>
+        <translation>Jelszó</translation>
     </message>
     <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
@@ -607,23 +604,23 @@ uzavřený ovladač grafické karty?</translation>
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>Účet uživatele</translation>
+        <translation>Felhasználói fiókok</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation>Běžný</translation>
+        <translation>Normál</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
         <source>Administrator</source>
-        <translation>Správce</translation>
+        <translation>Adminisztrátor</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Obrázky (*.png *.jpg *.bmp)</translation>
+        <translation>Képek (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -633,55 +630,53 @@ uzavřený ovladač grafické karty?</translation>
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation>Chyba!</translation>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation>Selhalo získání oprávnění struktur uživatele!</translation>
+        <translation>Nem sikerült megkapni a felhasználói jogosultság struktúrát!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>Selhalo kopírování obrázku do &apos;%1&apos;!</translation>
+        <translation>Nem sikerült a képet ide másolni &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
         <location filename="../pages/page_users.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>Selhalo nastavení oprávnění k souboru  &apos;%1&apos;!</translation>
+        <translation>Nem sikerült a fájl jogosultságot beállítani &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Selhalo vytvoření symlink &apos;%1&apos; až po &apos;%2&apos;!</translation>
+        <translation>Nem sikerült linkelni &apos;%1&apos; to &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Continue?</source>
-        <translation>Pokračovat? 
-
-</translation>
+        <translation>Folytatod?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>Opravdu chcete odstranit uživatele %1?</translation>
+        <translation>Valóban eltávolítod a felhasználót %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation>Odstranit domovský adresář?</translation>
+        <translation>Eltávolítod a Home -t?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>Skutečně chcete odstranit domovský adresář uživatele %1?</translation>
+        <translation>Valóban eltávolítod a home könyvtárát a felhasználónak %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation>Selhalo odstranění uživatele %1!</translation>
+        <translation>Nem sikerült a felhasználó eltávolítása %1!</translation>
     </message>
 </context>
 <context>
@@ -689,17 +684,17 @@ uzavřený ovladač grafické karty?</translation>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="91"/>
         <source>Width:</source>
-        <translation>Šířka:</translation>
+        <translation>Szélesség:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="92"/>
         <source>Height:</source>
-        <translation>Výška:</translation>
+        <translation>Magasság:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
         <source>Ratio:</source>
-        <translation>Poměr:</translation>
+        <translation>Arányszám:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
@@ -718,42 +713,42 @@ uzavřený ovladač grafické karty?</translation>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Přidat lokalizaci</translation>
+        <translation>Hely hozzáadása</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
         <source>Language</source>
-        <translation>Jazyk</translation>
+        <translation>Nyelv</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
         <source>Territory</source>
-        <translation>Oblast</translation>
+        <translation>Terület</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
         <source>Description</source>
-        <translation>Popis</translation>
+        <translation>Leírás</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
         <source>Description:</source>
-        <translation>Popis:</translation>
+        <translation>Leírás:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
         <source>Locale:</source>
-        <translation>Lokalizace:</translation>
+        <translation>Hely:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
         <source>Add</source>
-        <translation>Přidat</translation>
+        <translation>Hozzáad</translation>
     </message>
 </context>
 </TS>

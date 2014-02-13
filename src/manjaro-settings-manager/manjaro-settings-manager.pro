@@ -77,6 +77,8 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_fr.ts \
                 translations/msm_he.ts \
                 translations/msm_hi.ts \
+                translations/msm_hu.ts \
+                translations/msm_id_ID.ts \
                 translations/msm_it.ts \
                 translations/msm_ja.ts \
                 translations/msm_nb.ts \
@@ -90,7 +92,8 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_sr@latin.ts \
                 translations/msm_tr.ts \
                 translations/msm_uk.ts \
-                translations/msm_zh_CN.ts
+                translations/msm_zh_CN.ts \
+                translations/msm_zh_TW.ts
 
 RESOURCES += \
     resources.qrc

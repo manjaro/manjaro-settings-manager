@@ -36,6 +36,8 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_fr.ts \
                 translations/msmd_he.ts \
                 translations/msmd_hi.ts \
+                translations/msmd_hu.ts \
+                translations/msmd_id_ID.ts \
                 translations/msmd_it.ts \
                 translations/msmd_ja.ts \
                 translations/msmd_nb.ts \
@@ -49,7 +51,8 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_sr@latin.ts \
                 translations/msmd_tr.ts \
                 translations/msmd_uk.ts \
-                translations/msmd_zh_CN.ts
+                translations/msmd_zh_CN.ts \
+                translations/msmd_zh_TW.ts
 
 RESOURCES += \
     resources.qrc
