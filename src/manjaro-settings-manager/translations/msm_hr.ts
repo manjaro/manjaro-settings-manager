@@ -1,75 +1,73 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Тип аккаунта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Стандартный</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Администратор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Показать группы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="93"/>
         <source>Group</source>
-        <translation>Группа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="98"/>
         <source>Member</source>
-        <translation>Участник</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="135"/>
         <source>Apply</source>
-        <translation>Применить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation>Предупреждение!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>Группа администраторов %1 не включена в &apos;%2&apos;! Вы должны предоставить ей возможность устанавливать права администратора...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Были отключены следующие группы пользователей по умолчанию:
-%1
-Рекомендуется включить эти группы. Вы действительно хотите продолжить?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation>Ошибка!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>Не удалось установить группы!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -77,59 +75,59 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Добавить пользователя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Имя пользователя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Повторите пароль</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Создать</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>Ваше имя пользователя содержит недопустимые символы!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>Ваши пароли не совпадают!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation>Ошибка!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation>Не удалось добавить пользователя!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Не удалось установить пароль пользователя!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -137,34 +135,34 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation>Обработка...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="53"/>
         <location filename="../dialogs/applydialog.cpp" line="55"/>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="102"/>
         <source>Process finished!</source>
-        <translation>Процесс завершен!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="109"/>
         <location filename="../dialogs/applydialog.cpp" line="122"/>
         <source>Close (%1)</source>
-        <translation>Закрыть (%1)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>Ошибка процесса!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -173,38 +171,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Новый пароль</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Повторите пароль</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="149"/>
         <source>Apply</source>
-        <translation>Применить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation>Ошибка!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>Ваши пароли не совпадают!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Не удалось установить пароль пользователя!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -212,38 +210,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Менеджер настроек Manjaro</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation>Все настройки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
         <location filename="../mainwindow.ui" line="285"/>
         <source>Quit</source>
-        <translation>Выход</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Apply</source>
-        <translation>Применить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="45"/>
         <source>System</source>
-        <translation>Система</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
-        <translation>Оборудование</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
         <source>Manjaro Settings</source>
-        <translation>Настройки Manjaro</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -251,32 +249,32 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_keyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Модель клавиатуры:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>Введите сюда, для проверки вашей клавиатуры</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
         <source>Keyboard Settings</source>
-        <translation>Настройки клавиатуры</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation>Настройка новой раскладки клавиатуры...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Error</source>
-        <translation>Ошибка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Не удалось определить текущую раскладку Xorg клавиатуры!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -284,48 +282,48 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.ui" line="22"/>
         <source>System Locales</source>
-        <translation>Языки системы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="42"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="49"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="56"/>
         <source>Restore</source>
-        <translation>Восстановить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="66"/>
         <source>Locale</source>
-        <translation>Локализация</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="71"/>
         <location filename="../pages/page_language.cpp" line="29"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="76"/>
         <source>Territory</source>
-        <translation>Территория</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation>Язык системы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation>Формат системы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -333,38 +331,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_language.cpp" line="160"/>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
-        <translation>Ошибка!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>Не удалось открыть файл &apos;%1&apos;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Не удалось получить верную строку локализации &apos;%1&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation>Не удалось установить локализацию!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation>Генерируется файл locale.gen...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
-        <translation>Подсказка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Возможно, вам придется перезапустить графическую среду для применения новых настроек...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -372,69 +370,69 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Доступные языковые пакеты</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Могут быть установлены дополнительные языковые пакеты:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
         <location filename="../pages/page_languagepackages.ui" line="101"/>
         <source>Package</source>
-        <translation>Пакет</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation>Родительский пакет</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
         <source>Install</source>
-        <translation>Установить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Установленные Языковые пакеты</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Установленные языковые пакеты:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Языковые пакеты</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation>Обновление базы данных pacman...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation>Система устарела</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Ваша система не обновлена! Вы должны обновить её прежде, чтобы продолжить!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation>Установка языковых пакетов...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation>%1 Языковые пакеты</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -442,138 +440,131 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_mhwd.ui" line="41"/>
         <source>Driver</source>
-        <translation>Драйвер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="46"/>
         <source>Free</source>
-        <translation>Свободный</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="51"/>
         <source>Installed</source>
-        <translation>Установлено</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="59"/>
         <source>Show all devices</source>
-        <translation>Показать все устройства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation>Авто установка
-свободный драйвер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation>Авто установка
-проприетарнай драйвер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation>Определение оборудования</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation>Установить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation>Принудительная переустановка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation>Название неизвестного устройства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation>Конфигурация авто установки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation>Вы действительно хотите автоматически установить
- свободный видео драйвер?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation>Установка свободного видео драйвера...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation>Вы действительно хотите автоматически установить
- проприетарный видео драйвер?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation>Установка проприетарного видео драйвера...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation>Конфигурация установки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation>Вы действительно хотите установить
-%1?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation>Установка драйвера...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation>Удаление конфигурации</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation>Вы действительно хотите удалить
-%1?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation>Удаление драйвера...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation>Вы действительно хотите принудительно переустановить
-%1?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation>Переустановка драйвера ...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -581,48 +572,48 @@ Non-Free Driver</source>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation>Изображение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation>Имя пользователя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
         <source>Account Type</source>
-        <translation>Тип аккаунта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation type="unfinished"/>
     </message>
     <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation>●●●●●●</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>Учетные записи пользователя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation>Стандартный</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
         <source>Administrator</source>
-        <translation>Администратор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Изображения (*.png *.jpg *.bmp)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -632,53 +623,53 @@ Non-Free Driver</source>
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation>Ошибка!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation>Не удалось получить структуры разрешений пользователей</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>Не удалось скопировать изображение в &apos;%1&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
         <location filename="../pages/page_users.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>Не удалось установить разрешение файла &apos;%1&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Ошибка символической ссылки &apos;%1&apos; на &apos;%2&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Continue?</source>
-        <translation>Продолжить?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>Вы действительно хотите удалить пользователя %1?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation>Удалить Домашнюю папку?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>Вы хотите удалить домашнюю папку пользователя %1?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation>Не удалось удалить пользователя %1!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -686,28 +677,28 @@ Non-Free Driver</source>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="91"/>
         <source>Width:</source>
-        <translation>Ширина:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="92"/>
         <source>Height:</source>
-        <translation>Высота:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
         <source>Ratio:</source>
-        <translation>Соотношение:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
         <location filename="../dialogs/previewfiledialog.cpp" line="95"/>
         <source>%1 px</source>
-        <translation>%1 px</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="96"/>
         <source>%1</source>
-        <translation>%1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -715,42 +706,42 @@ Non-Free Driver</source>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Добавить локализацию</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
         <source>Territory</source>
-        <translation>Территория</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
         <source>Description</source>
-        <translation>Описание</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
         <source>Description:</source>
-        <translation>Описание:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
         <source>Locale:</source>
-        <translation>Локализация:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

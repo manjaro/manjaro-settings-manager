@@ -74,10 +74,12 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_el.ts \
                 translations/msm_es.ts \
                 translations/msm_fa.ts \
+                translations/msm_fa_IR.ts \
                 translations/msm_fo.ts \
                 translations/msm_fr.ts \
                 translations/msm_he.ts \
                 translations/msm_hi.ts \
+                translations/msm_hr.ts \
                 translations/msm_hu.ts \
                 translations/msm_id_ID.ts \
                 translations/msm_it.ts \

@@ -82,7 +82,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Nombre de usuario</translation>
+        <translation>Usuario</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
@@ -463,15 +463,15 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../pages/page_mhwd.ui" line="73"/>
         <source>Auto Install
 Free Driver</source>
-        <translation>Instalar controlador
-libre automáticamente</translation>
+        <translation>Instalación Automática
+Controlador Libre</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="81"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation>Instalar controlador
-privativo automáticamente</translation>
+        <translation>Instalación Automática
+Controlador Privativo</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
@@ -503,7 +503,7 @@ privativo automáticamente</translation>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation>Instalar configuración autom.</translation>
+        <translation>Configuración de Instalado Automático</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
