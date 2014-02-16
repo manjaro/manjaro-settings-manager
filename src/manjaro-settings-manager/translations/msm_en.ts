@@ -440,33 +440,33 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>Page_MHWD</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="41"/>
+        <location filename="../pages/page_mhwd.ui" line="44"/>
         <source>Driver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="46"/>
+        <location filename="../pages/page_mhwd.ui" line="49"/>
         <source>Free</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="51"/>
+        <location filename="../pages/page_mhwd.ui" line="54"/>
         <source>Installed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="59"/>
+        <location filename="../pages/page_mhwd.ui" line="62"/>
         <source>Show all devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="73"/>
+        <location filename="../pages/page_mhwd.ui" line="76"/>
         <source>Auto Install
 Free Driver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="81"/>
+        <location filename="../pages/page_mhwd.ui" line="84"/>
         <source>Auto Install
 Non-Free Driver</source>
         <translation type="unfinished"></translation>

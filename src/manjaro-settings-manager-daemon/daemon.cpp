@@ -62,8 +62,9 @@ void Daemon::run() {
         if (!trayIcon.isVisible()) {
             trayIcon.setIcon(QIcon(":/images/resources/language.png"));
             trayIcon.show();
-            showMessage(tr("Additional Language Packages"),
-                        tr("%1 new additional language package(s) available").arg(QString::number(packages.size())));
+            int packagesCount = packages.size();
+            showMessage(tr("Additional Language Package(s)", "", packagesCount),
+                        tr("%n new additional language package(s) available", "", packagesCount));
 
             // Add to Config
             for (int i = 0; i < packages.size(); i++) {
