@@ -56,6 +56,7 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_sv.ts \
                 translations/msmd_tr.ts \
                 translations/msmd_uk.ts \
+                translations/msmd_vi.ts \
                 translations/msmd_zh_CN.ts \
                 translations/msmd_zh_TW.ts
 

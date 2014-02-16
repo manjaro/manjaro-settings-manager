@@ -97,6 +97,7 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_sv.ts \
                 translations/msm_tr.ts \
                 translations/msm_uk.ts \
+                translations/msm_vi.ts \
                 translations/msm_zh_CN.ts \
                 translations/msm_zh_TW.ts
 

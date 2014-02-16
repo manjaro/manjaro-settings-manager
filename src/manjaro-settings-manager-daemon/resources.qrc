@@ -33,9 +33,10 @@
         <file>translations/msmd_sk_SK.qm</file>
         <file>translations/msmd_sl.qm</file>
         <file>translations/msmd_sr@latin.qm</file>
-        <file>translations/msm_sv.qm</file>
+        <file>translations/msmd_sv.qm</file>
         <file>translations/msmd_tr.qm</file>
         <file>translations/msmd_uk.qm</file>
+        <file>translations/msmd_vi.qm</file>
         <file>translations/msmd_zh_CN.qm</file>
         <file>translations/msmd_zh_TW.qm</file>
     </qresource>

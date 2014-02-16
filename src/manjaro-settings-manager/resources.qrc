@@ -56,6 +56,7 @@
         <file>translations/msm_sv.qm</file>
         <file>translations/msm_tr.qm</file>
         <file>translations/msm_uk.qm</file>
+        <file>translations/msm_vi.qm</file>
         <file>translations/msm_zh_CN.qm</file>
         <file>translations/msm_zh_TW.qm</file>
     </qresource>

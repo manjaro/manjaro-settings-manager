@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@latin" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@latin" version="2.0">
 <context>
     <name>Daemon</name>
-    <message>
-        <location filename="../daemon.cpp" line="64"/>
-        <source>Additional Language Packages</source>
-        <translation>Dodantni jezički paketi</translation>
+    <message numerus="yes">
+        <location filename="../daemon.cpp" line="66"/>
+        <source>Additional Language Package(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
-    <message>
-        <location filename="../daemon.cpp" line="65"/>
-        <source>%1 new additional language package(s) available</source>
-        <translation>%1 novih jezičkih paket(a) dostupno</translation>
+    <message numerus="yes">
+        <location filename="../daemon.cpp" line="67"/>
+        <source>%n new additional language package(s) available</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 </TS>
