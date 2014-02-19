@@ -4,7 +4,7 @@
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Τύπος Λογαριασμού</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
