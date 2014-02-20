@@ -4,12 +4,12 @@
     <message numerus="yes">
         <location filename="../daemon.cpp" line="66"/>
         <source>Additional Language Package(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Допълнителни езикови пакет(и)</numerusform><numerusform>Допълнителни езикови пакет(и)</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="67"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n налични са нови езикови пакет(и)</numerusform><numerusform>%n налични са нови езикови пакет(и)</numerusform></translation>
     </message>
 </context>
 </TS>

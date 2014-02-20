@@ -50,16 +50,16 @@
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>O grupo Admin % 1 não está ativado em &apos;% 2&apos;! Tem que o ativar para poder atribuir direitos de administrador ...</translation>
+        <translation>O grupo Admin % 1 não está activado em &apos;% 2&apos;! Tem que o activar para poder atribuir direitos de administrador ...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Os seguintes grupos de utilizadores padrão foram desativados:
+        <translation>Os seguintes grupos de utilizadores padrão foram desactivados:
 %1
-É recomendado que ative estes grupos. Tem a certeza que deseja continuar? </translation>
+É recomendado que active estes grupos. Tem a certeza que deseja continuar? </translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
@@ -69,7 +69,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>Falhou a configuraçao de grupos!</translation>
+        <translation>Falhou a configuração de grupos!</translation>
     </message>
 </context>
 <context>
@@ -107,12 +107,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>O nome de utilizador contém carateres inválidos!</translation>
+        <translation>O nome de utilizador contém caracteres inválidos!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>As palavras-passe não são identicas!</translation>
+        <translation>As palavras-passe não são idênticas!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
@@ -178,7 +178,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Rescrever Palavra-passe</translation>
+        <translation>Re-escrever Palavra-passe</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
@@ -199,7 +199,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>As palavras-passe não são identicas!</translation>
+        <translation>As palavras-passe não coincidem!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
@@ -217,7 +217,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>All Settings</source>
-        <translation>Todas as Configurações</translation>
+        <translation>Todos os parâmetros</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="241"/>
@@ -266,7 +266,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation>A configurar o novo esquema de teclado...</translation>
+        <translation>A configurar a nova disposição de teclado...</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
@@ -276,7 +276,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Falhou a identificação do atual esquema de teclado do Xorg!</translation>
+        <translation>Falhou a identificação do esquema actual de teclado do Xorg!</translation>
     </message>
 </context>
 <context>
@@ -310,7 +310,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_language.ui" line="71"/>
         <location filename="../pages/page_language.cpp" line="29"/>
         <source>Language</source>
-        <translation>Linguagem </translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="76"/>
@@ -320,12 +320,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation>Linguagem de Sistema</translation>
+        <translation>Idioma do Sistema</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation>Formatos de Sistema</translation>
+        <translation>Formatos do Sistema</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -344,7 +344,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Falhou ao tentar obter uma sequência de carateres valida para a opção regional (&quot;locale&quot;) &apos;%1&apos;!</translation>
+        <translation>Falhou ao tentar obter uma sequência de caracteres válida para a opção regional (&quot;locale&quot;) &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
@@ -372,12 +372,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Pacotes de Linguagem Disponíveis</translation>
+        <translation>Pacotes de Idiomas Disponíveis</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Pacotes de linguagem adicionais que podem ser instalados:</translation>
+        <translation>Pacotes de idioma adicionais que podem ser instalados:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
@@ -399,42 +399,42 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Pacotes de Linguagem Instalados</translation>
+        <translation>Pacotes de Idioma Instalados</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Pacotes de linguagem instalados:</translation>
+        <translation>Pacotes de idioma instalados:</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Pacotes de Linguagem</translation>
+        <translation>Pacotes de Idioma</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation>A atualizar as bases de dados do pacman...</translation>
+        <translation>A actualizar as bases de dados do pacman...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation>O sistema está desatualizado</translation>
+        <translation>O sistema está desactualizado</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>O seu sistema está desatualizado! Tem que atualizar o sistema primeiro antes de continuar!</translation>
+        <translation>O seu sistema está desactualizado! Tem que actualizar o sistema primeiro antes de continuar!</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation>A instalar pacotes de linguagem...</translation>
+        <translation>A instalar pacotes de idioma...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation>%1 pacotes de linguagem</translation>
+        <translation>%1 pacotes de idioma</translation>
     </message>
 </context>
 <context>
@@ -476,7 +476,7 @@ Controlador (&quot;Driver&quot;) Não Livre</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation>Deteção de Hardware</translation>
+        <translation>Detecção de Hardware</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
@@ -509,9 +509,9 @@ Controlador (&quot;Driver&quot;) Não Livre</translation>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation>Tem a certeza que deseja instalar automaticamente
+        <translation>Tem a certeza que deseja instalar automáticamente
 o controlador (&quot;driver&quot;) gráfico livre?
- </translation>
+</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
@@ -522,7 +522,7 @@ o controlador (&quot;driver&quot;) gráfico livre?
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation>Tem a certeza que deseja instalar automaticamente
+        <translation>Tem a certeza que deseja instalar automáticamente
 o controlador (&quot;driver&quot;) gráfico não livre?</translation>
     </message>
     <message>
@@ -697,7 +697,7 @@ o controlador (&quot;driver&quot;) gráfico não livre?</translation>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
         <source>Ratio:</source>
-        <translation>Racio:</translation>
+        <translation>Rácio:</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
@@ -721,12 +721,12 @@ o controlador (&quot;driver&quot;) gráfico não livre?</translation>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
         <source>Language</source>
-        <translation>Linguagem</translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
         <source>Territory</source>
-        <translation>Territorio </translation>
+        <translation>Território </translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
