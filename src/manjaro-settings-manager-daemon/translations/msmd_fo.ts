@@ -4,12 +4,12 @@
     <message numerus="yes">
         <location filename="../daemon.cpp" line="66"/>
         <source>Additional Language Package(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Eyka Tungumáls Pakki(Pakkar)</numerusform><numerusform>Eyka Tungumáls Pakki(Pakkar)</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="67"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n nýggjur eyka tungumáls pakki(pakkar) tøkir</numerusform><numerusform>%n nýggjur eyka tungumáls pakki(pakkar) tøkir</numerusform></translation>
     </message>
 </context>
 </TS>

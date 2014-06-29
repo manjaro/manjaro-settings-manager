@@ -50,14 +50,16 @@
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation type="unfinished"/>
+        <translation>Fyrisitara bólkur %1 er ikki settur í gildið í &apos;%2&apos;! Tú mást seta hann í gildið fyri at kunna at seta fyrisitara rættindi...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Teir fylgjandi forsettu brúkara bólkarnir eru blivnir ógildaðir
+%1
+Tað er tilmælt at seta hesar bólkar í gildið. Ert tú vísur í at tú vilt halda áfram?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
@@ -206,6 +208,57 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
 </context>
 <context>
+    <name>KernelListViewDelegate</name>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <source>LTS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <source>Running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <source>Installed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
+        <source>Outdated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
+        <source>Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -234,14 +287,47 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="54"/>
         <source>Hardware</source>
         <translation>Tólbúnaður</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="201"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro Stillingar</translation>
+    </message>
+</context>
+<context>
+    <name>Page_Kernel</name>
+    <message>
+        <location filename="../pages/page_kernel.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="51"/>
+        <source>Install new kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="52"/>
+        <source>Do you really want install the kernel?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
+        <source>Remove kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <source>Do you really want remove the kernel?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -342,7 +428,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Tað miseydnaðist at fáa fatur á einum galdandi lokalis strongi til &apos;%1&apos; lokali!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
@@ -387,7 +473,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>Foreldra Pakki</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
@@ -438,33 +524,33 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>Page_MHWD</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="41"/>
+        <location filename="../pages/page_mhwd.ui" line="44"/>
         <source>Driver</source>
         <translation>Drívari</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="46"/>
+        <location filename="../pages/page_mhwd.ui" line="49"/>
         <source>Free</source>
         <translation>Frítt</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="51"/>
+        <location filename="../pages/page_mhwd.ui" line="54"/>
         <source>Installed</source>
         <translation>Innlagt</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="59"/>
+        <location filename="../pages/page_mhwd.ui" line="62"/>
         <source>Show all devices</source>
         <translation>Vís øll tól</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="73"/>
+        <location filename="../pages/page_mhwd.ui" line="76"/>
         <source>Auto Install
 Free Driver</source>
         <translation>Legg Frían Drívara Automatiskt Inn</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="81"/>
+        <location filename="../pages/page_mhwd.ui" line="84"/>
         <source>Auto Install
 Non-Free Driver</source>
         <translation>Legg Ó-Frían Drívara Automatiskt Inn</translation>
@@ -646,7 +732,7 @@ Non-Free Driver</source>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Tað miseydnaðist at symlinka &apos;%1&apos; til &apos;%2&apos;</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>

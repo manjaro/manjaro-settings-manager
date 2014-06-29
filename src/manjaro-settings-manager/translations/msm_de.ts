@@ -208,6 +208,57 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     </message>
 </context>
 <context>
+    <name>KernelListViewDelegate</name>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <source>LTS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <source>Running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <source>Installed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
+        <source>Outdated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
+        <source>Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -236,14 +287,47 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="54"/>
         <source>Hardware</source>
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="201"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro Einstellungen</translation>
+    </message>
+</context>
+<context>
+    <name>Page_Kernel</name>
+    <message>
+        <location filename="../pages/page_kernel.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="51"/>
+        <source>Install new kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="52"/>
+        <source>Do you really want install the kernel?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
+        <source>Remove kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <source>Do you really want remove the kernel?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -440,34 +524,34 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
 <context>
     <name>Page_MHWD</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="41"/>
+        <location filename="../pages/page_mhwd.ui" line="44"/>
         <source>Driver</source>
         <translation>Treiber</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="46"/>
+        <location filename="../pages/page_mhwd.ui" line="49"/>
         <source>Free</source>
         <translation>Frei</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="51"/>
+        <location filename="../pages/page_mhwd.ui" line="54"/>
         <source>Installed</source>
         <translation>Installiert</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="59"/>
+        <location filename="../pages/page_mhwd.ui" line="62"/>
         <source>Show all devices</source>
         <translation>Zeige alle Geräte</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="73"/>
+        <location filename="../pages/page_mhwd.ui" line="76"/>
         <source>Auto Install
 Free Driver</source>
         <translation>Autom. Installation
 Freie Treiber</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="81"/>
+        <location filename="../pages/page_mhwd.ui" line="84"/>
         <source>Auto Install
 Non-Free Driver</source>
         <translation>Autom. Installation

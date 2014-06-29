@@ -208,6 +208,57 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     </message>
 </context>
 <context>
+    <name>KernelListViewDelegate</name>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <source>LTS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <source>Running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <source>Installed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
+        <source>Outdated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
+        <source>Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -236,14 +287,47 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
         <translation>Système</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="54"/>
         <source>Hardware</source>
         <translation>Matériel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="201"/>
         <source>Manjaro Settings</source>
         <translation>Paramètres de Manjaro</translation>
+    </message>
+</context>
+<context>
+    <name>Page_Kernel</name>
+    <message>
+        <location filename="../pages/page_kernel.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="51"/>
+        <source>Install new kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="52"/>
+        <source>Do you really want install the kernel?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
+        <source>Remove kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <source>Do you really want remove the kernel?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -276,7 +360,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
         <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de déterminer la configuration Xorg actuelle du clavier !</translation>
     </message>
 </context>
 <context>
@@ -320,12 +404,12 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Langue du système</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formats du système</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="108"/>
@@ -349,7 +433,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de définir le paramètre régional !</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
@@ -364,7 +448,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Vous devrez peut-être redémarrer l&apos;environnement graphique pour appliquer les nouveaux paramètres...</translation>
     </message>
 </context>
 <context>
@@ -372,201 +456,208 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/page_languagepackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Paquets linguistiques disponibles</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Des paquets linguistiques additionnels peuvent être installés :</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="53"/>
         <location filename="../pages/page_languagepackages.ui" line="101"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>Paquet</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>Paquet parent</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Installer</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Paquets linguistiques installés</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation type="unfinished"/>
+        <translation>Paquets linguistiques installés :</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Paquets linguistiques</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation type="unfinished"/>
+        <translation>Mise à jour de la base de données de pacman</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>Le système n&apos;est pas à jour</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Votre système n&apos;est pas à jour ! Vous devez le mettre à jour pour continuer !</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
         <source>Installing language packages...</source>
-        <translation type="unfinished"/>
+        <translation>Installation des paquets linguistiques....</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="143"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 paquets linguistiques</translation>
     </message>
 </context>
 <context>
     <name>Page_MHWD</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="41"/>
+        <location filename="../pages/page_mhwd.ui" line="44"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>Pilote</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="46"/>
+        <location filename="../pages/page_mhwd.ui" line="49"/>
         <source>Free</source>
-        <translation type="unfinished"/>
+        <translation>Libre</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="51"/>
+        <location filename="../pages/page_mhwd.ui" line="54"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Installés</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="59"/>
+        <location filename="../pages/page_mhwd.ui" line="62"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>Afficher tous les périphériques</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="73"/>
+        <location filename="../pages/page_mhwd.ui" line="76"/>
         <source>Auto Install
 Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>Installation automatique
+Pilote libre</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="81"/>
+        <location filename="../pages/page_mhwd.ui" line="84"/>
         <source>Auto Install
 Non-Free Driver</source>
-        <translation type="unfinished"/>
+        <translation>Installation automatique
+Pilote non-libre</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Détection matérielle</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="41"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Installer</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Désinstaller</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
         <location filename="../pages/page_mhwd.cpp" line="253"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Forcer la réinstallation</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Nom du périphérique inconnu</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Installation automatique du pilote</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment installer automatiquement
+le pilote graphique libre ?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installation du pilote graphique libre...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment installer automatiquement
+le pilote graphique non-libre ?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installation du pilote graphique libre...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Installation du pilote</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="216"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment installer
+%1 ?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installation du pilote...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Désinstaller le pilote</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment désinstaller
+%1 ?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Désinstallation du pilote...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment forcer la réinstallation de
+%1 ?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Réinstallation du pilote...</translation>
     </message>
 </context>
 <context>
@@ -574,48 +665,48 @@ Non-Free Driver</source>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Image</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Type de compte</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Mot de passe</translation>
     </message>
     <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Comptes utilisateur</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
         <location filename="../pages/page_users.cpp" line="89"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="99"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrateur</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Images (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -625,53 +716,53 @@ Non-Free Driver</source>
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Erreur !</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;obtenir la structures des autorisations de l&apos;utilisateur</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de copier l&apos;image à &apos;%1&apos; !</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
         <location filename="../pages/page_users.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de définir les autorisations du fichier &apos;%1&apos; !</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de créer le lien symbolique entre &apos;%1&apos; et &apos;%2&apos; !</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Continuer ?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment supprimer l&apos;utilisateur &apos;%1&apos; ?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer le dossier personnel ?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous supprimer le dossier personnel de l&apos;utilisateur %1 ?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de supprimer l&apos;utilisateur %1 !</translation>
     </message>
 </context>
 <context>
@@ -679,28 +770,28 @@ Non-Free Driver</source>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="91"/>
         <source>Width:</source>
-        <translation type="unfinished"/>
+        <translation>Largeur :</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="92"/>
         <source>Height:</source>
-        <translation type="unfinished"/>
+        <translation>Hauteur :</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
         <source>Ratio:</source>
-        <translation type="unfinished"/>
+        <translation>Ratio :</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
         <location filename="../dialogs/previewfiledialog.cpp" line="95"/>
         <source>%1 px</source>
-        <translation type="unfinished"/>
+        <translation>%1 px</translation>
     </message>
     <message>
         <location filename="../dialogs/previewfiledialog.cpp" line="96"/>
         <source>%1</source>
-        <translation type="unfinished"/>
+        <translation>%1</translation>
     </message>
 </context>
 <context>
@@ -708,42 +799,42 @@ Non-Free Driver</source>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter un paramètre régional</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Langue</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
         <source>Territory</source>
-        <translation type="unfinished"/>
+        <translation>Territoire</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Description</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>Description :</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
         <source>Locale:</source>
-        <translation type="unfinished"/>
+        <translation>Locale :</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter</translation>
     </message>
 </context>
 </TS>

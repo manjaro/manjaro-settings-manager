@@ -57,9 +57,9 @@
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Desabilitáronse  los grupos d&apos;usuariu d&apos;embaxo:
+        <translation>Desabilitáronse los grupos d&apos;usuariu d&apos;embaxo:
 %1
-Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
+Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
@@ -82,17 +82,17 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Viesu d&apos;usuariu</translation>
+        <translation>Nome d&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Conseña</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Reescribir conseña</translation>
+        <translation>Reescribir contraseña</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
@@ -102,17 +102,17 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Criar</translation>
+        <translation>Crear</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>¡El to viesu d&apos;usuariu caltien caráuteres inválidos!</translation>
+        <translation>¡El to nome d&apos;usuariu tien caráuteres inválidos!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
         <source>Your passwords do not match!</source>
-        <translation>¡Les tos conseñes nun concasen!</translation>
+        <translation>¡Les tos contraseñes nun concasen!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="97"/>
@@ -124,12 +124,12 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <source>Failed to add user!</source>
-        <translation>¡Fallu al amestar l&apos;usuariu</translation>
+        <translation>¡Fallu al amestar l&apos;usuariu!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>¡Fallu al afitar la conseña d&apos;usuariu</translation>
+        <translation>¡Fallu al afitar la contraseña d&apos;usuariu!</translation>
     </message>
 </context>
 <context>
@@ -137,7 +137,7 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../dialogs/applydialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation>En procesando...</translation>
+        <translation>Procesando...</translation>
     </message>
     <message>
         <location filename="../dialogs/applydialog.ui" line="46"/>
@@ -173,12 +173,12 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Conseña nueva</translation>
+        <translation>Contraseña nueva</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Reescribir conseña</translation>
+        <translation>Reescribir contraseña</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
@@ -199,12 +199,63 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <source>Your passwords do not match!</source>
-        <translation>¡Les tos conseñes nun concasen!</translation>
+        <translation>¡Les tos contraseñes nun concasen!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>¡Fallu al afitar la conseña d&apos;usuariu!</translation>
+        <translation>¡Fallu al afitar la contraseña d&apos;usuariu!</translation>
+    </message>
+</context>
+<context>
+    <name>KernelListViewDelegate</name>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <source>LTS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <source>Running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <source>Installed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
+        <source>Outdated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
+        <source>Info</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -236,14 +287,47 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="54"/>
         <source>Hardware</source>
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="201"/>
         <source>Manjaro Settings</source>
         <translation>Axustes Manjaro</translation>
+    </message>
+</context>
+<context>
+    <name>Page_Kernel</name>
+    <message>
+        <location filename="../pages/page_kernel.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="51"/>
+        <source>Install new kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="52"/>
+        <source>Do you really want install the kernel?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
+        <source>Remove kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <source>Do you really want remove the kernel?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -266,7 +350,7 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="69"/>
         <source>Setting new keyboard layout...</source>
-        <translation>N&apos;axustando la nueva triba tecláu...</translation>
+        <translation>Axustando la triba tecláu nueva...</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
@@ -294,7 +378,7 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_language.ui" line="49"/>
         <source>Remove</source>
-        <translation>Esniciar</translation>
+        <translation>Desaniciar</translation>
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="56"/>
@@ -349,12 +433,12 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_language.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation>¡Fallu al afitase la llingua!</translation>
+        <translation>¡Fallu al afitar la llingua!</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation>En xenerando ficheru locale.gen...</translation>
+        <translation>Xenerando ficheru locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/page_language.cpp" line="199"/>
@@ -389,7 +473,7 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <location filename="../pages/page_languagepackages.ui" line="58"/>
         <location filename="../pages/page_languagepackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation>Paquete padre</translation>
+        <translation>Paquete pá</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
@@ -414,12 +498,12 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="74"/>
         <source>Updating pacman databases...</source>
-        <translation>N&apos;anovando bases de datos pacman...</translation>
+        <translation>Anovando bases de datos pacman...</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>System is out-of-date</source>
-        <translation>El to sistema ta anováu</translation>
+        <translation>El to sistema nun ta anováu</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
@@ -440,34 +524,34 @@ Encamiéntase habilitar esos grupos. ¿De xuru quies siguir?</translation>
 <context>
     <name>Page_MHWD</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="41"/>
+        <location filename="../pages/page_mhwd.ui" line="44"/>
         <source>Driver</source>
         <translation>Controlador</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="46"/>
+        <location filename="../pages/page_mhwd.ui" line="49"/>
         <source>Free</source>
         <translation>Llibre</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="51"/>
+        <location filename="../pages/page_mhwd.ui" line="54"/>
         <source>Installed</source>
         <translation>Instaláu</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="59"/>
+        <location filename="../pages/page_mhwd.ui" line="62"/>
         <source>Show all devices</source>
         <translation>Amosar tolos preseos</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="73"/>
+        <location filename="../pages/page_mhwd.ui" line="76"/>
         <source>Auto Install
 Free Driver</source>
         <translation>Autoinstalar
 Controlador llibre</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="81"/>
+        <location filename="../pages/page_mhwd.ui" line="84"/>
         <source>Auto Install
 Non-Free Driver</source>
         <translation>Autoinstalar
@@ -486,7 +570,7 @@ Controlador non llibre</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="43"/>
         <source>Remove</source>
-        <translation>Esniciar</translation>
+        <translation>Desaniciar</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="45"/>
@@ -497,13 +581,13 @@ Controlador non llibre</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="104"/>
         <source>Unknown device name</source>
-        <translation>Nome de preséu desconocíu</translation>
+        <translation>Nome del preséu desconocíu</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="158"/>
         <location filename="../pages/page_mhwd.cpp" line="175"/>
         <source>Auto Install Configuration</source>
-        <translation>Configuración d&apos;autoinstalación</translation>
+        <translation>Configuración d&apos;instalación automática</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
@@ -515,7 +599,7 @@ controlador gráficu llibre?</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing free graphic driver...</source>
-        <translation>N&apos;instalando controlador gráficu llibre...</translation>
+        <translation>Instalando&apos;l controlador gráficu llibre...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
@@ -527,7 +611,7 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing non-free graphic driver...</source>
-        <translation>N&apos;instalando controlador gráficu non llibre...</translation>
+        <translation>Instalando&apos;l controlador gráficu non llibre...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
@@ -544,24 +628,24 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="221"/>
         <source>Installing driver...</source>
-        <translation>N&apos;instalando&apos;l controlador...</translation>
+        <translation>Instalando&apos;l controlador...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="234"/>
         <source>Remove Configuration</source>
-        <translation>Esniciar configuración</translation>
+        <translation>Desaniciar configuración</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation>¿De xuru quies esniciar
+        <translation>¿De xuru quies desaniciar
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="240"/>
         <source>Removing driver...</source>
-        <translation>N&apos;esniciando&apos;l controlador...</translation>
+        <translation>Desaniciando&apos;l controlador...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="254"/>
@@ -573,7 +657,7 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation>En reinstalando&apos;l controlador...</translation>
+        <translation>Reinstalando&apos;l controlador...</translation>
     </message>
 </context>
 <context>
@@ -581,12 +665,12 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation>Imax</translation>
+        <translation>Semeya</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
         <source>Username</source>
-        <translation>Viesu d&apos;usuariu</translation>
+        <translation>Nome d&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="176"/>
@@ -596,7 +680,7 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_users.ui" line="183"/>
         <source>Password</source>
-        <translation>Conseña</translation>
+        <translation>Contraseña</translation>
     </message>
     <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
@@ -622,7 +706,7 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_users.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Imaxes (*.png *.jpg *.bmp)</translation>
+        <translation>Semeyes (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
@@ -642,7 +726,7 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>¡Fallu al copiar la imax a &apos;%1&apos;!</translation>
+        <translation>¡Fallu al copiar la semeya a &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>
@@ -663,22 +747,22 @@ controlador gráficu non llibre?</translation>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>¿De xuru quies esniciar l&apos;usuariu %1?</translation>
+        <translation>¿De xuru quies desaniciar l&apos;usuariu %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation>¿Esniciar Home?</translation>
+        <translation>¿Desaniciar Home?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>¿De xuru quies esniciar el direutoriu Home del usuariu %1?</translation>
+        <translation>¿De xuru quies desaniciar el direutoriu Home del usuariu %1?</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation>¡Fallu al esniciar l&apos;usuariu %1!</translation>
+        <translation>¡Fallu al desaniciar l&apos;usuariu %1!</translation>
     </message>
 </context>
 <context>
