@@ -38,11 +38,12 @@
 #include <QMessageBox>
 #include <QSettings>
 #include "widgets/pagewidget.h"
-#include "pages/page_languagepackages.h"
+#include "pages/page_kernel.h"
 #include "pages/page_keyboard.h"
 #include "pages/page_language.h"
-#include "pages/page_users.h"
+#include "pages/page_languagepackages.h"
 #include "pages/page_mhwd.h"
+#include "pages/page_users.h"
 
 
 namespace Ui {
@@ -74,6 +75,7 @@ private:
     Page_Language page_Language;
     Page_Users page_Users;
     Page_MHWD page_MHWD;
+    Page_Kernel page_Kernel;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

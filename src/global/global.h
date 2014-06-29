@@ -87,7 +87,6 @@ public:
     static QList<Global::User> getAllUsers();
     static QList<Global::Group> getAllGroups();
 
-
 private:
     struct LocaleSplit {
         QString language, territory;
@@ -97,7 +96,6 @@ private:
     static QStringList getAllAvailableRepoPackages(const QStringList & checkPackages);
     static QList<LocaleSplit> getAllEnabledLocalesSplit();
     static QList<Global::LocaleInfo> getLocaleInfoList();
-
 };
 
 

@@ -661,8 +661,6 @@ QList<Global::Group> Global::getAllGroups() {
 }
 
 
-
-
 //###
 //### Private
 //###

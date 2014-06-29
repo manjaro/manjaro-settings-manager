@@ -11,18 +11,22 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 LIBS += -lmhwd
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
+QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES  += main.cpp \
             mainwindow.cpp \
+            delegates/kernel_list_view_delegate.cpp \
             dialogs/accounttypedialog.cpp \
             dialogs/adduserdialog.cpp \
             dialogs/applydialog.cpp \
             dialogs/changepassworddialog.cpp \
             dialogs/previewfiledialog.cpp \
+            models/kernel.cpp \
+            pages/page_kernel.cpp \
+            pages/page_keyboard.cpp \
             pages/page_language.cpp \
             pages/page_languagepackages.cpp \
             pages/page_mhwd.cpp \
-            pages/page_keyboard.cpp \
             pages/page_users.cpp \
             widgets/flatbutton.cpp \
             widgets/listwidget.cpp \
@@ -32,16 +36,20 @@ SOURCES  += main.cpp \
             widgets/toolbarstylewidget.cpp
 
 
+
 HEADERS  += mainwindow.h \
+            delegates/kernel_list_view_delegate.h \
             dialogs/accounttypedialog.h \
             dialogs/adduserdialog.h \
             dialogs/applydialog.h \
             dialogs/changepassworddialog.h \
             dialogs/previewfiledialog.h \
+            models/kernel.h \
+            pages/page_kernel.h \
+            pages/page_keyboard.h \
             pages/page_language.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
-            pages/page_keyboard.h \
             pages/page_users.h \
             widgets/flatbutton.h \
             widgets/listwidget.h \
@@ -51,11 +59,14 @@ HEADERS  += mainwindow.h \
             widgets/toolbarstylewidget.h
 
 
+
+
 FORMS    += mainwindow.ui \
             dialogs/adduserdialog.ui \
             dialogs/accounttypedialog.ui \
             dialogs/applydialog.ui \
             dialogs/changepassworddialog.ui \
+            pages/page_kernel.ui \
             pages/page_keyboard.ui \
             pages/page_language.ui \
             pages/page_languagepackages.ui \

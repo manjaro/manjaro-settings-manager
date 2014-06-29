@@ -46,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     addPageWidget(page_LanguagePackages);
     addPageWidget(page_Language);
     addPageWidget(page_Users);
+    addPageWidget(page_Kernel);
 
     //
     // Add printer page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -120,6 +121,17 @@ void MainWindow::checkAppArguments() {
             for(int i = 0; i < ui->listWidget->count(); i++) {
                 ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
                 if (!item || !item->page || item->page != &page_LanguagePackages)
+                    continue;
+
+                listWidget_itemClicked(item);
+                break;
+            }
+        }
+        if (arg == "--page-kernel") {
+            // Show kernel page
+            for(int i = 0; i < ui->listWidget->count(); i++) {
+                ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
+                if (!item || !item->page || item->page != &page_Kernel)
                     continue;
 
                 listWidget_itemClicked(item);
