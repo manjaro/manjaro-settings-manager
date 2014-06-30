@@ -2,21 +2,26 @@
 #define KERNEL_INFO_DIALOG_H
 
 #include <QDialog>
+#include <QWebView>
+#include <QDebug>
 
 namespace Ui {
-class kernel_info_dialog;
+class KernelInfoDialog;
 }
 
-class kernel_info_dialog : public QDialog
+class KernelInfoDialog : public QDialog
 {
     Q_OBJECT
 
+public slots:
+    int exec();
+
 public:
-    explicit kernel_info_dialog(QWidget *parent = 0);
-    ~kernel_info_dialog();
+    explicit KernelInfoDialog(QWidget *parent = 0);
+    ~KernelInfoDialog();
 
 private:
-    Ui::kernel_info_dialog *ui;
+    Ui::KernelInfoDialog *ui;
 };
 
-#endif // KERNEL_INFO_DIALOG_H
+#endif // KERNELINFODIALOG_H

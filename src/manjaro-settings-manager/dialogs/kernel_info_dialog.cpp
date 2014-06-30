@@ -1,14 +1,21 @@
 #include "kernel_info_dialog.h"
 #include "ui_kernel_info_dialog.h"
 
-kernel_info_dialog::kernel_info_dialog(QWidget *parent) :
+KernelInfoDialog::KernelInfoDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::kernel_info_dialog)
+    ui(new Ui::KernelInfoDialog)
 {
     ui->setupUi(this);
 }
 
-kernel_info_dialog::~kernel_info_dialog()
+KernelInfoDialog::~KernelInfoDialog()
 {
     delete ui;
+}
+
+int KernelInfoDialog::exec()
+{
+    ui->webView->load(QUrl("qrc:///kernel_changelogs/resources/linux314.html"));
+    ui->webView->show();
+    return QDialog::exec();
 }
