@@ -296,12 +296,12 @@ QStringList KernelModel::getKernelModules(const QString &package)
 
 QStringList KernelModel::getLtsKernels()
 {
-    return QStringList() << "linux34" << "linux310";
+    return QStringList() << "linux34" << "linux310" << "linux312";
 }
 
 QStringList KernelModel::getRecommendedKernels()
 {
-    return QStringList() << "linux312" << "linux310";
+    return QStringList() << "linux310" << "linux312" << "linux314";
 }
 
 
