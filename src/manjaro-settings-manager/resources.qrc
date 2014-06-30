@@ -61,4 +61,7 @@
         <file>translations/msm_zh_CN.qm</file>
         <file>translations/msm_zh_TW.qm</file>
     </qresource>
+    <qresource prefix="/kernel_changelogs">
+        <file>resources/linux314.html</file>
+    </qresource>
 </RCC>

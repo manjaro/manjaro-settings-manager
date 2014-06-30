@@ -147,7 +147,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     /* draw right side buttons */
     QString removeStr(tr("Remove"));
     QString installStr(tr("Install"));
-    QString infoStr(tr("Info"));
+    QString infoStr(tr("Changelog"));
     QStringList buttonStringList = (QStringList() << removeStr << installStr << infoStr);
 
     QFont buttonFont = QFont();
@@ -162,6 +162,8 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         if (buttonSize.height() > buttonHeight)
             buttonHeight = buttonSize.height();
     }
+
+    /* Draw remove/install button */
     QRectF buttonRect(QPointF(), QSize(buttonWidth + 20, buttonHeight + 8));
     buttonRect.moveTopRight(QPointF(option.rect.right() - padding,
                                     option.rect.center().y() - buttonHeight - 10));
@@ -173,18 +175,22 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     } else {
         button.text = installStr;
     }
-    button.state = stateInstallButton_ | QStyle::State_Enabled;
+    button.state = stateInstallButton_;
     painter->setFont(buttonFont);
     QApplication::style()->drawControl(QStyle::CE_PushButton, &button, painter);
 
+    /* Draw changelog/information button */
     buttonRect.moveTopRight(QPointF(option.rect.right() - padding,
                                     option.rect.center().y() + 2));
     QStyleOptionButton infoButton;
     infoButton.rect = buttonRect.toRect();
     infoButton.text = infoStr;
-    infoButton.state = stateInfoButton_ | QStyle::State_Enabled;
+    infoButton.state = stateInfoButton_;
     painter->setFont(buttonFont);
-   // QApplication::style()->drawControl(QStyle::CE_PushButton, &infoButton, painter);
+    QString changelog = QString(":/kernel_changelogs/resources/%1.html").arg(package);
+    if (QFile(changelog).exists()) {
+        QApplication::style()->drawControl(QStyle::CE_PushButton, &infoButton, painter);
+    }
 
     painter->restore();
  }
@@ -206,7 +212,7 @@ bool KernelListViewDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
     /* Calculate where the buttons are */
     QString removeStr(tr("Remove"));
     QString installStr(tr("Install"));
-    QString infoStr(tr("Info"));
+    QString infoStr(tr("Changelog"));
     QStringList buttonStringList = (QStringList() << removeStr << installStr << infoStr);
 
     QFont buttonFont = QFont();

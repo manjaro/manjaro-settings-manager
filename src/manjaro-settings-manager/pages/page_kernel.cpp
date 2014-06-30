@@ -1,5 +1,6 @@
 #include "page_kernel.h"
 #include "ui_page_kernel.h"
+#include "dialogs/kernel_info_dialog.h"
 
 Page_Kernel::Page_Kernel(QWidget *parent) :
     PageWidget(parent),
@@ -81,6 +82,12 @@ void Page_Kernel::removeKernel(const QModelIndex &index)
 
 void Page_Kernel::infoButtonClicked(const QModelIndex &index)
 {
-    qDebug() << "info button clicked: " << index;
-    qDebug() << index.data(KernelModel::ModulesRole);
+    KernelInfoDialog dialog(this);
+
+    QString package = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
+    QStringList packageSplit = package.split(".");
+    QString title = QString(tr("Linux %1.%2 changelog")).arg(packageSplit.at(0),packageSplit.at(1));
+    dialog.setWindowTitle(title);
+
+    dialog.exec();
 }

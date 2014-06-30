@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui webkitwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,6 +20,7 @@ SOURCES  += main.cpp \
             dialogs/adduserdialog.cpp \
             dialogs/applydialog.cpp \
             dialogs/changepassworddialog.cpp \
+            dialogs/kernel_info_dialog.cpp \
             dialogs/previewfiledialog.cpp \
             models/kernel.cpp \
             pages/page_kernel.cpp \
@@ -43,6 +44,7 @@ HEADERS  += mainwindow.h \
             dialogs/adduserdialog.h \
             dialogs/applydialog.h \
             dialogs/changepassworddialog.h \
+            dialogs/kernel_info_dialog.h \
             dialogs/previewfiledialog.h \
             models/kernel.h \
             pages/page_kernel.h \
@@ -66,6 +68,7 @@ FORMS    += mainwindow.ui \
             dialogs/accounttypedialog.ui \
             dialogs/applydialog.ui \
             dialogs/changepassworddialog.ui \
+            dialogs/kernel_info_dialog.ui \
             pages/page_kernel.ui \
             pages/page_keyboard.ui \
             pages/page_language.ui \
