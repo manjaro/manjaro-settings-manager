@@ -46,12 +46,26 @@ void Page_Kernel::installKernel(const QModelIndex &index)
 {
     QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::ModulesRole));
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
-    qDebug() << package << packageList;
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,
-                                  tr("Install new kernel"),
-                                  tr("Do you really want install the kernel?"),
-                                  QMessageBox::Yes | QMessageBox::No);
+    QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
+
+    QString title = QString(tr("Install Linux %1")).arg(version);
+    QString message = QString(tr("Do you really want install this kernel?\n"));
+    QString information = QString(tr("This will remove the following packages:\n"));
+    information.append(package);
+    for (auto p : packageList) {
+        information.append("\n");
+        information.append(p);
+    }
+
+    QMessageBox messageBox;
+    messageBox.setIcon(QMessageBox::Question);
+    messageBox.setWindowTitle(title);
+    messageBox.setText(message);
+    messageBox.setDetailedText(information);
+    messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    messageBox.setDefaultButton(QMessageBox::No);
+
+    int reply = messageBox.exec();
     if (reply == QMessageBox::Yes)
     {
         ApplyDialog dialog(this);
@@ -65,12 +79,26 @@ void Page_Kernel::removeKernel(const QModelIndex &index)
 {
     QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::ModulesRole));
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
-    qDebug() << package << packageList;
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,
-                                  tr("Remove kernel"),
-                                  tr("Do you really want remove the kernel?"),
-                                  QMessageBox::Yes | QMessageBox::No);
+    QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
+
+    QString title = QString(tr("Remove Linux %1")).arg(version);
+    QString message = QString(tr("Do you really want remove this kernel?"));
+    QString information = QString(tr("This will remove the following packages:\n"));
+    information.append(package);
+    for (auto p : packageList) {
+        information.append("\n");
+        information.append(p);
+    }
+
+    QMessageBox messageBox;
+    messageBox.setIcon(QMessageBox::Question);
+    messageBox.setWindowTitle(title);
+    messageBox.setText(message);
+    messageBox.setDetailedText(information);
+    messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    messageBox.setDefaultButton(QMessageBox::No);
+    int reply = messageBox.exec();
+
     if (reply == QMessageBox::Yes)
     {
         ApplyDialog dialog(this);
