@@ -54,14 +54,13 @@ HEADERS  += mainwindow.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
             pages/page_users.h \
-            pages/page_time_date.h
+            pages/page_time_date.h \
             widgets/flatbutton.h \
             widgets/listwidget.h \
             widgets/keyboardpreview.h \
             widgets/pagewidget.h \
             widgets/selectlocalesdialog.h \
             widgets/toolbarstylewidget.h
-
 
 
 

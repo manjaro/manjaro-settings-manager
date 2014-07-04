@@ -29,7 +29,7 @@
 #include <QDir>
 #include <QSettings>
 #include <global.h>
-
+#include <QLabel>
 
 class Daemon : public QTimer
 {
@@ -40,14 +40,20 @@ public:
 
 private:
     QSystemTrayIcon trayIcon;
-    QString messageTitel, messageText;
+    QString messageTitle, messageText;
+    bool checkLanguagePackage;
+    bool checkKernel, checkOutdatedKernel, checkOutdatedKernelRunning;
+    bool checkNewKernel, checkNewKernelLts, checkNewKernelRecommended;
 
-    void showMessage(QString messageTitel, QString messageText);
+    void cLanguagePackage();
+    void cKernel();
+    void showMessage(QString messageTitle, QString messageText);
     
 protected slots:
     void run();
-    void trayIcon_clicked();
-    void trayIcon_showMessage();
+    void trayIconClicked();
+    void trayIconShowMessage();
+    void loadConfiguration();
 
 };
 
