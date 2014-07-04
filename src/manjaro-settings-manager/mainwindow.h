@@ -44,6 +44,7 @@
 #include "pages/page_languagepackages.h"
 #include "pages/page_mhwd.h"
 #include "pages/page_users.h"
+#include "pages/page_time_date.h"
 
 
 namespace Ui {
@@ -76,6 +77,7 @@ private:
     Page_Users page_Users;
     Page_MHWD page_MHWD;
     Page_Kernel page_Kernel;
+    PageTimeDate pageTimeDate;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);
