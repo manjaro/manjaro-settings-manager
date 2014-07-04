@@ -119,6 +119,7 @@ void Page_Kernel::infoButtonClicked(const QModelIndex &index)
     QString title = QString(tr("Linux %1.%2 changelog")).arg(packageSplit.at(0),packageSplit.at(1));
     QString version = QString(tr("%1%2")).arg(packageSplit.at(0),packageSplit.at(1));
     dialog.setWindowTitle(title);
+    dialog.setVersion(version);
 
-    dialog.exec(version);
+    dialog.exec();
 }
