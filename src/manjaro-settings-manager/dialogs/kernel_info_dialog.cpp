@@ -20,7 +20,7 @@ void KernelInfoDialog::setVersion(const QString &version)
 
 int KernelInfoDialog::exec()
 {
-    ui->webView->load(QUrl(Qstring("qrc:///kernel_changelogs/resources/linux%1.html").arg(m_version)));
+    ui->webView->load(QUrl(QString(tr("qrc:///kernel_changelogs/resources/linux%1.html")).arg(m_version)));
     ui->webView->show();
     return QDialog::exec();
 }
