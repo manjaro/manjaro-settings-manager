@@ -13,9 +13,9 @@ KernelInfoDialog::~KernelInfoDialog()
     delete ui;
 }
 
-int KernelInfoDialog::exec()
+int KernelInfoDialog::exec(version)
 {
-    ui->webView->load(QUrl("qrc:///kernel_changelogs/resources/linux314.html"));
+    ui->webView->load(QUrl("qrc:///kernel_changelogs/resources/linux%1.html").arg(version));
     ui->webView->show();
     return QDialog::exec();
 }

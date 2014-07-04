@@ -62,6 +62,13 @@
         <file>translations/msm_zh_TW.qm</file>
     </qresource>
     <qresource prefix="/kernel_changelogs">
+        <file>resources/linux34.html</file>
+        <file>resources/linux38.html</file>
+        <file>resources/linux310.html</file>
+        <file>resources/linux311.html</file>
+        <file>resources/linux312.html</file>
+        <file>resources/linux313.html</file>
         <file>resources/linux314.html</file>
+        <file>resources/linux315.html</file>
     </qresource>
 </RCC>
