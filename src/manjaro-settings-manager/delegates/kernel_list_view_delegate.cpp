@@ -175,7 +175,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     } else {
         button.text = installStr;
     }
-    button.state = stateInstallButton_;
+    button.state = stateInstallButton_ | QStyle::State_Enabled;
     painter->setFont(buttonFont);
     QApplication::style()->drawControl(QStyle::CE_PushButton, &button, painter);
 
@@ -185,7 +185,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     QStyleOptionButton infoButton;
     infoButton.rect = buttonRect.toRect();
     infoButton.text = infoStr;
-    infoButton.state = stateInfoButton_;
+    infoButton.state = stateInfoButton_ | QStyle::State_Enabled;
     painter->setFont(buttonFont);
     QString changelog = QString(":/kernel_changelogs/resources/%1.html").arg(package);
     if (QFile(changelog).exists()) {

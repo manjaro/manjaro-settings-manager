@@ -3,6 +3,8 @@
 build
 build-debug
 build-manjaro-settings-manager-Desktop
+build-manjaro-settings-manager-Qt4_Desktop
 build-manjaro-settings-manager-Desktop-Debug
+build-manjaro-settings-manager-Qt4_Desktop-Debug
 *.qm
 .directory
