@@ -7,6 +7,7 @@
 #include <QProcess>
 #include <QStringList>
 #include <QSortFilterProxyModel>
+#include <global.h>
 
 class Kernel
 {
@@ -81,13 +82,6 @@ protected:
 
 private:
     QList<Kernel> kernels_;
-    QStringList getAllInstalledKernels();
-    QStringList getAllAvailableKernels();
-    QString getRunningKernel();
-    QString getKernelVersion(const QString &package);
-    QStringList getKernelModules(const QString &package);
-    QStringList getLtsKernels();
-    QStringList getRecommendedKernels();
 };
 
 
