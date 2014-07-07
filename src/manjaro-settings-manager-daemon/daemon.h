@@ -42,7 +42,7 @@ private:
     QSystemTrayIcon trayIcon;
     QString messageTitle, messageText;
     bool checkLanguagePackage;
-    bool checkKernel, checkOutdatedKernel, checkOutdatedKernelRunning;
+    bool checkKernel, checkUnsupportedKernel, checkUnsupportedKernelRunning;
     bool checkNewKernel, checkNewKernelLts, checkNewKernelRecommended;
 
     void cLanguagePackage();

@@ -15,6 +15,8 @@ KernelListViewDelegate::~KernelListViewDelegate()
 QSize KernelListViewDelegate::sizeHint(const QStyleOptionViewItem & option,
                               const QModelIndex & index) const
 {
+    Q_UNUSED(option)
+    Q_UNUSED(index)
     return QSize(300, 70);
 }
 
@@ -71,10 +73,10 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     QString recommendedStr(tr("Recommended"));
     QString runningStr(tr("Running"));
     QString installedStr(tr("Installed"));
-    QString outdatedStr(tr("Outdated"));
+    QString unsupportedStr(tr("Unsupported"));
     QString customStr(tr("Custom"));
     QStringList labelStringList = (QStringList() << ltsStr << recommendedStr
-                                    << runningStr << installedStr << outdatedStr << customStr);
+                                    << runningStr << installedStr << unsupportedStr << customStr);
 
     QFont labelFont = QFont();
     labelFont.setPointSize(labelFont.pointSize());
@@ -113,7 +115,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         painter->drawText(labelRect, Qt::AlignCenter, recommendedStr);
     }
 
-    /* draw second column (running, installed, outdated) */
+    /* draw second column (running, installed, unsupported) */
     labelRect.moveTopLeft(QPointF(option.rect.center().x() + 5, option.rect.top() + padding));
     if (isRunning) {
         painter->fillRect(labelRect, QColor("#d6e9c6"));
@@ -141,7 +143,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         painter->drawRect(labelRect);
         painter->setPen(QColor("#a94442"));
         labelRect.moveTopLeft(labelRect.topLeft() + QPoint(0, 2));
-        painter->drawText(labelRect, Qt::AlignCenter, outdatedStr);
+        painter->drawText(labelRect, Qt::AlignCenter, unsupportedStr);
     }
 
     /* draw right side buttons */

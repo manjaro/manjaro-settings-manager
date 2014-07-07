@@ -98,27 +98,68 @@ void Daemon::cLanguagePackage() {
 }
 
 void Daemon::cKernel() {
-    if (checkOutdatedKernel) {
-        //get installed kernels not available in pacman (outdated)
-        if (checkOutdatedKernelRunning) {
-            qDebug() << "Notify that running is outdated";
-            // only if running = outdated, notify
-        } else {
-            qDebug() << "Notify that some installed kernel is outdated";
-            // notify outdated kernels installed
+    QStringList installedKernels = Global::getAllInstalledKernels();
+    QStringList availableKernels = Global::getAllAvailableKernels();
+    QString runningKernel = Global::getRunningKernel();
+    QStringList ltsKernels = Global::getLtsKernels();
+    QStringList recommendedKernels = Global::getRecommendedKernels();
+    QStringList unsupportedKernels;
+
+
+    for (QString kernel : installedKernels) {
+        if (!availableKernels.contains(kernel))
+            unsupportedKernels << kernel;
+    }
+
+    if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
+        if (checkUnsupportedKernelRunning) {
+            if (unsupportedKernels.contains(runningKernel)) {
+                qDebug() << "Unsupported & Running kernel found";
+            }
+        } else  {
+            if (unsupportedKernels.contains(runningKernel)) {
+                qDebug() << "Unsupported & Running kernel found";
+            } else {
+                qDebug() << "Unsupported & Not Running kernel found";
+            }
         }
     }
+
     if (checkNewKernel) {
-        // get latest kernel installed
-        // get newer kernels > installed
+        QStringList newKernels; // Not done yet
+        QStringList newLtsRecommendedKernels;
+        QStringList newLtsKernels;
+        QStringList newRecommendedKernels;
+
+
+        for(QString kernel : newKernels){
+            if (ltsKernels.contains(kernel) && recommendedKernels.contains(kernel)) {
+                newLtsRecommendedKernels << kernel;
+                newLtsKernels << kernel;
+                newRecommendedKernels << kernel;
+            } else if (ltsKernels.contains(kernel)) {
+                newLtsKernels << kernel;
+            } else if (recommendedKernels.contains(kernel)) {
+                newRecommendedKernels << kernel;
+            }
+        }
+
         if (checkNewKernelLts && checkNewKernelRecommended) {
-            // notify if one of the new kernels is lts AND recommended
+            if (!newLtsRecommendedKernels.isEmpty()) {
+               qDebug() << "Newer LTS & Recommended kernel available";
+            }
         } else if (checkNewKernelLts) {
-            // notify if one of the new kernels is LTS
+            if (!newLtsKernels.isEmpty()) {
+               qDebug() << "Newer LTS  kernel available";
+            }
         } else if (checkNewKernelRecommended) {
-            // notify if one of the new kernels is recommended
+            if (!newRecommendedKernels.isEmpty()) {
+               qDebug() << "Newer Recommended kernel available";
+            }
         } else {
-            // notify if there is a newer kernel
+            if (!newKernels.isEmpty()) {
+               qDebug() << "Newer kernel available";
+            }
         }
     }
 }
@@ -153,9 +194,9 @@ void Daemon::trayIconShowMessage() {
 void Daemon::loadConfiguration() {
     QSettings settings("manjaro", "manjaro-settings-manager");
     this->checkLanguagePackage = settings.value("notifications/checkLanguagePackages", true).toBool();
-    this->checkKernel = settings.value("notifications/checkOutdatedKernel", true).toBool();
-    this->checkOutdatedKernel = settings.value("notifications/checkOutdatedKernel", true).toBool();
-    this->checkOutdatedKernelRunning = settings.value("notifications/checkOutdatedKernelRunning", false).toBool();
+    this->checkKernel = settings.value("notifications/checkKernel", true).toBool();
+    this->checkUnsupportedKernel = settings.value("notifications/checkUnsupportedKernel", true).toBool();
+    this->checkUnsupportedKernelRunning = settings.value("notifications/checkUnsupportedKernelRunning", false).toBool();
     this->checkNewKernel = settings.value("notifications/checkNewKernel", true).toBool();
     this->checkNewKernelLts = settings.value("notifications/checkNewKernelLts", false).toBool();
     this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", false).toBool();

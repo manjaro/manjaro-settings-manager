@@ -10,6 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = manjaro-settings-manager-daemon
 TEMPLATE = app
+QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES += main.cpp\
     daemon.cpp
