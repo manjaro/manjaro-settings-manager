@@ -96,14 +96,18 @@ void KernelModel::update()
     QString runningKernel = getRunningKernel();
     QStringList ltsKernels = getLtsKernels();
     QStringList recommendedKernels = getRecommendedKernels();
+    QStringList allKernels(installedKernels);
+    allKernels += availableKernels;
+    allKernels.removeDuplicates();
 
     beginResetModel();
     kernels_.clear();
-    for (QString kernelPackage : availableKernels) {
+    for (QString kernelPackage : allKernels) {
         Kernel kernel;
         kernel.setPackage(kernelPackage);
         kernel.setVersion(getKernelVersion(kernelPackage));
-        kernel.setAvailable(true);
+        if (availableKernels.contains(kernelPackage))
+            kernel.setAvailable(true);
         if (installedKernels.contains(kernelPackage)) {
             kernel.setInstalled(true);
             kernel.setModules(getKernelModules(kernelPackage));
