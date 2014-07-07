@@ -246,8 +246,8 @@ bool KernelSortFilterProxyModel::lessThan(const QModelIndex &left,
 
         int leftMajor = leftStringList.at(0).toInt();
         int rightMajor = rightStringList.at(0).toInt();
-        int leftMinor = leftStringList.at(1).toInt();
-        int rightMinor = rightStringList.at(1).toInt();
+        int leftMinor = leftStringList.at(1).left(2).toInt();
+        int rightMinor = rightStringList.at(1).left(2).toInt();
 
         if (leftMajor == rightMajor) {
             if (leftMinor < rightMinor) {
