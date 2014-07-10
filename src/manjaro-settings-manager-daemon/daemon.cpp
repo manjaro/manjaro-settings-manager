@@ -39,7 +39,7 @@ void Daemon::start() {
     if (isActive())
         return;
 
-    QTimer::singleShot(2000, this, SLOT(run()));
+    QTimer::singleShot(20000, this, SLOT(run()));
     QTimer::start();
 }
 
@@ -88,8 +88,8 @@ void Daemon::cLanguagePackage() {
                 const Global::LanguagePackage *l = &packages.at(i);
                 int value = settings.value("notify_count_" + l->languagePackage, "0").toInt();
                 ++value;
-                //if (value < 3)
-                settings.setValue("notify_count_" + l->languagePackage, value);
+                if (value < 3)
+                    settings.setValue("notify_count_" + l->languagePackage, value);
             }
         }
     } else {
@@ -146,19 +146,19 @@ void Daemon::cKernel() {
 
         if (checkNewKernelLts && checkNewKernelRecommended) {
             if (!newLtsRecommendedKernels.isEmpty()) {
-               qDebug() << "Newer LTS & Recommended kernel available";
+                qDebug() << "Newer LTS & Recommended kernel available";
             }
         } else if (checkNewKernelLts) {
             if (!newLtsKernels.isEmpty()) {
-               qDebug() << "Newer LTS  kernel available";
+                qDebug() << "Newer LTS  kernel available";
             }
         } else if (checkNewKernelRecommended) {
             if (!newRecommendedKernels.isEmpty()) {
-               qDebug() << "Newer Recommended kernel available";
+                qDebug() << "Newer Recommended kernel available";
             }
         } else {
             if (!newKernels.isEmpty()) {
-               qDebug() << "Newer kernel available";
+                qDebug() << "Newer kernel available";
             }
         }
     }

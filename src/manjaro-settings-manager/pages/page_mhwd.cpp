@@ -34,8 +34,8 @@ Page_MHWD::Page_MHWD(QWidget *parent) :
 
     ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->treeWidget->setColumnWidth(0, 450);
-    ui->treeWidget->setColumnWidth(1, 75);
-    ui->treeWidget->setColumnWidth(2, 75);
+    ui->treeWidget->setColumnWidth(1, 100);
+    ui->treeWidget->setColumnWidth(2, 100);
 
     // Context menu actions
     installAction = new QAction(tr("Install"), ui->treeWidget);
