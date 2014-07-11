@@ -21,4 +21,7 @@ xdgautostart.files = data/autostart/*
 appfiles.path = /usr/share/applications/
 appfiles.files = data/applications/*
 
-INSTALLS += binfiles varfiles xdgautostart appfiles
+polkit.path = /usr/share/polkit-1/actions/
+polkit.files = data/polkit/*
+
+INSTALLS += binfiles varfiles xdgautostart appfiles polkit
