@@ -39,7 +39,7 @@ public:
     void start();
 
 private:
-    QSystemTrayIcon trayIcon;
+    QSystemTrayIcon trayIcon, kernelTrayIcon;
     QString messageTitle, messageText;
     bool checkLanguagePackage;
     bool checkKernel, checkUnsupportedKernel, checkUnsupportedKernelRunning;
@@ -48,11 +48,15 @@ private:
     void cLanguagePackage();
     void cKernel();
     void showMessage(QString messageTitle, QString messageText);
+    void showKernelMessage(QString messageTitle, QString messageText);
     
 protected slots:
     void run();
+    void runKernel();
     void trayIconClicked();
     void trayIconShowMessage();
+    void kernelTrayIconClicked();
+    void kernelTrayIconShowMessage();
     void loadConfiguration();
 
 };

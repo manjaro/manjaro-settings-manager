@@ -30,6 +30,8 @@ Daemon::Daemon(QObject *parent) :
     connect(this, SIGNAL(timeout())   ,   this, SLOT(run()));
     connect(&trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)) ,   this, SLOT(trayIconClicked()));
     connect(&trayIcon, SIGNAL(messageClicked()) ,   this, SLOT(trayIconClicked()));
+    connect(&kernelTrayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)) ,   this, SLOT(kernelTrayIconClicked()));
+    connect(&kernelTrayIcon, SIGNAL(messageClicked()) ,   this, SLOT(kernelTrayIconClicked()));
 
 }
 
@@ -40,6 +42,7 @@ void Daemon::start() {
         return;
 
     QTimer::singleShot(20000, this, SLOT(run()));
+    QTimer::singleShot(60000, this, SLOT(runKernel()));
     QTimer::start();
 }
 
@@ -49,15 +52,15 @@ void Daemon::start() {
 
 void Daemon::run() {
     if (checkLanguagePackage) {
-        qDebug() << "Checking Language Package";
         cLanguagePackage();
-    }
-    if (checkKernel){
-        qDebug() << "Checking Kernel";
-        cKernel();
     }
 }
 
+void Daemon::runKernel() {
+    if (checkKernel){
+        cKernel();
+    }
+}
 
 
 void Daemon::cLanguagePackage() {
@@ -75,7 +78,7 @@ void Daemon::cLanguagePackage() {
             packages.append(*l);
     }
 
-    if (!packages.isEmpty()) {
+    if (packages.isEmpty()) {
         if (!trayIcon.isVisible()) {
             trayIcon.setIcon(QIcon(":/images/resources/language.png"));
             trayIcon.show();
@@ -114,13 +117,31 @@ void Daemon::cKernel() {
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
         if (checkUnsupportedKernelRunning) {
             if (unsupportedKernels.contains(runningKernel)) {
-                qDebug() << "Unsupported & Running kernel found";
+                if (!kernelTrayIcon.isVisible()) {
+                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
+                    kernelTrayIcon.show();
+                    showKernelMessage(tr("Running an unsupported kernel"),
+                                tr("You are running a kernel which is unsupported, please update"));
+
+                }
             }
         } else  {
             if (unsupportedKernels.contains(runningKernel)) {
-                qDebug() << "Unsupported & Running kernel found";
+                if (!kernelTrayIcon.isVisible()) {
+                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
+                    kernelTrayIcon.show();
+                    showKernelMessage(tr("Running an unsupported kernel"),
+                                tr("You are running a kernel which is unsupported, please update"));
+
+                }
             } else {
-                qDebug() << "Unsupported & Not Running kernel found";
+                if (!kernelTrayIcon.isVisible()) {
+                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
+                    kernelTrayIcon.show();
+                    showKernelMessage(tr("Running an unsupported kernel"),
+                                tr("You have installed a kernel which is unsupported."));
+
+                }
             }
         }
     }
@@ -170,6 +191,11 @@ void Daemon::showMessage(QString messageTitle, QString messageText) {
     QTimer::singleShot(2000, this, SLOT(trayIconShowMessage()));
 }
 
+void Daemon::showKernelMessage(QString messageTitle, QString messageText) {
+    this->messageTitle = messageTitle;
+    this->messageText = messageText;
+    QTimer::singleShot(2000, this, SLOT(kernelTrayIconShowMessage()));
+}
 
 
 void Daemon::trayIconClicked() {
@@ -184,10 +210,26 @@ void Daemon::trayIconClicked() {
     QProcess::startDetached("manjaro-settings-manager", QStringList() << "--page-language-packages");
 }
 
+void Daemon::kernelTrayIconClicked() {
+
+    // Restart timer
+    stop();
+    QTimer::start();
+
+    // Hide tray icon
+    kernelTrayIcon.hide();
+
+    QProcess::startDetached("manjaro-settings-manager", QStringList() << "--page-kernel");
+}
+
 
 
 void Daemon::trayIconShowMessage() {
     trayIcon.showMessage(messageTitle, messageText, QSystemTrayIcon::Information, 30000);
+}
+
+void Daemon::kernelTrayIconShowMessage() {
+    kernelTrayIcon.showMessage(messageTitle, messageText, QSystemTrayIcon::Information, 30000);
 }
 
 
