@@ -1,12 +1,8 @@
 #!/bin/sh
 
-PROGRAM="/usr/bin/manjaro-settings-manager-gui"
-
-if which gksu >/dev/null; then
-	gksu "$PROGRAM" -- $@
-elif which kdesu >/dev/null; then
-	kdesu "$PROGRAM" -- $@
+if [ $(which pkexec) ]; then
+	pkexec "/usr/bin/manjaro-settings-manager-gui" "$@"
 else
-	echo "error: no sudo/su frontend application found! Abording..." 1>&2
+	echo "error: no pkexec frontend application found! Abording..." 1>&2
 	exit 1
 fi
