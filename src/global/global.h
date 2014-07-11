@@ -87,6 +87,14 @@ public:
     static QList<Global::User> getAllUsers();
     static QList<Global::Group> getAllGroups();
 
+    static QStringList getAllInstalledKernels();
+    static QStringList getAllAvailableKernels();
+    static QString getRunningKernel();
+    static QString getKernelVersion(const QString &package);
+    static QStringList getKernelModules(const QString &package);
+    static QStringList getLtsKernels();
+    static QStringList getRecommendedKernels();
+
 private:
     struct LocaleSplit {
         QString language, territory;

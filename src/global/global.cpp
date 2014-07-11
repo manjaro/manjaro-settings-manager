@@ -811,3 +811,85 @@ QList<Global::LocaleInfo> Global::getLocaleInfoList() {
 
     return localeInfoList;
 }
+
+
+
+
+QStringList Global::getAllInstalledKernels()
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Qqs" << "^linux[0-9][0-9]?([0-9])$");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get all installed kernels";
+    QString result = process.readAll();
+    return result.split("\n", QString::SkipEmptyParts);
+}
+
+
+QStringList Global::getAllAvailableKernels()
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Sqs" << "^linux[0-9][0-9]?([0-9])$");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get all available kernels";
+    QString result = process.readAll();
+    return result.split("\n", QString::SkipEmptyParts);
+}
+
+
+QString Global::getRunningKernel()
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("uname", QStringList() << "-r");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to determine running kernel";
+    QString result = process.readAll();
+    QStringList aux = result.split(".", QString::SkipEmptyParts);
+    return QString("linux%1%2").arg(aux.at(0)).arg(aux.at(1));
+}
+
+
+QString Global::getKernelVersion(const QString &package)
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Si" << package);
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to determine kernel version!";
+    QString result = process.readAll();
+    QStringList pkgInfo = result.split("\n", QString::SkipEmptyParts);
+    return QStringList(pkgInfo.at(2).split(":", QString::SkipEmptyParts)).last().simplified();
+}
+
+
+QStringList Global::getKernelModules(const QString &package)
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Qqs" << package << "-g" << package + "-extramodules");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get installed kernel modules";
+    QString result = process.readAll();
+    QStringList kernelModules = result.split("\n", QString::SkipEmptyParts);
+
+    process.start("pacman", QStringList() << "-Qqs" << (package + "-headers"));
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get installed headers";
+    result = process.readAll();
+    kernelModules.append(result.split("\n", QString::SkipEmptyParts));
+    return kernelModules;
+}
+
+
+QStringList Global::getLtsKernels()
+{
+    return QStringList() << "linux34" << "linux310" << "linux312" << "linux314";
+}
+
+QStringList Global::getRecommendedKernels()
+{
+    return QStringList() << "linux310" << "linux312" << "linux314";
+}

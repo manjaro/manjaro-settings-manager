@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     addPageWidget(page_Language);
     addPageWidget(page_Users);
     addPageWidget(page_Kernel);
+     //addPageWidget(pageTimeDate);
 
     //
     // Add printer page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

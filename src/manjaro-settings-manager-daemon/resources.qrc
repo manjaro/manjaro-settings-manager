@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/images">
         <file>resources/language.png</file>
+        <file>resources/tux-manjaro.png</file>
     </qresource>
     <qresource prefix="/">
         <file>translations/msmd_ast.qm</file>

@@ -19,11 +19,11 @@ public slots:
 public:
     explicit KernelInfoDialog(QWidget *parent = 0);
     ~KernelInfoDialog();
-    void setVersion(const QString &version);
+    void setPackage(const QString &package);
 
 private:
     Ui::KernelInfoDialog *ui;
-    QString m_version;
+    QString m_package;
 };
 
 #endif // KERNELINFODIALOG_H
