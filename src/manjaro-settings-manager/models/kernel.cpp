@@ -104,9 +104,13 @@ void KernelModel::update()
     for (QString kernelPackage : allKernels) {
         Kernel kernel;
         kernel.setPackage(kernelPackage);
-        kernel.setVersion(Global::getKernelVersion(kernelPackage));
-        if (availableKernels.contains(kernelPackage))
+        /* package available in the repository */
+        if (availableKernels.contains(kernelPackage)){
             kernel.setAvailable(true);
+            kernel.setVersion(Global::getKernelVersion(kernelPackage, false));
+        } else {
+            kernel.setVersion(Global::getKernelVersion(kernelPackage, true));
+        }
         if (installedKernels.contains(kernelPackage)) {
             kernel.setInstalled(true);
             kernel.setModules(Global::getKernelModules(kernelPackage));
@@ -138,9 +142,12 @@ void KernelModel::update(const QString kernelPackage)
 
     for (Kernel &kernel : kernels_) {
         if (QString::compare(kernelPackage, kernel.package()) == 0) {
-            kernel.setVersion(Global::getKernelVersion(kernelPackage));
-            if (availableKernels.contains(kernelPackage))
+            if (availableKernels.contains(kernelPackage)){
                 kernel.setAvailable(true);
+                kernel.setVersion(Global::getKernelVersion(kernelPackage, false));
+            } else {
+                kernel.setVersion(Global::getKernelVersion(kernelPackage, true));
+            }
             if (installedKernels.contains(kernelPackage)) {
                 kernel.setInstalled(true);
                 kernel.setModules(Global::getKernelModules(kernelPackage));

@@ -90,7 +90,7 @@ public:
     static QStringList getAllInstalledKernels();
     static QStringList getAllAvailableKernels();
     static QString getRunningKernel();
-    static QString getKernelVersion(const QString &package);
+    static QString getKernelVersion(const QString &package, const bool local);
     static QStringList getKernelModules(const QString &package);
     static QStringList getLtsKernels();
     static QStringList getRecommendedKernels();

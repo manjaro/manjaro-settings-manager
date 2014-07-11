@@ -852,16 +852,22 @@ QString Global::getRunningKernel()
 }
 
 
-QString Global::getKernelVersion(const QString &package)
+QString Global::getKernelVersion(const QString &package, const bool local)
 {
+    QString arguments = "-Si";
+    int line = 2;
+    if (local) {
+        arguments = "-Qi";
+        line = 1;
+    }
     QProcess process;
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
-    process.start("pacman", QStringList() << "-Si" << package);
+    process.start("pacman", QStringList() << arguments << package);
     if (!process.waitForFinished(15000))
         qDebug() << "error: failed to determine kernel version!";
     QString result = process.readAll();
     QStringList pkgInfo = result.split("\n", QString::SkipEmptyParts);
-    return QStringList(pkgInfo.at(2).split(":", QString::SkipEmptyParts)).last().simplified();
+    return QStringList(pkgInfo.at(line).split(":", QString::SkipEmptyParts)).last().simplified();
 }
 
 
