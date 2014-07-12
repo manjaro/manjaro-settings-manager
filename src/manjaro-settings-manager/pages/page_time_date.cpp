@@ -7,7 +7,7 @@ PageTimeDate::PageTimeDate(QWidget *parent) :
 {
     ui->setupUi(this);
     setTitel(tr("Time and Date"));
-    setIcon(QPixmap(":/images/resources/locale.png"));
+    setIcon(QPixmap(":/images/resources/help.png"));
 }
 
 PageTimeDate::~PageTimeDate()

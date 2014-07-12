@@ -43,6 +43,7 @@
 #include "pages/page_language.h"
 #include "pages/page_languagepackages.h"
 #include "pages/page_mhwd.h"
+#include "pages/page_notifications.h"
 #include "pages/page_users.h"
 #include "pages/page_time_date.h"
 
@@ -74,10 +75,11 @@ private:
     Page_LanguagePackages page_LanguagePackages;
     Page_Keyboard page_Keyboard;
     Page_Language page_Language;
-    Page_Users page_Users;
     Page_MHWD page_MHWD;
+    PageNotifications pageNotifications;
     Page_Kernel page_Kernel;
     PageTimeDate pageTimeDate;
+    Page_Users page_Users;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

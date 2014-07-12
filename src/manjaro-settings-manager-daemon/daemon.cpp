@@ -25,7 +25,6 @@ Daemon::Daemon(QObject *parent) :
 {
     // Set Interval to 30 minutes
     setInterval(1800000);
-    loadConfiguration();
 
     connect(this, SIGNAL(timeout())   ,   this, SLOT(run()));
     connect(&trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)) ,   this, SLOT(trayIconClicked()));
@@ -51,12 +50,14 @@ void Daemon::start() {
  */
 
 void Daemon::run() {
+    loadConfiguration();
     if (checkLanguagePackage) {
         cLanguagePackage();
     }
 }
 
 void Daemon::runKernel() {
+    loadConfiguration();
     if (checkKernel){
         cKernel();
     }
@@ -242,4 +243,5 @@ void Daemon::loadConfiguration() {
     this->checkNewKernel = settings.value("notifications/checkNewKernel", true).toBool();
     this->checkNewKernelLts = settings.value("notifications/checkNewKernelLts", false).toBool();
     this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", false).toBool();
+    this->checkKernel = checkUnsupportedKernel | checkNewKernel;
 }

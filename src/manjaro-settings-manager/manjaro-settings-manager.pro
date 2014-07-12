@@ -28,6 +28,7 @@ SOURCES  += main.cpp \
             pages/page_language.cpp \
             pages/page_languagepackages.cpp \
             pages/page_mhwd.cpp \
+            pages/page_notifications.cpp \
             pages/page_users.cpp \
             pages/page_time_date.cpp \
             widgets/flatbutton.cpp \
@@ -53,6 +54,7 @@ HEADERS  += mainwindow.h \
             pages/page_language.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
+            pages/page_notifications.h \
             pages/page_users.h \
             pages/page_time_date.h \
             widgets/flatbutton.h \
@@ -60,7 +62,7 @@ HEADERS  += mainwindow.h \
             widgets/keyboardpreview.h \
             widgets/pagewidget.h \
             widgets/selectlocalesdialog.h \
-            widgets/toolbarstylewidget.h
+            widgets/toolbarstylewidget.h \
 
 
 
@@ -75,9 +77,11 @@ FORMS    += mainwindow.ui \
             pages/page_language.ui \
             pages/page_languagepackages.ui \
             pages/page_mhwd.ui \
+            pages/page_notifications.ui \
             pages/page_users.ui \
             pages/page_time_date.ui \
-            widgets/selectlocalesdialog.ui \    
+            widgets/selectlocalesdialog.ui
+
 
 
 TRANSLATIONS += translations/msm_ast.ts \

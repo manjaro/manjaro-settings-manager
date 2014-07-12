@@ -45,9 +45,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listWidget->addSeparator(tr("System"));
     addPageWidget(page_LanguagePackages);
     addPageWidget(page_Language);
-    addPageWidget(page_Users);
     addPageWidget(page_Kernel);
-     //addPageWidget(pageTimeDate);
+    addPageWidget(page_Users);
+    //addPageWidget(pageTimeDate);
+    addPageWidget(pageNotifications);
 
     //
     // Add printer page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
