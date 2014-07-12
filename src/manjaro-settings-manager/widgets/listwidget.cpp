@@ -89,5 +89,6 @@ void ListWidget::addSeparator(QString text) {
 
 void ListWidget::resizeEvent(QResizeEvent *e) {
     emit resized();
+    this->reset();
     QListWidget::resizeEvent(e);
 }
