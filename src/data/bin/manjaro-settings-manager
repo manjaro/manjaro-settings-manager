@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROGRAMM="/usr/bin/manjaro-settings-manager-gui"
+PROGRAM="/usr/bin/manjaro-settings-manager-gui"
 
 if   [ $(which gksu) ]; then
 	gksu "$PROGRAM" -- $@
