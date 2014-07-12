@@ -80,7 +80,7 @@ void Daemon::cLanguagePackage() {
             packages.append(*l);
     }
 
-    if (packages.isEmpty()) {
+    if (!packages.isEmpty()) {
         if (!trayIcon.isVisible()) {
             trayIcon.setIcon(QIcon(":/images/resources/language.png"));
             trayIcon.show();
