@@ -24,8 +24,8 @@
 Daemon::Daemon(QObject *parent) :
     QTimer(parent)
 {
-    // Set Interval to 30 minutes
-    setInterval(1800000);
+    // Set Interval to 60 minutes
+    setInterval(3600000);
 
     connect(this, SIGNAL(timeout())   ,   this, SLOT(run()));
     connect(&trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)) ,   this, SLOT(trayIconClicked()));
@@ -109,6 +109,8 @@ void Daemon::cKernel() {
     QStringList ltsKernels = Global::getLtsKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
     QStringList unsupportedKernels;
+    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
+    QStringList newKernelsMinusIgnored;
 
     for (QString kernel : installedKernels) {
         if (!availableKernels.contains(kernel))
@@ -126,8 +128,8 @@ void Daemon::cKernel() {
         }
     }
 
-    if (checkNewKernel) {   
-        // Obtain the version of the latest installed kernel
+    if (checkNewKernel) {
+        /* Obtain the version of the latest installed kernel */
         int major = 0;
         int minor = 0;
         for (QString kernel : installedKernels) {
@@ -164,11 +166,20 @@ void Daemon::cKernel() {
             }
         }
 
+        /* Check if kernels should be ignored */
+        for (QString kernel : newKernels) {
+            int value = settings.value("notify_count_" + kernel, "0").toInt();
+            if (value < 2) {
+                qDebug() << kernel;
+                newKernelsMinusIgnored.append(kernel);
+            }
+        }
+
+        /* Find kernels that are lts, recommended or both */
         QStringList newLtsRecommendedKernels;
         QStringList newLtsKernels;
         QStringList newRecommendedKernels;
-
-        for(QString kernel : newKernels){
+        for(QString kernel : newKernelsMinusIgnored){
             if (ltsKernels.contains(kernel) && recommendedKernels.contains(kernel)) {
                 newLtsRecommendedKernels << kernel;
                 newLtsKernels << kernel;
@@ -193,7 +204,7 @@ void Daemon::cKernel() {
                 kernelFlags |= KernelFlag::New;
             }
         } else {
-            if (!newKernels.isEmpty()) {
+            if (!newKernelsMinusIgnored.isEmpty()) {
                 kernelFlags |= KernelFlag::New;
             }
         }
@@ -226,6 +237,13 @@ void Daemon::cKernel() {
             kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
             kernelTrayIcon.show();
             showKernelMessage(messageTitle, messageText);
+
+            for (QString kernel : newKernelsMinusIgnored) {
+                int value = settings.value("notify_count_" + kernel, "0").toInt();
+                ++value;
+                if (value < 3)
+                    settings.setValue("notify_count_" + kernel, value);
+            }
         }
     }
 }
