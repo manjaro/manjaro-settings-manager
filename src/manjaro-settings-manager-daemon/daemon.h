@@ -22,15 +22,16 @@
 #ifndef DAEMON_H
 #define DAEMON_H
 
+#include <QDir>
+#include <QFlags>
+#include <QIcon>
+#include <QLabel>
+#include <QProcess>
+#include <QSettings>
+#include <QStringList>
 #include <QTimer>
 #include <QSystemTrayIcon>
-#include <QIcon>
-#include <QProcess>
-#include <QStringList>
-#include <QDir>
-#include <QSettings>
 #include <global.h>
-#include <QLabel>
 
 class Daemon : public QTimer
 {
@@ -38,6 +39,14 @@ class Daemon : public QTimer
 public:
     explicit Daemon(QObject *parent = 0);
     void start();
+
+    enum KernelFlag {
+        Unsupported = 0x01,
+        Running = 0x02,
+        New = 0x04,
+    };
+    Q_DECLARE_FLAGS(KernelFlags, KernelFlag)
+
 
 private:
     QSystemTrayIcon trayIcon, kernelTrayIcon;
@@ -61,5 +70,7 @@ protected slots:
     void loadConfiguration();
 
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Daemon::KernelFlags)
 
 #endif // DAEMON_H

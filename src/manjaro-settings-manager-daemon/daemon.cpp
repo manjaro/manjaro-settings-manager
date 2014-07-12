@@ -110,50 +110,63 @@ void Daemon::cKernel() {
     QStringList recommendedKernels = Global::getRecommendedKernels();
     QStringList unsupportedKernels;
 
-
     for (QString kernel : installedKernels) {
         if (!availableKernels.contains(kernel))
             unsupportedKernels << kernel;
     }
 
+    Daemon::KernelFlags kernelFlags;
+
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
-        if (checkUnsupportedKernelRunning) {
-            if (unsupportedKernels.contains(runningKernel)) {
-                if (!kernelTrayIcon.isVisible()) {
-                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
-                    kernelTrayIcon.show();
-                    showKernelMessage(tr("Running an unsupported kernel"),
-                                tr("You are running a kernel which is unsupported, please update"));
-
-                }
-            }
-        } else  {
-            if (unsupportedKernels.contains(runningKernel)) {
-                if (!kernelTrayIcon.isVisible()) {
-                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
-                    kernelTrayIcon.show();
-                    showKernelMessage(tr("Running an unsupported kernel"),
-                                tr("You are running a kernel which is unsupported, please update"));
-
-                }
-            } else {
-                if (!kernelTrayIcon.isVisible()) {
-                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
-                    kernelTrayIcon.show();
-                    showKernelMessage(tr("Running an unsupported kernel"),
-                                tr("You have installed a kernel which is unsupported."));
-
-                }
-            }
+        if (unsupportedKernels.contains(runningKernel)) {
+            kernelFlags |= KernelFlag::Unsupported | KernelFlag::Running;
+        }
+        if (!checkUnsupportedKernelRunning) {
+            kernelFlags |= KernelFlag::Unsupported;
         }
     }
 
-    if (checkNewKernel) {
-        QStringList newKernels; // Not done yet
+    if (checkNewKernel) {   
+        // Obtain the version of the latest installed kernel
+        int major = 0;
+        int minor = 0;
+        for (QString kernel : installedKernels) {
+            QString version;
+            if (availableKernels.contains(kernel)){
+                version = Global::getKernelVersion(kernel, false);
+            } else {
+                version = Global::getKernelVersion(kernel, true);
+            }
+            QStringList versionStringList = version.split(".");
+            int thisMajor = versionStringList.at(0).toInt();
+            int thisMinor = versionStringList.at(1).left(2).toInt();
+
+            if (thisMajor > major) {
+                major = thisMajor;
+                minor = thisMinor;
+            } else if (thisMinor > minor){
+                minor = thisMinor;
+            }
+        }
+
+        // Obtain the list of new kernels
+        QStringList newKernels;
+        for (QString kernel : availableKernels) {
+            QString version = Global::getKernelVersion(kernel, false);
+            QStringList versionStringList = version.split(".");
+            int thisMajor = versionStringList.at(0).toInt();
+            int thisMinor = versionStringList.at(1).left(2).toInt();
+
+            if (thisMajor > major) {
+                newKernels << kernel;
+            } else if (thisMinor > minor){
+                newKernels << kernel;
+            }
+        }
+
         QStringList newLtsRecommendedKernels;
         QStringList newLtsKernels;
         QStringList newRecommendedKernels;
-
 
         for(QString kernel : newKernels){
             if (ltsKernels.contains(kernel) && recommendedKernels.contains(kernel)) {
@@ -169,20 +182,50 @@ void Daemon::cKernel() {
 
         if (checkNewKernelLts && checkNewKernelRecommended) {
             if (!newLtsRecommendedKernels.isEmpty()) {
-                qDebug() << "Newer LTS & Recommended kernel available";
+                kernelFlags |= KernelFlag::New;
             }
         } else if (checkNewKernelLts) {
             if (!newLtsKernels.isEmpty()) {
-                qDebug() << "Newer LTS  kernel available";
+                kernelFlags |= KernelFlag::New;
             }
         } else if (checkNewKernelRecommended) {
             if (!newRecommendedKernels.isEmpty()) {
-                qDebug() << "Newer Recommended kernel available";
+                kernelFlags |= KernelFlag::New;
             }
         } else {
             if (!newKernels.isEmpty()) {
-                qDebug() << "Newer kernel available";
+                kernelFlags |= KernelFlag::New;
             }
+        }
+    }
+
+    QString messageTitle;
+    QString messageText;
+
+    if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::Running)) {
+        messageText = QString(tr("Running an unsupported kernel, please update"));
+    } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
+        messageText = QString(tr("Unsupported kernel installed in your system."));
+    }
+
+    if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::New)) {
+        messageTitle = QString(tr("Your kernels need atention."));
+        messageText.append("\n");
+    } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
+        messageTitle = QString(tr("Unsupported Kernel Found."));
+    } else if (kernelFlags.testFlag(KernelFlag::New)) {
+        messageTitle = QString(tr("New Kernel Available."));
+    }
+
+    if (kernelFlags.testFlag(KernelFlag::New)) {
+        messageText.append(QString(tr("A kernel newer than the latest installed is available.")));
+    }
+
+    if (!messageTitle.isEmpty()) {
+        if (!kernelTrayIcon.isVisible()) {
+            kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
+            kernelTrayIcon.show();
+            showKernelMessage(messageTitle, messageText);
         }
     }
 }
