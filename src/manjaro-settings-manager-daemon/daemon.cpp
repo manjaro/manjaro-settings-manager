@@ -70,14 +70,12 @@ void Daemon::cLanguagePackage() {
     QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
     Global::getLanguagePackages(&availablePackages, &installedPackages);
 
-    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
-
     // Check if packages should be ignored
     for (int i = 0; i < availablePackages.size(); i++) {
         const Global::LanguagePackage *l = &availablePackages.at(i);
-        int value = settings.value("notify_count_" + l->languagePackage, "0").toInt();
-        if (value < 2)
+        if (!isPackageIgnored(l->languagePackage)) {
             packages.append(*l);
+        }
     }
 
     if (!packages.isEmpty()) {
@@ -89,14 +87,10 @@ void Daemon::cLanguagePackage() {
             trayIcon.setToolTip(messageText);
             showMessage(tr("Additional Language Package(s)", "", packagesCount),
                         messageText);
-
             // Add to Config
             for (int i = 0; i < packages.size(); i++) {
                 const Global::LanguagePackage *l = &packages.at(i);
-                int value = settings.value("notify_count_" + l->languagePackage, "0").toInt();
-                ++value;
-                if (value < 3)
-                    settings.setValue("notify_count_" + l->languagePackage, value);
+                addToConfig(l->languagePackage);
             }
         }
     } else {
@@ -111,15 +105,14 @@ void Daemon::cKernel() {
     QStringList ltsKernels = Global::getLtsKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
     QStringList unsupportedKernels;
-    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
-    QStringList newKernelsMinusIgnored;
+    QStringList newKernels;
+    Daemon::KernelFlags kernelFlags;
 
     for (QString kernel : installedKernels) {
-        if (!availableKernels.contains(kernel))
+        if (!isPackageIgnored(kernel) && !availableKernels.contains(kernel)) {
             unsupportedKernels << kernel;
+        }
     }
-
-    Daemon::KernelFlags kernelFlags;
 
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
         if (unsupportedKernels.contains(runningKernel)) {
@@ -154,8 +147,10 @@ void Daemon::cKernel() {
         }
 
         // Obtain the list of new kernels
-        QStringList newKernels;
         for (QString kernel : availableKernels) {
+            if (isPackageIgnored(kernel)) {
+                continue;
+            }
             QString version = Global::getKernelVersion(kernel, false);
             QStringList versionStringList = version.split(".");
             int thisMajor = versionStringList.at(0).toInt();
@@ -168,19 +163,11 @@ void Daemon::cKernel() {
             }
         }
 
-        /* Check if kernels should be ignored */
-        for (QString kernel : newKernels) {
-            int value = settings.value("notify_count_" + kernel, "0").toInt();
-            if (value < 2) {
-                newKernelsMinusIgnored.append(kernel);
-            }
-        }
-
         /* Find kernels that are lts, recommended or both */
         QStringList newLtsRecommendedKernels;
         QStringList newLtsKernels;
         QStringList newRecommendedKernels;
-        for(QString kernel : newKernelsMinusIgnored){
+        for(QString kernel : newKernels){
             if (ltsKernels.contains(kernel) && recommendedKernels.contains(kernel)) {
                 newLtsRecommendedKernels << kernel;
                 newLtsKernels << kernel;
@@ -205,7 +192,7 @@ void Daemon::cKernel() {
                 kernelFlags |= KernelFlag::New;
             }
         } else {
-            if (!newKernelsMinusIgnored.isEmpty()) {
+            if (!newKernels.isEmpty()) {
                 kernelFlags |= KernelFlag::New;
             }
         }
@@ -240,11 +227,11 @@ void Daemon::cKernel() {
             kernelTrayIcon.setToolTip(messageText);
             showKernelMessage(messageTitle, messageText);
 
-            for (QString kernel : newKernelsMinusIgnored) {
-                int value = settings.value("notify_count_" + kernel, "0").toInt();
-                ++value;
-                if (value < 3)
-                    settings.setValue("notify_count_" + kernel, value);
+            for (QString kernel : unsupportedKernels) {
+                addToConfig(kernel);
+            }
+            for (QString kernel : newKernels) {
+                addToConfig(kernel);
             }
         }
     }
@@ -309,3 +296,21 @@ void Daemon::loadConfiguration() {
     this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", false).toBool();
     this->checkKernel = checkUnsupportedKernel | checkNewKernel;
 }
+
+
+bool Daemon::isPackageIgnored(const QString package) {
+    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
+    int value = settings.value("notify_count_" + package, "0").toInt();
+    return (value < 2) ? false : true;
+}
+
+
+void Daemon::addToConfig(const QString package) {
+    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
+    int value = settings.value("notify_count_" + package, "0").toInt();
+    ++value;
+    if (value < 3)
+        settings.setValue("notify_count_" + package, value);
+}
+
+

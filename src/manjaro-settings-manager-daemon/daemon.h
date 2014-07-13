@@ -59,7 +59,9 @@ private:
     void cKernel();
     void showMessage(QString messageTitle, QString messageText);
     void showKernelMessage(QString messageTitle, QString messageText);
-    
+    bool isPackageIgnored(const QString package);
+    void addToConfig(const QString package);
+
 protected slots:
     void run();
     void runKernel();
