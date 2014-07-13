@@ -172,7 +172,6 @@ void Daemon::cKernel() {
         for (QString kernel : newKernels) {
             int value = settings.value("notify_count_" + kernel, "0").toInt();
             if (value < 2) {
-                qDebug() << kernel;
                 newKernelsMinusIgnored.append(kernel);
             }
         }
