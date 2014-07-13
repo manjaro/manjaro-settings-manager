@@ -85,8 +85,10 @@ void Daemon::cLanguagePackage() {
             trayIcon.setIcon(QIcon(":/images/resources/language.png"));
             trayIcon.show();
             int packagesCount = packages.size();
+            QString messageText = QString(tr("%n new additional language package(s) available", "", packagesCount));
+            trayIcon.setToolTip(messageText);
             showMessage(tr("Additional Language Package(s)", "", packagesCount),
-                        tr("%n new additional language package(s) available", "", packagesCount));
+                        messageText);
 
             // Add to Config
             for (int i = 0; i < packages.size(); i++) {
@@ -236,6 +238,7 @@ void Daemon::cKernel() {
         if (!kernelTrayIcon.isVisible()) {
             kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
             kernelTrayIcon.show();
+            kernelTrayIcon.setToolTip(messageText);
             showKernelMessage(messageTitle, messageText);
 
             for (QString kernel : newKernelsMinusIgnored) {
