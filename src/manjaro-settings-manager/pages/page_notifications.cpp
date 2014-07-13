@@ -6,8 +6,8 @@ PageNotifications::PageNotifications(QWidget *parent) :
     ui(new Ui::PageNotifications)
 {
     ui->setupUi(this);
-    setTitel(tr("MSM Notifications"));
-    setIcon(QPixmap(":/images/resources/help.png"));
+    setTitel(tr("Notifications"));
+    setIcon(QPixmap(":/images/resources/notifications.png"));
     setShowApplyButton(true);
 
     connect(ui->checkUnsupportedKernelBox, SIGNAL(stateChanged(int)), this, SLOT(unsupportedKernelStateBoxChanged(int)));

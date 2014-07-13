@@ -22,6 +22,7 @@
         <file>resources/intel.png</file>
         <file>resources/intel-nvidia.png</file>
         <file>resources/tux-manjaro.png</file>
+        <file>resources/notifications.png</file>
     </qresource>
     <qresource prefix="/">
         <file>translations/msm_ast.qm</file>
