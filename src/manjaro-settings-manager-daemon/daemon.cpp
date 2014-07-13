@@ -73,7 +73,7 @@ void Daemon::cLanguagePackage() {
     // Check if packages should be ignored
     for (int i = 0; i < availablePackages.size(); i++) {
         const Global::LanguagePackage *l = &availablePackages.at(i);
-        if (!isPackageIgnored(l->languagePackage)) {
+        if (!isPackageIgnored(l->languagePackage, "language_package")) {
             packages.append(*l);
         }
     }
@@ -90,7 +90,7 @@ void Daemon::cLanguagePackage() {
             // Add to Config
             for (int i = 0; i < packages.size(); i++) {
                 const Global::LanguagePackage *l = &packages.at(i);
-                addToConfig(l->languagePackage);
+                addToConfig(l->languagePackage, "language_package");
             }
         }
     } else {
@@ -109,7 +109,7 @@ void Daemon::cKernel() {
     Daemon::KernelFlags kernelFlags;
 
     for (QString kernel : installedKernels) {
-        if (!isPackageIgnored(kernel) && !availableKernels.contains(kernel)) {
+        if (!isPackageIgnored(kernel, "unsupported_kernel") && !availableKernels.contains(kernel)) {
             unsupportedKernels << kernel;
         }
     }
@@ -148,7 +148,7 @@ void Daemon::cKernel() {
 
         // Obtain the list of new kernels
         for (QString kernel : availableKernels) {
-            if (isPackageIgnored(kernel)) {
+            if (isPackageIgnored(kernel, "new_kernel")) {
                 continue;
             }
             QString version = Global::getKernelVersion(kernel, false);
@@ -228,10 +228,10 @@ void Daemon::cKernel() {
             showKernelMessage(messageTitle, messageText);
 
             for (QString kernel : unsupportedKernels) {
-                addToConfig(kernel);
+                addToConfig(kernel, "unsupported_kernel");
             }
             for (QString kernel : newKernels) {
-                addToConfig(kernel);
+                addToConfig(kernel, "new_kernel");
             }
         }
     }
@@ -244,8 +244,8 @@ void Daemon::showMessage(QString messageTitle, QString messageText) {
 }
 
 void Daemon::showKernelMessage(QString messageTitle, QString messageText) {
-    this->messageTitle = messageTitle;
-    this->messageText = messageText;
+    this->kernelMessageTitle = messageTitle;
+    this->kernelMessageText = messageText;
     QTimer::singleShot(2000, this, SLOT(kernelTrayIconShowMessage()));
 }
 
@@ -281,7 +281,7 @@ void Daemon::trayIconShowMessage() {
 }
 
 void Daemon::kernelTrayIconShowMessage() {
-    kernelTrayIcon.showMessage(messageTitle, messageText, QSystemTrayIcon::Information, 30000);
+    kernelTrayIcon.showMessage(kernelMessageTitle, kernelMessageText, QSystemTrayIcon::Information, 30000);
 }
 
 
@@ -298,19 +298,23 @@ void Daemon::loadConfiguration() {
 }
 
 
-bool Daemon::isPackageIgnored(const QString package) {
+bool Daemon::isPackageIgnored(const QString package, const QString group) {
     QSettings settings("manjaro", "manjaro-settings-manager-daemon");
+    settings.beginGroup(group);
     int value = settings.value("notify_count_" + package, "0").toInt();
+    settings.endGroup();
     return (value < 2) ? false : true;
 }
 
 
-void Daemon::addToConfig(const QString package) {
+void Daemon::addToConfig(const QString package, const QString group) {
     QSettings settings("manjaro", "manjaro-settings-manager-daemon");
+    settings.beginGroup(group);
     int value = settings.value("notify_count_" + package, "0").toInt();
     ++value;
     if (value < 3)
         settings.setValue("notify_count_" + package, value);
+    settings.endGroup();
 }
 
 

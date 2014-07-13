@@ -51,6 +51,7 @@ public:
 private:
     QSystemTrayIcon trayIcon, kernelTrayIcon;
     QString messageTitle, messageText;
+    QString kernelMessageTitle, kernelMessageText;
     bool checkLanguagePackage;
     bool checkKernel, checkUnsupportedKernel, checkUnsupportedKernelRunning;
     bool checkNewKernel, checkNewKernelLts, checkNewKernelRecommended;
@@ -59,8 +60,8 @@ private:
     void cKernel();
     void showMessage(QString messageTitle, QString messageText);
     void showKernelMessage(QString messageTitle, QString messageText);
-    bool isPackageIgnored(const QString package);
-    void addToConfig(const QString package);
+    bool isPackageIgnored(const QString package, const QString group);
+    void addToConfig(const QString package, const QString group);
 
 protected slots:
     void run();
