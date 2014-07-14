@@ -42,7 +42,7 @@ void Daemon::start() {
         return;
 
     QTimer::singleShot(20000, this, SLOT(run()));
-    QTimer::singleShot(60000, this, SLOT(runKernel()));
+    QTimer::singleShot(60, this, SLOT(runKernel()));
     QTimer::start();
 }
 
@@ -141,7 +141,7 @@ void Daemon::cKernel() {
             if (thisMajor > major) {
                 major = thisMajor;
                 minor = thisMinor;
-            } else if (thisMinor > minor){
+            } else if ((thisMajor == major) && (thisMinor > minor)){
                 minor = thisMinor;
             }
         }
@@ -158,7 +158,7 @@ void Daemon::cKernel() {
 
             if (thisMajor > major) {
                 newKernels << kernel;
-            } else if (thisMinor > minor){
+            } else if ((thisMajor == major) && (thisMinor > minor)) {
                 newKernels << kernel;
             }
         }
