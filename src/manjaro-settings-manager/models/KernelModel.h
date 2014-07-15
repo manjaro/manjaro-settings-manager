@@ -18,59 +18,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KERNEL_H
-#define KERNEL_H
+#ifndef KERNELMODEL_H
+#define KERNELMODEL_H
 
-#include <QAbstractListModel>
-#include <QDebug>
-#include <QObject>
-#include <QProcess>
-#include <QStringList>
-#include <QSortFilterProxyModel>
+#include <models/Kernel.h>
 #include <global.h>
-
-class Kernel
-{
-public:
-    Kernel();
-    Kernel(const QString &package,
-           const QString &version,
-           const QStringList &modules,
-           const bool isAvailable,
-           const bool isInstalled,
-           const bool isLts,
-           const bool isRecommended,
-           const bool isRunning);
-    ~Kernel();
-
-    QString package() const;
-    QString version() const;
-    QStringList modules() const;
-    bool isAvailable() const;
-    bool isInstalled() const;
-    bool isLts() const;
-    bool isRecommended() const;
-    bool isRunning() const;
-    void setPackage(const QString &package);
-    void setVersion(const QString &version);
-    void setModules(const QStringList &modules);
-    void setAvailable(const bool isAvailable);
-    void setInstalled(const bool isInstalled);
-    void setLts(const bool isLts);
-    void setRecommended(const bool isRecommended);
-    void setRunning(const bool isRunning);
-
-private:
-    QString package_;
-    QString version_;
-    QStringList modules_;
-    bool isAvailable_;
-    bool isInstalled_;
-    bool isLts_;
-    bool isRecommended_;
-    bool isRunning_;
-};
-
+#include <QtCore/QAbstractListModel>
+#include <QtCore/QObject>
+#include <QtCore/QSortFilterProxyModel>
 
 
 class KernelModel : public QAbstractListModel
@@ -80,12 +35,16 @@ public:
     enum KernelRoles {
         PackageRole = Qt::UserRole + 1,
         VersionRole,
-        ModulesRole,
+        MajorVersionRole,
+        MinorVersionRole,
+        AvailableModulesRole,
+        InstalledModulesRole,
         IsAvailableRole,
         IsInstalledRole,
         IsLtsRole,
         IsRecommendedRole,
-        IsRunningRole
+        IsRunningRole,
+        IsUnsupportedRole
     };
 
     KernelModel(QObject *parent = 0);
@@ -116,4 +75,5 @@ protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
 };
 
-#endif // KERNEL_H
+#endif // KERNELMODEL_H
+

@@ -22,7 +22,6 @@ SOURCES  += main.cpp \
             dialogs/changepassworddialog.cpp \
             dialogs/kernel_info_dialog.cpp \
             dialogs/previewfiledialog.cpp \
-            models/kernel.cpp \
             pages/page_kernel.cpp \
             pages/page_keyboard.cpp \
             pages/page_language.cpp \
@@ -36,7 +35,9 @@ SOURCES  += main.cpp \
             widgets/keyboardpreview.cpp \
             widgets/pagewidget.cpp \
             widgets/selectlocalesdialog.cpp \
-            widgets/toolbarstylewidget.cpp
+            widgets/toolbarstylewidget.cpp \
+    models/KernelModel.cpp \
+    models/Kernel.cpp
 
 
 
@@ -48,7 +49,6 @@ HEADERS  += mainwindow.h \
             dialogs/changepassworddialog.h \
             dialogs/kernel_info_dialog.h \
             dialogs/previewfiledialog.h \
-            models/kernel.h \
             pages/page_kernel.h \
             pages/page_keyboard.h \
             pages/page_language.h \
@@ -63,6 +63,8 @@ HEADERS  += mainwindow.h \
             widgets/pagewidget.h \
             widgets/selectlocalesdialog.h \
             widgets/toolbarstylewidget.h \
+    models/KernelModel.h \
+    models/Kernel.h
 
 
 

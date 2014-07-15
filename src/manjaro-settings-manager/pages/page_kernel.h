@@ -23,7 +23,7 @@
 
 #include "delegates/kernel_list_view_delegate.h"
 #include "dialogs/applydialog.h"
-#include "models/kernel.h"
+#include "models/KernelModel.h"
 #include "widgets/pagewidget.h"
 #include <QDebug>
 #include <QProcess>

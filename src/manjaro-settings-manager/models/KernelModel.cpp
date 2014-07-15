@@ -18,90 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kernel.h"
+#include "KernelModel.h"
 
-/* Kernel Class */
-Kernel::Kernel() : package_(QString()), version_(QString()), modules_(QStringList()),
-                   isAvailable_(false), isInstalled_(false), isLts_(false),
-                   isRecommended_(false), isRunning_(false)
-{
-}
-
-Kernel::Kernel(const QString &package,
-               const QString &version,
-               const QStringList &modules,
-               const bool isAvailable,
-               const bool isInstalled,
-               const bool isLts,
-               const bool isRecommended,
-               const bool isRunning)
-    : package_(package),
-      version_(version),
-      modules_(modules),
-      isAvailable_(isAvailable),
-      isInstalled_(isInstalled),
-      isLts_(isLts),
-      isRecommended_(isRecommended),
-      isRunning_(isRunning)
-{
-}
-
-Kernel::~Kernel()
-{
-}
-
-QString Kernel::package() const { return package_; }
-QString Kernel::version() const { return version_; }
-QStringList Kernel::modules() const { return modules_; }
-bool Kernel::isAvailable() const { return isAvailable_; }
-bool Kernel::isInstalled() const { return isInstalled_; }
-bool Kernel::isLts() const {return isLts_; }
-bool Kernel::isRecommended() const { return isRecommended_; }
-bool Kernel::isRunning() const { return isRunning_; }
-
-void Kernel::setPackage(const QString &package)
-{
-    package_ = package;
-}
-
-void Kernel::setVersion(const QString &version)
-{
-    version_ = version;
-}
-
-void Kernel::setModules(const QStringList &modules)
-{
-    modules_ = modules;
-}
-
-void Kernel::setAvailable(const bool isAvailable)
-{
-    isAvailable_ = isAvailable;
-}
-
-void Kernel::setInstalled(const bool isInstalled)
-{
-    isInstalled_ = isInstalled;
-}
-
-void Kernel::setLts(const bool isLts)
-{
-    isLts_ = isLts;
-}
-
-void Kernel::setRecommended(const bool isRecommended)
-{
-    isRecommended_ = isRecommended;
-}
-
-void Kernel::setRunning(const bool isRunning)
-{
-    isRunning_ = isRunning;
-}
-
-
-
-/* KernelModel Class */
 KernelModel::KernelModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -111,6 +29,10 @@ KernelModel::KernelModel(QObject *parent)
 
 void KernelModel::update()
 {
+    //QStringList installedPackages = KernelModel::installedPackages();
+    //QStringList availablePackages = KernelModel::availablePackages();
+
+
     QStringList installedKernels = Global::getAllInstalledKernels();
     QStringList availableKernels = Global::getAllAvailableKernels();
     QString runningKernel = Global::getRunningKernel();
@@ -133,12 +55,13 @@ void KernelModel::update()
         }
         if (installedKernels.contains(kernelPackage)) {
             kernel.setInstalled(true);
-            kernel.setModules(Global::getKernelModules(kernelPackage));
+            kernel.setInstalledModules(Global::getKernelModules(kernelPackage));
         } else {
             QStringList modules = Global::getKernelModules(runningKernel);
-            for (auto &module : modules)
+            for ( QString &module : modules ) {
                 module.replace(runningKernel, kernelPackage);
-            kernel.setModules(modules);
+            }
+            kernel.setInstalledModules(modules);
         }
         if (QString::compare(runningKernel, kernelPackage) == 0)
             kernel.setRunning(true);
@@ -170,9 +93,9 @@ void KernelModel::update(const QString kernelPackage)
             }
             if (installedKernels.contains(kernelPackage)) {
                 kernel.setInstalled(true);
-                kernel.setModules(Global::getKernelModules(kernelPackage));
+                kernel.setInstalledModules(Global::getKernelModules(kernelPackage));
             } else {
-                kernel.setModules(Global::getKernelModules(runningKernel));
+                kernel.setInstalledModules(Global::getKernelModules(runningKernel));
             }
             if (QString::compare(runningKernel, kernelPackage) == 0)
                 kernel.setRunning(true);
@@ -224,8 +147,14 @@ QVariant KernelModel::data(const QModelIndex &index, int role) const
         return kernel.package();
     else if (role == VersionRole)
         return kernel.version();
-    else if (role == ModulesRole)
-        return kernel.modules();
+    else if (role == MajorVersionRole)
+        return kernel.majorVersion();
+    else if (role == MinorVersionRole)
+        return kernel.minorVersion();
+    else if (role == InstalledModulesRole)
+        return kernel.installedModules();
+    else if (role == AvailableModulesRole)
+        return kernel.availableModules();
     else if (role == IsAvailableRole)
         return kernel.isAvailable();
     else if (role == IsInstalledRole)
@@ -236,6 +165,8 @@ QVariant KernelModel::data(const QModelIndex &index, int role) const
         return kernel.isRecommended();
     else if (role == IsRunningRole)
         return kernel.isRunning();
+    else if (role == IsUnsupportedRole)
+        return kernel.isUnsupported();
     return QVariant();
 }
 
@@ -245,7 +176,10 @@ QHash<int, QByteArray> KernelModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[PackageRole] = "package";
     roles[VersionRole] = "version";
-    roles[ModulesRole] = "modules";
+    roles[MajorVersionRole] = "majorVersion";
+    roles[MinorVersionRole] = "minorVersion";
+    roles[InstalledModulesRole] = "installedModules";
+    roles[AvailableModulesRole] = "availableModules";
     roles[IsAvailableRole] = "isAvailable";
     roles[IsInstalledRole] = "isInstalled";
     roles[IsLtsRole] = "isLts";

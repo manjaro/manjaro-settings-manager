@@ -64,7 +64,7 @@ void Page_Kernel::installButtonClicked(const QModelIndex &index)
 
 void Page_Kernel::installKernel(const QModelIndex &index)
 {
-    QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::ModulesRole));
+    QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::InstalledModulesRole));
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
     QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
 
@@ -98,7 +98,7 @@ void Page_Kernel::installKernel(const QModelIndex &index)
 
 void Page_Kernel::removeKernel(const QModelIndex &index)
 {
-    QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::ModulesRole));
+    QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::InstalledModulesRole));
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
     QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
 

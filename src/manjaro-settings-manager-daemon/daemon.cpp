@@ -130,7 +130,7 @@ void Daemon::cKernel() {
         for (QString kernel : installedKernels) {
             QString version;
             if (availableKernels.contains(kernel)){
-                version = Global::getKernelVersion(kernel, false);
+               version = Global::getKernelVersion(kernel, false);
             } else {
                 version = Global::getKernelVersion(kernel, true);
             }
@@ -155,11 +155,14 @@ void Daemon::cKernel() {
             QStringList versionStringList = version.split(".");
             int thisMajor = versionStringList.at(0).toInt();
             int thisMinor = versionStringList.at(1).left(2).toInt();
-
+            qDebug() << kernel << ": " << thisMajor << "." << thisMinor;
             if (thisMajor > major) {
                 newKernels << kernel;
+                              qDebug() << newKernels;
             } else if ((thisMajor == major) && (thisMinor > minor)) {
                 newKernels << kernel;
+                qDebug() << "hi";
+                qDebug() << newKernels;
             }
         }
 
@@ -181,7 +184,7 @@ void Daemon::cKernel() {
 
         if (checkNewKernelLts && checkNewKernelRecommended) {
             if (!newLtsRecommendedKernels.isEmpty()) {
-                kernelFlags |= KernelFlag::New;
+                kernelFlags |= KernelFlag::New;                
             }
         } else if (checkNewKernelLts) {
             if (!newLtsKernels.isEmpty()) {

@@ -21,7 +21,7 @@
 #ifndef KERNEL_LIST_VIEW_DELEGATE_H
 #define KERNEL_LIST_VIEW_DELEGATE_H
 
-#include "models/kernel.h"
+#include "models/KernelModel.h"
 #include <QStyledItemDelegate>
 #include <QModelIndex>
 #include <QSize>
