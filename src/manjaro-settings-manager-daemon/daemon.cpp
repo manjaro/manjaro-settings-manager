@@ -158,7 +158,6 @@ void Daemon::cKernel() {
             qDebug() << kernel << ": " << thisMajor << "." << thisMinor;
             if (thisMajor > major) {
                 newKernels << kernel;
-                              qDebug() << newKernels;
             } else if ((thisMajor == major) && (thisMinor > minor)) {
                 newKernels << kernel;
                 qDebug() << "hi";

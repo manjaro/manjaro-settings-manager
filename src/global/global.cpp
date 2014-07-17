@@ -21,6 +21,7 @@
 
 #include "global.h"
 
+#include <QtCore/QProcessEnvironment>
 
 //###
 //### Public
@@ -839,15 +840,23 @@ QStringList Global::getAllAvailableKernels()
     return result.split("\n", QString::SkipEmptyParts);
 }
 
-
+/*
+ * Get the current running kernel using uname -r
+ */
 QString Global::getRunningKernel()
 {
-    QProcess process;
-    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
-    process.start("uname", QStringList() << "-r");
-    if (!process.waitForFinished(15000))
-        qDebug() << "error: failed to determine running kernel";
-    QString result = process.readAll();
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG", "C");
+    env.insert("LC_MESSAGES", "C");
+    env.insert("LC_ALL", "C");
+
+    QProcess uname;
+    uname.setProcessEnvironment(env);
+
+    uname.start("uname", QStringList() << "-r");
+    uname.waitForFinished();
+    QString result = uname.readAllStandardOutput();
+    uname.close();
     QStringList aux = result.split(".", QString::SkipEmptyParts);
     return QString("linux%1%2").arg(aux.at(0)).arg(aux.at(1));
 }
@@ -871,26 +880,6 @@ QString Global::getKernelVersion(const QString &package, const bool local)
     return QStringList(pkgInfo.at(line).split(":", QString::SkipEmptyParts)).last().simplified();
 }
 
-
-QStringList Global::getKernelModules(const QString &package)
-{
-    QProcess process;
-    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
-    process.start("pacman", QStringList() << "-Qqs" << package << "-g" << package + "-extramodules");
-    if (!process.waitForFinished(15000))
-        qDebug() << "error: failed to get installed kernel modules";
-    QString result = process.readAll();
-    QStringList kernelModules = result.split("\n", QString::SkipEmptyParts);
-
-    process.start("pacman", QStringList() << "-Qqs" << (package + "-headers"));
-    if (!process.waitForFinished(15000))
-        qDebug() << "error: failed to get installed headers";
-    result = process.readAll();
-    kernelModules.append(result.split("\n", QString::SkipEmptyParts));
-    return kernelModules;
-}
-
-
 QStringList Global::getLtsKernels()
 {
     return QStringList() << "linux34" << "linux310" << "linux312" << "linux314";
@@ -899,4 +888,130 @@ QStringList Global::getLtsKernels()
 QStringList Global::getRecommendedKernels()
 {
     return QStringList() << "linux310" << "linux312" << "linux314";
+}
+
+
+/*
+ * This function was copied from Octopi project
+ *
+ * Performs a pacman query
+ */
+QByteArray Global::performQuery(const QStringList args)
+{
+  QByteArray result("");
+  QProcess pacman;
+
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.insert("LANG", "C");
+  env.insert("LC_MESSAGES", "C");
+  env.insert("LC_ALL", "C");
+  pacman.setProcessEnvironment(env);
+
+  pacman.start("pacman", args);
+  pacman.waitForFinished();
+  result = pacman.readAllStandardOutput();
+  pacman.close();
+
+  return result;
+}
+
+/*
+ * This function was copied from Octopi project
+ *
+ * Performs a pacman query
+ * Overloaded with QString parameter
+ */
+QByteArray Global::performQuery(const QString &args)
+{
+  QByteArray result("");
+  QProcess pacman;
+
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.insert("LANG", "C");
+  env.insert("LC_MESSAGES", "C");
+  env.insert("LC_ALL", "C");
+  pacman.setProcessEnvironment(env);
+
+  pacman.start("pacman " + args);
+  pacman.waitForFinished();
+  result = pacman.readAllStandardOutput();
+  pacman.close();
+  return result;
+}
+
+
+/*
+ * This function was copied from Octopi project
+ *
+ * Given a package name and if it is default to the official repositories,
+ * returns a string containing all of its information fields
+ * (ex: name, description, version, dependsOn...)
+ */
+QByteArray Global::packageInformation(const QString &pkgName, bool foreignPackage = false)
+{
+  QStringList args;
+
+  if(foreignPackage)
+    args << "-Qi";
+  else
+    args << "-Si";
+
+  if (pkgName.isEmpty() == false) // enables get for all ("")
+    args << pkgName;
+
+  QByteArray result = performQuery(args);
+  return result;
+}
+
+
+/*
+ * This function was copied from Octopi project
+ *
+ * Given a QString containing the output of pacman -Si/Qi (pkgInfo),
+ * this method returns the contents of the given field (ex: description)
+ */
+QString Global::extractFieldFromInfo(const QString &field, const QString &pkgInfo)
+{
+  int fieldPos = pkgInfo.indexOf(field);
+  int fieldEnd, fieldEnd2;
+  QString aux;
+
+  if (fieldPos > 0)
+  {
+    if(field == "Optional Deps")
+    {
+      fieldPos = pkgInfo.indexOf(":", fieldPos+1);
+      fieldPos+=2;
+      aux = pkgInfo.mid(fieldPos);
+
+      fieldEnd = aux.indexOf("Conflicts With");
+      fieldEnd2 = aux.indexOf("Required By");
+
+      if(fieldEnd > fieldEnd2 && fieldEnd2 != -1) fieldEnd = fieldEnd2;
+
+      aux = aux.left(fieldEnd).trimmed();
+      aux = aux.replace("\n", "<br>");
+    }
+    else
+    {
+      fieldPos = pkgInfo.indexOf(":", fieldPos+1);
+      fieldPos+=2;
+      aux = pkgInfo.mid(fieldPos);
+      fieldEnd = aux.indexOf('\n');
+      aux = aux.left(fieldEnd).trimmed();
+    }
+  }
+
+  return aux;
+}
+
+
+/*
+ * This function was copied from Octopi project
+ *
+ * Retrieves "Version" field of the given package information string represented by pkgInfo
+ */
+QString Global::packageVersion(const QString &pkgInfo)
+{
+  return extractFieldFromInfo("Version", pkgInfo);
 }

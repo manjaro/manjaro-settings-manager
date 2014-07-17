@@ -22,7 +22,6 @@
 #define KERNELMODEL_H
 
 #include <models/Kernel.h>
-#include <global.h>
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QObject>
 #include <QtCore/QSortFilterProxyModel>
@@ -61,6 +60,9 @@ protected:
 
 private:
     QList<Kernel> kernels_;
+    QStringList installedKernelPackages_;
+    QStringList availableKernelPackages_;
+    void updateKernelPackages();
 };
 
 

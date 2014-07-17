@@ -20,6 +20,10 @@
 
 #include "KernelModel.h"
 
+#include <global.h>
+
+#include <QtCore/QRegularExpression>
+
 KernelModel::KernelModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -29,47 +33,34 @@ KernelModel::KernelModel(QObject *parent)
 
 void KernelModel::update()
 {
-    //QStringList installedPackages = KernelModel::installedPackages();
-    //QStringList availablePackages = KernelModel::availablePackages();
-
-
-    QStringList installedKernels = Global::getAllInstalledKernels();
-    QStringList availableKernels = Global::getAllAvailableKernels();
+    updateKernelPackages();
+    QStringList allKernelPackages = QStringList() << installedKernelPackages_ << availableKernelPackages_;
+    allKernelPackages.removeDuplicates();
     QString runningKernel = Global::getRunningKernel();
     QStringList ltsKernels = Global::getLtsKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
-    QStringList allKernels = QStringList() << installedKernels << availableKernels;
-    allKernels.removeDuplicates();
 
     beginResetModel();
     kernels_.clear();
-    for (QString kernelPackage : allKernels) {
-        Kernel kernel;
-        kernel.setPackage(kernelPackage);
-        /* package available in the repository */
-        if (availableKernels.contains(kernelPackage)){
-            kernel.setAvailable(true);
-            kernel.setVersion(Global::getKernelVersion(kernelPackage, false));
-        } else {
-            kernel.setVersion(Global::getKernelVersion(kernelPackage, true));
-        }
-        if (installedKernels.contains(kernelPackage)) {
-            kernel.setInstalled(true);
-            kernel.setInstalledModules(Global::getKernelModules(kernelPackage));
-        } else {
-            QStringList modules = Global::getKernelModules(runningKernel);
-            for ( QString &module : modules ) {
-                module.replace(runningKernel, kernelPackage);
-            }
-            kernel.setInstalledModules(modules);
-        }
-        if (QString::compare(runningKernel, kernelPackage) == 0)
-            kernel.setRunning(true);
-        if (ltsKernels.contains(kernelPackage))
-            kernel.setLts(true);
-        if (recommendedKernels.contains(kernelPackage))
-            kernel.setRecommended(true);
-        kernels_.append(kernel);
+    for ( QString &kernel : allKernelPackages.filter(QRegularExpression("^linux[0-9][0-9]?([0-9])$")) ) {
+        Kernel newKernel;
+
+        newKernel.setPackage(kernel);
+        newKernel.setAvailable( availableKernelPackages_.contains(kernel) );
+        newKernel.setInstalled( installedKernelPackages_.contains(kernel) );
+
+        QString pkgInfo = Global::packageInformation( kernel, !newKernel.isAvailable() );
+        newKernel.setVersion(Global::packageVersion(pkgInfo));
+
+        newKernel.setInstalledModules( installedKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))));
+        newKernel.setAvailableModules( availableKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))));
+
+        newKernel.setLts( ltsKernels.contains(kernel) );
+        newKernel.setRecommended( recommendedKernels.contains(kernel) );
+        newKernel.setRunning( QString::compare(runningKernel, kernel) == 0 );
+
+        kernels_.append(newKernel);
+
     }
     endResetModel();
 }
@@ -77,32 +68,28 @@ void KernelModel::update()
 
 void KernelModel::update(const QString kernelPackage)
 {
-    QStringList installedKernels = Global::getAllInstalledKernels();
-    QStringList availableKernels = Global::getAllAvailableKernels();
+    updateKernelPackages();
+    QStringList allKernelPackages = QStringList() << installedKernelPackages_ << availableKernelPackages_;
+    allKernelPackages.removeDuplicates();
     QString runningKernel = Global::getRunningKernel();
     QStringList ltsKernels = Global::getLtsKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
 
     for (Kernel &kernel : kernels_) {
-        if (QString::compare(kernelPackage, kernel.package()) == 0) {
-            if (availableKernels.contains(kernelPackage)){
-                kernel.setAvailable(true);
-                kernel.setVersion(Global::getKernelVersion(kernelPackage, false));
-            } else {
-                kernel.setVersion(Global::getKernelVersion(kernelPackage, true));
-            }
-            if (installedKernels.contains(kernelPackage)) {
-                kernel.setInstalled(true);
-                kernel.setInstalledModules(Global::getKernelModules(kernelPackage));
-            } else {
-                kernel.setInstalledModules(Global::getKernelModules(runningKernel));
-            }
-            if (QString::compare(runningKernel, kernelPackage) == 0)
-                kernel.setRunning(true);
-            if (ltsKernels.contains(kernelPackage))
-                kernel.setLts(true);
-            if (recommendedKernels.contains(kernelPackage))
-                kernel.setRecommended(true);
+        if ( QString::compare(kernelPackage, kernel.package()) == 0 ) {
+            kernel.setPackage(kernelPackage);
+            kernel.setAvailable( availableKernelPackages_.contains(kernelPackage) );
+            kernel.setInstalled( installedKernelPackages_.contains(kernelPackage) );
+
+            QString pkgInfo = Global::packageInformation( kernelPackage, !kernel.isAvailable() );
+            kernel.setVersion(Global::packageVersion(pkgInfo));
+
+            kernel.setInstalledModules( installedKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernelPackage))));
+            kernel.setAvailableModules( availableKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernelPackage))));
+
+            kernel.setLts( ltsKernels.contains(kernelPackage) );
+            kernel.setRecommended( recommendedKernels.contains(kernelPackage) );
+            kernel.setRunning( QString::compare(runningKernel, kernelPackage) == 0 );
             // TODO: Implement signal kernelUpdated()
             // emit kernelUpdated();
             break;
@@ -186,6 +173,24 @@ QHash<int, QByteArray> KernelModel::roleNames() const
     roles[IsRecommendedRole] = "isRecommended";
     roles[IsRunningRole] = "isRunning";
     return roles;
+}
+
+void KernelModel::updateKernelPackages()
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Qqs" << "^linux[0-9][0-9]?([0-9])");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get all installed kernels";
+    QString result = process.readAll();
+    installedKernelPackages_ = result.split("\n", QString::SkipEmptyParts);
+
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Sqs" << "^linux[0-9][0-9]?([0-9])");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get all installed kernels";
+    result = process.readAll();
+    availableKernelPackages_ = result.split("\n", QString::SkipEmptyParts);
 }
 
 
