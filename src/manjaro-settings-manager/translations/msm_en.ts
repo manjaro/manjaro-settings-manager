@@ -284,18 +284,18 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../mainwindow.ui" line="208"/>
         <source>All Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="241"/>
-        <location filename="../mainwindow.ui" line="285"/>
+        <location filename="../mainwindow.ui" line="244"/>
+        <location filename="../mainwindow.ui" line="288"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="264"/>
+        <location filename="../mainwindow.ui" line="267"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
@@ -364,7 +364,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
-        <source>MSM Notifications</source>
+        <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
