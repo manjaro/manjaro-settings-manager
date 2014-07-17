@@ -208,54 +208,72 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     </message>
 </context>
 <context>
+    <name>KernelInfoDialog</name>
+    <message>
+        <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
+        <source>Changelog</source>
+        <translation>Änderungshistorie</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
+        <source>about:blank</source>
+        <translation>about:blank</translation>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Empfohlen</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Genutzt</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Installiert</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
-        <source>Outdated</source>
-        <translation type="unfinished"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
+        <source>Unsupported</source>
+        <translation>Nicht unterstützt</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
+        <source>Changelog</source>
+        <translation>Änderungshistorie</translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefiniert</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
+        <source>Experimental</source>
+        <translation>Experimentell</translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
-        <source>Info</source>
-        <translation type="unfinished"/>
+        <translation>Installieren</translation>
     </message>
 </context>
 <context>
@@ -266,18 +284,18 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>Manjaro Einstellungsmanager</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../mainwindow.ui" line="208"/>
         <source>All Settings</source>
         <translation>Alle Einstellungen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="241"/>
-        <location filename="../mainwindow.ui" line="285"/>
+        <location filename="../mainwindow.ui" line="244"/>
+        <location filename="../mainwindow.ui" line="288"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="264"/>
+        <location filename="../mainwindow.ui" line="267"/>
         <source>Apply</source>
         <translation>Anwenden</translation>
     </message>
@@ -287,14 +305,80 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="54"/>
+        <location filename="../mainwindow.cpp" line="56"/>
         <source>Hardware</source>
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="201"/>
+        <location filename="../mainwindow.cpp" line="203"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro Einstellungen</translation>
+    </message>
+</context>
+<context>
+    <name>PageNotifications</name>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="14"/>
+        <source>Form</source>
+        <translation>Formular</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="20"/>
+        <source>Kernel Notifications</source>
+        <translation>Kernel Benachrichtigungen</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="26"/>
+        <source>Unsupported kernels</source>
+        <translation>Ununterstützte Kernel</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="51"/>
+        <source>Only if running unsupported kernel</source>
+        <translation>Nur wenn ein ununterstützter Kernel genutzt wird</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="60"/>
+        <source>New Kernels</source>
+        <translation>Neue Kernel</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="85"/>
+        <source>Only notify if LTS</source>
+        <translation>Benachrichtige nur bei LTS-Kernel</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="112"/>
+        <source>Only notify if Recommended</source>
+        <translation>Benachrichtige nur bei empfohlene Kernel</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="124"/>
+        <source>Language Packs Notifications</source>
+        <translation>Sprach-Pakete Benachrichtigungen</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check new language packs</source>
+        <translation>Überprüfe auf neue Sprach-Pakete</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.cpp" line="9"/>
+        <source>Notifications</source>
+        <translation>Benachrichtigungen</translation>
+    </message>
+</context>
+<context>
+    <name>PageTimeDate</name>
+    <message>
+        <location filename="../pages/page_time_date.ui" line="16"/>
+        <source>Form</source>
+        <translation>Formular</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_time_date.cpp" line="29"/>
+        <source>Time and Date</source>
+        <translation>Zeit und Datum</translation>
     </message>
 </context>
 <context>
@@ -302,32 +386,63 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/page_kernel.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Formular</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="51"/>
-        <source>Install new kernel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="52"/>
-        <source>Do you really want install the kernel?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="70"/>
-        <source>Remove kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
-        <source>Do you really want remove the kernel?</source>
-        <translation type="unfinished"/>
+        <source>Install Linux %1</source>
+        <translation>Installiere Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <source>Do you really want install this kernel?
+</source>
+        <translation>Wollen Sie diesen Kernel wirklich installieren?
+</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <source>This will install the following packages:
+</source>
+        <translation>Folgende Pakete werden installiert:
+</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <source>Installing new kernel.</source>
+        <translation>Installiere neuen Kernel.</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <source>Remove Linux %1</source>
+        <translation>Entferne Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <source>Do you really want remove this kernel?</source>
+        <translation>Wollen Sie diesen Kernel wirklich entfernen?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <source>This will remove the following packages:
+</source>
+        <translation>Folgende Pakete werden entfernt:
+</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <source>Removing kernel...</source>
+        <translation>Entferne Kernel ...</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation>Linux %1.%2 Änderungshistorie</translation>
     </message>
 </context>
 <context>
@@ -524,38 +639,38 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
 <context>
     <name>Page_MHWD</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="44"/>
+        <location filename="../pages/page_mhwd.ui" line="67"/>
         <source>Driver</source>
         <translation>Treiber</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="49"/>
-        <source>Free</source>
-        <translation>Frei</translation>
+        <location filename="../pages/page_mhwd.ui" line="37"/>
+        <source>Auto Install
+Open-source Driver</source>
+        <translation>Auto. Installation 
+Freier Treiber</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="54"/>
+        <location filename="../pages/page_mhwd.ui" line="45"/>
+        <source>Auto Install
+Propietary Driver</source>
+        <translation>Auto. Installation 
+Unfreier Treiber</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="72"/>
+        <source>Open-source</source>
+        <translation>Open-Source</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="77"/>
         <source>Installed</source>
         <translation>Installiert</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="62"/>
+        <location filename="../pages/page_mhwd.ui" line="85"/>
         <source>Show all devices</source>
         <translation>Zeige alle Geräte</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="76"/>
-        <source>Auto Install
-Free Driver</source>
-        <translation>Autom. Installation
-Freie Treiber</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="84"/>
-        <source>Auto Install
-Non-Free Driver</source>
-        <translation>Autom. Installation
-Unfreie Treiber</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="31"/>
