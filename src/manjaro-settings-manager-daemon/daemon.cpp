@@ -24,8 +24,8 @@
 Daemon::Daemon(QObject *parent) :
     QTimer(parent)
 {
-    // Set Interval to 30 minutes
-    setInterval(1800000);
+    // Set Interval to 60 minutes
+    setInterval(3600000);
 
     connect(this, SIGNAL(timeout())   ,   this, SLOT(run()));
     connect(&trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)) ,   this, SLOT(trayIconClicked()));
@@ -42,7 +42,7 @@ void Daemon::start() {
         return;
 
     QTimer::singleShot(20000, this, SLOT(run()));
-    QTimer::singleShot(60000, this, SLOT(runKernel()));
+    QTimer::singleShot(60, this, SLOT(runKernel()));
     QTimer::start();
 }
 
@@ -70,31 +70,27 @@ void Daemon::cLanguagePackage() {
     QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
     Global::getLanguagePackages(&availablePackages, &installedPackages);
 
-    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
-
     // Check if packages should be ignored
     for (int i = 0; i < availablePackages.size(); i++) {
         const Global::LanguagePackage *l = &availablePackages.at(i);
-        int value = settings.value("notify_count_" + l->languagePackage, "0").toInt();
-        if (value < 2)
+        if (!isPackageIgnored(l->languagePackage, "language_package")) {
             packages.append(*l);
+        }
     }
 
-    if (packages.isEmpty()) {
+    if (!packages.isEmpty()) {
         if (!trayIcon.isVisible()) {
             trayIcon.setIcon(QIcon(":/images/resources/language.png"));
             trayIcon.show();
             int packagesCount = packages.size();
+            QString messageText = QString(tr("%n new additional language package(s) available", "", packagesCount));
+            trayIcon.setToolTip(messageText);
             showMessage(tr("Additional Language Package(s)", "", packagesCount),
-                        tr("%n new additional language package(s) available", "", packagesCount));
-
+                        messageText);
             // Add to Config
             for (int i = 0; i < packages.size(); i++) {
                 const Global::LanguagePackage *l = &packages.at(i);
-                int value = settings.value("notify_count_" + l->languagePackage, "0").toInt();
-                ++value;
-                if (value < 3)
-                    settings.setValue("notify_count_" + l->languagePackage, value);
+                addToConfig(l->languagePackage, "language_package");
             }
         }
     } else {
@@ -109,52 +105,68 @@ void Daemon::cKernel() {
     QStringList ltsKernels = Global::getLtsKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
     QStringList unsupportedKernels;
-
+    QStringList newKernels;
+    Daemon::KernelFlags kernelFlags;
 
     for (QString kernel : installedKernels) {
-        if (!availableKernels.contains(kernel))
+        if (!isPackageIgnored(kernel, "unsupported_kernel") && !availableKernels.contains(kernel)) {
             unsupportedKernels << kernel;
+        }
     }
 
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
-        if (checkUnsupportedKernelRunning) {
-            if (unsupportedKernels.contains(runningKernel)) {
-                if (!kernelTrayIcon.isVisible()) {
-                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
-                    kernelTrayIcon.show();
-                    showKernelMessage(tr("Running an unsupported kernel"),
-                                tr("You are running a kernel which is unsupported, please update"));
-
-                }
-            }
-        } else  {
-            if (unsupportedKernels.contains(runningKernel)) {
-                if (!kernelTrayIcon.isVisible()) {
-                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
-                    kernelTrayIcon.show();
-                    showKernelMessage(tr("Running an unsupported kernel"),
-                                tr("You are running a kernel which is unsupported, please update"));
-
-                }
-            } else {
-                if (!kernelTrayIcon.isVisible()) {
-                    kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
-                    kernelTrayIcon.show();
-                    showKernelMessage(tr("Running an unsupported kernel"),
-                                tr("You have installed a kernel which is unsupported."));
-
-                }
-            }
+        if (unsupportedKernels.contains(runningKernel)) {
+            kernelFlags |= KernelFlag::Unsupported | KernelFlag::Running;
+        }
+        if (!checkUnsupportedKernelRunning) {
+            kernelFlags |= KernelFlag::Unsupported;
         }
     }
 
     if (checkNewKernel) {
-        QStringList newKernels; // Not done yet
+        /* Obtain the version of the latest installed kernel */
+        int major = 0;
+        int minor = 0;
+        for (QString kernel : installedKernels) {
+            QString version;
+            if (availableKernels.contains(kernel)){
+                version = Global::getKernelVersion(kernel, false);
+            } else {
+                version = Global::getKernelVersion(kernel, true);
+            }
+            QStringList versionStringList = version.split(".");
+            int thisMajor = versionStringList.at(0).toInt();
+            int thisMinor = versionStringList.at(1).left(2).toInt();
+
+            if (thisMajor > major) {
+                major = thisMajor;
+                minor = thisMinor;
+            } else if ((thisMajor == major) && (thisMinor > minor)){
+                minor = thisMinor;
+            }
+        }
+
+        // Obtain the list of new kernels
+        for (QString kernel : availableKernels) {
+            if (isPackageIgnored(kernel, "new_kernel")) {
+                continue;
+            }
+            QString version = Global::getKernelVersion(kernel, false);
+            QStringList versionStringList = version.split(".");
+            int thisMajor = versionStringList.at(0).toInt();
+            int thisMinor = versionStringList.at(1).left(2).toInt();
+
+            if (thisMajor > major) {
+                newKernels << kernel;
+            } else if ((thisMajor == major) && (thisMinor > minor)) {
+                newKernels << kernel;
+            }
+        }
+
+        /* Find kernels that are lts, recommended or both */
         QStringList newLtsRecommendedKernels;
         QStringList newLtsKernels;
         QStringList newRecommendedKernels;
-
-
         for(QString kernel : newKernels){
             if (ltsKernels.contains(kernel) && recommendedKernels.contains(kernel)) {
                 newLtsRecommendedKernels << kernel;
@@ -169,19 +181,57 @@ void Daemon::cKernel() {
 
         if (checkNewKernelLts && checkNewKernelRecommended) {
             if (!newLtsRecommendedKernels.isEmpty()) {
-                qDebug() << "Newer LTS & Recommended kernel available";
+                kernelFlags |= KernelFlag::New;
             }
         } else if (checkNewKernelLts) {
             if (!newLtsKernels.isEmpty()) {
-                qDebug() << "Newer LTS  kernel available";
+                kernelFlags |= KernelFlag::New;
             }
         } else if (checkNewKernelRecommended) {
             if (!newRecommendedKernels.isEmpty()) {
-                qDebug() << "Newer Recommended kernel available";
+                kernelFlags |= KernelFlag::New;
             }
         } else {
             if (!newKernels.isEmpty()) {
-                qDebug() << "Newer kernel available";
+                kernelFlags |= KernelFlag::New;
+            }
+        }
+    }
+
+    QString messageTitle;
+    QString messageText;
+
+    if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::Running)) {
+        messageText = QString(tr("Running an unsupported kernel, please update"));
+    } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
+        messageText = QString(tr("Unsupported kernel installed in your system."));
+    }
+
+    if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::New)) {
+        messageTitle = QString(tr("Your kernels need atention."));
+        messageText.append("\n");
+    } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
+        messageTitle = QString(tr("Unsupported Kernel Found."));
+    } else if (kernelFlags.testFlag(KernelFlag::New)) {
+        messageTitle = QString(tr("New Kernel Available."));
+    }
+
+    if (kernelFlags.testFlag(KernelFlag::New)) {
+        messageText.append(QString(tr("A kernel newer than the latest installed is available.")));
+    }
+
+    if (!messageTitle.isEmpty()) {
+        if (!kernelTrayIcon.isVisible()) {
+            kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
+            kernelTrayIcon.show();
+            kernelTrayIcon.setToolTip(messageText);
+            showKernelMessage(messageTitle, messageText);
+
+            for (QString kernel : unsupportedKernels) {
+                addToConfig(kernel, "unsupported_kernel");
+            }
+            for (QString kernel : newKernels) {
+                addToConfig(kernel, "new_kernel");
             }
         }
     }
@@ -194,8 +244,8 @@ void Daemon::showMessage(QString messageTitle, QString messageText) {
 }
 
 void Daemon::showKernelMessage(QString messageTitle, QString messageText) {
-    this->messageTitle = messageTitle;
-    this->messageText = messageText;
+    this->kernelMessageTitle = messageTitle;
+    this->kernelMessageText = messageText;
     QTimer::singleShot(2000, this, SLOT(kernelTrayIconShowMessage()));
 }
 
@@ -231,7 +281,7 @@ void Daemon::trayIconShowMessage() {
 }
 
 void Daemon::kernelTrayIconShowMessage() {
-    kernelTrayIcon.showMessage(messageTitle, messageText, QSystemTrayIcon::Information, 30000);
+    kernelTrayIcon.showMessage(kernelMessageTitle, kernelMessageText, QSystemTrayIcon::Information, 30000);
 }
 
 
@@ -246,3 +296,25 @@ void Daemon::loadConfiguration() {
     this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", false).toBool();
     this->checkKernel = checkUnsupportedKernel | checkNewKernel;
 }
+
+
+bool Daemon::isPackageIgnored(const QString package, const QString group) {
+    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
+    settings.beginGroup(group);
+    int value = settings.value("notify_count_" + package, "0").toInt();
+    settings.endGroup();
+    return (value < 2) ? false : true;
+}
+
+
+void Daemon::addToConfig(const QString package, const QString group) {
+    QSettings settings("manjaro", "manjaro-settings-manager-daemon");
+    settings.beginGroup(group);
+    int value = settings.value("notify_count_" + package, "0").toInt();
+    ++value;
+    if (value < 3)
+        settings.setValue("notify_count_" + package, value);
+    settings.endGroup();
+}
+
+

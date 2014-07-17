@@ -162,6 +162,9 @@
         </property>
         <item>
          <widget class="ListWidget" name="listWidget">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
           </property>

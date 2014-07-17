@@ -22,15 +22,16 @@
 #ifndef DAEMON_H
 #define DAEMON_H
 
+#include <QDir>
+#include <QFlags>
+#include <QIcon>
+#include <QLabel>
+#include <QProcess>
+#include <QSettings>
+#include <QStringList>
 #include <QTimer>
 #include <QSystemTrayIcon>
-#include <QIcon>
-#include <QProcess>
-#include <QStringList>
-#include <QDir>
-#include <QSettings>
 #include <global.h>
-#include <QLabel>
 
 class Daemon : public QTimer
 {
@@ -39,9 +40,18 @@ public:
     explicit Daemon(QObject *parent = 0);
     void start();
 
+    enum KernelFlag {
+        Unsupported = 0x01,
+        Running = 0x02,
+        New = 0x04,
+    };
+    Q_DECLARE_FLAGS(KernelFlags, KernelFlag)
+
+
 private:
     QSystemTrayIcon trayIcon, kernelTrayIcon;
     QString messageTitle, messageText;
+    QString kernelMessageTitle, kernelMessageText;
     bool checkLanguagePackage;
     bool checkKernel, checkUnsupportedKernel, checkUnsupportedKernelRunning;
     bool checkNewKernel, checkNewKernelLts, checkNewKernelRecommended;
@@ -50,7 +60,9 @@ private:
     void cKernel();
     void showMessage(QString messageTitle, QString messageText);
     void showKernelMessage(QString messageTitle, QString messageText);
-    
+    bool isPackageIgnored(const QString package, const QString group);
+    void addToConfig(const QString package, const QString group);
+
 protected slots:
     void run();
     void runKernel();
@@ -61,5 +73,7 @@ protected slots:
     void loadConfiguration();
 
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Daemon::KernelFlags)
 
 #endif // DAEMON_H
