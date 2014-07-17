@@ -25,6 +25,7 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QRadioButton>
+#include <QButtonGroup>
 #include <QList>
 #include <QStringList>
 #include <QMessageBox>
@@ -32,7 +33,6 @@
 #include <const.h>
 #include "dialogs/applydialog.h"
 #include "widgets/selectlocalesdialog.h"
-
 
 
 namespace Ui {
@@ -55,9 +55,11 @@ private:
     class TreeWidgetItem : public QTreeWidgetItem {
     public:
         TreeWidgetItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
-        QRadioButton radioButton;
+        QRadioButton localeRadioButton;
+        QRadioButton formatsRadioButton;
     };
-
+    QButtonGroup groupLocale;
+    QButtonGroup groupFormats;
     Ui::Page_Language *ui;
 
 protected slots:

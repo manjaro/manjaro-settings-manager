@@ -1,0 +1,4 @@
+#! /bin/sh
+
+/usr/lib/qt4/bin/lupdate src/manjaro-settings-manager/manjaro-settings-manager.pro -ts src/manjaro-settings-manager/translations/msm_en.ts
+/usr/lib/qt4/bin/lupdate src/manjaro-settings-manager-daemon/manjaro-settings-manager-daemon.pro -ts src/manjaro-settings-manager-daemon/translations/msmd_en.ts

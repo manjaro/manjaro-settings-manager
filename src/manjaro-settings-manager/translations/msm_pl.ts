@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.0">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -208,11 +208,62 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     </message>
 </context>
 <context>
+    <name>KernelListViewDelegate</name>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <source>LTS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <source>Running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <source>Installed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
+        <source>Outdated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
+        <source>Info</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Menadżer ustawień Manjaro</translation>
+        <translation>Menedżer ustawień Manjaro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
@@ -236,14 +287,47 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="54"/>
         <source>Hardware</source>
         <translation>Sprzęt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="188"/>
+        <location filename="../mainwindow.cpp" line="201"/>
         <source>Manjaro Settings</source>
         <translation>Ustawienia Manjaro</translation>
+    </message>
+</context>
+<context>
+    <name>Page_Kernel</name>
+    <message>
+        <location filename="../pages/page_kernel.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="51"/>
+        <source>Install new kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="52"/>
+        <source>Do you really want install the kernel?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
+        <source>Remove kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <source>Do you really want remove the kernel?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -275,7 +359,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determind current Xorg keyboard layout!</source>
+        <source>Failed to determine current Xorg keyboard layout!</source>
         <translation>Wczytanie obecnego układu klawiatury Xorg nie powiodło się!</translation>
     </message>
 </context>
@@ -319,43 +403,50 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
-        <source>Current System Locale</source>
-        <translation>Obecna lokalizacja systemu</translation>
+        <source>System Language</source>
+        <translation>Język systemu</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="138"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.ui" line="86"/>
+        <source>System Formats</source>
+        <translation>Formaty systemu</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="108"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
         <translation>Błąd!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation>Otwarcie pliku &apos;%1&apos; nie powiodło się!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="138"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation>Pobranie poprawnej lokalizacji dla tekstu &apos;%1&apos; nie powiodło się!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
+        <source>Failed to set locale!</source>
+        <translation>Ustawienie ustawień regionalnych nie powiodło się!</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
         <translation>Generowanie pliku locale.gen...</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
         <translation>Podpowiedź</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation>Ponowne uruchomienie środowiska graficznego może być wymagane, aby nowe ustawienia zostały zastosowane...</translation>
     </message>
@@ -431,6 +522,145 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     </message>
 </context>
 <context>
+    <name>Page_MHWD</name>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="44"/>
+        <source>Driver</source>
+        <translation>Sterownik</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="49"/>
+        <source>Free</source>
+        <translation>Wolny</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="54"/>
+        <source>Installed</source>
+        <translation>Zainstalowany</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="62"/>
+        <source>Show all devices</source>
+        <translation>Pokaż wszystkie urządzenia</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="76"/>
+        <source>Auto Install
+Free Driver</source>
+        <translation>Zainstaluj automatycznie
+wolny sterownik</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="84"/>
+        <source>Auto Install
+Non-Free Driver</source>
+        <translation>Zainstaluj automatycznie
+nie-wolny sterownik</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="31"/>
+        <source>Hardware Detection</source>
+        <translation>Detekcja sprzętu</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="41"/>
+        <source>Install</source>
+        <translation>Zainstaluj</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="43"/>
+        <source>Remove</source>
+        <translation>Usuń</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="45"/>
+        <location filename="../pages/page_mhwd.cpp" line="253"/>
+        <source>Force Reinstallation</source>
+        <translation>Wymuś przeinstalowanie</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <source>Unknown device name</source>
+        <translation>Nieznana nazwa urządzenia</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="158"/>
+        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <source>Auto Install Configuration</source>
+        <translation>Konfiguracja automatycznego instalowania</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <source>Do you really want to auto install
+ the free graphic driver?</source>
+        <translation>Czy chcesz automatycznie zainstalować
+wolny sterownik graficzny?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <source>Installing free graphic driver...</source>
+        <translation>Instalowanie wolnego sterownika graficznego...</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <source>Do you really want to auto install
+ the non-free graphic driver?</source>
+        <translation>Czy chcesz automatycznie zainstalować
+nie-wolny sterownik graficzny?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <source>Installing non-free graphic driver...</source>
+        <translation>Instalowanie nie-wolnego sterownika graficznego...</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <source>Install Configuration</source>
+        <translation>Zainstaluj konfigurację</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <source>Do you really want to install
+%1?</source>
+        <translation>Czy na pewno chcesz zainstalować
+%1?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <source>Installing driver...</source>
+        <translation>Instalowanie sterownika...</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <source>Remove Configuration</source>
+        <translation>Usuń konfigurację</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <source>Do you really want to remove
+%1?</source>
+        <translation>Czy na pewno chcesz usunąć
+%1?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="240"/>
+        <source>Removing driver...</source>
+        <translation>Usuwanie sterownika...</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="254"/>
+        <source>Do you really want to force the reinstallation of
+%1?</source>
+        <translation>Czy chcesz wymusić przeinstalowanie
+%1?</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <source>Reinstalling driver...</source>
+        <translation>Przeinstalowanie sterownika...</translation>
+    </message>
+</context>
+<context>
     <name>Page_Users</name>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
@@ -452,7 +682,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <source>Password</source>
         <translation>Hasło</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
@@ -490,7 +720,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
-        <source>Failed to get user permission structs!</source>
+        <source>Failed to get user permission structures!</source>
         <translation>Wczytanie uprawnień użytkownika nie powiodło się!</translation>
     </message>
     <message>

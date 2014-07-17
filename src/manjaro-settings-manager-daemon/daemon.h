@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -21,14 +22,16 @@
 #ifndef DAEMON_H
 #define DAEMON_H
 
+#include <QDir>
+#include <QFlags>
+#include <QIcon>
+#include <QLabel>
+#include <QProcess>
+#include <QSettings>
+#include <QStringList>
 #include <QTimer>
 #include <QSystemTrayIcon>
-#include <QIcon>
-#include <QProcess>
-#include <QStringList>
-#include <QDir>
 #include <global.h>
-
 
 class Daemon : public QTimer
 {
@@ -37,17 +40,40 @@ public:
     explicit Daemon(QObject *parent = 0);
     void start();
 
-private:
-    QSystemTrayIcon trayIcon;
-    QString messageTitel, messageText;
+    enum KernelFlag {
+        Unsupported = 0x01,
+        Running = 0x02,
+        New = 0x04,
+    };
+    Q_DECLARE_FLAGS(KernelFlags, KernelFlag)
 
-    void showMessage(QString messageTitel, QString messageText);
-    
+
+private:
+    QSystemTrayIcon trayIcon, kernelTrayIcon;
+    QString messageTitle, messageText;
+    QString kernelMessageTitle, kernelMessageText;
+    bool checkLanguagePackage;
+    bool checkKernel, checkUnsupportedKernel, checkUnsupportedKernelRunning;
+    bool checkNewKernel, checkNewKernelLts, checkNewKernelRecommended;
+
+    void cLanguagePackage();
+    void cKernel();
+    void showMessage(QString messageTitle, QString messageText);
+    void showKernelMessage(QString messageTitle, QString messageText);
+    bool isPackageIgnored(const QString package, const QString group);
+    void addToConfig(const QString package, const QString group);
+
 protected slots:
     void run();
-    void trayIcon_clicked();
-    void trayIcon_showMessage();
+    void runKernel();
+    void trayIconClicked();
+    void trayIconShowMessage();
+    void kernelTrayIconClicked();
+    void kernelTrayIconShowMessage();
+    void loadConfiguration();
 
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Daemon::KernelFlags)
 
 #endif // DAEMON_H

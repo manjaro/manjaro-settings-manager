@@ -78,7 +78,12 @@
      </column>
      <column>
       <property name="text">
-       <string>Current System Locale</string>
+       <string>System Language</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>System Formats</string>
       </property>
      </column>
     </widget>

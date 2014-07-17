@@ -45,14 +45,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listWidget->addSeparator(tr("System"));
     addPageWidget(page_LanguagePackages);
     addPageWidget(page_Language);
+    addPageWidget(page_Kernel);
     addPageWidget(page_Users);
+    //addPageWidget(pageTimeDate);
+    addPageWidget(pageNotifications);
 
     //
     // Add printer page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     ui->listWidget->addSeparator(tr("Hardware"));
     addPageWidget(page_Keyboard);
-    //addPageWidget(page_GPUDriver);
+    addPageWidget(page_MHWD);
 
 
     // Connect signals and slots
@@ -120,6 +123,17 @@ void MainWindow::checkAppArguments() {
             for(int i = 0; i < ui->listWidget->count(); i++) {
                 ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
                 if (!item || !item->page || item->page != &page_LanguagePackages)
+                    continue;
+
+                listWidget_itemClicked(item);
+                break;
+            }
+        }
+        if (arg == "--page-kernel") {
+            // Show kernel page
+            for(int i = 0; i < ui->listWidget->count(); i++) {
+                ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
+                if (!item || !item->page || item->page != &page_Kernel)
                     continue;
 
                 listWidget_itemClicked(item);
@@ -223,4 +237,46 @@ void MainWindow::closePageRequested(PageWidget *page) {
         return;
 
     buttonShowAllSettings_clicked();
+}
+
+
+
+void MainWindow::writePositionSettings()
+{
+    QSettings settings("manjaro", "manjaro-settings-manager");
+
+    settings.beginGroup("mainwindow");
+
+    settings.setValue("geometry", saveGeometry());
+    settings.setValue("savestate", saveState());
+    settings.setValue("maximized", isMaximized());
+    if (!isMaximized()) {
+        settings.setValue("pos", pos());
+        settings.setValue("size", size());
+    }
+
+    settings.endGroup();
+}
+
+
+
+void MainWindow::readPositionSettings()
+{
+    QSettings settings("manjaro", "manjaro-settings-manager");
+
+    settings.beginGroup("mainwindow");
+
+    restoreGeometry(settings.value("geometry", saveGeometry()).toByteArray());
+    restoreState(settings.value( "savestate", saveState()).toByteArray());
+    move(settings.value("pos", pos()).toPoint());
+    resize(settings.value("size", size()).toSize());
+    if ( settings.value("maximized", isMaximized() ).toBool())
+        showMaximized();
+
+    settings.endGroup();
+}
+
+void MainWindow::closeEvent(QCloseEvent *)
+{
+    writePositionSettings();
 }

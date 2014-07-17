@@ -36,12 +36,16 @@
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
+#include <QSettings>
 #include "widgets/pagewidget.h"
-#include "pages/page_languagepackages.h"
+#include "pages/page_kernel.h"
 #include "pages/page_keyboard.h"
 #include "pages/page_language.h"
+#include "pages/page_languagepackages.h"
+#include "pages/page_mhwd.h"
+#include "pages/page_notifications.h"
 #include "pages/page_users.h"
-#include "pages/page_gpudriver.h"
+#include "pages/page_time_date.h"
 
 
 namespace Ui {
@@ -56,7 +60,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+    void readPositionSettings();
+
 private:
     class ListWidgetItem : public QListWidgetItem
     {
@@ -70,11 +75,16 @@ private:
     Page_LanguagePackages page_LanguagePackages;
     Page_Keyboard page_Keyboard;
     Page_Language page_Language;
+    Page_MHWD page_MHWD;
+    PageNotifications pageNotifications;
+    Page_Kernel page_Kernel;
+    PageTimeDate pageTimeDate;
     Page_Users page_Users;
-    Page_GPUDriver page_GPUDriver;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);
+    void closeEvent(QCloseEvent *);
+    void writePositionSettings();
 
 protected slots:
     void listWidget_itemClicked(QListWidgetItem *);

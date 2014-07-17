@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -45,82 +46,6 @@ int Global::runProcess(QString cmd, QStringList args, QStringList writeArgs, QSt
 
     error = QString::fromUtf8(process.readAll());
     return process.exitCode();
-}
-
-
-
-QString Global::getConfigValue(QString value, QString config) {
-    QFile file(config);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "error: failed to open '" << config << "'!";
-        return "";
-    }
-
-    QString result;
-    QTextStream in(&file);
-
-    while (!in.atEnd()) {
-        QStringList split = in.readLine().split("#", QString::KeepEmptyParts).first().split("=", QString::SkipEmptyParts);
-        if (split.size() < 2 || split.at(0).trimmed() != value)
-            continue;
-
-        result = split.at(1).trimmed();
-    }
-
-    return result;
-}
-
-
-
-bool Global::setConfigValue(QString value, QString text, QString config) {
-    QString confDir = QDir::homePath() + CONF_DIR;
-
-    if (!QDir(confDir).exists() && !QDir().mkpath(confDir)) {
-        qDebug() << "error: failed to create directory '" << confDir << "'!";
-        return false;
-    }
-
-    QFile file(config);
-    QStringList content;
-
-    if (file.exists()) {
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            qDebug() << "error: failed to open '" << config << "'!";
-            return false;
-        }
-
-        QTextStream in (&file);
-        bool found = false;
-
-        while (!in.atEnd()) {
-            QString line = in.readLine();
-            content.append(line);
-
-            QStringList split = line.trimmed().split("#", QString::KeepEmptyParts).first().split("=", QString::SkipEmptyParts);
-            if (split.size() < 2 || split.at(0).trimmed() != value)
-                continue;
-
-            content.removeLast();
-            content.append(value + "=" + text.trimmed());
-            found = true;
-        }
-        file.close();
-
-        if (!found)
-            content.append(value + "=" + text.trimmed());
-    }
-
-
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        qDebug() << "error: failed to open '" << config << "'!";
-        return false;
-    }
-
-    QTextStream out(&file);
-    out << content.join("\n");
-    file.close();
-
-    return true;
 }
 
 
@@ -286,13 +211,14 @@ bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackag
 bool Global::isSystemUpToDate() {
     QProcess process;
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
-    process.start("pacman", QStringList() << "-Qu");
+    process.start("pacman", QStringList() << "-Sup");
     if (!process.waitForFinished()) {
-        qDebug() << "error: failed to determind if system is up-to-date (pacman)!";
+        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
         return false;
     }
 
-    return QString(process.readAll()).split("\n", QString::SkipEmptyParts).isEmpty();
+    return QString(process.readAll()).split("\n", QString::SkipEmptyParts) ==
+               (QStringList() << ":: Starting full system upgrade...");
 }
 
 
@@ -552,6 +478,36 @@ QString Global::getCurrentLocale() {
     return locale;
 }
 
+// Return the formats defined in the locale.conf.
+// If its not defined returns the language.
+// TODO: Improve the detection of formats
+QString Global::getCurrentFormats() {
+    QString formats;
+    QString locale;
+
+    QFile file(LOCALE_CONF);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "error: failed to open '" << LOCALE_CONF << "'!";
+        return "";
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
+        if (line.isEmpty())
+            continue;
+        else if (QString(line).toLower().startsWith("lc_numeric="))
+            formats = line.mid(line.indexOf("=") + 1).trimmed();
+        else if (QString(line).toLower().startsWith("lang="))
+            locale = line.mid(line.indexOf("=") + 1).trimmed();
+    }
+
+    file.close();
+
+    if (formats=="")
+        formats = locale;
+    return formats;
+}
 
 
 
@@ -706,8 +662,6 @@ QList<Global::Group> Global::getAllGroups() {
 }
 
 
-
-
 //###
 //### Private
 //###
@@ -857,4 +811,92 @@ QList<Global::LocaleInfo> Global::getLocaleInfoList() {
     file.close();
 
     return localeInfoList;
+}
+
+
+
+
+QStringList Global::getAllInstalledKernels()
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Qqs" << "^linux[0-9][0-9]?([0-9])$");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get all installed kernels";
+    QString result = process.readAll();
+    return result.split("\n", QString::SkipEmptyParts);
+}
+
+
+QStringList Global::getAllAvailableKernels()
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Sqs" << "^linux[0-9][0-9]?([0-9])$");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get all available kernels";
+    QString result = process.readAll();
+    return result.split("\n", QString::SkipEmptyParts);
+}
+
+
+QString Global::getRunningKernel()
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("uname", QStringList() << "-r");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to determine running kernel";
+    QString result = process.readAll();
+    QStringList aux = result.split(".", QString::SkipEmptyParts);
+    return QString("linux%1%2").arg(aux.at(0)).arg(aux.at(1));
+}
+
+
+QString Global::getKernelVersion(const QString &package, const bool local)
+{
+    QString arguments = "-Si";
+    int line = 2;
+    if (local) {
+        arguments = "-Qi";
+        line = 1;
+    }
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << arguments << package);
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to determine kernel version!";
+    QString result = process.readAll();
+    QStringList pkgInfo = result.split("\n", QString::SkipEmptyParts);
+    return QStringList(pkgInfo.at(line).split(":", QString::SkipEmptyParts)).last().simplified();
+}
+
+
+QStringList Global::getKernelModules(const QString &package)
+{
+    QProcess process;
+    process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
+    process.start("pacman", QStringList() << "-Qqs" << package << "-g" << package + "-extramodules");
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get installed kernel modules";
+    QString result = process.readAll();
+    QStringList kernelModules = result.split("\n", QString::SkipEmptyParts);
+
+    process.start("pacman", QStringList() << "-Qqs" << (package + "-headers"));
+    if (!process.waitForFinished(15000))
+        qDebug() << "error: failed to get installed headers";
+    result = process.readAll();
+    kernelModules.append(result.split("\n", QString::SkipEmptyParts));
+    return kernelModules;
+}
+
+
+QStringList Global::getLtsKernels()
+{
+    return QStringList() << "linux34" << "linux310" << "linux312" << "linux314";
+}
+
+QStringList Global::getRecommendedKernels()
+{
+    return QStringList() << "linux310" << "linux312" << "linux314";
 }

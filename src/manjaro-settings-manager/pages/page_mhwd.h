@@ -1,6 +1,7 @@
 /*
- *  Manjaro Installation Framework
+ *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -19,37 +20,50 @@
  */
 
 
-#ifndef PAGE_GPUDRIVER_H
-#define PAGE_GPUDRIVER_H
+#ifndef PAGE_MHWD_H
+#define PAGE_MHWD_H
 
 #include "widgets/pagewidget.h"
 #include <QString>
 #include <QStringList>
 #include <QList>
-#include <QListWidgetItem>
 #include <QIcon>
+#include <QMenu>
+#include <QAction>
 #include <string>
 #include <vector>
 #include <mhwd.h>
 #include "global.h"
-
+#include "dialogs/applydialog.h"
 
 namespace Ui {
-class Page_GPUDriver;
+class Page_MHWD;
 }
 
-class Page_GPUDriver : public PageWidget
+class Page_MHWD : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_GPUDriver(QWidget *parent = 0);
-    ~Page_GPUDriver();
+    explicit Page_MHWD(QWidget *parent = 0);
+    ~Page_MHWD();
 
     void activated();
     
 private:
-    Ui::Page_GPUDriver *ui;
+    Ui::Page_MHWD *ui;
+    QAction *installAction;
+    QAction *removeAction;
+    QAction *forceReinstallationAction;
+
+private slots:
+    void buttonInstallFree_clicked();
+    void buttonInstallNonFree_clicked();
+    void showContextMenuForTreeWidget(const QPoint &);
+    void installAction_triggered();
+    void removeAction_triggered();
+    void forceReinstallationAction_triggered();
+    void checkBoxShowAll_toggled();
 };
 
-#endif // PAGE_GPUDRIVER_H
+#endif // PAGE_MHWD_H

@@ -87,7 +87,7 @@ void Page_Keyboard::activated() {
     QString currentLayout, currentVariant;
 
     if (!Global::getCurrentXorgKeyboardLayout(currentLayout, currentVariant))
-        QMessageBox::warning(this, tr("Error"), tr("Failed to determind current Xorg keyboard layout!"), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Error"), tr("Failed to determine current Xorg keyboard layout!"), QMessageBox::Ok, QMessageBox::Ok);
 
 
     //### Models

@@ -1,0 +1,4 @@
+#! /bin/sh
+
+/usr/lib/qt4/bin/lrelease src/manjaro-settings-manager/manjaro-settings-manager.pro
+/usr/lib/qt4/bin/lrelease src/manjaro-settings-manager-daemon/manjaro-settings-manager-daemon.pro

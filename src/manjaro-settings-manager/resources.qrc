@@ -19,12 +19,57 @@
         <file>resources/ati.png</file>
         <file>resources/gpudriver.png</file>
         <file>resources/nvidia.png</file>
+        <file>resources/intel.png</file>
+        <file>resources/intel-nvidia.png</file>
+        <file>resources/tux-manjaro.png</file>
+        <file>resources/notifications.png</file>
     </qresource>
     <qresource prefix="/">
+        <file>translations/msm_ast.qm</file>
+        <file>translations/msm_bg_BG.qm</file>
         <file>translations/msm_ca.qm</file>
+        <file>translations/msm_cs_CZ.qm</file>
+        <file>translations/msm_da.qm</file>
         <file>translations/msm_de.qm</file>
-        <file>translations/msm_cs-CZ.qm</file>
+        <file>translations/msm_en.qm</file>
+        <file>translations/msm_el.qm</file>
+        <file>translations/msm_es.qm</file>
+        <file>translations/msm_fa.qm</file>
+        <file>translations/msm_fa_IR.qm</file>
+        <file>translations/msm_fo.qm</file>
+        <file>translations/msm_fr.qm</file>
+        <file>translations/msm_he.qm</file>
+        <file>translations/msm_hi.qm</file>
+        <file>translations/msm_hr.qm</file>
+        <file>translations/msm_hu.qm</file>
+        <file>translations/msm_id_ID.qm</file>
+        <file>translations/msm_it.qm</file>
+        <file>translations/msm_ja.qm</file>
+        <file>translations/msm_nb.qm</file>
+        <file>translations/msm_nl.qm</file>
         <file>translations/msm_pl.qm</file>
-        <file>translations/msm_pt-BR.qm</file>
+        <file>translations/msm_pt_BR.qm</file>
+        <file>translations/msm_pt_PT.qm</file>
+        <file>translations/msm_ro.qm</file>
+        <file>translations/msm_ru.qm</file>
+        <file>translations/msm_sk_SK.qm</file>
+        <file>translations/msm_sl.qm</file>
+        <file>translations/msm_sr@latin.qm</file>
+        <file>translations/msm_sv.qm</file>
+        <file>translations/msm_tr.qm</file>
+        <file>translations/msm_uk.qm</file>
+        <file>translations/msm_vi.qm</file>
+        <file>translations/msm_zh_CN.qm</file>
+        <file>translations/msm_zh_TW.qm</file>
+    </qresource>
+    <qresource prefix="/kernel_changelogs">
+        <file>resources/linux34.html</file>
+        <file>resources/linux38.html</file>
+        <file>resources/linux310.html</file>
+        <file>resources/linux311.html</file>
+        <file>resources/linux312.html</file>
+        <file>resources/linux313.html</file>
+        <file>resources/linux314.html</file>
+        <file>resources/linux315.html</file>
     </qresource>
 </RCC>

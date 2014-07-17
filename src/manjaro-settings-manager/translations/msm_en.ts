@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.0" language="en_US">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -208,6 +208,75 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
 </context>
 <context>
+    <name>KernelInfoDialog</name>
+    <message>
+        <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
+        <source>Changelog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
+        <source>about:blank</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KernelListViewDelegate</name>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
+        <source>LTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
+        <source>Recommended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
+        <source>Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
+        <source>Unsupported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
+        <source>Changelog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
+        <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
+        <source>Experimental</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
+        <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
+        <source>Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -215,18 +284,18 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../mainwindow.ui" line="208"/>
         <source>All Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="241"/>
-        <location filename="../mainwindow.ui" line="285"/>
+        <location filename="../mainwindow.ui" line="244"/>
+        <location filename="../mainwindow.ui" line="288"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="264"/>
+        <location filename="../mainwindow.ui" line="267"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
@@ -236,13 +305,140 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="56"/>
         <source>Hardware</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="188"/>
+        <location filename="../mainwindow.cpp" line="203"/>
         <source>Manjaro Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PageNotifications</name>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="20"/>
+        <source>Kernel Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="26"/>
+        <source>Unsupported kernels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="51"/>
+        <source>Only if running unsupported kernel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="60"/>
+        <source>New Kernels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="85"/>
+        <source>Only notify if LTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="112"/>
+        <source>Only notify if Recommended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="124"/>
+        <source>Language Packs Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check new language packs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.cpp" line="9"/>
+        <source>Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PageTimeDate</name>
+    <message>
+        <location filename="../pages/page_time_date.ui" line="16"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_time_date.cpp" line="29"/>
+        <source>Time and Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Page_Kernel</name>
+    <message>
+        <location filename="../pages/page_kernel.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="31"/>
+        <source>Kernel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <source>Install Linux %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <source>Do you really want install this kernel?
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <source>This will install the following packages:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <source>Installing new kernel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <source>Remove Linux %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <source>Do you really want remove this kernel?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <source>This will remove the following packages:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <source>Removing kernel...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <source>Linux %1.%2 changelog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -275,7 +471,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determind current Xorg keyboard layout!</source>
+        <source>Failed to determine current Xorg keyboard layout!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -319,43 +515,50 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_language.ui" line="81"/>
-        <source>Current System Locale</source>
+        <source>System Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="138"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.ui" line="86"/>
+        <source>System Formats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="108"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="95"/>
-        <location filename="../pages/page_language.cpp" line="147"/>
+        <location filename="../pages/page_language.cpp" line="108"/>
         <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="188"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="138"/>
+        <location filename="../pages/page_language.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/page_language.cpp" line="192"/>
+        <source>Failed to set locale!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_language.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="202"/>
+        <location filename="../pages/page_language.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -431,6 +634,138 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
 </context>
 <context>
+    <name>Page_MHWD</name>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="67"/>
+        <source>Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="37"/>
+        <source>Auto Install
+Open-source Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="45"/>
+        <source>Auto Install
+Propietary Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="72"/>
+        <source>Open-source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="77"/>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.ui" line="85"/>
+        <source>Show all devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="31"/>
+        <source>Hardware Detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="41"/>
+        <source>Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="43"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="45"/>
+        <location filename="../pages/page_mhwd.cpp" line="253"/>
+        <source>Force Reinstallation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <source>Unknown device name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="158"/>
+        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <source>Auto Install Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <source>Do you really want to auto install
+ the free graphic driver?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <source>Installing free graphic driver...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <source>Do you really want to auto install
+ the non-free graphic driver?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <source>Installing non-free graphic driver...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <source>Install Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <source>Do you really want to install
+%1?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <source>Installing driver...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <source>Remove Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <source>Do you really want to remove
+%1?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="240"/>
+        <source>Removing driver...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="254"/>
+        <source>Do you really want to force the reinstallation of
+%1?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <source>Reinstalling driver...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Page_Users</name>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
@@ -452,7 +787,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation type="unfinished"></translation>
@@ -490,7 +825,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
-        <source>Failed to get user permission structs!</source>
+        <source>Failed to get user permission structures!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

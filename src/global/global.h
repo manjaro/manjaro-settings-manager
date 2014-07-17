@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldo <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -80,12 +81,20 @@ public:
 
     static QList<Global::LocaleInfo> getAllEnabledLocales();
     static QString getCurrentLocale();
+    static QString getCurrentFormats();
     static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
     static QString localeToValidLocaleGenString(QString locale);
 
     static QList<Global::User> getAllUsers();
     static QList<Global::Group> getAllGroups();
 
+    static QStringList getAllInstalledKernels();
+    static QStringList getAllAvailableKernels();
+    static QString getRunningKernel();
+    static QString getKernelVersion(const QString &package, const bool local);
+    static QStringList getKernelModules(const QString &package);
+    static QStringList getLtsKernels();
+    static QStringList getRecommendedKernels();
 
 private:
     struct LocaleSplit {
@@ -96,7 +105,6 @@ private:
     static QStringList getAllAvailableRepoPackages(const QStringList & checkPackages);
     static QList<LocaleSplit> getAllEnabledLocalesSplit();
     static QList<Global::LocaleInfo> getLocaleInfoList();
-
 };
 
 

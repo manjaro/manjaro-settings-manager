@@ -21,6 +21,8 @@
 #include <iostream>
 #include <QApplication>
 #include <QtSingleApplication>
+#include <QTranslator>
+#include <QFile>
 #include "daemon.h"
 
 
@@ -31,6 +33,10 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QtSingleApplication app(argc, argv);
+
+    QTranslator appTranslator;
+    appTranslator.load(":/translations/msmd_" + QLocale::system().name());
+    app.installTranslator(&appTranslator);
 
     if (app.isRunning()) {
         cerr << "warning: an instance of the application is already running..." << endl;

@@ -10,7 +10,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = global
 TEMPLATE = lib
-CONFIG += staticlib
+CONFIG += staticlib \
+          c++11
 
 SOURCES += global.cpp
 

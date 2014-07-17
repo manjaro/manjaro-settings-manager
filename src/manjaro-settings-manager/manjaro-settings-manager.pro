@@ -4,69 +4,122 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui webkit webkitwidgets 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 LIBS += -lmhwd
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
+QMAKE_CXXFLAGS += -std=c++0x
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    widgets/toolbarstylewidget.cpp \
-    widgets/listwidget.cpp \
-    pages/page_languagepackages.cpp \
-    widgets/pagewidget.cpp \
-    dialogs/applydialog.cpp \
-    pages/page_keyboard.cpp \
-    widgets/keyboardpreview.cpp \
-    pages/page_language.cpp \
-    widgets/selectlocalesdialog.cpp \
-    pages/page_users.cpp \
-    widgets/flatbutton.cpp \
-    dialogs/adduserdialog.cpp \
-    dialogs/changepassworddialog.cpp \
-    dialogs/accounttypedialog.cpp \
-    dialogs/previewfiledialog.cpp \
-    pages/page_gpudriver.cpp
+SOURCES  += main.cpp \
+            mainwindow.cpp \
+            delegates/kernel_list_view_delegate.cpp \
+            dialogs/accounttypedialog.cpp \
+            dialogs/adduserdialog.cpp \
+            dialogs/applydialog.cpp \
+            dialogs/changepassworddialog.cpp \
+            dialogs/kernel_info_dialog.cpp \
+            dialogs/previewfiledialog.cpp \
+            models/kernel.cpp \
+            pages/page_kernel.cpp \
+            pages/page_keyboard.cpp \
+            pages/page_language.cpp \
+            pages/page_languagepackages.cpp \
+            pages/page_mhwd.cpp \
+            pages/page_notifications.cpp \
+            pages/page_users.cpp \
+            pages/page_time_date.cpp \
+            widgets/flatbutton.cpp \
+            widgets/listwidget.cpp \
+            widgets/keyboardpreview.cpp \
+            widgets/pagewidget.cpp \
+            widgets/selectlocalesdialog.cpp \
+            widgets/toolbarstylewidget.cpp
+
+
 
 HEADERS  += mainwindow.h \
-    widgets/toolbarstylewidget.h \
-    widgets/listwidget.h \
-    pages/page_languagepackages.h \
-    widgets/pagewidget.h \
-    dialogs/applydialog.h \
-    pages/page_keyboard.h \
-    widgets/keyboardpreview.h \
-    pages/page_language.h \
-    widgets/selectlocalesdialog.h \
-    pages/page_users.h \
-    widgets/flatbutton.h \
-    dialogs/adduserdialog.h \
-    dialogs/changepassworddialog.h \
-    dialogs/accounttypedialog.h \
-    dialogs/previewfiledialog.h \
-    pages/page_gpudriver.h
+            delegates/kernel_list_view_delegate.h \
+            dialogs/accounttypedialog.h \
+            dialogs/adduserdialog.h \
+            dialogs/applydialog.h \
+            dialogs/changepassworddialog.h \
+            dialogs/kernel_info_dialog.h \
+            dialogs/previewfiledialog.h \
+            models/kernel.h \
+            pages/page_kernel.h \
+            pages/page_keyboard.h \
+            pages/page_language.h \
+            pages/page_languagepackages.h \
+            pages/page_mhwd.h \
+            pages/page_notifications.h \
+            pages/page_users.h \
+            pages/page_time_date.h \
+            widgets/flatbutton.h \
+            widgets/listwidget.h \
+            widgets/keyboardpreview.h \
+            widgets/pagewidget.h \
+            widgets/selectlocalesdialog.h \
+            widgets/toolbarstylewidget.h \
+
+
 
 FORMS    += mainwindow.ui \
-    pages/page_languagepackages.ui \
-    dialogs/applydialog.ui \
-    pages/page_keyboard.ui \
-    pages/page_language.ui \
-    widgets/selectlocalesdialog.ui \
-    pages/page_users.ui \
-    dialogs/adduserdialog.ui \
-    dialogs/changepassworddialog.ui \
-    dialogs/accounttypedialog.ui \
-    pages/page_gpudriver.ui
+            dialogs/adduserdialog.ui \
+            dialogs/accounttypedialog.ui \
+            dialogs/applydialog.ui \
+            dialogs/changepassworddialog.ui \
+            dialogs/kernel_info_dialog.ui \
+            pages/page_kernel.ui \
+            pages/page_keyboard.ui \
+            pages/page_language.ui \
+            pages/page_languagepackages.ui \
+            pages/page_mhwd.ui \
+            pages/page_notifications.ui \
+            pages/page_users.ui \
+            pages/page_time_date.ui \
+            widgets/selectlocalesdialog.ui
 
-TRANSLATIONS += translations/msm_ca.ts \
-                translations/msm_cs-CZ.ts \
+
+
+TRANSLATIONS += translations/msm_ast.ts \
+                translations/msm_bg_BG.ts \
+                translations/msm_ca.ts \
+                translations/msm_cs_CZ.ts \
+                translations/msm_da.ts \
                 translations/msm_de.ts \
                 translations/msm_en.ts \
+                translations/msm_el.ts \
+                translations/msm_es.ts \
+                translations/msm_fa.ts \
+                translations/msm_fa_IR.ts \
+                translations/msm_fo.ts \
+                translations/msm_fr.ts \
+                translations/msm_he.ts \
+                translations/msm_hi.ts \
+                translations/msm_hr.ts \
+                translations/msm_hu.ts \
+                translations/msm_id_ID.ts \
+                translations/msm_it.ts \
+                translations/msm_ja.ts \
+                translations/msm_nb.ts \
+                translations/msm_nl.ts \
                 translations/msm_pl.ts \
-                translations/msm_pt-BR.ts
+                translations/msm_pt_BR.ts \
+                translations/msm_pt_PT.ts \
+                translations/msm_ro.ts \
+                translations/msm_ru.ts \
+                translations/msm_sk_SK.ts \
+                translations/msm_sl.ts \
+                translations/msm_sr@latin.ts \
+                translations/msm_sv.ts \
+                translations/msm_tr.ts \
+                translations/msm_uk.ts \
+                translations/msm_vi.ts \
+                translations/msm_zh_CN.ts \
+                translations/msm_zh_TW.ts
 
 RESOURCES += \
     resources.qrc
