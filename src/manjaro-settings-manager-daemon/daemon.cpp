@@ -208,7 +208,7 @@ void Daemon::cKernel() {
     }
 
     if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::New)) {
-        messageTitle = QString(tr("Your kernels need atention."));
+        messageTitle = QString(tr("Your kernels need attention."));
         messageText.append("\n");
     } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
         messageTitle = QString(tr("Unsupported Kernel Found."));

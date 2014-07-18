@@ -43,7 +43,7 @@ Open-source Driver</string>
       <widget class="QPushButton" name="buttonInstallFree">
        <property name="text">
         <string>Auto Install
-Propietary Driver</string>
+Proprietary Driver</string>
        </property>
       </widget>
      </item>
