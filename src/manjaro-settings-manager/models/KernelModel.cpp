@@ -52,8 +52,8 @@ void KernelModel::update()
         QString pkgInfo = Global::packageInformation( kernel, !newKernel.isAvailable() );
         newKernel.setVersion(Global::packageVersion(pkgInfo));
 
-        newKernel.setInstalledModules( installedKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))));
         newKernel.setAvailableModules( availableKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))));
+        newKernel.setInstalledModules( installedKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))));
 
         newKernel.setLts( ltsKernels.contains(kernel) );
         newKernel.setRecommended( recommendedKernels.contains(kernel) );
@@ -193,6 +193,57 @@ void KernelModel::updateKernelPackages()
     availableKernelPackages_ = result.split("\n", QString::SkipEmptyParts);
 }
 
+/*
+ * Returns the Kernel with the higher version and installed
+ */
+Kernel KernelModel::latestInstalledKernel() {
+    Kernel auxKernel;
+    for ( Kernel &kernel : kernels_ ) {
+        if ( !kernel.isInstalled() ) {
+            continue;
+        }
+        if (kernel.majorVersion() > auxKernel.majorVersion()) {
+            auxKernel = kernel;
+        } else if ( (kernel.majorVersion() == auxKernel.majorVersion())
+                     && (kernel.minorVersion() > auxKernel.minorVersion()) ) {
+            auxKernel = kernel;
+        }
+    }
+    return auxKernel;
+}
+
+/*
+ * Return a list of all unsupported kernels installed (installed but not available)
+ */
+QList<Kernel> KernelModel::unsupportedKernels() {
+    QList<Kernel> auxList;
+    for ( Kernel &kernel : kernels_ ) {
+        if ( kernel.isUnsupported() ) {
+            auxList << kernel;
+        }
+    }
+    return auxList;
+}
+
+/*
+ * Returns a list of all kernels with a higher version than the kernel supplied
+ * and available
+ */
+QList<Kernel> KernelModel::newerKernels(const Kernel auxKernel) {
+    QList<Kernel> auxList;
+    for ( Kernel &kernel : kernels_ ) {
+        if ( !kernel.isAvailable() ) {
+            continue;
+        }
+        if (kernel.majorVersion() > auxKernel.majorVersion()) {
+            auxList << kernel;
+        } else if ( (kernel.majorVersion() == auxKernel.majorVersion())
+                     && (kernel.minorVersion() > auxKernel.minorVersion()) ) {
+            auxList << kernel;
+        }
+    }
+    return auxList;
+}
 
 /* KernelSortFilterProxyModel class */
 KernelSortFilterProxyModel::KernelSortFilterProxyModel(QObject *parent)
@@ -207,13 +258,11 @@ bool KernelSortFilterProxyModel::lessThan(const QModelIndex &left,
     QVariant rightData = sourceModel()->data(right, sortRole());
 
     if (sortRole() == KernelModel::VersionRole) {
-        QStringList leftStringList = leftData.toString().split(".");
-        QStringList rightStringList = rightData.toString().split(".");
 
-        int leftMajor = leftStringList.at(0).toInt();
-        int rightMajor = rightStringList.at(0).toInt();
-        int leftMinor = leftStringList.at(1).left(2).toInt();
-        int rightMinor = rightStringList.at(1).left(2).toInt();
+        int leftMajor = sourceModel()->data(left, KernelModel::MajorVersionRole).toInt();
+        int rightMajor = sourceModel()->data(right, KernelModel::MajorVersionRole).toInt();
+        int leftMinor = sourceModel()->data(left, KernelModel::MinorVersionRole).toInt();
+        int rightMinor = sourceModel()->data(right, KernelModel::MinorVersionRole).toInt();
 
         if (leftMajor == rightMajor) {
             if (leftMinor < rightMinor) {

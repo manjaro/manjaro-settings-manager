@@ -155,13 +155,10 @@ void Daemon::cKernel() {
             QStringList versionStringList = version.split(".");
             int thisMajor = versionStringList.at(0).toInt();
             int thisMinor = versionStringList.at(1).left(2).toInt();
-            qDebug() << kernel << ": " << thisMajor << "." << thisMinor;
             if (thisMajor > major) {
                 newKernels << kernel;
             } else if ((thisMajor == major) && (thisMinor > minor)) {
                 newKernels << kernel;
-                qDebug() << "hi";
-                qDebug() << newKernels;
             }
         }
 

@@ -64,7 +64,14 @@ int Kernel::majorVersion() const
 int Kernel::minorVersion() const
 {
     QStringList splitVersion = version_.split(".");
-    return splitVersion.value(1).toInt();
+    QString aux = splitVersion.value(1);
+    if ( aux.length() > 1 ) {
+        if ( aux.left(2).toInt() == 0 ) {
+            return aux.left(1).toInt(); /* return single number minor version rc 3.1rc -> 1 */
+        }
+        return aux.left(2).toInt(); /* return double number minor version 3.12 or 3.12rc -> 12 */
+    }
+    return aux.toInt(); /* return single number minor version 3.1 -> 1 */
 }
 
 QStringList Kernel::installedModules() const { return installedModules_; }

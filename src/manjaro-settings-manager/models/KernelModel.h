@@ -54,6 +54,9 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     bool remove(int position, int rows, const QModelIndex &parent);
+    Kernel latestInstalledKernel();
+    QList<Kernel> unsupportedKernels();
+    QList<Kernel> newerKernels(const Kernel auxKernel);
 
 protected:
     QHash<int, QByteArray> roleNames() const;

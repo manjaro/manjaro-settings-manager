@@ -39,7 +39,6 @@ Page_Kernel::Page_Kernel(QWidget *parent) :
 
     KernelListViewDelegate *kernelListViewDelegate = new KernelListViewDelegate;
     ui->kernelListView->setItemDelegate(kernelListViewDelegate);
-
     connect(kernelListViewDelegate, SIGNAL(installButtonClicked(QModelIndex)),
             this, SLOT(installButtonClicked(QModelIndex)));
     connect(kernelListViewDelegate, SIGNAL(infoButtonClicked(QModelIndex)),
