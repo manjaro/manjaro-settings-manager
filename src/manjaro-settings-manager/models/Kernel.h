@@ -21,8 +21,8 @@
 #ifndef KERNEL_H
 #define KERNEL_H
 
-#include <QString>
-#include <QStringList>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
 
 class Kernel
 {

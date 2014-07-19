@@ -22,9 +22,9 @@
 #define KERNELMODEL_H
 
 #include <models/Kernel.h>
-#include <QAbstractListModel>
-#include <QObject>
-#include <QSortFilterProxyModel>
+#include <QtCore/QAbstractListModel>
+#include <QtCore/QObject>
+#include <QtCore/QSortFilterProxyModel>
 
 
 class KernelModel : public QAbstractListModel
