@@ -20,6 +20,8 @@
  */
 
 #include "daemon.h"
+#include "models/Kernel.h"
+#include "models/KernelModel.h"
 
 Daemon::Daemon(QObject *parent) :
     QTimer(parent)
@@ -99,84 +101,65 @@ void Daemon::cLanguagePackage() {
 }
 
 void Daemon::cKernel() {
-    QStringList installedKernels = Global::getAllInstalledKernels();
-    QStringList availableKernels = Global::getAllAvailableKernels();
-    QString runningKernel = Global::getRunningKernel();
-    QStringList ltsKernels = Global::getLtsKernels();
-    QStringList recommendedKernels = Global::getRecommendedKernels();
-    QStringList unsupportedKernels;
-    QStringList newKernels;
     Daemon::KernelFlags kernelFlags;
+    KernelModel kernelModel;
 
-    for (QString kernel : installedKernels) {
-        if (!isPackageIgnored(kernel, "unsupported_kernel") && !availableKernels.contains(kernel)) {
-            unsupportedKernels << kernel;
-        }
-    }
+    /* Testing
+    Kernel testKernel1;
+    testKernel1.setVersion("3.17.34");
+    testKernel1.setPackage("linux317");
+    testKernel1.setAvailable(true);
+    kernelModel.add(testKernel1);
 
+    Kernel testKernel2;
+    testKernel2.setVersion("4.1rc");
+    testKernel2.setPackage("linux41");
+    testKernel2.setAvailable(true);
+    kernelModel.add(testKernel2);
+    */
+
+    QList< Kernel > unsupportedKernels = kernelModel.unsupportedKernels();
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
-        if (unsupportedKernels.contains(runningKernel)) {
-            kernelFlags |= KernelFlag::Unsupported | KernelFlag::Running;
-        }
-        if (!checkUnsupportedKernelRunning) {
-            kernelFlags |= KernelFlag::Unsupported;
-        }
-    }
-
-    if (checkNewKernel) {
-        /* Obtain the version of the latest installed kernel */
-        int major = 0;
-        int minor = 0;
-        for (QString kernel : installedKernels) {
-            QString version;
-            if (availableKernels.contains(kernel)){
-               version = Global::getKernelVersion(kernel, false);
-            } else {
-                version = Global::getKernelVersion(kernel, true);
-            }
-            QStringList versionStringList = version.split(".");
-            int thisMajor = versionStringList.at(0).toInt();
-            int thisMinor = versionStringList.at(1).left(2).toInt();
-
-            if (thisMajor > major) {
-                major = thisMajor;
-                minor = thisMinor;
-            } else if ((thisMajor == major) && (thisMinor > minor)){
-                minor = thisMinor;
-            }
-        }
-
-        // Obtain the list of new kernels
-        for (QString kernel : availableKernels) {
-            if (isPackageIgnored(kernel, "new_kernel")) {
+        for (Kernel kernel : unsupportedKernels) {
+            if ( isPackageIgnored(kernel.package(), "unsupported_kernel") ) {
+                qDebug() << "Ignored unsupported kernel: " << kernel.version();
                 continue;
             }
-            QString version = Global::getKernelVersion(kernel, false);
-            QStringList versionStringList = version.split(".");
-            int thisMajor = versionStringList.at(0).toInt();
-            int thisMinor = versionStringList.at(1).left(2).toInt();
-            if (thisMajor > major) {
-                newKernels << kernel;
-            } else if ((thisMajor == major) && (thisMinor > minor)) {
-                newKernels << kernel;
+            qDebug() << "Unsupported kernel: " << kernel.version();
+            kernelFlags |= KernelFlag::Unsupported;
+            if ( checkUnsupportedKernelRunning && kernel.isRunning() ) {
+                kernelFlags |= KernelFlag::Running;
+                qDebug() << "Unsupported kernel running: " << kernel.version();
             }
         }
+    }
 
-        /* Find kernels that are lts, recommended or both */
-        QStringList newLtsRecommendedKernels;
-        QStringList newLtsKernels;
-        QStringList newRecommendedKernels;
-        for(QString kernel : newKernels){
-            if (ltsKernels.contains(kernel) && recommendedKernels.contains(kernel)) {
+    qDebug() << "Latest installed kernel: " << kernelModel.latestInstalledKernel().version();
+    QList< Kernel > newKernels = kernelModel.newerKernels(kernelModel.latestInstalledKernel());
+    QList< Kernel > newLtsRecommendedKernels;
+    QList< Kernel > newLtsKernels;
+    QList< Kernel > newRecommendedKernels;
+    if (checkNewKernel) {
+        for ( Kernel kernel : newKernels ) {
+            if ( isPackageIgnored(kernel.package(), "new_kernel") ) {
+                qDebug() << "Ignored new kernel: " << kernel.version();
+                continue;
+            }
+            qDebug() << "Newer kernel " << kernel.version();
+            if ( kernel.isRecommended() && kernel.isLts() ) {
+                qDebug() << "Newer kernel LTS & Recommended: " << kernel.version();
                 newLtsRecommendedKernels << kernel;
                 newLtsKernels << kernel;
                 newRecommendedKernels << kernel;
-            } else if (ltsKernels.contains(kernel)) {
+            } else if ( kernel.isLts() ) {
+                qDebug() << "Newer kernel LTS: " << kernel.version();
                 newLtsKernels << kernel;
-            } else if (recommendedKernels.contains(kernel)) {
+            } else if ( kernel.isRecommended() ) {
+                qDebug() << "Newer kernel Recommended: " << kernel.version();
                 newRecommendedKernels << kernel;
             }
         }
+
 
         if (checkNewKernelLts && checkNewKernelRecommended) {
             if (!newLtsRecommendedKernels.isEmpty()) {
@@ -199,38 +182,34 @@ void Daemon::cKernel() {
 
     QString messageTitle;
     QString messageText;
-
-    if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::Running)) {
+    if ( kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::Running) ) {
         messageText = QString(tr("Running an unsupported kernel, please update"));
-    } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
+    } else if ( kernelFlags.testFlag(KernelFlag::Unsupported) ) {
         messageText = QString(tr("Unsupported kernel installed in your system."));
     }
-
     if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::New)) {
         messageTitle = QString(tr("Your kernels need attention."));
         messageText.append("\n");
-    } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
+    } else if ( kernelFlags.testFlag(KernelFlag::Unsupported) ) {
         messageTitle = QString(tr("Unsupported Kernel Found."));
-    } else if (kernelFlags.testFlag(KernelFlag::New)) {
+    } else if ( kernelFlags.testFlag(KernelFlag::New) ) {
         messageTitle = QString(tr("New Kernel Available."));
     }
-
     if (kernelFlags.testFlag(KernelFlag::New)) {
         messageText.append(QString(tr("A kernel newer than the latest installed is available.")));
     }
 
-    if (!messageTitle.isEmpty()) {
-        if (!kernelTrayIcon.isVisible()) {
+    if ( kernelFlags.testFlag(KernelFlag::Unsupported) || kernelFlags.testFlag(KernelFlag::New) ) {
+        if ( !kernelTrayIcon.isVisible() ) {
             kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
             kernelTrayIcon.show();
             kernelTrayIcon.setToolTip(messageText);
             showKernelMessage(messageTitle, messageText);
-
-            for (QString kernel : unsupportedKernels) {
-                addToConfig(kernel, "unsupported_kernel");
+            for ( Kernel kernel : unsupportedKernels ) {
+                addToConfig(kernel.package(), "unsupported_kernel");
             }
-            for (QString kernel : newKernels) {
-                addToConfig(kernel, "new_kernel");
+            for ( Kernel kernel : newKernels ) {
+                addToConfig(kernel.package(), "new_kernel");
             }
         }
     }
@@ -287,7 +266,6 @@ void Daemon::kernelTrayIconShowMessage() {
 void Daemon::loadConfiguration() {
     QSettings settings("manjaro", "manjaro-settings-manager");
     this->checkLanguagePackage = settings.value("notifications/checkLanguagePackages", true).toBool();
-    this->checkKernel = settings.value("notifications/checkKernel", true).toBool();
     this->checkUnsupportedKernel = settings.value("notifications/checkUnsupportedKernel", true).toBool();
     this->checkUnsupportedKernelRunning = settings.value("notifications/checkUnsupportedKernelRunning", false).toBool();
     this->checkNewKernel = settings.value("notifications/checkNewKernel", true).toBool();
