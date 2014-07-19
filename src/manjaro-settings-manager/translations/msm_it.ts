@@ -230,22 +230,22 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Raccomandato</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>In esecuzione</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Installato</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Non supportato</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
@@ -261,19 +261,19 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Sperimentale</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Installa</translation>
     </message>
 </context>
 <context>
@@ -330,7 +330,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kernel non supportati</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
@@ -350,7 +350,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify if Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Notifica solamente se raccomandato</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
@@ -360,12 +360,12 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check new language packs</source>
-        <translation type="unfinished"/>
+        <translation>Controlla nuovi pacchetti lingua</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notifiche</translation>
     </message>
 </context>
 <context>
@@ -378,7 +378,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/page_time_date.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Data e Ora</translation>
     </message>
 </context>
 <context>
@@ -408,7 +408,8 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../pages/page_kernel.cpp" line="73"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>I seguente pacchetti verranno installati:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="92"/>
@@ -429,7 +430,8 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../pages/page_kernel.cpp" line="107"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>I seguenti pacchetti verranno rimossi:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="126"/>
@@ -644,12 +646,13 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto installazione
+Driver libero</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
-Propietary Driver</source>
+Proprietary Driver</source>
         <translation type="unfinished"/>
     </message>
     <message>

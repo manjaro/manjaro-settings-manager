@@ -212,12 +212,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Промени</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>относно:празен</translation>
     </message>
 </context>
 <context>
@@ -225,17 +225,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
         <source>LTS</source>
-        <translation>LTS</translation>
+        <translation>Удължена поддръжка</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Препоръчано</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Се изпълнява</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
@@ -245,23 +245,23 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>неподдържан</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Промени</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Необичаен</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Експериментален</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
@@ -320,52 +320,52 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления от ядрото</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Неподдържани ядра</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only if running unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Само ако се използва неподдържано ядро</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>New Kernels</source>
-        <translation type="unfinished"/>
+        <translation>Нови ядра</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify if LTS</source>
-        <translation type="unfinished"/>
+        <translation>Уведомявай само ако е с удължена поддръжка</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify if Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Уведомявай само ако е пропоръчано</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления за езикови пакети</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check new language packs</source>
-        <translation type="unfinished"/>
+        <translation>Провери за нови езикови пакети</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления</translation>
     </message>
 </context>
 <context>
@@ -373,12 +373,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_time_date.ui" line="16"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../pages/page_time_date.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Време и дата</translation>
     </message>
 </context>
 <context>
@@ -386,7 +386,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_kernel.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
@@ -396,50 +396,53 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Инсталирай Линукс %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>Do you really want install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Наистина ли искате да инсталирате това ядро?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="73"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Това ще инсталира следните езици:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="92"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Инсталиране на ново ядро.</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Премахване на Линукс %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>Do you really want remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Наистина ли искате да премахнете това ядро?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="107"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Това ще премахне следните пакети:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="126"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Премахване на ядро...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="140"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Линукс %1.%2 промени</translation>
     </message>
 </context>
 <context>
@@ -644,18 +647,20 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Автоинсталиране
+Драйвър с отворен код</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
-Propietary Driver</source>
-        <translation type="unfinished"/>
+Proprietary Driver</source>
+        <translation>Автоинсталиране
+Точен драйвър</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>С отворен код</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>

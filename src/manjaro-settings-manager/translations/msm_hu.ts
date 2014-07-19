@@ -212,12 +212,12 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Változások</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>rólam:üres</translation>
     </message>
 </context>
 <context>
@@ -225,55 +225,55 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Ajánlott</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Fut</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Telepített</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Nem támogatott</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Változások</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Egyedi</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Kísérleti</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolít</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Telepít</translation>
     </message>
 </context>
 <context>
@@ -320,52 +320,52 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>form</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Kernel Üzenetek</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Nem támogatott kernelek</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only if running unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Csak akkor ha nem támogatott kernel fut</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>New Kernels</source>
-        <translation type="unfinished"/>
+        <translation>Új kernelek</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify if LTS</source>
-        <translation type="unfinished"/>
+        <translation>Csak akkor figyelmeztessen ha LTS</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify if Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Csak akkor figyelmeztessen ha Ajánlott</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Nyelvi csomagok figyelmeztetése</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check new language packs</source>
-        <translation type="unfinished"/>
+        <translation>Ellenőrizd az új nyelvi csomagokat</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Üzenetek</translation>
     </message>
 </context>
 <context>
@@ -373,12 +373,12 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../pages/page_time_date.ui" line="16"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>form</translation>
     </message>
     <message>
         <location filename="../pages/page_time_date.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Idő és Dátum</translation>
     </message>
 </context>
 <context>
@@ -386,60 +386,63 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../pages/page_kernel.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Telepítse Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>Do you really want install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Valóban telepíteni akarod ezt a kernelt?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="73"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Ez telepíteni fogja a következő csomagokat:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="92"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Új kernel telepítése.</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolítás Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>Do you really want remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban el akarod távolítani ezt a kernelt?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="107"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Ez el fogja távolítani a következő csomagokat:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="126"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Kernel eltávolítása...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="140"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1. %2 változások</translation>
     </message>
 </context>
 <context>
@@ -644,18 +647,20 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus telepítés
+Nyílt forrású meghajtó</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
-Propietary Driver</source>
-        <translation type="unfinished"/>
+Proprietary Driver</source>
+        <translation>Automatikus telepítés
+Zárt forrású meghajtó</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Nyílt forrású</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>

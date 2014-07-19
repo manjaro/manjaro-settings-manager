@@ -18,7 +18,7 @@
     </message>
     <message>
         <location filename="../daemon.cpp" line="211"/>
-        <source>Your kernels need atention.</source>
+        <source>Your kernels need attention.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../daemon.cpp" line="216"/>
         <source>New Kernel Available.</source>
-        <translation type="unfinished"/>
+        <translation>Nuovo Kernel disponibile.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="220"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation type="unfinished"/>
+        <translation>Un kernel più recente di quello installato è disponibile.</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="86"/>

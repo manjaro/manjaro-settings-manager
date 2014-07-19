@@ -9,32 +9,32 @@
     <message>
         <location filename="../daemon.cpp" line="205"/>
         <source>Running an unsupported kernel, please update</source>
-        <translation type="unfinished"/>
+        <translation>Rulați un nucleu fără suport. Actualizați!</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="207"/>
         <source>Unsupported kernel installed in your system.</source>
-        <translation type="unfinished"/>
+        <translation>Un nucleu fără suport este instalat pe sistem.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="211"/>
-        <source>Your kernels need atention.</source>
-        <translation type="unfinished"/>
+        <source>Your kernels need attention.</source>
+        <translation>Nucleele voastre au nevoie de atenție.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="214"/>
         <source>Unsupported Kernel Found.</source>
-        <translation type="unfinished"/>
+        <translation>S-a găsit un nucleu fără suport.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="216"/>
         <source>New Kernel Available.</source>
-        <translation type="unfinished"/>
+        <translation>Un nucleu nou este disponibil</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="220"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation type="unfinished"/>
+        <translation>Este disponibil un nucleu mai nou decât ultimul instalat.</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="86"/>

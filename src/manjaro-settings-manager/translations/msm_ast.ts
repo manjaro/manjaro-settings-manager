@@ -45,19 +45,19 @@
         <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
         <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
         <source>Warning!</source>
-        <translation>¡CURIÁU!</translation>
+        <translation>¡Avisu!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>¡El grupu d&apos;alministración %1 nun ta habilitáu en &apos;%2&apos;! Tienes d&apos;habilitalu p&apos;afitar drechos alministrativos...</translation>
+        <translation>¡Nun ta habilitáu&apos;l grupu d&apos;alministración %1 en &apos;%2&apos;! Tienes d&apos;habilitalu pa poder afitar drechos alministrativos...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Desabilitáronse los grupos d&apos;usuariu d&apos;embaxo:
+        <translation>Desabilitáronse los grupos d&apos;usuariu por defeutu siguientes:
 %1
 Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     </message>
@@ -212,12 +212,12 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Rexistru de cambeos</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -245,13 +245,13 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Non sofitáu</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Rexistru de cambeos</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
@@ -261,7 +261,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Esperimental</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
@@ -325,47 +325,47 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones del kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kernels non sofitaos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only if running unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Namái si s&apos;executen kernels non sofitaos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>New Kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kernels nuevos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify if LTS</source>
-        <translation type="unfinished"/>
+        <translation>Notificar namái si ye LTS</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify if Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Notificar namái si ta aconseyáu</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones de paquetes de llingua</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check new language packs</source>
-        <translation type="unfinished"/>
+        <translation>Comprobar paquetes de llingua nuevos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones</translation>
     </message>
 </context>
 <context>
@@ -378,7 +378,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_time_date.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Data y hora</translation>
     </message>
 </context>
 <context>
@@ -396,50 +396,53 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>Do you really want install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies instalar esti kernel?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="73"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Esto instalará los paquetes siguientes:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="92"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Instalando&apos;l kernel nuevu.</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Desaniciar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>Do you really want remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies desaniciar esti kernel?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="107"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Esto desaniciará los paquetes siguientes:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="126"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Desaniciando kernel...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="140"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Rexistru de cambeos Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -644,18 +647,19 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Instalar automáticamente
+Controlador de códigu llibre</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
-Propietary Driver</source>
+Proprietary Driver</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Códigu llibre</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>
@@ -703,7 +707,7 @@ Propietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation>¿De xuru quies autoinstalar el
+        <translation>¿De xuru quies instalar automáticamente&apos;l
 controlador gráficu llibre?</translation>
     </message>
     <message>
@@ -715,7 +719,7 @@ controlador gráficu llibre?</translation>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation>¿De xuru quies autoinstalar el
+        <translation>¿De xuru quies instalar automáticamente&apos;l
 controlador gráficu non llibre?</translation>
     </message>
     <message>

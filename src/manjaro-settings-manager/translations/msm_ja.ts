@@ -211,12 +211,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>変更履歴</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>aount:blank</translation>
     </message>
 </context>
 <context>
@@ -224,55 +224,55 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>推奨</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>実行中</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>インストール済み</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>サポートされていない</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>変更履歴</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>カスタム</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>実験的</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>インストール</translation>
     </message>
 </context>
 <context>
@@ -319,52 +319,52 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>フォーム</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>カーネル通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>サポートされていないカーネル</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only if running unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>サポートされていないカーネルを実行する場合</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>New Kernels</source>
-        <translation type="unfinished"/>
+        <translation>新しいカーネル</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify if LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTSの場合通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify if Recommended</source>
-        <translation type="unfinished"/>
+        <translation>推奨条件の場合通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>言語パックの通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check new language packs</source>
-        <translation type="unfinished"/>
+        <translation>新しい言語パックの確認</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>通知</translation>
     </message>
 </context>
 <context>
@@ -372,12 +372,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_time_date.ui" line="16"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>フォーム</translation>
     </message>
     <message>
         <location filename="../pages/page_time_date.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>時刻と日付</translation>
     </message>
 </context>
 <context>
@@ -385,60 +385,63 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_kernel.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>フォーム</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>カーネル</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1 のインストール</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>Do you really want install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>本当にこのカーネルをインストールしますか?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="73"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>以下のパッケージをインストールします:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="92"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>新しいカーネルのインストール。</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1 の削除</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>Do you really want remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>このカーネルを削除しますか?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="107"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>以下のパッケージを削除します:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="126"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>カーネルの削除...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="140"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux  %1.%2  の変更履歴</translation>
     </message>
 </context>
 <context>
@@ -643,18 +646,20 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>自動インストール
+オープンソースのドライバ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
-Propietary Driver</source>
-        <translation type="unfinished"/>
+Proprietary Driver</source>
+        <translation>自動インストール
+プロプライエタリなドライバ</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>オープンソース</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>

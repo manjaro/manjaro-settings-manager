@@ -650,7 +650,7 @@ Open-source Driver</source>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
-Propietary Driver</source>
+Proprietary Driver</source>
         <translation type="unfinished"/>
     </message>
     <message>

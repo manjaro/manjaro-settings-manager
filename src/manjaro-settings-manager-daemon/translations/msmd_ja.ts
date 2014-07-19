@@ -9,32 +9,32 @@
     <message>
         <location filename="../daemon.cpp" line="205"/>
         <source>Running an unsupported kernel, please update</source>
-        <translation type="unfinished"/>
+        <translation>サポートされていないカーネルが実行されています、アップデートしてください</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="207"/>
         <source>Unsupported kernel installed in your system.</source>
-        <translation type="unfinished"/>
+        <translation>サポートされていないカーネルがシステムにインストールされています。</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="211"/>
-        <source>Your kernels need atention.</source>
-        <translation type="unfinished"/>
+        <source>Your kernels need attention.</source>
+        <translation>カーネルについて注意が必要です。</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="214"/>
         <source>Unsupported Kernel Found.</source>
-        <translation type="unfinished"/>
+        <translation>サポートされいないカーネルが見つかりました。</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="216"/>
         <source>New Kernel Available.</source>
-        <translation type="unfinished"/>
+        <translation>新しいカーネルが使用できます。</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="220"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation type="unfinished"/>
+        <translation>インストールされているものより新しいカーネルが使用できます。</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="86"/>

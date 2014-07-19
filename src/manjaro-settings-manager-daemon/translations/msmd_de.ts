@@ -18,7 +18,7 @@
     </message>
     <message>
         <location filename="../daemon.cpp" line="211"/>
-        <source>Your kernels need atention.</source>
+        <source>Your kernels need attention.</source>
         <translation>Überprüfen Sie ihre installierten Kernel.</translation>
     </message>
     <message>

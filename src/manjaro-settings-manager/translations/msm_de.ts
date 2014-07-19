@@ -653,8 +653,8 @@ Freier Treiber</translation>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
-Propietary Driver</source>
-        <translation>Auto. Installation 
+Proprietary Driver</source>
+        <translation>Auto. Installation
 Unfreier Treiber</translation>
     </message>
     <message>
