@@ -31,12 +31,10 @@
 #include <QPushButton>
 #include <QListWidgetItem>
 #include <QDesktopWidget>
-#include <QStyle>
 #include <QFile>
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
-#include <QSettings>
 #include "widgets/pagewidget.h"
 #include "pages/page_kernel.h"
 #include "pages/page_keyboard.h"

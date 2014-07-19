@@ -21,6 +21,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QtCore/QSettings>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -29,15 +30,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Qt4 fix
-    // Center window on the screen
-    setGeometry(
-        QStyle::alignedRect(
-            Qt::LeftToRight,
-            Qt::AlignCenter,
-            size(),
-            qApp->desktop()->availableGeometry()
-        ));
+    this->move(
+        qApp->desktop()->availableGeometry().center() - this->rect().center()
+    );
+
+    readPositionSettings();
 
     // Trigger method to setup titels and icons
     buttonShowAllSettings_clicked();
@@ -59,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     // Connect signals and slots
-    connect(ui->buttonQuit, SIGNAL(clicked())   ,   qApp, SLOT(quit()));
+    connect(ui->buttonQuit, SIGNAL(clicked())   ,   qApp, SLOT(closeAllWindows()));
     connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*))   ,   this, SLOT(listWidget_itemClicked(QListWidgetItem*)));
     connect(ui->buttonAllSettings, SIGNAL(clicked())    ,   this, SLOT(buttonShowAllSettings_clicked()));
     connect(ui->buttonApply, SIGNAL(clicked())  ,   this, SLOT(buttonApply_clicked()));
