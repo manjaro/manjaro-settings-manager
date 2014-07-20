@@ -22,6 +22,7 @@
 #include "global.h"
 
 #include <QtCore/QProcessEnvironment>
+#include <QtNetwork/QNetworkInterface>
 
 //###
 //### Public
@@ -1014,4 +1015,43 @@ QString Global::extractFieldFromInfo(const QString &field, const QString &pkgInf
 QString Global::packageVersion(const QString &pkgInfo)
 {
   return extractFieldFromInfo("Version", pkgInfo);
+}
+
+
+/*
+ * This function was copied from Octopi project
+ *
+ * Checks if we have internet access!
+ */
+bool Global::hasInternetConnection()
+{
+    QList<QNetworkInterface> ifaces = QNetworkInterface::allInterfaces();
+    bool result = false;
+
+    for (int i = 0; i < ifaces.count(); i++){
+        QNetworkInterface iface = ifaces.at(i);
+
+        if ( iface.flags().testFlag(QNetworkInterface::IsUp)
+             && !iface.flags().testFlag(QNetworkInterface::IsLoopBack) ){
+            for (int j=0; j<iface.addressEntries().count(); j++){
+                /*
+                We have an interface that is up, and has an ip address
+                therefore the link is present.
+
+                We will only enable this check on first positive,
+                all later results are incorrect
+                */
+                if (result == false)
+                    result = true;
+            }
+        }
+    }
+
+    //It seems to be alright, but let's make a ping to see the result
+    /*if (result == true)
+{
+result = UnixCommand::doInternetPingTest();
+}*/
+
+    return result;
 }

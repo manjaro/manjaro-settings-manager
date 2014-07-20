@@ -61,7 +61,7 @@ void Daemon::run() {
 
 void Daemon::runKernel() {
     loadConfiguration();
-    if ( checkKernel && Global::isSystemUpToDate() ){
+    if ( checkKernel && Global::isSystemUpToDate() && Global::hasInternetConnection() ){
         cKernel();
     }
 }
