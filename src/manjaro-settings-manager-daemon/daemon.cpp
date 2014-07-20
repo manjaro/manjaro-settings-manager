@@ -44,7 +44,7 @@ void Daemon::start() {
         return;
 
     QTimer::singleShot(20000, this, SLOT(run()));
-    QTimer::singleShot(60, this, SLOT(runKernel()));
+    QTimer::singleShot(60000, this, SLOT(runKernel()));
     QTimer::start();
 }
 
@@ -54,14 +54,14 @@ void Daemon::start() {
 
 void Daemon::run() {
     loadConfiguration();
-    if (checkLanguagePackage) {
+    if ( checkLanguagePackage ) {
         cLanguagePackage();
     }
 }
 
 void Daemon::runKernel() {
     loadConfiguration();
-    if (checkKernel){
+    if ( checkKernel && Global::isSystemUpToDate() ){
         cKernel();
     }
 }
