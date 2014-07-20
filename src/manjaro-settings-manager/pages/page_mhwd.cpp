@@ -156,12 +156,12 @@ void Page_MHWD::buttonInstallFree_clicked()
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
                                   tr("Auto Install Configuration"),
-                                  tr("Do you really want to auto install\n the free graphic driver?"),
+                                  tr("Do you really want to auto install\n the open-source graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes)
     {
         ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing free graphic driver..."), false);
+        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing open-source graphic driver..."), false);
     }
     activated();
 }
@@ -173,12 +173,12 @@ void Page_MHWD::buttonInstallNonFree_clicked()
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
                                   tr("Auto Install Configuration"),
-                                  tr("Do you really want to auto install\n the non-free graphic driver?"),
+                                  tr("Do you really want to auto install\n the proprietary graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes)
     {
         ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing non-free graphic driver..."), false);
+        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing proprietary graphic driver..."), false);
     }
     activated();
 }

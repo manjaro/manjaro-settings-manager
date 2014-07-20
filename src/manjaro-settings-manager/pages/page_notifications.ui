@@ -23,7 +23,7 @@
       <item>
        <widget class="QCheckBox" name="checkUnsupportedKernelBox">
         <property name="text">
-         <string>Unsupported kernels</string>
+         <string>Check unsupported kernels</string>
         </property>
        </widget>
       </item>
@@ -48,7 +48,7 @@
         <item>
          <widget class="QCheckBox" name="checkUnsupportedKernelRunningBox">
           <property name="text">
-           <string>Only if running unsupported kernel</string>
+           <string>Only notify if running an unsupported kernel</string>
           </property>
          </widget>
         </item>
@@ -57,7 +57,7 @@
       <item>
        <widget class="QCheckBox" name="checkNewKernelBox">
         <property name="text">
-         <string>New Kernels</string>
+         <string>Check new kernels</string>
         </property>
        </widget>
       </item>
@@ -82,7 +82,7 @@
         <item>
          <widget class="QCheckBox" name="checkNewKernelLtsBox">
           <property name="text">
-           <string>Only notify if LTS</string>
+           <string>Only notify LTS kernels</string>
           </property>
          </widget>
         </item>
@@ -109,7 +109,7 @@
         <item>
          <widget class="QCheckBox" name="checkNewKernelRecommendedBox">
           <property name="text">
-           <string>Only notify if Recommended</string>
+           <string>Only notify recommended kernels</string>
           </property>
          </widget>
         </item>
@@ -127,7 +127,7 @@
       <item>
        <widget class="QCheckBox" name="checkLanguagePackage">
         <property name="text">
-         <string>Check new language packs</string>
+         <string>Check missing language packs</string>
         </property>
        </widget>
       </item>
