@@ -300,17 +300,17 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>Anwenden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="56"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="203"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro Einstellungen</translation>
     </message>
@@ -329,38 +329,38 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
-        <source>Unsupported kernels</source>
-        <translation>Ununterstützte Kernel</translation>
+        <source>Check unsupported kernels</source>
+        <translation>Prüfe auf ununterstützte Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
-        <source>Only if running unsupported kernel</source>
-        <translation>Nur wenn ein ununterstützter Kernel genutzt wird</translation>
+        <source>Only notify if running an unsupported kernel</source>
+        <translation>Benachrichtige nur bei einem ununterstützter Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
-        <source>New Kernels</source>
-        <translation>Neue Kernel</translation>
+        <source>Check new kernels</source>
+        <translation>Prüfe auf neue Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
-        <source>Only notify if LTS</source>
+        <source>Only notify LTS kernels</source>
         <translation>Benachrichtige nur bei LTS-Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
-        <source>Only notify if Recommended</source>
+        <source>Only notify recommended kernels</source>
         <translation>Benachrichtige nur bei empfohlene Kernel</translation>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation>Überprüfe auf fehlende Sprach-Pakete</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
         <translation>Sprach-Pakete Benachrichtigungen</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="130"/>
-        <source>Check new language packs</source>
-        <translation>Überprüfe auf neue Sprach-Pakete</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -394,53 +394,53 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>Kernel</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
         <translation>Installiere Linux %1</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want install this kernel?
 </source>
         <translation>Wollen Sie diesen Kernel wirklich installieren?
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
         <translation>Folgende Pakete werden installiert:
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
         <translation>Installiere neuen Kernel.</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
         <translation>Entferne Linux %1</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want remove this kernel?</source>
         <translation>Wollen Sie diesen Kernel wirklich entfernen?</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
         <translation>Folgende Pakete werden entfernt:
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
         <translation>Entferne Kernel ...</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Linux %1.%2 Änderungshistorie</translation>
     </message>
@@ -707,26 +707,26 @@ Unfreier Treiber</translation>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
-        <translation>Wollen Sie wirklich freie Treiber
-automatisch installieren?</translation>
+ the open-source graphic driver?</source>
+        <translation>Wollen Sie wirklich den freien 
+Treiber automatisch installieren?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
+        <source>Installing open-source graphic driver...</source>
         <translation>Installiere freien Grafik-Treiber ...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
-        <translation>Wollen Sie wirklich unfreie Treiber
-automatisch installieren?</translation>
+ the proprietary graphic driver?</source>
+        <translation>Wollen Sie wirklich den unfreien 
+Treiber automatisch installieren?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
-        <translation>Installiere unfreie Grafik-Treiber ...</translation>
+        <source>Installing proprietary graphic driver...</source>
+        <translation>Installiere unfreien Grafik-Treiber ...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

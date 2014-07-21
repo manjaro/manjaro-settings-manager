@@ -300,17 +300,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Приложи</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>Система</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="56"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>Хардуер</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="203"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Manjaro Settings</source>
         <translation>Настройки на Manjaro</translation>
     </message>
@@ -329,38 +329,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
-        <source>Unsupported kernels</source>
-        <translation>Неподдържани ядра</translation>
+        <source>Check unsupported kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
-        <source>Only if running unsupported kernel</source>
-        <translation>Само ако се използва неподдържано ядро</translation>
+        <source>Only notify if running an unsupported kernel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
-        <source>New Kernels</source>
-        <translation>Нови ядра</translation>
+        <source>Check new kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
-        <source>Only notify if LTS</source>
-        <translation>Уведомявай само ако е с удължена поддръжка</translation>
+        <source>Only notify LTS kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
-        <source>Only notify if Recommended</source>
-        <translation>Уведомявай само ако е пропоръчано</translation>
+        <source>Only notify recommended kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
         <translation>Уведомления за езикови пакети</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="130"/>
-        <source>Check new language packs</source>
-        <translation>Провери за нови езикови пакети</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -394,53 +394,53 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Ядро</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
         <translation>Инсталирай Линукс %1</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want install this kernel?
 </source>
         <translation>Наистина ли искате да инсталирате това ядро?
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
         <translation>Това ще инсталира следните езици:
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
         <translation>Инсталиране на ново ядро.</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
         <translation>Премахване на Линукс %1</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want remove this kernel?</source>
         <translation>Наистина ли искате да премахнете това ядро?</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
         <translation>Това ще премахне следните пакети:
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
         <translation>Премахване на ядро...</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Линукс %1.%2 промени</translation>
     </message>
@@ -707,26 +707,24 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
-        <translation>Наистина ли искате да инсталирате автоматично
-свободния графичен драйвер?</translation>
+ the open-source graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
-        <translation>Инсталиране на свободен графичен драйвер...</translation>
+        <source>Installing open-source graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
-        <translation>Наистина ли искате инсталирате автоматично
-собственическия графичен драйвер?</translation>
+ the proprietary graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
-        <translation>Инсталиране на собственически графичен драйвер...</translation>
+        <source>Installing proprietary graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

@@ -300,17 +300,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>Σύστημα</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="56"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>Υλικό</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="203"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Manjaro Settings</source>
         <translation>Ρυθμίσεις Manjaro</translation>
     </message>
@@ -329,39 +329,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
-        <source>Unsupported kernels</source>
+        <source>Check unsupported kernels</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
-        <source>Only if running unsupported kernel</source>
+        <source>Only notify if running an unsupported kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
-        <source>New Kernels</source>
-        <translation>
-Νέας Πυρήνες </translation>
+        <source>Check new kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
-        <source>Only notify if LTS</source>
-        <translation>Μόνο ειδοποιεί εάν Μακράς Υποστήριξης </translation>
+        <source>Only notify LTS kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
-        <source>Only notify if Recommended</source>
-        <translation>Μόνο ειδοποιεί αν συνιστάται</translation>
+        <source>Only notify recommended kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
         <translation>Πακέτα γλωσσών Ειδοποιήσεις</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="130"/>
-        <source>Check new language packs</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -395,54 +394,54 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Πυρήνας</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want install this kernel?
 </source>
         <translation>Θέλετε πραγματικά να εγκαταστήσετε αυτό το πυρήνα;
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
         <translation>Αυτό θα εγκαταστήσει τα ακόλουθα πακέτα
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
         <translation>Εγκατάσταση νέου πυρήνα.</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want remove this kernel?</source>
         <translation>Θέλετε πραγματικά καταργήσετε αυτό το πυρήνα;</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
         <translation>Αυτό θα αφαιρέσει τα ακόλουθα πακέτα
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
         <translation>Αφαίρεση του πυρήνα ...
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
         <translation type="unfinished"/>
     </message>
@@ -707,26 +706,24 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
-        <translation>Θέλετε σίγουρα να εγκαταστήσετε αυτόματα
-τον ελέυθερο οδηγό γραφικών;</translation>
+ the open-source graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
-        <translation>Εγκατάσταση του ελέυθερου οφηγού γραφικών...</translation>
+        <source>Installing open-source graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
-        <translation>Θέλετε σίγουρα να εγκαταστήσετε αυτόματα
-τον μη-ελέυθερο οδηγό γραφικών;</translation>
+ the proprietary graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
-        <translation>Εγκατάσταση του μη-ελέυθερου οφηγού γραφικών...</translation>
+        <source>Installing proprietary graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

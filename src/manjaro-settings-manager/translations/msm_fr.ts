@@ -300,17 +300,17 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
         <translation>Appliquer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>Système</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="56"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>Matériel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="203"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Manjaro Settings</source>
         <translation>Paramètres de Manjaro</translation>
     </message>
@@ -329,38 +329,38 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
-        <source>Unsupported kernels</source>
-        <translation>Noyaux non supportés</translation>
+        <source>Check unsupported kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
-        <source>Only if running unsupported kernel</source>
-        <translation>Uniquement si un noyau non supporté est actif</translation>
+        <source>Only notify if running an unsupported kernel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
-        <source>New Kernels</source>
-        <translation>Nouveaux noyaux</translation>
+        <source>Check new kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
-        <source>Only notify if LTS</source>
-        <translation>Avertir uniquement si LTS</translation>
+        <source>Only notify LTS kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
-        <source>Only notify if Recommended</source>
-        <translation>Avertir uniquement si Recommandé</translation>
+        <source>Only notify recommended kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
         <translation>Notifications de paquets linguistiques</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="130"/>
-        <source>Check new language packs</source>
-        <translation>Vérifier la présence de nouveaux paquets linguistiques</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -394,53 +394,53 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
         <translation>Noyau</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
         <translation>Installer Linux %1</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want install this kernel?
 </source>
         <translation>Voulez-vous vraiment installer ce noyau ?
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
         <translation>Les paquets suivants vont être installés :
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
         <translation>Installation du nouveau noyau.</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
         <translation>Supprimer Linux %1</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want remove this kernel?</source>
         <translation>Voulez-vous vraiment supprimer ce noyau ?</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
         <translation>Les paquets suivants vont être supprimés :
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
         <translation>Suppression du noyau...</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Changelog pour Linux %1.%2</translation>
     </message>
@@ -706,26 +706,24 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
-        <translation>Voulez-vous vraiment installer automatiquement
-le pilote graphique libre ?</translation>
+ the open-source graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
-        <translation>Installation du pilote graphique libre...</translation>
+        <source>Installing open-source graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
-        <translation>Voulez-vous vraiment installer automatiquement
-le pilote graphique non-libre ?</translation>
+ the proprietary graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
-        <translation>Installation du pilote graphique libre...</translation>
+        <source>Installing proprietary graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

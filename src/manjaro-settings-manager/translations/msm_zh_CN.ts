@@ -300,17 +300,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="56"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>硬件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="203"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro设置</translation>
     </message>
@@ -329,37 +329,37 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
-        <source>Unsupported kernels</source>
+        <source>Check unsupported kernels</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
-        <source>Only if running unsupported kernel</source>
+        <source>Only notify if running an unsupported kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
-        <source>New Kernels</source>
+        <source>Check new kernels</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
-        <source>Only notify if LTS</source>
+        <source>Only notify LTS kernels</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
-        <source>Only notify if Recommended</source>
+        <source>Only notify recommended kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check missing language packs</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="130"/>
-        <source>Check new language packs</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -394,50 +394,50 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>内核</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want install this kernel?
 </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want remove this kernel?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
         <translation type="unfinished"/>
     </message>
@@ -702,24 +702,24 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
-        <translation>您确定继续自动安装开源显卡驱动吗？</translation>
+ the open-source graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
-        <translation>正在安装开源显卡驱动……</translation>
+        <source>Installing open-source graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
-        <translation>您确定继续自动安装闭源显卡驱动吗？</translation>
+ the proprietary graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
-        <translation>正在安装闭源显卡驱动……</translation>
+        <source>Installing proprietary graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

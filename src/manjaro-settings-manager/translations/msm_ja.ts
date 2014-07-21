@@ -299,17 +299,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>適用</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>システム</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="56"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>ハードウェア</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="203"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Manjaro Settings</source>
         <translation>Manjaroの設定</translation>
     </message>
@@ -328,38 +328,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
-        <source>Unsupported kernels</source>
-        <translation>サポートされていないカーネルについて</translation>
+        <source>Check unsupported kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
-        <source>Only if running unsupported kernel</source>
-        <translation>サポートされていないカーネルが実行されている場合のみに通知</translation>
+        <source>Only notify if running an unsupported kernel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
-        <source>New Kernels</source>
-        <translation>新しいカーネルについて</translation>
+        <source>Check new kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
-        <source>Only notify if LTS</source>
-        <translation>LTSの場合にのみ通知</translation>
+        <source>Only notify LTS kernels</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
-        <source>Only notify if Recommended</source>
-        <translation>推奨カーネルの場合にのみ通知</translation>
+        <source>Only notify recommended kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/page_notifications.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
         <translation>言語パッケージについての通知</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="130"/>
-        <source>Check new language packs</source>
-        <translation>新しい言語パッケージの確認</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -393,53 +393,53 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>カーネル</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
+        <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
         <translation>Linux %1 のインストール</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="72"/>
+        <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want install this kernel?
 </source>
         <translation>本当にこのカーネルをインストールしますか?
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="73"/>
+        <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
         <translation>以下のパッケージをインストールします:
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="92"/>
+        <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
         <translation>新しいカーネルのインストール。</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="105"/>
+        <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
         <translation>Linux %1 の削除</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="106"/>
+        <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want remove this kernel?</source>
         <translation>このカーネルを削除しますか?</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="107"/>
+        <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
         <translation>以下のパッケージを削除します:
 </translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="126"/>
+        <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
         <translation>カーネルの削除...</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="140"/>
+        <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Linux  %1.%2  の変更履歴</translation>
     </message>
@@ -706,26 +706,24 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
-        <translation>本当に自動インストールを行いますか?
-フリーのグラフィックドライバ</translation>
+ the open-source graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
-        <translation>フリーのグラフィックドライバのインストール中...</translation>
+        <source>Installing open-source graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
-        <translation>本当に自動インストールを行いますか?
-非フリーのグラフィックドライバ</translation>
+ the proprietary graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
-        <translation>非フリーのグラフィックドライバのインストール中...</translation>
+        <source>Installing proprietary graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
