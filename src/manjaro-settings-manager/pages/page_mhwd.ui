@@ -32,7 +32,7 @@
       <number>10</number>
      </property>
      <item>
-      <widget class="QPushButton" name="buttonInstallNonFree">
+      <widget class="QPushButton" name="buttonInstallFree">
        <property name="text">
         <string>Auto Install
 Open-source Driver</string>
@@ -40,7 +40,7 @@ Open-source Driver</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonInstallFree">
+      <widget class="QPushButton" name="buttonInstallNonFree">
        <property name="text">
         <string>Auto Install
 Proprietary Driver</string>
