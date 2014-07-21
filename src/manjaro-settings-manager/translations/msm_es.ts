@@ -212,7 +212,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation>Historial de cambios</translation>
+        <translation>Características</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
@@ -251,7 +251,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation>Historial de cambios</translation>
+        <translation>Características</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
@@ -325,22 +325,22 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation>Notificaciones de Kernel</translation>
+        <translation>Notificaciones de Núcleo</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Unsupported kernels</source>
-        <translation>Kernels sin soporte</translation>
+        <translation>Núcleos sin soporte</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only if running unsupported kernel</source>
-        <translation>Sólo si se usa un kernel sin soporte</translation>
+        <translation>Sólo si se usa un Núcleo sin soporte</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>New Kernels</source>
-        <translation>Nuevos Kernels</translation>
+        <translation>Nuevos Núcleos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
@@ -402,7 +402,8 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>Do you really want install this kernel?
 </source>
-        <translation>¿Está seguro de que quiere instalar este kernel? 
+        <translation>¿Está seguro de que quiere instalar este Núcleo? 
+
 </translation>
     </message>
     <message>
@@ -415,7 +416,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="92"/>
         <source>Installing new kernel.</source>
-        <translation>Instalando nuevo kernel</translation>
+        <translation>Instalando nuevo Núcleo</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
@@ -425,7 +426,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>Do you really want remove this kernel?</source>
-        <translation>¿Está seguro de que quiere desinstalar este kernel?</translation>
+        <translation>¿Está seguro de que quiere desinstalar este Núcleo?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="107"/>
@@ -437,12 +438,12 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="126"/>
         <source>Removing kernel...</source>
-        <translation>Desinstalando kernel</translation>
+        <translation>Desinstalando Núcleo</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="140"/>
         <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 historial de cambios</translation>
+        <translation>Linux %1.%2 Características</translation>
     </message>
 </context>
 <context>
@@ -654,7 +655,8 @@ controlador libre </translation>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Instalar automáticamente
+Controlador propietario</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>

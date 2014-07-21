@@ -216,7 +216,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation>aount:blank</translation>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -244,7 +244,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation>サポートされていない</translation>
+        <translation>サポートされていません</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
@@ -311,7 +311,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.cpp" line="203"/>
         <source>Manjaro Settings</source>
-        <translation>Manjaro セッティング</translation>
+        <translation>Manjaroの設定</translation>
     </message>
 </context>
 <context>
@@ -324,42 +324,42 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation>カーネル通知</translation>
+        <translation>カーネルについての通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Unsupported kernels</source>
-        <translation>サポートされていないカーネル</translation>
+        <translation>サポートされていないカーネルについて</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only if running unsupported kernel</source>
-        <translation>サポートされていないカーネルを実行する場合</translation>
+        <translation>サポートされていないカーネルが実行されている場合のみに通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>New Kernels</source>
-        <translation>新しいカーネル</translation>
+        <translation>新しいカーネルについて</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify if LTS</source>
-        <translation>LTSの場合通知</translation>
+        <translation>LTSの場合にのみ通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify if Recommended</source>
-        <translation>推奨条件の場合通知</translation>
+        <translation>推奨カーネルの場合にのみ通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation>言語パックの通知</translation>
+        <translation>言語パッケージについての通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check new language packs</source>
-        <translation>新しい言語パックの確認</translation>
+        <translation>新しい言語パッケージの確認</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -454,7 +454,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>キーボードの設定のためにここにタイプしてください。</translation>
+        <translation>キーボードのテストのため、ここにタイプしてください。</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
@@ -779,7 +779,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/page_users.ui" line="162"/>
         <source>Image</source>
-        <translation>イメージ</translation>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../pages/page_users.ui" line="169"/>
@@ -835,12 +835,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation>パーミッション構造体の取得に失敗しました!</translation>
+        <translation>パーミッション構造の取得に失敗しました!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>イメージを &apos;%1 &apos;にコピーすることに失敗しました!</translation>
+        <translation>画像を &apos;%1 &apos;にコピーすることに失敗しました!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="165"/>

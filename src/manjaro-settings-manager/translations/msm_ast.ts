@@ -654,7 +654,8 @@ Controlador de códigu llibre</translation>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Instalar automáticamente
+Controlador propietariu</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>

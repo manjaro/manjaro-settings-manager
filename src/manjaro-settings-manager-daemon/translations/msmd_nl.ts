@@ -9,32 +9,32 @@
     <message>
         <location filename="../daemon.cpp" line="205"/>
         <source>Running an unsupported kernel, please update</source>
-        <translation type="unfinished"/>
+        <translation>Er draait een niet-ondersteunde kernel, gelieve te updaten.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="207"/>
         <source>Unsupported kernel installed in your system.</source>
-        <translation type="unfinished"/>
+        <translation>Niet-ondersteunde kernel geïnstalleerd op je systeem.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="211"/>
         <source>Your kernels need attention.</source>
-        <translation type="unfinished"/>
+        <translation>Je kernels vragen aandacht.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="214"/>
         <source>Unsupported Kernel Found.</source>
-        <translation type="unfinished"/>
+        <translation>Niet-ondersteunde kernel gevonden.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="216"/>
         <source>New Kernel Available.</source>
-        <translation type="unfinished"/>
+        <translation>Nieuwe kernel beschikbaar.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="220"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation type="unfinished"/>
+        <translation>Er is een nieuwere kernel beschikbaar.</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="86"/>

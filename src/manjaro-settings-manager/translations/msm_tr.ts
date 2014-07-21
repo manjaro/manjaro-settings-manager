@@ -281,7 +281,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Yönetim Merkezi</translation>
+        <translation>Manjaro Ayar Yöneticisi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="208"/>
@@ -345,12 +345,12 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify if LTS</source>
-        <translation>Sadece LTS hatırlatmaları</translation>
+        <translation>Sadece LTS çekirdek hatırlatmaları</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify if Recommended</source>
-        <translation>Sadece önerilen haberler</translation>
+        <translation>Sadece önerilen çekirdek hatırlatmaları</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
@@ -646,15 +646,15 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation>Otomatik yükle
-Açık-kaynak Sürücü</translation>
+        <translation>Açık-kaynak sürücüyü
+Otomatik olarak yükle ve yapılandır</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation>Otomatik Yükle
-Özel Sürücü</translation>
+        <translation>Kapalı-kaynak sürücüyü
+Otomatik olarak yükle ve yapılandır</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
@@ -707,8 +707,8 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the free graphic driver?</source>
-        <translation>Gerçekten otomatik yüklemek istiyormusunuz
-özgür ve açık kaynak ekran kartı sürücüsünü?</translation>
+        <translation>Açık kaynaklı ekran kartı sürücüsünü
+ gerçekten otomatik yüklemek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
@@ -719,8 +719,8 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the non-free graphic driver?</source>
-        <translation>Gerçekten otomatik yüklemek istiyormusunuz
-kapalı kaynaklı ekran kartı sürücüsünü?</translation>
+        <translation>Kapalı kaynak ekran kartı sürücüsünü
+ gerçekten otomatik yüklemek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
