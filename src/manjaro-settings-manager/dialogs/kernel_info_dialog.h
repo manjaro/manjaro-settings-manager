@@ -21,9 +21,9 @@
 #ifndef KERNEL_INFO_DIALOG_H
 #define KERNEL_INFO_DIALOG_H
 
-#include <QDialog>
-#include <QWebView>
-#include <QDebug>
+#include <QtCore/QObject>
+#include <QtCore/QString>
+#include <QtWidgets/QDialog>
 
 namespace Ui {
 class KernelInfoDialog;

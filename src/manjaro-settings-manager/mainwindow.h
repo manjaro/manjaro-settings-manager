@@ -43,7 +43,7 @@
 #include "pages/page_mhwd.h"
 #include "pages/page_notifications.h"
 #include "pages/page_users.h"
-#include "pages/page_time_date.h"
+#include "pages/PageTimeDate.h"
 
 
 namespace Ui {

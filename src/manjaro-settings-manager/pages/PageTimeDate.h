@@ -18,19 +18,31 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "page_time_date.h"
-#include "ui_page_time_date.h"
+#ifndef PAGETIMEDATE_H
+#define PAGETIMEDATE_H
 
-PageTimeDate::PageTimeDate(QWidget *parent) :
-    PageWidget(parent),
-    ui(new Ui::PageTimeDate)
-{
-    ui->setupUi(this);
-    setTitel(tr("Time and Date"));
-    setIcon(QPixmap(":/images/resources/help.png"));
+#include "models/TimeDate.h"
+#include "widgets/pagewidget.h"
+
+namespace Ui {
+class PageTimeDate;
 }
 
-PageTimeDate::~PageTimeDate()
+class PageTimeDate : public PageWidget
 {
-    delete ui;
-}
+    Q_OBJECT
+
+public:
+    explicit PageTimeDate(QWidget *parent = 0);
+    ~PageTimeDate();
+
+public slots:
+    void timedateChanged();
+
+private:
+    Ui::PageTimeDate *ui;
+    TimeDate *timeDate;
+
+};
+
+#endif // PAGETIMEDATE_H

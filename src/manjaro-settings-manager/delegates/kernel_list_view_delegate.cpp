@@ -106,7 +106,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     int labelWidth = 0;
     int labelHeight = 0;
-    for (auto str : labelStringList) {
+    for (QString str : labelStringList) {
         QSize labelSize = labelFontMetrics.size(Qt::TextSingleLine, str);
         if (labelSize.width() > labelWidth)
             labelWidth = labelSize.width();
@@ -189,7 +189,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     int buttonWidth = 0;
     int buttonHeight = 0;
-    for (auto str : buttonStringList) {
+    for (QString str : buttonStringList) {
         QSize buttonSize = buttonFontMetrics.size(Qt::TextSingleLine, str);
         if (buttonSize.width() > buttonWidth)
             buttonWidth = buttonSize.width();
@@ -254,7 +254,7 @@ bool KernelListViewDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
     int buttonWidth = 0;
     int buttonHeight = 0;
-    for (auto str : buttonStringList) {
+    for (QString str : buttonStringList) {
         QSize buttonSize = buttonFontMetrics.size(Qt::TextSingleLine, str);
         if (buttonSize.width() > buttonWidth)
             buttonWidth = buttonSize.width();

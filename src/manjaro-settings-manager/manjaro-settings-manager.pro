@@ -4,9 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit webkitwidgets 
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui webkitwidgets dbus
 
 LIBS += -lmhwd
 TARGET = manjaro-settings-manager-gui
@@ -22,6 +20,9 @@ SOURCES  += main.cpp \
             dialogs/changepassworddialog.cpp \
             dialogs/kernel_info_dialog.cpp \
             dialogs/previewfiledialog.cpp \
+            models/KernelModel.cpp \
+            models/Kernel.cpp \
+            models/TimeDate.cpp \
             pages/page_kernel.cpp \
             pages/page_keyboard.cpp \
             pages/page_language.cpp \
@@ -29,15 +30,13 @@ SOURCES  += main.cpp \
             pages/page_mhwd.cpp \
             pages/page_notifications.cpp \
             pages/page_users.cpp \
-            pages/page_time_date.cpp \
+            pages/PageTimeDate.cpp \
             widgets/flatbutton.cpp \
             widgets/listwidget.cpp \
             widgets/keyboardpreview.cpp \
             widgets/pagewidget.cpp \
             widgets/selectlocalesdialog.cpp \
-            widgets/toolbarstylewidget.cpp \
-    models/KernelModel.cpp \
-    models/Kernel.cpp
+            widgets/toolbarstylewidget.cpp
 
 
 
@@ -49,6 +48,9 @@ HEADERS  += mainwindow.h \
             dialogs/changepassworddialog.h \
             dialogs/kernel_info_dialog.h \
             dialogs/previewfiledialog.h \
+            models/KernelModel.h \
+            models/Kernel.h \
+            models/TimeDate.h \
             pages/page_kernel.h \
             pages/page_keyboard.h \
             pages/page_language.h \
@@ -56,15 +58,13 @@ HEADERS  += mainwindow.h \
             pages/page_mhwd.h \
             pages/page_notifications.h \
             pages/page_users.h \
-            pages/page_time_date.h \
+            pages/PageTimeDate.h \
             widgets/flatbutton.h \
             widgets/listwidget.h \
             widgets/keyboardpreview.h \
             widgets/pagewidget.h \
             widgets/selectlocalesdialog.h \
-            widgets/toolbarstylewidget.h \
-    models/KernelModel.h \
-    models/Kernel.h
+            widgets/toolbarstylewidget.h
 
 
 
@@ -81,8 +81,9 @@ FORMS    += mainwindow.ui \
             pages/page_mhwd.ui \
             pages/page_notifications.ui \
             pages/page_users.ui \
-            pages/page_time_date.ui \
+            pages/PageTimeDate.ui \
             widgets/selectlocalesdialog.ui
+
 
 
 
