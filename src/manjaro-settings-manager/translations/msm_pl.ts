@@ -320,47 +320,47 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/page_notifications.ui" line="14"/>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation>Powiadomienia Jąder</translation>
+        <translation>Powiadomienia jąder</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sprawdź niewspierane jądra</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Powiadamiaj tylko o używanym niewspieranym jądrze</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sprawdź nowe wydania jądra</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Powiadamiaj tylko o jądrach z długim okresem wsparcia</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Powiadamiaj tylko o polecanych jądrach</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Sprawdź brakujące pakiety językowe</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation>Powiadomienia Pakietów Językowych</translation>
+        <translation>Powiadomienia pakietów językowych</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -373,12 +373,12 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/page_time_date.ui" line="16"/>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <location filename="../pages/page_time_date.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation>Czas i Data</translation>
+        <translation>Czas i data</translation>
     </message>
 </context>
 <context>
@@ -396,7 +396,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
-        <translation>Instaluj Linux %1</translation>
+        <translation>Zainstaluj Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
@@ -410,7 +410,6 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <source>This will install the following packages:
 </source>
         <translation>Zainstalowane zostaną następujące pakiety:
-
 </translation>
     </message>
     <message>
@@ -443,7 +442,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 Lista zmian</translation>
+        <translation>Linux %1.%2 - lista zmian</translation>
     </message>
 </context>
 <context>
@@ -649,19 +648,19 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <source>Auto Install
 Open-source Driver</source>
         <translation>Zainstaluj automatycznie
- Otwarto-źródłowy Sterownik</translation>
+otwartoźródłowy sterownik</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
         <translation>Zainstaluj automatycznie
- Własnościowy Sterownik</translation>
+własnościowy sterownik</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation>Otwarte-źródło</translation>
+        <translation>Otwartoźródłowy</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>
@@ -709,23 +708,25 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Czy chcesz automatycznie zainstalować
+otwarty sterownik graficzny?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalowanie otwartego sterownika graficznego...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Czy chcesz automatycznie zainstalować
+własnościowy sterownik graficzny?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalowanie własnościowego sterownika graficznego...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
