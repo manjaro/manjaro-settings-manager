@@ -264,7 +264,8 @@ void Daemon::kernelTrayIconShowMessage() {
 
 
 void Daemon::loadConfiguration() {
-    QSettings settings("manjaro", "manjaro-settings-manager");
+    QSettings settings("/root/.config/manjaro/manjaro-settings-manager.conf",
+                        QSettings::IniFormat);
     this->checkLanguagePackage = settings.value("notifications/checkLanguagePackages", true).toBool();
     this->checkUnsupportedKernel = settings.value("notifications/checkUnsupportedKernel", true).toBool();
     this->checkUnsupportedKernelRunning = settings.value("notifications/checkUnsupportedKernelRunning", false).toBool();
