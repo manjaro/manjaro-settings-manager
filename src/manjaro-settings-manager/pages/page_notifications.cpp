@@ -31,7 +31,7 @@ void PageNotifications::activated()
     bool checkUnsupportedKernelRunning = settings.value("notifications/checkUnsupportedKernelRunning", false).toBool();
     bool checkNewKernel = settings.value("notifications/checkNewKernel", true).toBool();
     bool checkNewKernelLts = settings.value("notifications/checkNewKernelLts", false).toBool();
-    bool checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", false).toBool();
+    bool checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", true).toBool();
 
     ui->checkLanguagePackage->setChecked(checkLanguagePackage);
     ui->checkUnsupportedKernelBox->setChecked(checkUnsupportedKernel);

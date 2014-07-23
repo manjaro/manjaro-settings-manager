@@ -271,7 +271,7 @@ void Daemon::loadConfiguration() {
     this->checkUnsupportedKernelRunning = settings.value("notifications/checkUnsupportedKernelRunning", false).toBool();
     this->checkNewKernel = settings.value("notifications/checkNewKernel", true).toBool();
     this->checkNewKernelLts = settings.value("notifications/checkNewKernelLts", false).toBool();
-    this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", false).toBool();
+    this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", true).toBool();
     this->checkKernel = checkUnsupportedKernel | checkNewKernel;
 }
 
