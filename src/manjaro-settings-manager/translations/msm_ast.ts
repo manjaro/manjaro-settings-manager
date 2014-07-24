@@ -235,7 +235,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation>N&apos;execución</translation>
+        <translation>Executándose</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
@@ -245,7 +245,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation>Non sofitáu</translation>
+        <translation>Ensin sofitu</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
@@ -330,32 +330,32 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Comprobar kernels ensin sofitu</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Notificar namái si ta executándose un kernel ensin sofitu</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Comprobar kernels nuevos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notificar namái kernels LTS</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notificar namái kernels aconseyaos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Comprobar paquetes de llingua que falten</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
@@ -708,23 +708,25 @@ Controlador propietariu</translation>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies instalar automáticamente&apos;l
+controlador gráficu llibre?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalando&apos;l controlador gráficu llibre...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies instalar automáticamente&apos;l
+controlador gráficu propietariu?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalando&apos;l controlador gráficu propietariu...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

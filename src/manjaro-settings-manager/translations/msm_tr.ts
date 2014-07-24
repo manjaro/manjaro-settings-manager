@@ -707,7 +707,7 @@ Otomatik olarak yükle ve yapılandır</translation>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation>Açık kaynaklı ekran kartı sürücüsünü
+        <translation>Açık kaynaklı donanım sürücüsünü
 otomatik olarak yüklemek ve yapılandırmak istiyor musunuz?</translation>
     </message>
     <message>
@@ -719,7 +719,7 @@ otomatik olarak yüklemek ve yapılandırmak istiyor musunuz?</translation>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation>Kapalı kaynaklı ekran kartı sürücüsünü
+        <translation>Kapalı kaynaklı donanım sürücüsünü
 otomatik olarak yüklemek ve yapılandırmak istiyor musunuz?</translation>
     </message>
     <message>
