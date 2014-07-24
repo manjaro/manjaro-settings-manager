@@ -52,15 +52,22 @@ void KernelModel::update()
         QString pkgInfo = Global::packageInformation( kernel, !newKernel.isAvailable() );
         newKernel.setVersion(Global::packageVersion(pkgInfo));
 
-        newKernel.setAvailableModules( availableKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))));
-        newKernel.setInstalledModules( installedKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))));
+        newKernel.setAvailableModules( availableKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))) );
+        if ( newKernel.isInstalled() ) {
+            newKernel.setInstalledModules( installedKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(kernel))) );
+        } else {
+            QStringList modules = installedKernelPackages_.filter(QRegularExpression(QString("^%1-").arg(runningKernel)));
+            for ( QString &module : modules ) {
+                module.replace(runningKernel, kernel);
+            }
+            newKernel.setInstalledModules( modules );
+        }
 
         newKernel.setLts( ltsKernels.contains(kernel) );
         newKernel.setRecommended( recommendedKernels.contains(kernel) );
         newKernel.setRunning( QString::compare(runningKernel, kernel) == 0 );
 
         kernels_.append(newKernel);
-
     }
     endResetModel();
 }

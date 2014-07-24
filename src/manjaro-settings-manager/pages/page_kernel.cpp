@@ -71,7 +71,7 @@ void Page_Kernel::installKernel(const QModelIndex &index)
     QString message = QString(tr("Do you really want install this kernel?\n"));
     QString information = QString(tr("This will install the following packages:\n"));
     information.append(package);
-    for (auto p : packageList) {
+    for (QString p : packageList) {
         information.append("\n");
         information.append(p);
     }
@@ -105,7 +105,7 @@ void Page_Kernel::removeKernel(const QModelIndex &index)
     QString message = QString(tr("Do you really want remove this kernel?"));
     QString information = QString(tr("This will remove the following packages:\n"));
     information.append(package);
-    for (auto p : packageList) {
+    for (QString p : packageList) {
         information.append("\n");
         information.append(p);
     }
