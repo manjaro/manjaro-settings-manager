@@ -63,6 +63,8 @@ private:
     bool isPackageIgnored(const QString package, const QString group);
     void addToConfig(const QString package, const QString group);
 
+    bool hasPacmanEverSynced();
+
 protected slots:
     void run();
     void runKernel();

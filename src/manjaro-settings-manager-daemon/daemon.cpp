@@ -23,6 +23,8 @@
 #include "models/Kernel.h"
 #include "models/KernelModel.h"
 
+#include <QtCore/QFile>
+
 Daemon::Daemon(QObject *parent) :
     QTimer(parent)
 {
@@ -61,7 +63,7 @@ void Daemon::run() {
 
 void Daemon::runKernel() {
     loadConfiguration();
-    if ( checkKernel && Global::isSystemUpToDate() && Global::hasInternetConnection() ){
+    if ( checkKernel && Global::isSystemUpToDate() && hasPacmanEverSynced() ){
         cKernel();
     }
 }
@@ -104,20 +106,6 @@ void Daemon::cKernel() {
     Daemon::KernelFlags kernelFlags;
     KernelModel kernelModel;
 
-    /* Testing
-    Kernel testKernel1;
-    testKernel1.setVersion("3.17.34");
-    testKernel1.setPackage("linux317");
-    testKernel1.setAvailable(true);
-    kernelModel.add(testKernel1);
-
-    Kernel testKernel2;
-    testKernel2.setVersion("4.1rc");
-    testKernel2.setPackage("linux41");
-    testKernel2.setAvailable(true);
-    kernelModel.add(testKernel2);
-    */
-
     QList< Kernel > unsupportedKernels = kernelModel.unsupportedKernels();
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
         for (Kernel kernel : unsupportedKernels) {
@@ -139,12 +127,14 @@ void Daemon::cKernel() {
     QList< Kernel > newLtsRecommendedKernels;
     QList< Kernel > newLtsKernels;
     QList< Kernel > newRecommendedKernels;
+    QList< Kernel > newNotIgnoredKernels;
     if (checkNewKernel) {
         for ( Kernel kernel : newKernels ) {
             if ( isPackageIgnored(kernel.package(), "new_kernel") ) {
                 qDebug() << "Ignored new kernel: " << kernel.version();
                 continue;
             }
+            newNotIgnoredKernels << kernel;
             qDebug() << "Newer kernel " << kernel.version();
             if ( kernel.isRecommended() && kernel.isLts() ) {
                 qDebug() << "Newer kernel LTS & Recommended: " << kernel.version();
@@ -174,7 +164,7 @@ void Daemon::cKernel() {
                 kernelFlags |= KernelFlag::New;
             }
         } else {
-            if (!newKernels.isEmpty()) {
+            if (!newNotIgnoredKernels.isEmpty()) {
                 kernelFlags |= KernelFlag::New;
             }
         }
@@ -208,7 +198,7 @@ void Daemon::cKernel() {
             for ( Kernel kernel : unsupportedKernels ) {
                 addToConfig(kernel.package(), "unsupported_kernel");
             }
-            for ( Kernel kernel : newKernels ) {
+            for ( Kernel kernel : newNotIgnoredKernels ) {
                 addToConfig(kernel.package(), "new_kernel");
             }
         }
@@ -293,6 +283,18 @@ void Daemon::addToConfig(const QString package, const QString group) {
     if (value < 3)
         settings.setValue("notify_count_" + package, value);
     settings.endGroup();
+}
+
+bool Daemon::hasPacmanEverSynced()
+{
+    QString path( "/var/lib/pacman/sync/" );
+    QStringList files = QStringList() << "core.db" << "community.db" << "extra.db";
+    for ( QString f : files ) {
+        if ( !QFile::exists( path + f ) ) {
+             return false;
+        }
+    }
+    return true;
 }
 
 

@@ -103,8 +103,6 @@ public:
     static QString extractFieldFromInfo(const QString &field, const QString &pkgInfo);
     static QString packageVersion(const QString &pkgInfo);
 
-    static bool hasInternetConnection();
-
 private:
     struct LocaleSplit {
         QString language, territory;
