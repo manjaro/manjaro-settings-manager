@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -284,18 +284,18 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>Manjaro Einstellungsmanager</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="208"/>
+        <location filename="../mainwindow.ui" line="179"/>
         <source>All Settings</source>
         <translation>Alle Einstellungen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="244"/>
-        <location filename="../mainwindow.ui" line="288"/>
+        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="259"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="267"/>
+        <location filename="../mainwindow.ui" line="238"/>
         <source>Apply</source>
         <translation>Anwenden</translation>
     </message>
@@ -317,11 +317,6 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
 </context>
 <context>
     <name>PageNotifications</name>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="14"/>
-        <source>Form</source>
-        <translation>Formular</translation>
-    </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
@@ -371,23 +366,13 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
 <context>
     <name>PageTimeDate</name>
     <message>
-        <location filename="../pages/page_time_date.ui" line="16"/>
-        <source>Form</source>
-        <translation>Formular</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_time_date.cpp" line="29"/>
+        <location filename="../pages/PageTimeDate.cpp" line="35"/>
         <source>Time and Date</source>
         <translation>Zeit und Datum</translation>
     </message>
 </context>
 <context>
     <name>Page_Kernel</name>
-    <message>
-        <location filename="../pages/page_kernel.ui" line="14"/>
-        <source>Form</source>
-        <translation>Formular</translation>
-    </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
@@ -400,7 +385,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
-        <source>Do you really want install this kernel?
+        <source>Do you really want to install this kernel?
 </source>
         <translation>Wollen Sie diesen Kernel wirklich installieren?
 </translation>
@@ -424,7 +409,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
-        <source>Do you really want remove this kernel?</source>
+        <source>Do you really want to remove this kernel?</source>
         <translation>Wollen Sie diesen Kernel wirklich entfernen?</translation>
     </message>
     <message>
@@ -797,7 +782,7 @@ Treiber automatisch installieren?</translation>
         <source>Password</source>
         <translation>Passwort</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>

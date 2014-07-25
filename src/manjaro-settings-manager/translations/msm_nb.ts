@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nb" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nb" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -284,18 +284,18 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
         <translation>Manjaro Settings Manager</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="208"/>
+        <location filename="../mainwindow.ui" line="179"/>
         <source>All Settings</source>
         <translation>Alle innstillinger</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="244"/>
-        <location filename="../mainwindow.ui" line="288"/>
+        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="259"/>
         <source>Quit</source>
         <translation>Avslutt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="267"/>
+        <location filename="../mainwindow.ui" line="238"/>
         <source>Apply</source>
         <translation>Bruk</translation>
     </message>
@@ -317,11 +317,6 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
 </context>
 <context>
     <name>PageNotifications</name>
-    <message>
-        <location filename="../pages/page_notifications.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
@@ -371,23 +366,13 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
 <context>
     <name>PageTimeDate</name>
     <message>
-        <location filename="../pages/page_time_date.ui" line="16"/>
-        <source>Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_time_date.cpp" line="29"/>
+        <location filename="../pages/PageTimeDate.cpp" line="35"/>
         <source>Time and Date</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Page_Kernel</name>
-    <message>
-        <location filename="../pages/page_kernel.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
@@ -400,7 +385,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
-        <source>Do you really want install this kernel?
+        <source>Do you really want to install this kernel?
 </source>
         <translation type="unfinished"/>
     </message>
@@ -422,7 +407,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
-        <source>Do you really want remove this kernel?</source>
+        <source>Do you really want to remove this kernel?</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -790,7 +775,7 @@ Proprietary Driver</source>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>

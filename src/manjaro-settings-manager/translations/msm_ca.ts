@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -212,7 +212,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Llista de canvis</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
@@ -235,7 +235,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation>Corrent</translation>
+        <translation>Funcionant</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
@@ -245,13 +245,13 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>No suportat</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Llista de canvis</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
@@ -273,7 +273,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation>Instal · lar</translation>
+        <translation>Instal·lar</translation>
     </message>
 </context>
 <context>
@@ -284,18 +284,18 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <translation>Administrador de Configuració de Manjaro</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="208"/>
+        <location filename="../mainwindow.ui" line="179"/>
         <source>All Settings</source>
         <translation>Vista general</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="244"/>
-        <location filename="../mainwindow.ui" line="288"/>
+        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="259"/>
         <source>Quit</source>
         <translation>Surt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="267"/>
+        <location filename="../mainwindow.ui" line="238"/>
         <source>Apply</source>
         <translation>Aplica</translation>
     </message>
@@ -318,49 +318,44 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
 <context>
     <name>PageNotifications</name>
     <message>
-        <location filename="../pages/page_notifications.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificacions del kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Comprova kernels sense suport</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Només notificar si està funcionant un kernel sense support</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Comprova nous kernels</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notifica només kernels LTS</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notifica només kernels recomanats</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Comprova paquets d&apos;idioma que falten</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificacions de paquets d&apos;idioma</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -371,23 +366,13 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
 <context>
     <name>PageTimeDate</name>
     <message>
-        <location filename="../pages/page_time_date.ui" line="16"/>
-        <source>Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_time_date.cpp" line="29"/>
+        <location filename="../pages/PageTimeDate.cpp" line="35"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Hora i Data</translation>
     </message>
 </context>
 <context>
     <name>Page_Kernel</name>
-    <message>
-        <location filename="../pages/page_kernel.ui" line="14"/>
-        <source>Form</source>
-        <translation>Forma</translation>
-    </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
@@ -396,11 +381,11 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instal·la Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
-        <source>Do you really want install this kernel?
+        <source>Do you really want to install this kernel?
 </source>
         <translation type="unfinished"/>
     </message>
@@ -408,38 +393,40 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Això instal·larà els següents paquets:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Instal·lant nou kernel.</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Esborrar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
-        <source>Do you really want remove this kernel?</source>
+        <source>Do you really want to remove this kernel?</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Això esborrarà els següents paquets:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Esborrant kernel...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Llista de canvis de Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -644,18 +631,20 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Instal·lació automàtica
+del controlador de codi obert</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Instal·lació automàtica
+del controlador propietari</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Codi obert</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>
@@ -703,23 +692,25 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Realment vols instal·lar automàticament
+el controlador de codi obert?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instal·lant el controlador de codi obert...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Realment vols instal·lar automàticament
+el controlador propietari?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instal·lant el controlador propietari...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>
@@ -790,7 +781,7 @@ Proprietary Driver</source>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../pages/page_users.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>

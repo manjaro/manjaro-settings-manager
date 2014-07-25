@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.1" language="en_US">
 <context>
     <name>Daemon</name>
     <message numerus="yes">
-        <location filename="../daemon.cpp" line="90"/>
+        <location filename="../daemon.cpp" line="92"/>
         <source>Additional Language Package(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -12,37 +12,37 @@
         </translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="186"/>
+        <location filename="../daemon.cpp" line="176"/>
         <source>Running an unsupported kernel, please update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="188"/>
+        <location filename="../daemon.cpp" line="178"/>
         <source>Unsupported kernel installed in your system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="191"/>
+        <location filename="../daemon.cpp" line="181"/>
         <source>Your kernels need attention.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="194"/>
+        <location filename="../daemon.cpp" line="184"/>
         <source>Unsupported Kernel Found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="196"/>
+        <location filename="../daemon.cpp" line="186"/>
         <source>New Kernel Available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="199"/>
+        <location filename="../daemon.cpp" line="189"/>
         <source>A kernel newer than the latest installed is available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../daemon.cpp" line="88"/>
+        <location filename="../daemon.cpp" line="90"/>
         <source>%n new additional language package(s) available</source>
         <translation type="unfinished">
             <numerusform></numerusform>

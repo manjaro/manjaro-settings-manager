@@ -25,7 +25,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>localDateTime</string>
+        <string notr="true">localDateTime</string>
        </property>
       </widget>
      </item>
@@ -35,7 +35,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>utcDateTime</string>
+        <string notr="true">utcDateTime</string>
        </property>
       </widget>
      </item>
@@ -45,14 +45,14 @@
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>rtcDateTime</string>
+        <string notr="true">rtcDateTime</string>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>timeZone</string>
+        <string notr="true">timeZone</string>
        </property>
       </widget>
      </item>
@@ -62,84 +62,84 @@
      <item row="4" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>can Ntp</string>
+        <string notr="true">can Ntp</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
       <widget class="QCheckBox" name="canNtpCheckBox">
        <property name="text">
-        <string>CheckBox</string>
+        <string notr="true">CheckBox</string>
        </property>
       </widget>
      </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>isNtpEnabled</string>
+        <string notr="true">isNtpEnabled</string>
        </property>
       </widget>
      </item>
      <item row="5" column="1">
       <widget class="QCheckBox" name="isNtpEnabledCheckBox">
        <property name="text">
-        <string>CheckBox</string>
+        <string notr="true">CheckBox</string>
        </property>
       </widget>
      </item>
      <item row="6" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
-        <string>isNtpSync</string>
+        <string notr="true">isNtpSync</string>
        </property>
       </widget>
      </item>
      <item row="7" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
-        <string>isRtcInLocalTimezone</string>
+        <string notr="true">isRtcInLocalTimezone</string>
        </property>
       </widget>
      </item>
      <item row="8" column="0">
       <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>isDstActive</string>
+        <string notr="true">isDstActive</string>
        </property>
       </widget>
      </item>
      <item row="9" column="0">
       <widget class="QLabel" name="label_10">
        <property name="text">
-        <string>lastDstChange</string>
+        <string notr="true">lastDstChange</string>
        </property>
       </widget>
      </item>
      <item row="10" column="0">
       <widget class="QLabel" name="label_11">
        <property name="text">
-        <string>nextDstChange</string>
+        <string notr="true">nextDstChange</string>
        </property>
       </widget>
      </item>
      <item row="6" column="1">
       <widget class="QCheckBox" name="isNtpSyncCheckBox">
        <property name="text">
-        <string>CheckBox</string>
+        <string notr="true">CheckBox</string>
        </property>
       </widget>
      </item>
      <item row="7" column="1">
       <widget class="QCheckBox" name="isRtcInLocalTimezoneCheckBox">
        <property name="text">
-        <string>CheckBox</string>
+        <string notr="true">CheckBox</string>
        </property>
       </widget>
      </item>
      <item row="8" column="1">
       <widget class="QCheckBox" name="isDstActiveCheckBox">
        <property name="text">
-        <string>CheckBox</string>
+        <string notr="true">CheckBox</string>
        </property>
       </widget>
      </item>
