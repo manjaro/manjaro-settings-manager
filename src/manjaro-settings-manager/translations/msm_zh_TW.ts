@@ -387,7 +387,8 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>您真的想要安裝這個核心嗎？
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要安裝這個核心嗎？</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>

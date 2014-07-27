@@ -212,7 +212,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Ændringslog</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
@@ -225,55 +225,55 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Anbefalet</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Kørende</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Installeret</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Uunderstøttet</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Ændringslog</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Brugerdefineret</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Eksperimentel</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Fjern</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Installer</translation>
     </message>
 </context>
 <context>
@@ -320,47 +320,47 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Kernel-notifikationer</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Check uunderstøttede kerneler</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Anmeld kun hvis kører en uunderstøttet kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Check nye kerneler</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Anmeld kun LTS-kerneler</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Anmeld kun anbefalede kerneler</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Check manglende sprogpakker</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Sprogpakke-notifikationer</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notifikationer</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="35"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Tid of dato</translation>
     </message>
 </context>
 <context>
@@ -376,55 +376,58 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Installer Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Ønsker du virkelig at installere denne kernel?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Dette vil installere de følgende pakker:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Installerer nye kerneler</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Fjern Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Vil du virkelig fjerne denne kernel?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Dette vil fjerne de følgende pakker:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Fjerner kernel...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 ændringslog</translation>
     </message>
 </context>
 <context>
@@ -629,18 +632,20 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto-installer
+Fri driver</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto-installer
+Proprietær driver</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Open-source</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>

@@ -212,12 +212,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -225,55 +225,55 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomendado</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Executando</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Instalado</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Não suportado</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Padrão</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Experimental</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalar</translation>
     </message>
 </context>
 <context>
@@ -320,47 +320,47 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificações sobre Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Verificar kernels não suportados</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Somente notificar se estiver executando um kernel não suportado</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Verificar novos kernels</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Verificar apenas kernels LTS</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Verificar apenas kernels recomendados</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Verificar pacotes de idiomas não instalados</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificações de pacotes de idiomas</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificações</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="35"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Data e Hora</translation>
     </message>
 </context>
 <context>
@@ -376,55 +376,58 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Você deseja realmente instalar este kernel?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Isto irá instalar os seguintes pacotes:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Instalando novo kernel.</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Remover Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Você deseja realmente remover este kernel?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Isto irá remover os seguintes pacotes:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Removendo kernel...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 changelog</translation>
     </message>
 </context>
 <context>
@@ -629,18 +632,20 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto instalação
+Driver Open source</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto instalação
+Driver Proprietário</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Open source</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>
@@ -688,23 +693,25 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Você deseja realmente auto instalar
+o driver de vídeo open-source?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalando o driver de vídeo open source...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Você deseja realmente auto instalar
+o driver de vídeo proprietário?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalando o driver de vídeo proprietário...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

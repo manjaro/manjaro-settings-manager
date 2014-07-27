@@ -387,7 +387,8 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Realment desitja instal·lar aquest kernel?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Realment desitja esborrar aquest kernel?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
