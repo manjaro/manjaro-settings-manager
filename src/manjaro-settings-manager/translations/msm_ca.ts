@@ -217,7 +217,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>

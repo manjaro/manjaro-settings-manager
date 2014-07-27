@@ -387,7 +387,8 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Gerçekten bu çekirdeği yüklemek istiyor musunuz?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Gerçekten bu çekirdeği kaldırmak istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>

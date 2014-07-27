@@ -387,7 +387,8 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Czy na pewno chcesz zainstalować to jądro?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Czy na pewno chcesz usunąć to jądro?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>

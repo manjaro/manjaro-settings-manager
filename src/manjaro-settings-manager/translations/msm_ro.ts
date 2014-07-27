@@ -387,7 +387,8 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Doriți să instalați acest nucleu?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Doriți să eliminați acest nucleu?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>

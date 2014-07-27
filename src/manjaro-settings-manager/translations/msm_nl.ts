@@ -387,7 +387,8 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Wil je deze kernel echt installeren?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Wil je deze kernel echt verwijderen?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>

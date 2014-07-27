@@ -387,7 +387,8 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies instalar esti kernel?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies desaniciar esti kernel?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
