@@ -20,6 +20,7 @@ SOURCES  += main.cpp \
             dialogs/changepassworddialog.cpp \
             dialogs/kernel_info_dialog.cpp \
             dialogs/previewfiledialog.cpp \
+            dialogs/TimeZoneDialog.cpp \
             models/KernelModel.cpp \
             models/Kernel.cpp \
             models/TimeDate.cpp \
@@ -33,10 +34,13 @@ SOURCES  += main.cpp \
             pages/PageTimeDate.cpp \
             widgets/flatbutton.cpp \
             widgets/listwidget.cpp \
+            widgets/LocaleGlobal.cpp \
             widgets/keyboardpreview.cpp \
             widgets/pagewidget.cpp \
             widgets/selectlocalesdialog.cpp \
+            widgets/TimeZoneWidget.cpp \
             widgets/toolbarstylewidget.cpp
+
 
 
 
@@ -48,6 +52,7 @@ HEADERS  += mainwindow.h \
             dialogs/changepassworddialog.h \
             dialogs/kernel_info_dialog.h \
             dialogs/previewfiledialog.h \
+            dialogs/TimeZoneDialog.h \
             models/KernelModel.h \
             models/Kernel.h \
             models/TimeDate.h \
@@ -61,10 +66,13 @@ HEADERS  += mainwindow.h \
             pages/PageTimeDate.h \
             widgets/flatbutton.h \
             widgets/listwidget.h \
+            widgets/LocaleGlobal.h \
             widgets/keyboardpreview.h \
             widgets/pagewidget.h \
             widgets/selectlocalesdialog.h \
+            widgets/TimeZoneWidget.h \
             widgets/toolbarstylewidget.h
+
 
 
 
@@ -74,6 +82,7 @@ FORMS    += mainwindow.ui \
             dialogs/applydialog.ui \
             dialogs/changepassworddialog.ui \
             dialogs/kernel_info_dialog.ui \
+            dialogs/TimeZoneDialog.ui \
             pages/page_kernel.ui \
             pages/page_keyboard.ui \
             pages/page_language.ui \

@@ -21,6 +21,8 @@
 #include "PageTimeDate.h"
 #include "ui_PageTimeDate.h"
 
+#include "dialogs/TimeZoneDialog.h"
+
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>
 #include <QtCore/QTimeZone>
@@ -40,6 +42,7 @@ PageTimeDate::PageTimeDate(QWidget *parent) :
     connect(ui->timeEdit, &QTimeEdit::timeChanged, this, &PageTimeDate::timeEdited);
     connect(ui->dateEdit, &QTimeEdit::dateChanged, this, &PageTimeDate::dateEdited);
     connect(ui->isNtpEnabledCheckBox, &QCheckBox::clicked, this, &PageTimeDate::isNtpEnabledClicked);
+    connect(ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked);
 }
 
 PageTimeDate::~PageTimeDate()
@@ -52,6 +55,7 @@ void PageTimeDate::activated()
 {
     isTimeEdited_ = false;
     isDateEdited_ = false;
+    timeZone_ = timeDate->timeZone();
     updateFields();
     updateTimeFields();
     isNtpEnabledClicked();
@@ -76,12 +80,14 @@ void PageTimeDate::apply_clicked()
         timeDate->setLocalRtc(ui->isRtcLocalCheckBox->isChecked());
     }
 
-    if (!newTimeZone_.isEmpty() && QTimeZone(newTimeZone_.toLatin1()).isValid()) {
-        if (newTimeZone_ != timeDate->timeZone()) {
-            timeDate->setTimeZone(newTimeZone_);
+    if (!timeZone_.isEmpty() && QTimeZone(timeZone_.toLatin1()).isValid()) {
+        if (timeZone_ != timeDate->timeZone()) {
+            timeDate->setTimeZone(timeZone_);
         }
     }
 
+    isTimeEdited_ = false;
+    isDateEdited_ = false;
     updateFields();
     updateTimeFields();
 }
@@ -97,9 +103,9 @@ void PageTimeDate::updateFields()
 
     ui->isRtcLocalCheckBox->setChecked(timeDate->isRtcInLocalTimeZone());
 
-    QTimeZone timeZone = QTimeZone(timeDate->timeZone().toLatin1());
+    QTimeZone timeZone = QTimeZone(timeZone_.toLatin1());
     if (timeZone.isValid()) {
-        ui->timeZoneLabel->setText(tr("<b>Time Zone:</b> %1").arg(timeDate->timeZone()));
+        ui->timeZoneLabel->setText(tr("<b>Time Zone:</b> %1").arg(timeZone_));
         ui->countryLabel->setText(tr("<b>Country:</b> ") + QLocale::countryToString(timeZone.country()));
         ui->hasDaylightTimeCheckBox->setChecked(timeZone.hasDaylightTime());
         ui->isDaylightTimeCheckBox->setChecked(timeZone.isDaylightTime(QDateTime::currentDateTime()));
@@ -152,5 +158,19 @@ void PageTimeDate::isNtpEnabledClicked()
     } else {
         ui->timeEdit->setEnabled(true);
         ui->dateEdit->setEnabled(true);
+    }
+}
+
+void PageTimeDate::timeZoneClicked()
+{
+    TimeZoneDialog dialog(this);
+    QString region = timeZone_.split("/").value(0);
+    QString zone = timeZone_.split("/").value(1);
+    dialog.init(region, zone);
+    dialog.exec();
+    if (dialog.getCurrentLocation() != timeZone_) {
+        timeZone_ = dialog.getCurrentLocation();
+        updateFields();
+        updateTimeFields();
     }
 }

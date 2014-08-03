@@ -23,7 +23,7 @@
 
 #include "models/TimeDate.h"
 #include "widgets/pagewidget.h"
-
+#include "widgets/TimeZoneWidget.h"
 namespace Ui {
 class PageTimeDate;
 }
@@ -44,13 +44,15 @@ public slots:
     void timeEdited();
     void dateEdited();
     void isNtpEnabledClicked();
+    void timeZoneClicked();
 
 private:
     Ui::PageTimeDate *ui;
     TimeDate *timeDate;
+    TimeZoneWidget timeZoneWidget;
     bool isTimeEdited_;
     bool isDateEdited_;
-    QString newTimeZone_;
+    QString timeZone_;
 
 };
 
