@@ -30,7 +30,7 @@
       <item>
        <widget class="QCheckBox" name="isRtcLocalCheckBox">
         <property name="text">
-         <string>Real time clock in local time</string>
+         <string>Real time clock in local time zone</string>
         </property>
        </widget>
       </item>
