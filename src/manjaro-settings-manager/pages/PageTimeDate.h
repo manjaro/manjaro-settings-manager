@@ -35,13 +35,22 @@ class PageTimeDate : public PageWidget
 public:
     explicit PageTimeDate(QWidget *parent = 0);
     ~PageTimeDate();
+    void activated();
+    void apply_clicked();
 
 public slots:
-    void timedateChanged();
+    void updateFields();
+    void updateTimeFields();
+    void timeEdited();
+    void dateEdited();
+    void isNtpEnabledClicked();
 
 private:
     Ui::PageTimeDate *ui;
     TimeDate *timeDate;
+    bool isTimeEdited_;
+    bool isDateEdited_;
+    QString newTimeZone_;
 
 };
 

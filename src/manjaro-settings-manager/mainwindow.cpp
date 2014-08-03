@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     addPageWidget(page_Language);
     addPageWidget(page_Kernel);
     addPageWidget(page_Users);
-    //addPageWidget(pageTimeDate);
+    addPageWidget(pageTimeDate);
     addPageWidget(pageNotifications);
 
     //

@@ -25,6 +25,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
+#include <QtCore/QTimer>
 
 PageTimeDate::PageTimeDate(QWidget *parent) :
     PageWidget(parent),
@@ -33,49 +34,12 @@ PageTimeDate::PageTimeDate(QWidget *parent) :
 {
     ui->setupUi(this);
     setTitel(tr("Time and Date"));
-    setIcon(QPixmap(":/images/resources/help.png"));
+    setIcon(QPixmap(":/images/resources/timedate.png"));
+    setShowApplyButton(true);
 
-    ui->localDateTimeEdit->setDateTime( timeDate->localDateTime() );
-    ui->utcDateTimeEdit->setDateTime( timeDate->utcDateTime() );
-    ui->rtcDateTimeEdit->setDateTime( timeDate->rtcDateTime() );
-    ui->timeZonelineEdit->setText( timeDate->timeZone() );
-    ui->canNtpCheckBox->setChecked( timeDate->canNtp() );
-    ui->isNtpEnabledCheckBox->setChecked( timeDate->isNtpEnabled() );
-    ui->isNtpSyncCheckBox->setChecked( timeDate->isNtpSynchronized() );
-    ui->isRtcInLocalTimezoneCheckBox->setChecked( timeDate->isRtcInLocalTimeZone() );
-
-    qDebug() << timeDate->isDstActive();
-    qDebug() << timeDate->lastDstChange();
-    qDebug() << timeDate->nextDstChange();
-
-    QList<QByteArray> ids = QTimeZone::availableTimeZoneIds();
-    QStringList ids2;
-    int current;
-    for (QByteArray i : ids) {
-        if ( i.startsWith("UTC") ) {
-            continue;
-        }
-        ids2.append(i);
-        if (&ids2.last() == ui->timeZonelineEdit->text() ) {
-            current = ids2.length() - 1;
-        }
-    }
-
-    QStringListModel *model = new QStringListModel();
-    model->setStringList(ids2);
-    ui->listView->setModel( model );
-    QModelIndex index =  model->index( current );
-    if ( index.isValid() ) {
-        ui->listView->setCurrentIndex( index );
-    }
-
-    /*
-    dbusInterface.connection().connect( "org.freedesktop.timedate1",
-                                "/org/freedesktop/timedate1",
-                                "org.freedesktop.DBus.Properties",
-                                "PropertiesChanged", this,
-                                SLOT(timedateChanged() ) );
-                                */
+    connect(ui->timeEdit, &QTimeEdit::timeChanged, this, &PageTimeDate::timeEdited);
+    connect(ui->dateEdit, &QTimeEdit::dateChanged, this, &PageTimeDate::dateEdited);
+    connect(ui->isNtpEnabledCheckBox, &QCheckBox::clicked, this, &PageTimeDate::isNtpEnabledClicked);
 }
 
 PageTimeDate::~PageTimeDate()
@@ -84,6 +48,109 @@ PageTimeDate::~PageTimeDate()
     delete timeDate;
 }
 
-void PageTimeDate::timedateChanged() {
-    qDebug() << "hi";
+void PageTimeDate::activated()
+{
+    isTimeEdited_ = false;
+    isDateEdited_ = false;
+    updateFields();
+    updateTimeFields();
+    isNtpEnabledClicked();
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &PageTimeDate::updateTimeFields);
+    timer->start(1000);
+}
+
+void PageTimeDate::apply_clicked()
+{
+    if (ui->isNtpEnabledCheckBox->isChecked() != timeDate->isNtpEnabled()) {
+        timeDate->setNtp(ui->isNtpEnabledCheckBox->isChecked());
+    }
+
+    // Only possible to modify date if ntp is disabled
+    if ((isTimeEdited_ || isDateEdited_) && !ui->isNtpEnabledCheckBox->isChecked()) {
+        QDateTime time(ui->dateEdit->date(), ui->timeEdit->time());
+        timeDate->setTime(time);
+    }
+
+    if (ui->isRtcLocalCheckBox->isChecked() != timeDate->isRtcInLocalTimeZone()) {
+        timeDate->setLocalRtc(ui->isRtcLocalCheckBox->isChecked());
+    }
+
+    if (!newTimeZone_.isEmpty() && QTimeZone(newTimeZone_.toLatin1()).isValid()) {
+        if (newTimeZone_ != timeDate->timeZone()) {
+            timeDate->setTimeZone(newTimeZone_);
+        }
+    }
+
+    updateFields();
+    updateTimeFields();
+}
+
+void PageTimeDate::updateFields()
+{
+    if (timeDate->canNtp()) {
+        ui->isNtpEnabledCheckBox->setChecked(timeDate->isNtpEnabled());
+    } else {
+        ui->isNtpEnabledCheckBox->setChecked(false);
+        ui->isNtpEnabledCheckBox->setEnabled(false);
+    }
+
+    ui->isRtcLocalCheckBox->setChecked(timeDate->isRtcInLocalTimeZone());
+
+    QTimeZone timeZone = QTimeZone(timeDate->timeZone().toLatin1());
+    if (timeZone.isValid()) {
+        ui->timeZoneLabel->setText(tr("<b>Time Zone:</b> %1").arg(timeDate->timeZone()));
+        ui->countryLabel->setText(tr("<b>Country:</b> ") + QLocale::countryToString(timeZone.country()));
+        ui->hasDaylightTimeCheckBox->setChecked(timeZone.hasDaylightTime());
+        ui->isDaylightTimeCheckBox->setChecked(timeZone.isDaylightTime(QDateTime::currentDateTime()));
+        ui->hasTransitionsCheckBox->setChecked(timeZone.hasTransitions());
+
+        QTimeZone::OffsetData offset = timeZone.nextTransition(QDateTime::currentDateTime());
+        if (offset.atUtc != QDateTime()) {
+            ui->nextTransitionLabel->setEnabled(true);
+            ui->nextTransitionLabel->setText(tr("<b>Next transition:</b> %1")
+                                             .arg(offset.atUtc.toString("ddd yyyy-MM-dd HH:mm:ss")));
+        } else {
+            ui->nextTransitionLabel->setEnabled(false);
+            ui->nextTransitionLabel->setText(tr("<b>Next transition:</b> none"));
+        }
+    }
+}
+
+void PageTimeDate::updateTimeFields() {
+    if (!isTimeEdited_) {
+        ui->timeEdit->blockSignals(true);
+        ui->timeEdit->setTime(timeDate->localDateTime().time());
+        ui->timeEdit->blockSignals(false);
+    }
+    if (!isDateEdited_) {
+        ui->dateEdit->blockSignals(true);
+        ui->dateEdit->setDate(timeDate->localDateTime().date());
+        ui->dateEdit->blockSignals(false);
+    }
+    ui->utcTimeLabel->setText(tr("<b>Universal time:</b> %1")
+                               .arg(timeDate->utcDateTime().toString("ddd yyyy-MM-dd HH:mm:ss")));
+    ui->rtcTimeLabel->setText(tr("<b>RTC time:</b> %1")
+                               .arg(timeDate->rtcDateTime().toString("ddd yyyy-MM-dd HH:mm:ss")));
+}
+
+void PageTimeDate::timeEdited()
+{
+    isTimeEdited_ = true;
+}
+
+void PageTimeDate::dateEdited()
+{
+    isDateEdited_ = true;
+}
+
+void PageTimeDate::isNtpEnabledClicked()
+{
+    if (ui->isNtpEnabledCheckBox->isChecked()) {
+        ui->timeEdit->setEnabled(false);
+        ui->dateEdit->setEnabled(false);
+    } else {
+        ui->timeEdit->setEnabled(true);
+        ui->dateEdit->setEnabled(true);
+    }
 }

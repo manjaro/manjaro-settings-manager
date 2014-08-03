@@ -19,20 +19,23 @@ TimeDate::~TimeDate()
 
 QDateTime TimeDate::localDateTime()
 {
-    return QDateTime::fromTime_t( (dbusInterface_->property("TimeUSec")).toString().left(10).toUInt() );
+    return QDateTime::fromMSecsSinceEpoch( dbusInterface_->property("TimeUSec").toLongLong() / 1000 );
 }
 
 QDateTime TimeDate::utcDateTime()
 {
     QDateTime aux;
-    aux.setTime_t( (dbusInterface_->property("TimeUSec")).toString().left(10).toUInt() );
+    aux.setMSecsSinceEpoch( (dbusInterface_->property("TimeUSec")).toLongLong() / 1000 );
     aux.setTimeSpec(Qt::LocalTime);
     return aux.toUTC();
 }
 
 QDateTime TimeDate::rtcDateTime()
 {
-    return QDateTime::fromTime_t( (dbusInterface_->property("RTCTimeUSec")).toString().left(10).toUInt() );
+    QDateTime aux;
+    aux.setMSecsSinceEpoch( (dbusInterface_->property("RTCTimeUSec")).toLongLong() / 1000 );
+    aux.setTimeSpec(Qt::LocalTime);
+    return aux.toUTC();
 }
 
 QString TimeDate::timeZone()
@@ -60,42 +63,47 @@ bool TimeDate::isRtcInLocalTimeZone()
     return dbusInterface_->property("LocalRTC").toBool();
 }
 
-bool TimeDate::isDstActive()
-{
-    return false;
-}
-
-QDateTime TimeDate::lastDstChange()
-{
-    return QDateTime();
-}
-
-QDateTime TimeDate::nextDstChange()
-{
-    return QDateTime();
-}
-
-void TimeDate::updateTimeZonesList()
-{
-
-}
-
 void TimeDate::setTime(const QDateTime &time)
 {
-
+    /*
+     * xbb
+     * int64_t -> time_t
+     * boolean -> relative
+     * boolean -> arg_ask_password
+     */
+    qint64 timeUSec = time.toMSecsSinceEpoch() * 1000;
+    QDBusMessage reply;
+    reply = dbusInterface_->call("SetTime", timeUSec, false, true);
+    qDebug() << reply;
 }
 
 void TimeDate::setTimeZone(const QString &timeZone)
 {
-
+    /*
+     * sb
+     * string -> timezone id
+     * boolean -> arg_ask_password
+     */
+    dbusInterface_->call("SetTimezone", timeZone, true);
 }
 
-void TimeDate::setLocalRtc(const bool &local)
+void TimeDate::setLocalRtc(const bool local)
 {
-
+    /*
+     * bbb
+     * boolean -> local rtc
+     * boolean -> adjust_system_clock
+     * boolean -> arg_ask_password
+     */
+    dbusInterface_->call("SetLocalRTC", local, false, true);
 }
 
-void TimeDate::setNtp(const bool &ntp)
+void TimeDate::setNtp(const bool ntp)
 {
-
+    /*
+     * bb
+     * boolean -> ntp
+     * boolean -> arg_ask_password
+     */
+    dbusInterface_->call("SetNTP", ntp, true);
 }

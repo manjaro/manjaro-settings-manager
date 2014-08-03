@@ -22,16 +22,11 @@ public:
     bool isNtpEnabled();
     bool isNtpSynchronized();
     bool isRtcInLocalTimeZone();
-    bool isDstActive();
-    QDateTime lastDstChange();
-    QDateTime nextDstChange();
-
-    void updateTimeZonesList();
 
     void setTime(const QDateTime &time);
     void setTimeZone(const QString &timeZone);
-    void setLocalRtc(const bool &local);
-    void setNtp(const bool &ntp);
+    void setLocalRtc(const bool local);
+    void setNtp(const bool ntp);
 
 signals:
 
