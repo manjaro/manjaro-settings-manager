@@ -366,9 +366,120 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
 <context>
     <name>PageTimeDate</name>
     <message>
-        <location filename="../pages/PageTimeDate.cpp" line="35"/>
+        <location filename="../pages/PageTimeDate.ui" line="20"/>
+        <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
         <translation>Zeit und Datum</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="26"/>
+        <source>Set time and date automatically</source>
+        <translation>Setze Zeit und Datum automatisch</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="33"/>
+        <source>Real time clock in local time zone</source>
+        <translation>Echte Uhrzeit in lokaler Zeitzone</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="48"/>
+        <source>Time</source>
+        <translation>Zeit</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="61"/>
+        <source>HH:mm:ss</source>
+        <translation>HH:mm:ss</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="91"/>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="104"/>
+        <source>yyyy-MM-dd</source>
+        <translation>yyyy-MM-dd</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="126"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Universal-Zeit:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="133"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Real Time Clock time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Echtzeit (RTC):&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="143"/>
+        <source>Time Zone</source>
+        <translation>Zeitzone</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="151"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Time Zone: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zeitzone: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="171"/>
+        <source>Change Time Zone</source>
+        <translation>Ändere Zeitzone</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="180"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Country:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Land:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="189"/>
+        <source>Has daylight time?</source>
+        <translation>Hat Sommerzeit?</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="196"/>
+        <source>Is daylight time?</source>
+        <translation>Ist Sommerzeit?</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="203"/>
+        <source>Has transitions?</source>
+        <translation>Hat Zeitverschiebung?</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="212"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Next transition: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Nächste Zeitverschiebung: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="108"/>
+        <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
+        <translation>&lt;b&gt;Zeitzone:&lt;/b&gt; %1</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="109"/>
+        <source>&lt;b&gt;Country:&lt;/b&gt; </source>
+        <translation>&lt;b&gt;Land:&lt;/b&gt; </translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="117"/>
+        <source>&lt;b&gt;Next transition:&lt;/b&gt; %1</source>
+        <translation>&lt;b&gt;Nächste Zeitverschiebung:&lt;/b&gt; %1</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="121"/>
+        <source>&lt;b&gt;Next transition:&lt;/b&gt; none</source>
+        <translation>&lt;b&gt;Nächste Zeitverschiebung:&lt;/b&gt; none</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="137"/>
+        <source>&lt;b&gt;Universal time:&lt;/b&gt; %1</source>
+        <translation>&lt;b&gt;Universal-Zeit:&lt;/b&gt; %1</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="139"/>
+        <source>&lt;b&gt;RTC time:&lt;/b&gt; %1</source>
+        <translation>&lt;b&gt;Echtzeit (RTC):&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
