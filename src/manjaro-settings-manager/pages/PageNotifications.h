@@ -18,11 +18,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_NOTIFICATIONS_H
-#define PAGE_NOTIFICATIONS_H
+#ifndef PAGENOTIFICATIONS_H
+#define PAGENOTIFICATIONS_H
 
-#include <QSettings>
-#include <QWidget>
 #include "widgets/pagewidget.h"
 
 namespace Ui {
@@ -48,4 +46,4 @@ protected slots:
     void newKernelStateBoxChanged(int);
 };
 
-#endif // PAGE_NOTIFICATIONS_H
+#endif // PAGENOTIFICATIONS_H

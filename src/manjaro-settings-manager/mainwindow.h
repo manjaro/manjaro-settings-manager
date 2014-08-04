@@ -21,6 +21,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "widgets/pagewidget.h"
+#include "pages/page_keyboard.h"
+#include "pages/page_language.h"
+#include "pages/page_languagepackages.h"
+#include "pages/page_mhwd.h"
+#include "pages/page_users.h"
+#include "pages/PageKernel.h"
+#include "pages/PageNotifications.h"
+#include "pages/PageTimeDate.h"
+
 #include <QApplication>
 #include <QMainWindow>
 #include <QString>
@@ -35,15 +45,6 @@
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
-#include "widgets/pagewidget.h"
-#include "pages/page_keyboard.h"
-#include "pages/page_language.h"
-#include "pages/page_languagepackages.h"
-#include "pages/page_mhwd.h"
-#include "pages/page_notifications.h"
-#include "pages/page_users.h"
-#include "pages/PageKernel.h"
-#include "pages/PageTimeDate.h"
 
 
 namespace Ui {

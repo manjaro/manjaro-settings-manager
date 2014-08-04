@@ -28,9 +28,9 @@ SOURCES  += main.cpp \
             pages/page_language.cpp \
             pages/page_languagepackages.cpp \
             pages/page_mhwd.cpp \
-            pages/page_notifications.cpp \
             pages/page_users.cpp \
             pages/PageKernel.cpp \
+            pages/PageNotifications.cpp \
             pages/PageTimeDate.cpp \
             widgets/flatbutton.cpp \
             widgets/listwidget.cpp \
@@ -61,9 +61,9 @@ HEADERS  += mainwindow.h \
             pages/page_language.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
-            pages/page_notifications.h \
             pages/page_users.h \
             pages/PageKernel.h \
+            pages/PageNotifications.h \
             pages/PageTimeDate.h \
             widgets/flatbutton.h \
             widgets/listwidget.h \
@@ -89,9 +89,9 @@ FORMS    += mainwindow.ui \
             pages/page_language.ui \
             pages/page_languagepackages.ui \
             pages/page_mhwd.ui \
-            pages/page_notifications.ui \
             pages/page_users.ui \
             pages/PageKernel.ui \
+            pages/PageNotifications.ui \
             pages/PageTimeDate.ui \
             widgets/selectlocalesdialog.ui
 
