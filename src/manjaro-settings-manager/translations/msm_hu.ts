@@ -325,32 +325,32 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Figyelje a nem támogatott kerneleket</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Csak akkor üzenjen ha nem támogatott kernel fut</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Ellenőrizze az új kerneleket</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Csak LTS kerneleknél üzenjen</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Csak ajánlott kerneleknél üzenjen</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Ellenőrizze a hiányzó nyelvi csomagokat</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
@@ -387,7 +387,8 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Valóban telepíteni akarod ezt a kernelt?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -409,7 +410,7 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban el akarod távolítani ezt a kernelt?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
@@ -692,23 +693,23 @@ Zárt forrású meghajtó</translation>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban automata telepítésű nyílt forrású grafikus meghajtót akarsz?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Nyílt forrású grafikus meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban automata telepítésű nem nyílt forrású grafikus meghajtót akarsz?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Nem nyílt forrású grafikus meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

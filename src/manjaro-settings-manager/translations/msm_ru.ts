@@ -212,12 +212,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Журнал изменений</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -245,13 +245,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Не поддерживается</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Журнал изменений</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
@@ -320,47 +320,47 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления ядра</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Проверить неподдерживаемые ядра</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Уведомлять только в случае выполнения на неподдерживаемом ядре</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Поиск новых ядер</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Уведомлять только о ядрах с длительной поддержкой</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Уведомлять только о рекомендуемых ядрах</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Найти отсутствующие языковые пакеты</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления о языковых пакетах</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Уведомления</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="35"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Время и дата</translation>
     </message>
 </context>
 <context>
@@ -381,50 +381,55 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Установить Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Вы действительно хотите установить это ядро?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Будет выполнена установка следующих пакетов
+:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Установка нового ядра</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Удалить Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Вы действительно хотите удалить это ядро?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Будут удалены следующие пакеты
+:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Удаление ядра</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Журнал изменений Linux %1.%2 </translation>
     </message>
 </context>
 <context>
@@ -629,18 +634,20 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Автоматическая установка
+драйвера с открытым исходным кодом</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Автоматическая установка
+проприетарного драйвера</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Открытый исходный код</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>
@@ -688,23 +695,25 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Вы действительно хотите автоматически установить
+драйвер графической подсистемы с открытым исходным кодом?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Установка драйвера графической подсистемы с открытым исходным кодом...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Вы действительно хотите автоматически установить
+ проприетарный драйвер графической подсистемы?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Установка драйвера графической подсистемы с закрытым исходным кодом...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

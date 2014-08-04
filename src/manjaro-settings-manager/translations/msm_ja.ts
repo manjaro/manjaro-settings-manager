@@ -58,7 +58,7 @@
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
         <translation>次のデフォルトユーザーグループは使用できません: %1
-これらのグループを使用できるようにすることを推奨します。本当に続行しますか?</translation>
+これらのグループを使用可能にすることを推奨します。続行しますか?</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
@@ -324,32 +324,32 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>サポートされていないカーネルの確認</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>サポートされていないカーネルが実行されている場合のみに通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>新しいカーネルの確認</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>LTSの場合にのみ通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>推奨カーネルの場合にのみ通知</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>不足している言語パッケージの確認</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
@@ -386,7 +386,8 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>本当にこのカーネルをインストールしますか?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
@@ -408,7 +409,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>本当にこのカーネルを削除しますか?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
@@ -630,15 +631,15 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation>自動インストール
-オープンソースのドライバ</translation>
+        <translation>オープンソースのドライバの
+自動インストール</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation>自動インストール
-プロプライエタリなドライバ</translation>
+        <translation>プロプライエタリなドライバの
+自動インストール</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
@@ -691,23 +692,25 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>オープンソースのグラフィックドライバの
+自動インストールを行いますか?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>オープンソースのグラフィックドライバのインストール中...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>プロプライエタリのグラフィックドライバの
+自動インストールを行いますか?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>プロプライエタリのグラフィックドライバのインストール中...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

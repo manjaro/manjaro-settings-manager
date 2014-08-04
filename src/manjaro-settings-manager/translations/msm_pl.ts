@@ -578,7 +578,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/page_languagepackages.ui" line="63"/>
         <source>Install</source>
-        <translation>Instaluj</translation>
+        <translation>Zainstaluj</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.ui" line="72"/>

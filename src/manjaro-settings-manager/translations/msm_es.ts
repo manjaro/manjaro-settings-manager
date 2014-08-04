@@ -212,7 +212,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation>Características</translation>
+        <translation>Registro de cambios</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
@@ -245,13 +245,13 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation>Sin soporte</translation>
+        <translation>Sin asistencia</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation>Características</translation>
+        <translation>Registro de cambios</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
@@ -320,42 +320,42 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation>Notificaciones de Núcleo</translation>
+        <translation>Notificaciones de núcleos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Comprobar si hay núcleos sin asistencia técnica</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Sólo notifica si ejecuta un kernel sin soporte</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Buscar núcleos nuevos</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sólo notifica kernels LTS</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sólo notifica kernels recomendados</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Buscar paquetes de idiomas faltantes</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation>Notificaciones de Paquetes de idiomas</translation>
+        <translation>Notificaciones de paquetes de idiomas</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
@@ -368,7 +368,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="35"/>
         <source>Time and Date</source>
-        <translation>Hora y Fecha</translation>
+        <translation>Fecha y hora</translation>
     </message>
 </context>
 <context>
@@ -387,46 +387,47 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de que quiere instalar este núcleo?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
-        <translation>Se instalarán los siguientes paquetes
+        <translation>Se instalarán los paquetes siguientes:
 </translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
-        <translation>Instalando nuevo Núcleo</translation>
+        <translation>Se está instalando el núcleo nuevo.</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
-        <translation>Eliminar Linux %1</translation>
+        <translation>Desinstalar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de que quiere desinstalar este núcleo?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
-        <translation>Se eliminarán los siguientes paquetes
+        <translation>Se desinstalarán los paquetes siguientes:
 </translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
-        <translation>Desinstalando Núcleo</translation>
+        <translation>Desinstalando el núcleo…</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 Características</translation>
+        <translation>Registro de cambios de Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -632,14 +633,14 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <source>Auto Install
 Open-source Driver</source>
         <translation>Instalar automáticamente
-controlador libre </translation>
+controlador libre</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
         <translation>Instalar automáticamente
-Controlador propietario</translation>
+controlador privativo</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
@@ -692,23 +693,25 @@ Controlador propietario</translation>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de que quiere instalar
+el controlador de código abierto?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalando el controlador de gráficas de código abierto…</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de que quiere instalar
+el controlador privativo?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalando el controlador de gráficas privativo…</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

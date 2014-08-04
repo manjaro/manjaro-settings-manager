@@ -57,7 +57,7 @@
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Desabilitáronse los grupos d&apos;usuariu por defeutu siguientes:
+        <translation>Desabilitáronse los siguientes grupos d&apos;usuariu por defeutu:
 %1
 Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     </message>
@@ -440,7 +440,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_keyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation>Escribi daqué equí pa comprobrar el to tecláu</translation>
+        <translation>Escribi equí daqué pa comprobrar el to tecláu</translation>
     </message>
     <message>
         <location filename="../pages/page_keyboard.cpp" line="32"/>
@@ -608,7 +608,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="83"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>¡El to sistema nun ta anováu! ¡Tienes d&apos;anovalu primero pa siguir!</translation>
+        <translation>¡El to sistema nun ta anováu! ¡Tienes d&apos;anuevalu primero pa siguir!</translation>
     </message>
     <message>
         <location filename="../pages/page_languagepackages.cpp" line="101"/>
