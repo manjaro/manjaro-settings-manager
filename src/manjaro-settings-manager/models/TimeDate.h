@@ -28,12 +28,7 @@ public:
     void setLocalRtc(const bool local);
     void setNtp(const bool ntp);
 
-signals:
-
-public slots:
-
 private:
-    QStringListModel timeZonesList_;
     QDBusInterface *dbusInterface_;
 };
 

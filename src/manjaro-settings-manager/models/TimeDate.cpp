@@ -1,6 +1,6 @@
 #include "TimeDate.h"
 
-#include <QDebug>
+#include <QtCore/QDebug>
 
 TimeDate::TimeDate(QObject *parent) :
     QObject(parent)
@@ -19,13 +19,13 @@ TimeDate::~TimeDate()
 
 QDateTime TimeDate::localDateTime()
 {
-    return QDateTime::fromMSecsSinceEpoch( dbusInterface_->property("TimeUSec").toLongLong() / 1000 );
+    return QDateTime::fromMSecsSinceEpoch(dbusInterface_->property("TimeUSec").toLongLong() / 1000);
 }
 
 QDateTime TimeDate::utcDateTime()
 {
     QDateTime aux;
-    aux.setMSecsSinceEpoch( (dbusInterface_->property("TimeUSec")).toLongLong() / 1000 );
+    aux.setMSecsSinceEpoch((dbusInterface_->property("TimeUSec")).toLongLong() / 1000);
     aux.setTimeSpec(Qt::LocalTime);
     return aux.toUTC();
 }
@@ -33,7 +33,7 @@ QDateTime TimeDate::utcDateTime()
 QDateTime TimeDate::rtcDateTime()
 {
     QDateTime aux;
-    aux.setMSecsSinceEpoch( (dbusInterface_->property("RTCTimeUSec")).toLongLong() / 1000 );
+    aux.setMSecsSinceEpoch((dbusInterface_->property("RTCTimeUSec")).toLongLong() / 1000);
     aux.setTimeSpec(Qt::LocalTime);
     return aux.toUTC();
 }
@@ -84,7 +84,9 @@ void TimeDate::setTimeZone(const QString &timeZone)
      * string -> timezone id
      * boolean -> arg_ask_password
      */
+    QDBusMessage reply;
     dbusInterface_->call("SetTimezone", timeZone, true);
+    qDebug() << reply;
 }
 
 void TimeDate::setLocalRtc(const bool local)
@@ -95,7 +97,9 @@ void TimeDate::setLocalRtc(const bool local)
      * boolean -> adjust_system_clock
      * boolean -> arg_ask_password
      */
+    QDBusMessage reply;
     dbusInterface_->call("SetLocalRTC", local, false, true);
+    qDebug() << reply;
 }
 
 void TimeDate::setNtp(const bool ntp)
@@ -105,5 +109,7 @@ void TimeDate::setNtp(const bool ntp)
      * boolean -> ntp
      * boolean -> arg_ask_password
      */
+    QDBusMessage reply;
     dbusInterface_->call("SetNTP", ntp, true);
+    qDebug() << reply;
 }
