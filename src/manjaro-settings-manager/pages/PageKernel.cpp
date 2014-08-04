@@ -96,8 +96,7 @@ void PageKernel::installKernel(const QModelIndex &index)
     messageBox.setDefaultButton(QMessageBox::No);
 
     int reply = messageBox.exec();
-    if (reply == QMessageBox::Yes)
-    {
+    if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         QString infoText = QString(tr("Installing new kernel."));
         dialog.exec("pacman", QStringList() << "-S" << "--noconfirm" << package << packageList,
@@ -130,8 +129,7 @@ void PageKernel::removeKernel(const QModelIndex &index)
     messageBox.setDefaultButton(QMessageBox::No);
     int reply = messageBox.exec();
 
-    if (reply == QMessageBox::Yes)
-    {
+    if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         QString infoText = QString(tr("Removing kernel..."));
         dialog.exec("pacman", QStringList() << "-R" << "--noconfirm" << package << packageList,
@@ -143,11 +141,10 @@ void PageKernel::removeKernel(const QModelIndex &index)
 void PageKernel::infoButtonClicked(const QModelIndex &index)
 {
     KernelInfoDialog dialog(this);
-
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
-    QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
-    QStringList versionSplit = version.split(".");
-    QString title = QString(tr("Linux %1.%2 changelog")).arg(versionSplit.at(0), versionSplit.at(1));
+    QString majorVersion = qvariant_cast<QString>(index.data(KernelModel::MajorVersionRole));
+    QString minorVersion = qvariant_cast<QString>(index.data(KernelModel::MinorVersionRole));
+    QString title = QString(tr("Linux %1.%2 changelog")).arg(majorVersion, minorVersion);
     dialog.setWindowTitle(title);
     dialog.setPackage(package);
     dialog.exec();

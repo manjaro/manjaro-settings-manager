@@ -37,7 +37,7 @@ public:
         MajorVersionRole,
         MinorVersionRole,
         AvailableModulesRole,
-        InstalledModulesRole,
+        InstalledModulesRole, /* Installed modules or will be installed if kernel is not installed */
         IsAvailableRole,
         IsInstalledRole,
         IsLtsRole,
@@ -49,7 +49,6 @@ public:
     KernelModel(QObject *parent = 0);
 
     void update();
-    void update(const QString package);
     void add(const Kernel &kernel);
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
