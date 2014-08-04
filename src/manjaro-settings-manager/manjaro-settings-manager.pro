@@ -25,11 +25,11 @@ SOURCES  += main.cpp \
             models/Kernel.cpp \
             models/TimeDate.cpp \
             pages/page_keyboard.cpp \
-            pages/page_language.cpp \
             pages/page_languagepackages.cpp \
             pages/page_mhwd.cpp \
             pages/page_users.cpp \
             pages/PageKernel.cpp \
+            pages/PageLanguage.cpp \
             pages/PageNotifications.cpp \
             pages/PageTimeDate.cpp \
             widgets/flatbutton.cpp \
@@ -58,11 +58,11 @@ HEADERS  += mainwindow.h \
             models/Kernel.h \
             models/TimeDate.h \
             pages/page_keyboard.h \
-            pages/page_language.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
             pages/page_users.h \
             pages/PageKernel.h \
+            pages/PageLanguage.h \
             pages/PageNotifications.h \
             pages/PageTimeDate.h \
             widgets/flatbutton.h \
@@ -86,11 +86,11 @@ FORMS    += mainwindow.ui \
             dialogs/KernelInfoDialog.ui \
             dialogs/TimeZoneDialog.ui \
             pages/page_keyboard.ui \
-            pages/page_language.ui \
             pages/page_languagepackages.ui \
             pages/page_mhwd.ui \
             pages/page_users.ui \
             pages/PageKernel.ui \
+            pages/PageLanguage.ui \
             pages/PageNotifications.ui \
             pages/PageTimeDate.ui \
             widgets/selectlocalesdialog.ui

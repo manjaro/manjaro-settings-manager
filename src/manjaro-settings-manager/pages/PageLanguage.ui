@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Page_Language</class>
- <widget class="QWidget" name="Page_Language">
+ <class>PageLanguage</class>
+ <widget class="QWidget" name="PageLanguage">
   <property name="geometry">
    <rect>
     <x>0</x>

@@ -18,12 +18,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "page_language.h"
-#include "ui_page_language.h"
+#include "PageLanguage.h"
+#include "ui_PageLanguage.h"
 
-Page_Language::Page_Language(QWidget *parent) :
+PageLanguage::PageLanguage(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::Page_Language)
+    ui(new Ui::PageLanguage)
 {
     ui->setupUi(this);
     setTitel(tr("Language"));
@@ -43,14 +43,14 @@ Page_Language::Page_Language(QWidget *parent) :
 
 
 
-Page_Language::~Page_Language()
+PageLanguage::~PageLanguage()
 {
     delete ui;
 }
 
 
 
-void Page_Language::activated() {
+void PageLanguage::activated() {
     ui->treeWidget->clear();
 
     QString currentLocale = Global::getCurrentLocale();
@@ -83,7 +83,7 @@ void Page_Language::activated() {
 
 
 
-void Page_Language::apply_clicked() {
+void PageLanguage::apply_clicked() {
     QString systemLocale;
     QString systemFormats;
     QStringList locales;
@@ -209,7 +209,7 @@ void Page_Language::apply_clicked() {
 //##
 
 
-void Page_Language::buttonRemove_clicked() {
+void PageLanguage::buttonRemove_clicked() {
     TreeWidgetItem *item = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->currentItem());
 
     if (ui->treeWidget->selectedItems().size() <= 0 || ui->treeWidget->topLevelItemCount() <= 1 || !item)
@@ -246,13 +246,13 @@ void Page_Language::buttonRemove_clicked() {
 
 
 
-void Page_Language::buttonRestore_clicked() {
+void PageLanguage::buttonRestore_clicked() {
     activated();
 }
 
 
 
-void Page_Language::buttonAdd_clicked() {
+void PageLanguage::buttonAdd_clicked() {
     SelectLocalesDialog dialog(this);
     dialog.exec();
 

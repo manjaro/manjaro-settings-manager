@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->listWidget->addSeparator(tr("System"));
     addPageWidget(page_LanguagePackages);
-    addPageWidget(page_Language);
+    addPageWidget(pageLanguage);
     addPageWidget(pageKernel);
     addPageWidget(page_Users);
     addPageWidget(pageTimeDate);

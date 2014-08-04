@@ -31,7 +31,7 @@ KernelModel::KernelModel(QObject *parent)
 }
 
 /*
- * Clear an update ther list of kernels
+ * Clear and update ther list of kernels
  */
 void KernelModel::update()
 {

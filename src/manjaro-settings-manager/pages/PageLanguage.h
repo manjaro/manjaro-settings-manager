@@ -18,10 +18,15 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_LANGUAGE_H
-#define PAGE_LANGUAGE_H
+#ifndef PAGELANGUAGE_H
+#define PAGELANGUAGE_H
 
+#include <global.h>
+#include <const.h>
+#include "dialogs/applydialog.h"
 #include "widgets/pagewidget.h"
+#include "widgets/selectlocalesdialog.h"
+
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QRadioButton>
@@ -29,24 +34,21 @@
 #include <QList>
 #include <QStringList>
 #include <QMessageBox>
-#include <global.h>
-#include <const.h>
-#include "dialogs/applydialog.h"
-#include "widgets/selectlocalesdialog.h"
+
 
 
 namespace Ui {
-class Page_Language;
+class PageLanguage;
 }
 
 
-class Page_Language : public PageWidget
+class PageLanguage : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_Language(QWidget *parent = 0);
-    ~Page_Language();
+    explicit PageLanguage(QWidget *parent = 0);
+    ~PageLanguage();
 
     void activated();
     void apply_clicked();
@@ -60,7 +62,7 @@ private:
     };
     QButtonGroup groupLocale;
     QButtonGroup groupFormats;
-    Ui::Page_Language *ui;
+    Ui::PageLanguage *ui;
 
 protected slots:
     void buttonRemove_clicked();
@@ -69,4 +71,4 @@ protected slots:
 
 };
 
-#endif // PAGE_LANGUAGE_H
+#endif // PAGELANGUAGE_H
