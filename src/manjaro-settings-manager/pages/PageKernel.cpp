@@ -21,8 +21,8 @@
 #include "PageKernel.h"
 #include "ui_PageKernel.h"
 
-#include "delegates/kernel_list_view_delegate.h"
-#include "dialogs/kernel_info_dialog.h"
+#include "delegates/KernelListViewDelegate.h"
+#include "dialogs/KernelInfoDialog.h"
 #include "dialogs/applydialog.h"
 
 #include <QtCore/QProcess>

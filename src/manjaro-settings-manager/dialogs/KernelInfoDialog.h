@@ -18,29 +18,31 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kernel_info_dialog.h"
-#include "ui_kernel_info_dialog.h"
+#ifndef KERNELINFODIALOG_H
+#define KERNELINFODIALOG_H
 
-KernelInfoDialog::KernelInfoDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::KernelInfoDialog)
-{
-    ui->setupUi(this);
+#include <QtCore/QObject>
+#include <QtWidgets/QDialog>
+
+namespace Ui {
+class KernelInfoDialog;
 }
 
-KernelInfoDialog::~KernelInfoDialog()
+class KernelInfoDialog : public QDialog
 {
-    delete ui;
-}
+    Q_OBJECT
 
-void KernelInfoDialog::setPackage(const QString &package)
-{
-    m_package = package;
-}
+public slots:
+    int exec();
 
-int KernelInfoDialog::exec()
-{
-    ui->webView->load(QUrl(QString("qrc:///kernel_changelogs/resources/%1.html").arg(m_package)));
-    ui->webView->show();
-    return QDialog::exec();
-}
+public:
+    explicit KernelInfoDialog(QWidget *parent = 0);
+    ~KernelInfoDialog();
+    void setPackage(const QString &package);
+
+private:
+    Ui::KernelInfoDialog *ui;
+    QString package_;
+};
+
+#endif // KERNELINFODIALOG_H

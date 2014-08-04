@@ -18,8 +18,8 @@ SOURCES  += main.cpp \
             dialogs/adduserdialog.cpp \
             dialogs/applydialog.cpp \
             dialogs/changepassworddialog.cpp \
-            dialogs/kernel_info_dialog.cpp \
             dialogs/previewfiledialog.cpp \
+            dialogs/KernelInfoDialog.cpp \
             dialogs/TimeZoneDialog.cpp \
             models/KernelModel.cpp \
             models/Kernel.cpp \
@@ -44,14 +44,15 @@ SOURCES  += main.cpp \
 
 
 
+
 HEADERS  += mainwindow.h \
             delegates/KernelListViewDelegate.h \
             dialogs/accounttypedialog.h \
             dialogs/adduserdialog.h \
             dialogs/applydialog.h \
             dialogs/changepassworddialog.h \
-            dialogs/kernel_info_dialog.h \
             dialogs/previewfiledialog.h \
+            dialogs/KernelInfoDialog.h \
             dialogs/TimeZoneDialog.h \
             models/KernelModel.h \
             models/Kernel.h \
@@ -76,12 +77,13 @@ HEADERS  += mainwindow.h \
 
 
 
+
 FORMS    += mainwindow.ui \
             dialogs/adduserdialog.ui \
             dialogs/accounttypedialog.ui \
             dialogs/applydialog.ui \
             dialogs/changepassworddialog.ui \
-            dialogs/kernel_info_dialog.ui \
+            dialogs/KernelInfoDialog.ui \
             dialogs/TimeZoneDialog.ui \
             pages/page_keyboard.ui \
             pages/page_language.ui \
@@ -92,6 +94,7 @@ FORMS    += mainwindow.ui \
             pages/PageKernel.ui \
             pages/PageTimeDate.ui \
             widgets/selectlocalesdialog.ui
+
 
 
 
