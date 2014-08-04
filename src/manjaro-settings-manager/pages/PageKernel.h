@@ -21,33 +21,28 @@
 #ifndef PAGE_KERNEL_H
 #define PAGE_KERNEL_H
 
-#include "delegates/kernel_list_view_delegate.h"
-#include "dialogs/applydialog.h"
 #include "models/KernelModel.h"
 #include "widgets/pagewidget.h"
-#include <QDebug>
-#include <QProcess>
-#include <QSortFilterProxyModel>
-#include <QMessageBox>
 
 namespace Ui {
-class Page_Kernel;
+class PageKernel;
 }
 
-class Page_Kernel : public PageWidget
+class PageKernel : public PageWidget
 {
     Q_OBJECT
 
 public:
-    explicit Page_Kernel(QWidget *parent = 0);
-    ~Page_Kernel();
+    explicit PageKernel(QWidget *parent = 0);
+    ~PageKernel();
+    void activated();
 
 public slots:
     void installButtonClicked(const QModelIndex &index);
     void infoButtonClicked(const QModelIndex &index);
 
 private:
-    Ui::Page_Kernel *ui;
+    Ui::PageKernel *ui;
     KernelModel *kernelModel;
     void installKernel(const QModelIndex &index);
     void removeKernel(const QModelIndex &index);

@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listWidget->addSeparator(tr("System"));
     addPageWidget(page_LanguagePackages);
     addPageWidget(page_Language);
-    addPageWidget(page_Kernel);
+    addPageWidget(pageKernel);
     addPageWidget(page_Users);
     addPageWidget(pageTimeDate);
     addPageWidget(pageNotifications);
@@ -130,7 +130,7 @@ void MainWindow::checkAppArguments() {
             // Show kernel page
             for(int i = 0; i < ui->listWidget->count(); i++) {
                 ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
-                if (!item || !item->page || item->page != &page_Kernel)
+                if (!item || !item->page || item->page != &pageKernel)
                     continue;
 
                 listWidget_itemClicked(item);

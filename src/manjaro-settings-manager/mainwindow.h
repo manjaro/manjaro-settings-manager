@@ -36,13 +36,13 @@
 #include <QDir>
 #include <QMessageBox>
 #include "widgets/pagewidget.h"
-#include "pages/page_kernel.h"
 #include "pages/page_keyboard.h"
 #include "pages/page_language.h"
 #include "pages/page_languagepackages.h"
 #include "pages/page_mhwd.h"
 #include "pages/page_notifications.h"
 #include "pages/page_users.h"
+#include "pages/PageKernel.h"
 #include "pages/PageTimeDate.h"
 
 
@@ -75,7 +75,7 @@ private:
     Page_Language page_Language;
     Page_MHWD page_MHWD;
     PageNotifications pageNotifications;
-    Page_Kernel page_Kernel;
+    PageKernel pageKernel;
     PageTimeDate pageTimeDate;
     Page_Users page_Users;
 

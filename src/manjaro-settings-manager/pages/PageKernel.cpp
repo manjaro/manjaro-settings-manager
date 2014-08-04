@@ -18,13 +18,19 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "page_kernel.h"
-#include "ui_page_kernel.h"
-#include "dialogs/kernel_info_dialog.h"
+#include "PageKernel.h"
+#include "ui_PageKernel.h"
 
-Page_Kernel::Page_Kernel(QWidget *parent) :
+#include "delegates/kernel_list_view_delegate.h"
+#include "dialogs/kernel_info_dialog.h"
+#include "dialogs/applydialog.h"
+
+#include <QtCore/QProcess>
+#include <QtWidgets/QMessageBox>
+
+PageKernel::PageKernel(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::Page_Kernel),
+    ui(new Ui::PageKernel),
     kernelModel(new KernelModel)
 {
     ui->setupUi(this);
@@ -45,13 +51,18 @@ Page_Kernel::Page_Kernel(QWidget *parent) :
             this, SLOT(infoButtonClicked(QModelIndex)));
 }
 
-Page_Kernel::~Page_Kernel()
+PageKernel::~PageKernel()
 {
     delete ui;
     delete kernelModel;
 }
 
-void Page_Kernel::installButtonClicked(const QModelIndex &index)
+void PageKernel::activated()
+{
+    kernelModel->update();
+}
+
+void PageKernel::installButtonClicked(const QModelIndex &index)
 {
     bool isInstalled = qvariant_cast<bool>(index.data(KernelModel::IsInstalledRole));
     if (isInstalled) {
@@ -61,7 +72,7 @@ void Page_Kernel::installButtonClicked(const QModelIndex &index)
     }
 }
 
-void Page_Kernel::installKernel(const QModelIndex &index)
+void PageKernel::installKernel(const QModelIndex &index)
 {
     QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::InstalledModulesRole));
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
@@ -95,7 +106,7 @@ void Page_Kernel::installKernel(const QModelIndex &index)
     }
 }
 
-void Page_Kernel::removeKernel(const QModelIndex &index)
+void PageKernel::removeKernel(const QModelIndex &index)
 {
     QStringList packageList = qvariant_cast<QStringList>(index.data(KernelModel::InstalledModulesRole));
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
@@ -129,7 +140,7 @@ void Page_Kernel::removeKernel(const QModelIndex &index)
     }
 }
 
-void Page_Kernel::infoButtonClicked(const QModelIndex &index)
+void PageKernel::infoButtonClicked(const QModelIndex &index)
 {
     KernelInfoDialog dialog(this);
 

@@ -27,7 +27,7 @@
 KernelModel::KernelModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    update();
+
 }
 
 
