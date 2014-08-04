@@ -18,7 +18,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kernel_list_view_delegate.h"
+#include "KernelListViewDelegate.h"
+
+#include <QtWidgets/QApplication>
 
 KernelListViewDelegate::KernelListViewDelegate(QObject *parent) :
     QStyledItemDelegate(parent)

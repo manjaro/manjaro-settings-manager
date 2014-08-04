@@ -13,7 +13,7 @@ QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES  += main.cpp \
             mainwindow.cpp \
-            delegates/kernel_list_view_delegate.cpp \
+            delegates/KernelListViewDelegate.cpp \
             dialogs/accounttypedialog.cpp \
             dialogs/adduserdialog.cpp \
             dialogs/applydialog.cpp \
@@ -45,7 +45,7 @@ SOURCES  += main.cpp \
 
 
 HEADERS  += mainwindow.h \
-            delegates/kernel_list_view_delegate.h \
+            delegates/KernelListViewDelegate.h \
             dialogs/accounttypedialog.h \
             dialogs/adduserdialog.h \
             dialogs/applydialog.h \

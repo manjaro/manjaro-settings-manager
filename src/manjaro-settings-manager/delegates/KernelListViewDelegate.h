@@ -22,13 +22,11 @@
 #define KERNEL_LIST_VIEW_DELEGATE_H
 
 #include "models/KernelModel.h"
-#include <QStyledItemDelegate>
-#include <QModelIndex>
-#include <QSize>
-#include <QMouseEvent>
-#include <QPainter>
-#include <QApplication>
-#include <QStyleOptionButton>
+
+#include <QtGui/QMouseEvent>
+#include <QtGui/QPainter>
+#include <QtWidgets/QStyledItemDelegate>
+#include <QtWidgets/QStyleOptionButton>
 
 class KernelListViewDelegate : public QStyledItemDelegate
 {
