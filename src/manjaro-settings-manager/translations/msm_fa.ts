@@ -374,7 +374,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>تنظیم خودکار ساعت و تاریخ</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
@@ -384,22 +384,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="48"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>زمان</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="61"/>
         <source>HH:mm:ss</source>
-        <translation type="unfinished"/>
+        <translation>ساعت:دقیقه:ثانیه</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="91"/>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>تاریخ</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="104"/>
         <source>yyyy-MM-dd</source>
-        <translation type="unfinished"/>
+        <translation>سال-ماه-روز</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="126"/>
@@ -414,7 +414,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>منطقه‌ی زمانی</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="151"/>
@@ -424,7 +424,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="171"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>تغییر منطقه‌ی زمانی</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="180"/>
@@ -454,12 +454,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="108"/>
         <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;منطقه‌ی زمانی&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="109"/>
         <source>&lt;b&gt;Country:&lt;/b&gt; </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;کشور:&lt;/b&gt; </translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="117"/>
@@ -474,7 +474,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="137"/>
         <source>&lt;b&gt;Universal time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;ساعت جهانی:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="139"/>

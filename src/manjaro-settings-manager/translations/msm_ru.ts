@@ -261,7 +261,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Экспериментально</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
@@ -374,32 +374,32 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>Установить дату и время автоматически</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Real time clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Реальное время в часовом поясе</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="48"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Время</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="61"/>
         <source>HH:mm:ss</source>
-        <translation type="unfinished"/>
+        <translation>ЧЧ:мм:сс</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="91"/>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Дата</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="104"/>
         <source>yyyy-MM-dd</source>
-        <translation type="unfinished"/>
+        <translation>гггг-ММ-дд</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="126"/>
@@ -414,22 +414,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Часовой пояс</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="151"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Time Zone: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Часовой пояс: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="171"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Сменить часовой пояс</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="180"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Country:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Страна:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="189"/>

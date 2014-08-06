@@ -374,7 +374,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>Afitar automáticamente la data y hora</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
@@ -384,22 +384,22 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="48"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="61"/>
         <source>HH:mm:ss</source>
-        <translation type="unfinished"/>
+        <translation>HH:mm:ss</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="91"/>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="104"/>
         <source>yyyy-MM-dd</source>
-        <translation type="unfinished"/>
+        <translation>dd-MM-yyyy</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="126"/>
@@ -414,7 +414,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Fusu horariu</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="151"/>
@@ -424,7 +424,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="171"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Camudar fusu horariu</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="180"/>
@@ -454,12 +454,12 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="108"/>
         <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Fusu horariu:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="109"/>
         <source>&lt;b&gt;Country:&lt;/b&gt; </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;País:&lt;/b&gt; </translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="117"/>
@@ -474,12 +474,12 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="137"/>
         <source>&lt;b&gt;Universal time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Hora universal:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="139"/>
         <source>&lt;b&gt;RTC time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Hora RTC:&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>

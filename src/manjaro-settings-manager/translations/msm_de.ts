@@ -369,22 +369,22 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <location filename="../pages/PageTimeDate.ui" line="20"/>
         <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation>Zeit und Datum</translation>
+        <translation>Datum und Uhrzeit</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation>Setze Zeit und Datum automatisch</translation>
+        <translation>Setze Datum und Uhrzeit automatisch</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Real time clock in local time zone</source>
-        <translation>Echte Uhrzeit in lokaler Zeitzone</translation>
+        <translation>Echtzeit-Uhr in der lokalen Zeitzone</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="48"/>
         <source>Time</source>
-        <translation>Zeit</translation>
+        <translation>Uhrzeit</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="61"/>
