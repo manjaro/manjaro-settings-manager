@@ -106,7 +106,7 @@ void PageTimeDate::updateFields()
     QTimeZone timeZone = QTimeZone(timeZone_.toLatin1());
     if (timeZone.isValid()) {
         ui->timeZoneLabel->setText(tr("<b>Time Zone:</b> %1").arg(timeZone_));
-        ui->countryLabel->setText(tr("<b>Country:</b> ") + QLocale::countryToString(timeZone.country()));
+        ui->countryLabel->setText(tr("<b>Country:</b> %1").arg(QLocale::countryToString(timeZone.country())));
         ui->hasDaylightTimeCheckBox->setChecked(timeZone.hasDaylightTime());
         ui->isDaylightTimeCheckBox->setChecked(timeZone.isDaylightTime(QDateTime::currentDateTime()));
         ui->hasTransitionsCheckBox->setChecked(timeZone.hasTransitions());
@@ -136,7 +136,7 @@ void PageTimeDate::updateTimeFields() {
     }
     ui->utcTimeLabel->setText(tr("<b>Universal time:</b> %1")
                                .arg(timeDate->utcDateTime().toString("ddd yyyy-MM-dd HH:mm:ss")));
-    ui->rtcTimeLabel->setText(tr("<b>RTC time:</b> %1")
+    ui->rtcTimeLabel->setText(tr("<b>Hardware clock:</b> %1")
                                .arg(timeDate->rtcDateTime().toString("ddd yyyy-MM-dd HH:mm:ss")));
 }
 
