@@ -19,14 +19,16 @@
  */
 
 
-#include "page_keyboard.h"
-#include "ui_page_keyboard.h"
+#include "PageKeyboard.h"
+#include "ui_PageKeyboard.h"
 
+#include <QtCore/QProcess>
+#include <QtCore/QMapIterator>
+#include <QtWidgets/QMessageBox>
 
-
-Page_Keyboard::Page_Keyboard(QWidget *parent) :
+PageKeyboard::PageKeyboard(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::Page_Keyboard)
+    ui(new Ui::PageKeyboard)
 {
     ui->setupUi(this);
     setTitel(tr("Keyboard Settings"));
@@ -44,14 +46,14 @@ Page_Keyboard::Page_Keyboard(QWidget *parent) :
 
 
 
-Page_Keyboard::~Page_Keyboard()
+PageKeyboard::~PageKeyboard()
 {
     delete ui;
 }
 
 
 
-void Page_Keyboard::apply_clicked() {
+void PageKeyboard::apply_clicked() {
     LayoutItem *layoutItem = dynamic_cast<LayoutItem*>(ui->listLayout->currentItem());
     LayoutItem *variantItem = dynamic_cast<LayoutItem*>(ui->listVariant->currentItem());
 
@@ -73,7 +75,7 @@ void Page_Keyboard::apply_clicked() {
 
 
 
-void Page_Keyboard::activated() {
+void PageKeyboard::activated() {
     // Clean up first
     ui->listLayout->clear();
     ui->listVariant->clear();
@@ -168,7 +170,7 @@ void Page_Keyboard::activated() {
 
 
 
-void Page_Keyboard::updateApplyEnabledState() {
+void PageKeyboard::updateApplyEnabledState() {
     emit setApplyEnabled(this, ui->listVariant->selectedItems().size() > 0);
 }
 
@@ -181,7 +183,7 @@ void Page_Keyboard::updateApplyEnabledState() {
 
 
 
-void Page_Keyboard::listLayout_currentItemChanged(QListWidgetItem * current, QListWidgetItem *) {
+void PageKeyboard::listLayout_currentItemChanged(QListWidgetItem * current, QListWidgetItem *) {
     LayoutItem *item = dynamic_cast<LayoutItem*>(current);
     if (!item)
         return;
@@ -221,7 +223,7 @@ void Page_Keyboard::listLayout_currentItemChanged(QListWidgetItem * current, QLi
 
 
 
-void Page_Keyboard::listVariant_currentItemChanged(QListWidgetItem * current, QListWidgetItem *) {
+void PageKeyboard::listVariant_currentItemChanged(QListWidgetItem * current, QListWidgetItem *) {
     LayoutItem *layoutItem = dynamic_cast<LayoutItem*>(ui->listLayout->currentItem());
     LayoutItem *variantItem = dynamic_cast<LayoutItem*>(current);
 
@@ -236,7 +238,7 @@ void Page_Keyboard::listVariant_currentItemChanged(QListWidgetItem * current, QL
 
 
 
-void Page_Keyboard::buttonRestore_clicked() {
+void PageKeyboard::buttonRestore_clicked() {
     // Set to default value pc105
     ui->comboBoxModel->setCurrentIndex(defaultIndex);
 }

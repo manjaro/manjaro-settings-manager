@@ -18,34 +18,32 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_KEYBOARD_H
-#define PAGE_KEYBOARD_H
+#ifndef PAGEKEYBOARD_H
+#define PAGEKEYBOARD_H
 
-#include "widgets/pagewidget.h"
-#include <QMap>
-#include <QMapIterator>
-#include <QListWidgetItem>
-#include <QProcess>
-#include <stdlib.h>
-#include <global.h>
-#include <QMessageBox>
-#include "widgets/keyboardpreview.h"
 #include "dialogs/applydialog.h"
+#include "widgets/keyboardpreview.h"
+#include "widgets/pagewidget.h"
 
+#include <global.h>
+#include <stdlib.h>
+
+#include <QMap>
+#include <QListWidgetItem>
 
 
 namespace Ui {
-class Page_Keyboard;
+class PageKeyboard;
 }
 
 
-class Page_Keyboard : public PageWidget
+class PageKeyboard : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_Keyboard(QWidget *parent = 0);
-    ~Page_Keyboard();
+    explicit PageKeyboard(QWidget *parent = 0);
+    ~PageKeyboard();
 
     void updateApplyEnabledState();
     void activated();
@@ -59,7 +57,7 @@ private:
         Global::KeyboardInfo info;
     };
 
-    Ui::Page_Keyboard *ui;
+    Ui::PageKeyboard *ui;
     KeyBoardPreview keyboardPreview;
     int defaultIndex;
     QMap<QString, QString> models;
@@ -71,4 +69,4 @@ protected slots:
 
 };
 
-#endif // PAGE_KEYBOARD_H
+#endif // PAGEKEYBOARD_H

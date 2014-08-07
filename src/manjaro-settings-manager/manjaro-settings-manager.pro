@@ -24,11 +24,11 @@ SOURCES  += main.cpp \
             models/KernelModel.cpp \
             models/Kernel.cpp \
             models/TimeDate.cpp \
-            pages/page_keyboard.cpp \
             pages/page_languagepackages.cpp \
             pages/page_mhwd.cpp \
             pages/page_users.cpp \
             pages/PageKernel.cpp \
+            pages/PageKeyboard.cpp \
             pages/PageLanguage.cpp \
             pages/PageNotifications.cpp \
             pages/PageTimeDate.cpp \
@@ -57,11 +57,11 @@ HEADERS  += mainwindow.h \
             models/KernelModel.h \
             models/Kernel.h \
             models/TimeDate.h \
-            pages/page_keyboard.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
             pages/page_users.h \
             pages/PageKernel.h \
+            pages/PageKeyboard.h \
             pages/PageLanguage.h \
             pages/PageNotifications.h \
             pages/PageTimeDate.h \
@@ -85,11 +85,11 @@ FORMS    += mainwindow.ui \
             dialogs/changepassworddialog.ui \
             dialogs/KernelInfoDialog.ui \
             dialogs/TimeZoneDialog.ui \
-            pages/page_keyboard.ui \
             pages/page_languagepackages.ui \
             pages/page_mhwd.ui \
             pages/page_users.ui \
             pages/PageKernel.ui \
+            pages/PageKeyboard.ui \
             pages/PageLanguage.ui \
             pages/PageNotifications.ui \
             pages/PageTimeDate.ui \

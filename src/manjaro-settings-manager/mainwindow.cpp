@@ -51,7 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Add printer page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     ui->listWidget->addSeparator(tr("Hardware"));
-    addPageWidget(page_Keyboard);
+    addPageWidget(pageKeyboard);
     addPageWidget(page_MHWD);
 
 
