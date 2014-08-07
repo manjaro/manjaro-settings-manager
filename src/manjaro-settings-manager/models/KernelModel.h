@@ -54,17 +54,16 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     bool remove(int position, int rows, const QModelIndex &parent);
     Kernel latestInstalledKernel();
-    QList<Kernel> unsupportedKernels();
     QList<Kernel> newerKernels(const Kernel auxKernel);
+    QList<Kernel> unsupportedKernels() const;
 
 protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
     QList<Kernel> kernels_;
-    QStringList installedKernelPackages_;
-    QStringList availableKernelPackages_;
-    void updateKernelPackages();
+    QStringList getInstalledPackages() const;
+    QStringList getAvailablePackages() const;
 };
 
 
