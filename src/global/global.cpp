@@ -352,35 +352,31 @@ QMap<QString, Global::KeyboardInfo> Global::getKeyboardLayouts() {
 
 
 
-bool Global::getCurrentXorgKeyboardLayout(QString & layout, QString & variant) {
+bool Global::getCurrentXorgKeyboardLayout(QString &layout, QString &variant, QString &model) {
     layout.clear();
     variant.clear();
+    model.clear();
 
     QProcess process;
-    process.start("setxkbmap", QStringList() << "-print");
+    process.start("setxkbmap", QStringList() << "-print" << "-verbose" << "10");
 
     if (!process.waitForFinished())
         return false;
 
     QStringList list = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
-
-    foreach(QString line, list) {
+    for (QString line : list) {
         line = line.trimmed();
-        if (!line.startsWith("xkb_symbols"))
-            continue;
-
-        line = line.remove("}").remove("{").remove(";");
-        line = line.mid(line.indexOf("\"") + 1);
-
-        QStringList split = line.split("+", QString::SkipEmptyParts);
-        if (split.size() >= 2) {
-            layout = split.at(1);
-
-            if (layout.contains("(")) {
-                variant = layout.mid(layout.indexOf("(") + 1);
-                variant = variant.mid(0, variant.lastIndexOf(")")).trimmed();
-                layout = layout.mid(0, layout.indexOf("(")).trimmed();
-            }
+        if (line.startsWith("layout")) {
+            QStringList split = line.split(":", QString::SkipEmptyParts);
+            layout = split.value(1).trimmed();
+        }
+        if (line.startsWith("variant")) {
+            QStringList split = line.split(":", QString::SkipEmptyParts);
+            variant = split.value(1).trimmed();
+        }
+        if (line.startsWith("model")) {
+            QStringList split = line.split(":", QString::SkipEmptyParts);
+            model = split.value(1).trimmed();
         }
     }
 

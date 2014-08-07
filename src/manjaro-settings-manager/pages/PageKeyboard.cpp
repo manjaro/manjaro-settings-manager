@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -86,9 +87,11 @@ void PageKeyboard::activated() {
 
 
     //### Detect current keyboard layout and variant
-    QString currentLayout, currentVariant;
+    QString currentLayout;
+    QString currentVariant;
+    QString currentModel;
 
-    if (!Global::getCurrentXorgKeyboardLayout(currentLayout, currentVariant))
+    if (!Global::getCurrentXorgKeyboardLayout(currentLayout, currentVariant, currentModel))
         QMessageBox::warning(this, tr("Error"), tr("Failed to determine current Xorg keyboard layout!"), QMessageBox::Ok, QMessageBox::Ok);
 
 
@@ -98,18 +101,25 @@ void PageKeyboard::activated() {
 
     ui->comboBoxModel->blockSignals(true);
 
+    defaultIndex = -1;
+    int pc105Index;
     while (mi.hasNext()) {
         mi.next();
-
-        if (mi.value() == "pc105")
+        if (mi.value() == "pc105") {
+            pc105Index = ui->comboBoxModel->count();
+        }
+        if (mi.value() == currentModel) {
             defaultIndex = ui->comboBoxModel->count();
-
+        }
         ui->comboBoxModel->addItem(mi.key());
     }
 
     ui->comboBoxModel->blockSignals(false);
 
-    // Set to default value pc105
+    /* If model its not defined, set to default value pc105 */
+    if (defaultIndex == -1) {
+        defaultIndex = pc105Index;
+    }
     ui->comboBoxModel->setCurrentIndex(defaultIndex);
 
 

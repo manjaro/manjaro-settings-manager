@@ -79,7 +79,7 @@ public:
 
     static QMap< QString, KeyboardInfo > getKeyboardLayouts();
     static QMap< QString, QString > getKeyboardModels();
-    static bool getCurrentXorgKeyboardLayout(QString & layout, QString & variant);
+    static bool getCurrentXorgKeyboardLayout(QString &layout, QString &variant, QString &model);
 
     static QList<Global::LocaleInfo> getAllEnabledLocales();
     static QString getCurrentLocale();

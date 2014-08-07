@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -26,7 +27,6 @@
 #include "widgets/pagewidget.h"
 
 #include <global.h>
-#include <stdlib.h>
 
 #include <QMap>
 #include <QListWidgetItem>
