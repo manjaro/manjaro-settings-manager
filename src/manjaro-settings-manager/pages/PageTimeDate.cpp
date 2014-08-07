@@ -105,8 +105,8 @@ void PageTimeDate::updateFields()
 
     QTimeZone timeZone = QTimeZone(timeZone_.toLatin1());
     if (timeZone.isValid()) {
-        ui->timeZoneLabel->setText(tr("<b>Time Zone:</b> %1").arg(timeZone_));
-        ui->countryLabel->setText(tr("<b>Country:</b> %1").arg(QLocale::countryToString(timeZone.country())));
+        ui->timeZoneLabel_2->setText(timeZone_);
+        ui->countryLabel_2->setText(QLocale::countryToString(timeZone.country()));
         ui->hasDaylightTimeCheckBox->setChecked(timeZone.hasDaylightTime());
         ui->isDaylightTimeCheckBox->setChecked(timeZone.isDaylightTime(QDateTime::currentDateTime()));
         ui->hasTransitionsCheckBox->setChecked(timeZone.hasTransitions());
@@ -114,11 +114,12 @@ void PageTimeDate::updateFields()
         QTimeZone::OffsetData offset = timeZone.nextTransition(QDateTime::currentDateTime());
         if (offset.atUtc != QDateTime()) {
             ui->nextTransitionLabel->setEnabled(true);
-            ui->nextTransitionLabel->setText(tr("<b>Next transition:</b> %1")
-                                             .arg(offset.atUtc.toString("ddd yyyy-MM-dd HH:mm:ss")));
+            ui->nextTransitionTimeLabel->setEnabled(true);
+            ui->nextTransitionTimeLabel->setText(offset.atUtc.toString("dddd yyyy-MM-dd HH:mm:ss"));
         } else {
             ui->nextTransitionLabel->setEnabled(false);
-            ui->nextTransitionLabel->setText(tr("<b>Next transition:</b> none"));
+            ui->nextTransitionTimeLabel->setEnabled(false);
+            ui->nextTransitionTimeLabel->setText(tr("none"));
         }
     }
 }
@@ -134,10 +135,8 @@ void PageTimeDate::updateTimeFields() {
         ui->dateEdit->setDate(timeDate->localDateTime().date());
         ui->dateEdit->blockSignals(false);
     }
-    ui->utcTimeLabel->setText(tr("<b>Universal time:</b> %1")
-                               .arg(timeDate->utcDateTime().toString("ddd yyyy-MM-dd HH:mm:ss")));
-    ui->rtcTimeLabel->setText(tr("<b>Hardware clock:</b> %1")
-                               .arg(timeDate->rtcDateTime().toString("ddd yyyy-MM-dd HH:mm:ss")));
+    ui->utcTimeLabel->setText(timeDate->utcDateTime().toString("dddd yyyy-MM-dd HH:mm:ss"));
+    ui->rtcTimeLabel->setText(timeDate->rtcDateTime().toString("dddd yyyy-MM-dd HH:mm:ss"));
 }
 
 void PageTimeDate::timeEdited()
