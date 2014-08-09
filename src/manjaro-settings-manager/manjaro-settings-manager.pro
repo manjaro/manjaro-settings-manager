@@ -9,7 +9,7 @@ QT       += core gui webkitwidgets dbus
 LIBS += -lmhwd
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
-QMAKE_CXXFLAGS += -std=c++0x
+CONFIG += c++11
 
 SOURCES  += main.cpp \
             mainwindow.cpp \
@@ -23,6 +23,8 @@ SOURCES  += main.cpp \
             dialogs/TimeZoneDialog.cpp \
             models/KernelModel.cpp \
             models/Kernel.cpp \
+            models/KeyboardItem.cpp \
+            models/KeyboardModel.cpp \
             models/TimeDate.cpp \
             pages/page_languagepackages.cpp \
             pages/page_mhwd.cpp \
@@ -44,7 +46,6 @@ SOURCES  += main.cpp \
 
 
 
-
 HEADERS  += mainwindow.h \
             delegates/KernelListViewDelegate.h \
             dialogs/accounttypedialog.h \
@@ -56,6 +57,8 @@ HEADERS  += mainwindow.h \
             dialogs/TimeZoneDialog.h \
             models/KernelModel.h \
             models/Kernel.h \
+            models/KeyboardItem.h \
+            models/KeyboardModel.h \
             models/TimeDate.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
@@ -77,7 +80,6 @@ HEADERS  += mainwindow.h \
 
 
 
-
 FORMS    += mainwindow.ui \
             dialogs/adduserdialog.ui \
             dialogs/accounttypedialog.ui \
@@ -94,7 +96,6 @@ FORMS    += mainwindow.ui \
             pages/PageNotifications.ui \
             pages/PageTimeDate.ui \
             widgets/selectlocalesdialog.ui
-
 
 
 

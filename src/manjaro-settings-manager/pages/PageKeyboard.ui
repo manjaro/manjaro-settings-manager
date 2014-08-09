@@ -22,12 +22,15 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Keyboard Model:</string>
+        <string>&amp;Keyboard Model:</string>
+       </property>
+       <property name="buddy">
+        <cstring>modelComboBox</cstring>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBoxModel">
+      <widget class="QComboBox" name="modelComboBox">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -56,15 +59,12 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <property name="spacing">
-      <number>9</number>
-     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
-      <widget class="QListWidget" name="listLayout"/>
+      <widget class="QListView" name="layoutsListView"/>
      </item>
      <item>
-      <widget class="QListWidget" name="listVariant"/>
+      <widget class="QListView" name="variantsListView"/>
      </item>
     </layout>
    </item>
@@ -132,9 +132,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>comboBoxModel</tabstop>
-  <tabstop>listLayout</tabstop>
-  <tabstop>listVariant</tabstop>
   <tabstop>buttonRestore</tabstop>
  </tabstops>
  <resources>

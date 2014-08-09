@@ -23,13 +23,9 @@
 #define PAGEKEYBOARD_H
 
 #include "dialogs/applydialog.h"
+#include "models/KeyboardModel.h"
 #include "widgets/keyboardpreview.h"
 #include "widgets/pagewidget.h"
-
-#include <global.h>
-
-#include <QMap>
-#include <QListWidgetItem>
 
 
 namespace Ui {
@@ -45,27 +41,19 @@ public:
     explicit PageKeyboard(QWidget *parent = 0);
     ~PageKeyboard();
 
-    void updateApplyEnabledState();
     void activated();
     void apply_clicked();
     
 private:
-    class LayoutItem : public QListWidgetItem {
-    public:
-        LayoutItem(QListWidget *parent) : QListWidgetItem(parent) {}
-        QString data;
-        Global::KeyboardInfo info;
-    };
-
     Ui::PageKeyboard *ui;
+    KeyboardModel *keyboardModel;
     KeyBoardPreview keyboardPreview;
-    int defaultIndex;
-    QMap<QString, QString> models;
+
 
 protected slots:
-    void listLayout_currentItemChanged(QListWidgetItem * current, QListWidgetItem * previous);
-    void listVariant_currentItemChanged(QListWidgetItem * current, QListWidgetItem * previous);
     void buttonRestore_clicked();
+    void keyboardLayoutListViewActivated(const QModelIndex &index);
+    void keyboardVariantListViewActivated(const QModelIndex &index);
 
 };
 
