@@ -414,7 +414,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
         <source>Time Zone</source>
-        <translation>Zaman Dilimi</translation>
+        <translation>Bölge ve Zaman Dilimi</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="151"/>
@@ -424,7 +424,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/PageTimeDate.ui" line="171"/>
         <source>Change Time Zone</source>
-        <translation>Zaman Dilimini Değiştir</translation>
+        <translation>Bölge ve Zaman Dilimini Değiştir</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="180"/>
@@ -439,12 +439,12 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/PageTimeDate.ui" line="196"/>
         <source>Is daylight time?</source>
-        <translation>Bu yaz saatimi?</translation>
+        <translation>Şu an yaz saatinde misiniz?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="203"/>
         <source>Has transitions?</source>
-        <translation>Geçiş var mı?</translation>
+        <translation>Gün dönümü olacak mı?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="212"/>
@@ -454,7 +454,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="108"/>
         <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
-        <translation>&lt;b&gt;Zaman Dilimi:&lt;/b&gt; %1</translation>
+        <translation>&lt;b&gt;Bölge ve Zaman Dilimi:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="109"/>
@@ -464,12 +464,12 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="117"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; %1</source>
-        <translation>&lt;b&gt;Sonraki geçiş:&lt;/b&gt; %1</translation>
+        <translation>&lt;b&gt;Sonraki gün dönümü:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; none</source>
-        <translation>&lt;b&gt;Sonraki geçiş:&lt;/b&gt; yok</translation>
+        <translation>&lt;b&gt;Sonraki gün dönümü:&lt;/b&gt; yok</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="137"/>

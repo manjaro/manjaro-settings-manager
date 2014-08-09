@@ -330,7 +330,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation>Уведомлять только в случае выполнения на неподдерживаемом ядре</translation>
+        <translation>Уведомлять только при работе неподдерживаемого ядра</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
@@ -340,7 +340,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation>Уведомлять только о ядрах с длительной поддержкой</translation>
+        <translation>Уведомлять только о LTS-ядрах</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
@@ -404,12 +404,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="126"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC время:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="133"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Real Time Clock time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;
+Часы реального времени:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
@@ -434,52 +435,52 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="189"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Имеете летнее время?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="196"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Это летнее время?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="203"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>Имеете переходы?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="212"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Next transition: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Следующий переход: &lt;/span&gt;нет&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="108"/>
         <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Часовой пояс:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="109"/>
         <source>&lt;b&gt;Country:&lt;/b&gt; </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Страна:&lt;/b&gt; </translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="117"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Следующий переход:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; none</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Следующий переход::&lt;/b&gt; нет</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="137"/>
         <source>&lt;b&gt;Universal time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Универсальное время:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="139"/>
         <source>&lt;b&gt;RTC time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;RTC время:&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -505,8 +506,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
-        <translation>Будет выполнена установка следующих пакетов
-:
+        <translation>Будет выполнена установка следующих пакетов:
 </translation>
     </message>
     <message>
@@ -528,14 +528,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
-        <translation>Будут удалены следующие пакеты
-:
+        <translation>Будут удалены следующие пакеты:
 </translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
-        <translation>Удаление ядра</translation>
+        <translation>Удаление ядра...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
@@ -745,14 +744,14 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation>Автоматическая установка
-драйвера с открытым исходным кодом</translation>
+        <translation>Авто-установка
+открытого драйвера</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation>Автоматическая установка
+        <translation>Авто-установка
 проприетарного драйвера</translation>
     </message>
     <message>
@@ -807,24 +806,24 @@ Proprietary Driver</source>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
         <translation>Вы действительно хотите автоматически установить
-драйвер графической подсистемы с открытым исходным кодом?</translation>
+открытый видео-драйвер?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation>Установка драйвера графической подсистемы с открытым исходным кодом...</translation>
+        <translation>Установка открытого видео-драйвера...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
         <translation>Вы действительно хотите автоматически установить
- проприетарный драйвер графической подсистемы?</translation>
+проприетарный видео-драйвер?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation>Установка драйвера графической подсистемы с закрытым исходным кодом...</translation>
+        <translation>Установка проприетарного видео-драйвера...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

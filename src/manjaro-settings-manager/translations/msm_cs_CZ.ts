@@ -213,12 +213,12 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
     <message>
         <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -226,55 +226,55 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Doporučené</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Běžící</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Instalované</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Nepodporované</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Vlastní</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Experimentální</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
         <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalovat</translation>
     </message>
 </context>
 <context>
@@ -321,47 +321,47 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/page_notifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Upozornění jádra</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kontrolovat, jestli se jádro nestalo nepodporovaným</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Při používání nepodporovaného jádra zobrazit pouze upozornění</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kontrolovat nová jádra</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Upozornit pouze na jádra s dlouhodobou podporou</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Upozornit pouze na doporučená jádra</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Kontrolovat chybějící jazykové balíčky</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Oznámení jazykových balíčků</translation>
     </message>
     <message>
         <location filename="../pages/page_notifications.cpp" line="9"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Oznámení</translation>
     </message>
 </context>
 <context>
@@ -370,117 +370,117 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <location filename="../pages/PageTimeDate.ui" line="20"/>
         <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum a čas</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>Nastavit datum a čas automaticky</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Real time clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Hodiny reálného času v místním časovém pásmu</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="48"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Čas</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="61"/>
         <source>HH:mm:ss</source>
-        <translation type="unfinished"/>
+        <translation>HH:mm:ss</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="91"/>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="104"/>
         <source>yyyy-MM-dd</source>
-        <translation type="unfinished"/>
+        <translation>dd-MM-yyyy</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="126"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC čas:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="133"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Real Time Clock time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;RTC čas:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Časové pásmo</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="151"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Time Zone: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Časové pásmo: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="171"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Změnit časové pásmo</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="180"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Country:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Stát: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="189"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Používat letní čas?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="196"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Je používán letní čas?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="203"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>Dochází k posunu času?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="212"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Next transition: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Příští posun času: &lt;/span&gt;nikdy&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="108"/>
         <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation> &lt;b&gt;Časové pásmo:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="109"/>
         <source>&lt;b&gt;Country:&lt;/b&gt; </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Stát:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="117"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Příští posun času:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; none</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Příští posun času:&lt;/b&gt; nikdy</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="137"/>
         <source>&lt;b&gt;Universal time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Univerzální čas:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="139"/>
         <source>&lt;b&gt;RTC time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;RTC čas:&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -488,55 +488,58 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/page_kernel.cpp" line="31"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Jádro</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="70"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalovat Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="71"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Opravdu chcete nainstalovat tuto verzi jádra?
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="72"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Chystáte se nainstalovat tyto balíčky:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="91"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Instaluji novou verzi jádra.</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="104"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Odstranit Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="105"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Opravdu chcete odstranit tuto verzi jádra?</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="106"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Chystáte se odstranit tyto balíčky:
+</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="125"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Odstraňuji jádro...</translation>
     </message>
     <message>
         <location filename="../pages/page_kernel.cpp" line="139"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 changelog</translation>
     </message>
 </context>
 <context>
@@ -741,18 +744,20 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Automaticky instalovat
+svobodný ovladač</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Automaticky instalovat
+proprietární ovladač</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Svobodný</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>
@@ -800,23 +805,25 @@ Proprietary Driver</source>
         <location filename="../pages/page_mhwd.cpp" line="159"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Opravdu chcete automaticky instalovat
+svobodný ovladač grafické karty?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="164"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instaluji svobodný ovladač grafické karty...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="176"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Opravdu chcete automaticky instalovat
+proprietární ovladač grafické karty?</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instaluji proprietární ovladač grafické karty...</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.cpp" line="215"/>

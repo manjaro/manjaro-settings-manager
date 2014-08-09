@@ -9,17 +9,17 @@
     <message>
         <location filename="../daemon.cpp" line="176"/>
         <source>Running an unsupported kernel, please update</source>
-        <translation>Выполнение на неподдерживаемом ядре, пожалуйста, выполните обновление</translation>
+        <translation>Работа на неподдерживаемом ядре, обновитесь</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="178"/>
         <source>Unsupported kernel installed in your system.</source>
-        <translation>Неподдерживаемое ядро установлено на вашей системе</translation>
+        <translation>В системе установлено неподдерживаемое ядро.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="181"/>
         <source>Your kernels need attention.</source>
-        <translation>Существующие ядра ожидают вашего внимания.</translation>
+        <translation>Ваши ядра требуют внимания.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="184"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../daemon.cpp" line="189"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation>Доступно ядро, версия которого новее установленного.</translation>
+        <translation>Доступно ядро версией, новее установленного.</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="90"/>

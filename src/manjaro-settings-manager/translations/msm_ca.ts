@@ -374,112 +374,112 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>Estableix la data i hora automàticament</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Real time clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Rellotje ne temps real en la zona horaria local</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="48"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="61"/>
         <source>HH:mm:ss</source>
-        <translation type="unfinished"/>
+        <translation>HH:mm:ss</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="91"/>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="104"/>
         <source>yyyy-MM-dd</source>
-        <translation type="unfinished"/>
+        <translation>yyyy-MM-dd</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="126"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Hora universal:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="133"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Real Time Clock time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Hora rellotge en temps real:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Zona horària</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="151"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Time Zone: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zona horària: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="171"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Canviar la zona horària</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="180"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Country:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;País:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="189"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Té horari d&apos;estiu?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="196"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>És horari d&apos;estiu?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="203"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>Té transicions?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="212"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Next transition: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Següent transició: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="108"/>
         <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Zona horària:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="109"/>
         <source>&lt;b&gt;Country:&lt;/b&gt; </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;País:&lt;/b&gt; </translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="117"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Següent transició:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; none</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Següent transició:&lt;/b&gt; cap</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="137"/>
         <source>&lt;b&gt;Universal time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Hora universal:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="139"/>
         <source>&lt;b&gt;RTC time:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Hora del RTC:&lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>

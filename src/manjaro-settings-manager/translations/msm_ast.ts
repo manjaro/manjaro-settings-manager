@@ -379,7 +379,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Real time clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Hora real na zona llocal</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="48"/>
@@ -404,12 +404,12 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="126"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Hora UTC:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="133"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Real Time Clock time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Hora llocal:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="143"/>
@@ -419,7 +419,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="151"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Time Zone: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Fusu horariu: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="171"/>
@@ -429,27 +429,27 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="180"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Country:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;País:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="189"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>¿Tien horariu de branu?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="196"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>¿Ta n&apos;horariu de branu?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="203"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>¿Tien transiciones?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="212"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Next transition: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Transición siguiente: &lt;/span&gt;denguna&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="108"/>
@@ -464,12 +464,12 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="117"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Transición siguiente:&lt;/b&gt; %1</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>&lt;b&gt;Next transition:&lt;/b&gt; none</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Transición siguiente:&lt;/b&gt; denguna</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="137"/>
