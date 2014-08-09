@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Time Zone Selection</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -58,7 +58,7 @@
      <item>
       <widget class="QLabel" name="zoneLabel">
        <property name="text">
-        <string>&amp;Zone:</string>
+        <string>Zone:</string>
        </property>
        <property name="buddy">
         <cstring>zoneComboBox</cstring>
