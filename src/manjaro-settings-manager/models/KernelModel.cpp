@@ -116,33 +116,36 @@ int KernelModel::rowCount(const QModelIndex &parent) const
 
 QVariant KernelModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= kernels_.count())
+    if (index.row() < 0 || index.row() >= kernels_.count()) {
         return QVariant();
+    }
     const Kernel &kernel = kernels_[index.row()];
-    if (role == PackageRole)
+    switch (role) {
+    case PackageRole:
         return kernel.package();
-    else if (role == VersionRole)
+    case VersionRole:
         return kernel.version();
-    else if (role == MajorVersionRole)
+    case MajorVersionRole:
         return kernel.majorVersion();
-    else if (role == MinorVersionRole)
+    case MinorVersionRole:
         return kernel.minorVersion();
-    else if (role == InstalledModulesRole)
+    case InstalledModulesRole:
         return kernel.installedModules();
-    else if (role == AvailableModulesRole)
+    case AvailableModulesRole:
         return kernel.availableModules();
-    else if (role == IsAvailableRole)
+    case IsAvailableRole:
         return kernel.isAvailable();
-    else if (role == IsInstalledRole)
+    case IsInstalledRole:
         return kernel.isInstalled();
-    else if (role == IsLtsRole)
+    case IsLtsRole:
         return kernel.isLts();
-    else if (role == IsRecommendedRole)
+    case IsRecommendedRole:
         return kernel.isRecommended();
-    else if (role == IsRunningRole)
+    case IsRunningRole:
         return kernel.isRunning();
-    else if (role == IsUnsupportedRole)
+    case IsUnsupportedRole:
         return kernel.isUnsupported();
+    }
     return QVariant();
 }
 
@@ -170,8 +173,9 @@ QStringList KernelModel::getAvailablePackages() const
     QProcess process;
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
     process.start("pacman", QStringList() << "-Sqs" << "^linux[0-9][0-9]?([0-9])");
-    if (!process.waitForFinished(15000))
+    if (!process.waitForFinished(15000)) {
         qDebug() << "error: failed to get all installed kernels";
+    }
     QString result = process.readAll();
     return result.split("\n", QString::SkipEmptyParts);
 }
@@ -182,8 +186,9 @@ QStringList KernelModel::getInstalledPackages() const
     QProcess process;
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
     process.start("pacman", QStringList() << "-Qqs" << "^linux[0-9][0-9]?([0-9])");
-    if (!process.waitForFinished(15000))
+    if (!process.waitForFinished(15000)) {
         qDebug() << "error: failed to get all installed kernels";
+    }
     QString result = process.readAll();
     return result.split("\n", QString::SkipEmptyParts);
 }
@@ -201,8 +206,8 @@ Kernel KernelModel::latestInstalledKernel()
         }
         if (kernel.majorVersion() > auxKernel.majorVersion()) {
             auxKernel = kernel;
-        } else if ( (kernel.majorVersion() == auxKernel.majorVersion())
-                     && (kernel.minorVersion() > auxKernel.minorVersion()) ) {
+        } else if ((kernel.majorVersion() == auxKernel.majorVersion())
+                    && (kernel.minorVersion() > auxKernel.minorVersion()))  {
             auxKernel = kernel;
         }
     }
@@ -236,8 +241,8 @@ QList<Kernel> KernelModel::newerKernels(const Kernel auxKernel)
         }
         if (kernel.majorVersion() > auxKernel.majorVersion()) {
             auxList << kernel;
-        } else if ( (kernel.majorVersion() == auxKernel.majorVersion())
-                     && (kernel.minorVersion() > auxKernel.minorVersion()) ) {
+        } else if ((kernel.majorVersion() == auxKernel.majorVersion())
+                    && (kernel.minorVersion() > auxKernel.minorVersion())) {
             auxList << kernel;
         }
     }
@@ -257,7 +262,6 @@ bool KernelSortFilterProxyModel::lessThan(const QModelIndex &left,
     QVariant rightData = sourceModel()->data(right, sortRole());
 
     if (sortRole() == KernelModel::VersionRole) {
-
         int leftMajor = sourceModel()->data(left, KernelModel::MajorVersionRole).toInt();
         int rightMajor = sourceModel()->data(right, KernelModel::MajorVersionRole).toInt();
         int leftMinor = sourceModel()->data(left, KernelModel::MinorVersionRole).toInt();
