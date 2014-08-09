@@ -589,7 +589,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time &amp;Zone</source>
-        <translation>Uhrzeit &amp;Zone</translation>
+        <translation>&amp;Zeitzone</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
