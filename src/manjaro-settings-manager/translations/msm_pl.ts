@@ -210,12 +210,12 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
 <context>
     <name>KernelInfoDialog</name>
     <message>
-        <location filename="../dialogs/kernel_info_dialog.ui" line="17"/>
+        <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
         <source>Changelog</source>
         <translation>Lista zmian</translation>
     </message>
     <message>
-        <location filename="../dialogs/kernel_info_dialog.ui" line="26"/>
+        <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
         <source>about:blank</source>
         <translation>about:blank</translation>
     </message>
@@ -223,55 +223,55 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
 <context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="92"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
         <source>LTS</source>
         <translation>Długi okres wsparcia</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="93"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>Recommended</source>
         <translation>Polecany</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="94"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Running</source>
         <translation>Działający</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="95"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Installed</source>
         <translation>Zainstalowany</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="96"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Unsupported</source>
         <translation>Niewspierany</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="184"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="249"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Changelog</source>
         <translation>Lista zmian</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="97"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
         <source>Custom</source>
         <translation>Własny</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="98"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Experimental</source>
         <translation>Eksperymentalny</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="182"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="247"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="184"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="249"/>
         <source>Remove</source>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="183"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="248"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Install</source>
         <translation>Zainstaluj</translation>
     </message>
@@ -316,49 +316,226 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     </message>
 </context>
 <context>
+    <name>PageKernel</name>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="37"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="81"/>
+        <source>Install Linux %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="82"/>
+        <source>Do you really want to install this kernel?
+</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="83"/>
+        <source>This will install the following packages:
+</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="101"/>
+        <source>Installing new kernel.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="114"/>
+        <source>Remove Linux %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="115"/>
+        <source>Do you really want to remove this kernel?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="116"/>
+        <source>This will remove the following packages:
+</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="134"/>
+        <source>Removing kernel...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="147"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PageKeyboard</name>
+    <message>
+        <location filename="../pages/PageKeyboard.ui" line="25"/>
+        <source>Keyboard Model:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.ui" line="128"/>
+        <source>Type here to test your keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="35"/>
+        <source>Keyboard Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="72"/>
+        <source>Setting new keyboard layout...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <source>Failed to determine current Xorg keyboard layout!</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PageLanguage</name>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="22"/>
+        <source>System Locales</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="42"/>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="49"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="56"/>
+        <source>Restore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="66"/>
+        <source>Locale</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="71"/>
+        <location filename="../pages/PageLanguage.cpp" line="29"/>
+        <source>Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="76"/>
+        <source>Territory</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="81"/>
+        <source>System Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="86"/>
+        <source>System Formats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="108"/>
+        <location filename="../pages/PageLanguage.cpp" line="151"/>
+        <location filename="../pages/PageLanguage.cpp" line="160"/>
+        <location filename="../pages/PageLanguage.cpp" line="192"/>
+        <source>Error!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="108"/>
+        <location filename="../pages/PageLanguage.cpp" line="160"/>
+        <source>Failed to open file &apos;%1&apos;!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="151"/>
+        <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="192"/>
+        <source>Failed to set locale!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="196"/>
+        <source>Generating locale.gen file...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="199"/>
+        <source>Hint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="199"/>
+        <source>You might have to restart the graphical environment to apply the new settings...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PageNotifications</name>
     <message>
-        <location filename="../pages/page_notifications.ui" line="20"/>
+        <location filename="../pages/PageNotifications.ui" line="20"/>
         <source>Kernel Notifications</source>
         <translation>Powiadomienia jąder</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.ui" line="26"/>
+        <location filename="../pages/PageNotifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
         <translation>Sprawdź niewspierane jądra</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.ui" line="51"/>
+        <location filename="../pages/PageNotifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
         <translation>Powiadamiaj tylko o używanym niewspieranym jądrze</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.ui" line="60"/>
+        <location filename="../pages/PageNotifications.ui" line="60"/>
         <source>Check new kernels</source>
         <translation>Sprawdź nowe wydania jądra</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.ui" line="85"/>
+        <location filename="../pages/PageNotifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
         <translation>Powiadamiaj tylko o jądrach z długim okresem wsparcia</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.ui" line="112"/>
+        <location filename="../pages/PageNotifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
         <translation>Powiadamiaj tylko o polecanych jądrach</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.ui" line="130"/>
+        <location filename="../pages/PageNotifications.ui" line="130"/>
         <source>Check missing language packs</source>
         <translation>Sprawdź brakujące pakiety językowe</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.ui" line="124"/>
+        <location filename="../pages/PageNotifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
         <translation>Powiadomienia pakietów językowych</translation>
     </message>
     <message>
-        <location filename="../pages/page_notifications.cpp" line="9"/>
+        <location filename="../pages/PageNotifications.cpp" line="31"/>
         <source>Notifications</source>
         <translation>Powiadomienia</translation>
     </message>
@@ -377,289 +554,74 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <translation>Ustaw czas i datę automatycznie</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="33"/>
-        <source>Real time clock in local time zone</source>
-        <translation>Czas zegara czasu rzeczywistego w lokalnej strefie czasowej</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="48"/>
-        <source>Time</source>
-        <translation>Czas</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="61"/>
-        <source>HH:mm:ss</source>
-        <translation>HH:mm:ss</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="91"/>
-        <source>Date</source>
-        <translation>Data</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="104"/>
-        <source>yyyy-MM-dd</source>
-        <translation>yyyy-MM-dd</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="126"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UTC time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Czas UTC:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="133"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Real Time Clock time:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Czas zegara czasu rzeczywistego:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="143"/>
-        <source>Time Zone</source>
-        <translation>Strefa Czasowa</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="151"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Time Zone: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Strefa Czasowa: &lt;/span&gt;N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="171"/>
+        <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
         <translation>Zmień Strefę Czasową</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="180"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Country:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Kraj:&lt;/span&gt; N/A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../pages/PageTimeDate.ui" line="33"/>
+        <source>Hardware clock in local time zone</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="189"/>
+        <location filename="../pages/PageTimeDate.ui" line="51"/>
+        <source>Time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="86"/>
+        <source>Date:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="115"/>
+        <source>Hardware clock:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="122"/>
+        <source>Universal time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time &amp;Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="165"/>
+        <source>Time zone:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="206"/>
+        <source>Country:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="225"/>
         <source>Has daylight time?</source>
         <translation>Ustawiono Czas Letni?</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="196"/>
+        <location filename="../pages/PageTimeDate.ui" line="232"/>
         <source>Is daylight time?</source>
         <translation>Jest to Czas Letni?</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="203"/>
+        <location filename="../pages/PageTimeDate.ui" line="239"/>
         <source>Has transitions?</source>
         <translation>Była zmiana czasu?</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="212"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Next transition: &lt;/span&gt;none&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Następna zmiana czasu: &lt;/span&gt;nie dotyczy&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../pages/PageTimeDate.ui" line="248"/>
+        <source>Next transition:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.cpp" line="108"/>
-        <source>&lt;b&gt;Time Zone:&lt;/b&gt; %1</source>
-        <translation>&lt;b&gt;Strefa Czasowa:&lt;/b&gt; %1</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.cpp" line="109"/>
-        <source>&lt;b&gt;Country:&lt;/b&gt; </source>
-        <translation>&lt;b&gt;Kraj:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.cpp" line="117"/>
-        <source>&lt;b&gt;Next transition:&lt;/b&gt; %1</source>
-        <translation>&lt;b&gt;Następna zmiana czasu:&lt;/b&gt; %1</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.cpp" line="121"/>
-        <source>&lt;b&gt;Next transition:&lt;/b&gt; none</source>
-        <translation>&lt;b&gt;Następna zmiana czasu:&lt;/b&gt; nie dotyczy</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.cpp" line="137"/>
-        <source>&lt;b&gt;Universal time:&lt;/b&gt; %1</source>
-        <translation>&lt;b&gt;Czas uniwersalny:&lt;/b&gt; %1</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.cpp" line="139"/>
-        <source>&lt;b&gt;RTC time:&lt;/b&gt; %1</source>
-        <translation>&lt;b&gt;Czas RTC::&lt;/b&gt; %1</translation>
-    </message>
-</context>
-<context>
-    <name>Page_Kernel</name>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="31"/>
-        <source>Kernel</source>
-        <translation>Jądro</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="70"/>
-        <source>Install Linux %1</source>
-        <translation>Zainstaluj Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
-        <source>Do you really want to install this kernel?
-</source>
-        <translation>Czy na pewno chcesz zainstalować to jądro?
-</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="72"/>
-        <source>This will install the following packages:
-</source>
-        <translation>Zainstalowane zostaną następujące pakiety:
-</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="91"/>
-        <source>Installing new kernel.</source>
-        <translation>Instalowanie nowego jądra.</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="104"/>
-        <source>Remove Linux %1</source>
-        <translation>Usuń Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="105"/>
-        <source>Do you really want to remove this kernel?</source>
-        <translation>Czy na pewno chcesz usunąć to jądro?</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="106"/>
-        <source>This will remove the following packages:
-</source>
-        <translation>Usunięte zostaną następujące pakiety:
-</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="125"/>
-        <source>Removing kernel...</source>
-        <translation>Usuwanie jądra...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="139"/>
-        <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 - lista zmian</translation>
-    </message>
-</context>
-<context>
-    <name>Page_Keyboard</name>
-    <message>
-        <location filename="../pages/page_keyboard.ui" line="25"/>
-        <source>Keyboard Model:</source>
-        <translation>Model klawiatury:</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.ui" line="128"/>
-        <source>Type here to test your keyboard</source>
-        <translation>Użyj tego pola, aby przetestować układ klawiatury</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="32"/>
-        <source>Keyboard Settings</source>
-        <translation>Ustawienia klawiatury</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="69"/>
-        <source>Setting new keyboard layout...</source>
-        <translation>Ustawianie układu klawiatury...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Error</source>
-        <translation>Błąd</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Wczytanie obecnego układu klawiatury Xorg nie powiodło się!</translation>
-    </message>
-</context>
-<context>
-    <name>Page_Language</name>
-    <message>
-        <location filename="../pages/page_language.ui" line="22"/>
-        <source>System Locales</source>
-        <translation>Lokalizacje systemowe</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="42"/>
-        <source>Add</source>
-        <translation>Dodaj</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="49"/>
-        <source>Remove</source>
-        <translation>Usuń</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="56"/>
-        <source>Restore</source>
-        <translation>Przywróć</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="66"/>
-        <source>Locale</source>
-        <translation>Lokalizacja</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="71"/>
-        <location filename="../pages/page_language.cpp" line="29"/>
-        <source>Language</source>
-        <translation>Język</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="76"/>
-        <source>Territory</source>
-        <translation>Terytorium</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="81"/>
-        <source>System Language</source>
-        <translation>Język systemu</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="86"/>
-        <source>System Formats</source>
-        <translation>Formaty systemu</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="108"/>
-        <location filename="../pages/page_language.cpp" line="151"/>
-        <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="192"/>
-        <source>Error!</source>
-        <translation>Błąd!</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="108"/>
-        <location filename="../pages/page_language.cpp" line="160"/>
-        <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>Otwarcie pliku &apos;%1&apos; nie powiodło się!</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="151"/>
-        <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Pobranie poprawnej lokalizacji dla tekstu &apos;%1&apos; nie powiodło się!</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="192"/>
-        <source>Failed to set locale!</source>
-        <translation>Ustawienie ustawień regionalnych nie powiodło się!</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="196"/>
-        <source>Generating locale.gen file...</source>
-        <translation>Generowanie pliku locale.gen...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
-        <source>Hint</source>
-        <translation>Podpowiedź</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
-        <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Ponowne uruchomienie środowiska graficznego może być wymagane, aby nowe ustawienia zostały zastosowane...</translation>
+        <location filename="../pages/PageTimeDate.cpp" line="122"/>
+        <source>none</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1046,6 +1008,24 @@ własnościowy sterownik graficzny?</translation>
         <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
         <source>Add</source>
         <translation>Dodaj</translation>
+    </message>
+</context>
+<context>
+    <name>TimeZoneDialog</name>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
+        <source>Region:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
+        <source>&amp;Zone:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
