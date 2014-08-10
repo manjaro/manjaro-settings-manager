@@ -119,6 +119,10 @@ void PageKeyboard::apply_clicked() {
     QString layout = ui->layoutsListView->currentIndex().data(KeyboardModel::KeyRole).toString();
     QString variant = ui->variantsListView->currentIndex().data(KeyboardModel::KeyRole).toString();
 
+    if (QString::compare(variant, "default") == 0) {
+        variant = "";
+    }
+
     // Set Xorg keyboard layout
     system(QString("setxkbmap -model \"%1\" -layout \"%2\" -variant \"%3\"").arg(model, layout, variant).toUtf8());
 
@@ -220,16 +224,20 @@ void PageKeyboard::keyboardLayoutListViewActivated(const QModelIndex &index)
         /* Change QModelIndex column to 0 from 1 */
         QModelIndex newIndex = index.model()->index(index.row(), 0, index.parent());
         ui->variantsListView->setRootIndex(newIndex);
-
         /* Select "Default" keyboard layout */
-        QModelIndex variantDefault = index.model()->match(newIndex.child(0,0),
-                                                            KeyboardModel::DescriptionRole,
-                                                            "Default", Qt::MatchFixedString).first();
-        variantDefault = index.model()->index(variantDefault.row(), 1, variantDefault.parent());
-        ui->variantsListView->setCurrentIndex(variantDefault);
-
-        /* Emit activated(), to update keyboardPreview */
-        emit(ui->variantsListView->activated(variantDefault));
+        QModelIndexList variantDefaultList = index.model()->match(newIndex.child(0,0),
+                                                          KeyboardModel::KeyRole,
+                                                          "default",
+                                                          Qt::MatchFixedString);
+        if (variantDefaultList.size() == 1) {
+            QModelIndex variantDefault = variantDefaultList.first();
+            variantDefault = index.model()->index(variantDefault.row(), 1, variantDefault.parent());
+            ui->variantsListView->setCurrentIndex(variantDefault);
+            /* Emit activated(), to update keyboardPreview */
+            emit(ui->variantsListView->activated(variantDefault));
+        } else {
+            qDebug() << "Can't find the current default variant in the model";
+        }
     }
 }
 

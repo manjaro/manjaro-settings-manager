@@ -176,7 +176,7 @@ void KeyboardModel::init(KeyboardItem *parent)
             QString layoutDescription = rx.cap(2);
             currentLayout = new KeyboardItem(layoutKey, layoutDescription, layoutsRoot);
             layoutsRoot->appendChild(currentLayout);
-            currentLayout->appendChild(new KeyboardItem("", QString(tr("Default")), currentLayout));
+            currentLayout->appendChild(new KeyboardItem(QString("default"), QString(tr("Default")), currentLayout));
         }
     }
 
@@ -214,7 +214,7 @@ void KeyboardModel::init(KeyboardItem *parent)
             if (layoutIndexList.isEmpty()) {
                 currentLayout = new KeyboardItem(layoutKey, layoutKey, layoutsRoot);
                 layoutsRoot->appendChild(currentLayout);
-                currentLayout->appendChild(new KeyboardItem("", QString(tr("Default")), currentLayout));
+                currentLayout->appendChild(new KeyboardItem(QString("default"), QString(tr("Default")), currentLayout));
                 currentLayout->appendChild(new KeyboardItem(variantKey, variantDescription, currentLayout));
             } else {
                 currentLayout = static_cast<KeyboardItem*>(layoutIndexList.first().internalPointer());

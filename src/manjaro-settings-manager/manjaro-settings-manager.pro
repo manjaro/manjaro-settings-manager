@@ -9,7 +9,7 @@ QT       += core gui webkitwidgets dbus
 LIBS += -lmhwd
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
-QMAKE_CXXFLAGS += -std=c++0x
+CONFIG += c++11
 
 SOURCES  += main.cpp \
             mainwindow.cpp \
