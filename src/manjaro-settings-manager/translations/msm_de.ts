@@ -392,11 +392,11 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>&amp;Keyboard Model:</source>
-        <translation>&amp;Tastaturmodel:</translation>
+        <source>Keyboard Model:</source>
+        <translation>Tastaturmodel:</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.ui" line="128"/>
+        <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
         <translation>Tippen Sie hier um Ihre Tastatur zu testen</translation>
     </message>

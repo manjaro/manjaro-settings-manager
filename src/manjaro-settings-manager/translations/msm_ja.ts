@@ -391,11 +391,11 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>&amp;Keyboard Model:</source>
+        <source>Keyboard Model:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.ui" line="128"/>
+        <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
         <translation>キーボードの設定のためここにタイプしてください。</translation>
     </message>

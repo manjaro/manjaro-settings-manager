@@ -392,11 +392,11 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>&amp;Keyboard Model:</source>
+        <source>Keyboard Model:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.ui" line="128"/>
+        <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
         <translation>Escriba aquí para probar el teclado</translation>
     </message>
