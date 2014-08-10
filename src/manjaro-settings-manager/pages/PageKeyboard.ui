@@ -22,10 +22,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>&amp;Keyboard Model:</string>
-       </property>
-       <property name="buddy">
-        <cstring>modelComboBox</cstring>
+        <string>Keyboard Model:</string>
        </property>
       </widget>
      </item>
