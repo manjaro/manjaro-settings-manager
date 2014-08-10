@@ -74,6 +74,8 @@ Page_MHWD::~Page_MHWD()
 void Page_MHWD::activated()
 {
     ui->treeWidget->clear();
+    ui->buttonInstallFree->setEnabled(false);
+    ui->buttonInstallNonFree->setEnabled(false);
     // Create mhwd data object and fill it with hardware informations
     mhwd::Data data;
     mhwd::initData(&data);
@@ -81,34 +83,32 @@ void Page_MHWD::activated()
 
     for (std::vector<mhwd::Device*>::iterator dev_iter = data.PCIDevices.begin();
          dev_iter != data.PCIDevices.end();
-         dev_iter++)
-    {
+         dev_iter++) {
         QTreeWidgetItem *deviceItem = new QTreeWidgetItem();
         // Check if deviceClass node its already added
         QString deviceClassName = QString::fromStdString((*dev_iter)->className);
         QList<QTreeWidgetItem*> found = ui->treeWidget->findItems(deviceClassName, Qt::MatchCaseSensitive, 0);
-        if (found.isEmpty())
-        {
+        if (found.isEmpty()) {
             QTreeWidgetItem *deviceClassItem = new QTreeWidgetItem(ui->treeWidget);
             deviceClassItem->setText(0, deviceClassName);
             deviceClassItem->addChild(deviceItem);
-            if (!ui->checkBoxShowAll->isChecked())
+            if (!ui->checkBoxShowAll->isChecked()) {
                 deviceClassItem->setHidden(true);
+            }
         }
         else
             found.first()->addChild(deviceItem);
 
         QString deviceName = QString::fromStdString((*dev_iter)->deviceName);
         QString vendorName = QString::fromStdString((*dev_iter)->vendorName);
-        if (deviceName.isEmpty())
+        if (deviceName.isEmpty()) {
             deviceName = tr("Unknown device name");
+        }
         deviceItem->setText(0, QString("%1 (%2)").arg(deviceName, vendorName));
 
 
         for (std::vector<mhwd::Config*>::iterator conf_iter = (*dev_iter)->availableConfigs.begin();
-             conf_iter != (*dev_iter)->availableConfigs.end();
-             conf_iter++)
-        {
+             conf_iter != (*dev_iter)->availableConfigs.end(); conf_iter++) {
             //Always expand and show devices with configuration
             deviceItem->parent()->setHidden(false);
             deviceItem->parent()->setExpanded(true);
@@ -120,29 +120,36 @@ void Page_MHWD::activated()
             QString configName = QString::fromStdString((*conf_iter)->name);
             item->setText(0, configName);
             if ((configName.toLower().contains("nvidia") || configName.toLower().contains("nouveau")) &&
-                    configName.toLower().contains("intel"))
+                    configName.toLower().contains("intel")) {
                 item->setIcon(0, QIcon(":/images/resources/intel-nvidia.png"));
-            else if (configName.toLower().contains("intel"))
+            } else if (configName.toLower().contains("intel")) {
                 item->setIcon(0, QIcon(":/images/resources/intel.png"));
-            else if (configName.toLower().contains("nvidia") || configName.toLower().contains("nouveau"))
+            } else if (configName.toLower().contains("nvidia") || configName.toLower().contains("nouveau")) {
                 item->setIcon(0, QIcon(":/images/resources/nvidia.png"));
-            else if (configName.toLower().contains("catalyst"))
+            } else if (configName.toLower().contains("catalyst")) {
                 item->setIcon(0, QIcon(":/images/resources/ati.png"));
-            else
+            } else {
                 item->setIcon(0, QIcon(":/images/resources/gpudriver.png"));
+            }
 
             //Check if freedriver
-            if ((*conf_iter)->freedriver)
+            if ((*conf_iter)->freedriver) {
                 item->setCheckState(1, Qt::Checked);
-            else
+                ui->buttonInstallFree->setEnabled(true);
+            }
+            else {
                 item->setCheckState(1, Qt::Unchecked);
+                ui->buttonInstallNonFree->setEnabled(true);
+            }
 
             //Check if installed
             mhwd::Config *installedConfig = getInstalledConfig(&data, (*conf_iter)->name, (*conf_iter)->type);
-            if (installedConfig == NULL)
+            if (installedConfig == NULL) {
                 item->setCheckState(2, Qt::Unchecked);
-            else
+            }
+            else {
                 item->setCheckState(2, Qt::Checked);
+            }
         }
     }
     // Free data object again
@@ -158,8 +165,7 @@ void Page_MHWD::buttonInstallFree_clicked()
                                   tr("Auto Install Configuration"),
                                   tr("Do you really want to auto install\n the open-source graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
+    if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing open-source graphic driver..."), false);
     }
@@ -175,8 +181,7 @@ void Page_MHWD::buttonInstallNonFree_clicked()
                                   tr("Auto Install Configuration"),
                                   tr("Do you really want to auto install\n the proprietary graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
+    if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing proprietary graphic driver..."), false);
     }
@@ -189,15 +194,12 @@ void Page_MHWD::showContextMenuForTreeWidget(const QPoint &pos)
 {
     QMenu contextMenu(this);
     QTreeWidgetItem* temp = ui->treeWidget->itemAt(pos);
-    if (temp != NULL && (temp->text(0).contains("video-") || temp->text(0).contains("network-")) )
-    {
-        if(temp->checkState(2))
-        {
+    if ((temp != NULL) && (temp->text(0).contains("video-") || temp->text(0).contains("network-"))) {
+        if(temp->checkState(2)) {
             contextMenu.addAction(removeAction);
             contextMenu.addAction(forceReinstallationAction);
         }
-        else
-        {
+        else {
             contextMenu.addAction(installAction);
         }
         contextMenu.exec(mapToGlobal(pos));
@@ -215,8 +217,7 @@ void Page_MHWD::installAction_triggered()
                                   tr("Install Configuration"),
                                   tr("Do you really want to install\n%1?").arg(configuration),
                                   QMessageBox::Yes | QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
+    if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-i" << "pci" << configuration, tr("Installing driver..."), false);
     }
@@ -234,8 +235,7 @@ void Page_MHWD::removeAction_triggered()
                                   tr("Remove Configuration"),
                                   tr("Do you really want to remove\n%1?").arg(configuration),
                                   QMessageBox::Yes | QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
+    if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-r" << "pci" << configuration, tr("Removing driver..."), false);
     }
@@ -253,8 +253,7 @@ void Page_MHWD::forceReinstallationAction_triggered()
                                   tr("Force Reinstallation"),
                                   tr("Do you really want to force the reinstallation of\n%1?").arg(configuration),
                                   QMessageBox::Yes | QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
+    if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr("Reinstalling driver..."), false);
     }
