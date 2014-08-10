@@ -277,6 +277,20 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     </message>
 </context>
 <context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="179"/>
+        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <source>Default Keyboard Model</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -320,87 +334,90 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="81"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="82"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies instalar esti kernel?
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="83"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Esto instalará los paquetes siguientes:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Instalando&apos;l kernel nuevu</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Desaniciar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>¿De xuru quies desaniciar esti kernel?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Esto desaniciará los paquetes siguientes:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Desaniciando kernel...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Rexistru de cambeos Linux %1.%2</translation>
     </message>
 </context>
 <context>
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>Keyboard Model:</source>
+        <source>&amp;Keyboard Model:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Escribi equí pa comprobar el to tecláu</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="35"/>
+        <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Axustes del tecláu</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="72"/>
+        <location filename="../pages/PageKeyboard.cpp" line="126"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Axustando la triba nueva de tecláu...</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Fallu</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <source>Failed to determine current keyboard layout!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -409,48 +426,48 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="22"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Locales del sistema</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Amestar</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Desaniciar</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="56"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="66"/>
         <source>Locale</source>
-        <translation type="unfinished"/>
+        <translation>Locale</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="71"/>
         <location filename="../pages/PageLanguage.cpp" line="29"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Llingüa</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="76"/>
         <source>Territory</source>
-        <translation type="unfinished"/>
+        <translation>Territoriu</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Llingua&apos;l sistema</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos del sistema</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
@@ -458,38 +475,38 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>¡Fallu!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>¡Fallu al abrir el ficheru &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>¡Fallu al consiguir la cadena locale válida pal locale &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>¡Fallu al afitar la locale!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation type="unfinished"/>
+        <translation>Xenerando ficheru locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>Hint</source>
-        <translation type="unfinished"/>
+        <translation>Conseyu</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Quiciabes tengas de reaniciar l&apos;entronu gráficu p&apos;aplicar los axustes nuevos...</translation>
     </message>
 </context>
 <context>
@@ -554,6 +571,11 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <translation>Afitar automáticamente la data y hora</translation>
     </message>
     <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
         <translation>Camudar fusu horariu</translation>
@@ -561,42 +583,37 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Reló de hardware na zona d&apos;hora llocal</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Hora:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation type="unfinished"/>
+        <translation>Data:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>Reló de hardware:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="148"/>
-        <source>Time &amp;Zone</source>
-        <translation type="unfinished"/>
+        <translation>Hora universal:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Fusu horariu:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>País:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
@@ -616,12 +633,12 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>
         <source>Next transition:</source>
-        <translation type="unfinished"/>
+        <translation>Transición siguiente:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="122"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>un res</translation>
     </message>
 </context>
 <context>
@@ -752,64 +769,64 @@ Controlador propietariu</translation>
         <translation>Forciar reinstalación</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/page_mhwd.cpp" line="105"/>
         <source>Unknown device name</source>
         <translation>Nome del preséu desconocíu</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/page_mhwd.cpp" line="165"/>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Auto Install Configuration</source>
         <translation>Configuración d&apos;instalación automática</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/page_mhwd.cpp" line="166"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
         <translation>¿De xuru quies instalar automáticamente&apos;l
 controlador gráficu llibre?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <location filename="../pages/page_mhwd.cpp" line="170"/>
         <source>Installing open-source graphic driver...</source>
         <translation>Instalando&apos;l controlador gráficu llibre...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/page_mhwd.cpp" line="182"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
         <translation>¿De xuru quies instalar automáticamente&apos;l
 controlador gráficu propietariu?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <location filename="../pages/page_mhwd.cpp" line="186"/>
         <source>Installing proprietary graphic driver...</source>
         <translation>Instalando&apos;l controlador gráficu propietariu...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/page_mhwd.cpp" line="217"/>
         <source>Install Configuration</source>
         <translation>Instalar configuración</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/page_mhwd.cpp" line="218"/>
         <source>Do you really want to install
 %1?</source>
         <translation>¿De xuru quies instalar
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/page_mhwd.cpp" line="222"/>
         <source>Installing driver...</source>
         <translation>Instalando&apos;l controlador...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Remove Configuration</source>
         <translation>Desaniciar configuración</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/page_mhwd.cpp" line="236"/>
         <source>Do you really want to remove
 %1?</source>
         <translation>¿De xuru quies desaniciar
@@ -828,7 +845,7 @@ controlador gráficu propietariu?</translation>
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/page_mhwd.cpp" line="258"/>
         <source>Reinstalling driver...</source>
         <translation>Reinstalando&apos;l controlador...</translation>
     </message>
@@ -972,7 +989,7 @@ controlador gráficu propietariu?</translation>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Amestar llingua</translation>
+        <translation>Amestar locale</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
@@ -997,7 +1014,7 @@ controlador gráficu propietariu?</translation>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
         <source>Locale:</source>
-        <translation>Llingua:</translation>
+        <translation>Locale:</translation>
     </message>
     <message>
         <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
@@ -1014,17 +1031,17 @@ controlador gráficu propietariu?</translation>
     <name>TimeZoneDialog</name>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Time Zone Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>Rexón:</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
-        <source>&amp;Zone:</source>
+        <source>Zone:</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -277,6 +277,20 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
 </context>
 <context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="179"/>
+        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <source>Default Keyboard Model</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -375,7 +389,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>Keyboard Model:</source>
+        <source>&amp;Keyboard Model:</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -384,23 +398,23 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="35"/>
+        <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="72"/>
+        <location filename="../pages/PageKeyboard.cpp" line="126"/>
         <source>Setting new keyboard layout...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <source>Failed to determine current keyboard layout!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -554,6 +568,11 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Установить дату и время автоматически</translation>
     </message>
     <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
         <translation>Сменить часовой пояс</translation>
@@ -581,11 +600,6 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="148"/>
-        <source>Time &amp;Zone</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -752,64 +766,64 @@ Proprietary Driver</source>
         <translation>Принудительная переустановка</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/page_mhwd.cpp" line="105"/>
         <source>Unknown device name</source>
         <translation>Название неизвестного устройства</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/page_mhwd.cpp" line="165"/>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Auto Install Configuration</source>
         <translation>Конфигурация авто установки</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/page_mhwd.cpp" line="166"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
         <translation>Вы действительно хотите автоматически установить
 открытый видео-драйвер?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <location filename="../pages/page_mhwd.cpp" line="170"/>
         <source>Installing open-source graphic driver...</source>
         <translation>Установка открытого видео-драйвера...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/page_mhwd.cpp" line="182"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
         <translation>Вы действительно хотите автоматически установить
 проприетарный видео-драйвер?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <location filename="../pages/page_mhwd.cpp" line="186"/>
         <source>Installing proprietary graphic driver...</source>
         <translation>Установка проприетарного видео-драйвера...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/page_mhwd.cpp" line="217"/>
         <source>Install Configuration</source>
         <translation>Конфигурация установки</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/page_mhwd.cpp" line="218"/>
         <source>Do you really want to install
 %1?</source>
         <translation>Вы действительно хотите установить
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/page_mhwd.cpp" line="222"/>
         <source>Installing driver...</source>
         <translation>Установка драйвера...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Remove Configuration</source>
         <translation>Удаление конфигурации</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/page_mhwd.cpp" line="236"/>
         <source>Do you really want to remove
 %1?</source>
         <translation>Вы действительно хотите удалить
@@ -828,7 +842,7 @@ Proprietary Driver</source>
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/page_mhwd.cpp" line="258"/>
         <source>Reinstalling driver...</source>
         <translation>Переустановка драйвера ...</translation>
     </message>
@@ -1014,7 +1028,7 @@ Proprietary Driver</source>
     <name>TimeZoneDialog</name>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Time Zone Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1024,7 +1038,7 @@ Proprietary Driver</source>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
-        <source>&amp;Zone:</source>
+        <source>Zone:</source>
         <translation type="unfinished"/>
     </message>
 </context>

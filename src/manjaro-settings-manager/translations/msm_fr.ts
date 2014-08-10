@@ -217,7 +217,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -277,6 +277,20 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     </message>
 </context>
 <context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="179"/>
+        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <source>Default Keyboard Model</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -320,87 +334,90 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Noyau</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="81"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Installer Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="82"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment installer ce noyau ?
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="83"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Les paquets suivants vont être installés :
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Installation du nouveau noyau.</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment supprimer ce noyau ?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Les paquets suivants vont être supprimés :
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Suppression du noyau...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog Linux %1.%2</translation>
     </message>
 </context>
 <context>
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>Keyboard Model:</source>
+        <source>&amp;Keyboard Model:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Entrez des caractères ici pour tester votre clavier</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="35"/>
+        <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres clavier</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="72"/>
+        <location filename="../pages/PageKeyboard.cpp" line="126"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Réglage de la nouvelle disposition du clavier...</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <source>Failed to determine current keyboard layout!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -409,48 +426,48 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageLanguage.ui" line="22"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres régionaux du système</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="56"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Restorer</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="66"/>
         <source>Locale</source>
-        <translation type="unfinished"/>
+        <translation>Locale</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="71"/>
         <location filename="../pages/PageLanguage.cpp" line="29"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Langue</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="76"/>
         <source>Territory</source>
-        <translation type="unfinished"/>
+        <translation>Pays</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Langue du système</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formats Système</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
@@ -458,38 +475,38 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Erreur !</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;ouvrir le fichier &apos;%1&apos; !</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible d&apos;obtenir une chaine locale valide pour la locale &apos;%1&apos; !</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de définir le paramètre régionnal !</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation type="unfinished"/>
+        <translation>Génération du fichier locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>Hint</source>
-        <translation type="unfinished"/>
+        <translation>Astuce</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Vous devrez peut-être redémarrer l&apos;environnement graphique pour appliquer les nouveaux paramètres...</translation>
     </message>
 </context>
 <context>
@@ -502,32 +519,32 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageNotifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Vérifier les noyaux non supportés</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Notifier uniquement si un noyau non supporté est utilisé</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Vérifier les nouveaux noyaux</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notifier uniquement si noyaux LTS</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notifier uniquement si noyaux recommandés</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Vérifier l&apos;existence de paquets linguistiques manquants</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="124"/>
@@ -551,52 +568,52 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
+        <translation>Paramétrer l&apos;heure et la date automatiquement</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Changer de fuseau horaire</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Horloge matérielle calée sur le fuseau horaire local</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Heure :</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation type="unfinished"/>
+        <translation>Date :</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>Horloge matérielle :</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="148"/>
-        <source>Time &amp;Zone</source>
-        <translation type="unfinished"/>
+        <translation>Temps universel :</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Fuseau horaire :</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>Pays :</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
@@ -621,7 +638,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="122"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>aucun</translation>
     </message>
 </context>
 <context>
@@ -712,7 +729,8 @@ Pilote open-source</translation>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Installation automatique
+Pilote propriétaire</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
@@ -751,62 +769,64 @@ Proprietary Driver</source>
         <translation>Forcer la réinstallation</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/page_mhwd.cpp" line="105"/>
         <source>Unknown device name</source>
         <translation>Nom du périphérique inconnu</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/page_mhwd.cpp" line="165"/>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Auto Install Configuration</source>
         <translation>Installation automatique du pilote</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/page_mhwd.cpp" line="166"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment installer automatiquement
+le pilote graphique open-source ?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <location filename="../pages/page_mhwd.cpp" line="170"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installation du pilote graphique open-source...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/page_mhwd.cpp" line="182"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous vraiment installer automatiquement
+le pilote graphique propriétaire ?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <location filename="../pages/page_mhwd.cpp" line="186"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installation du pilote propriétaire...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/page_mhwd.cpp" line="217"/>
         <source>Install Configuration</source>
         <translation>Installation du pilote</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/page_mhwd.cpp" line="218"/>
         <source>Do you really want to install
 %1?</source>
         <translation>Voulez-vous vraiment installer
 %1 ?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/page_mhwd.cpp" line="222"/>
         <source>Installing driver...</source>
         <translation>Installation du pilote...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Remove Configuration</source>
         <translation>Désinstaller le pilote</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/page_mhwd.cpp" line="236"/>
         <source>Do you really want to remove
 %1?</source>
         <translation>Voulez-vous vraiment désinstaller
@@ -825,7 +845,7 @@ Proprietary Driver</source>
 %1 ?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/page_mhwd.cpp" line="258"/>
         <source>Reinstalling driver...</source>
         <translation>Réinstallation du pilote...</translation>
     </message>
@@ -1011,17 +1031,17 @@ Proprietary Driver</source>
     <name>TimeZoneDialog</name>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Time Zone Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>Région :</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
-        <source>&amp;Zone:</source>
+        <source>Zone:</source>
         <translation type="unfinished"/>
     </message>
 </context>

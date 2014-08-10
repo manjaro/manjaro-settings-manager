@@ -278,6 +278,20 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     </message>
 </context>
 <context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="179"/>
+        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <source>Default Keyboard Model</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -376,7 +390,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>Keyboard Model:</source>
+        <source>&amp;Keyboard Model:</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -385,23 +399,23 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="35"/>
+        <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="72"/>
+        <location filename="../pages/PageKeyboard.cpp" line="126"/>
         <source>Setting new keyboard layout...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <source>Failed to determine current keyboard layout!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -555,6 +569,11 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <translation>Nastavit datum a čas automaticky</translation>
     </message>
     <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
         <translation>Změnit časové pásmo</translation>
@@ -582,11 +601,6 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="148"/>
-        <source>Time &amp;Zone</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -753,64 +767,64 @@ proprietární ovladač</translation>
         <translation>Vynutit přeinstalaci</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/page_mhwd.cpp" line="105"/>
         <source>Unknown device name</source>
         <translation>Neznámý název zařízení</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/page_mhwd.cpp" line="165"/>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Auto Install Configuration</source>
         <translation>Konfigurace automatické instalace</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/page_mhwd.cpp" line="166"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
         <translation>Opravdu chcete automaticky instalovat
 svobodný ovladač grafické karty?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <location filename="../pages/page_mhwd.cpp" line="170"/>
         <source>Installing open-source graphic driver...</source>
         <translation>Instaluji svobodný ovladač grafické karty...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/page_mhwd.cpp" line="182"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
         <translation>Opravdu chcete automaticky instalovat
 proprietární ovladač grafické karty?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <location filename="../pages/page_mhwd.cpp" line="186"/>
         <source>Installing proprietary graphic driver...</source>
         <translation>Instaluji proprietární ovladač grafické karty...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/page_mhwd.cpp" line="217"/>
         <source>Install Configuration</source>
         <translation>Konfigurace instalace</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/page_mhwd.cpp" line="218"/>
         <source>Do you really want to install
 %1?</source>
         <translation>Opravdu chcete nainstalovat
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/page_mhwd.cpp" line="222"/>
         <source>Installing driver...</source>
         <translation>Instaluji ovladač...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Remove Configuration</source>
         <translation>Smazat konfiguraci</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/page_mhwd.cpp" line="236"/>
         <source>Do you really want to remove
 %1?</source>
         <translation>Opravdu chcete vymazat
@@ -829,7 +843,7 @@ proprietární ovladač grafické karty?</translation>
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/page_mhwd.cpp" line="258"/>
         <source>Reinstalling driver...</source>
         <translation>Probíhá přeinstalace ovladače...</translation>
     </message>
@@ -1017,7 +1031,7 @@ proprietární ovladač grafické karty?</translation>
     <name>TimeZoneDialog</name>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Time Zone Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1027,7 +1041,7 @@ proprietární ovladač grafické karty?</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
-        <source>&amp;Zone:</source>
+        <source>Zone:</source>
         <translation type="unfinished"/>
     </message>
 </context>

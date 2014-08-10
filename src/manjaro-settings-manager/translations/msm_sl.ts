@@ -212,12 +212,12 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Dnevnik sprememb</translation>
     </message>
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -225,54 +225,68 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Priporočeno</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Se izvaja</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Nameščeno</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Nepodprto</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Dnevnik sprememb</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Po meri</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Delovna različica</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="184"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="249"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Install</source>
+        <translation>Namesti</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="179"/>
+        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <source>Default Keyboard Model</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -320,87 +334,90 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Jedro</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="81"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Namesti Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="82"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Ali res želite namesititi to jedro?
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="83"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Nameščeni bodo naslednji paketi:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Nameščanje novega jedra.</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Ali res želite odstraniti to jedro?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Odstranjeni bodo naslednji paketi:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Odstranjevanje jedra ...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 dnevnik sprememb</translation>
     </message>
 </context>
 <context>
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>Keyboard Model:</source>
+        <source>&amp;Keyboard Model:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="128"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tipkajte tukaj za preizkus tipkovnice</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="35"/>
+        <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitve tipkovnice</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="72"/>
+        <location filename="../pages/PageKeyboard.cpp" line="126"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Nastavljanje nove razporeditve tipkovnice ...</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Napaka</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <source>Failed to determine current keyboard layout!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -409,48 +426,48 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../pages/PageLanguage.ui" line="22"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Sistemski jeziki</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="56"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Obnovi</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="66"/>
         <source>Locale</source>
-        <translation type="unfinished"/>
+        <translation>Jezikovna oznaka</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="71"/>
         <location filename="../pages/PageLanguage.cpp" line="29"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Jezik</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="76"/>
         <source>Territory</source>
-        <translation type="unfinished"/>
+        <translation>Področje</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Sistemski jezik</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>Sistemski formati</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
@@ -458,38 +475,38 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Napaka!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Odpiranje datoteke &apos;%1&apos; je spodletelo!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Pridobivanje veljavnega niza za jezikovno oznako &apos;%1&apos; je spodletelo!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Nastavljanje krajevnega jezika spodletelo!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation type="unfinished"/>
+        <translation>Ustvarjanje datoteke locale.gen ...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>Hint</source>
-        <translation type="unfinished"/>
+        <translation>Namig</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Za uveljavitev novih nastavitev bo morda potrebno ponovno zagnati namizno okolje ....</translation>
     </message>
 </context>
 <context>
@@ -497,47 +514,47 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../pages/PageNotifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Obvestila o jedrih</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Preveri nepodprta jedra</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Obvesti le, če se poganja nepodprto jedro</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Preveri za nova jedra</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Obvesti le za jedra z dolgoročno podporo</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Obvesti le za priporočena jedra</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Preveri manjkajoče jezikovne pakete</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Obvestila o jezikovnih paketih</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.cpp" line="31"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Obvestila</translation>
     </message>
 </context>
 <context>
@@ -546,82 +563,82 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
         <location filename="../pages/PageTimeDate.ui" line="20"/>
         <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Čas in datum</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
+        <translation>Samodejno nastavi čas in datum</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Spremeni časovni pas</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Strojna ura v lokalnem časovnem pasu</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Čas:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation type="unfinished"/>
+        <translation>Datum:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>Strojna ura:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="148"/>
-        <source>Time &amp;Zone</source>
-        <translation type="unfinished"/>
+        <translation>Univerzalni čas:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Časovni pas:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>Država:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Ali ima poletni čas?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="232"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Ali je poletni čas?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="239"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>Ali ima prehode?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>
         <source>Next transition:</source>
-        <translation type="unfinished"/>
+        <translation>Naslednji prehod:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="122"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>brez</translation>
     </message>
 </context>
 <context>
@@ -705,18 +722,20 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Samodejno namesti
+Odprtokodni gonilnik</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Samodejno namesti
+Lastniški gonilnik</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Odprtokoden</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="77"/>
@@ -750,62 +769,64 @@ Proprietary Driver</source>
         <translation>Prisili ponovno namestitev</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/page_mhwd.cpp" line="105"/>
         <source>Unknown device name</source>
         <translation>Neznano ime naprave</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/page_mhwd.cpp" line="165"/>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Auto Install Configuration</source>
         <translation>Samodejna namestitev nastavitev</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/page_mhwd.cpp" line="166"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Ali res želite samodejno namestiti
+odprtokodni grafični gonilnik?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <location filename="../pages/page_mhwd.cpp" line="170"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Nameščanje odprtokodnega grafičnega gonilnika ...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/page_mhwd.cpp" line="182"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Ali res želite samodejno namestiti
+lastniški grafični gonilnik?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <location filename="../pages/page_mhwd.cpp" line="186"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Nameščanje lastniškega grafičnega gonilnika ...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/page_mhwd.cpp" line="217"/>
         <source>Install Configuration</source>
         <translation>Namestitev nastavitev</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/page_mhwd.cpp" line="218"/>
         <source>Do you really want to install
 %1?</source>
         <translation>Ali res želite namestiti
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/page_mhwd.cpp" line="222"/>
         <source>Installing driver...</source>
         <translation>Nameščanje gonilnika ...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Remove Configuration</source>
         <translation>Odstrani nastavitve</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/page_mhwd.cpp" line="236"/>
         <source>Do you really want to remove
 %1?</source>
         <translation>Ali res želite odstraniti
@@ -824,7 +845,7 @@ Proprietary Driver</source>
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/page_mhwd.cpp" line="258"/>
         <source>Reinstalling driver...</source>
         <translation>Ponovno nameščanje gonilnika ...</translation>
     </message>
@@ -1010,17 +1031,17 @@ Proprietary Driver</source>
     <name>TimeZoneDialog</name>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Time Zone Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>Regija:</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
-        <source>&amp;Zone:</source>
+        <source>Zone:</source>
         <translation type="unfinished"/>
     </message>
 </context>

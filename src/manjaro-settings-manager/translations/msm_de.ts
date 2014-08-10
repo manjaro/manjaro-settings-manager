@@ -277,6 +277,20 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     </message>
 </context>
 <context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="179"/>
+        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <source>Default</source>
+        <translation>Vorgegeben</translation>
+    </message>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <source>Default Keyboard Model</source>
+        <translation>Vorgegebenes Tastaturmodel</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -378,8 +392,8 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <name>PageKeyboard</name>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
-        <source>Keyboard Model:</source>
-        <translation>Tastaturmodel:</translation>
+        <source>&amp;Keyboard Model:</source>
+        <translation>&amp;Tastaturmodel:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="128"/>
@@ -387,24 +401,24 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>Tippen Sie hier um Ihre Tastatur zu testen</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="35"/>
+        <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
         <translation>Tastatureinstellungen</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="72"/>
+        <location filename="../pages/PageKeyboard.cpp" line="126"/>
         <source>Setting new keyboard layout...</source>
         <translation>Wählen Sie Ihr Tastaturlayout aus ...</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="95"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Konnte aktuelles Xorg Tastaturlayout nicht herausfinden!</translation>
+        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <source>Failed to determine current keyboard layout!</source>
+        <translation>Konnte das aktuelle Tastaturlayout nicht herausfinden!</translation>
     </message>
 </context>
 <context>
@@ -557,6 +571,11 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <translation>Setze Datum und Uhrzeit automatisch</translation>
     </message>
     <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
+        <translation>Zeitzone</translation>
+    </message>
+    <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
         <translation>Ändere Zeitzone</translation>
@@ -585,11 +604,6 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
         <translation>Universal-Zeit:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.ui" line="148"/>
-        <source>Time &amp;Zone</source>
-        <translation>&amp;Zeitzone</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
@@ -755,64 +769,64 @@ Unfreier Treiber</translation>
         <translation>Forciere Neuinstallation</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/page_mhwd.cpp" line="105"/>
         <source>Unknown device name</source>
         <translation>Unbekannter Gerätename</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/page_mhwd.cpp" line="165"/>
+        <location filename="../pages/page_mhwd.cpp" line="181"/>
         <source>Auto Install Configuration</source>
         <translation>Autom. Installationskonfiguration</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/page_mhwd.cpp" line="166"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
         <translation>Wollen Sie wirklich den freien 
 Treiber automatisch installieren?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
+        <location filename="../pages/page_mhwd.cpp" line="170"/>
         <source>Installing open-source graphic driver...</source>
         <translation>Installiere freien Grafik-Treiber ...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/page_mhwd.cpp" line="182"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
         <translation>Wollen Sie wirklich den unfreien 
 Treiber automatisch installieren?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <location filename="../pages/page_mhwd.cpp" line="186"/>
         <source>Installing proprietary graphic driver...</source>
         <translation>Installiere unfreien Grafik-Treiber ...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/page_mhwd.cpp" line="217"/>
         <source>Install Configuration</source>
         <translation>Installationskonfiguration</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/page_mhwd.cpp" line="218"/>
         <source>Do you really want to install
 %1?</source>
         <translation>Wollen Sie wirklich
 %1 installieren?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/page_mhwd.cpp" line="222"/>
         <source>Installing driver...</source>
         <translation>Installiere Treiber ...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/page_mhwd.cpp" line="235"/>
         <source>Remove Configuration</source>
         <translation>Entferne Konfiguration</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/page_mhwd.cpp" line="236"/>
         <source>Do you really want to remove
 %1?</source>
         <translation>Wollen Sie wirklich
@@ -831,7 +845,7 @@ Treiber automatisch installieren?</translation>
 %1 forcieren?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/page_mhwd.cpp" line="258"/>
         <source>Reinstalling driver...</source>
         <translation>Installiere Treiber neu ...</translation>
     </message>
@@ -1017,8 +1031,8 @@ Treiber automatisch installieren?</translation>
     <name>TimeZoneDialog</name>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
+        <source>Time Zone Selection</source>
+        <translation>Zeitzonen-Auswahl</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
@@ -1027,8 +1041,8 @@ Treiber automatisch installieren?</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
-        <source>&amp;Zone:</source>
-        <translation>&amp;Zone:</translation>
+        <source>Zone:</source>
+        <translation>Zone:</translation>
     </message>
 </context>
 </TS>
