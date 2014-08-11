@@ -393,7 +393,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>鍵盤模式：</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>

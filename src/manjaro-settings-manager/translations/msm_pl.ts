@@ -282,12 +282,12 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <location filename="../models/KeyboardModel.cpp" line="179"/>
         <location filename="../models/KeyboardModel.cpp" line="217"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Domyślnie</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="255"/>
         <source>Default Keyboard Model</source>
-        <translation type="unfinished"/>
+        <translation>Domyślny model klawiatury</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>Model klawiatury:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>
@@ -418,7 +418,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Failed to determine current keyboard layout!</source>
-        <translation type="unfinished"/>
+        <translation>Wystąpił błąd podczas ustalania obecnego układu klawiatury!</translation>
     </message>
 </context>
 <context>
@@ -573,27 +573,27 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Strefa czasowa</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation>Zmień Strefę Czasową</translation>
+        <translation>Zmień strefę czasową</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation>Czas zegara czasu rzeczywistego w lokalnej strefie czasowej</translation>
+        <translation>Zegar czasu rzeczywistego w lokalnej strefie czasowej</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation>Czas</translation>
+        <translation>Czas:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation>Data</translation>
+        <translation>Data:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
@@ -618,12 +618,12 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
         <source>Has daylight time?</source>
-        <translation>Ustawiono Czas Letni?</translation>
+        <translation>Ustawiono czas letni?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="232"/>
         <source>Is daylight time?</source>
-        <translation>Jest to Czas Letni?</translation>
+        <translation>Jest to czas letni?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="239"/>
@@ -1032,7 +1032,7 @@ własnościowy sterownik graficzny?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>Wyrób strefy czasowej</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
@@ -1042,7 +1042,7 @@ własnościowy sterownik graficzny?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>Strefa:</translation>
     </message>
 </context>
 </TS>

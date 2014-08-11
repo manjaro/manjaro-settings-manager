@@ -403,17 +403,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="126"/>
+        <location filename="../pages/PageKeyboard.cpp" line="130"/>
         <source>Setting new keyboard layout...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <location filename="../pages/PageKeyboard.cpp" line="147"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="143"/>
+        <location filename="../pages/PageKeyboard.cpp" line="147"/>
         <source>Failed to determine current keyboard layout!</source>
         <translation type="unfinished"></translation>
     </message>
