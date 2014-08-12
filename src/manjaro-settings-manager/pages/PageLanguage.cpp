@@ -21,6 +21,8 @@
 #include "PageLanguage.h"
 #include "ui_PageLanguage.h"
 
+#include <QtDBus/QDBusInterface>
+
 PageLanguage::PageLanguage(QWidget *parent) :
     PageWidget(parent),
     ui(new Ui::PageLanguage)
@@ -166,10 +168,9 @@ void PageLanguage::apply_clicked() {
     out << content.join("\n");
     file.close();
 
-    // Modify /etc/locale.conf using localectl
+    /* Modify /etc/locale.conf using systemd-localed */
     QStringList localeList;
-    localeList << QString("set-locale")
-               << QString("LANG=%1").arg(systemLocale)
+    localeList << QString("LANG=%1").arg(systemLocale)
                << QString("LANGUAGE=%1").arg(systemLocale)
                << QString("LC_CTYPE=%1").arg(systemLocale)
                << QString("LC_NUMERIC=%1").arg(systemFormats)
@@ -184,14 +185,22 @@ void PageLanguage::apply_clicked() {
                << QString("LC_MEASUREMENT=%1").arg(systemFormats)
                << QString("LC_IDENTIFICATION=%1").arg(systemFormats);
 
-    QString errorMessage;
-    if (Global::runProcess("localectl",
-                           localeList,
-                           QStringList(),
-                           errorMessage) != 0)
-        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set locale!") + "\n" + errorMessage), QMessageBox::Ok, QMessageBox::Ok);
+    QDBusInterface dbusInterface("org.freedesktop.locale1",
+                                 "/org/freedesktop/locale1",
+                                 "org.freedesktop.locale1",
+                                 QDBusConnection::systemBus());
+    /*
+     * asb
+     * array_string -> locale
+     * boolean -> arg_ask_password
+     */
+    QDBusMessage reply;
+    reply = dbusInterface.call("SetLocale", localeList, true);
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set locale!") + "\n" + reply.errorMessage()), QMessageBox::Ok, QMessageBox::Ok);
+    }
 
-
+    /* Generate new locales */
     ApplyDialog dialog(this);
     dialog.exec("locale-gen", QStringList(), tr("Generating locale.gen file..."), false);
 
