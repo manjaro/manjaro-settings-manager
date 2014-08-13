@@ -32,7 +32,8 @@
 PageKeyboard::PageKeyboard(QWidget *parent) :
     PageWidget(parent),
     ui(new Ui::PageKeyboard),
-    keyboardModel(new KeyboardModel)
+    keyboardModel_(new KeyboardModel),
+    keyboardProxyModel_(new QSortFilterProxyModel)
 {
     ui->setupUi(this);
     setTitel(tr("Keyboard Settings"));
@@ -50,57 +51,36 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
     connect(ui->variantsListView, &QListView::activated,
             this, &PageKeyboard::keyboardVariantListViewActivated);
 
-    QSortFilterProxyModel *keyboardProxyModel = new QSortFilterProxyModel(this);
-    keyboardProxyModel->setSourceModel(keyboardModel);
-    keyboardProxyModel->setSortRole(KeyboardModel::DescriptionRole);
-    keyboardProxyModel->sort(1, Qt::AscendingOrder);
+    keyboardProxyModel_->setSourceModel(keyboardModel_);
+    keyboardProxyModel_->setSortRole(KeyboardModel::DescriptionRole);
+    keyboardProxyModel_->sort(1, Qt::AscendingOrder);
 
-    /* Set model, root index and default selection to the layout and variants lists */
-    ui->layoutsListView->setModel(keyboardProxyModel);
+    /* Set model and root index to the layout and variants lists */
+    ui->layoutsListView->setModel(keyboardProxyModel_);
     ui->layoutsListView->setModelColumn(1);
-    ui->variantsListView->setModel(keyboardProxyModel);
+    ui->variantsListView->setModel(keyboardProxyModel_);
     ui->variantsListView->setModelColumn(1);
     /* Find root layout index and set it in the layoutsRootView */
-    QModelIndexList layoutsRootList = keyboardProxyModel->match(keyboardProxyModel->index(0,0),
+    QModelIndexList layoutsRootList = keyboardProxyModel_->match(keyboardProxyModel_->index(0,0),
                                                                 KeyboardModel::KeyRole,
                                                                 "layouts",
                                                                 Qt::MatchFixedString);
     if (layoutsRootList.size() == 1) {
         QModelIndex layoutsRoot = layoutsRootList.first();
         ui->layoutsListView->setRootIndex(layoutsRoot);
-        QModelIndexList defaultLayoutList = keyboardProxyModel->match(layoutsRoot.child(0,0),
-                                                                      KeyboardModel::KeyRole,
-                                                                      "us", Qt::MatchFixedString);
-        if (defaultLayoutList.size() == 1) {
-            QModelIndex defaultLayout = defaultLayoutList.first();
-            defaultLayout = keyboardProxyModel->index(defaultLayout.row(), 1, defaultLayout.parent());
-            ui->layoutsListView->setCurrentIndex(defaultLayout);
-            emit(ui->layoutsListView->activated(defaultLayout));
-        } else {
-            qDebug() << "Can't find default layout 'us'";
-        }
     } else {
         qDebug() << "Can't find layout root index";
     }
 
-    /* Set model, root index and default selection to the model combo box */
-    ui->modelComboBox->setModel(keyboardProxyModel);
+    /* Set model and root index to the model combo box */
+    ui->modelComboBox->setModel(keyboardProxyModel_);
     ui->modelComboBox->setModelColumn(1);
-    QModelIndexList modelsRootList = keyboardProxyModel->match(keyboardProxyModel->index(0,0),
+    QModelIndexList modelsRootList = keyboardProxyModel_->match(keyboardProxyModel_->index(0,0),
                                                        KeyboardModel::KeyRole,
                                                        "models", Qt::MatchFixedString);
     if (modelsRootList.size() == 1) {
         QModelIndex modelsRoot = modelsRootList.first();
         ui->modelComboBox->setRootModelIndex(modelsRoot);
-        QModelIndexList defaultModelList = keyboardProxyModel->match(modelsRoot.child(0,0),
-                                                            KeyboardModel::KeyRole,
-                                                            "pc105", Qt::MatchFixedString);
-        if (defaultModelList.size() == 1) {
-            QModelIndex defaultModel = defaultModelList.first();
-            ui->modelComboBox->setCurrentIndex(defaultModel.row());
-        } else {
-            qDebug() << "Can't find default model 'pc105'";
-        }
     } else {
         qDebug() << "Can't find model root index";
     }
@@ -143,54 +123,61 @@ void PageKeyboard::activated() {
     QString currentVariant;
     QString currentModel;
 
-    if (!keyboardModel->getCurrentKeyboardLayout(currentLayout, currentVariant, currentModel)) {
+    if (!keyboardModel_->getCurrentKeyboardLayout(currentLayout, currentVariant, currentModel)) {
         QMessageBox::warning(this, tr("Error"), tr("Failed to determine current keyboard layout!"), QMessageBox::Ok, QMessageBox::Ok);
     }
 
-    /* Select current layout in the view */
-    QModelIndexList layoutIndexList = ui->layoutsListView->model()->match(ui->layoutsListView->rootIndex().child(0,0),
-                                                                          KeyboardModel::KeyRole,
-                                                                          currentLayout,
-                                                                          Qt::MatchFixedString);
+    /* Select current layout or default in the view */
+    if (currentLayout.isEmpty()) {
+        currentLayout = "us";
+    }
+    QModelIndexList layoutIndexList = keyboardProxyModel_->match(ui->layoutsListView->rootIndex().child(0,0),
+                                                                 KeyboardModel::KeyRole,
+                                                                 currentLayout,
+                                                                 Qt::MatchFixedString);
 
     if (layoutIndexList.size() == 1) {
         QModelIndex layoutIndex = layoutIndexList.first();
-        layoutIndex = ui->layoutsListView->model()->index(layoutIndex.row(), 1, layoutIndex.parent());
+        QModelIndex variantRootIndex;
+        layoutIndex = keyboardProxyModel_->index(layoutIndex.row(), 1, layoutIndex.parent());
+        variantRootIndex = keyboardProxyModel_->index(layoutIndex.row(), 0, layoutIndex.parent());
         ui->layoutsListView->setCurrentIndex(layoutIndex);
-        emit(ui->layoutsListView->activated(layoutIndex));
+        ui->variantsListView->setRootIndex(variantRootIndex);
     } else {
         qDebug() << "Can't find the current layout in the model";
     }
 
-    /* Select current layout in the view */
-    if (!currentVariant.isEmpty()) {
-        QModelIndexList variantIndexList = ui->layoutsListView->model()->match(ui->variantsListView->rootIndex().child(0,0),
-                                                            KeyboardModel::KeyRole,
-                                                            currentVariant,
-                                                            Qt::MatchFixedString);
-        if (variantIndexList.size() == 1) {
-            QModelIndex variantIndex = variantIndexList.first();
-            variantIndex = ui->layoutsListView->model()->index(variantIndex.row(), 1, variantIndex.parent());
-            ui->variantsListView->setCurrentIndex(variantIndex);
-            emit(ui->variantsListView->activated(variantIndex));
-        } else {
-            qDebug() << "Can't find the current variant in the model";
-        }
+    /* Select current layout or default in the view */
+    if (currentVariant.isEmpty()) {
+        currentVariant = "default";
+    }
+    QModelIndexList variantIndexList = keyboardProxyModel_->match(ui->variantsListView->rootIndex().child(0,0),
+                                                                  KeyboardModel::KeyRole,
+                                                                  currentVariant,
+                                                                  Qt::MatchFixedString);
+    if (variantIndexList.size() == 1) {
+        QModelIndex variantIndex = variantIndexList.first();
+        variantIndex = ui->layoutsListView->model()->index(variantIndex.row(), 1, variantIndex.parent());
+        ui->variantsListView->setCurrentIndex(variantIndex);
+        emit(ui->variantsListView->activated(variantIndex));
+    } else {
+        qDebug() << "Can't find the current variant in the model";
     }
 
-    /* Select current model in the combo box */
-    if (!currentModel.isEmpty()) {
-        QModelIndexList modelIndexList = ui->modelComboBox->model()->match(ui->modelComboBox->rootModelIndex().child(0,0),
-                                                            KeyboardModel::KeyRole,
-                                                            currentModel,
-                                                            Qt::MatchFixedString);
-        if (modelIndexList.size() == 1) {
-            QModelIndex modelIndex = modelIndexList.first();
-            modelIndex = ui->modelComboBox->model()->index(modelIndex.row(), 1, modelIndex.parent());
-            ui->modelComboBox->setCurrentIndex(modelIndex.row());
-        } else {
-            qDebug() << "Can't find the current keyboard model in the model";
-        }
+    /* Select current model or default in the combo box */
+    if (currentModel.isEmpty()) {
+        currentModel = "pc105";
+    }
+    QModelIndexList modelIndexList = keyboardProxyModel_->match(ui->modelComboBox->rootModelIndex().child(0,0),
+                                                                KeyboardModel::KeyRole,
+                                                                currentModel,
+                                                                Qt::MatchFixedString);
+    if (modelIndexList.size() == 1) {
+        QModelIndex modelIndex = modelIndexList.first();
+        modelIndex = ui->modelComboBox->model()->index(modelIndex.row(), 1, modelIndex.parent());
+        ui->modelComboBox->setCurrentIndex(modelIndex.row());
+    } else {
+        qDebug() << "Can't find the current keyboard model in the model";
     }
 }
 
@@ -200,13 +187,13 @@ void PageKeyboard::activated() {
  */
 
 void PageKeyboard::buttonRestore_clicked() {
-    QModelIndexList modelIndexList = ui->modelComboBox->model()->match(ui->modelComboBox->rootModelIndex().child(0,0),
-                                                        KeyboardModel::KeyRole,
-                                                        "pc105",
-                                                        Qt::MatchFixedString);
+    QModelIndexList modelIndexList = keyboardProxyModel_->match(ui->modelComboBox->rootModelIndex().child(0,0),
+                                                                KeyboardModel::KeyRole,
+                                                                "pc105",
+                                                                Qt::MatchFixedString);
     if (modelIndexList.size() == 1) {
         QModelIndex modelIndex = modelIndexList.first();
-        modelIndex = ui->modelComboBox->model()->index(modelIndex.row(), 1, modelIndex.parent());
+        modelIndex = keyboardProxyModel_->index(modelIndex.row(), 1, modelIndex.parent());
         ui->modelComboBox->setCurrentIndex(modelIndex.row());
     } else {
         qDebug() << "Can't find the current keyboard model in the model";
