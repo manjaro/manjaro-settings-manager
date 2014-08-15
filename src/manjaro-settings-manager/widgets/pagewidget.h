@@ -30,6 +30,13 @@ class PageWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum MessageType {
+        Success = Qt::UserRole + 1,
+        Info,
+        Warning,
+        Error
+    };
+
     explicit PageWidget(QWidget *parent = 0);
 
     QPixmap getIcon();
@@ -43,6 +50,7 @@ public:
 signals:
     void setApplyEnabled(PageWidget *page, bool enabled);
     void closePage(PageWidget *page);
+    void showMessage(PageWidget *page, QString message, PageWidget::MessageType type);
 
 protected:
     void setTitel(QString titel);
