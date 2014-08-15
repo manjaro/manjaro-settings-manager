@@ -282,12 +282,12 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../models/KeyboardModel.cpp" line="179"/>
         <location filename="../models/KeyboardModel.cpp" line="217"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Predeterminado</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="255"/>
         <source>Default Keyboard Model</source>
-        <translation type="unfinished"/>
+        <translation>Modelo de teclado predeterminado</translation>
     </message>
 </context>
 <context>
@@ -352,18 +352,18 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../pages/PageKernel.cpp" line="83"/>
         <source>This will install the following packages:
 </source>
-        <translation>Se instalarán los siguientes paquetes
+        <translation>Se instalarán los paquetes siguientes:
 </translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation>Instalando nuevo kernel</translation>
+        <translation>Instalando el núcleo nuevo.</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation>Eliminar Linux %1</translation>
+        <translation>Desinstalar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
@@ -374,18 +374,18 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation>Se eliminarán los siguientes paquetes
+        <translation>Se desinstalarán los paquetes siguientes:
 </translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation>Desinstalando kernel</translation>
+        <translation>Desinstalando el núcleo…</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 historial de cambios</translation>
+        <translation>Registro de cambios de Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>Modelo del teclado:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>
@@ -418,7 +418,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Failed to determine current keyboard layout!</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo determinar la disposición de teclado actual.</translation>
     </message>
 </context>
 <context>
@@ -475,7 +475,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Error!</source>
-        <translation>Error!</translation>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
@@ -524,7 +524,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/PageNotifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation>Sólo notifica si ejecuta un kernel sin soporte</translation>
+        <translation>Notificar solo si se ejecuta un núcleo sin asistencia técnica</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="60"/>
@@ -534,12 +534,12 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/PageNotifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation>Sólo notifica kernels LTS</translation>
+        <translation>Notificar solo de núcleos LTS</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation>Sólo notifica kernels recomendados</translation>
+        <translation>Notificar solo de núcleos recomendados</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="130"/>
@@ -568,22 +568,22 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>Establecer la fecha y la hora automáticamente</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Huso horario</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar el huso horario</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Reloj de hardware en el huso horario local</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
@@ -598,47 +598,47 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>Reloj de hardware:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
+        <translation>Hora universal:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Huso horario:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>País:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>¿Tiene horario de verano?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="232"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>¿El horario de verano está en curso?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="239"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>¿Tiene transiciones?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>
         <source>Next transition:</source>
-        <translation type="unfinished"/>
+        <translation>Próxima transición:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="122"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>ninguna</translation>
     </message>
 </context>
 <context>
@@ -1032,7 +1032,7 @@ el controlador privativo?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>Selección de huso horario</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
@@ -1042,7 +1042,7 @@ el controlador privativo?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>Huso:</translation>
     </message>
 </context>
 </TS>

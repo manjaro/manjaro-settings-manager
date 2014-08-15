@@ -927,7 +927,7 @@ własnościowy sterownik graficzny?</translation>
     <message>
         <location filename="../pages/page_users.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Utworzenie linku z &apos;%1&apos; do &apos;%2&apos; nie powiodło się!</translation>
+        <translation>Utworzenie symbolicznego odnośnika z &apos;%1&apos; do &apos;%2&apos; nie powiodło się!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="207"/>
@@ -1032,7 +1032,7 @@ własnościowy sterownik graficzny?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation>Wyrób strefy czasowej</translation>
+        <translation>Wybór strefy czasowej</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>

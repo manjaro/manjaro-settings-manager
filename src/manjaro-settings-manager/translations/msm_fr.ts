@@ -441,7 +441,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageLanguage.ui" line="56"/>
         <source>Restore</source>
-        <translation>Restorer</translation>
+        <translation>Restaurer</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="66"/>
@@ -628,7 +628,8 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageTimeDate.ui" line="239"/>
         <source>Has transitions?</source>
-        <translation>Changements d&apos;heure actifs ?</translation>
+        <translation>Changements d&apos;heure
+actifs ?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>

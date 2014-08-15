@@ -282,12 +282,12 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <location filename="../models/KeyboardModel.cpp" line="179"/>
         <location filename="../models/KeyboardModel.cpp" line="217"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Por defeutu</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="255"/>
         <source>Default Keyboard Model</source>
-        <translation type="unfinished"/>
+        <translation>Modelu del tecláu por defeutu</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>Modelu del tecláu:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>
@@ -418,7 +418,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Failed to determine current keyboard layout!</source>
-        <translation type="unfinished"/>
+        <translation>¡Fallu al determinar la triba de tecláu d&apos;anguaño!</translation>
     </message>
 </context>
 <context>
@@ -573,7 +573,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Fusu horariu</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
@@ -1032,7 +1032,7 @@ controlador gráficu propietariu?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>Esbilla del fusu horariu</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
@@ -1042,7 +1042,7 @@ controlador gráficu propietariu?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zona:</translation>
     </message>
 </context>
 </TS>
