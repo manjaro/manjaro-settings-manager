@@ -9,7 +9,7 @@
 KeyboardModel::KeyboardModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    rootItem_ = new KeyboardItem(QString("Key"), QString("Description"));
+    rootItem_ = new KeyboardItem(QString("key"), QString("description"));
     init(rootItem_);
 }
 
@@ -149,7 +149,7 @@ void KeyboardModel::init(KeyboardItem *parent)
     }
 
     /* Root item for layouts */
-    KeyboardItem *layoutsRoot = new KeyboardItem("layouts", "Root item for keyboard layouts", parent);
+    KeyboardItem *layoutsRoot = new KeyboardItem("layouts", "keyboard layouts", parent);
     parent->appendChild(layoutsRoot);
 
     /* Get Layouts */
@@ -226,7 +226,7 @@ void KeyboardModel::init(KeyboardItem *parent)
 
 
     /* Root item for models */
-    KeyboardItem *modelsRoot = new KeyboardItem("models", "Root item for keyboard models", parent);
+    KeyboardItem *modelsRoot = new KeyboardItem("models", "keyboard models", parent);
     parent->appendChild(modelsRoot);
 
     /* Get models */
