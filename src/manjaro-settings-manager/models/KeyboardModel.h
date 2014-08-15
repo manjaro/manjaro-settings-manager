@@ -1,5 +1,5 @@
 #ifndef KEYBOARDMODEL_H
-#define KEYBOARDMODEL__H
+#define KEYBOARDMODEL_H
 
 #include "models/KeyboardItem.h"
 
