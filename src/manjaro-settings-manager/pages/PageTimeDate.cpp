@@ -41,7 +41,7 @@ PageTimeDate::PageTimeDate(QWidget *parent) :
 
     connect(ui->timeEdit, &QTimeEdit::timeChanged, this, &PageTimeDate::timeEdited);
     connect(ui->dateEdit, &QTimeEdit::dateChanged, this, &PageTimeDate::dateEdited);
-    connect(ui->isNtpEnabledCheckBox, &QCheckBox::clicked, this, &PageTimeDate::isNtpEnabledClicked);
+    connect(ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &PageTimeDate::isNtpEnabledToggled);
     connect(ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked);
 }
 
@@ -58,7 +58,6 @@ void PageTimeDate::activated()
     timeZone_ = timeDate->timeZone();
     updateFields();
     updateTimeFields();
-    isNtpEnabledClicked();
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &PageTimeDate::updateTimeFields);
     timer->start(1000);
@@ -149,7 +148,7 @@ void PageTimeDate::dateEdited()
     isDateEdited_ = true;
 }
 
-void PageTimeDate::isNtpEnabledClicked()
+void PageTimeDate::isNtpEnabledToggled()
 {
     if (ui->isNtpEnabledCheckBox->isChecked()) {
         ui->timeEdit->setEnabled(false);

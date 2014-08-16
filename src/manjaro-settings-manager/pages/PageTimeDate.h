@@ -43,7 +43,7 @@ public slots:
     void updateTimeFields();
     void timeEdited();
     void dateEdited();
-    void isNtpEnabledClicked();
+    void isNtpEnabledToggled();
     void timeZoneClicked();
 
 private:
