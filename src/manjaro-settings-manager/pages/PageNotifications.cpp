@@ -32,8 +32,10 @@ PageNotifications::PageNotifications(QWidget *parent) :
     setIcon(QPixmap(":/images/resources/notifications.png"));
     setShowApplyButton(true);
 
-    connect(ui->checkUnsupportedKernelBox, SIGNAL(stateChanged(int)), this, SLOT(unsupportedKernelStateBoxChanged(int)));
-    connect(ui->checkNewKernelBox, SIGNAL(stateChanged(int)), this, SLOT(newKernelStateBoxChanged(int)));
+    connect(ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
+            this, &PageNotifications::unsupportedKernelStateBoxChanged);
+    connect(ui->checkNewKernelBox, &QCheckBox::stateChanged,
+            this, &PageNotifications::newKernelStateBoxChanged);
 }
 
 PageNotifications::~PageNotifications()
@@ -62,8 +64,9 @@ void PageNotifications::activated()
     ui->checkNewKernelLtsBox->setChecked(checkNewKernelLts);
     ui->checkNewKernelRecommendedBox->setChecked(checkNewKernelRecommended);
 
-    if(!checkUnsupportedKernel)
+    if(!checkUnsupportedKernel) {
         ui->checkUnsupportedKernelRunningBox->setEnabled(false);
+    }
     if(!checkNewKernel) {
         ui->checkNewKernelLtsBox->setEnabled(false);
         ui->checkNewKernelRecommendedBox->setEnabled(false);
@@ -95,11 +98,15 @@ void PageNotifications::apply_clicked()
 /***********
  * PROTECTED SLOTS
  **********/
-void PageNotifications::unsupportedKernelStateBoxChanged(int checkState) {
+void PageNotifications::unsupportedKernelStateBoxChanged(int checkState)
+{
     switch (checkState) {
-        case Qt::Unchecked : ui->checkUnsupportedKernelRunningBox->setEnabled(false);
-                             break;
-        case Qt::Checked   : ui->checkUnsupportedKernelRunningBox->setEnabled(true);
+    case Qt::Unchecked :
+        ui->checkUnsupportedKernelRunningBox->setEnabled(false);
+        break;
+    case Qt::Checked   :
+        ui->checkUnsupportedKernelRunningBox->setEnabled(true);
+        break;
     }
 }
 
@@ -107,10 +114,12 @@ void PageNotifications::unsupportedKernelStateBoxChanged(int checkState) {
 void PageNotifications::newKernelStateBoxChanged(int checkState)
 {
     switch (checkState) {
-        case Qt::Unchecked : ui->checkNewKernelLtsBox->setEnabled(false);
-                             ui->checkNewKernelRecommendedBox->setEnabled(false);
-                             break;
-        case Qt::Checked   : ui->checkNewKernelLtsBox->setEnabled(true);
-                             ui->checkNewKernelRecommendedBox->setEnabled(true);
+    case Qt::Unchecked :
+        ui->checkNewKernelLtsBox->setEnabled(false);
+        ui->checkNewKernelRecommendedBox->setEnabled(false);
+        break;
+    case Qt::Checked   :
+        ui->checkNewKernelLtsBox->setEnabled(true);
+        ui->checkNewKernelRecommendedBox->setEnabled(true);
     }
 }

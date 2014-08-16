@@ -55,13 +55,17 @@ MainWindow::MainWindow(QWidget *parent) :
     addPageWidget(pageKeyboard);
     addPageWidget(page_MHWD);
 
-
     // Connect signals and slots
-    connect(ui->buttonQuit, SIGNAL(clicked())   ,   qApp, SLOT(closeAllWindows()));
-    connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*))   ,   this, SLOT(listWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->buttonAllSettings, SIGNAL(clicked())    ,   this, SLOT(buttonShowAllSettings_clicked()));
-    connect(ui->buttonApply, SIGNAL(clicked())  ,   this, SLOT(buttonApply_clicked()));
-    connect(&messageTimer_, SIGNAL(timeout()), this, SLOT(hideMessage()));
+    connect(ui->buttonQuit, &QPushButton::clicked,
+            qApp, &qApp->closeAllWindows);
+    connect(ui->listWidget, &ListWidget::itemClicked,
+            this, &MainWindow::listWidget_itemClicked);
+    connect(ui->buttonAllSettings, &QPushButton::clicked,
+            this, &MainWindow::buttonShowAllSettings_clicked);
+    connect(ui->buttonApply, &QPushButton::clicked,
+            this, &MainWindow::buttonApply_clicked);
+    connect(&messageTimer_, &QTimer::timeout,
+            this, &MainWindow::hideMessage);
 
     // Check passed application arguments
     checkAppArguments();
@@ -157,9 +161,12 @@ void MainWindow::addPageWidget(PageWidget &page)
     // Add to stacked widget
     ui->stackedWidget->addWidget(&page);
 
-    connect(&page, SIGNAL(setApplyEnabled(PageWidget*, bool))    ,   this, SLOT(setApplyEnabled(PageWidget*, bool)));
-    connect(&page, SIGNAL(closePage(PageWidget*))  ,   this, SLOT(closePageRequested(PageWidget*)));
-    connect(&page, SIGNAL(showMessage(PageWidget*, QString, PageWidget::MessageType))  ,   this, SLOT(showMessage(PageWidget*, QString, PageWidget::MessageType)));
+    connect(&page, &PageWidget::setApplyEnabled,
+            this, &MainWindow::setApplyEnabled);
+    connect(&page, &PageWidget::closePage,
+            this, &MainWindow::closePageRequested);
+    connect(&page, &PageWidget::showMessage,
+            this, &MainWindow::showMessage);
 }
 
 
@@ -344,7 +351,8 @@ void MainWindow::hideMessage()
         animation->setStartValue(1);
         animation->setEndValue(0.01);
         animation->start(QPropertyAnimation::DeleteWhenStopped);
-        connect(animation, SIGNAL(finished()), ui->messageFrame, SLOT(hide()));
+        connect(animation, &QPropertyAnimation::finished,
+                ui->messageFrame, &QFrame::hide);
     }
 }
 

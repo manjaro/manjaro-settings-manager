@@ -46,20 +46,20 @@ Page_MHWD::Page_MHWD(QWidget *parent) :
     forceReinstallationAction->setIcon(QPixmap(":/images/resources/restore.png"));
 
     // Connect signals and slots
-    connect(ui->buttonInstallFree, SIGNAL(clicked()),
-            this, SLOT(buttonInstallFree_clicked()));
-    connect(ui->buttonInstallNonFree, SIGNAL(clicked()),
-            this, SLOT(buttonInstallNonFree_clicked()));
-    connect(ui->treeWidget, SIGNAL(customContextMenuRequested(const QPoint &)),
-            SLOT(showContextMenuForTreeWidget(const QPoint &)));
-    connect(installAction, SIGNAL(triggered()),
-            this, SLOT(installAction_triggered()));
-    connect(removeAction, SIGNAL(triggered()),
-            this, SLOT(removeAction_triggered()));
-    connect(forceReinstallationAction, SIGNAL(triggered()),
-            this, SLOT(forceReinstallationAction_triggered()));
-    connect(ui->checkBoxShowAll, SIGNAL(toggled(bool)),
-            this, SLOT(checkBoxShowAll_toggled()));
+    connect(ui->buttonInstallFree, &QPushButton::clicked,
+            this, &Page_MHWD::buttonInstallFree_clicked);
+    connect(ui->buttonInstallNonFree, &QPushButton::clicked,
+            this, &Page_MHWD::buttonInstallNonFree_clicked);
+    connect(ui->treeWidget, &QTreeWidget::customContextMenuRequested,
+            this, &Page_MHWD::showContextMenuForTreeWidget);
+    connect(installAction, &QAction::triggered,
+            this, &Page_MHWD::installAction_triggered);
+    connect(removeAction, &QAction::triggered,
+            this, &Page_MHWD::removeAction_triggered);
+    connect(forceReinstallationAction, &QAction::triggered,
+            this, &Page_MHWD::forceReinstallationAction_triggered);
+    connect(ui->checkBoxShowAll, &QCheckBox::toggled,
+            this, &Page_MHWD::checkBoxShowAll_toggled);
 }
 
 

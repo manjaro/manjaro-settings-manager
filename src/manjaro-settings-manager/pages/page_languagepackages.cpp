@@ -38,7 +38,8 @@ Page_LanguagePackages::Page_LanguagePackages(QWidget *parent) :
     ui->treeWidgetInstalled->setColumnWidth(0, 300);
     ui->treeWidgetInstalled->setColumnWidth(1, 300);
 
-    connect(ui->treeWidgetAvailable, SIGNAL(clicked(QModelIndex))   ,   this, SLOT(updateApplyEnabledState()));
+    connect(ui->treeWidgetAvailable, &QTreeWidget::clicked,
+            this, &Page_LanguagePackages::updateApplyEnabledState);
 }
 
 
