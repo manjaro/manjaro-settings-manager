@@ -85,7 +85,7 @@ void TimeDate::setTimeZone(const QString &timeZone)
      * boolean -> arg_ask_password
      */
     QDBusMessage reply;
-    dbusInterface_->call("SetTimezone", timeZone, true);
+    reply = dbusInterface_->call("SetTimezone", timeZone, true);
     qDebug() << reply;
 }
 
@@ -98,7 +98,7 @@ void TimeDate::setLocalRtc(const bool local)
      * boolean -> arg_ask_password
      */
     QDBusMessage reply;
-    dbusInterface_->call("SetLocalRTC", local, false, true);
+    reply = dbusInterface_->call("SetLocalRTC", local, false, true);
     qDebug() << reply;
 }
 
@@ -110,6 +110,6 @@ void TimeDate::setNtp(const bool ntp)
      * boolean -> arg_ask_password
      */
     QDBusMessage reply;
-    dbusInterface_->call("SetNTP", ntp, true);
+    reply = dbusInterface_->call("SetNTP", ntp, true);
     qDebug() << reply;
 }
