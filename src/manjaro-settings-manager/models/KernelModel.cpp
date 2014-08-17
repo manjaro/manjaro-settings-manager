@@ -25,6 +25,9 @@
 #include <QtCore/QRegularExpression>
 #include <QtCore/QSet>
 
+#include <QtCore/QElapsedTimer>
+#include <QDebug>
+
 KernelModel::KernelModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -35,36 +38,40 @@ KernelModel::KernelModel(QObject *parent)
  */
 void KernelModel::update()
 {
-    QStringList installedKernelPackages = getInstalledPackages();
-    QStringList availableKernelPackages = getAvailablePackages();
-    QStringList allKernelPackages = QStringList() << installedKernelPackages << availableKernelPackages;
-    allKernelPackages.removeDuplicates();
+    QHash<QString, QString> installedKernelPackages = getInstalledPackages();
+    QHash<QString, QString> availableKernelPackages = getAvailablePackages();
+
+    QHash<QString, QString> allKernelPackages;
+    allKernelPackages.unite(installedKernelPackages);
+    QHashIterator<QString, QString> i(availableKernelPackages);
+    while (i.hasNext()) {
+        i.next();
+        allKernelPackages.insert(i.key(), i.value());
+    }
+
     QString runningKernel = Global::getRunningKernel();
     QStringList ltsKernels = Global::getLtsKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
 
     QSet<QString> modulesToInstall;
-    for (const QString &module : installedKernelPackages.filter(QRegularExpression("^linux[0-9][0-9]?([0-9])-"))) {
+    for (const QString &module : QStringList(installedKernelPackages.keys()).filter(QRegularExpression("^linux[0-9][0-9]?([0-9])-"))) {
         QString aux = QString(module).remove(QRegularExpression("^linux[0-9][0-9]?([0-9])-"));
         modulesToInstall.insert(aux);
     }
 
     beginResetModel();
     kernels_.clear();
-    for (const QString &kernel : allKernelPackages.filter(QRegularExpression("^linux[0-9][0-9]?([0-9])$"))) {
+    for (const QString &kernel : QStringList(allKernelPackages.keys()).filter(QRegularExpression("^linux[0-9][0-9]?([0-9])$"))) {
         Kernel newKernel;
 
         newKernel.setPackage(kernel);
         newKernel.setAvailable(availableKernelPackages.contains(kernel));
-        newKernel.setInstalled(installedKernelPackages.contains(kernel));
-
-        QString pkgInfo = Global::packageInformation(kernel, !newKernel.isAvailable());
-        newKernel.setVersion(Global::packageVersion(pkgInfo));
-
-        newKernel.setAvailableModules(availableKernelPackages
+        newKernel.setInstalled(installedKernelPackages.contains(kernel));       
+        newKernel.setVersion(allKernelPackages.value(kernel));
+        newKernel.setAvailableModules(QStringList(availableKernelPackages.keys())
                                       .filter(QRegularExpression(QString("^%1-").arg(kernel))));
         if (newKernel.isInstalled()) {
-            newKernel.setInstalledModules(installedKernelPackages
+            newKernel.setInstalledModules(QStringList(installedKernelPackages.keys())
                                           .filter(QRegularExpression(QString("^%1-").arg(kernel))));
         } else {
             QStringList installableModules;
@@ -76,7 +83,6 @@ void KernelModel::update()
             }
             newKernel.setInstalledModules(installableModules);
         }
-
         newKernel.setLts(ltsKernels.contains(kernel));
         newKernel.setRecommended(recommendedKernels.contains(kernel));
         newKernel.setRunning(QString::compare(runningKernel, kernel) == 0);
@@ -168,29 +174,60 @@ QHash<int, QByteArray> KernelModel::roleNames() const
 }
 
 
-QStringList KernelModel::getAvailablePackages() const
+QHash<QString, QString> KernelModel::getAvailablePackages() const
 {
     QProcess process;
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
-    process.start("pacman", QStringList() << "-Sqs" << "^linux[0-9][0-9]?([0-9])");
+    process.start("pacman", QStringList() << "-Ss" << "^linux[0-9][0-9]?([0-9])");
     if (!process.waitForFinished(15000)) {
         qDebug() << "error: failed to get all installed kernels";
     }
     QString result = process.readAll();
-    return result.split("\n", QString::SkipEmptyParts);
+
+    QHash<QString, QString> packages;
+    for (QString line : result.split("\n", QString::SkipEmptyParts)) {
+        if (line.isEmpty()) {
+            continue;
+        }
+        if (line[0].isSpace()) {
+            continue;
+        }
+        QStringList parts = line.split(' ');
+        QString repoName = parts.value(0);
+        int a = repoName.indexOf("/");
+        QString pkgName = repoName.mid(a+1);
+        QString pkgVersion = parts.value(1);
+        packages.insert(pkgName, pkgVersion);
+    }
+    return packages;
 }
 
-
-QStringList KernelModel::getInstalledPackages() const
+QHash<QString, QString> KernelModel::getInstalledPackages() const
 {
     QProcess process;
     process.setEnvironment(QStringList() << "LANG=C" << "LC_MESSAGES=C");
-    process.start("pacman", QStringList() << "-Qqs" << "^linux[0-9][0-9]?([0-9])");
+    process.start("pacman", QStringList() << "-Qs" << "^linux[0-9][0-9]?([0-9])");
     if (!process.waitForFinished(15000)) {
         qDebug() << "error: failed to get all installed kernels";
     }
     QString result = process.readAll();
-    return result.split("\n", QString::SkipEmptyParts);
+
+    QHash<QString, QString> packages;
+    for (QString line : result.split("\n", QString::SkipEmptyParts)) {
+        if (line.isEmpty()) {
+            continue;
+        }
+        if (line[0].isSpace()) {
+            continue;
+        }
+        QStringList parts = line.split(' ');
+        QString repoName = parts.value(0);
+        int a = repoName.indexOf("/");
+        QString pkgName = repoName.mid(a+1);
+        QString pkgVersion = parts.value(1);
+        packages.insert(pkgName, pkgVersion);
+    }
+    return packages;
 }
 
 

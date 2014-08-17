@@ -62,8 +62,8 @@ protected:
 
 private:
     QList<Kernel> kernels_;
-    QStringList getInstalledPackages() const;
-    QStringList getAvailablePackages() const;
+    QHash<QString, QString> getInstalledPackages() const;
+    QHash<QString, QString> getAvailablePackages() const;
 };
 
 
