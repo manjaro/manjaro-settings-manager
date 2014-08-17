@@ -14,17 +14,17 @@
     <message>
         <location filename="../daemon.cpp" line="178"/>
         <source>Unsupported kernel installed in your system.</source>
-        <translation>Kernel não suportado instalado no seu sistema.</translation>
+        <translation>Kernel não suportado instalado em seu sistema.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="181"/>
         <source>Your kernels need attention.</source>
-        <translation>Seus kernels necessitam de sua atenção.</translation>
+        <translation>Seus kernels precisam de sua atenção.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="184"/>
         <source>Unsupported Kernel Found.</source>
-        <translation>Kernel não suportado existente.</translation>
+        <translation>Kernel não suportado encontrado.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="186"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../daemon.cpp" line="189"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation>Um kernel mais atual do que o instalado está disponível.</translation>
+        <translation>Um kernel mais recente do que o mais recente instalado está disponível.</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="90"/>
