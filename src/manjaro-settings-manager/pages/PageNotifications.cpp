@@ -90,8 +90,16 @@ void PageNotifications::apply_clicked()
     settings.setValue("notifications/checkNewKernel", checkNewKernel);
     settings.setValue("notifications/checkNewKernelLts", checkNewKernelLts);
     settings.setValue("notifications/checkNewKernelRecommended", checkNewKernelRecommended);
+    settings.sync();
 
-    emit closePage(this);
+    switch (settings.status()) {
+    case QSettings::NoError :
+        emit showMessage(this, QString(tr("Your notifications settings have been saved")), PageWidget::Success);
+        break;
+    case QSettings::FormatError :
+    case QSettings::AccessError :
+        emit showMessage(this, QString(tr("An access or format error occurred")), PageWidget::Error);
+    }
 }
 
 
