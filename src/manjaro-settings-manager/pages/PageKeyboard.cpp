@@ -69,7 +69,7 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
         QModelIndex layoutsRoot = layoutsRootList.first();
         ui->layoutsListView->setRootIndex(layoutsRoot);
     } else {
-        emit (showMessage(this, "Can't find layout root index", MessageType::Error));
+        emit (showMessage(this, "Can't find keyboard layout list", MessageType::Error));
     }
 
     /* Set model and root index to the model combo box */
@@ -82,7 +82,7 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
         QModelIndex modelsRoot = modelsRootList.first();
         ui->modelComboBox->setRootModelIndex(modelsRoot);
     } else {
-        emit (showMessage(this, "Can't find model root index", MessageType::Error));
+        emit (showMessage(this, "Can't find keyboard model list", MessageType::Error));
     }
 }
 
@@ -109,9 +109,9 @@ void PageKeyboard::apply_clicked() {
     ApplyDialog dialog(this);
     dialog.exec("keyboardctl", QStringList() << "--set-layout" << model << layout << variant, tr("Setting new keyboard layout..."), true);
     if (dialog.processSuccess()) {
-        emit (showMessage(this, "You've successfully changed your keyboard settings.", MessageType::Success));
+        emit (showMessage(this, QString(tr("Your keyboard settings have been saved.")), MessageType::Success));
     } else {
-        emit (showMessage(this, "Error saving your keyboard settings.", MessageType::Error));
+        emit (showMessage(this, QString(tr("Error saving your keyboard settings.")), MessageType::Error));
     }
     activated();
 }
@@ -128,7 +128,7 @@ void PageKeyboard::activated() {
     QString currentModel;
 
     if (!keyboardModel_->getCurrentKeyboardLayout(currentLayout, currentVariant, currentModel)) {
-        QMessageBox::warning(this, tr("Error"), tr("Failed to determine current keyboard layout!"), QMessageBox::Ok, QMessageBox::Ok);
+        emit (showMessage(this, QString(tr("Failed to determine current keyboard layout!")), MessageType::Error));
     }
 
     /* Select current layout or default in the view */
