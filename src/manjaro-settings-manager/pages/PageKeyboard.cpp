@@ -93,8 +93,8 @@ PageKeyboard::~PageKeyboard()
 }
 
 
-void PageKeyboard::apply_clicked() {
-
+void PageKeyboard::apply_clicked()
+{
     QString model = ui->modelComboBox->itemData(ui->modelComboBox->currentIndex(), KeyboardModel::KeyRole).toString();
     QString layout = ui->layoutsListView->currentIndex().data(KeyboardModel::KeyRole).toString();
     QString variant = ui->variantsListView->currentIndex().data(KeyboardModel::KeyRole).toString();
@@ -117,10 +117,10 @@ void PageKeyboard::apply_clicked() {
 }
 
 
-void PageKeyboard::activated() {
+void PageKeyboard::activated()
+{
     // Default focus
     ui->layoutsListView->setFocus();
-
 
     /* Detect current keyboard layout and variant */
     QString currentLayout;
@@ -190,7 +190,8 @@ void PageKeyboard::activated() {
  * Slots
  */
 
-void PageKeyboard::buttonRestore_clicked() {
+void PageKeyboard::buttonRestore_clicked()
+{
     QModelIndexList modelIndexList = keyboardProxyModel_->match(ui->modelComboBox->rootModelIndex().child(0,0),
                                                                 KeyboardModel::KeyRole,
                                                                 "pc105",
