@@ -272,22 +272,32 @@ bool KeyboardModel::getCurrentKeyboardLayout(QString &layout, QString &variant, 
     if (!process.waitForFinished())
         return false;
 
+    /*
+     * Example output
+     * ...
+     * model:      pc105,pc104
+     * layout:     es,us
+     * variant:    cat,euro
+     * ...
+     */
     QStringList list = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
     for (QString line : list) {
         line = line.trimmed();
         if (line.startsWith("layout")) {
             QStringList split = line.split(":", QString::SkipEmptyParts);
-            layout = split.value(1).trimmed();
+            split = split.value(1).trimmed().split(",", QString::SkipEmptyParts);
+            layout = split.value(0).trimmed();
         }
         if (line.startsWith("variant")) {
             QStringList split = line.split(":", QString::SkipEmptyParts);
-            variant = split.value(1).trimmed();
+            split = split.value(1).trimmed().split(",", QString::SkipEmptyParts);
+            variant = split.value(0).trimmed();
         }
         if (line.startsWith("model")) {
             QStringList split = line.split(":", QString::SkipEmptyParts);
-            model = split.value(1).trimmed();
+            split = split.value(1).trimmed().split(",", QString::SkipEmptyParts);
+            model = split.value(0).trimmed();
         }
     }
-
     return !layout.isEmpty();
 }
