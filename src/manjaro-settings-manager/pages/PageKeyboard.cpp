@@ -69,7 +69,7 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
         QModelIndex layoutsRoot = layoutsRootList.first();
         ui->layoutsListView->setRootIndex(layoutsRoot);
     } else {
-        emit (showMessage(this, "Can't find keyboard layout list", MessageType::Error));
+        qDebug() << "Can't find keyboard layout list";
     }
 
     /* Set model and root index to the model combo box */
@@ -82,7 +82,7 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
         QModelIndex modelsRoot = modelsRootList.first();
         ui->modelComboBox->setRootModelIndex(modelsRoot);
     } else {
-        emit (showMessage(this, "Can't find keyboard model list", MessageType::Error));
+        qDebug() << "Can't find keyboard model list";
     }
 }
 
@@ -109,9 +109,9 @@ void PageKeyboard::apply_clicked() {
     ApplyDialog dialog(this);
     dialog.exec("keyboardctl", QStringList() << "--set-layout" << model << layout << variant, tr("Setting new keyboard layout..."), true);
     if (dialog.processSuccess()) {
-        emit (showMessage(this, QString(tr("Your keyboard settings have been saved.")), MessageType::Success));
+        qDebug() << "Your keyboard settings have been saved.";
     } else {
-        emit (showMessage(this, QString(tr("Error saving your keyboard settings.")), MessageType::Error));
+        qDebug() << "Error saving your keyboard settings.";
     }
     activated();
 }
@@ -128,7 +128,7 @@ void PageKeyboard::activated() {
     QString currentModel;
 
     if (!keyboardModel_->getCurrentKeyboardLayout(currentLayout, currentVariant, currentModel)) {
-        emit (showMessage(this, QString(tr("Failed to determine current keyboard layout!")), MessageType::Error));
+       qDebug() << "Failed to determine current keyboard layout";
     }
 
     /* Select current layout or default in the view */
@@ -148,7 +148,7 @@ void PageKeyboard::activated() {
         ui->layoutsListView->setCurrentIndex(layoutIndex);
         ui->variantsListView->setRootIndex(variantRootIndex);
     } else {
-        emit (showMessage(this, "Can't find the current keyboard layout", MessageType::Error));
+        qDebug() << "Can't find the current keyboard layout";
     }
 
     /* Select current layout or default in the view */
@@ -165,7 +165,7 @@ void PageKeyboard::activated() {
         ui->variantsListView->setCurrentIndex(variantIndex);
         emit(ui->variantsListView->activated(variantIndex));
     } else {
-        emit(showMessage(this, "Can't find the current keyboard variant", MessageType::Error));
+        qDebug() << "Can't find the current keyboard variant";
     }
 
     /* Select current model or default in the combo box */
@@ -181,7 +181,7 @@ void PageKeyboard::activated() {
         modelIndex = ui->modelComboBox->model()->index(modelIndex.row(), 1, modelIndex.parent());
         ui->modelComboBox->setCurrentIndex(modelIndex.row());
     } else {
-        emit(showMessage(this, "Can't find the current keyboard model", MessageType::Error));
+        qDebug() << "Can't find the current keyboard model";
     }
 }
 
@@ -200,7 +200,7 @@ void PageKeyboard::buttonRestore_clicked() {
         modelIndex = keyboardProxyModel_->index(modelIndex.row(), 1, modelIndex.parent());
         ui->modelComboBox->setCurrentIndex(modelIndex.row());
     } else {
-        emit(showMessage(this, "Can't find the current keyboard model", MessageType::Error));
+        qDebug() << "Can't find the current keyboard model";
     }
 }
 
@@ -227,7 +227,7 @@ void PageKeyboard::keyboardLayoutListViewActivated(const QModelIndex &index)
             /* Emit activated(), to update keyboardPreview */
             emit(ui->variantsListView->activated(variantDefault));
         } else {
-            emit(showMessage(this, "Can't find the default keyboard variant", MessageType::Error));
+            qDebug() << "Can't find the default keyboard variant";
         }
     }
 }

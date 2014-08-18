@@ -22,6 +22,7 @@
 #include "ui_PageNotifications.h"
 
 #include <QtCore/QSettings>
+#include <QDebug>
 
 PageNotifications::PageNotifications(QWidget *parent) :
     PageWidget(parent),
@@ -94,11 +95,14 @@ void PageNotifications::apply_clicked()
 
     switch (settings.status()) {
     case QSettings::NoError :
-        emit showMessage(this, QString(tr("Your notifications settings have been saved")), PageWidget::Success);
+        qDebug() << "Your notifications settings have been saved";
         break;
     case QSettings::FormatError :
+        qDebug() << "Format error when saving your notifications settings";
+        break;
     case QSettings::AccessError :
-        emit showMessage(this, QString(tr("An access or format error occurred")), PageWidget::Error);
+        qDebug() << "Access error when saving your notifications settings";
+        break;
     }
 }
 

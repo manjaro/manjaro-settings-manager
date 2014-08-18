@@ -30,7 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->messageFrame->setVisible(false);
 
     /* Center the window */
     move(qApp->desktop()->availableGeometry().center() - rect().center());
@@ -64,8 +63,6 @@ MainWindow::MainWindow(QWidget *parent) :
             this, &MainWindow::buttonShowAllSettings_clicked);
     connect(ui->buttonApply, &QPushButton::clicked,
             this, &MainWindow::buttonApply_clicked);
-    connect(&messageTimer_, &QTimer::timeout,
-            this, &MainWindow::hideMessage);
 
     // Check passed application arguments
     checkAppArguments();
@@ -165,8 +162,6 @@ void MainWindow::addPageWidget(PageWidget &page)
             this, &MainWindow::setApplyEnabled);
     connect(&page, &PageWidget::closePage,
             this, &MainWindow::closePageRequested);
-    connect(&page, &PageWidget::showMessage,
-            this, &MainWindow::showMessage);
 }
 
 
@@ -220,9 +215,6 @@ void MainWindow::buttonShowAllSettings_clicked()
     ui->buttonAllSettings->setVisible(false);
     ui->buttonApply->setVisible(false);
 
-    /* Hide message frame */
-    ui->messageFrame->setVisible(false);
-
     // Show all settings
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -256,104 +248,6 @@ void MainWindow::closePageRequested(PageWidget *page)
         return;
     }
     buttonShowAllSettings_clicked();
-}
-
-
-/*
- * Show a message box between the header and the central window
- */
-void MainWindow::showMessage(PageWidget *page, QString message, PageWidget::MessageType type)
-{
-    if (dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget()) != page){
-        return;
-    }
-
-    /* Colors from bootstrap alerts http://getbootstrap.com/components/#alerts */
-    QColor successText = QColor("#3C763D");
-    QColor successBackground = QColor("#DFF0D8");
-    QColor successBorder = QColor("#D6E9C6");
-    QColor infoText = QColor("#31708F");
-    QColor infoBackground = QColor("#D9EDF7");
-    QColor infoBorder = QColor("#BCE8F1");
-    QColor warningText = QColor("#8A6D38");
-    QColor warningBackground = QColor("#FCF8E3");
-    QColor warningBorder = QColor("#FAEBCC");
-    QColor errorText = QColor("#A94442");
-    QColor errorBackground = QColor("#F2DEDE");
-    QColor errorBorder = QColor("#EBCCD1");
-
-    QColor text;
-    QColor background;
-    QColor border;
-
-    switch(type) {
-    case PageWidget::MessageType::Success :
-        text = successText;
-        background = successBackground;
-        border = successBorder;
-        break;
-    case PageWidget::MessageType::Info :
-        text = infoText;
-        background = infoBackground;
-        border = infoBorder;
-        break;
-    case PageWidget::MessageType::Warning :
-        text = warningText;
-        background = warningBackground;
-        border = warningBorder;
-        break;
-    case PageWidget::MessageType::Error :
-        text = errorText;
-        background = errorBackground;
-        border = errorBorder;
-        break;
-    }
-
-    ui->messageLabel->setText(message);
-    QPalette messagePalette(ui->messageLabel->palette());
-    messagePalette.setColor(ui->messageLabel->foregroundRole(), text);
-    ui->messageLabel->setPalette(messagePalette);
-
-    QPalette framePalette(ui->messageFrame->palette());
-    framePalette.setColor(ui->messageLabel->backgroundRole(), background);
-    framePalette.setColor(ui->messageLabel->foregroundRole(), border);
-    ui->messageFrame->setAutoFillBackground(true);
-    ui->messageFrame->setPalette(framePalette);
-
-    if (!ui->messageFrame->isVisible()) {
-        QGraphicsOpacityEffect *fade_effect = new QGraphicsOpacityEffect(this);
-        ui->messageFrame->setGraphicsEffect(fade_effect);
-        QPropertyAnimation *animation = new QPropertyAnimation(fade_effect, "opacity");
-        animation->setEasingCurve(QEasingCurve::InOutQuad);
-        animation->setDuration(500);
-        animation->setStartValue(0.01);
-        animation->setEndValue(1.0);
-        animation->start(QPropertyAnimation::DeleteWhenStopped);
-        ui->messageFrame->setVisible(true);
-    }
-
-    /* Hide message after 30s */
-    messageTimer_.start(30000);
-}
-
-
-/*
- * Hide Message frame using a fade effect
- */
-void MainWindow::hideMessage()
-{
-    if (ui->messageFrame->isVisible()) {
-        QGraphicsOpacityEffect *fade_effect = new QGraphicsOpacityEffect(this);
-        ui->messageFrame->setGraphicsEffect(fade_effect);
-        QPropertyAnimation *animation = new QPropertyAnimation(fade_effect, "opacity");
-        animation->setEasingCurve(QEasingCurve::InOutQuad);
-        animation->setDuration(500);
-        animation->setStartValue(1);
-        animation->setEndValue(0.01);
-        animation->start(QPropertyAnimation::DeleteWhenStopped);
-        connect(animation, &QPropertyAnimation::finished,
-                ui->messageFrame, &QFrame::hide);
-    }
 }
 
 

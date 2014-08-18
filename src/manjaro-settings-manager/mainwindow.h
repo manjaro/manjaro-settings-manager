@@ -45,7 +45,6 @@
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
-#include <QtCore/QTimer>
 
 
 namespace Ui {
@@ -81,8 +80,6 @@ private:
     PageTimeDate pageTimeDate;
     Page_Users page_Users;
 
-    QTimer messageTimer_;
-
     void checkAppArguments();
     void addPageWidget(PageWidget &page);
     void closeEvent(QCloseEvent *);
@@ -94,8 +91,6 @@ protected slots:
     void setApplyEnabled(PageWidget *page, bool enabled);
     void buttonApply_clicked();
     void closePageRequested(PageWidget *page);
-    void showMessage(PageWidget *page, QString message, PageWidget::MessageType type);
-    void hideMessage();
 
 };
 
