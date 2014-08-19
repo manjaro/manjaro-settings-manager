@@ -28,9 +28,18 @@ QVariant KeyboardModel::data(const QModelIndex &index, int role) const
 
     KeyboardItem *item = static_cast<KeyboardItem*>(index.internalPointer());
 
-    if ((role == KeyRole) || ((role == Qt::DisplayRole) && (index.column() == 0))) {
+    switch (role) {
+    case Qt::DisplayRole :
+        switch (index.column()) {
+        case 0:
+            return item->key();
+        case 1:
+            return item->description();
+        }
+        break;
+    case KeyRole :
         return item->key();
-    } else if ((role == DescriptionRole) || ((role == Qt::DisplayRole) && (index.column() == 1))){
+    case DescriptionRole :
         return item->description();
     }
 
@@ -40,9 +49,9 @@ QVariant KeyboardModel::data(const QModelIndex &index, int role) const
 
 Qt::ItemFlags KeyboardModel::flags(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return 0;
-
+    }
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
