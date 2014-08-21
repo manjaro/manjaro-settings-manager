@@ -6,7 +6,7 @@
 
 QT       += core gui webkitwidgets dbus
 
-LIBS += -lmhwd
+LIBS += -lmhwd -licudata -licuuc
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
 CONFIG += c++11
@@ -25,6 +25,7 @@ SOURCES  += main.cpp \
             models/Kernel.cpp \
             models/KeyboardItem.cpp \
             models/KeyboardModel.cpp \
+            models/SupportedLocalesModel.cpp \
             models/TimeDate.cpp \
             pages/page_languagepackages.cpp \
             pages/page_mhwd.cpp \
@@ -59,6 +60,7 @@ HEADERS  += mainwindow.h \
             models/Kernel.h \
             models/KeyboardItem.h \
             models/KeyboardModel.h \
+            models/SupportedLocalesModel.h \
             models/TimeDate.h \
             pages/page_languagepackages.h \
             pages/page_mhwd.h \
@@ -146,8 +148,6 @@ INCLUDEPATH += $$PWD/../global
 DEPENDPATH += $$PWD/../global
 
 unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../global/libglobal.a
-
-
 
 target.path = /usr/bin
 INSTALLS += target
