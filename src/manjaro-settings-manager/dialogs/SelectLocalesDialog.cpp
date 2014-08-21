@@ -19,8 +19,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "selectlocalesdialog.h"
-#include "ui_selectlocalesdialog.h"
+#include "SelectLocalesDialog.h"
+#include "ui_SelectLocalesDialog.h"
 
 SelectLocalesDialog::SelectLocalesDialog(QWidget *parent) :
     QDialog(parent),

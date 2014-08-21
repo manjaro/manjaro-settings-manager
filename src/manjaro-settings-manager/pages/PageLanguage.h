@@ -25,7 +25,7 @@
 #include <const.h>
 #include "dialogs/applydialog.h"
 #include "widgets/pagewidget.h"
-#include "widgets/selectlocalesdialog.h"
+#include "dialogs/SelectLocalesDialog.h"
 
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
