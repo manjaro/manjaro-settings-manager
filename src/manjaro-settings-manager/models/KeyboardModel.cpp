@@ -29,14 +29,14 @@
 KeyboardModel::KeyboardModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    rootItem_ = new KeyboardItem(QString("key"), QString("description"));
-    init(rootItem_);
+    m_rootItem = new KeyboardItem(QString("key"), QString("description"));
+    init(m_rootItem);
 }
 
 
 KeyboardModel::~KeyboardModel()
 {
-    delete rootItem_;
+    delete m_rootItem;
 }
 
 
@@ -80,9 +80,9 @@ QVariant KeyboardModel::headerData(int section, Qt::Orientation orientation, int
 {
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         if (section == 0) {
-            return rootItem_->key();
+            return m_rootItem->key();
         } else if (section == 1) {
-            return rootItem_->description();
+            return m_rootItem->description();
         }
     }
 
@@ -99,7 +99,7 @@ QModelIndex KeyboardModel::index(int row, int column, const QModelIndex &parent)
     KeyboardItem *parentItem;
 
     if (!parent.isValid()) {
-        parentItem = rootItem_;
+        parentItem = m_rootItem;
     } else {
         parentItem = static_cast<KeyboardItem*>(parent.internalPointer());
     }
@@ -122,7 +122,7 @@ QModelIndex KeyboardModel::parent(const QModelIndex &index) const
     KeyboardItem *childItem = static_cast<KeyboardItem*>(index.internalPointer());
     KeyboardItem *parentItem = childItem->parent();
 
-    if (parentItem == rootItem_) {
+    if (parentItem == m_rootItem) {
         return QModelIndex();
     }
 
@@ -138,7 +138,7 @@ int KeyboardModel::rowCount(const QModelIndex &parent) const
 
     KeyboardItem *parentItem;
     if (!parent.isValid()) {
-        parentItem = rootItem_;
+        parentItem = m_rootItem;
     } else {
         parentItem = static_cast<KeyboardItem*>(parent.internalPointer());
     }
@@ -152,7 +152,7 @@ int KeyboardModel::columnCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return static_cast<KeyboardItem*>(parent.internalPointer())->columnCount();
     } else {
-        return rootItem_->columnCount();
+        return m_rootItem->columnCount();
     }
 }
 

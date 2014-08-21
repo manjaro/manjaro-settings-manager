@@ -56,7 +56,7 @@ protected:
 private:
     void init(KeyboardItem *parent);
 
-    KeyboardItem *rootItem_;
+    KeyboardItem *m_rootItem;
 
 signals:
 
