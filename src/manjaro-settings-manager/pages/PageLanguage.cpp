@@ -255,33 +255,34 @@ void PageLanguage::buttonRemove_clicked() {
 
 
 
-void PageLanguage::buttonRestore_clicked() {
+void PageLanguage::buttonRestore_clicked()
+{
     activated();
 }
 
 
 
-void PageLanguage::buttonAdd_clicked() {
+void PageLanguage::buttonAdd_clicked()
+{
     SelectLocalesDialog dialog(this);
     dialog.exec();
 
-    if (!dialog.localeAdded())
+    if (!dialog.localeAdded()) {
         return;
+    }
 
-    Global::LocaleInfo locale = dialog.getLocale();
-    if (locale.locale.isEmpty())
-        return;
-
+    QString locale = dialog.getLocale();
     // Check if already in list
     for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
-       if (ui->treeWidget->topLevelItem(i)->text(0) == locale.locale)
+       if (ui->treeWidget->topLevelItem(i)->text(0) == locale) {
            return;
+       }
     }
 
     TreeWidgetItem *item = new TreeWidgetItem(ui->treeWidget);
-    item->setText(0, locale.locale);
-    item->setText(1, locale.language);
-    item->setText(2, locale.territory);
+    item->setText(0, locale);
+    item->setText(1, QLocale::countryToString(QLocale(locale).country()));
+    item->setText(2, QLocale::languageToString(QLocale(locale).language()));
     ui->treeWidget->setItemWidget(item, 3, &item->localeRadioButton);
     groupLocale.addButton(&item->localeRadioButton);
     ui->treeWidget->setItemWidget(item, 4, &item->formatsRadioButton);

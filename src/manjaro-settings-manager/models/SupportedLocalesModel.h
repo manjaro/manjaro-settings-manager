@@ -50,6 +50,8 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
+    QString currentLanguage();
+
     static icu::UnicodeString qStringToUnicodeString(const QString &sourceStr);
     static QString unicodeStringToQString(const icu::UnicodeString &sourceStr);
 
@@ -59,7 +61,8 @@ protected:
 private:
     void init(KeyboardItem *parent);
 
-    KeyboardItem *rootItem_;
+    KeyboardItem *m_rootItem;
+    QString m_currentLanguage;
 
 signals:
 

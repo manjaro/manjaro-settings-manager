@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -28,11 +29,14 @@ SelectLocalesDialog::SelectLocalesDialog(QWidget *parent) :
     ui->setupUi(this);
 
     // Connect signals and slots
-    connect(ui->listWidgetLanguage, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*))   ,   this, SLOT(listWidgetLanguageItemChanged(QListWidgetItem*,QListWidgetItem*)));
-    connect(ui->listWidgetTerritory, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*))   ,   this, SLOT(listWidgetTerritoryItemChanged(QListWidgetItem*,QListWidgetItem*)));
-    connect(ui->comboBoxLocale, SIGNAL(currentIndexChanged(QString))    ,   this, SLOT(comboBoxLocaleIndexChanged(QString)));
-    connect(ui->buttonCancel, SIGNAL(clicked())   ,   this, SLOT(close()));
-    connect(ui->buttonAdd, SIGNAL(clicked())    ,   this, SLOT(buttonAdd_clicked()));
+    connect(ui->languageListView, &QListView::activated,
+            this, &SelectLocalesDialog::languageListViewActivated);
+    connect(ui->countryListView, &QListView::activated,
+            this, &SelectLocalesDialog::countryListViewActivated);
+    connect(ui->buttonCancel, &QPushButton::clicked,
+            this, &SelectLocalesDialog::close);
+    connect(ui->buttonAdd, &QPushButton::clicked,
+            this, &SelectLocalesDialog::buttonAdd_clicked);
 }
 
 
@@ -43,57 +47,35 @@ SelectLocalesDialog::~SelectLocalesDialog()
 }
 
 
-bool SelectLocalesDialog::localeAdded() {
-    return accepted;
+bool SelectLocalesDialog::localeAdded()
+{
+    return m_accepted;
 }
 
 
-Global::LocaleInfo SelectLocalesDialog::getLocale() {
-    Global::LocaleInfo info;
-
-    if (ui->comboBoxLocale->count() <= 0)
-        return info;
-
-    info.locale = ui->comboBoxLocale->currentText();
-    info.language = ui->listWidgetLanguage->currentItem()->text();
-    info.territory = ui->listWidgetTerritory->currentItem()->text();
-    info.description = ui->labelDescription->text();
-
-    return info;
-}
-
-
-
-int SelectLocalesDialog::exec() {
-    accepted = false;
-    ui->listWidgetLanguage->clear();
-    ui->listWidgetTerritory->clear();
-    ui->comboBoxLocale->clear();
-    ui->comboBoxLocale->hide();
-
-    // Block signals
-    ui->listWidgetLanguage->setEnabled(false);
-    ui->listWidgetLanguage->blockSignals(true);
-    ui->listWidgetTerritory->blockSignals(true);
-    ui->comboBoxLocale->blockSignals(true);
-
-
-    // Setup locales
-    locales = Global::getAllLocales();
-
-    QStringList keys = locales.keys();
-    keys.sort();
-
-    for (int i = 0; i < keys.size(); ++i) {
-        ui->listWidgetLanguage->addItem(keys.at(i));
+QString SelectLocalesDialog::getLocale()
+{
+    if (ui->localeComboBox->count() <= 0) {
+        return QString();
     }
+    return ui->localeComboBox->currentText();
+}
 
 
-    // Enable signals
-    ui->listWidgetLanguage->setEnabled(true);
-    ui->listWidgetLanguage->blockSignals(false);
-    ui->listWidgetTerritory->blockSignals(false);
-    ui->comboBoxLocale->blockSignals(false);
+
+int SelectLocalesDialog::exec()
+{
+    m_accepted = false;
+    m_supportedLocalesModel = new SupportedLocalesModel();
+    m_supportedLocalesProxyModel = new QSortFilterProxyModel();
+    m_supportedLocalesProxyModel->setSourceModel(m_supportedLocalesModel);
+    m_supportedLocalesProxyModel->setSortRole(SupportedLocalesModel::KeyRole);
+    m_supportedLocalesProxyModel->setSortLocaleAware(true);
+    m_supportedLocalesProxyModel->sort(0, Qt::AscendingOrder);
+
+    ui->languageListView->setModel(m_supportedLocalesProxyModel);
+
+    ui->localeComboBox->hide();
 
     updateApplyEnabledState();
 
@@ -102,11 +84,10 @@ int SelectLocalesDialog::exec() {
 
 
 
-void SelectLocalesDialog::updateApplyEnabledState() {
-    ui->buttonAdd->setEnabled(ui->comboBoxLocale->count() > 0);
+void SelectLocalesDialog::updateApplyEnabledState()
+{
+    ui->buttonAdd->setEnabled(ui->localeComboBox->isVisible());
 }
-
-
 
 
 //###
@@ -114,107 +95,45 @@ void SelectLocalesDialog::updateApplyEnabledState() {
 //###
 
 
-void SelectLocalesDialog::listWidgetLanguageItemChanged(QListWidgetItem *current, QListWidgetItem*) {
-    // Block signals
-    ui->comboBoxLocale->blockSignals(true);
-    ui->listWidgetTerritory->blockSignals(true);
-
-
-    // Clear fields first
-    ui->listWidgetTerritory->clear();
-    ui->labelDescription->clear();
-    ui->comboBoxLocale->clear();
-    ui->comboBoxLocale->hide();
-    currentTerritories.clear();
-
-
-    if (!locales.contains(current->text()))
-        return;
-
-    currentTerritories = locales.value(current->text());
-
-    QStringList keys = currentTerritories.keys();
-    keys.sort();
-
-    for (int i = 0; i < keys.size(); ++i) {
-        ui->listWidgetTerritory->addItem(keys.at(i));
+void SelectLocalesDialog::languageListViewActivated(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        ui->countryListView->setModel(m_supportedLocalesProxyModel);
+        ui->countryListView->setRootIndex(index);
+        ui->localeComboBox->hide();
+        updateApplyEnabledState();
     }
-
-
-    // Enable signals
-    ui->listWidgetTerritory->blockSignals(false);
-    ui->comboBoxLocale->blockSignals(false);
-
-    updateApplyEnabledState();
 }
 
 
 
+void SelectLocalesDialog::countryListViewActivated(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        ui->localeComboBox->setModel(m_supportedLocalesProxyModel);
+        ui->localeComboBox->setRootModelIndex(index);
 
-void SelectLocalesDialog::listWidgetTerritoryItemChanged(QListWidgetItem *current, QListWidgetItem*) {
-    // Block signals
-    ui->comboBoxLocale->blockSignals(true);
+        /* Select locale with UTF-8 encoding by default */
+        QModelIndexList localeIndexList = m_supportedLocalesProxyModel->match(index.child(0,0),
+                                                                              SupportedLocalesModel::KeyRole,
+                                                                              "UTF-8",
+                                                                              -1,
+                                                                              Qt::MatchContains);
+        if (localeIndexList.size() > 0) {
+            QModelIndex modelIndex = localeIndexList.first();
+            ui->localeComboBox->setCurrentIndex(modelIndex.row());
+        } else {
+            ui->localeComboBox->setCurrentIndex(0);
+        }
 
-
-    QString currentText = current->text();
-
-    // Clear fields first
-    ui->labelDescription->clear();
-    ui->comboBoxLocale->clear();
-    ui->comboBoxLocale->show();
-    currentLocales.clear();
-
-    if (!currentTerritories.contains(currentText))
-        return;
-
-    currentLocales = currentTerritories.value(currentText);
-
-    // Find item and set text
-    int index = -1;
-
-    for (int i = 0; i < currentLocales.size(); ++i) {
-        QString locale = currentLocales.at(i).locale;
-
-        ui->comboBoxLocale->addItem(locale);
-
-        if (locale.toLower().endsWith(".utf8") || locale.toLower().endsWith(".utf-8"))
-            index = ui->comboBoxLocale->count() - 1;
+        ui->localeComboBox->show();
+        updateApplyEnabledState();
     }
-
-    // Set description
-    if (index >= 0)
-        ui->comboBoxLocale->setCurrentIndex(index);
-
-    comboBoxLocaleIndexChanged(ui->comboBoxLocale->currentText());
-
-
-    // Enable signals
-    ui->comboBoxLocale->blockSignals(false);
-
-    updateApplyEnabledState();
 }
 
 
-
-void SelectLocalesDialog::comboBoxLocaleIndexChanged(const QString &text) {
-    // Clear fields first
-    ui->labelDescription->clear();
-
-    // Set right description
-    for (int i = 0; i < currentLocales.size(); ++i) {
-        if (currentLocales.at(i).locale != text)
-            continue;
-
-        ui->labelDescription->setText(currentLocales.at(i).description);
-        break;
-    }
-
-    updateApplyEnabledState();
-}
-
-
-
-void SelectLocalesDialog::buttonAdd_clicked() {
-    accepted = true;
+void SelectLocalesDialog::buttonAdd_clicked()
+{
+    m_accepted = true;
     close();
 }

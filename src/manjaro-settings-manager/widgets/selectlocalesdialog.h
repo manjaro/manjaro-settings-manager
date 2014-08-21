@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -21,15 +22,14 @@
 #ifndef SELECTLOCALESDIALOG_H
 #define SELECTLOCALESDIALOG_H
 
+#include "models/SupportedLocalesModel.h"
+
 #include <QDialog>
 #include <QString>
 #include <QStringList>
 #include <QPushButton>
 #include <QComboBox>
-#include <QListWidget>
-#include <QListWidgetItem>
-#include <global.h>
-
+#include <QSortFilterProxyModel>
 
 namespace Ui {
 class SelectLocalesDialog;
@@ -47,21 +47,19 @@ public:
 
     int exec();
     bool localeAdded();
-    Global::LocaleInfo getLocale();
+    QString getLocale();
     
 private:
     Ui::SelectLocalesDialog *ui;
-    QHash<QString, QHash<QString, QList<Global::Locale> > > locales;
-    QHash<QString, QList<Global::Locale> > currentTerritories;
-    QList<Global::Locale> currentLocales;
-    bool accepted;
+    SupportedLocalesModel *m_supportedLocalesModel;
+    QSortFilterProxyModel *m_supportedLocalesProxyModel;
+    bool m_accepted;
 
     void updateApplyEnabledState();
 
 private slots:
-    void listWidgetLanguageItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
-    void listWidgetTerritoryItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
-    void comboBoxLocaleIndexChanged(const QString &text);
+    void languageListViewActivated(const QModelIndex &index);
+    void countryListViewActivated(const QModelIndex &index);
     void buttonAdd_clicked();
 
 };

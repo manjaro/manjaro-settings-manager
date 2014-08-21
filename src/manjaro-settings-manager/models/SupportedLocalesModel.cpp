@@ -29,13 +29,13 @@
 SupportedLocalesModel::SupportedLocalesModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    rootItem_ = new KeyboardItem(QString("key"), QString("description"));
-    init(rootItem_);
+    m_rootItem = new KeyboardItem(QString("key"), QString("description"));
+    init(m_rootItem);
 }
 
 SupportedLocalesModel::~SupportedLocalesModel()
 {
-    delete rootItem_;
+    delete m_rootItem;
 }
 
 
@@ -79,9 +79,9 @@ QVariant SupportedLocalesModel::headerData(int section, Qt::Orientation orientat
 {
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         if (section == 0) {
-            return rootItem_->key();
+            return m_rootItem->key();
         } else if (section == 1) {
-            return rootItem_->description();
+            return m_rootItem->description();
         }
     }
 
@@ -98,7 +98,7 @@ QModelIndex SupportedLocalesModel::index(int row, int column, const QModelIndex 
     KeyboardItem *parentItem;
 
     if (!parent.isValid()) {
-        parentItem = rootItem_;
+        parentItem = m_rootItem;
     } else {
         parentItem = static_cast<KeyboardItem*>(parent.internalPointer());
     }
@@ -121,7 +121,7 @@ QModelIndex SupportedLocalesModel::parent(const QModelIndex &index) const
     KeyboardItem *childItem = static_cast<KeyboardItem*>(index.internalPointer());
     KeyboardItem *parentItem = childItem->parent();
 
-    if (parentItem == rootItem_) {
+    if (parentItem == m_rootItem) {
         return QModelIndex();
     }
 
@@ -137,7 +137,7 @@ int SupportedLocalesModel::rowCount(const QModelIndex &parent) const
 
     KeyboardItem *parentItem;
     if (!parent.isValid()) {
-        parentItem = rootItem_;
+        parentItem = m_rootItem;
     } else {
         parentItem = static_cast<KeyboardItem*>(parent.internalPointer());
     }
@@ -151,7 +151,7 @@ int SupportedLocalesModel::columnCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return static_cast<KeyboardItem*>(parent.internalPointer())->columnCount();
     } else {
-        return rootItem_->columnCount();
+        return m_rootItem->columnCount();
     }
 }
 
@@ -204,6 +204,10 @@ void SupportedLocalesModel::init(KeyboardItem *parent)
             QString displayLanguage = unicodeStringToQString(uDisplayLanguage);
             QString displayCountry = unicodeStringToQString(uDisplayCountry);
 
+            if (systemLocale == locale) {
+                m_currentLanguage = displayLanguage;
+            }
+
             /* Search if we already added this language to the tree */
             QModelIndexList languageIndexList = match(index(0,0),
                                                        KeyRole,
@@ -246,6 +250,12 @@ void SupportedLocalesModel::init(KeyboardItem *parent)
         }
     }
     file.close();
+}
+
+
+QString SupportedLocalesModel::currentLanguage()
+{
+    return m_currentLanguage;
 }
 
 
