@@ -279,13 +279,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>KeyboardModel</name>
     <message>
-        <location filename="../models/KeyboardModel.cpp" line="179"/>
-        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <location filename="../models/KeyboardModel.cpp" line="208"/>
+        <location filename="../models/KeyboardModel.cpp" line="246"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <location filename="../models/KeyboardModel.cpp" line="284"/>
         <source>Default Keyboard Model</source>
         <translation type="unfinished"></translation>
     </message>
@@ -324,7 +324,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="200"/>
+        <location filename="../mainwindow.cpp" line="211"/>
         <source>Manjaro Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -398,23 +398,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="38"/>
+        <location filename="../pages/PageKeyboard.cpp" line="39"/>
         <source>Keyboard Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="130"/>
+        <location filename="../pages/PageKeyboard.cpp" line="110"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pages/PageKeyboard.cpp" line="147"/>
-        <source>Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pages/PageKeyboard.cpp" line="147"/>
-        <source>Failed to determine current keyboard layout!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -447,7 +437,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="71"/>
-        <location filename="../pages/PageLanguage.cpp" line="29"/>
+        <location filename="../pages/PageLanguage.cpp" line="31"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -467,41 +457,41 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="108"/>
-        <location filename="../pages/PageLanguage.cpp" line="151"/>
-        <location filename="../pages/PageLanguage.cpp" line="160"/>
-        <location filename="../pages/PageLanguage.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="110"/>
+        <location filename="../pages/PageLanguage.cpp" line="153"/>
+        <location filename="../pages/PageLanguage.cpp" line="162"/>
+        <location filename="../pages/PageLanguage.cpp" line="200"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="108"/>
-        <location filename="../pages/PageLanguage.cpp" line="160"/>
+        <location filename="../pages/PageLanguage.cpp" line="110"/>
+        <location filename="../pages/PageLanguage.cpp" line="162"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="151"/>
+        <location filename="../pages/PageLanguage.cpp" line="153"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="200"/>
         <source>Failed to set locale!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="196"/>
+        <location filename="../pages/PageLanguage.cpp" line="205"/>
         <source>Generating locale.gen file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="208"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="208"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -549,7 +539,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageNotifications.cpp" line="31"/>
+        <location filename="../pages/PageNotifications.cpp" line="32"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -633,7 +623,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.cpp" line="122"/>
+        <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>none</source>
         <translation type="unfinished"></translation>
     </message>
@@ -683,27 +673,27 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="74"/>
+        <location filename="../pages/page_languagepackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
+        <location filename="../pages/page_languagepackages.cpp" line="84"/>
         <source>System is out-of-date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
+        <location filename="../pages/page_languagepackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="101"/>
+        <location filename="../pages/page_languagepackages.cpp" line="102"/>
         <source>Installing language packages...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="143"/>
+        <location filename="../pages/page_languagepackages.cpp" line="144"/>
         <source>%1 language packages</source>
         <translation type="unfinished"></translation>
     </message>
@@ -977,42 +967,42 @@ Proprietary Driver</source>
 <context>
     <name>SelectLocalesDialog</name>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="70"/>
         <source>Territory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="102"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="126"/>
         <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="148"/>
         <source>Locale:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="218"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="225"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>

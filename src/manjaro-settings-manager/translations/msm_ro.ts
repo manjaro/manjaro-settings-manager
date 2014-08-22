@@ -282,12 +282,12 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <location filename="../models/KeyboardModel.cpp" line="179"/>
         <location filename="../models/KeyboardModel.cpp" line="217"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Implicit</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="255"/>
         <source>Default Keyboard Model</source>
-        <translation type="unfinished"/>
+        <translation>Model implicit de tastatură</translation>
     </message>
 </context>
 <context>
@@ -334,55 +334,58 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Nucleu</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="81"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalează Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="82"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Doriți să instalați acest nucleu?
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="83"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Aceasta va instala următoarele pachete:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Se instalează un nucleu nou.</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Elimină Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Doriți să eliminați acest nucleu?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Aceasta va elimina următoarele pachete:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Se elimină nucleul...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Istoric schimbări Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -390,32 +393,32 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>Model tastatură:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastați aici pentru a testa tastatura</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Setări tastatură</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="126"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Se setează noul aranjament...</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Eroare</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Failed to determine current keyboard layout!</source>
-        <translation type="unfinished"/>
+        <translation>Nu se poate determina aranjamentul de tastatură curent!</translation>
     </message>
 </context>
 <context>
@@ -423,48 +426,48 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageLanguage.ui" line="22"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Localizarea sistemului</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adaugă</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Șterge</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="56"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Restaurează</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="66"/>
         <source>Locale</source>
-        <translation type="unfinished"/>
+        <translation>Localizare</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="71"/>
         <location filename="../pages/PageLanguage.cpp" line="29"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Limbă</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="76"/>
         <source>Territory</source>
-        <translation type="unfinished"/>
+        <translation>Teritoriu</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Limba sistemului</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="86"/>
         <source>System Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatele sistemului</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
@@ -472,38 +475,38 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Eroare!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Nu se poate deschide fișierul „%1”!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="151"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Nu se poate obține șirul valid de localizare pentru „%1”!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Nu se poate seta localizarea!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation type="unfinished"/>
+        <translation>Se generează fișierul locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>Hint</source>
-        <translation type="unfinished"/>
+        <translation>Sugestie</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Ar putea fi nevoie restartarea mediului grafic pentru a se aplica noile setări...</translation>
     </message>
 </context>
 <context>
@@ -570,7 +573,7 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Fus orar</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
@@ -580,37 +583,37 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Ceasul hardware în fusul orar local</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Oră:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation type="unfinished"/>
+        <translation>Dată:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>Ceas hardware:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
+        <translation>Oră universală:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Fus orar:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>Țară:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
@@ -630,12 +633,12 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>
         <source>Next transition:</source>
-        <translation type="unfinished"/>
+        <translation>Următoarea tranziție:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="122"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>niciuna</translation>
     </message>
 </context>
 <context>
@@ -1029,17 +1032,17 @@ driverul grafic proprietar?</translation>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>Selecție fus orar</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>Regiune:</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zonă:</translation>
     </message>
 </context>
 </TS>

@@ -212,7 +212,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>יומן שינויים</translation>
     </message>
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
@@ -230,22 +230,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>מומלץ</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>רץ</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>מותקן</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>לא נתמך</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
@@ -256,24 +256,24 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>מותאם אישית</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>ניסיוני</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="184"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="249"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>הסר</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>התקן</translation>
     </message>
 </context>
 <context>
@@ -282,7 +282,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../models/KeyboardModel.cpp" line="179"/>
         <location filename="../models/KeyboardModel.cpp" line="217"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>ברירת מחדל</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="255"/>
@@ -334,18 +334,19 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>קרנל</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="81"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>התקן את לינוקס %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="82"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>האם אתה בטוח שברצונך להתקין את הקרנל הזה?
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="83"/>
@@ -356,17 +357,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>כעת מתקין קרנל.</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>הסר את לינוקס %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>האם אתה בטוח שברצונך למחוק את הקרנל הזה?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
@@ -377,7 +378,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>כעת מסיר קרנל...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
@@ -390,17 +391,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>מודל מקלדת:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>הקלד כאן כדי לבדוק את המקלדת שלך</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="38"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>הגדרות מקלדת</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="126"/>
@@ -410,7 +411,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>שגיאה</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
@@ -428,28 +429,28 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>הוסף</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>הסר</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="56"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>שחזר</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="66"/>
         <source>Locale</source>
-        <translation type="unfinished"/>
+        <translation>מקם</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="71"/>
         <location filename="../pages/PageLanguage.cpp" line="29"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>שפה</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="76"/>
@@ -459,7 +460,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.ui" line="81"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>שפת מערכת</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="86"/>
@@ -472,13 +473,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>שגיאה!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>קריאת הקובץ &apos;%1&apos; נכשלה!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="151"/>
@@ -493,7 +494,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.cpp" line="196"/>
         <source>Generating locale.gen file...</source>
-        <translation type="unfinished"/>
+        <translation>כעת יוצר קובץ locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="199"/>
@@ -551,7 +552,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageNotifications.cpp" line="31"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>התראות</translation>
     </message>
 </context>
 <context>
@@ -560,22 +561,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageTimeDate.ui" line="20"/>
         <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>שעה ותאריך</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>קבע שעה ותאריך אוטומטית</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>אזור זמן</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>שנה אזור זמן</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
@@ -585,37 +586,37 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>שעה:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation type="unfinished"/>
+        <translation>תאריך:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>שעון חומרה:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
+        <translation>שעה אוניברסלית:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>אזור זמן</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>מדינה:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>שעון קיץ?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="232"/>
@@ -719,13 +720,15 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/page_mhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>התקנה אוטומטית
+דרייבר חופשי</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>התקנה אוטומטית
+דרייבר קנייני</translation>
     </message>
     <message>
         <location filename="../pages/page_mhwd.ui" line="72"/>
@@ -1025,17 +1028,17 @@ Proprietary Driver</source>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>בחירת אזור זמן</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>מחוז:</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>אזור:</translation>
     </message>
 </context>
 </TS>

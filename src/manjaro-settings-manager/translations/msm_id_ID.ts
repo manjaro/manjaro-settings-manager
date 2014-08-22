@@ -65,7 +65,7 @@ Anda yakin ingin melanjutkan?</translation>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Error!</source>
-        <translation>Eror!</translation>
+        <translation>Galat!</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
@@ -120,7 +120,7 @@ Anda yakin ingin melanjutkan?</translation>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
         <location filename="../dialogs/adduserdialog.cpp" line="120"/>
         <source>Error!</source>
-        <translation>Eror!</translation>
+        <translation>Galat!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="109"/>
@@ -195,7 +195,7 @@ Anda yakin ingin melanjutkan?</translation>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
         <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
         <source>Error!</source>
-        <translation>Eror!</translation>
+        <translation>Galat!</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
@@ -213,7 +213,7 @@ Anda yakin ingin melanjutkan?</translation>
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Daftar Perubahan</translation>
     </message>
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
@@ -252,7 +252,7 @@ Anda yakin ingin melanjutkan?</translation>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Daftar Perubahan</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
@@ -386,7 +386,7 @@ Anda yakin ingin melanjutkan?</translation>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation>Catatan Perubahan Linux %1.%2 </translation>
+        <translation>Daftar Perubahan Linux %1.%2 </translation>
     </message>
 </context>
 <context>
@@ -414,7 +414,7 @@ Anda yakin ingin melanjutkan?</translation>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
         <source>Error</source>
-        <translation>Eror</translation>
+        <translation>Galat</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="143"/>
@@ -476,7 +476,7 @@ Anda yakin ingin melanjutkan?</translation>
         <location filename="../pages/PageLanguage.cpp" line="160"/>
         <location filename="../pages/PageLanguage.cpp" line="192"/>
         <source>Error!</source>
-        <translation>Eror!</translation>
+        <translation>Galat!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="108"/>
@@ -882,7 +882,7 @@ graphic driver secara otomatis?</translation>
     <message>
         <location filename="../pages/page_users.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>User Accounts</translation>
+        <translation>Akun Pengguna</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="82"/>
@@ -908,7 +908,7 @@ graphic driver secara otomatis?</translation>
         <location filename="../pages/page_users.cpp" line="183"/>
         <location filename="../pages/page_users.cpp" line="222"/>
         <source>Error!</source>
-        <translation>Eror!</translation>
+        <translation>Galat!</translation>
     </message>
     <message>
         <location filename="../pages/page_users.cpp" line="145"/>
