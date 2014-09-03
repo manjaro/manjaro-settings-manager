@@ -6,7 +6,7 @@
 
 QT       += core gui webkitwidgets dbus
 
-LIBS += -lmhwd -licudata -licuuc
+LIBS += -lhd -licudata -licuuc
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
 CONFIG += c++11
@@ -22,6 +22,8 @@ SOURCES  += main.cpp \
             dialogs/KernelInfoDialog.cpp \
             dialogs/SelectLocalesDialog.cpp \
             dialogs/TimeZoneDialog.cpp \
+            mhwd/mhwd.cpp \
+            mhwd/vita/string.cpp \
             models/KernelModel.cpp \
             models/Kernel.cpp \
             models/KeyboardItem.cpp \
@@ -57,6 +59,10 @@ HEADERS  += mainwindow.h \
             dialogs/KernelInfoDialog.h \
             dialogs/SelectLocalesDialog.h \
             dialogs/TimeZoneDialog.h \
+            mhwd/const.hpp \
+            mhwd/mhwd.hpp \
+            mhwd/mhwd_p.hpp \
+            mhwd/vita/string.hpp \
             models/KernelModel.h \
             models/Kernel.h \
             models/KeyboardItem.h \

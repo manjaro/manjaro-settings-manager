@@ -32,7 +32,6 @@
 #include <QAction>
 #include <string>
 #include <vector>
-#include <mhwd.h>
 #include "global.h"
 #include "dialogs/applydialog.h"
 
