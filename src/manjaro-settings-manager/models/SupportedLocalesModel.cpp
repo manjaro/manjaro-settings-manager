@@ -29,7 +29,7 @@
 SupportedLocalesModel::SupportedLocalesModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    m_rootItem = new KeyboardItem(QString("key"), QString("description"));
+    m_rootItem = new LocaleItem(QString("key"));
     init(m_rootItem);
 }
 
@@ -58,8 +58,6 @@ QVariant SupportedLocalesModel::data(const QModelIndex &index, int role) const
         break;
     case KeyRole :
         return item->key();
-    case DescriptionRole :
-        return item->description();
     }
 
     return QVariant();
@@ -80,8 +78,6 @@ QVariant SupportedLocalesModel::headerData(int section, Qt::Orientation orientat
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         if (section == 0) {
             return m_rootItem->key();
-        } else if (section == 1) {
-            return m_rootItem->description();
         }
     }
 
@@ -95,15 +91,15 @@ QModelIndex SupportedLocalesModel::index(int row, int column, const QModelIndex 
         return QModelIndex();
     }
 
-    KeyboardItem *parentItem;
+    LocaleItem *parentItem;
 
     if (!parent.isValid()) {
         parentItem = m_rootItem;
     } else {
-        parentItem = static_cast<KeyboardItem*>(parent.internalPointer());
+        parentItem = static_cast<LocaleItem*>(parent.internalPointer());
     }
 
-    KeyboardItem *childItem = parentItem->child(row);
+    LocaleItem *childItem = parentItem->child(row);
     if (childItem) {
         return createIndex(row, column, childItem);
     } else {
@@ -118,8 +114,8 @@ QModelIndex SupportedLocalesModel::parent(const QModelIndex &index) const
         return QModelIndex();
     }
 
-    KeyboardItem *childItem = static_cast<KeyboardItem*>(index.internalPointer());
-    KeyboardItem *parentItem = childItem->parent();
+    LocaleItem *childItem = static_cast<LocaleItem*>(index.internalPointer());
+    LocaleItem *parentItem = childItem->parent();
 
     if (parentItem == m_rootItem) {
         return QModelIndex();
@@ -135,11 +131,11 @@ int SupportedLocalesModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    KeyboardItem *parentItem;
+    LocaleItem *parentItem;
     if (!parent.isValid()) {
         parentItem = m_rootItem;
     } else {
-        parentItem = static_cast<KeyboardItem*>(parent.internalPointer());
+        parentItem = static_cast<LocaleItem*>(parent.internalPointer());
     }
 
     return parentItem->childCount();
@@ -160,12 +156,11 @@ QHash<int, QByteArray> SupportedLocalesModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[KeyRole] = "key";
-    roles[DescriptionRole] = "description";
     return roles;
 }
 
 
-void SupportedLocalesModel::init(KeyboardItem *parent)
+void SupportedLocalesModel::init(LocaleItem *parent)
 {
     QFile file("/usr/share/i18n/SUPPORTED");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -213,17 +208,17 @@ void SupportedLocalesModel::init(KeyboardItem *parent)
                                                        KeyRole,
                                                        displayLanguage,
                                                        Qt::MatchFixedString);
-            KeyboardItem *languageItem;
+            LocaleItem *languageItem;
             QModelIndex languageIndex;
             if (languageIndexList.count() == 0) {
                 /* Not found, add the language to the root*/
-                languageItem = new KeyboardItem(displayLanguage, "", parent);
+                languageItem = new LocaleItem(displayLanguage, parent);
                 parent->appendChild(languageItem);
             } else {
                 Q_ASSERT(languageIndexList.count() == 1);
                 /* Found, convert index to a item */
                 languageIndex = languageIndexList.first();
-                languageItem = static_cast<KeyboardItem*>(languageIndex.internalPointer());
+                languageItem = static_cast<LocaleItem*>(languageIndex.internalPointer());
             }
 
             /* Search if we already added this country to this language */
@@ -231,21 +226,21 @@ void SupportedLocalesModel::init(KeyboardItem *parent)
                                                     KeyRole,
                                                     displayCountry,
                                                     Qt::MatchFixedString);
-            KeyboardItem *countryItem;
+            LocaleItem *countryItem;
             QModelIndex countryIndex;
             if (countryIndexList.count() == 0) {
                 /* Not found, add the country to the language */
-                countryItem = new KeyboardItem(displayCountry, "", languageItem);
+                countryItem = new LocaleItem(displayCountry, languageItem);
                 languageItem->appendChild(countryItem);
             } else {
                 Q_ASSERT(countryIndexList.count() == 1);
                 /* Found, convert index to a item */
                 countryIndex = countryIndexList.first();
-                countryItem = static_cast<KeyboardItem*>(countryIndex.internalPointer());
+                countryItem = static_cast<LocaleItem*>(countryIndex.internalPointer());
             }
 
             /* Add the locale code to the language */
-            KeyboardItem *localeItem = new KeyboardItem(localeCode, localeGen, countryItem);
+            LocaleItem *localeItem = new LocaleItem(localeCode, countryItem);
             countryItem->appendChild(localeItem);
         }
     }

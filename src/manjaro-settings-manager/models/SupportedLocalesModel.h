@@ -21,7 +21,7 @@
 #ifndef SUPPORTEDLOCALESMODEL_H
 #define SUPPORTEDLOCALESMODEL_H
 
-#include "models/KeyboardItem.h"
+#include "models/LocaleItem.h"
 
 #include <QtCore/QAbstractItemModel>
 
@@ -33,8 +33,7 @@ class SupportedLocalesModel : public QAbstractItemModel
     Q_OBJECT
 public:
     enum KeyboardRoles {
-        KeyRole = Qt::UserRole + 1,
-        DescriptionRole
+        KeyRole = Qt::UserRole + 1
     };
 
     explicit SupportedLocalesModel(QObject *parent = 0);
@@ -59,9 +58,9 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    void init(KeyboardItem *parent);
+    void init(LocaleItem *parent);
 
-    KeyboardItem *m_rootItem;
+    LocaleItem *m_rootItem;
     QString m_currentLanguage;
 
 signals:

@@ -28,6 +28,7 @@ SOURCES  += main.cpp \
             models/Kernel.cpp \
             models/KeyboardItem.cpp \
             models/KeyboardModel.cpp \
+            models/LocaleItem.cpp \
             models/SupportedLocalesModel.cpp \
             models/TimeDate.cpp \
             pages/page_languagepackages.cpp \
@@ -67,6 +68,7 @@ HEADERS  += mainwindow.h \
             models/Kernel.h \
             models/KeyboardItem.h \
             models/KeyboardModel.h \
+            models/LocaleItem.h \
             models/SupportedLocalesModel.h \
             models/TimeDate.h \
             pages/page_languagepackages.h \
