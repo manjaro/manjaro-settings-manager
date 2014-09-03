@@ -733,99 +733,99 @@ Proprietary Driver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="31"/>
+        <location filename="../pages/page_mhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="41"/>
+        <location filename="../pages/page_mhwd.cpp" line="42"/>
         <source>Install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="43"/>
+        <location filename="../pages/page_mhwd.cpp" line="44"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="45"/>
-        <location filename="../pages/page_mhwd.cpp" line="253"/>
+        <location filename="../pages/page_mhwd.cpp" line="46"/>
+        <location filename="../pages/page_mhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="105"/>
+        <location filename="../pages/page_mhwd.cpp" line="106"/>
         <source>Unknown device name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="165"/>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
+        <location filename="../pages/page_mhwd.cpp" line="166"/>
+        <location filename="../pages/page_mhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="166"/>
+        <location filename="../pages/page_mhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="170"/>
+        <location filename="../pages/page_mhwd.cpp" line="171"/>
         <source>Installing open-source graphic driver...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="182"/>
+        <location filename="../pages/page_mhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="186"/>
+        <location filename="../pages/page_mhwd.cpp" line="187"/>
         <source>Installing proprietary graphic driver...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="217"/>
+        <location filename="../pages/page_mhwd.cpp" line="218"/>
         <source>Install Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="218"/>
+        <location filename="../pages/page_mhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="222"/>
+        <location filename="../pages/page_mhwd.cpp" line="223"/>
         <source>Installing driver...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/page_mhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="236"/>
+        <location filename="../pages/page_mhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="240"/>
+        <location filename="../pages/page_mhwd.cpp" line="241"/>
         <source>Removing driver...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="254"/>
+        <location filename="../pages/page_mhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="258"/>
+        <location filename="../pages/page_mhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
         <translation type="unfinished"></translation>
     </message>
