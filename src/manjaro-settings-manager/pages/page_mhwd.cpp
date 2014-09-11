@@ -203,7 +203,7 @@ void Page_MHWD::showContextMenuForTreeWidget(const QPoint &pos)
         else {
             contextMenu.addAction(installAction);
         }
-        contextMenu.exec(mapToGlobal(pos));
+        contextMenu.exec(ui->treeWidget->viewport()->mapToGlobal(pos));
     }
 }
 
