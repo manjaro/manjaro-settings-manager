@@ -179,7 +179,7 @@ void SupportedLocalesModel::init(LocaleItem *parent)
 
         if (found && !line.isEmpty()) {
             QString localeCode = line.mid(0, line.indexOf("/")).remove("\\").trimmed();
-            QString localeGen = line.replace("/", " ").replace(" \\", "");
+            //QString localeGen = line.replace("/", " ").replace(" \\", "");
 
             Locale systemLocale = Locale();
             Locale locale(localeCode.toLatin1());
@@ -200,7 +200,7 @@ void SupportedLocalesModel::init(LocaleItem *parent)
             QString displayCountry = unicodeStringToQString(uDisplayCountry);
 
             if (systemLocale == locale) {
-                m_currentLanguage = displayLanguage;
+                currentLanguage_ = displayLanguage;
             }
 
             /* Search if we already added this language to the tree */
@@ -250,7 +250,7 @@ void SupportedLocalesModel::init(LocaleItem *parent)
 
 QString SupportedLocalesModel::currentLanguage()
 {
-    return m_currentLanguage;
+    return currentLanguage_;
 }
 
 

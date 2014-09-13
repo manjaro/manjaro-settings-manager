@@ -60,8 +60,8 @@ protected:
 private:
     void init(LocaleItem *parent);
 
-    LocaleItem *m_rootItem;
-    QString m_currentLanguage;
+    LocaleItem *rootItem_;
+    QString currentLanguage_;
 
 signals:
 
