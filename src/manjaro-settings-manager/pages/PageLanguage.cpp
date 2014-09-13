@@ -25,24 +25,32 @@
 
 PageLanguage::PageLanguage(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::PageLanguage)
+    ui(new Ui::PageLanguage),
+    enabledLocalesModel_(new EnabledLocalesModel),
+    languageListViewDelegate_(new LanguageListViewDelegate)
 {
     ui->setupUi(this);
     setTitel(tr("Language"));
     setIcon(QPixmap(":/images/resources/locale.png"));
     setShowApplyButton(true);
 
-    ui->treeWidget->setColumnWidth(0, 150);
-    ui->treeWidget->setColumnWidth(1, 150);
-    ui->treeWidget->setColumnWidth(2, 150);
-    ui->treeWidget->setColumnWidth(3, 150);
-    ui->treeWidget->setColumnWidth(4, 150);
+    ui->localeListView->setModel(enabledLocalesModel_);
+    ui->localeListView->setItemDelegate(languageListViewDelegate_);
 
-    connect(ui->buttonRemove, SIGNAL(clicked()) ,   this, SLOT(buttonRemove_clicked()));
-    connect(ui->buttonRestore, SIGNAL(clicked())    ,   this, SLOT(buttonRestore_clicked()));
-    connect(ui->buttonAdd, SIGNAL(clicked())    ,   this, SLOT(buttonAdd_clicked()));
+    connect(ui->buttonRemove, &QPushButton::clicked,
+            this, &PageLanguage::removeLocale);
+    connect(ui->buttonRestore, &QPushButton::clicked,
+            this, &PageLanguage::restoreLocaleList);
+    connect(ui->buttonAdd, &QPushButton::clicked,
+            this, &PageLanguage::addLocale);
+    connect(ui->localeListView->selectionModel(), &QItemSelectionModel::currentRowChanged,
+            this, &PageLanguage::disableRemoveButton);
+    connect(ui->localeListView, &QListView::doubleClicked,
+            [=] (const QModelIndex &index)
+            {
+                enabledLocalesModel_->setLang(index);
+            });
 }
-
 
 
 PageLanguage::~PageLanguage()
@@ -51,65 +59,39 @@ PageLanguage::~PageLanguage()
 }
 
 
-
-void PageLanguage::activated() {
-    ui->treeWidget->clear();
-
-    QString currentLocale = Global::getCurrentLocale();
-    QString currentFormats = Global::getCurrentFormats();
-
-    QList<Global::LocaleInfo> locales = Global::getAllEnabledLocales();
-
-
-    for (int i = 0; i < locales.size(); i++) {
-        const Global::LocaleInfo *locale = &locales.at(i);
-
-        TreeWidgetItem *item = new TreeWidgetItem(ui->treeWidget);
-        item->setText(0, locale->locale);
-        item->setText(1, locale->language);
-        item->setText(2, locale->territory);
-
-        if (currentLocale == locale->locale)
-            item->localeRadioButton.setChecked(true);
-        ui->treeWidget->setItemWidget(item, 3, &item->localeRadioButton);
-        groupLocale.addButton(&item->localeRadioButton);
-
-        if (currentFormats == locale->locale)
-            item->formatsRadioButton.setChecked(true);
-        ui->treeWidget->setItemWidget(item, 4, &item->formatsRadioButton);
-        groupFormats.addButton(&item->formatsRadioButton);
-    }
-
-    ui->treeWidget->sortItems(0, Qt::AscendingOrder);
+void PageLanguage::activated()
+{
+    ui->buttonRemove->setDisabled(true);
+    enabledLocalesModel_->init();
+    enabledLocalesModel_->updateSystemLocales();
 }
 
 
-
-void PageLanguage::apply_clicked() {
-    QString systemLocale;
-    QString systemFormats;
-    QStringList locales;
-
-    for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
-        TreeWidgetItem *item = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->topLevelItem(i));
-        if (!item)
-            continue;
-
-       locales.append(item->text(0));
-
-       if (item->localeRadioButton.isChecked())
-           systemLocale = item->text(0);
-
-       if (item->formatsRadioButton.isChecked())
-           systemFormats = item->text(0);
-    }
+void PageLanguage::apply_clicked()
+{
+    /* TODO only update locale-gen or setSystemLocale if needed */
+    updateLocaleGen();
+    setSystemLocale();
+}
 
 
-    QFile file(LOCALE_GEN);
+/*
+ * Update /etc/locale.gen file and run locale-gen
+ * Return true if successful
+ */
+bool PageLanguage::updateLocaleGen()
+{
+    const QString localeGen = "/etc/locale.gen";
+
+    QStringList locales = enabledLocalesModel_->locales();
+
+    QFile file(localeGen);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, tr("Error!"), tr("Failed to open file '%1'!").arg(LOCALE_GEN), QMessageBox::Ok, QMessageBox::Ok);
-        activated();
-        return;
+        QMessageBox::warning(this,
+                             tr("Error!"),
+                             tr("Failed to open file '%1'!").arg(localeGen),
+                             QMessageBox::Ok, QMessageBox::Ok);
+        return false;
     }
 
     QStringList content;
@@ -122,7 +104,7 @@ void PageLanguage::apply_clicked() {
 
         bool found = false;
 
-        foreach (QString locale, locales) {
+        for (QString locale : locales) {
             if (line.startsWith(locale + " ")) {
                 found = true;
                 locales.removeAll(locale);
@@ -145,12 +127,15 @@ void PageLanguage::apply_clicked() {
     }
     file.close();
 
-    // Add missing locales
-    foreach (QString locale, locales) {
+    // Add missing locales in the file
+    for (QString locale : locales) {
         QString str = Global::localeToValidLocaleGenString(locale);
 
         if (str.isEmpty()) {
-            QMessageBox::warning(this, tr("Error!"), tr("Failed to obtain valid locale string for locale '%1'!").arg(locale), QMessageBox::Ok, QMessageBox::Ok);
+            QMessageBox::warning(this,
+                                 tr("Error!"),
+                                 tr("Failed to obtain valid locale string for locale '%1'!").arg(locale),
+                                 QMessageBox::Ok, QMessageBox::Ok);
             continue;
         }
 
@@ -159,31 +144,77 @@ void PageLanguage::apply_clicked() {
 
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, tr("Error!"), tr("Failed to open file '%1'!").arg(LOCALE_GEN), QMessageBox::Ok, QMessageBox::Ok);
-        activated();
-        return;
+        QMessageBox::warning(this,
+                             tr("Error!"),
+                             tr("Failed to open file '%1'!").arg(localeGen),
+                             QMessageBox::Ok, QMessageBox::Ok);
+        return false;
     }
 
     QTextStream out(&file);
     out << content.join("\n");
     file.close();
 
-    /* Modify /etc/locale.conf using systemd-localed */
+
+    /* Generate new locales */
+    ApplyDialog dialog(this);
+    dialog.exec("locale-gen", QStringList(), tr("Generating locale.gen file..."), false);
+
+    if (dialog.processSuccess()) {
+        QMessageBox::information(this, tr("Hint"), tr("You might have to restart the graphical environment to apply the new settings..."), QMessageBox::Ok, QMessageBox::Ok);
+    }
+    return true;
+}
+
+
+/*
+ * Modify /etc/locale.conf using systemd-localed
+ */
+bool PageLanguage::setSystemLocale()
+{
     QStringList localeList;
-    localeList << QString("LANG=%1").arg(systemLocale)
-               << QString("LANGUAGE=%1").arg(systemLocale)
-               << QString("LC_CTYPE=%1").arg(systemLocale)
-               << QString("LC_NUMERIC=%1").arg(systemFormats)
-               << QString("LC_TIME=%1").arg(systemFormats)
-               << QString("LC_COLLATE=%1").arg(systemLocale)
-               << QString("LC_MONETARY=%1").arg(systemFormats)
-               << QString("LC_MESSAGES=%1").arg(systemLocale)
-               << QString("LC_PAPER=%1").arg(systemFormats)
-               << QString("LC_NAME=%1").arg(systemFormats)
-               << QString("LC_ADDRESS=%1").arg(systemFormats)
-               << QString("LC_TELEPHONE=%1").arg(systemFormats)
-               << QString("LC_MEASUREMENT=%1").arg(systemFormats)
-               << QString("LC_IDENTIFICATION=%1").arg(systemFormats);
+    if (!enabledLocalesModel_->systemLocales.lang.isEmpty()) {
+        localeList << QString("LANG=%1").arg(enabledLocalesModel_->systemLocales.lang);
+    }
+    if (!enabledLocalesModel_->systemLocales.language.isEmpty()) {
+        localeList << QString("LANGUAGE=%1").arg(enabledLocalesModel_->systemLocales.language);
+    }
+    if (!enabledLocalesModel_->systemLocales.ctype.isEmpty()) {
+        localeList << QString("LC_CTYPE=%1").arg(enabledLocalesModel_->systemLocales.ctype);
+    }
+    if (!enabledLocalesModel_->systemLocales.numeric.isEmpty()) {
+        localeList << QString("LC_NUMERIC=%1").arg(enabledLocalesModel_->systemLocales.numeric);
+    }
+    if (!enabledLocalesModel_->systemLocales.time.isEmpty()) {
+        localeList << QString("LC_TIME=%1").arg(enabledLocalesModel_->systemLocales.time);
+    }
+    if (!enabledLocalesModel_->systemLocales.collate.isEmpty()) {
+        localeList << QString("LC_COLLATE=%1").arg(enabledLocalesModel_->systemLocales.collate);
+    }
+    if (!enabledLocalesModel_->systemLocales.monetary.isEmpty()) {
+        localeList << QString("LC_MONETARY=%1").arg(enabledLocalesModel_->systemLocales.monetary);
+    }
+    if (!enabledLocalesModel_->systemLocales.messages.isEmpty()) {
+        localeList << QString("LC_MESSAGES=%1").arg(enabledLocalesModel_->systemLocales.messages);
+    }
+    if (!enabledLocalesModel_->systemLocales.paper.isEmpty()) {
+        localeList << QString("LC_PAPER=%1").arg(enabledLocalesModel_->systemLocales.paper);
+    }
+    if (!enabledLocalesModel_->systemLocales.name.isEmpty()) {
+        localeList << QString("LC_NAME=%1").arg(enabledLocalesModel_->systemLocales.name);
+    }
+    if (!enabledLocalesModel_->systemLocales.address.isEmpty()) {
+        localeList << QString("LC_ADDRESS=%1").arg(enabledLocalesModel_->systemLocales.address);
+    }
+    if (!enabledLocalesModel_->systemLocales.telephone.isEmpty()) {
+        localeList << QString("LC_TELEPHONE=%1").arg(enabledLocalesModel_->systemLocales.telephone);
+    }
+    if (!enabledLocalesModel_->systemLocales.measurement.isEmpty()) {
+        localeList << QString("LC_MEASUREMENT=%1").arg(enabledLocalesModel_->systemLocales.measurement);
+    }
+    if (!enabledLocalesModel_->systemLocales.identification.isEmpty()) {
+        localeList << QString("LC_IDENTIFICATION=%1").arg(enabledLocalesModel_->systemLocales.identification);
+    }
 
     QDBusInterface dbusInterface("org.freedesktop.locale1",
                                  "/org/freedesktop/locale1",
@@ -197,72 +228,17 @@ void PageLanguage::apply_clicked() {
     QDBusMessage reply;
     reply = dbusInterface.call("SetLocale", localeList, true);
     if (reply.type() == QDBusMessage::ErrorMessage) {
-        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set locale!") + "\n" + reply.errorMessage()), QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::warning(this,
+                             tr("Error!"),
+                             QString(tr("Failed to set locale!") + "\n" + reply.errorMessage()),
+                             QMessageBox::Ok, QMessageBox::Ok);
+        return false;
     }
-
-    /* Generate new locales */
-    ApplyDialog dialog(this);
-    dialog.exec("locale-gen", QStringList(), tr("Generating locale.gen file..."), false);
-
-    if (dialog.processSuccess()) {
-        QMessageBox::information(this, tr("Hint"), tr("You might have to restart the graphical environment to apply the new settings..."), QMessageBox::Ok, QMessageBox::Ok);
-    }
-
-    emit closePage(this);
+    return true;
 }
 
 
-
-//###
-//### Private
-//##
-
-
-void PageLanguage::buttonRemove_clicked() {
-    TreeWidgetItem *item = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->currentItem());
-
-    if (ui->treeWidget->selectedItems().size() <= 0 || ui->treeWidget->topLevelItemCount() <= 1 || !item)
-        return;
-
-    // Set check on another item if this one had the check
-    if (item->localeRadioButton.isChecked()) {
-        TreeWidgetItem *checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemAbove(item));
-        if (checkItem) {
-            checkItem->localeRadioButton.setChecked(true);
-        }
-        else {
-            checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemBelow(item));
-            if (checkItem)
-                checkItem->localeRadioButton.setChecked(true);
-        }
-    }
-
-    // Set check on another item if this one had the check
-    if (item->formatsRadioButton.isChecked()) {
-        TreeWidgetItem *checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemAbove(item));
-        if (checkItem) {
-            checkItem->formatsRadioButton.setChecked(true);
-        }
-        else {
-            checkItem = dynamic_cast<TreeWidgetItem*>(ui->treeWidget->itemBelow(item));
-            if (checkItem)
-                checkItem->formatsRadioButton.setChecked(true);
-        }
-    }
-
-    delete item;
-}
-
-
-
-void PageLanguage::buttonRestore_clicked()
-{
-    activated();
-}
-
-
-
-void PageLanguage::buttonAdd_clicked()
+void PageLanguage::addLocale()
 {
     SelectLocalesDialog dialog(this);
     dialog.exec();
@@ -272,20 +248,45 @@ void PageLanguage::buttonAdd_clicked()
     }
 
     QString locale = dialog.getLocale();
-    // Check if already in list
-    for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
-       if (ui->treeWidget->topLevelItem(i)->text(0) == locale) {
-           return;
-       }
+    LocaleItem localeItem(locale);
+    if (!enabledLocalesModel_->contains(localeItem)) {
+        enabledLocalesModel_->insertLocale(enabledLocalesModel_->rowCount(QModelIndex()), 1, localeItem);
     }
-
-    TreeWidgetItem *item = new TreeWidgetItem(ui->treeWidget);
-    item->setText(0, locale);
-    item->setText(1, QLocale::countryToString(QLocale(locale).country()));
-    item->setText(2, QLocale::languageToString(QLocale(locale).language()));
-    ui->treeWidget->setItemWidget(item, 3, &item->localeRadioButton);
-    groupLocale.addButton(&item->localeRadioButton);
-    ui->treeWidget->setItemWidget(item, 4, &item->formatsRadioButton);
-    groupFormats.addButton(&item->formatsRadioButton);
-    ui->treeWidget->sortItems(0, Qt::AscendingOrder);
 }
+
+
+void PageLanguage::removeLocale() {
+    QModelIndex localeCurrentIndex = ui->localeListView->currentIndex();
+    if (localeCurrentIndex.isValid()) {
+        if (enabledLocalesModel_->removeLocale(localeCurrentIndex.row(), 1)) {
+            ui->localeListView->setCurrentIndex(QModelIndex());
+        }
+    }
+}
+
+
+void PageLanguage::restoreLocaleList()
+{
+    activated();
+}
+
+
+/*
+ * Disables the remove button if only one locale is in the list or no locale is selected
+ */
+void PageLanguage::disableRemoveButton(const QModelIndex &current, const QModelIndex &previous)
+{
+    if (enabledLocalesModel_->rowCount(QModelIndex()) == 1) {
+        ui->buttonRemove->setDisabled(true);
+    } else {
+        if (current.isValid() && !previous.isValid()) {
+        ui->buttonRemove->setDisabled(false);
+        } else if (!current.isValid() && previous.isValid()) {
+            ui->buttonRemove->setDisabled(true);
+        }
+    }
+}
+
+
+
+

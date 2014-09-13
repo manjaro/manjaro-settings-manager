@@ -39,6 +39,8 @@ public:
     int row() const;
     LocaleItem *parent();
 
+    bool operator==(const LocaleItem &other);
+
 private:
     QString key_;
 

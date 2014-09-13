@@ -60,32 +60,25 @@
     </layout>
    </item>
    <item>
-    <widget class="QTreeWidget" name="treeWidget">
-     <column>
-      <property name="text">
-       <string>Locale</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Language</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Territory</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>System Language</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>System Formats</string>
-      </property>
-     </column>
+    <widget class="QListView" name="localeListView">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Double click an item to set as Default locale</string>
+     </property>
     </widget>
    </item>
   </layout>

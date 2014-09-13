@@ -53,7 +53,7 @@ int LocaleItem::childCount() const
 
 int LocaleItem::columnCount() const
 {
-    return 2;
+    return 1;
 }
 
 int LocaleItem::row() const
@@ -67,4 +67,9 @@ int LocaleItem::row() const
 LocaleItem *LocaleItem::parent()
 {
     return parentItem_;
+}
+
+bool LocaleItem::operator==(const LocaleItem &other)
+{
+    return (key() == other.key());
 }

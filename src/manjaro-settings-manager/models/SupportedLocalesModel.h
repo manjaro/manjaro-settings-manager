@@ -32,7 +32,7 @@ class SupportedLocalesModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    enum KeyboardRoles {
+    enum SupportedLocalesRoles {
         KeyRole = Qt::UserRole + 1
     };
 

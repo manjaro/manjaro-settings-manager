@@ -22,19 +22,11 @@
 #define PAGELANGUAGE_H
 
 #include <global.h>
-#include <const.h>
 #include "dialogs/applydialog.h"
-#include "widgets/pagewidget.h"
 #include "dialogs/SelectLocalesDialog.h"
-
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QRadioButton>
-#include <QButtonGroup>
-#include <QList>
-#include <QStringList>
-#include <QMessageBox>
-
+#include "delegates/LanguageListViewDelegate.h"
+#include "models/EnabledLocalesModel.h"
+#include "widgets/pagewidget.h"
 
 
 namespace Ui {
@@ -54,20 +46,19 @@ public:
     void apply_clicked();
     
 private:
-    class TreeWidgetItem : public QTreeWidgetItem {
-    public:
-        TreeWidgetItem(QTreeWidget * parent) : QTreeWidgetItem(parent) {}
-        QRadioButton localeRadioButton;
-        QRadioButton formatsRadioButton;
-    };
-    QButtonGroup groupLocale;
-    QButtonGroup groupFormats;
     Ui::PageLanguage *ui;
+    EnabledLocalesModel *enabledLocalesModel_;
+    LanguageListViewDelegate *languageListViewDelegate_;
+    QString currentLocale_;
+
+    bool updateLocaleGen();
+    bool setSystemLocale();
 
 protected slots:
-    void buttonRemove_clicked();
-    void buttonAdd_clicked();
-    void buttonRestore_clicked();
+    void addLocale();
+    void removeLocale();
+    void restoreLocaleList();
+    void disableRemoveButton(const QModelIndex &current, const QModelIndex &previous);
 
 };
 

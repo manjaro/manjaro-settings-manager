@@ -14,6 +14,7 @@ CONFIG += c++11
 SOURCES  += main.cpp \
             mainwindow.cpp \
             delegates/KernelListViewDelegate.cpp \
+            delegates/LanguageListViewDelegate.cpp \
             dialogs/accounttypedialog.cpp \
             dialogs/adduserdialog.cpp \
             dialogs/applydialog.cpp \
@@ -24,6 +25,7 @@ SOURCES  += main.cpp \
             dialogs/TimeZoneDialog.cpp \
             mhwd/mhwd.cpp \
             mhwd/vita/string.cpp \
+            models/EnabledLocalesModel.cpp \
             models/KernelModel.cpp \
             models/Kernel.cpp \
             models/KeyboardItem.cpp \
@@ -52,6 +54,7 @@ SOURCES  += main.cpp \
 
 HEADERS  += mainwindow.h \
             delegates/KernelListViewDelegate.h \
+            delegates/LanguageListViewDelegate.h \
             dialogs/accounttypedialog.h \
             dialogs/adduserdialog.h \
             dialogs/applydialog.h \
@@ -64,6 +67,7 @@ HEADERS  += mainwindow.h \
             mhwd/mhwd.hpp \
             mhwd/mhwd_p.hpp \
             mhwd/vita/string.hpp \
+            models/EnabledLocalesModel.h \
             models/KernelModel.h \
             models/Kernel.h \
             models/KeyboardItem.h \
