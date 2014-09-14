@@ -29,13 +29,13 @@
 SupportedLocalesModel::SupportedLocalesModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    m_rootItem = new LocaleItem(QString("key"));
-    init(m_rootItem);
+    rootItem_ = new LocaleItem(QString("key"));
+    init(rootItem_);
 }
 
 SupportedLocalesModel::~SupportedLocalesModel()
 {
-    delete m_rootItem;
+    delete rootItem_;
 }
 
 
@@ -77,7 +77,7 @@ QVariant SupportedLocalesModel::headerData(int section, Qt::Orientation orientat
 {
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         if (section == 0) {
-            return m_rootItem->key();
+            return rootItem_->key();
         }
     }
 
@@ -94,7 +94,7 @@ QModelIndex SupportedLocalesModel::index(int row, int column, const QModelIndex 
     LocaleItem *parentItem;
 
     if (!parent.isValid()) {
-        parentItem = m_rootItem;
+        parentItem = rootItem_;
     } else {
         parentItem = static_cast<LocaleItem*>(parent.internalPointer());
     }
@@ -117,7 +117,7 @@ QModelIndex SupportedLocalesModel::parent(const QModelIndex &index) const
     LocaleItem *childItem = static_cast<LocaleItem*>(index.internalPointer());
     LocaleItem *parentItem = childItem->parent();
 
-    if (parentItem == m_rootItem) {
+    if (parentItem == rootItem_) {
         return QModelIndex();
     }
 
@@ -133,7 +133,7 @@ int SupportedLocalesModel::rowCount(const QModelIndex &parent) const
 
     LocaleItem *parentItem;
     if (!parent.isValid()) {
-        parentItem = m_rootItem;
+        parentItem = rootItem_;
     } else {
         parentItem = static_cast<LocaleItem*>(parent.internalPointer());
     }
@@ -147,7 +147,7 @@ int SupportedLocalesModel::columnCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return static_cast<KeyboardItem*>(parent.internalPointer())->columnCount();
     } else {
-        return m_rootItem->columnCount();
+        return rootItem_->columnCount();
     }
 }
 

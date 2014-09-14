@@ -34,11 +34,11 @@ SOURCES  += main.cpp \
             models/SupportedLocalesModel.cpp \
             models/TimeDate.cpp \
             pages/page_languagepackages.cpp \
-            pages/page_mhwd.cpp \
             pages/page_users.cpp \
             pages/PageKernel.cpp \
             pages/PageKeyboard.cpp \
             pages/PageLanguage.cpp \
+            pages/PageMhwd.cpp \
             pages/PageNotifications.cpp \
             pages/PageTimeDate.cpp \
             widgets/flatbutton.cpp \
@@ -76,11 +76,11 @@ HEADERS  += mainwindow.h \
             models/SupportedLocalesModel.h \
             models/TimeDate.h \
             pages/page_languagepackages.h \
-            pages/page_mhwd.h \
             pages/page_users.h \
             pages/PageKernel.h \
             pages/PageKeyboard.h \
             pages/PageLanguage.h \
+            pages/PageMhwd.h \
             pages/PageNotifications.h \
             pages/PageTimeDate.h \
             widgets/flatbutton.h \
@@ -103,11 +103,11 @@ FORMS    += mainwindow.ui \
             dialogs/SelectLocalesDialog.ui \
             dialogs/TimeZoneDialog.ui \
             pages/page_languagepackages.ui \
-            pages/page_mhwd.ui \
             pages/page_users.ui \
             pages/PageKernel.ui \
             pages/PageKeyboard.ui \
             pages/PageLanguage.ui \
+            pages/PageMhwd.ui \
             pages/PageNotifications.ui \
             pages/PageTimeDate.ui
 

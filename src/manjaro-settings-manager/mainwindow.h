@@ -23,11 +23,11 @@
 
 #include "widgets/pagewidget.h"
 #include "pages/page_languagepackages.h"
-#include "pages/page_mhwd.h"
 #include "pages/page_users.h"
 #include "pages/PageKernel.h"
 #include "pages/PageKeyboard.h"
 #include "pages/PageLanguage.h"
+#include "pages/PageMhwd.h"
 #include "pages/PageNotifications.h"
 #include "pages/PageTimeDate.h"
 
@@ -72,7 +72,7 @@ private:
 
     Ui::MainWindow *ui;
     Page_LanguagePackages page_LanguagePackages;
-    Page_MHWD page_MHWD;
+    PageMhwd pageMhwd;
     PageKernel pageKernel;
     PageKeyboard pageKeyboard;
     PageLanguage pageLanguage;

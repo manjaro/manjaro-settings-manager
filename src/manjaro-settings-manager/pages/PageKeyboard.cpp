@@ -90,6 +90,8 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
 PageKeyboard::~PageKeyboard()
 {
     delete ui;
+    delete keyboardModel_;
+    delete keyboardProxyModel_;
 }
 
 

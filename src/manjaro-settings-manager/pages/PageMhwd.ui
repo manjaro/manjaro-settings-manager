@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Page_MHWD</class>
- <widget class="QWidget" name="Page_MHWD">
+ <class>PageMhwd</class>
+ <widget class="QWidget" name="PageMhwd">
   <property name="geometry">
    <rect>
     <x>0</x>

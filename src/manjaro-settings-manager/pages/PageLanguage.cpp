@@ -56,6 +56,8 @@ PageLanguage::PageLanguage(QWidget *parent) :
 PageLanguage::~PageLanguage()
 {
     delete ui;
+    delete enabledLocalesModel_;
+    delete languageListViewDelegate_;
 }
 
 

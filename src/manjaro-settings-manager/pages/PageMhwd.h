@@ -20,8 +20,8 @@
  */
 
 
-#ifndef PAGE_MHWD_H
-#define PAGE_MHWD_H
+#ifndef PAGEMHWD_H
+#define PAGEMHWD_H
 
 #include "widgets/pagewidget.h"
 #include <QString>
@@ -36,21 +36,21 @@
 #include "dialogs/applydialog.h"
 
 namespace Ui {
-class Page_MHWD;
+class PageMhwd;
 }
 
-class Page_MHWD : public PageWidget
+class PageMhwd : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_MHWD(QWidget *parent = 0);
-    ~Page_MHWD();
+    explicit PageMhwd(QWidget *parent = 0);
+    ~PageMhwd();
 
     void activated();
     
 private:
-    Ui::Page_MHWD *ui;
+    Ui::PageMhwd *ui;
     QAction *installAction;
     QAction *removeAction;
     QAction *forceReinstallationAction;
@@ -65,4 +65,4 @@ private slots:
     void checkBoxShowAll_toggled();
 };
 
-#endif // PAGE_MHWD_H
+#endif // PAGEMHWD_H

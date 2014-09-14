@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->listWidget->addSeparator(tr("Hardware"));
     addPageWidget(pageKeyboard);
-    addPageWidget(page_MHWD);
+    addPageWidget(pageMhwd);
 
     // Connect signals and slots
     connect(ui->buttonQuit, &QPushButton::clicked,

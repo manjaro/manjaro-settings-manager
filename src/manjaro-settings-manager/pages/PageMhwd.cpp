@@ -19,14 +19,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "page_mhwd.h"
-#include "ui_page_mhwd.h"
+#include "PageMhwd.h"
+#include "ui_PageMhwd.h"
 
 #include "mhwd/mhwd.h"
 
-Page_MHWD::Page_MHWD(QWidget *parent) :
+PageMhwd::PageMhwd(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::Page_MHWD)
+    ui(new Ui::PageMhwd)
 {
     ui->setupUi(this);
     setTitel(tr("Hardware Detection"));
@@ -48,31 +48,31 @@ Page_MHWD::Page_MHWD(QWidget *parent) :
 
     // Connect signals and slots
     connect(ui->buttonInstallFree, &QPushButton::clicked,
-            this, &Page_MHWD::buttonInstallFree_clicked);
+            this, &PageMhwd::buttonInstallFree_clicked);
     connect(ui->buttonInstallNonFree, &QPushButton::clicked,
-            this, &Page_MHWD::buttonInstallNonFree_clicked);
+            this, &PageMhwd::buttonInstallNonFree_clicked);
     connect(ui->treeWidget, &QTreeWidget::customContextMenuRequested,
-            this, &Page_MHWD::showContextMenuForTreeWidget);
+            this, &PageMhwd::showContextMenuForTreeWidget);
     connect(installAction, &QAction::triggered,
-            this, &Page_MHWD::installAction_triggered);
+            this, &PageMhwd::installAction_triggered);
     connect(removeAction, &QAction::triggered,
-            this, &Page_MHWD::removeAction_triggered);
+            this, &PageMhwd::removeAction_triggered);
     connect(forceReinstallationAction, &QAction::triggered,
-            this, &Page_MHWD::forceReinstallationAction_triggered);
+            this, &PageMhwd::forceReinstallationAction_triggered);
     connect(ui->checkBoxShowAll, &QCheckBox::toggled,
-            this, &Page_MHWD::checkBoxShowAll_toggled);
+            this, &PageMhwd::checkBoxShowAll_toggled);
 }
 
 
 
-Page_MHWD::~Page_MHWD()
+PageMhwd::~PageMhwd()
 {
     delete ui;
 }
 
 
 
-void Page_MHWD::activated()
+void PageMhwd::activated()
 {
     ui->treeWidget->clear();
     ui->buttonInstallFree->setEnabled(false);
@@ -159,7 +159,7 @@ void Page_MHWD::activated()
 
 
 
-void Page_MHWD::buttonInstallFree_clicked()
+void PageMhwd::buttonInstallFree_clicked()
 {
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
@@ -175,7 +175,7 @@ void Page_MHWD::buttonInstallFree_clicked()
 
 
 
-void Page_MHWD::buttonInstallNonFree_clicked()
+void PageMhwd::buttonInstallNonFree_clicked()
 {
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
@@ -191,7 +191,7 @@ void Page_MHWD::buttonInstallNonFree_clicked()
 
 
 
-void Page_MHWD::showContextMenuForTreeWidget(const QPoint &pos)
+void PageMhwd::showContextMenuForTreeWidget(const QPoint &pos)
 {
     QMenu contextMenu(this);
     QTreeWidgetItem* temp = ui->treeWidget->itemAt(pos);
@@ -209,7 +209,7 @@ void Page_MHWD::showContextMenuForTreeWidget(const QPoint &pos)
 
 
 
-void Page_MHWD::installAction_triggered()
+void PageMhwd::installAction_triggered()
 {
     QTreeWidgetItem* temp = ui->treeWidget->currentItem();
     QString configuration = temp->text(0);
@@ -227,7 +227,7 @@ void Page_MHWD::installAction_triggered()
 
 
 
-void Page_MHWD::removeAction_triggered()
+void PageMhwd::removeAction_triggered()
 {
     QTreeWidgetItem* temp = ui->treeWidget->currentItem();
     QString configuration = temp->text(0);
@@ -245,7 +245,7 @@ void Page_MHWD::removeAction_triggered()
 
 
 
-void Page_MHWD::forceReinstallationAction_triggered()
+void PageMhwd::forceReinstallationAction_triggered()
 {
     QTreeWidgetItem* temp = ui->treeWidget->currentItem();
     QString configuration = temp->text(0);
@@ -261,7 +261,7 @@ void Page_MHWD::forceReinstallationAction_triggered()
     activated();
 }
 
-void Page_MHWD::checkBoxShowAll_toggled()
+void PageMhwd::checkBoxShowAll_toggled()
 {
     activated();
 }
