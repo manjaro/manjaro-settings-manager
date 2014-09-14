@@ -73,8 +73,6 @@ public:
     static bool isSystemUpToDate();
 
     static QList<Global::LocaleInfo> getAllEnabledLocales();
-    static QString getCurrentLocale();
-    static QString getCurrentFormats();
     static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
     static QString localeToValidLocaleGenString(QString locale);
 
