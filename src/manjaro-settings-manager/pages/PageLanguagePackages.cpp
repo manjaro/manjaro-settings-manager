@@ -18,13 +18,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "page_languagepackages.h"
-#include "ui_page_languagepackages.h"
+#include "PageLanguagePackages.h"
+#include "ui_PageLanguagePackages.h"
 
 
-Page_LanguagePackages::Page_LanguagePackages(QWidget *parent) :
+PageLanguagePackages::PageLanguagePackages(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::Page_LanguagePackages)
+    ui(new Ui::PageLanguagePackages)
 {
     ui->setupUi(this);
     setTitel(tr("Language Packages"));
@@ -39,19 +39,19 @@ Page_LanguagePackages::Page_LanguagePackages(QWidget *parent) :
     ui->treeWidgetInstalled->setColumnWidth(1, 300);
 
     connect(ui->treeWidgetAvailable, &QTreeWidget::clicked,
-            this, &Page_LanguagePackages::updateApplyEnabledState);
+            this, &PageLanguagePackages::updateApplyEnabledState);
 }
 
 
 
-Page_LanguagePackages::~Page_LanguagePackages()
+PageLanguagePackages::~PageLanguagePackages()
 {
     delete ui;
 }
 
 
 
-void Page_LanguagePackages::activated() {
+void PageLanguagePackages::activated() {
     // Clean up first
     ui->treeWidgetAvailable->clear();
     ui->treeWidgetInstalled->clear();
@@ -68,7 +68,7 @@ void Page_LanguagePackages::activated() {
 
 
 
-void Page_LanguagePackages::apply_clicked() {
+void PageLanguagePackages::apply_clicked() {
     ApplyDialog dialog(this);
 
     // Update pacman databases first
@@ -106,7 +106,7 @@ void Page_LanguagePackages::apply_clicked() {
 
 
 
-void Page_LanguagePackages::updateApplyEnabledState() {
+void PageLanguagePackages::updateApplyEnabledState() {
      for(int i = 0; i < ui->treeWidgetAvailable->topLevelItemCount(); ++i) {
         QTreeWidgetItem *topItem = ui->treeWidgetAvailable->topLevelItem(i);
 
@@ -123,7 +123,7 @@ void Page_LanguagePackages::updateApplyEnabledState() {
 
 
 
-void Page_LanguagePackages::addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable) {
+void PageLanguagePackages::addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable) {
     QMap<QString, QList<Global::LanguagePackage> > sortedPackagesLocale;
 
     for (int i = 0; i < languagePackages->size(); i++) {

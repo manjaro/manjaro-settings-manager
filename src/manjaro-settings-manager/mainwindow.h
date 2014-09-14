@@ -22,14 +22,14 @@
 #define MAINWINDOW_H
 
 #include "widgets/pagewidget.h"
-#include "pages/page_languagepackages.h"
-#include "pages/page_users.h"
 #include "pages/PageKernel.h"
 #include "pages/PageKeyboard.h"
 #include "pages/PageLanguage.h"
+#include "pages/PageLanguagePackages.h"
 #include "pages/PageMhwd.h"
 #include "pages/PageNotifications.h"
 #include "pages/PageTimeDate.h"
+#include "pages/PageUsers.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -71,14 +71,14 @@ private:
     };
 
     Ui::MainWindow *ui;
-    Page_LanguagePackages page_LanguagePackages;
-    PageMhwd pageMhwd;
     PageKernel pageKernel;
     PageKeyboard pageKeyboard;
     PageLanguage pageLanguage;
+    PageLanguagePackages pageLanguagePackages;
+    PageMhwd pageMhwd;
     PageNotifications pageNotifications;
     PageTimeDate pageTimeDate;
-    Page_Users page_Users;
+    PageUsers pageUsers;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

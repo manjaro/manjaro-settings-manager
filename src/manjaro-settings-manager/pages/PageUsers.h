@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_USERS_H
-#define PAGE_USERS_H
+#ifndef PAGEUSERS_H
+#define PAGEUSERS_H
 
 #include "widgets/pagewidget.h"
 #include <QIcon>
@@ -41,17 +41,17 @@
 
 
 namespace Ui {
-class Page_Users;
+class PageUsers;
 }
 
 
-class Page_Users : public PageWidget
+class PageUsers : public PageWidget
 {
     Q_OBJECT
     
 public:
-    explicit Page_Users(QWidget *parent = 0);
-    ~Page_Users();
+    explicit PageUsers(QWidget *parent = 0);
+    ~PageUsers();
 
     void activated();
     
@@ -63,7 +63,7 @@ private:
         Global::User user;
     };
 
-    Ui::Page_Users *ui;
+    Ui::PageUsers *ui;
 
 private slots:
     void setupUserData(QListWidgetItem* current);
@@ -75,4 +75,4 @@ private slots:
 
 };
 
-#endif // PAGE_USERS_H
+#endif // PAGEUSERS_H

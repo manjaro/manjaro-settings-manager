@@ -33,14 +33,14 @@ SOURCES  += main.cpp \
             models/LocaleItem.cpp \
             models/SupportedLocalesModel.cpp \
             models/TimeDate.cpp \
-            pages/page_languagepackages.cpp \
-            pages/page_users.cpp \
             pages/PageKernel.cpp \
             pages/PageKeyboard.cpp \
             pages/PageLanguage.cpp \
+            pages/PageLanguagePackages.cpp \
             pages/PageMhwd.cpp \
             pages/PageNotifications.cpp \
             pages/PageTimeDate.cpp \
+            pages/PageUsers.cpp \
             widgets/flatbutton.cpp \
             widgets/listwidget.cpp \
             widgets/LocaleGlobal.cpp \
@@ -75,14 +75,14 @@ HEADERS  += mainwindow.h \
             models/LocaleItem.h \
             models/SupportedLocalesModel.h \
             models/TimeDate.h \
-            pages/page_languagepackages.h \
-            pages/page_users.h \
             pages/PageKernel.h \
             pages/PageKeyboard.h \
             pages/PageLanguage.h \
+            pages/PageLanguagePackages.h \
             pages/PageMhwd.h \
             pages/PageNotifications.h \
             pages/PageTimeDate.h \
+            pages/PageUsers.h \
             widgets/flatbutton.h \
             widgets/listwidget.h \
             widgets/LocaleGlobal.h \
@@ -102,14 +102,14 @@ FORMS    += mainwindow.ui \
             dialogs/KernelInfoDialog.ui \
             dialogs/SelectLocalesDialog.ui \
             dialogs/TimeZoneDialog.ui \
-            pages/page_languagepackages.ui \
-            pages/page_users.ui \
             pages/PageKernel.ui \
             pages/PageKeyboard.ui \
             pages/PageLanguage.ui \
+            pages/PageLanguagePackages.ui \
             pages/PageMhwd.ui \
             pages/PageNotifications.ui \
-            pages/PageTimeDate.ui
+            pages/PageTimeDate.ui \
+            pages/PageUsers.ui
 
 
 

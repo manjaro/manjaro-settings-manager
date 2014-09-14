@@ -18,12 +18,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "page_users.h"
-#include "ui_page_users.h"
+#include "PageUsers.h"
+#include "ui_PageUsers.h"
 
-Page_Users::Page_Users(QWidget *parent) :
+PageUsers::PageUsers(QWidget *parent) :
     PageWidget(parent),
-    ui(new Ui::Page_Users)
+    ui(new Ui::PageUsers)
 {
     ui->setupUi(this);
     setTitel(tr("User Accounts"));
@@ -40,14 +40,14 @@ Page_Users::Page_Users(QWidget *parent) :
 
 
 
-Page_Users::~Page_Users()
+PageUsers::~PageUsers()
 {
     delete ui;
 }
 
 
 
-void Page_Users::activated() {
+void PageUsers::activated() {
     ui->listWidget->clear();
 
     QList<Global::User> users = Global::getAllUsers();
@@ -75,7 +75,7 @@ void Page_Users::activated() {
 //###
 
 
-void Page_Users::setupUserData(QListWidgetItem* current) {
+void PageUsers::setupUserData(QListWidgetItem* current) {
     if (!current) {
         ui->buttonImage->setIcon(QIcon(":/images/resources/user.png"));
         ui->labelUsername->setText("");
@@ -103,7 +103,7 @@ void Page_Users::setupUserData(QListWidgetItem* current) {
 
 
 
-void Page_Users::buttonImage_clicked() {
+void PageUsers::buttonImage_clicked() {
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->currentItem());
     if (!item)
         return;
@@ -188,7 +188,7 @@ void Page_Users::buttonImage_clicked() {
 
 
 
-void Page_Users::buttonAddUser_clicked() {
+void PageUsers::buttonAddUser_clicked() {
     AddUserDialog dialog(this);
     dialog.exec();
 
@@ -199,7 +199,7 @@ void Page_Users::buttonAddUser_clicked() {
 
 
 
-void Page_Users::buttonRemoveUser_clicked() {
+void PageUsers::buttonRemoveUser_clicked() {
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->currentItem());
     if (!item)
         return;
@@ -228,7 +228,7 @@ void Page_Users::buttonRemoveUser_clicked() {
 
 
 
-void Page_Users::buttonChangePassword_clicked() {
+void PageUsers::buttonChangePassword_clicked() {
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->currentItem());
     if (!item)
         return;
@@ -239,7 +239,7 @@ void Page_Users::buttonChangePassword_clicked() {
 
 
 
-void Page_Users::buttonChangeAccountType_clicked() {
+void PageUsers::buttonChangeAccountType_clicked() {
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->currentItem());
     if (!item)
         return;

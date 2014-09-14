@@ -40,10 +40,10 @@ MainWindow::MainWindow(QWidget *parent) :
     buttonShowAllSettings_clicked();
 
     ui->listWidget->addSeparator(tr("System"));
-    addPageWidget(page_LanguagePackages);
     addPageWidget(pageLanguage);
+    addPageWidget(pageLanguagePackages);
     addPageWidget(pageKernel);
-    addPageWidget(page_Users);
+    addPageWidget(pageUsers);
     addPageWidget(pageTimeDate);
     addPageWidget(pageNotifications);
 
@@ -123,7 +123,7 @@ void MainWindow::checkAppArguments()
             // Show language packages page
             for(int i = 0; i < ui->listWidget->count(); i++) {
                 ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
-                if (!item || !item->page || item->page != &page_LanguagePackages) {
+                if (!item || !item->page || item->page != &pageLanguagePackages) {
                     continue;
                 }
                 listWidget_itemClicked(item);
