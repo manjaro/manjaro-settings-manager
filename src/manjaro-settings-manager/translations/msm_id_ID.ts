@@ -295,7 +295,7 @@ Anda yakin ingin melanjutkan?</translation>
     <name>LanguageListViewDelegate</name>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
-        <source>Default     </source>
+        <source>Default</source>
         <translation type="unfinished"/>
     </message>
 </context>

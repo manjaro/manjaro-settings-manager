@@ -294,7 +294,7 @@ Khuyến nghị: Bạn nên kích hoạt những nhóm đó. Bạn có thực s�
     <name>LanguageListViewDelegate</name>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
-        <source>Default     </source>
+        <source>Default</source>
         <translation type="unfinished"/>
     </message>
 </context>

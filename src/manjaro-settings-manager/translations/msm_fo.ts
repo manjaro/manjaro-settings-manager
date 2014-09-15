@@ -294,7 +294,7 @@ Tað er tilmælt at seta hesar bólkar í gildið. Ert tú vísur í at tú vilt
     <name>LanguageListViewDelegate</name>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
-        <source>Default     </source>
+        <source>Default</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -294,7 +294,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <name>LanguageListViewDelegate</name>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
-        <source>Default     </source>
+        <source>Default</source>
         <translation type="unfinished"/>
     </message>
 </context>

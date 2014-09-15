@@ -294,7 +294,7 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
     <name>LanguageListViewDelegate</name>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
-        <source>Default     </source>
+        <source>Default</source>
         <translation type="unfinished"/>
     </message>
 </context>
