@@ -53,9 +53,9 @@ void LanguageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewIt
         textFont.setItalic(true);
         painter->setPen(QColor(Qt::gray));
         painter->setFont(textFont);
-        painter->drawText(option.rect,
+        painter->drawText(option.rect.adjusted(0, 0, -20, 0),
                           Qt::AlignVCenter | Qt::AlignRight,
-                          QString(tr("Default     ")));
+                          QString(tr("Default")));
     }
 
     painter->restore();
