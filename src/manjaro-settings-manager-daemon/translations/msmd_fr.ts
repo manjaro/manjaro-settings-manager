@@ -39,7 +39,7 @@
     <message numerus="yes">
         <location filename="../daemon.cpp" line="90"/>
         <source>%n new additional language package(s) available</source>
-        <translation><numerusform>%n nouveau paquet linguistique additionnel disponible</numerusform><numerusform>%n nouveaux paquets linguistiques additionnels disponibles</numerusform></translation>
+        <translation><numerusform>%n nouveau paquet linguistique additionnel disponible</numerusform><numerusform>%n nouveau(x) paquet(s) linguistique(s) additionnel(s) disponible(s)</numerusform></translation>
     </message>
 </context>
 </TS>

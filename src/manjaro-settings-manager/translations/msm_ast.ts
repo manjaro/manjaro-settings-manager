@@ -279,15 +279,23 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
 <context>
     <name>KeyboardModel</name>
     <message>
-        <location filename="../models/KeyboardModel.cpp" line="179"/>
-        <location filename="../models/KeyboardModel.cpp" line="217"/>
+        <location filename="../models/KeyboardModel.cpp" line="208"/>
+        <location filename="../models/KeyboardModel.cpp" line="246"/>
         <source>Default</source>
         <translation>Por defeutu</translation>
     </message>
     <message>
-        <location filename="../models/KeyboardModel.cpp" line="255"/>
+        <location filename="../models/KeyboardModel.cpp" line="284"/>
         <source>Default Keyboard Model</source>
         <translation>Modelu del tecláu por defeutu</translation>
+    </message>
+</context>
+<context>
+    <name>LanguageListViewDelegate</name>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
+        <source>Default     </source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -324,7 +332,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="200"/>
+        <location filename="../mainwindow.cpp" line="211"/>
         <source>Manjaro Settings</source>
         <translation>Axustes Manjaro</translation>
     </message>
@@ -401,24 +409,14 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <translation>Escribi equí pa comprobar el to tecláu</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="38"/>
+        <location filename="../pages/PageKeyboard.cpp" line="39"/>
         <source>Keyboard Settings</source>
         <translation>Axustes del tecláu</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="126"/>
+        <location filename="../pages/PageKeyboard.cpp" line="112"/>
         <source>Setting new keyboard layout...</source>
         <translation>Axustando la triba nueva de tecláu...</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageKeyboard.cpp" line="143"/>
-        <source>Error</source>
-        <translation>Fallu</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageKeyboard.cpp" line="143"/>
-        <source>Failed to determine current keyboard layout!</source>
-        <translation>¡Fallu al determinar la triba de tecláu d&apos;anguaño!</translation>
     </message>
 </context>
 <context>
@@ -444,69 +442,255 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <translation>Restaurar</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="66"/>
-        <source>Locale</source>
-        <translation>Locale</translation>
+        <location filename="../pages/PageLanguage.ui" line="80"/>
+        <source>Double click an item to set as Default locale</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="71"/>
-        <location filename="../pages/PageLanguage.cpp" line="29"/>
+        <location filename="../pages/PageLanguage.cpp" line="33"/>
         <source>Language</source>
         <translation>Llingüa</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="76"/>
-        <source>Territory</source>
-        <translation>Territoriu</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="81"/>
-        <source>System Language</source>
-        <translation>Llingua&apos;l sistema</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="86"/>
-        <source>System Formats</source>
-        <translation>Formatos del sistema</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="108"/>
-        <location filename="../pages/PageLanguage.cpp" line="151"/>
-        <location filename="../pages/PageLanguage.cpp" line="160"/>
-        <location filename="../pages/PageLanguage.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="93"/>
+        <location filename="../pages/PageLanguage.cpp" line="138"/>
+        <location filename="../pages/PageLanguage.cpp" line="150"/>
+        <location filename="../pages/PageLanguage.cpp" line="234"/>
         <source>Error!</source>
         <translation>¡Fallu!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="108"/>
-        <location filename="../pages/PageLanguage.cpp" line="160"/>
+        <location filename="../pages/PageLanguage.cpp" line="94"/>
+        <location filename="../pages/PageLanguage.cpp" line="151"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation>¡Fallu al abrir el ficheru &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="151"/>
+        <location filename="../pages/PageLanguage.cpp" line="139"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation>¡Fallu al consiguir la cadena locale válida pal locale &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="235"/>
         <source>Failed to set locale!</source>
         <translation>¡Fallu al afitar la locale!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="196"/>
+        <location filename="../pages/PageLanguage.cpp" line="163"/>
         <source>Generating locale.gen file...</source>
         <translation>Xenerando ficheru locale.gen...</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="166"/>
         <source>Hint</source>
         <translation>Conseyu</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="166"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation>Quiciabes tengas de reaniciar l&apos;entronu gráficu p&apos;aplicar los axustes nuevos...</translation>
+    </message>
+</context>
+<context>
+    <name>PageLanguagePackages</name>
+    <message>
+        <location filename="../pages/PageLanguagePackages.ui" line="24"/>
+        <source>Available Language Packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.ui" line="30"/>
+        <source>Additional language packages can be installed:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.ui" line="53"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="101"/>
+        <source>Package</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.ui" line="58"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="106"/>
+        <source>Parent Package</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.ui" line="63"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.ui" line="72"/>
+        <source>Installed Language Packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.ui" line="78"/>
+        <source>Installed language packages:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
+        <source>Language Packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
+        <source>Updating pacman databases...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
+        <source>System is out-of-date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
+        <source>Your System is not up-to-date! You have to update it first to continue!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
+        <source>Installing language packages...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
+        <source>%1 language packages</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PageMhwd</name>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="37"/>
+        <source>Auto Install
+Open-source Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="45"/>
+        <source>Auto Install
+Proprietary Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="67"/>
+        <source>Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="72"/>
+        <source>Open-source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="77"/>
+        <source>Installed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="85"/>
+        <source>Show all devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="32"/>
+        <source>Hardware Detection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="42"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="44"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="46"/>
+        <location filename="../pages/PageMhwd.cpp" line="254"/>
+        <source>Force Reinstallation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="106"/>
+        <source>Unknown device name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="166"/>
+        <location filename="../pages/PageMhwd.cpp" line="182"/>
+        <source>Auto Install Configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="167"/>
+        <source>Do you really want to auto install
+ the open-source graphic driver?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="171"/>
+        <source>Installing open-source graphic driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="183"/>
+        <source>Do you really want to auto install
+ the proprietary graphic driver?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="187"/>
+        <source>Installing proprietary graphic driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="218"/>
+        <source>Install Configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="219"/>
+        <source>Do you really want to install
+%1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="223"/>
+        <source>Installing driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="236"/>
+        <source>Remove Configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="237"/>
+        <source>Do you really want to remove
+%1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="241"/>
+        <source>Removing driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="255"/>
+        <source>Do you really want to force the reinstallation of
+%1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.cpp" line="259"/>
+        <source>Reinstalling driver...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -552,7 +736,7 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <translation>Notificaciones de paquetes de llingua</translation>
     </message>
     <message>
-        <location filename="../pages/PageNotifications.cpp" line="31"/>
+        <location filename="../pages/PageNotifications.cpp" line="32"/>
         <source>Notifications</source>
         <translation>Notificaciones</translation>
     </message>
@@ -636,323 +820,114 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
         <translation>Transición siguiente:</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.cpp" line="122"/>
+        <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>none</source>
         <translation>un res</translation>
     </message>
 </context>
 <context>
-    <name>Page_LanguagePackages</name>
+    <name>PageUsers</name>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="24"/>
-        <source>Available Language Packages</source>
-        <translation>Paquetes de llingua disponibles</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.ui" line="30"/>
-        <source>Additional language packages can be installed:</source>
-        <translation>Puen instalase paquetes de llingua adicionales:</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.ui" line="53"/>
-        <location filename="../pages/page_languagepackages.ui" line="101"/>
-        <source>Package</source>
-        <translation>Paquete</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.ui" line="58"/>
-        <location filename="../pages/page_languagepackages.ui" line="106"/>
-        <source>Parent Package</source>
-        <translation>Paquete pá</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.ui" line="63"/>
-        <source>Install</source>
-        <translation>Instalar</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.ui" line="72"/>
-        <source>Installed Language Packages</source>
-        <translation>Paquetes de llingua instalaos</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.ui" line="78"/>
-        <source>Installed language packages:</source>
-        <translation>Paquetes de llingua instalaos:</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.cpp" line="30"/>
-        <source>Language Packages</source>
-        <translation>Paquetes de llingua</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.cpp" line="74"/>
-        <source>Updating pacman databases...</source>
-        <translation>Anovando bases de datos pacman...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
-        <source>System is out-of-date</source>
-        <translation>El to sistema nun ta anováu</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
-        <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>¡El to sistema nun ta anováu! ¡Tienes d&apos;anuevalu primero pa siguir!</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.cpp" line="101"/>
-        <source>Installing language packages...</source>
-        <translation>Instalando paquetes de llingua...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_languagepackages.cpp" line="143"/>
-        <source>%1 language packages</source>
-        <translation>%1 paquetes de llingua</translation>
-    </message>
-</context>
-<context>
-    <name>Page_MHWD</name>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="67"/>
-        <source>Driver</source>
-        <translation>Controlador</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="37"/>
-        <source>Auto Install
-Open-source Driver</source>
-        <translation>Instalar automáticamente
-Controlador de códigu llibre</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="45"/>
-        <source>Auto Install
-Proprietary Driver</source>
-        <translation>Instalar automáticamente
-Controlador propietariu</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="72"/>
-        <source>Open-source</source>
-        <translation>Códigu llibre</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="77"/>
-        <source>Installed</source>
-        <translation>Instaláu</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="85"/>
-        <source>Show all devices</source>
-        <translation>Amosar tolos preseos</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="31"/>
-        <source>Hardware Detection</source>
-        <translation>Deteición de Hardware</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="41"/>
-        <source>Install</source>
-        <translation>Instalar</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="43"/>
-        <source>Remove</source>
-        <translation>Desaniciar</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="45"/>
-        <location filename="../pages/page_mhwd.cpp" line="253"/>
-        <source>Force Reinstallation</source>
-        <translation>Forciar reinstalación</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="105"/>
-        <source>Unknown device name</source>
-        <translation>Nome del preséu desconocíu</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="165"/>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Auto Install Configuration</source>
-        <translation>Configuración d&apos;instalación automática</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="166"/>
-        <source>Do you really want to auto install
- the open-source graphic driver?</source>
-        <translation>¿De xuru quies instalar automáticamente&apos;l
-controlador gráficu llibre?</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="170"/>
-        <source>Installing open-source graphic driver...</source>
-        <translation>Instalando&apos;l controlador gráficu llibre...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="182"/>
-        <source>Do you really want to auto install
- the proprietary graphic driver?</source>
-        <translation>¿De xuru quies instalar automáticamente&apos;l
-controlador gráficu propietariu?</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="186"/>
-        <source>Installing proprietary graphic driver...</source>
-        <translation>Instalando&apos;l controlador gráficu propietariu...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="217"/>
-        <source>Install Configuration</source>
-        <translation>Instalar configuración</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="218"/>
-        <source>Do you really want to install
-%1?</source>
-        <translation>¿De xuru quies instalar
-%1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="222"/>
-        <source>Installing driver...</source>
-        <translation>Instalando&apos;l controlador...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
-        <source>Remove Configuration</source>
-        <translation>Desaniciar configuración</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="236"/>
-        <source>Do you really want to remove
-%1?</source>
-        <translation>¿De xuru quies desaniciar
-%1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="240"/>
-        <source>Removing driver...</source>
-        <translation>Desaniciando&apos;l controlador...</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="254"/>
-        <source>Do you really want to force the reinstallation of
-%1?</source>
-        <translation>¿De xuru quies forciar la reinstalación de
-%1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="258"/>
-        <source>Reinstalling driver...</source>
-        <translation>Reinstalando&apos;l controlador...</translation>
-    </message>
-</context>
-<context>
-    <name>Page_Users</name>
-    <message>
-        <location filename="../pages/page_users.ui" line="162"/>
+        <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
-        <translation>Semeya</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="169"/>
+        <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
-        <translation>Nome d&apos;usuariu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="176"/>
+        <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
-        <translation>Triba de cuenta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="183"/>
+        <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
-        <translation>Contraseña</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="231"/>
+        <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation>●●●●●●</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="29"/>
+        <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>Cuentes d&apos;usuariu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="82"/>
-        <location filename="../pages/page_users.cpp" line="89"/>
+        <location filename="../pages/PageUsers.cpp" line="82"/>
+        <location filename="../pages/PageUsers.cpp" line="89"/>
         <source>Standard</source>
-        <translation>Estándar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="99"/>
+        <location filename="../pages/PageUsers.cpp" line="99"/>
         <source>Administrator</source>
-        <translation>Alministrador</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="113"/>
+        <location filename="../pages/PageUsers.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Semeyes (*.png *.jpg *.bmp)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
-        <location filename="../pages/page_users.cpp" line="159"/>
-        <location filename="../pages/page_users.cpp" line="165"/>
-        <location filename="../pages/page_users.cpp" line="177"/>
-        <location filename="../pages/page_users.cpp" line="183"/>
-        <location filename="../pages/page_users.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="145"/>
+        <location filename="../pages/PageUsers.cpp" line="159"/>
+        <location filename="../pages/PageUsers.cpp" line="165"/>
+        <location filename="../pages/PageUsers.cpp" line="177"/>
+        <location filename="../pages/PageUsers.cpp" line="183"/>
+        <location filename="../pages/PageUsers.cpp" line="222"/>
         <source>Error!</source>
-        <translation>¡Fallu!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
+        <location filename="../pages/PageUsers.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation>¡Fallu al consiguir cadarmes de permisu d&apos;usuariu!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="159"/>
+        <location filename="../pages/PageUsers.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>¡Fallu al copiar la semeya a &apos;%1&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="165"/>
-        <location filename="../pages/page_users.cpp" line="183"/>
+        <location filename="../pages/PageUsers.cpp" line="165"/>
+        <location filename="../pages/PageUsers.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>¡Fallu al afitar permisos del ficheru &apos;%1&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="177"/>
+        <location filename="../pages/PageUsers.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Fallu al faer l&apos;enllaz simbólicu de &apos;%1&apos; a &apos;%2&apos;!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="207"/>
         <source>Continue?</source>
-        <translation>¿Siguir?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>¿De xuru quies desaniciar l&apos;usuariu %1?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation>¿Desaniciar Home?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>¿De xuru quies desaniciar el direutoriu Home del usuariu %1?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation>¡Fallu al desaniciar l&apos;usuariu %1!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -987,42 +962,42 @@ controlador gráficu propietariu?</translation>
 <context>
     <name>SelectLocalesDialog</name>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
         <translation>Amestar locale</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
         <translation>Llingua</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="70"/>
         <source>Territory</source>
         <translation>Territoriu</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="102"/>
         <source>Description</source>
         <translation>Descripción</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="126"/>
         <source>Description:</source>
         <translation>Descripción:</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="148"/>
         <source>Locale:</source>
         <translation>Locale:</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="218"/>
         <source>Cancel</source>
         <translation>Encaboxar</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="225"/>
         <source>Add</source>
         <translation>Amestar</translation>
     </message>

@@ -34,7 +34,7 @@
     <message>
         <location filename="../daemon.cpp" line="189"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation>Hay disponible un núcleo más reciente que el último instalado.</translation>
+        <translation>Está disponible un núcleo más reciente que el último instalado.</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="90"/>
