@@ -63,7 +63,7 @@
         <file>resources/timezone/timezone_7.0.png</file>
         <file>resources/timezone/timezone_8.0.png</file>
         <file>resources/timezone/timezone_9.0.png</file>
-        <file>resources/timezone/timezone_9.5.png</file>	
+        <file>resources/timezone/timezone_9.5.png</file>
     </qresource>
     <qresource prefix="/">
         <file>translations/msm_ast.qm</file>
@@ -112,5 +112,6 @@
         <file>resources/linux313.html</file>
         <file>resources/linux314.html</file>
         <file>resources/linux315.html</file>
+        <file>resources/linux316.html</file>
     </qresource>
 </RCC>
