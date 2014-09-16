@@ -610,7 +610,7 @@ controlador privativo</translation>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Desinstalar</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="46"/>
@@ -934,7 +934,7 @@ el controlador privativo?</translation>
     <message>
         <location filename="../pages/PageUsers.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation>No se pudo eliminar al usuario %1.</translation>
+        <translation>No se pudo eliminar el usuario %1.</translation>
     </message>
 </context>
 <context>

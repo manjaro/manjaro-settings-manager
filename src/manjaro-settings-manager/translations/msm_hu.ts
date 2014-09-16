@@ -295,7 +295,7 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Alapértelmezett</translation>
     </message>
 </context>
 <context>
@@ -444,7 +444,7 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="80"/>
         <source>Double click an item to set as Default locale</source>
-        <translation type="unfinished"/>
+        <translation>Kattints duplán egy elemre, hogy alapértelmezett nyelvként legyen beállítva</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="33"/>
@@ -496,69 +496,69 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Elérhető nyelvi csomagok</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation type="unfinished"/>
+        <translation>További nyelvi csomagok telepíthetőek:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="53"/>
         <location filename="../pages/PageLanguagePackages.ui" line="101"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>Csomag</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="58"/>
         <location filename="../pages/PageLanguagePackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>Szülő Csomag</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="63"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Telepít</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Telepített Nyelvi Csomagok</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation type="unfinished"/>
+        <translation>Telepített nyelvi csomagok:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Nyelvi Csomagok</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation type="unfinished"/>
+        <translation>Pacman adatbázis frissítése...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>Rendszer elavult</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>A rendszered nem naprakész! Előbb frissítened kell mielőtt folytatod!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation type="unfinished"/>
+        <translation>Nyelvi csomagok telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 nyelvi csomag</translation>
     </message>
 </context>
 <context>
@@ -567,130 +567,135 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
         <location filename="../pages/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus telepítés
+Nyílt forrású meghajtó</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus telepítés
+Zárt forrású meghajtó</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>Meghajtó</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Nyílt forrású</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Telepített</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>Mutasson minden eszközt</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Hardware érzékelés</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="42"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Telepít</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolít</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="46"/>
         <location filename="../pages/PageMhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Újratelepítés kényszerítése</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="106"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Ismeretlen eszköznév</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="166"/>
         <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Automata telepítő konfigurálása</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban automata telepítésű nyílt forrású grafikus meghajtót akarsz?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="171"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Nyílt forrású grafikus meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban automata telepítésű nem nyílt forrású grafikus meghajtót akarsz?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="187"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Nem nyílt forrású grafikus meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguráció telepítése</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban telepíteni akarod
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Meghajtó telepítése...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguráció eltávolítása</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban eltávolítod
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Eszközmeghajtó eltávolítása...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban kényszeríteni akarod az újratelepítését a
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Eszközmeghajtó újratelepítése...</translation>
     </message>
 </context>
 <context>
@@ -830,48 +835,48 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Kép</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználó név</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználói fiók típusa</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználói fiókok</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="82"/>
         <location filename="../pages/PageUsers.cpp" line="89"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Normál</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="99"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Adminisztrátor</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Képek (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="145"/>
@@ -881,53 +886,53 @@ Proprietary Driver</source>
         <location filename="../pages/PageUsers.cpp" line="183"/>
         <location filename="../pages/PageUsers.cpp" line="222"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült megkapni a felhasználói jogosultság struktúrát!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült a képet ide másolni &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="165"/>
         <location filename="../pages/PageUsers.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült a fájl jogosultságot beállítani &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült linkelni &apos;%1&apos; ide &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="207"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Folytatod?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban eltávolítod a felhasználót %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Eltávolítod a Home -t?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban eltávolítod a home könyvtárát a felhasználónak %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült a felhasználó eltávolítása %1!</translation>
     </message>
 </context>
 <context>

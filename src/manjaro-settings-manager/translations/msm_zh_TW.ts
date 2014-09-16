@@ -295,7 +295,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>預設</translation>
     </message>
 </context>
 <context>
@@ -444,7 +444,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.ui" line="80"/>
         <source>Double click an item to set as Default locale</source>
-        <translation type="unfinished"/>
+        <translation>雙擊一個項目以將其設定為預設語系</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="33"/>
@@ -496,69 +496,69 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>可用的語言包</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation type="unfinished"/>
+        <translation>可安裝的額外語言包：</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="53"/>
         <location filename="../pages/PageLanguagePackages.ui" line="101"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>軟體包</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="58"/>
         <location filename="../pages/PageLanguagePackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>母軟體包</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="63"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>安裝</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>已安裝的語言包</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation type="unfinished"/>
+        <translation>已安裝的語言包：</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>語言包</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation type="unfinished"/>
+        <translation>正在更新 pacman 的資料庫...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>系統不是最新的</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>您的系統不是最新的！您必須先更新才能繼續！</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation type="unfinished"/>
+        <translation>正在安裝語言包...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 語言包</translation>
     </message>
 </context>
 <context>
@@ -567,130 +567,137 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>自動安裝
+開放原始碼驅動程式</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>自動安裝
+專有驅動程式</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>驅動程式</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>開放原始碼</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>已安裝</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>顯示所有裝置</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>硬體偵測</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="42"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>安裝</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="46"/>
         <location filename="../pages/PageMhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>強制重新安裝</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="106"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>未知的裝置名稱</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="166"/>
         <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>自動安裝設定</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要安裝
+開放原始碼顯示卡驅動程式嗎？</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="171"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>正在安裝開放原始碼顯示卡驅動程式...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要安裝
+專有顯示卡驅動程式嗎？</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="187"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>正在安裝專有顯示卡驅動程式...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>安裝設定</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要安裝
+%1 嗎？</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>正在安裝驅動程式...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>移除設定</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要移除
+%1 嗎？</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>正在移除驅動程式...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要強制重新安裝
+%1 嗎？</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>正在重新安裝驅動程式...</translation>
     </message>
 </context>
 <context>
@@ -830,48 +837,48 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>圖片</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>使用者名稱</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>帳號類型</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>密碼</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>使用者帳號</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="82"/>
         <location filename="../pages/PageUsers.cpp" line="89"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>標準</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="99"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>管理員</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="113"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>圖片 (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="145"/>
@@ -881,53 +888,53 @@ Proprietary Driver</source>
         <location filename="../pages/PageUsers.cpp" line="183"/>
         <location filename="../pages/PageUsers.cpp" line="222"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>錯誤！</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="145"/>
         <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"/>
+        <translation>取得使用者權限結構失敗！</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="159"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>複製圖片到 &apos;%1&apos; 失敗！</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="165"/>
         <location filename="../pages/PageUsers.cpp" line="183"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>設定檔案 &apos;%1&apos; 權限失敗！</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="177"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>符號連結 &apos;%1&apos; 到 &apos;%2&apos; 失敗！</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="207"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>繼續？</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="207"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要移除使用者 %1 嗎？</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="212"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>移除家目錄？</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="212"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要移除使用者 %1 的家目錄嗎？</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="222"/>
         <source>Failed to remove user %1!</source>
-        <translation type="unfinished"/>
+        <translation>移除使用者 %1 失敗！</translation>
     </message>
 </context>
 <context>

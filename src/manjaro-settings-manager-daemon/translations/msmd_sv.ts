@@ -9,12 +9,12 @@
     <message>
         <location filename="../daemon.cpp" line="176"/>
         <source>Running an unsupported kernel, please update</source>
-        <translation>Körning av icke stödd kärna, var vänlig uppdatera </translation>
+        <translation>Du kör en icke-stödd kärna, vänligen uppdatera </translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="178"/>
         <source>Unsupported kernel installed in your system.</source>
-        <translation>Icke stödd kärna installerad på ditt system.</translation>
+        <translation>Icke-stödd kärna installerad på ditt system.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="181"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../daemon.cpp" line="184"/>
         <source>Unsupported Kernel Found.</source>
-        <translation>Icke stödd kärna funnen.</translation>
+        <translation>Icke-stödd kärna funnen.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="186"/>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../daemon.cpp" line="189"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation>En ny kärna än den senast installerade finns tillgänglig.</translation>
+        <translation>Det finns en kärna nyare än den installerade tillgänglig.</translation>
     </message>
     <message numerus="yes">
         <location filename="../daemon.cpp" line="90"/>
