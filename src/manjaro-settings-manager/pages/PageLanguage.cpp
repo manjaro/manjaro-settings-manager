@@ -22,6 +22,7 @@
 #include "ui_PageLanguage.h"
 
 #include <QtDBus/QDBusInterface>
+#include <QtWidgets/QMenu>
 
 PageLanguage::PageLanguage(QWidget *parent) :
     PageWidget(parent),
@@ -34,9 +35,29 @@ PageLanguage::PageLanguage(QWidget *parent) :
     setIcon(QPixmap(":/images/resources/locale.png"));
     setShowApplyButton(true);
 
+    /* Set Models */
     ui->localeListView->setModel(enabledLocalesModel_);
     ui->localeListView->setItemDelegate(languageListViewDelegate_);
+    ui->addressComboBox->setModel(enabledLocalesModel_);
+    ui->collateComboBox->setModel(enabledLocalesModel_);
+    ui->ctypeComboBox->setModel(enabledLocalesModel_);
+    ui->identificationComboBox->setModel(enabledLocalesModel_);
+    ui->langComboBox->setModel(enabledLocalesModel_);
+    ui->measurementComboBox->setModel(enabledLocalesModel_);
+    ui->messagesComboBox->setModel(enabledLocalesModel_);
+    ui->monetaryComboBox->setModel(enabledLocalesModel_);
+    ui->nameComboBox->setModel(enabledLocalesModel_);
+    ui->numericComboBox->setModel(enabledLocalesModel_);
+    ui->paperComboBox->setModel(enabledLocalesModel_);
+    ui->telephoneComboBox->setModel(enabledLocalesModel_);
+    ui->timeComboBox->setModel(enabledLocalesModel_);
 
+    /* Define QActions */
+    setRegionAndFormatsAction_ = new QAction(tr("Set as default display language and format"), ui->localeListView);
+    setRegionAction_ = new QAction(tr("Set as default display language"), ui->localeListView);
+    setFormatsAction_ = new QAction(tr("Set as default format"), ui->localeListView);
+
+    /* Connect signals/slots */
     connect(ui->buttonRemove, &QPushButton::clicked,
             this, &PageLanguage::removeLocale);
     connect(ui->buttonRestore, &QPushButton::clicked,
@@ -49,7 +70,202 @@ PageLanguage::PageLanguage(QWidget *parent) :
             [=] (const QModelIndex &index)
             {
                 enabledLocalesModel_->setLang(index);
+                enabledLocalesModel_->setLanguage(index);
+                enabledLocalesModel_->setCtype(index);
+                enabledLocalesModel_->setCollate(index);
+                enabledLocalesModel_->setMessages(index);
+                enabledLocalesModel_->setAddress(index);
+                enabledLocalesModel_->setIdentification(index);
+                enabledLocalesModel_->setMeasurement(index);
+                enabledLocalesModel_->setMonetary(index);
+                enabledLocalesModel_->setName(index);
+                enabledLocalesModel_->setNumeric(index);
+                enabledLocalesModel_->setPaper(index);
+                enabledLocalesModel_->setTelephone(index);
+                enabledLocalesModel_->setTime(index);
             });
+
+    connect(ui->addressComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setAddress(index);
+            });
+    connect(ui->collateComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setCollate(index);
+            });
+    connect(ui->ctypeComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setCtype(index);
+            });
+    connect(ui->identificationComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setIdentification(index);
+            });
+    connect(ui->langComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setLang(index);
+            });
+    connect(ui->measurementComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setMeasurement(index);
+            });
+    connect(ui->messagesComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setMessages(index);
+            });
+    connect(ui->monetaryComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setMonetary(index);
+            });
+    connect(ui->nameComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setName(index);
+            });
+    connect(ui->numericComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setNumeric(index);
+            });
+    connect(ui->paperComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setPaper(index);
+            });
+    connect(ui->telephoneComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setTelephone(index);
+            });
+    connect(ui->timeComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=] (int row)
+            {
+                QModelIndex index = enabledLocalesModel_->index(row, 0);
+                enabledLocalesModel_->setTime(index);
+            });
+
+    connect(enabledLocalesModel_, &QAbstractListModel::dataChanged,
+            [=] (const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+    {
+        Q_UNUSED(bottomRight);
+        if (roles.contains(EnabledLocalesModel::AddressRole)) {
+            ui->addressComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::CollateRole)) {
+            ui->collateComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::CtypeRole)) {
+            ui->ctypeComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::IdentificationRole)) {
+            ui->identificationComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::LangRole)) {
+            ui->langComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::MeasurementRole)) {
+            ui->measurementComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::MonetaryRole)) {
+            ui->monetaryComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::MessagesRole)) {
+            ui->messagesComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::NameRole)) {
+            ui->nameComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::NumericRole)) {
+            ui->numericComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::PaperRole)) {
+            ui->paperComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::TelephoneRole)) {
+            ui->telephoneComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        } else if (roles.contains(EnabledLocalesModel::TimeRole)) {
+            ui->timeComboBox->setCurrentIndex(topLeft.row());
+            isSystemLocalesModified_ = true;
+        }
+    });
+
+    /* Context menu for the localeListView */
+    connect(ui->localeListView, &QListView::customContextMenuRequested,
+            [=] (const QPoint &pos)
+    {
+        QMenu localeListViewMenu;
+        localeListViewMenu.addAction(setRegionAndFormatsAction_);
+        localeListViewMenu.addAction(setRegionAction_);
+        localeListViewMenu.addAction(setFormatsAction_);
+        localeListViewMenu.exec(ui->localeListView->mapToGlobal(pos));
+    });
+
+    connect(setRegionAndFormatsAction_, &QAction::triggered,
+            [=]
+    {
+        QModelIndex index = ui->localeListView->currentIndex();
+        enabledLocalesModel_->setLang(index);
+        enabledLocalesModel_->setLanguage(index);
+        enabledLocalesModel_->setCtype(index);
+        enabledLocalesModel_->setCollate(index);
+        enabledLocalesModel_->setMessages(index);
+        enabledLocalesModel_->setAddress(index);
+        enabledLocalesModel_->setIdentification(index);
+        enabledLocalesModel_->setMeasurement(index);
+        enabledLocalesModel_->setMonetary(index);
+        enabledLocalesModel_->setName(index);
+        enabledLocalesModel_->setNumeric(index);
+        enabledLocalesModel_->setPaper(index);
+        enabledLocalesModel_->setTelephone(index);
+        enabledLocalesModel_->setTime(index);
+    });
+
+    connect(setRegionAction_, &QAction::triggered,
+            [=]
+    {
+        QModelIndex index = ui->localeListView->currentIndex();
+        enabledLocalesModel_->setLang(index);
+        enabledLocalesModel_->setLanguage(index);
+        enabledLocalesModel_->setCtype(index);
+        enabledLocalesModel_->setCollate(index);
+        enabledLocalesModel_->setMessages(index);
+    });
+
+    connect(setFormatsAction_, &QAction::triggered,
+            [=]
+    {
+        QModelIndex index = ui->localeListView->currentIndex();
+        enabledLocalesModel_->setAddress(index);
+        enabledLocalesModel_->setIdentification(index);
+        enabledLocalesModel_->setMeasurement(index);
+        enabledLocalesModel_->setMonetary(index);
+        enabledLocalesModel_->setName(index);
+        enabledLocalesModel_->setNumeric(index);
+        enabledLocalesModel_->setPaper(index);
+        enabledLocalesModel_->setTelephone(index);
+        enabledLocalesModel_->setTime(index);
+    });
 }
 
 
@@ -58,6 +274,9 @@ PageLanguage::~PageLanguage()
     delete ui;
     delete enabledLocalesModel_;
     delete languageListViewDelegate_;
+    delete setRegionAndFormatsAction_;
+    delete setRegionAction_;
+    delete setFormatsAction_;
 }
 
 
@@ -66,14 +285,19 @@ void PageLanguage::activated()
     ui->buttonRemove->setDisabled(true);
     enabledLocalesModel_->init();
     enabledLocalesModel_->updateSystemLocales();
+    isLocaleListModified_ = false;
+    isSystemLocalesModified_ = false;
 }
 
 
 void PageLanguage::apply_clicked()
 {
-    /* TODO only update locale-gen or setSystemLocale if needed */
-    updateLocaleGen();
-    setSystemLocale();
+    if (isLocaleListModified_) {
+        updateLocaleGen();
+    }
+    if (isSystemLocalesModified_) {
+        setSystemLocale();
+    }
 }
 
 
@@ -175,47 +399,47 @@ bool PageLanguage::updateLocaleGen()
 bool PageLanguage::setSystemLocale()
 {
     QStringList localeList;
-    if (!enabledLocalesModel_->systemLocales.lang.isEmpty()) {
-        localeList << QString("LANG=%1").arg(enabledLocalesModel_->systemLocales.lang);
+    if (!enabledLocalesModel_->lang().isEmpty()) {
+        localeList << QString("LANG=%1").arg(enabledLocalesModel_->lang());
     }
-    if (!enabledLocalesModel_->systemLocales.language.isEmpty()) {
-        localeList << QString("LANGUAGE=%1").arg(enabledLocalesModel_->systemLocales.language);
+    if (!enabledLocalesModel_->language().isEmpty()) {
+        localeList << QString("LANGUAGE=%1").arg(enabledLocalesModel_->language());
     }
-    if (!enabledLocalesModel_->systemLocales.ctype.isEmpty()) {
-        localeList << QString("LC_CTYPE=%1").arg(enabledLocalesModel_->systemLocales.ctype);
+    if (!enabledLocalesModel_->ctype().isEmpty()) {
+        localeList << QString("LC_CTYPE=%1").arg(enabledLocalesModel_->ctype());
     }
-    if (!enabledLocalesModel_->systemLocales.numeric.isEmpty()) {
-        localeList << QString("LC_NUMERIC=%1").arg(enabledLocalesModel_->systemLocales.numeric);
+    if (!enabledLocalesModel_->numeric().isEmpty()) {
+        localeList << QString("LC_NUMERIC=%1").arg(enabledLocalesModel_->numeric());
     }
-    if (!enabledLocalesModel_->systemLocales.time.isEmpty()) {
-        localeList << QString("LC_TIME=%1").arg(enabledLocalesModel_->systemLocales.time);
+    if (!enabledLocalesModel_->time().isEmpty()) {
+        localeList << QString("LC_TIME=%1").arg(enabledLocalesModel_->time());
     }
-    if (!enabledLocalesModel_->systemLocales.collate.isEmpty()) {
-        localeList << QString("LC_COLLATE=%1").arg(enabledLocalesModel_->systemLocales.collate);
+    if (!enabledLocalesModel_->collate().isEmpty()) {
+        localeList << QString("LC_COLLATE=%1").arg(enabledLocalesModel_->collate());
     }
-    if (!enabledLocalesModel_->systemLocales.monetary.isEmpty()) {
-        localeList << QString("LC_MONETARY=%1").arg(enabledLocalesModel_->systemLocales.monetary);
+    if (!enabledLocalesModel_->monetary().isEmpty()) {
+        localeList << QString("LC_MONETARY=%1").arg(enabledLocalesModel_->monetary());
     }
-    if (!enabledLocalesModel_->systemLocales.messages.isEmpty()) {
-        localeList << QString("LC_MESSAGES=%1").arg(enabledLocalesModel_->systemLocales.messages);
+    if (!enabledLocalesModel_->messages().isEmpty()) {
+        localeList << QString("LC_MESSAGES=%1").arg(enabledLocalesModel_->messages());
     }
-    if (!enabledLocalesModel_->systemLocales.paper.isEmpty()) {
-        localeList << QString("LC_PAPER=%1").arg(enabledLocalesModel_->systemLocales.paper);
+    if (!enabledLocalesModel_->paper().isEmpty()) {
+        localeList << QString("LC_PAPER=%1").arg(enabledLocalesModel_->paper());
     }
-    if (!enabledLocalesModel_->systemLocales.name.isEmpty()) {
-        localeList << QString("LC_NAME=%1").arg(enabledLocalesModel_->systemLocales.name);
+    if (!enabledLocalesModel_->name().isEmpty()) {
+        localeList << QString("LC_NAME=%1").arg(enabledLocalesModel_->name());
     }
-    if (!enabledLocalesModel_->systemLocales.address.isEmpty()) {
-        localeList << QString("LC_ADDRESS=%1").arg(enabledLocalesModel_->systemLocales.address);
+    if (!enabledLocalesModel_->address().isEmpty()) {
+        localeList << QString("LC_ADDRESS=%1").arg(enabledLocalesModel_->address());
     }
-    if (!enabledLocalesModel_->systemLocales.telephone.isEmpty()) {
-        localeList << QString("LC_TELEPHONE=%1").arg(enabledLocalesModel_->systemLocales.telephone);
+    if (!enabledLocalesModel_->telephone().isEmpty()) {
+        localeList << QString("LC_TELEPHONE=%1").arg(enabledLocalesModel_->telephone());
     }
-    if (!enabledLocalesModel_->systemLocales.measurement.isEmpty()) {
-        localeList << QString("LC_MEASUREMENT=%1").arg(enabledLocalesModel_->systemLocales.measurement);
+    if (!enabledLocalesModel_->measurement().isEmpty()) {
+        localeList << QString("LC_MEASUREMENT=%1").arg(enabledLocalesModel_->measurement());
     }
-    if (!enabledLocalesModel_->systemLocales.identification.isEmpty()) {
-        localeList << QString("LC_IDENTIFICATION=%1").arg(enabledLocalesModel_->systemLocales.identification);
+    if (!enabledLocalesModel_->identification().isEmpty()) {
+        localeList << QString("LC_IDENTIFICATION=%1").arg(enabledLocalesModel_->identification());
     }
 
     QDBusInterface dbusInterface("org.freedesktop.locale1",
@@ -252,7 +476,9 @@ void PageLanguage::addLocale()
     QString locale = dialog.getLocale();
     LocaleItem localeItem(locale);
     if (!enabledLocalesModel_->contains(localeItem)) {
-        enabledLocalesModel_->insertLocale(enabledLocalesModel_->rowCount(QModelIndex()), 1, localeItem);
+        if (enabledLocalesModel_->insertLocale(enabledLocalesModel_->rowCount(QModelIndex()), 1, localeItem)) {
+            isLocaleListModified_ = true;
+        }
     }
 }
 
@@ -262,6 +488,7 @@ void PageLanguage::removeLocale() {
     if (localeCurrentIndex.isValid()) {
         if (enabledLocalesModel_->removeLocale(localeCurrentIndex.row(), 1)) {
             ui->localeListView->setCurrentIndex(QModelIndex());
+            isLocaleListModified_ = true;
         }
     }
 }

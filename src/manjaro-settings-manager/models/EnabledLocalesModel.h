@@ -38,24 +38,24 @@ public:
         KeyRole = Qt::UserRole + 1,
         CountryRole,
         LanguageRole,
-        IsSystemLang
+        AddressRole,
+        CollateRole,
+        CtypeRole,
+        IdentificationRole,
+        LangRole,
+        LanguageLcRole,
+        MeasurementRole,
+        MonetaryRole,
+        MessagesRole,
+        NameRole,
+        NumericRole,
+        PaperRole,
+        TelephoneRole,
+        TimeRole
     };
 
     struct SystemLocales {
-        QString lang;
-        QString language;
-        QString ctype;
-        QString numeric;
-        QString time;
-        QString collate;
-        QString monetary;
-        QString messages;
-        QString paper;
-        QString name;
-        QString address;
-        QString telephone;
-        QString measurement;
-        QString identification;
+
     };
 
     explicit EnabledLocalesModel(QObject *parent = 0);
@@ -67,7 +67,36 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     bool insertLocale(int row, int count, const LocaleItem &localeItem);
     bool removeLocale(int row, int count);
-    bool setLang(const QModelIndex &index);
+
+    void setAddress(const QModelIndex &index);
+    void setCollate(const QModelIndex &index);
+    void setCtype(const QModelIndex &index);
+    void setIdentification(const QModelIndex &index);
+    void setLang(const QModelIndex &index);
+    void setLanguage(const QModelIndex &index);
+    void setMeasurement(const QModelIndex &index);
+    void setMonetary(const QModelIndex &index);
+    void setMessages(const QModelIndex &index);
+    void setName(const QModelIndex &index);
+    void setNumeric(const QModelIndex &index);
+    void setPaper(const QModelIndex &index);
+    void setTelephone(const QModelIndex &index);
+    void setTime(const QModelIndex &index);
+
+    QString address() const { return address_; }
+    QString collate() const { return collate_; }
+    QString ctype() const { return ctype_; }
+    QString identification() const { return identification_; }
+    QString lang() const { return lang_; }
+    QString language() const { return language_; }
+    QString measurement() const { return measurement_; }
+    QString monetary() const { return monetary_; }
+    QString messages() const { return messages_; }
+    QString name() const { return name_; }
+    QString numeric() const { return numeric_; }
+    QString paper() const { return paper_; }
+    QString telephone() const { return telephone_; }
+    QString time() const { return time_; }
 
     bool contains(const LocaleItem &localeItem) const;
     QStringList locales() const;
@@ -75,13 +104,27 @@ public:
     static icu::UnicodeString qStringToUnicodeString(const QString &sourceStr);
     static QString unicodeStringToQString(const icu::UnicodeString &sourceStr);
 
-    SystemLocales systemLocales;
-
 protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
     QList<LocaleItem> locales_;
+    QString address_;
+    QString collate_;
+    QString ctype_;
+    QString identification_;
+    QString lang_;
+    QString language_;
+    QString measurement_;
+    QString monetary_;
+    QString messages_;
+    QString name_;
+    QString numeric_;
+    QString paper_;
+    QString telephone_;
+    QString time_;
+
+    int findKey(const QString key) const;
 
 signals:
 

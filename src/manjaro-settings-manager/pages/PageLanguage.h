@@ -50,7 +50,11 @@ private:
     EnabledLocalesModel *enabledLocalesModel_;
     LanguageListViewDelegate *languageListViewDelegate_;
     QString currentLocale_;
-
+    bool isLocaleListModified_;
+    bool isSystemLocalesModified_;
+    QAction *setRegionAndFormatsAction_;
+    QAction *setRegionAction_;
+    QAction *setFormatsAction_;
     bool updateLocaleGen();
     bool setSystemLocale();
 
