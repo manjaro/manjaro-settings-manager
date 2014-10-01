@@ -36,7 +36,6 @@ class SelectLocalesDialog;
 }
 
 
-
 class SelectLocalesDialog : public QDialog
 {
     Q_OBJECT
@@ -51,9 +50,9 @@ public:
     
 private:
     Ui::SelectLocalesDialog *ui;
-    SupportedLocalesModel *m_supportedLocalesModel;
-    QSortFilterProxyModel *m_supportedLocalesProxyModel;
-    bool m_accepted;
+    SupportedLocalesModel *supportedLocalesModel_;
+    QSortFilterProxyModel *supportedLocalesProxyModel_;
+    bool accepted_;
 
     void updateApplyEnabledState();
 

@@ -20,8 +20,6 @@
 
 #include "SupportedLocalesModel.h"
 
-#include "models/KeyboardItem.h"
-
 #include <QtCore/QFile>
 
 #include <QDebug>
@@ -45,15 +43,13 @@ QVariant SupportedLocalesModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    KeyboardItem *item = static_cast<KeyboardItem*>(index.internalPointer());
+    LocaleItem *item = static_cast<LocaleItem*>(index.internalPointer());
 
     switch (role) {
     case Qt::DisplayRole :
         switch (index.column()) {
         case 0:
             return item->key();
-        case 1:
-            return item->description();
         }
         break;
     case KeyRole :
@@ -145,7 +141,7 @@ int SupportedLocalesModel::rowCount(const QModelIndex &parent) const
 int SupportedLocalesModel::columnCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
-        return static_cast<KeyboardItem*>(parent.internalPointer())->columnCount();
+        return static_cast<LocaleItem*>(parent.internalPointer())->columnCount();
     } else {
         return rootItem_->columnCount();
     }

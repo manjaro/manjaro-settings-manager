@@ -44,12 +44,14 @@ SelectLocalesDialog::SelectLocalesDialog(QWidget *parent) :
 SelectLocalesDialog::~SelectLocalesDialog()
 {
     delete ui;
+    delete supportedLocalesModel_;
+    delete supportedLocalesProxyModel_;
 }
 
 
 bool SelectLocalesDialog::localeAdded()
 {
-    return m_accepted;
+    return accepted_;
 }
 
 
@@ -65,15 +67,15 @@ QString SelectLocalesDialog::getLocale()
 
 int SelectLocalesDialog::exec()
 {
-    m_accepted = false;
-    m_supportedLocalesModel = new SupportedLocalesModel();
-    m_supportedLocalesProxyModel = new QSortFilterProxyModel();
-    m_supportedLocalesProxyModel->setSourceModel(m_supportedLocalesModel);
-    m_supportedLocalesProxyModel->setSortRole(SupportedLocalesModel::KeyRole);
-    m_supportedLocalesProxyModel->setSortLocaleAware(true);
-    m_supportedLocalesProxyModel->sort(0, Qt::AscendingOrder);
+    accepted_ = false;
+    supportedLocalesModel_ = new SupportedLocalesModel();
+    supportedLocalesProxyModel_ = new QSortFilterProxyModel();
+    supportedLocalesProxyModel_->setSourceModel(supportedLocalesModel_);
+    supportedLocalesProxyModel_->setSortRole(SupportedLocalesModel::KeyRole);
+    supportedLocalesProxyModel_->setSortLocaleAware(true);
+    supportedLocalesProxyModel_->sort(0, Qt::AscendingOrder);
 
-    ui->languageListView->setModel(m_supportedLocalesProxyModel);
+    ui->languageListView->setModel(supportedLocalesProxyModel_);
 
     ui->localeComboBox->hide();
 
@@ -98,7 +100,7 @@ void SelectLocalesDialog::updateApplyEnabledState()
 void SelectLocalesDialog::languageListViewActivated(const QModelIndex &index)
 {
     if (index.isValid()) {
-        ui->countryListView->setModel(m_supportedLocalesProxyModel);
+        ui->countryListView->setModel(supportedLocalesProxyModel_);
         ui->countryListView->setRootIndex(index);
         ui->localeComboBox->hide();
         updateApplyEnabledState();
@@ -110,11 +112,11 @@ void SelectLocalesDialog::languageListViewActivated(const QModelIndex &index)
 void SelectLocalesDialog::countryListViewActivated(const QModelIndex &index)
 {
     if (index.isValid()) {
-        ui->localeComboBox->setModel(m_supportedLocalesProxyModel);
+        ui->localeComboBox->setModel(supportedLocalesProxyModel_);
         ui->localeComboBox->setRootModelIndex(index);
 
         /* Select locale with UTF-8 encoding by default */
-        QModelIndexList localeIndexList = m_supportedLocalesProxyModel->match(index.child(0,0),
+        QModelIndexList localeIndexList = supportedLocalesProxyModel_->match(index.child(0,0),
                                                                               SupportedLocalesModel::KeyRole,
                                                                               "UTF-8",
                                                                               -1,
@@ -134,6 +136,6 @@ void SelectLocalesDialog::countryListViewActivated(const QModelIndex &index)
 
 void SelectLocalesDialog::buttonAdd_clicked()
 {
-    m_accepted = true;
+    accepted_ = true;
     close();
 }
