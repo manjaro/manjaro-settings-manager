@@ -103,10 +103,13 @@
           <property name="fieldGrowthPolicy">
            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
           </property>
+          <property name="labelAlignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
           <item row="0" column="0">
            <widget class="QLabel" name="langLabel">
             <property name="text">
-             <string>Language</string>
+             <string>Language:</string>
             </property>
            </widget>
           </item>
@@ -116,7 +119,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="collateLabel">
             <property name="text">
-             <string>Collation and Sorting</string>
+             <string>Collation and Sorting:</string>
             </property>
            </widget>
           </item>
@@ -126,7 +129,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="messagesLabel">
             <property name="text">
-             <string>Messages</string>
+             <string>Messages:</string>
             </property>
            </widget>
           </item>
@@ -136,7 +139,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="ctypeLabel">
             <property name="text">
-             <string>CType</string>
+             <string>CType:</string>
             </property>
            </widget>
           </item>
@@ -161,10 +164,13 @@
           <property name="fieldGrowthPolicy">
            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
           </property>
+          <property name="labelAlignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
           <item row="0" column="0">
            <widget class="QLabel" name="numericLabel">
             <property name="text">
-             <string>Numbers</string>
+             <string>Numbers:</string>
             </property>
            </widget>
           </item>
@@ -174,7 +180,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="timeLabel">
             <property name="text">
-             <string>Time</string>
+             <string>Time:</string>
             </property>
            </widget>
           </item>
@@ -184,7 +190,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="monetaryLabel">
             <property name="text">
-             <string>Currency</string>
+             <string>Currency:</string>
             </property>
            </widget>
           </item>
@@ -194,7 +200,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="measurementLabel">
             <property name="text">
-             <string>Measurement Units</string>
+             <string>Measurement Units:</string>
             </property>
            </widget>
           </item>
@@ -204,7 +210,7 @@
           <item row="4" column="0">
            <widget class="QLabel" name="addressLabel">
             <property name="text">
-             <string>Address</string>
+             <string>Address:</string>
             </property>
            </widget>
           </item>
@@ -214,7 +220,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="nameLabel">
             <property name="text">
-             <string>Names</string>
+             <string>Names:</string>
             </property>
            </widget>
           </item>
@@ -224,7 +230,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="telephoneLabel">
             <property name="text">
-             <string>Telephone</string>
+             <string>Telephone:</string>
             </property>
            </widget>
           </item>
@@ -234,7 +240,7 @@
           <item row="7" column="0">
            <widget class="QLabel" name="identificationLabel">
             <property name="text">
-             <string>Identification</string>
+             <string>Identification:</string>
             </property>
            </widget>
           </item>
@@ -244,7 +250,7 @@
           <item row="8" column="0">
            <widget class="QLabel" name="paperLabel">
             <property name="text">
-             <string>Paper</string>
+             <string>Paper:</string>
             </property>
            </widget>
           </item>
