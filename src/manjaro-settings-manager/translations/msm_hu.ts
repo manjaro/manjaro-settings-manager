@@ -223,55 +223,55 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
 <context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
         <translation>Ajánlott</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
         <translation>Fut</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
         <translation>Telepített</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
         <translation>Nem támogatott</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="187"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="252"/>
         <source>Changelog</source>
         <translation>Változások</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
         <translation>Egyedi</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
         <translation>Kísérleti</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="184"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="249"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Remove</source>
         <translation>Eltávolít</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Install</source>
         <translation>Telepít</translation>
     </message>
@@ -293,9 +293,74 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
 <context>
     <name>LanguageListViewDelegate</name>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
-        <source>Default</source>
-        <translation>Alapértelmezett</translation>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
+        <source>Display Language</source>
+        <translation>Megjelenített nyelv</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
+        <source>Language</source>
+        <translation>Nyelv</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
+        <source>Collation and Sorting</source>
+        <translation>Egyeztetés és osztályozás</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
+        <source>Messages</source>
+        <translation>Üzenetek</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
+        <source>Formats</source>
+        <translation>Formátumok</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
+        <source>Address</source>
+        <translation>Címek</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
+        <source>Identification</source>
+        <translation>Azonosítás</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
+        <source>Measurement Units</source>
+        <translation>Mértékegységek</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
+        <source>Currency</source>
+        <translation>Pénznem</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
+        <source>Names</source>
+        <translation>Nevek</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
+        <source>Numbers</source>
+        <translation>Számok</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
+        <source>Paper</source>
+        <translation>Papír</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
+        <source>Telephone</source>
+        <translation>Telefon</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
+        <source>Time</source>
+        <translation>Idő</translation>
     </message>
 </context>
 <context>
@@ -422,71 +487,161 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="22"/>
+        <location filename="../pages/PageLanguage.ui" line="62"/>
         <source>System Locales</source>
         <translation>Rendszer Változók</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="42"/>
+        <location filename="../pages/PageLanguage.ui" line="35"/>
         <source>Add</source>
         <translation>Hozzáad</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="49"/>
+        <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Remove</source>
         <translation>Eltávolít</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="56"/>
+        <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Restore</source>
         <translation>Visszaállít</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="80"/>
-        <source>Double click an item to set as Default locale</source>
-        <translation>Kattints duplán egy elemre, hogy alapértelmezett nyelvként legyen beállítva</translation>
+        <location filename="../pages/PageLanguage.ui" line="82"/>
+        <source>Detailed Settings</source>
+        <translation>Részletes Beállítások</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="33"/>
+        <location filename="../pages/PageLanguage.ui" line="94"/>
+        <source>Display Language</source>
+        <translation>Megjelenítési Nyelv</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="112"/>
+        <source>Language:</source>
+        <translation>Nyelv:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="122"/>
+        <source>Collation and Sorting:</source>
+        <translation>Egyeztetés és Osztályozás:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="132"/>
+        <source>Messages:</source>
+        <translation>Üzenetek:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="142"/>
+        <source>CType:</source>
+        <translation>CType:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="173"/>
+        <source>Numbers:</source>
+        <translation>Számok:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="183"/>
+        <source>Time:</source>
+        <translation>Idő:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="193"/>
+        <source>Currency:</source>
+        <translation>Pénznem:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="203"/>
+        <source>Measurement Units:</source>
+        <translation>Mértékegységek:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="213"/>
+        <source>Address:</source>
+        <translation>Címek:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="223"/>
+        <source>Names:</source>
+        <translation>Nevek:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="233"/>
+        <source>Telephone:</source>
+        <translation>Telefon:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="243"/>
+        <source>Identification:</source>
+        <translation>Azonosítás:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="253"/>
+        <source>Paper:</source>
+        <translation>Papír:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="155"/>
+        <source>Formats</source>
+        <translation>Formátumok:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="35"/>
         <source>Language</source>
         <translation>Nyelv</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="93"/>
-        <location filename="../pages/PageLanguage.cpp" line="138"/>
-        <location filename="../pages/PageLanguage.cpp" line="150"/>
-        <location filename="../pages/PageLanguage.cpp" line="234"/>
+        <location filename="../pages/PageLanguage.cpp" line="323"/>
+        <location filename="../pages/PageLanguage.cpp" line="368"/>
+        <location filename="../pages/PageLanguage.cpp" line="380"/>
+        <location filename="../pages/PageLanguage.cpp" line="464"/>
         <source>Error!</source>
         <translation>Hiba!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="94"/>
-        <location filename="../pages/PageLanguage.cpp" line="151"/>
+        <location filename="../pages/PageLanguage.cpp" line="324"/>
+        <location filename="../pages/PageLanguage.cpp" line="381"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation>Nem sikerült megnyitni a fájlt &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="139"/>
+        <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation>Nem sikerült előállítani érvényes karakterkódot a nyelvhez &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="235"/>
+        <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
         <translation>Nem sikerült beállítani a nyelvet!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="163"/>
+        <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
         <translation>locale.gen fájl létrehozása...</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="166"/>
+        <location filename="../pages/PageLanguage.cpp" line="59"/>
+        <source>Set as default display language and format</source>
+        <translation>Állítsa be alapértelmezett megjelenítési nyelv és formátumként</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="60"/>
+        <source>Set as default display language</source>
+        <translation>Beállítás alapértelmezett megjelenítési nyelvként</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="61"/>
+        <source>Set as default format</source>
+        <translation>Beállítás alapértelmezett formátumként</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>Hint</source>
         <translation>Segítség</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="166"/>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation>Lehetséges újra kell indítanod a grafikus környezetet a változtatások érvényesítéséhez...</translation>
     </message>
@@ -863,74 +1018,74 @@ Zárt forrású meghajtó</translation>
         <translation>Felhasználói fiókok</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="82"/>
-        <location filename="../pages/PageUsers.cpp" line="89"/>
+        <location filename="../pages/PageUsers.cpp" line="74"/>
+        <location filename="../pages/PageUsers.cpp" line="81"/>
         <source>Standard</source>
         <translation>Normál</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="99"/>
+        <location filename="../pages/PageUsers.cpp" line="91"/>
         <source>Administrator</source>
         <translation>Adminisztrátor</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="113"/>
+        <location filename="../pages/PageUsers.cpp" line="104"/>
         <source>Images (*.png *.jpg *.bmp)</source>
         <translation>Képek (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="145"/>
-        <location filename="../pages/PageUsers.cpp" line="159"/>
-        <location filename="../pages/PageUsers.cpp" line="165"/>
-        <location filename="../pages/PageUsers.cpp" line="177"/>
-        <location filename="../pages/PageUsers.cpp" line="183"/>
-        <location filename="../pages/PageUsers.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Error!</source>
         <translation>Hiba!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="145"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
         <translation>Nem sikerült megkapni a felhasználói jogosultság struktúrát!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="159"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
         <translation>Nem sikerült a képet ide másolni &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="165"/>
-        <location filename="../pages/PageUsers.cpp" line="183"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
         <translation>Nem sikerült a fájl jogosultságot beállítani &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="177"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
         <translation>Nem sikerült linkelni &apos;%1&apos; ide &apos;%2&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
         <translation>Folytatod?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
         <translation>Valóban eltávolítod a felhasználót %1?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
         <translation>Eltávolítod a Home -t?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
         <translation>Valóban eltávolítod a home könyvtárát a felhasználónak %1?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Failed to remove user %1!</source>
         <translation>Nem sikerült a felhasználó eltávolítása %1!</translation>
     </message>
@@ -982,27 +1137,17 @@ Zárt forrású meghajtó</translation>
         <translation>Terület</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="102"/>
-        <source>Description</source>
-        <translation>Leírás</translation>
-    </message>
-    <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="126"/>
-        <source>Description:</source>
-        <translation>Leírás:</translation>
-    </message>
-    <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="148"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
         <translation>Hely:</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="218"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="182"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="225"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
         <translation>Hozzáad</translation>
     </message>

@@ -223,55 +223,55 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
 <context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
         <translation>Recomanat</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
         <translation>Funcionant</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
         <translation>Instal·lat</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
         <translation>No suportat</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="187"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="252"/>
         <source>Changelog</source>
         <translation>Llista de canvis</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
         <translation>Personalitzat</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
         <translation>Experimental</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="184"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="249"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Remove</source>
         <translation>Esborrar</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Install</source>
         <translation>Instal·lar</translation>
     </message>
@@ -293,9 +293,74 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
 <context>
     <name>LanguageListViewDelegate</name>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="58"/>
-        <source>Default</source>
-        <translation>Defecte</translation>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
+        <source>Display Language</source>
+        <translation>Idioma de la pantalla</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
+        <source>Language</source>
+        <translation>Idioma</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
+        <source>Collation and Sorting</source>
+        <translation>Cotejament i ordenació</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
+        <source>Messages</source>
+        <translation>Missatges</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
+        <source>Formats</source>
+        <translation>Formats</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
+        <source>Address</source>
+        <translation>Adreça</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
+        <source>Identification</source>
+        <translation>Identificació</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
+        <source>Measurement Units</source>
+        <translation>Unitats de mesura</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
+        <source>Currency</source>
+        <translation>Moneda</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
+        <source>Names</source>
+        <translation>Noms</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
+        <source>Numbers</source>
+        <translation>Nombres</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
+        <source>Paper</source>
+        <translation>Paper</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
+        <source>Telephone</source>
+        <translation>Telèfon</translation>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
+        <source>Time</source>
+        <translation>Hora</translation>
     </message>
 </context>
 <context>
@@ -422,71 +487,161 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="22"/>
+        <location filename="../pages/PageLanguage.ui" line="62"/>
         <source>System Locales</source>
         <translation>Localització</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="42"/>
+        <location filename="../pages/PageLanguage.ui" line="35"/>
         <source>Add</source>
         <translation>Nou</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="49"/>
+        <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Remove</source>
         <translation>Esborra</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="56"/>
+        <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Restore</source>
         <translation>Restaura</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="80"/>
-        <source>Double click an item to set as Default locale</source>
-        <translation>Feu doble clic a l&apos;element que voleu establir com a configuració regional per defecte</translation>
+        <location filename="../pages/PageLanguage.ui" line="82"/>
+        <source>Detailed Settings</source>
+        <translation>Configuració detallada</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="33"/>
+        <location filename="../pages/PageLanguage.ui" line="94"/>
+        <source>Display Language</source>
+        <translation>Idioma de la pantalla</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="112"/>
+        <source>Language:</source>
+        <translation>Idioma:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="122"/>
+        <source>Collation and Sorting:</source>
+        <translation>Cotejament i ordenació:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="132"/>
+        <source>Messages:</source>
+        <translation>Missatges:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="142"/>
+        <source>CType:</source>
+        <translation>CType:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="173"/>
+        <source>Numbers:</source>
+        <translation>Nombres:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="183"/>
+        <source>Time:</source>
+        <translation>Hora:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="193"/>
+        <source>Currency:</source>
+        <translation>Moneda:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="203"/>
+        <source>Measurement Units:</source>
+        <translation>Unitats de mesura:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="213"/>
+        <source>Address:</source>
+        <translation>Adreça:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="223"/>
+        <source>Names:</source>
+        <translation>Noms:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="233"/>
+        <source>Telephone:</source>
+        <translation>Telèfon:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="243"/>
+        <source>Identification:</source>
+        <translation>Identificació:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="253"/>
+        <source>Paper:</source>
+        <translation>Paper:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="155"/>
+        <source>Formats</source>
+        <translation>Formats</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="35"/>
         <source>Language</source>
         <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="93"/>
-        <location filename="../pages/PageLanguage.cpp" line="138"/>
-        <location filename="../pages/PageLanguage.cpp" line="150"/>
-        <location filename="../pages/PageLanguage.cpp" line="234"/>
+        <location filename="../pages/PageLanguage.cpp" line="323"/>
+        <location filename="../pages/PageLanguage.cpp" line="368"/>
+        <location filename="../pages/PageLanguage.cpp" line="380"/>
+        <location filename="../pages/PageLanguage.cpp" line="464"/>
         <source>Error!</source>
         <translation>Error!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="94"/>
-        <location filename="../pages/PageLanguage.cpp" line="151"/>
+        <location filename="../pages/PageLanguage.cpp" line="324"/>
+        <location filename="../pages/PageLanguage.cpp" line="381"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation>No s&apos;ha pogut obrir el fitxer &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="139"/>
+        <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation>No s&apos;ha pogut obtenir una cadena vàlida per l&apos;idioma &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="235"/>
+        <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
         <translation>No s&apos;ha pogut establir la localització!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="163"/>
+        <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
         <translation>Generant fitxer locales.gen...</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="166"/>
+        <location filename="../pages/PageLanguage.cpp" line="59"/>
+        <source>Set as default display language and format</source>
+        <translation>Establir com a idioma de la pantalla i format prefeterminat</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="60"/>
+        <source>Set as default display language</source>
+        <translation>Establir com a idioma de la pantalla prefeterminat</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="61"/>
+        <source>Set as default format</source>
+        <translation>Establir com a format prefeterminat</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>Hint</source>
         <translation>Pista</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.cpp" line="166"/>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
         <translation>És possible que hagi de reiniciar l&apos;entorn gràfic per aplicar la nova configuració ...</translation>
     </message>
@@ -865,74 +1020,74 @@ el controlador propietari?</translation>
         <translation>Comptes d&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="82"/>
-        <location filename="../pages/PageUsers.cpp" line="89"/>
+        <location filename="../pages/PageUsers.cpp" line="74"/>
+        <location filename="../pages/PageUsers.cpp" line="81"/>
         <source>Standard</source>
         <translation>Estàndard</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="99"/>
+        <location filename="../pages/PageUsers.cpp" line="91"/>
         <source>Administrator</source>
         <translation>Administrador</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="113"/>
+        <location filename="../pages/PageUsers.cpp" line="104"/>
         <source>Images (*.png *.jpg *.bmp)</source>
         <translation>Imatges (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="145"/>
-        <location filename="../pages/PageUsers.cpp" line="159"/>
-        <location filename="../pages/PageUsers.cpp" line="165"/>
-        <location filename="../pages/PageUsers.cpp" line="177"/>
-        <location filename="../pages/PageUsers.cpp" line="183"/>
-        <location filename="../pages/PageUsers.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Error!</source>
         <translation>Error!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="145"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
         <translation>No s&apos;ha pogut obtenir els permisos de l&apos;usuari!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="159"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
         <translation>Error en copiar la imatge a &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="165"/>
-        <location filename="../pages/PageUsers.cpp" line="183"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
         <translation>No s&apos;ha pogut establir el permís de l&apos;arxiu &apos;%1&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="177"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
         <translation>Error a establir l&apos;enllaç simbòlic de &apos;%1&apos; a &apos;%2&apos;!</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
         <translation>Continuar?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
         <translation>Realment voleu esborrar l&apos;usuari %1?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
         <translation>Esborrar la carpeta d&apos;inici?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
         <translation>Vol eliminar la carpeta d&apos;inici de l&apos;usuari %1?</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Failed to remove user %1!</source>
         <translation>No s&apos;ha pogut esborrar l&apos;usuari %1!</translation>
     </message>
@@ -984,27 +1139,17 @@ el controlador propietari?</translation>
         <translation>Territori</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="102"/>
-        <source>Description</source>
-        <translation>Descripció</translation>
-    </message>
-    <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="126"/>
-        <source>Description:</source>
-        <translation>Descripció:</translation>
-    </message>
-    <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="148"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
         <translation>Ubicació:</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="218"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="182"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="225"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
         <translation>Nou</translation>
     </message>
