@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldo <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -37,7 +38,6 @@ PageLanguage::PageLanguage(QWidget *parent) :
 
     /* Set Models */
     ui->localeListView->setModel(enabledLocalesModel_);
-    ui->localeListView->setItemDelegate(languageListViewDelegate_);
     ui->addressComboBox->setModel(enabledLocalesModel_);
     ui->collateComboBox->setModel(enabledLocalesModel_);
     ui->ctypeComboBox->setModel(enabledLocalesModel_);
@@ -52,18 +52,23 @@ PageLanguage::PageLanguage(QWidget *parent) :
     ui->telephoneComboBox->setModel(enabledLocalesModel_);
     ui->timeComboBox->setModel(enabledLocalesModel_);
 
+    /* Set localeListView delegate */
+    ui->localeListView->setItemDelegate(languageListViewDelegate_);
+
     /* Define QActions */
     setRegionAndFormatsAction_ = new QAction(tr("Set as default display language and format"), ui->localeListView);
     setRegionAction_ = new QAction(tr("Set as default display language"), ui->localeListView);
     setFormatsAction_ = new QAction(tr("Set as default format"), ui->localeListView);
 
-    /* Connect signals/slots */
+    /* Connect top buttons signal/slot */
     connect(ui->buttonRemove, &QPushButton::clicked,
             this, &PageLanguage::removeLocale);
     connect(ui->buttonRestore, &QPushButton::clicked,
             this, &PageLanguage::restoreLocaleList);
     connect(ui->buttonAdd, &QPushButton::clicked,
             this, &PageLanguage::addLocale);
+
+    /* Connect "System Locales" tab signal/slots */
     connect(ui->localeListView->selectionModel(), &QItemSelectionModel::currentRowChanged,
             this, &PageLanguage::disableRemoveButton);
     connect(ui->localeListView, &QListView::doubleClicked,
@@ -85,6 +90,7 @@ PageLanguage::PageLanguage(QWidget *parent) :
                 enabledLocalesModel_->setTime(index);
             });
 
+    /* Connect "Detailed Settings" tab signal/slots */
     connect(ui->addressComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             [=] (int row)
             {
@@ -210,7 +216,7 @@ PageLanguage::PageLanguage(QWidget *parent) :
         }
     });
 
-    /* Context menu for the localeListView */
+    /* Context menu for the list view in "System Locales" tab */
     connect(ui->localeListView, &QListView::customContextMenuRequested,
             [=] (const QPoint &pos)
     {
@@ -473,12 +479,9 @@ void PageLanguage::addLocale()
         return;
     }
 
-    QString locale = dialog.getLocale();
-    LocaleItem localeItem(locale);
-    if (!enabledLocalesModel_->contains(localeItem)) {
-        if (enabledLocalesModel_->insertLocale(enabledLocalesModel_->rowCount(QModelIndex()), 1, localeItem)) {
-            isLocaleListModified_ = true;
-        }
+    QString localeCode = dialog.getLocale();
+    if (enabledLocalesModel_->insertLocale(enabledLocalesModel_->rowCount(QModelIndex()), 1, localeCode)) {
+        isLocaleListModified_ = true;
     }
 }
 

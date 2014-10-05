@@ -52,20 +52,19 @@ QVariant EnabledLocalesModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= locales_.count()) {
         return QVariant();
     }
-    const LocaleItem &localeItem = locales_[index.row()];
+    const QString &localeCode = locales_[index.row()];
 
-    Locale systemLocale = Locale();
-    Locale locale(localeItem.key().toLatin1());
+    Locale locale(localeCode.toLatin1());
 
     /* Get language and country in current system locale */
     UnicodeString uDisplayLanguage;
     UnicodeString uDisplayCountry;
-    locale.getDisplayLanguage(systemLocale, uDisplayLanguage);
-    locale.getDisplayCountry(systemLocale, uDisplayCountry);
+    locale.getDisplayLanguage(locale, uDisplayLanguage);
+    locale.getDisplayCountry(locale, uDisplayCountry);
 
     /* Capitalize language and country */
     UErrorCode status;
-    BreakIterator *titleIterator = BreakIterator::createTitleInstance(systemLocale, status);
+    BreakIterator *titleIterator = BreakIterator::createTitleInstance(locale, status);
     uDisplayLanguage = uDisplayLanguage.toTitle(titleIterator);
     uDisplayCountry = uDisplayCountry.toTitle(titleIterator);
 
@@ -74,9 +73,9 @@ QVariant EnabledLocalesModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case Qt::DisplayRole:
-        return QString("%1 - %2 (%3)").arg(displayLanguage).arg(displayCountry).arg(localeItem.key());
-    case KeyRole:
-        return localeItem.key();
+        return QString("%1 - %2 (%3)").arg(displayLanguage).arg(displayCountry).arg(localeCode);
+    case LocaleCodeRole:
+        return localeCode;
     case CountryRole:
         return displayCountry;
     case LanguageRole:
@@ -115,17 +114,17 @@ QVariant EnabledLocalesModel::data(const QModelIndex &index, int role) const
 }
 
 
-bool EnabledLocalesModel::insertLocale(int row, int count, const LocaleItem &localeItem)
+bool EnabledLocalesModel::insertLocale(int row, int count, const QString &localeCode)
 {
     /* Locale already in the list */
-    if (locales_.contains(localeItem)) {
+    if (locales_.contains(localeCode)) {
         return false;
     }
 
     beginInsertRows(QModelIndex(), row, row + count - 1);
 
     for (int c=0; c < count; c++) {
-        locales_.insert(row, localeItem);
+        locales_.insert(row, localeCode);
     }
 
     endInsertRows();
@@ -153,8 +152,8 @@ bool EnabledLocalesModel::removeLocale(int row, int count)
 
 void EnabledLocalesModel::setAddress(const QModelIndex &index)
 {
-    if (address_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        address_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (address_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        address_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { AddressRole };
         emit dataChanged(index, index, roles);
     }
@@ -163,8 +162,8 @@ void EnabledLocalesModel::setAddress(const QModelIndex &index)
 
 void EnabledLocalesModel::setCollate(const QModelIndex &index)
 {
-    if (collate_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        collate_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (collate_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        collate_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { CollateRole };
         emit dataChanged(index, index, roles);
     }
@@ -173,8 +172,8 @@ void EnabledLocalesModel::setCollate(const QModelIndex &index)
 
 void EnabledLocalesModel::setCtype(const QModelIndex &index)
 {
-    if (ctype_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        ctype_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (ctype_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        ctype_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { CtypeRole };
         emit dataChanged(index, index, roles);
     }
@@ -183,8 +182,8 @@ void EnabledLocalesModel::setCtype(const QModelIndex &index)
 
 void EnabledLocalesModel::setIdentification(const QModelIndex &index)
 {
-    if (identification_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        identification_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (identification_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        identification_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { IdentificationRole };
         emit dataChanged(index, index, roles);
     }
@@ -193,8 +192,8 @@ void EnabledLocalesModel::setIdentification(const QModelIndex &index)
 
 void EnabledLocalesModel::setLang(const QModelIndex &index)
 {
-    if (lang_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        lang_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (lang_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        lang_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { LangRole };
         emit dataChanged(index, index, roles);
     }
@@ -203,8 +202,8 @@ void EnabledLocalesModel::setLang(const QModelIndex &index)
 
 void EnabledLocalesModel::setLanguage(const QModelIndex &index)
 {
-    if (language_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        language_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (language_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        language_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { LanguageLcRole };
         emit dataChanged(index, index, roles);
     }
@@ -213,8 +212,8 @@ void EnabledLocalesModel::setLanguage(const QModelIndex &index)
 
 void EnabledLocalesModel::setMeasurement(const QModelIndex &index)
 {
-    if (measurement_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        measurement_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (measurement_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        measurement_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { MeasurementRole };
         emit dataChanged(index, index, roles);
     }
@@ -223,8 +222,8 @@ void EnabledLocalesModel::setMeasurement(const QModelIndex &index)
 
 void EnabledLocalesModel::setMonetary(const QModelIndex &index)
 {
-    if (monetary_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        monetary_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (monetary_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        monetary_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { MonetaryRole };
         emit dataChanged(index, index, roles);
     }
@@ -233,8 +232,8 @@ void EnabledLocalesModel::setMonetary(const QModelIndex &index)
 
 void EnabledLocalesModel::setMessages(const QModelIndex &index)
 {
-    if (messages_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        messages_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (messages_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        messages_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { MessagesRole };
         emit dataChanged(index, index, roles);
     }
@@ -243,8 +242,8 @@ void EnabledLocalesModel::setMessages(const QModelIndex &index)
 
 void EnabledLocalesModel::setName(const QModelIndex &index)
 {
-    if (name_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        name_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (name_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        name_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { NameRole };
         emit dataChanged(index, index, roles);
     }
@@ -253,8 +252,8 @@ void EnabledLocalesModel::setName(const QModelIndex &index)
 
 void EnabledLocalesModel::setNumeric(const QModelIndex &index)
 {
-    if (numeric_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        numeric_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (numeric_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        numeric_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { NumericRole };
         emit dataChanged(index, index, roles);
     }
@@ -263,8 +262,8 @@ void EnabledLocalesModel::setNumeric(const QModelIndex &index)
 
 void EnabledLocalesModel::setPaper(const QModelIndex &index)
 {
-    if (paper_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        paper_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (paper_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        paper_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { PaperRole };
         emit dataChanged(index, index, roles);
     }
@@ -273,8 +272,8 @@ void EnabledLocalesModel::setPaper(const QModelIndex &index)
 
 void EnabledLocalesModel::setTelephone(const QModelIndex &index)
 {
-    if (telephone_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        telephone_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (telephone_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        telephone_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { TelephoneRole };
         emit dataChanged(index, index, roles);
     }
@@ -283,17 +282,17 @@ void EnabledLocalesModel::setTelephone(const QModelIndex &index)
 
 void EnabledLocalesModel::setTime(const QModelIndex &index)
 {
-    if (time_ != index.data(EnabledLocalesModel::KeyRole).toString()) {
-        time_ = index.data(EnabledLocalesModel::KeyRole).toString();
+    if (time_ != index.data(EnabledLocalesModel::LocaleCodeRole).toString()) {
+        time_ = index.data(EnabledLocalesModel::LocaleCodeRole).toString();
         QVector<int> roles { TimeRole };
         emit dataChanged(index, index, roles);
     }
 }
 
 
-bool EnabledLocalesModel::contains(const LocaleItem &localeItem) const
+bool EnabledLocalesModel::contains(const QString &localeCode) const
 {
-    return (locales_.contains(localeItem));
+    return (locales_.contains(localeCode));
 }
 
 
@@ -302,11 +301,7 @@ bool EnabledLocalesModel::contains(const LocaleItem &localeItem) const
  */
 QStringList EnabledLocalesModel::locales() const
 {
-    QStringList locales;
-    for (LocaleItem localeItem : locales_) {
-        locales << localeItem.key();
-    }
-    return locales;
+    return locales_;
 }
 
 
@@ -327,7 +322,7 @@ QString EnabledLocalesModel::unicodeStringToQString(const icu::UnicodeString &so
 QHash<int, QByteArray> EnabledLocalesModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[KeyRole] = "key";
+    roles[LocaleCodeRole] = "key";
     roles[CountryRole] = "country";
     roles[LanguageRole] = "language";
     roles[AddressRole] = "address";
@@ -349,12 +344,7 @@ QHash<int, QByteArray> EnabledLocalesModel::roleNames() const
 
 int EnabledLocalesModel::findKey(const QString key) const
 {
-    for (int i = 0; i < rowCount(QModelIndex()); ++i) {
-        if (key == locales_.at(i).key()) {
-            return i;
-        }
-    }
-    return -1;
+    return locales_.indexOf(key);
 }
 
 
@@ -377,7 +367,7 @@ void EnabledLocalesModel::init()
         if (line.isEmpty() || line.startsWith("#")) {
             continue;
         }
-        locales_ << LocaleItem(line.split(" ", QString::SkipEmptyParts).value(0));
+        locales_ << QString(line.split(" ", QString::SkipEmptyParts).value(0));
     }
     file.close();
     endResetModel();

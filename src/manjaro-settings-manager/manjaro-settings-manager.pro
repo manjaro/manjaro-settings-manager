@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkitwidgets dbus
+QT       += core gui webkitwidgets dbus KItemModels
 
 LIBS += -lhd -licudata -licuuc
 TARGET = manjaro-settings-manager-gui
@@ -30,8 +30,8 @@ SOURCES  += main.cpp \
             models/Kernel.cpp \
             models/KeyboardItem.cpp \
             models/KeyboardModel.cpp \
-            models/LocaleItem.cpp \
             models/SupportedLocalesModel.cpp \
+            models/SupportedLocalesItem.cpp \
             models/TimeDate.cpp \
             pages/PageKernel.cpp \
             pages/PageKeyboard.cpp \
@@ -72,8 +72,8 @@ HEADERS  += mainwindow.h \
             models/Kernel.h \
             models/KeyboardItem.h \
             models/KeyboardModel.h \
-            models/LocaleItem.h \
             models/SupportedLocalesModel.h \
+            models/SupportedLocalesItem.h \
             models/TimeDate.h \
             pages/PageKernel.h \
             pages/PageKeyboard.h \

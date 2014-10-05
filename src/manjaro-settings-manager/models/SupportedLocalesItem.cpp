@@ -18,58 +18,63 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "LocaleItem.h"
+#include "SupportedLocalesItem.h"
 
-LocaleItem::LocaleItem(const QString &key, LocaleItem *parent)
+SupportedLocalesItem::SupportedLocalesItem(const QString &key, const QString &value, SupportedLocalesItem *parent)
 {
     parentItem_ = parent;
     key_ = key;
+    value_ = value;
 }
 
-LocaleItem::~LocaleItem()
+
+SupportedLocalesItem::~SupportedLocalesItem()
 {
     qDeleteAll(childItems_);
 }
 
-void LocaleItem::appendChild(LocaleItem *item)
+
+void SupportedLocalesItem::appendChild(SupportedLocalesItem *item)
 {
     childItems_.append(item);
 }
 
-QString LocaleItem::key() const
-{
-    return key_;
-}
 
-LocaleItem *LocaleItem::child(int row)
+SupportedLocalesItem *SupportedLocalesItem::child(int row)
 {
     return childItems_.value(row);
 }
 
-int LocaleItem::childCount() const
+
+int SupportedLocalesItem::childCount() const
 {
     return childItems_.count();
 }
 
-int LocaleItem::columnCount() const
+
+int SupportedLocalesItem::columnCount() const
 {
-    return 1;
+    return 2;
 }
 
-int LocaleItem::row() const
+
+int SupportedLocalesItem::row() const
 {
-    if (parentItem_)
-        return parentItem_->childItems_.indexOf(const_cast<LocaleItem*>(this));
+    if (parentItem_) {
+        return parentItem_->childItems_.indexOf(const_cast<SupportedLocalesItem*>(this));
+    }
 
     return 0;
 }
 
-LocaleItem *LocaleItem::parent()
+
+SupportedLocalesItem *SupportedLocalesItem::parent()
 {
     return parentItem_;
 }
 
-bool LocaleItem::operator==(const LocaleItem &other)
+
+bool SupportedLocalesItem::operator==(const SupportedLocalesItem &other)
 {
     return (key() == other.key());
 }

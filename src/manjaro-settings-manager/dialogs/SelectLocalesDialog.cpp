@@ -40,12 +40,14 @@ SelectLocalesDialog::SelectLocalesDialog(QWidget *parent) :
 }
 
 
-
 SelectLocalesDialog::~SelectLocalesDialog()
 {
     delete ui;
     delete supportedLocalesModel_;
-    delete supportedLocalesProxyModel_;
+    delete languageSortProxy_;
+    delete countrySortProxy_;
+    delete languageSelectionProxy_;
+    delete countrySelectionProxy_;
 }
 
 
@@ -64,26 +66,37 @@ QString SelectLocalesDialog::getLocale()
 }
 
 
-
 int SelectLocalesDialog::exec()
 {
     accepted_ = false;
     supportedLocalesModel_ = new SupportedLocalesModel();
-    supportedLocalesProxyModel_ = new QSortFilterProxyModel();
-    supportedLocalesProxyModel_->setSourceModel(supportedLocalesModel_);
-    supportedLocalesProxyModel_->setSortRole(SupportedLocalesModel::KeyRole);
-    supportedLocalesProxyModel_->setSortLocaleAware(true);
-    supportedLocalesProxyModel_->sort(0, Qt::AscendingOrder);
 
-    ui->languageListView->setModel(supportedLocalesProxyModel_);
+    languageSortProxy_ = new QSortFilterProxyModel();
+    languageSortProxy_->setSourceModel(supportedLocalesModel_);
+    languageSortProxy_->setSortLocaleAware(true);
+    languageSortProxy_->sort(0, Qt::AscendingOrder);
+    ui->languageListView->setModel(languageSortProxy_);
+
+    languageSelectionProxy_ = new KSelectionProxyModel(ui->languageListView->selectionModel(), this);
+    languageSelectionProxy_->setSourceModel(supportedLocalesModel_);
+    languageSelectionProxy_->setFilterBehavior(KSelectionProxyModel::ChildrenOfExactSelection);
+
+    countrySortProxy_ = new QSortFilterProxyModel();
+    countrySortProxy_->setSourceModel(languageSelectionProxy_);
+    countrySortProxy_->setSortLocaleAware(true);
+    countrySortProxy_->sort(0, Qt::AscendingOrder);
+    ui->countryListView->setModel(countrySortProxy_);
+
+    countrySelectionProxy_ = new KSelectionProxyModel(ui->countryListView->selectionModel(), this);
+    countrySelectionProxy_->setSourceModel(supportedLocalesModel_);
+    countrySelectionProxy_->setFilterBehavior(KSelectionProxyModel::ChildrenOfExactSelection);
+    ui->localeComboBox->setModel(countrySelectionProxy_);
 
     ui->localeComboBox->hide();
-
     updateApplyEnabledState();
 
     return QDialog::exec();
 }
-
 
 
 void SelectLocalesDialog::updateApplyEnabledState()
@@ -92,42 +105,29 @@ void SelectLocalesDialog::updateApplyEnabledState()
 }
 
 
-//###
-//### Private
-//###
-
-
 void SelectLocalesDialog::languageListViewActivated(const QModelIndex &index)
 {
     if (index.isValid()) {
-        ui->countryListView->setModel(supportedLocalesProxyModel_);
-        ui->countryListView->setRootIndex(index);
         ui->localeComboBox->hide();
         updateApplyEnabledState();
     }
 }
 
 
-
 void SelectLocalesDialog::countryListViewActivated(const QModelIndex &index)
 {
     if (index.isValid()) {
-        ui->localeComboBox->setModel(supportedLocalesProxyModel_);
-        ui->localeComboBox->setRootModelIndex(index);
-
         /* Select locale with UTF-8 encoding by default */
-        QModelIndexList localeIndexList = supportedLocalesProxyModel_->match(index.child(0,0),
-                                                                              SupportedLocalesModel::KeyRole,
-                                                                              "UTF-8",
-                                                                              -1,
-                                                                              Qt::MatchContains);
+        QAbstractItemModel *model = ui->localeComboBox->model();
+        QModelIndexList localeIndexList = model->match(model->index(0,0),
+                                                       SupportedLocalesModel::ValueRole,
+                                                       "UTF-8",
+                                                       -1,
+                                                       Qt::MatchContains);
         if (localeIndexList.size() > 0) {
             QModelIndex modelIndex = localeIndexList.first();
             ui->localeComboBox->setCurrentIndex(modelIndex.row());
-        } else {
-            ui->localeComboBox->setCurrentIndex(0);
         }
-
         ui->localeComboBox->show();
         updateApplyEnabledState();
     }

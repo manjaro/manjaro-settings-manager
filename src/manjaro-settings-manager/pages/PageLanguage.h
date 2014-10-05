@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldo <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -27,7 +28,6 @@
 #include "delegates/LanguageListViewDelegate.h"
 #include "models/EnabledLocalesModel.h"
 #include "widgets/pagewidget.h"
-
 
 namespace Ui {
 class PageLanguage;

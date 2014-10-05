@@ -21,7 +21,7 @@
 #ifndef SUPPORTEDLOCALESMODEL_H
 #define SUPPORTEDLOCALESMODEL_H
 
-#include "models/LocaleItem.h"
+#include "models/SupportedLocalesItem.h"
 
 #include <QtCore/QAbstractItemModel>
 
@@ -33,7 +33,8 @@ class SupportedLocalesModel : public QAbstractItemModel
     Q_OBJECT
 public:
     enum SupportedLocalesRoles {
-        KeyRole = Qt::UserRole + 1
+        KeyRole = Qt::UserRole + 1,
+        ValueRole
     };
 
     explicit SupportedLocalesModel(QObject *parent = 0);
@@ -49,8 +50,6 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
-    QString currentLanguage();
-
     static icu::UnicodeString qStringToUnicodeString(const QString &sourceStr);
     static QString unicodeStringToQString(const icu::UnicodeString &sourceStr);
 
@@ -58,10 +57,9 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    void init(LocaleItem *parent);
+    void init(SupportedLocalesItem *parent);
 
-    LocaleItem *rootItem_;
-    QString currentLanguage_;
+    SupportedLocalesItem *rootItem_;
 
 signals:
 

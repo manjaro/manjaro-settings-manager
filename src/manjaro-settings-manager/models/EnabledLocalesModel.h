@@ -21,9 +21,7 @@
 #ifndef ENABLEDLOCALESMODEL_H
 #define ENABLEDLOCALESMODEL_H
 
-#include "LocaleItem.h"
-
-#include <QtCore/QAbstractTableModel>
+#include <QtCore/QAbstractListModel>
 #include <QtCore/QObject>
 #include <QtCore/QVariant>
 
@@ -35,7 +33,7 @@ class EnabledLocalesModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum EnabledLocalesRoles {
-        KeyRole = Qt::UserRole + 1,
+        LocaleCodeRole = Qt::UserRole + 1,
         CountryRole,
         LanguageRole,
         AddressRole,
@@ -65,7 +63,7 @@ public:
     int rowCount(const QModelIndex &parent) const;
     int columnCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
-    bool insertLocale(int row, int count, const LocaleItem &localeItem);
+    bool insertLocale(int row, int count, const QString &localeCode);
     bool removeLocale(int row, int count);
 
     void setAddress(const QModelIndex &index);
@@ -98,7 +96,7 @@ public:
     QString telephone() const { return telephone_; }
     QString time() const { return time_; }
 
-    bool contains(const LocaleItem &localeItem) const;
+    bool contains(const QString &localeCode) const;
     QStringList locales() const;
 
     static icu::UnicodeString qStringToUnicodeString(const QString &sourceStr);
@@ -108,7 +106,7 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    QList<LocaleItem> locales_;
+    QStringList locales_;
     QString address_;
     QString collate_;
     QString ctype_;

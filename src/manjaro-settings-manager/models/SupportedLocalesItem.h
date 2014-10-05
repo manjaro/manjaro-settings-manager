@@ -18,34 +18,36 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LOCALESITEM_H
-#define LOCALESITEM_H
+#ifndef SUPPORTEDLOCALESITEM_H
+#define SUPPORTEDLOCALESITEM_H
 
 #include <QtCore/QVariant>
 
-class LocaleItem
+class SupportedLocalesItem
 {
 public:
-    explicit LocaleItem(const QString &key, LocaleItem *parent = 0);
-    ~LocaleItem();
+    explicit SupportedLocalesItem(const QString &key, const QString &value, SupportedLocalesItem *parent = 0);
+    ~SupportedLocalesItem();
 
-    void appendChild(LocaleItem *item);
+    void appendChild(SupportedLocalesItem *item);
 
-    QString key() const;
+    QString key() const { return key_; }
+    QString value() const { return value_; }
 
-    LocaleItem *child(int row);
+    SupportedLocalesItem *child(int row);
     int childCount() const;
     int columnCount() const;
     int row() const;
-    LocaleItem *parent();
+    SupportedLocalesItem *parent();
 
-    bool operator==(const LocaleItem &other);
+    bool operator==(const SupportedLocalesItem &other);
 
 private:
     QString key_;
+    QString value_;
 
-    QList<LocaleItem*> childItems_;
-    LocaleItem *parentItem_;
+    QList<SupportedLocalesItem*> childItems_;
+    SupportedLocalesItem *parentItem_;
 };
 
-#endif // LOCALESITEM_H
+#endif // SUPPORTEDLOCALESITEM_H

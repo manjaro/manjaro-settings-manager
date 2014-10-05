@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>694</width>
-    <height>522</height>
+    <height>593</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,13 +16,6 @@
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>System Locales</string>
-       </property>
-      </widget>
-     </item>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -66,7 +59,7 @@
      </property>
      <widget class="QWidget" name="localeBasicTab">
       <attribute name="title">
-       <string>Language and Formats</string>
+       <string>System Locales</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>

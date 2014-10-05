@@ -27,7 +27,7 @@
 SupportedLocalesModel::SupportedLocalesModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    rootItem_ = new LocaleItem(QString("key"));
+    rootItem_ = new SupportedLocalesItem(QString("key"), QString("value"));
     init(rootItem_);
 }
 
@@ -43,17 +43,21 @@ QVariant SupportedLocalesModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    LocaleItem *item = static_cast<LocaleItem*>(index.internalPointer());
+    SupportedLocalesItem *item = static_cast<SupportedLocalesItem*>(index.internalPointer());
 
     switch (role) {
     case Qt::DisplayRole :
         switch (index.column()) {
         case 0:
+            return item->value();
+        case 1:
             return item->key();
-        }
+        }        
         break;
     case KeyRole :
         return item->key();
+    case ValueRole:
+        return item->value();
     }
 
     return QVariant();
@@ -87,15 +91,15 @@ QModelIndex SupportedLocalesModel::index(int row, int column, const QModelIndex 
         return QModelIndex();
     }
 
-    LocaleItem *parentItem;
+    SupportedLocalesItem *parentItem;
 
     if (!parent.isValid()) {
         parentItem = rootItem_;
     } else {
-        parentItem = static_cast<LocaleItem*>(parent.internalPointer());
+        parentItem = static_cast<SupportedLocalesItem*>(parent.internalPointer());
     }
 
-    LocaleItem *childItem = parentItem->child(row);
+    SupportedLocalesItem *childItem = parentItem->child(row);
     if (childItem) {
         return createIndex(row, column, childItem);
     } else {
@@ -110,8 +114,8 @@ QModelIndex SupportedLocalesModel::parent(const QModelIndex &index) const
         return QModelIndex();
     }
 
-    LocaleItem *childItem = static_cast<LocaleItem*>(index.internalPointer());
-    LocaleItem *parentItem = childItem->parent();
+    SupportedLocalesItem *childItem = static_cast<SupportedLocalesItem*>(index.internalPointer());
+    SupportedLocalesItem *parentItem = childItem->parent();
 
     if (parentItem == rootItem_) {
         return QModelIndex();
@@ -127,11 +131,11 @@ int SupportedLocalesModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    LocaleItem *parentItem;
+    SupportedLocalesItem *parentItem;
     if (!parent.isValid()) {
         parentItem = rootItem_;
     } else {
-        parentItem = static_cast<LocaleItem*>(parent.internalPointer());
+        parentItem = static_cast<SupportedLocalesItem*>(parent.internalPointer());
     }
 
     return parentItem->childCount();
@@ -141,7 +145,7 @@ int SupportedLocalesModel::rowCount(const QModelIndex &parent) const
 int SupportedLocalesModel::columnCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
-        return static_cast<LocaleItem*>(parent.internalPointer())->columnCount();
+        return static_cast<SupportedLocalesItem*>(parent.internalPointer())->columnCount();
     } else {
         return rootItem_->columnCount();
     }
@@ -152,11 +156,12 @@ QHash<int, QByteArray> SupportedLocalesModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[KeyRole] = "key";
+    roles[ValueRole] = "value";
     return roles;
 }
 
 
-void SupportedLocalesModel::init(LocaleItem *parent)
+void SupportedLocalesModel::init(SupportedLocalesItem *parent)
 {
     QFile file("/usr/share/i18n/SUPPORTED");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -175,78 +180,67 @@ void SupportedLocalesModel::init(LocaleItem *parent)
 
         if (found && !line.isEmpty()) {
             QString localeCode = line.mid(0, line.indexOf("/")).remove("\\").trimmed();
-            //QString localeGen = line.replace("/", " ").replace(" \\", "");
 
-            Locale systemLocale = Locale();
             Locale locale(localeCode.toLatin1());
-
             /* Get language and country in current system locale */
             UnicodeString uDisplayLanguage;
             UnicodeString uDisplayCountry;
-            locale.getDisplayLanguage(systemLocale, uDisplayLanguage);
-            locale.getDisplayCountry(systemLocale, uDisplayCountry);
+            locale.getDisplayLanguage(locale, uDisplayLanguage);
+            locale.getDisplayCountry(locale, uDisplayCountry);
 
             /* Capitalize language and country */
             UErrorCode status;
-            BreakIterator *titleIterator = BreakIterator::createTitleInstance(systemLocale, status);
+            BreakIterator *titleIterator = BreakIterator::createTitleInstance(locale, status);
             uDisplayLanguage = uDisplayLanguage.toTitle(titleIterator);
             uDisplayCountry = uDisplayCountry.toTitle(titleIterator);
 
+            QString language = locale.getLanguage();
+            QString country = locale.getCountry();
             QString displayLanguage = unicodeStringToQString(uDisplayLanguage);
             QString displayCountry = unicodeStringToQString(uDisplayCountry);
-
-            if (systemLocale == locale) {
-                currentLanguage_ = displayLanguage;
-            }
 
             /* Search if we already added this language to the tree */
             QModelIndexList languageIndexList = match(index(0,0),
                                                        KeyRole,
-                                                       displayLanguage,
+                                                       language,
                                                        Qt::MatchFixedString);
-            LocaleItem *languageItem;
+            SupportedLocalesItem *languageItem;
             QModelIndex languageIndex;
             if (languageIndexList.count() == 0) {
                 /* Not found, add the language to the root*/
-                languageItem = new LocaleItem(displayLanguage, parent);
+                languageItem = new SupportedLocalesItem(language, displayLanguage, parent);
                 parent->appendChild(languageItem);
             } else {
                 Q_ASSERT(languageIndexList.count() == 1);
                 /* Found, convert index to a item */
                 languageIndex = languageIndexList.first();
-                languageItem = static_cast<LocaleItem*>(languageIndex.internalPointer());
+                languageItem = static_cast<SupportedLocalesItem*>(languageIndex.internalPointer());
             }
 
             /* Search if we already added this country to this language */
             QModelIndexList countryIndexList = match(languageIndex.child(0,0),
                                                     KeyRole,
-                                                    displayCountry,
+                                                    country,
                                                     Qt::MatchFixedString);
-            LocaleItem *countryItem;
+            SupportedLocalesItem *countryItem;
             QModelIndex countryIndex;
             if (countryIndexList.count() == 0) {
                 /* Not found, add the country to the language */
-                countryItem = new LocaleItem(displayCountry, languageItem);
+                countryItem = new SupportedLocalesItem(country, displayCountry, languageItem);
                 languageItem->appendChild(countryItem);
             } else {
                 Q_ASSERT(countryIndexList.count() == 1);
                 /* Found, convert index to a item */
                 countryIndex = countryIndexList.first();
-                countryItem = static_cast<LocaleItem*>(countryIndex.internalPointer());
+                countryItem = static_cast<SupportedLocalesItem*>(countryIndex.internalPointer());
             }
 
             /* Add the locale code to the language */
-            LocaleItem *localeItem = new LocaleItem(localeCode, countryItem);
+            SupportedLocalesItem *localeItem = new SupportedLocalesItem(localeCode, localeCode, countryItem);
             countryItem->appendChild(localeItem);
         }
     }
     file.close();
-}
-
-
-QString SupportedLocalesModel::currentLanguage()
-{
-    return currentLanguage_;
 }
 
 

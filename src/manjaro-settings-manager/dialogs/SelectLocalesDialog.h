@@ -31,6 +31,8 @@
 #include <QComboBox>
 #include <QSortFilterProxyModel>
 
+#include <KF5/KItemModels/KSelectionProxyModel>
+
 namespace Ui {
 class SelectLocalesDialog;
 }
@@ -51,7 +53,10 @@ public:
 private:
     Ui::SelectLocalesDialog *ui;
     SupportedLocalesModel *supportedLocalesModel_;
-    QSortFilterProxyModel *supportedLocalesProxyModel_;
+    QSortFilterProxyModel *languageSortProxy_;
+    QSortFilterProxyModel *countrySortProxy_;
+    KSelectionProxyModel *languageSelectionProxy_;
+    KSelectionProxyModel *countrySelectionProxy_;
     bool accepted_;
 
     void updateApplyEnabledState();

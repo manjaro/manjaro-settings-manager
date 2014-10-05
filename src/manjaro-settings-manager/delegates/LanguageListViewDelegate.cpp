@@ -31,7 +31,7 @@ void LanguageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     painter->drawLine(option.rect.bottomLeft(), option.rect.bottomRight());
 
     /* Draw central text */
-    const QString key = qvariant_cast<QString>(index.data(EnabledLocalesModel::KeyRole));
+    const QString key = qvariant_cast<QString>(index.data(EnabledLocalesModel::LocaleCodeRole));
     const QString country = qvariant_cast<QString>(index.data(EnabledLocalesModel::CountryRole));
     const QString language = qvariant_cast<QString>(index.data(EnabledLocalesModel::LanguageRole));
 
