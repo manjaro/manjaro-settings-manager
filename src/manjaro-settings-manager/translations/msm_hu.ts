@@ -295,7 +295,7 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
         <source>Display Language</source>
-        <translation>Megjelenített nyelv</translation>
+        <translation>Megjelenítési nyelv</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
