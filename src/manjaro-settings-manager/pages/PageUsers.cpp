@@ -39,12 +39,10 @@ PageUsers::PageUsers(QWidget *parent) :
 }
 
 
-
 PageUsers::~PageUsers()
 {
     delete ui;
 }
-
 
 
 void PageUsers::activated() {
@@ -67,12 +65,6 @@ void PageUsers::activated() {
 
     setupUserData(ui->listWidget->currentItem());
 }
-
-
-
-//###
-//### Private
-//###
 
 
 void PageUsers::setupUserData(QListWidgetItem* current) {
@@ -100,7 +92,6 @@ void PageUsers::setupUserData(QListWidgetItem* current) {
         break;
     }
 }
-
 
 
 void PageUsers::buttonImage_clicked() {
@@ -187,7 +178,6 @@ void PageUsers::buttonImage_clicked() {
 }
 
 
-
 void PageUsers::buttonAddUser_clicked() {
     AddUserDialog dialog(this);
     dialog.exec();
@@ -196,7 +186,6 @@ void PageUsers::buttonAddUser_clicked() {
     if (dialog.userDataChanged())
         activated();
 }
-
 
 
 void PageUsers::buttonRemoveUser_clicked() {
@@ -227,7 +216,6 @@ void PageUsers::buttonRemoveUser_clicked() {
 }
 
 
-
 void PageUsers::buttonChangePassword_clicked() {
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->currentItem());
     if (!item)
@@ -236,7 +224,6 @@ void PageUsers::buttonChangePassword_clicked() {
     ChangePasswordDialog dialog(this);
     dialog.exec(item->text());
 }
-
 
 
 void PageUsers::buttonChangeAccountType_clicked() {

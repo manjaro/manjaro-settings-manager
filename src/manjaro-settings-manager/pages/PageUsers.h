@@ -21,7 +21,12 @@
 #ifndef PAGEUSERS_H
 #define PAGEUSERS_H
 
-#include "widgets/pagewidget.h"
+#include "dialogs/adduserdialog.h"
+#include "dialogs/changepassworddialog.h"
+#include "dialogs/accounttypedialog.h"
+#include "dialogs/previewfiledialog.h"
+#include "widgets/PageWidget.h"
+
 #include <QIcon>
 #include <QPixmap>
 #include <QFile>
@@ -33,12 +38,6 @@
 #include <unistd.h>
 #include <pwd.h>
 #include <grp.h>
-#include "dialogs/adduserdialog.h"
-#include "dialogs/changepassworddialog.h"
-#include "dialogs/accounttypedialog.h"
-#include "dialogs/previewfiledialog.h"
-
-
 
 namespace Ui {
 class PageUsers;

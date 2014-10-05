@@ -18,8 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "listwidget.h"
-
+#include "ListWidget.h"
 
 
 ListWidgetItemSeperatorDelegate::ListWidgetItemSeperatorDelegate(QListWidget *parent, QListWidgetItem *item) :
@@ -30,16 +29,15 @@ ListWidgetItemSeperatorDelegate::ListWidgetItemSeperatorDelegate(QListWidget *pa
 }
 
 
-
-void ListWidgetItemSeperatorDelegate::parentResized() {
+void ListWidgetItemSeperatorDelegate::parentResized()
+{
     item->setSizeHint(QSize(parent->width() - 2*parent->spacing(), 30));
 }
 
 
-
-void ListWidgetItemSeperatorDelegate::paint ( QPainter * painter,
-                                           const QStyleOptionViewItem & option,
-                                           const QModelIndex & index ) const
+void ListWidgetItemSeperatorDelegate::paint(QPainter * painter,
+                                            const QStyleOptionViewItem & option,
+                                            const QModelIndex & index ) const
 {
     QPen origPen, pen = painter->pen();
     origPen = pen;
@@ -63,7 +61,8 @@ void ListWidgetItemSeperatorDelegate::paint ( QPainter * painter,
 }
 
 
-QSize ListWidgetItemSeperatorDelegate::sizeHint(const QStyleOptionViewItem &, const QModelIndex &) const {
+QSize ListWidgetItemSeperatorDelegate::sizeHint(const QStyleOptionViewItem &, const QModelIndex &) const
+{
     return QSize(parent->width() - 2*parent->spacing(), 30);
 }
 
@@ -75,16 +74,16 @@ ListWidget::ListWidget(QWidget *parent) :
 }
 
 
-
-void ListWidget::addSeparator(QString text) {
+void ListWidget::addSeparator(QString text)
+{
     QListWidgetItem *item = new QListWidgetItem(this);
     item->setText(text);
 
     ListWidgetItemSeperatorDelegate *delegate = new ListWidgetItemSeperatorDelegate(this, item);
     setItemDelegateForRow(count()-1, delegate);
-    connect(this, SIGNAL(resized()) ,   delegate, SLOT(parentResized()));
+    connect(this, &ListWidget::resized,
+            delegate, &ListWidgetItemSeperatorDelegate::parentResized);
 }
-
 
 
 void ListWidget::resizeEvent(QResizeEvent *e) {

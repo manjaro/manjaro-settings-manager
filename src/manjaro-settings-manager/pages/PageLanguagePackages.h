@@ -22,7 +22,7 @@
 #define PAGELANGUAGEPACKAGES_H
 
 #include "dialogs/applydialog.h"
-#include "widgets/pagewidget.h"
+#include "widgets/PageWidget.h"
 
 #include <global.h>
 

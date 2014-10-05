@@ -18,14 +18,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "toolbarstylewidget.h"
+#include "ToolBarStyleWidget.h"
 
 ToolBarStyleWidget::ToolBarStyleWidget(QWidget *parent) :
     QWidget(parent)
 {
-    QPalette palette = this->palette();
-    palette.setBrush(QPalette::WindowText, palette.brightText());
-    this->setPalette(palette);
+
 }
 
 

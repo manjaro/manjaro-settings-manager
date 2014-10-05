@@ -299,12 +299,12 @@ text-align:left;</string>
   <customwidget>
    <class>ListWidget</class>
    <extends>QListWidget</extends>
-   <header>widgets/listwidget.h</header>
+   <header>widgets/ListWidget.h</header>
   </customwidget>
   <customwidget>
    <class>FlatButton</class>
    <extends>QPushButton</extends>
-   <header>widgets/flatbutton.h</header>
+   <header>widgets/FlatButton.h</header>
   </customwidget>
  </customwidgets>
  <resources>

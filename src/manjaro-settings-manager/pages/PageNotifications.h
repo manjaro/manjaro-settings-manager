@@ -21,7 +21,7 @@
 #ifndef PAGENOTIFICATIONS_H
 #define PAGENOTIFICATIONS_H
 
-#include "widgets/pagewidget.h"
+#include "widgets/PageWidget.h"
 
 namespace Ui {
 class PageNotifications;

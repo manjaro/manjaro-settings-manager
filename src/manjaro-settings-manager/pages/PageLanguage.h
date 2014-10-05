@@ -27,7 +27,7 @@
 #include "dialogs/SelectLocalesDialog.h"
 #include "delegates/LanguageListViewDelegate.h"
 #include "models/EnabledLocalesModel.h"
-#include "widgets/pagewidget.h"
+#include "widgets/PageWidget.h"
 
 namespace Ui {
 class PageLanguage;

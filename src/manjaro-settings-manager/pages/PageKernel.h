@@ -22,7 +22,7 @@
 #define PAGE_KERNEL_H
 
 #include "models/KernelModel.h"
-#include "widgets/pagewidget.h"
+#include "widgets/PageWidget.h"
 
 namespace Ui {
 class PageKernel;

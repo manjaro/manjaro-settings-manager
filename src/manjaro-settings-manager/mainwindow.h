@@ -21,7 +21,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "widgets/pagewidget.h"
 #include "pages/PageKernel.h"
 #include "pages/PageKeyboard.h"
 #include "pages/PageLanguage.h"
@@ -30,6 +29,7 @@
 #include "pages/PageNotifications.h"
 #include "pages/PageTimeDate.h"
 #include "pages/PageUsers.h"
+#include "widgets/PageWidget.h"
 
 #include <QApplication>
 #include <QMainWindow>

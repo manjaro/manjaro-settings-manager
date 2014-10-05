@@ -18,27 +18,47 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "PageWidget.h"
 
-#include "flatbutton.h"
 
-
-FlatButton::FlatButton(QWidget *parent) :
-    QPushButton(parent)
+PageWidget::PageWidget(QWidget *parent) :
+    QWidget(parent)
 {
-    setFlat(true);
+    showApplyButton = false;
 }
 
 
-
-void FlatButton::enterEvent(QEvent *) {
-    if (!isEnabled())
-        setFlat(true);
-    else
-        setFlat(false);
+QPixmap PageWidget::getIcon()
+{
+    return icon;
 }
 
 
+QString PageWidget::getTitel()
+{
+    return titel;
+}
 
-void FlatButton::leaveEvent(QEvent *) {
-    setFlat(true);
+
+bool PageWidget::getShowApplyButton()
+{
+    return showApplyButton;
+}
+
+
+void PageWidget::setTitel(QString titel)
+{
+    this->titel = titel;
+}
+
+
+void PageWidget::setIcon(QPixmap icon)
+{
+    this->icon = icon;
+}
+
+
+void PageWidget::setShowApplyButton(bool visible)
+{
+    this->showApplyButton = visible;
 }

@@ -23,7 +23,10 @@
 #ifndef PAGEMHWD_H
 #define PAGEMHWD_H
 
-#include "widgets/pagewidget.h"
+#include "global.h"
+#include "dialogs/applydialog.h"
+#include "widgets/PageWidget.h"
+
 #include <QString>
 #include <QStringList>
 #include <QList>
@@ -32,8 +35,6 @@
 #include <QAction>
 #include <string>
 #include <vector>
-#include "global.h"
-#include "dialogs/applydialog.h"
 
 namespace Ui {
 class PageMhwd;

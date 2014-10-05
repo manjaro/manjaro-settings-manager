@@ -265,12 +265,12 @@
   <customwidget>
    <class>ListWidget</class>
    <extends>QListWidget</extends>
-   <header>widgets/listwidget.h</header>
+   <header>widgets/ListWidget.h</header>
   </customwidget>
   <customwidget>
    <class>ToolBarStyleWidget</class>
    <extends>QWidget</extends>
-   <header>widgets/toolbarstylewidget.h</header>
+   <header>widgets/ToolBarStyleWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

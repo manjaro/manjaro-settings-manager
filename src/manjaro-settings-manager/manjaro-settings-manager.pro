@@ -41,13 +41,13 @@ SOURCES  += main.cpp \
             pages/PageNotifications.cpp \
             pages/PageTimeDate.cpp \
             pages/PageUsers.cpp \
-            widgets/flatbutton.cpp \
-            widgets/listwidget.cpp \
+            widgets/FlatButton.cpp \
+            widgets/ListWidget.cpp \
             widgets/LocaleGlobal.cpp \
             widgets/keyboardpreview.cpp \
-            widgets/pagewidget.cpp \
+            widgets/PageWidget.cpp \
             widgets/TimeZoneWidget.cpp \
-            widgets/toolbarstylewidget.cpp
+            widgets/ToolBarStyleWidget.cpp
 
 
 
@@ -83,13 +83,13 @@ HEADERS  += mainwindow.h \
             pages/PageNotifications.h \
             pages/PageTimeDate.h \
             pages/PageUsers.h \
-            widgets/flatbutton.h \
-            widgets/listwidget.h \
+            widgets/FlatButton.h \
+            widgets/ListWidget.h \
             widgets/LocaleGlobal.h \
             widgets/keyboardpreview.h \
-            widgets/pagewidget.h \
+            widgets/PageWidget.h \
             widgets/TimeZoneWidget.h \
-            widgets/toolbarstylewidget.h
+            widgets/ToolBarStyleWidget.h
 
 
 

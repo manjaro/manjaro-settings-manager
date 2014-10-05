@@ -22,8 +22,9 @@
 #define PAGETIMEDATE_H
 
 #include "models/TimeDate.h"
-#include "widgets/pagewidget.h"
 #include "widgets/TimeZoneWidget.h"
+#include "widgets/PageWidget.h"
+
 namespace Ui {
 class PageTimeDate;
 }
