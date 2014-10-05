@@ -60,32 +60,33 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     bool isRecommended = qvariant_cast<bool>(index.data(KernelModel::IsRecommendedRole));
     bool isRunning = qvariant_cast<bool>(index.data(KernelModel::IsRunningRole));
 
-    if ((index.row() % 2) != 0)
-        painter->fillRect(option.rect, QColor("#F7F7F9"));
+    if ((index.row() % 2) != 0) {
+        painter->fillRect(option.rect, option.palette.color(QPalette::Normal, QPalette::Window).darker(140));
+    }
 
-    painter->setPen(QColor("#ddd"));
+    painter->setPen(option.palette.color(QPalette::Normal, QPalette::WindowText));
     painter->drawLine(option.rect.bottomLeft(), option.rect.bottomRight());
 
     /* draw name */
-    QFont nameFont = QFont();
-    nameFont.setPointSize(nameFont.pointSize() * 1.75);
+    QFont nameFont = option.font;
+    nameFont.setPointSize(option.font.pointSize() * 1.75);
     QFontMetrics nameFontMetrics(nameFont);
     QSize nameSize = nameFontMetrics.size(Qt::TextSingleLine, name);
     QRectF nameRect(QPointF(), nameSize);
 
-    painter->setPen(QColor("#333"));
+    painter->setPen(option.palette.color(QPalette::Normal, QPalette::WindowText));
     nameRect.moveTopLeft(option.rect.topLeft() + QPoint(padding, padding));
     painter->setFont(nameFont);
     painter->drawText(nameRect, Qt::TextSingleLine, name);
 
     /* draw package */
-    QFont packageFont = QFont();
-    packageFont.setPointSize(packageFont.pointSize() * 0.8);
+    QFont packageFont = option.font;
+    packageFont.setPointSize(option.font.pointSize() * 0.9);
     QFontMetrics packageFontMetrics(packageFont);
     QSize packageSize = packageFontMetrics.size(Qt::TextSingleLine, package);
     QRectF packageRect(QPointF(), packageSize);
 
-    painter->setPen(QColor("#333"));
+    painter->setPen(option.palette.color(QPalette::Normal, QPalette::WindowText));
     packageRect.moveTopLeft(nameRect.bottomLeft());
     painter->setFont(packageFont);
     painter->drawText(packageRect, Qt::TextSingleLine, package);
@@ -102,8 +103,8 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
                                     << runningStr << installedStr << unsupportedStr
                                     << customStr << experimentalStr);
 
-    QFont labelFont = QFont();
-    labelFont.setPointSize(labelFont.pointSize());
+    QFont labelFont = option.font;
+    labelFont.setPointSize(option.font.pointSize());
     QFontMetrics labelFontMetrics(labelFont);
 
     int labelWidth = 0;
@@ -186,7 +187,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     QString infoStr(tr("Changelog"));
     QStringList buttonStringList = (QStringList() << removeStr << installStr << infoStr);
 
-    QFont buttonFont = QFont();
+    QFont buttonFont = option.font;
     QFontMetrics buttonFontMetrics(buttonFont);
 
     int buttonWidth = 0;

@@ -23,11 +23,11 @@ void LanguageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     /* Draw light blue rectangle when hoover */
     if ((option.state & QStyle::State_MouseOver) &&
         !(option.state & QStyle::State_HasFocus)) {
-        painter->fillRect(option.rect, QColor("#F7F7F9"));
+        painter->fillRect(option.rect, option.palette.color(QPalette::Normal, QPalette::Highlight));
     }
 
     /* Draw line separating delegates */
-    painter->setPen(QColor("#ddd"));
+    painter->setPen(option.palette.color(QPalette::Normal, QPalette::WindowText));
     painter->drawLine(option.rect.bottomLeft(), option.rect.bottomRight());
 
     /* Draw central text */
@@ -39,8 +39,8 @@ void LanguageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewIt
 
     QFont textFont = option.font;
     textFont.setBold(true);
-    textFont.setPointSize(option.font.pointSize() + 1);
-    painter->setPen(QColor(Qt::black));
+    textFont.setPointSize(option.font.pointSize() * 1.30);
+    painter->setPen(option.palette.color(QPalette::Normal, QPalette::WindowText));
     painter->setFont(textFont);
     painter->drawText(option.rect,
                       Qt::AlignCenter,
@@ -53,7 +53,6 @@ void LanguageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     textFont.setBold(false);
     textFont.setPointSize(option.font.pointSize());
     painter->setFont(textFont);
-    painter->setPen(QColor(Qt::darkGray));
     painter->drawText(option.rect,
                       Qt::AlignCenter,
                       QString("\n%1").arg(key),
@@ -184,8 +183,6 @@ void LanguageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewIt
             formatsText.append(timeText);
         }
     }
-
-    painter->setPen(QColor(Qt::blue));
 
     QRectF displayAndFormatsRectF(QRectF(option.rect).adjusted(rightLimit + 20, 0, -20, 0));
     if (!displayLanguageText.isEmpty() && formatsText.isEmpty()) {
