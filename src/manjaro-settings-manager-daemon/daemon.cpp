@@ -20,6 +20,10 @@
  */
 
 #include "daemon.h"
+#include "models/Kernel.h"
+#include "models/KernelModel.h"
+
+#include <QtCore/QFile>
 
 Daemon::Daemon(QObject *parent) :
     QTimer(parent)
@@ -27,45 +31,56 @@ Daemon::Daemon(QObject *parent) :
     // Set Interval to 60 minutes
     setInterval(3600000);
 
-    connect(this, SIGNAL(timeout())   ,   this, SLOT(run()));
-    connect(&trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)) ,   this, SLOT(trayIconClicked()));
-    connect(&trayIcon, SIGNAL(messageClicked()) ,   this, SLOT(trayIconClicked()));
-    connect(&kernelTrayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)) ,   this, SLOT(kernelTrayIconClicked()));
-    connect(&kernelTrayIcon, SIGNAL(messageClicked()) ,   this, SLOT(kernelTrayIconClicked()));
-
+    connect(this, &Daemon::timeout,
+            this, &Daemon::run);
+    connect(&trayIcon, &QSystemTrayIcon::activated,
+            this, &Daemon::trayIconClicked);
+    connect(&trayIcon, &QSystemTrayIcon::messageClicked,
+            this, &Daemon::trayIconClicked);
+    connect(&kernelTrayIcon, &QSystemTrayIcon::activated,
+            this, &Daemon::kernelTrayIconClicked);
+    connect(&kernelTrayIcon, &QSystemTrayIcon::messageClicked,
+            this, &Daemon::kernelTrayIconClicked);
 }
 
 
 
-void Daemon::start() {
-    if (isActive())
+void Daemon::start()
+{
+    if (isActive()) {
         return;
-
+    }
     QTimer::singleShot(20000, this, SLOT(run()));
-    QTimer::singleShot(60, this, SLOT(runKernel()));
+    QTimer::singleShot(60000, this, SLOT(runKernel()));
     QTimer::start();
 }
+
 
 /*
  * PRIVATE
  */
 
-void Daemon::run() {
+
+void Daemon::run()
+{
     loadConfiguration();
     if (checkLanguagePackage) {
         cLanguagePackage();
     }
 }
 
-void Daemon::runKernel() {
+
+void Daemon::runKernel()
+{
     loadConfiguration();
-    if (checkKernel){
+    if (checkKernel && Global::isSystemUpToDate() && hasPacmanEverSynced()) {
         cKernel();
     }
 }
 
 
-void Daemon::cLanguagePackage() {
+void Daemon::cLanguagePackage()
+{
     // Check if language packages are available
     QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
     Global::getLanguagePackages(&availablePackages, &installedPackages);
@@ -98,86 +113,56 @@ void Daemon::cLanguagePackage() {
     }
 }
 
-void Daemon::cKernel() {
-    QStringList installedKernels = Global::getAllInstalledKernels();
-    QStringList availableKernels = Global::getAllAvailableKernels();
-    QString runningKernel = Global::getRunningKernel();
-    QStringList ltsKernels = Global::getLtsKernels();
-    QStringList recommendedKernels = Global::getRecommendedKernels();
-    QStringList unsupportedKernels;
-    QStringList newKernels;
+
+void Daemon::cKernel()
+{
     Daemon::KernelFlags kernelFlags;
+    KernelModel kernelModel;
 
-    for (QString kernel : installedKernels) {
-        if (!isPackageIgnored(kernel, "unsupported_kernel") && !availableKernels.contains(kernel)) {
-            unsupportedKernels << kernel;
-        }
-    }
-
+    QList< Kernel > unsupportedKernels = kernelModel.unsupportedKernels();
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
-        if (unsupportedKernels.contains(runningKernel)) {
-            kernelFlags |= KernelFlag::Unsupported | KernelFlag::Running;
-        }
-        if (!checkUnsupportedKernelRunning) {
-            kernelFlags |= KernelFlag::Unsupported;
-        }
-    }
-
-    if (checkNewKernel) {
-        /* Obtain the version of the latest installed kernel */
-        int major = 0;
-        int minor = 0;
-        for (QString kernel : installedKernels) {
-            QString version;
-            if (availableKernels.contains(kernel)){
-                version = Global::getKernelVersion(kernel, false);
-            } else {
-                version = Global::getKernelVersion(kernel, true);
-            }
-            QStringList versionStringList = version.split(".");
-            int thisMajor = versionStringList.at(0).toInt();
-            int thisMinor = versionStringList.at(1).left(2).toInt();
-
-            if (thisMajor > major) {
-                major = thisMajor;
-                minor = thisMinor;
-            } else if ((thisMajor == major) && (thisMinor > minor)){
-                minor = thisMinor;
-            }
-        }
-
-        // Obtain the list of new kernels
-        for (QString kernel : availableKernels) {
-            if (isPackageIgnored(kernel, "new_kernel")) {
+        for (Kernel kernel : unsupportedKernels) {
+            if ( isPackageIgnored(kernel.package(), "unsupported_kernel") ) {
+                qDebug() << "Ignored unsupported kernel: " << kernel.version();
                 continue;
             }
-            QString version = Global::getKernelVersion(kernel, false);
-            QStringList versionStringList = version.split(".");
-            int thisMajor = versionStringList.at(0).toInt();
-            int thisMinor = versionStringList.at(1).left(2).toInt();
-
-            if (thisMajor > major) {
-                newKernels << kernel;
-            } else if ((thisMajor == major) && (thisMinor > minor)) {
-                newKernels << kernel;
+            qDebug() << "Unsupported kernel: " << kernel.version();
+            kernelFlags |= KernelFlag::Unsupported;
+            if ( checkUnsupportedKernelRunning && kernel.isRunning() ) {
+                kernelFlags |= KernelFlag::Running;
+                qDebug() << "Unsupported kernel running: " << kernel.version();
             }
         }
+    }
 
-        /* Find kernels that are lts, recommended or both */
-        QStringList newLtsRecommendedKernels;
-        QStringList newLtsKernels;
-        QStringList newRecommendedKernels;
-        for(QString kernel : newKernels){
-            if (ltsKernels.contains(kernel) && recommendedKernels.contains(kernel)) {
+    qDebug() << "Latest installed kernel: " << kernelModel.latestInstalledKernel().version();
+    QList<Kernel> newKernels = kernelModel.newerKernels(kernelModel.latestInstalledKernel());
+    QList<Kernel> newLtsRecommendedKernels;
+    QList<Kernel> newLtsKernels;
+    QList<Kernel> newRecommendedKernels;
+    QList<Kernel> newNotIgnoredKernels;
+    if (checkNewKernel) {
+        for (Kernel kernel : newKernels) {
+            if (isPackageIgnored(kernel.package(), "new_kernel")) {
+                qDebug() << "Ignored new kernel: " << kernel.version();
+                continue;
+            }
+            newNotIgnoredKernels << kernel;
+            qDebug() << "Newer kernel " << kernel.version();
+            if (kernel.isRecommended() && kernel.isLts()) {
+                qDebug() << "Newer kernel LTS & Recommended: " << kernel.version();
                 newLtsRecommendedKernels << kernel;
                 newLtsKernels << kernel;
                 newRecommendedKernels << kernel;
-            } else if (ltsKernels.contains(kernel)) {
+            } else if (kernel.isLts()) {
+                qDebug() << "Newer kernel LTS: " << kernel.version();
                 newLtsKernels << kernel;
-            } else if (recommendedKernels.contains(kernel)) {
+            } else if (kernel.isRecommended()) {
+                qDebug() << "Newer kernel Recommended: " << kernel.version();
                 newRecommendedKernels << kernel;
             }
         }
+
 
         if (checkNewKernelLts && checkNewKernelRecommended) {
             if (!newLtsRecommendedKernels.isEmpty()) {
@@ -192,7 +177,7 @@ void Daemon::cKernel() {
                 kernelFlags |= KernelFlag::New;
             }
         } else {
-            if (!newKernels.isEmpty()) {
+            if (!newNotIgnoredKernels.isEmpty()) {
                 kernelFlags |= KernelFlag::New;
             }
         }
@@ -200,7 +185,6 @@ void Daemon::cKernel() {
 
     QString messageTitle;
     QString messageText;
-
     if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::Running)) {
         messageText = QString(tr("Running an unsupported kernel, please update"));
     } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
@@ -208,7 +192,7 @@ void Daemon::cKernel() {
     }
 
     if (kernelFlags.testFlag(KernelFlag::Unsupported) && kernelFlags.testFlag(KernelFlag::New)) {
-        messageTitle = QString(tr("Your kernels need atention."));
+        messageTitle = QString(tr("Your kernels need attention."));
         messageText.append("\n");
     } else if (kernelFlags.testFlag(KernelFlag::Unsupported)) {
         messageTitle = QString(tr("Unsupported Kernel Found."));
@@ -220,38 +204,41 @@ void Daemon::cKernel() {
         messageText.append(QString(tr("A kernel newer than the latest installed is available.")));
     }
 
-    if (!messageTitle.isEmpty()) {
-        if (!kernelTrayIcon.isVisible()) {
+    if (kernelFlags.testFlag(KernelFlag::Unsupported) || kernelFlags.testFlag(KernelFlag::New)) {
+        if (!kernelTrayIcon.isVisible() ) {
             kernelTrayIcon.setIcon(QIcon(":/images/resources/tux-manjaro.png"));
             kernelTrayIcon.show();
             kernelTrayIcon.setToolTip(messageText);
             showKernelMessage(messageTitle, messageText);
-
-            for (QString kernel : unsupportedKernels) {
-                addToConfig(kernel, "unsupported_kernel");
+            for (Kernel kernel : unsupportedKernels) {
+                addToConfig(kernel.package(), "unsupported_kernel");
             }
-            for (QString kernel : newKernels) {
-                addToConfig(kernel, "new_kernel");
+            for (Kernel kernel : newNotIgnoredKernels) {
+                addToConfig(kernel.package(), "new_kernel");
             }
         }
     }
 }
 
-void Daemon::showMessage(QString messageTitle, QString messageText) {
+
+void Daemon::showMessage(QString messageTitle, QString messageText)
+{
     this->messageTitle = messageTitle;
     this->messageText = messageText;
     QTimer::singleShot(2000, this, SLOT(trayIconShowMessage()));
 }
 
-void Daemon::showKernelMessage(QString messageTitle, QString messageText) {
+
+void Daemon::showKernelMessage(QString messageTitle, QString messageText)
+{
     this->kernelMessageTitle = messageTitle;
     this->kernelMessageText = messageText;
     QTimer::singleShot(2000, this, SLOT(kernelTrayIconShowMessage()));
 }
 
 
-void Daemon::trayIconClicked() {
-
+void Daemon::trayIconClicked()
+{
     // Restart timer
     stop();
     QTimer::start();
@@ -262,8 +249,9 @@ void Daemon::trayIconClicked() {
     QProcess::startDetached("manjaro-settings-manager", QStringList() << "--page-language-packages");
 }
 
-void Daemon::kernelTrayIconClicked() {
 
+void Daemon::kernelTrayIconClicked()
+{
     // Restart timer
     stop();
     QTimer::start();
@@ -275,30 +263,34 @@ void Daemon::kernelTrayIconClicked() {
 }
 
 
-
-void Daemon::trayIconShowMessage() {
+void Daemon::trayIconShowMessage()
+{
     trayIcon.showMessage(messageTitle, messageText, QSystemTrayIcon::Information, 30000);
 }
 
-void Daemon::kernelTrayIconShowMessage() {
+
+void Daemon::kernelTrayIconShowMessage()
+{
     kernelTrayIcon.showMessage(kernelMessageTitle, kernelMessageText, QSystemTrayIcon::Information, 30000);
 }
 
 
-void Daemon::loadConfiguration() {
-    QSettings settings("manjaro", "manjaro-settings-manager");
+void Daemon::loadConfiguration()
+{
+    QSettings settings("/root/.config/manjaro/manjaro-settings-manager.conf",
+                        QSettings::IniFormat);
     this->checkLanguagePackage = settings.value("notifications/checkLanguagePackages", true).toBool();
-    this->checkKernel = settings.value("notifications/checkKernel", true).toBool();
     this->checkUnsupportedKernel = settings.value("notifications/checkUnsupportedKernel", true).toBool();
     this->checkUnsupportedKernelRunning = settings.value("notifications/checkUnsupportedKernelRunning", false).toBool();
     this->checkNewKernel = settings.value("notifications/checkNewKernel", true).toBool();
     this->checkNewKernelLts = settings.value("notifications/checkNewKernelLts", false).toBool();
-    this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", false).toBool();
+    this->checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", true).toBool();
     this->checkKernel = checkUnsupportedKernel | checkNewKernel;
 }
 
 
-bool Daemon::isPackageIgnored(const QString package, const QString group) {
+bool Daemon::isPackageIgnored(const QString package, const QString group)
+{
     QSettings settings("manjaro", "manjaro-settings-manager-daemon");
     settings.beginGroup(group);
     int value = settings.value("notify_count_" + package, "0").toInt();
@@ -307,14 +299,29 @@ bool Daemon::isPackageIgnored(const QString package, const QString group) {
 }
 
 
-void Daemon::addToConfig(const QString package, const QString group) {
+void Daemon::addToConfig(const QString package, const QString group)
+{
     QSettings settings("manjaro", "manjaro-settings-manager-daemon");
     settings.beginGroup(group);
     int value = settings.value("notify_count_" + package, "0").toInt();
     ++value;
-    if (value < 3)
+    if (value < 3) {
         settings.setValue("notify_count_" + package, value);
+    }
     settings.endGroup();
+}
+
+
+bool Daemon::hasPacmanEverSynced()
+{
+    QString path( "/var/lib/pacman/sync/" );
+    QStringList files = QStringList() << "core.db" << "community.db" << "extra.db";
+    for (QString f : files) {
+        if (!QFile::exists(path + f)) {
+             return false;
+        }
+    }
+    return true;
 }
 
 

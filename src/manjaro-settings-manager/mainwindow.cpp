@@ -21,7 +21,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
+#include <QtCore/QPropertyAnimation>
+#include <QtCore/QSettings>
+#include <QtWidgets/QGraphicsOpacityEffect>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,40 +31,38 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Qt4 fix
-    // Center window on the screen
-    setGeometry(
-        QStyle::alignedRect(
-            Qt::LeftToRight,
-            Qt::AlignCenter,
-            size(),
-            qApp->desktop()->availableGeometry()
-        ));
+    /* Center the window */
+    move(qApp->desktop()->availableGeometry().center() - rect().center());
+
+    readPositionSettings();
 
     // Trigger method to setup titels and icons
     buttonShowAllSettings_clicked();
 
     ui->listWidget->addSeparator(tr("System"));
-    addPageWidget(page_LanguagePackages);
-    addPageWidget(page_Language);
-    addPageWidget(page_Kernel);
-    addPageWidget(page_Users);
-    //addPageWidget(pageTimeDate);
+    addPageWidget(pageLanguage);
+    addPageWidget(pageLanguagePackages);
+    addPageWidget(pageKernel);
+    addPageWidget(pageUsers);
+    addPageWidget(pageTimeDate);
     addPageWidget(pageNotifications);
 
     //
     // Add printer page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     ui->listWidget->addSeparator(tr("Hardware"));
-    addPageWidget(page_Keyboard);
-    addPageWidget(page_MHWD);
-
+    addPageWidget(pageKeyboard);
+    addPageWidget(pageMhwd);
 
     // Connect signals and slots
-    connect(ui->buttonQuit, SIGNAL(clicked())   ,   qApp, SLOT(quit()));
-    connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*))   ,   this, SLOT(listWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->buttonAllSettings, SIGNAL(clicked())    ,   this, SLOT(buttonShowAllSettings_clicked()));
-    connect(ui->buttonApply, SIGNAL(clicked())  ,   this, SLOT(buttonApply_clicked()));
+    connect(ui->buttonQuit, &QPushButton::clicked,
+            qApp, &qApp->closeAllWindows);
+    connect(ui->listWidget, &ListWidget::itemClicked,
+            this, &MainWindow::listWidget_itemClicked);
+    connect(ui->buttonAllSettings, &QPushButton::clicked,
+            this, &MainWindow::buttonShowAllSettings_clicked);
+    connect(ui->buttonApply, &QPushButton::clicked,
+            this, &MainWindow::buttonApply_clicked);
 
     // Check passed application arguments
     checkAppArguments();
@@ -116,15 +116,16 @@ MainWindow::~MainWindow()
 }*/
 
 
-void MainWindow::checkAppArguments() {
+void MainWindow::checkAppArguments()
+{
     foreach (QString arg, qApp->arguments()) {
         if (arg == "--page-language-packages") {
             // Show language packages page
             for(int i = 0; i < ui->listWidget->count(); i++) {
                 ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
-                if (!item || !item->page || item->page != &page_LanguagePackages)
+                if (!item || !item->page || item->page != &pageLanguagePackages) {
                     continue;
-
+                }
                 listWidget_itemClicked(item);
                 break;
             }
@@ -133,9 +134,9 @@ void MainWindow::checkAppArguments() {
             // Show kernel page
             for(int i = 0; i < ui->listWidget->count(); i++) {
                 ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->item(i));
-                if (!item || !item->page || item->page != &page_Kernel)
+                if (!item || !item->page || item->page != &pageKernel) {
                     continue;
-
+                }
                 listWidget_itemClicked(item);
                 break;
             }
@@ -145,7 +146,8 @@ void MainWindow::checkAppArguments() {
 
 
 
-void MainWindow::addPageWidget(PageWidget &page) {
+void MainWindow::addPageWidget(PageWidget &page)
+{
     // Add list widget item
     ListWidgetItem *item = new ListWidgetItem(ui->listWidget);
     item->setText(page.getTitel());
@@ -156,8 +158,10 @@ void MainWindow::addPageWidget(PageWidget &page) {
     // Add to stacked widget
     ui->stackedWidget->addWidget(&page);
 
-    connect(&page, SIGNAL(setApplyEnabled(PageWidget*, bool))    ,   this, SLOT(setApplyEnabled(PageWidget*, bool)));
-    connect(&page, SIGNAL(closePage(PageWidget*))  ,   this, SLOT(closePageRequested(PageWidget*)));
+    connect(&page, &PageWidget::setApplyEnabled,
+            this, &MainWindow::setApplyEnabled);
+    connect(&page, &PageWidget::closePage,
+            this, &MainWindow::closePageRequested);
 }
 
 
@@ -167,10 +171,12 @@ void MainWindow::addPageWidget(PageWidget &page) {
 //###
 
 
-void MainWindow::listWidget_itemClicked(QListWidgetItem *current) {
+void MainWindow::listWidget_itemClicked(QListWidgetItem *current)
+{
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(current);
-    if (!item || !item->page)
+    if (!item || !item->page) {
         return;
+    }
 
     // Show page and buttons
     ui->stackedWidget->setCurrentWidget(item->page);
@@ -191,10 +197,12 @@ void MainWindow::listWidget_itemClicked(QListWidgetItem *current) {
 
 
 
-void MainWindow::buttonShowAllSettings_clicked() {
+void MainWindow::buttonShowAllSettings_clicked()
+{
     PageWidget *page = dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget());
-    if (page && !page->showAllSettingsRequested())
+    if (page && !page->showAllSettingsRequested()) {
         return;
+    }
 
     // Remove list widget selection
     ui->listWidget->clearSelection();
@@ -213,29 +221,32 @@ void MainWindow::buttonShowAllSettings_clicked() {
 
 
 
-void MainWindow::setApplyEnabled(PageWidget *page, bool enabled) {
-    if (dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget()) != page)
+void MainWindow::setApplyEnabled(PageWidget *page, bool enabled)
+{
+    if (dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget()) != page) {
         return;
-
+    }
     ui->buttonApply->setEnabled(enabled);
 }
 
 
 
-void MainWindow::buttonApply_clicked() {
+void MainWindow::buttonApply_clicked()
+{
     PageWidget *page = dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget());
-    if (!page)
+    if (!page) {
         return;
-
+    }
     page->apply_clicked();
 }
 
 
 
-void MainWindow::closePageRequested(PageWidget *page) {
-    if (dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget()) != page)
+void MainWindow::closePageRequested(PageWidget *page)
+{
+    if (dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget()) != page) {
         return;
-
+    }
     buttonShowAllSettings_clicked();
 }
 

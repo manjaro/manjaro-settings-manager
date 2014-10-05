@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
     app.installTranslator(&appTranslator);
 
     MainWindow w;
-    w.readPositionSettings();
     w.show();
     return app.exec();
 }

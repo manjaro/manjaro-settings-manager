@@ -1,3 +1,8 @@
-qt4 or qt5
+qt5-core
+qt5-webkit
 pacman
 keyboardctl
+locale-info
+mhwd
+icu
+hwinfo

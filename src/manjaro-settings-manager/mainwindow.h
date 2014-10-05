@@ -21,6 +21,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "pages/PageKernel.h"
+#include "pages/PageKeyboard.h"
+#include "pages/PageLanguage.h"
+#include "pages/PageLanguagePackages.h"
+#include "pages/PageMhwd.h"
+#include "pages/PageNotifications.h"
+#include "pages/PageTimeDate.h"
+#include "pages/PageUsers.h"
+#include "widgets/PageWidget.h"
+
 #include <QApplication>
 #include <QMainWindow>
 #include <QString>
@@ -31,21 +41,10 @@
 #include <QPushButton>
 #include <QListWidgetItem>
 #include <QDesktopWidget>
-#include <QStyle>
 #include <QFile>
 #include <QTextStream>
 #include <QDir>
 #include <QMessageBox>
-#include <QSettings>
-#include "widgets/pagewidget.h"
-#include "pages/page_kernel.h"
-#include "pages/page_keyboard.h"
-#include "pages/page_language.h"
-#include "pages/page_languagepackages.h"
-#include "pages/page_mhwd.h"
-#include "pages/page_notifications.h"
-#include "pages/page_users.h"
-#include "pages/page_time_date.h"
 
 
 namespace Ui {
@@ -72,14 +71,14 @@ private:
     };
 
     Ui::MainWindow *ui;
-    Page_LanguagePackages page_LanguagePackages;
-    Page_Keyboard page_Keyboard;
-    Page_Language page_Language;
-    Page_MHWD page_MHWD;
+    PageKernel pageKernel;
+    PageKeyboard pageKeyboard;
+    PageLanguage pageLanguage;
+    PageLanguagePackages pageLanguagePackages;
+    PageMhwd pageMhwd;
     PageNotifications pageNotifications;
-    Page_Kernel page_Kernel;
     PageTimeDate pageTimeDate;
-    Page_Users page_Users;
+    PageUsers pageUsers;
 
     void checkAppArguments();
     void addPageWidget(PageWidget &page);

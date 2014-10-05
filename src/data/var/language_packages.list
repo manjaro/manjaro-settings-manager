@@ -16,6 +16,7 @@
 ## Split language packages
 ##
 firefox:firefox-i18n-%
+firefox-kde:firefox-kde-i18n-%
 thunderbird:thunderbird-i18n-%
 aspell:aspell-%
 calligra-words:calligra-l10n-%
@@ -24,6 +25,8 @@ hunspell:hunspell-%
 hyphen:hyphen-%
 kdebase-workspace:kde-l10n-%
 libreoffice-common:libreoffice-%
+libreoffice-still-common:libreoffice-still-%
+libreoffice-fresh:libreoffice-fresh-%
 man-pages:man-pages-%
 libmythes:mythes-%
 vim:vim-spell-%

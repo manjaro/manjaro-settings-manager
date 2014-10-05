@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -208,53 +208,158 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     </message>
 </context>
 <context>
+    <name>KernelInfoDialog</name>
+    <message>
+        <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
+        <source>Changelog</source>
+        <translation>Istoricul schimbărilor</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
+        <source>about:blank</source>
+        <translation>about:blank</translation>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomandat</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Rulează</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Instalat</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
-        <source>Outdated</source>
-        <translation type="unfinished"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
+        <source>Unsupported</source>
+        <translation>Fără suport</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="187"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="252"/>
+        <source>Changelog</source>
+        <translation>Istoricul schimbărilor</translation>
+    </message>
+    <message>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizat</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="101"/>
+        <source>Experimental</source>
+        <translation>Experimental</translation>
+    </message>
+    <message>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Șterge</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Install</source>
+        <translation>Instalează</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="208"/>
+        <location filename="../models/KeyboardModel.cpp" line="246"/>
+        <source>Default</source>
+        <translation>Implicit</translation>
+    </message>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="284"/>
+        <source>Default Keyboard Model</source>
+        <translation>Model implicit de tastatură</translation>
+    </message>
+</context>
+<context>
+    <name>LanguageListViewDelegate</name>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
+        <source>Display Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
-        <source>Info</source>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
+        <source>Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
+        <source>Collation and Sorting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
+        <source>Messages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
+        <source>Formats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
+        <source>Identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
+        <source>Measurement Units</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
+        <source>Currency</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
+        <source>Names</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
+        <source>Telephone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
+        <source>Time</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -266,501 +371,723 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <translation>Gestionarul de setări Manjaro</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../mainwindow.ui" line="179"/>
         <source>All Settings</source>
         <translation>Toate setările</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="241"/>
-        <location filename="../mainwindow.ui" line="285"/>
+        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="259"/>
         <source>Quit</source>
         <translation>Ieșire</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="264"/>
+        <location filename="../mainwindow.ui" line="238"/>
         <source>Apply</source>
         <translation>Aplică</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>Sistem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="54"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="201"/>
+        <location filename="../mainwindow.cpp" line="211"/>
         <source>Manjaro Settings</source>
         <translation>Setări Manjaro</translation>
     </message>
 </context>
 <context>
-    <name>Page_Kernel</name>
+    <name>PageKernel</name>
     <message>
-        <location filename="../pages/page_kernel.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Nucleu</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="51"/>
-        <source>Install new kernel</source>
-        <translation type="unfinished"/>
+        <location filename="../pages/PageKernel.cpp" line="81"/>
+        <source>Install Linux %1</source>
+        <translation>Instalează Linux %1</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="52"/>
-        <source>Do you really want install the kernel?</source>
-        <translation type="unfinished"/>
+        <location filename="../pages/PageKernel.cpp" line="82"/>
+        <source>Do you really want to install this kernel?
+</source>
+        <translation>Doriți să instalați acest nucleu?
+</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="70"/>
-        <source>Remove kernel</source>
-        <translation type="unfinished"/>
+        <location filename="../pages/PageKernel.cpp" line="83"/>
+        <source>This will install the following packages:
+</source>
+        <translation>Aceasta va instala următoarele pachete:
+</translation>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
-        <source>Do you really want remove the kernel?</source>
-        <translation type="unfinished"/>
+        <location filename="../pages/PageKernel.cpp" line="101"/>
+        <source>Installing new kernel.</source>
+        <translation>Se instalează un nucleu nou.</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="114"/>
+        <source>Remove Linux %1</source>
+        <translation>Elimină Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="115"/>
+        <source>Do you really want to remove this kernel?</source>
+        <translation>Doriți să eliminați acest nucleu?</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="116"/>
+        <source>This will remove the following packages:
+</source>
+        <translation>Aceasta va elimina următoarele pachete:
+</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="134"/>
+        <source>Removing kernel...</source>
+        <translation>Se elimină nucleul...</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="147"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation>Istoric schimbări Linux %1.%2</translation>
     </message>
 </context>
 <context>
-    <name>Page_Keyboard</name>
+    <name>PageKeyboard</name>
     <message>
-        <location filename="../pages/page_keyboard.ui" line="25"/>
+        <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
         <translation>Model tastatură:</translation>
     </message>
     <message>
-        <location filename="../pages/page_keyboard.ui" line="128"/>
+        <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
         <translation>Tastați aici pentru a testa tastatura</translation>
     </message>
     <message>
-        <location filename="../pages/page_keyboard.cpp" line="32"/>
+        <location filename="../pages/PageKeyboard.cpp" line="39"/>
         <source>Keyboard Settings</source>
         <translation>Setări tastatură</translation>
     </message>
     <message>
-        <location filename="../pages/page_keyboard.cpp" line="69"/>
+        <location filename="../pages/PageKeyboard.cpp" line="112"/>
         <source>Setting new keyboard layout...</source>
         <translation>Se setează noul aranjament...</translation>
     </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Error</source>
-        <translation>Eroare</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>Nu se poate determina aranjamentul de tastatură Xorg curent!</translation>
-    </message>
 </context>
 <context>
-    <name>Page_Language</name>
+    <name>PageLanguage</name>
     <message>
-        <location filename="../pages/page_language.ui" line="22"/>
+        <location filename="../pages/PageLanguage.ui" line="62"/>
         <source>System Locales</source>
         <translation>Localizarea sistemului</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="42"/>
+        <location filename="../pages/PageLanguage.ui" line="35"/>
         <source>Add</source>
         <translation>Adaugă</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="49"/>
+        <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Remove</source>
         <translation>Șterge</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="56"/>
+        <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Restore</source>
         <translation>Restaurează</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="66"/>
-        <source>Locale</source>
-        <translation>Localizare</translation>
+        <location filename="../pages/PageLanguage.ui" line="82"/>
+        <source>Detailed Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="71"/>
-        <location filename="../pages/page_language.cpp" line="29"/>
+        <location filename="../pages/PageLanguage.ui" line="94"/>
+        <source>Display Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="112"/>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="122"/>
+        <source>Collation and Sorting:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="132"/>
+        <source>Messages:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="142"/>
+        <source>CType:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="173"/>
+        <source>Numbers:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="183"/>
+        <source>Time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="193"/>
+        <source>Currency:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="203"/>
+        <source>Measurement Units:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="213"/>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="223"/>
+        <source>Names:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="233"/>
+        <source>Telephone:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="243"/>
+        <source>Identification:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="253"/>
+        <source>Paper:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="155"/>
+        <source>Formats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="35"/>
         <source>Language</source>
         <translation>Limbă</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="76"/>
-        <source>Territory</source>
-        <translation>Teritoriu</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="81"/>
-        <source>System Language</source>
-        <translation>Limba sistemului</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="86"/>
-        <source>System Formats</source>
-        <translation>Formatele sistemului</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="108"/>
-        <location filename="../pages/page_language.cpp" line="151"/>
-        <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="323"/>
+        <location filename="../pages/PageLanguage.cpp" line="368"/>
+        <location filename="../pages/PageLanguage.cpp" line="380"/>
+        <location filename="../pages/PageLanguage.cpp" line="464"/>
         <source>Error!</source>
-        <translation>Eorare!</translation>
+        <translation>Eroare!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="108"/>
-        <location filename="../pages/page_language.cpp" line="160"/>
+        <location filename="../pages/PageLanguage.cpp" line="324"/>
+        <location filename="../pages/PageLanguage.cpp" line="381"/>
         <source>Failed to open file &apos;%1&apos;!</source>
         <translation>Nu se poate deschide fișierul „%1”!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="151"/>
+        <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
         <translation>Nu se poate obține șirul valid de localizare pentru „%1”!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
         <translation>Nu se poate seta localizarea!</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="196"/>
+        <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
         <translation>Se generează fișierul locale.gen...</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="59"/>
+        <source>Set as default display language and format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="60"/>
+        <source>Set as default display language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="61"/>
+        <source>Set as default format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>Hint</source>
         <translation>Sugestie</translation>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Ar putea fi nevoie de restartarea mediului grafic pentru a aplica noile setări...</translation>
+        <translation>Ar putea fi nevoie restartarea mediului grafic pentru a se aplica noile setări...</translation>
     </message>
 </context>
 <context>
-    <name>Page_LanguagePackages</name>
+    <name>PageLanguagePackages</name>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="24"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
         <translation>Pachete de limbă disponibile</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="30"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
         <translation>Pachete de limbă adiționale pot fi instalate:</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="53"/>
-        <location filename="../pages/page_languagepackages.ui" line="101"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="53"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="101"/>
         <source>Package</source>
         <translation>Pachete</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="58"/>
-        <location filename="../pages/page_languagepackages.ui" line="106"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="58"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="106"/>
         <source>Parent Package</source>
         <translation>Pachet părinte</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="63"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="63"/>
         <source>Install</source>
         <translation>Instalează</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="72"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
         <translation>Pachete de limbă instalate</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="78"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
         <translation>Pachete de limbă instalate:</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="30"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
         <translation>Pachete de limbă</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="74"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
         <translation>Se actualizează bazele de date pacman...</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
         <translation>Sistemul este neactualizat</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
         <translation>Sistemul este neactualizat! Trebuie actualizat pentru a continua!</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="101"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
         <translation>Se instalează pachetele de limbă...</translation>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="143"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
         <translation>%1 pachete de limbă</translation>
     </message>
 </context>
 <context>
-    <name>Page_MHWD</name>
+    <name>PageMhwd</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="44"/>
+        <location filename="../pages/PageMhwd.ui" line="37"/>
+        <source>Auto Install
+Open-source Driver</source>
+        <translation>Autoinstalează
+Driverul liber</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="45"/>
+        <source>Auto Install
+Proprietary Driver</source>
+        <translation>Autoinstalează
+Dirverul proprietar</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="67"/>
         <source>Driver</source>
         <translation>Driver</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="49"/>
-        <source>Free</source>
-        <translation>Liber</translation>
+        <location filename="../pages/PageMhwd.ui" line="72"/>
+        <source>Open-source</source>
+        <translation>Open-source</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="54"/>
+        <location filename="../pages/PageMhwd.ui" line="77"/>
         <source>Installed</source>
         <translation>Instalat</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="62"/>
+        <location filename="../pages/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
         <translation>Arată toate dispozitivele</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="76"/>
-        <source>Auto Install
-Free Driver</source>
-        <translation>Autoinstalează
-driverul liber</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="84"/>
-        <source>Auto Install
-Non-Free Driver</source>
-        <translation>Autoinstalează
-driverul proprietar</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="31"/>
+        <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
         <translation>Detecție hardware</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="41"/>
+        <location filename="../pages/PageMhwd.cpp" line="42"/>
         <source>Install</source>
         <translation>Instalează</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="43"/>
+        <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
         <translation>Șterge</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="45"/>
-        <location filename="../pages/page_mhwd.cpp" line="253"/>
+        <location filename="../pages/PageMhwd.cpp" line="46"/>
+        <location filename="../pages/PageMhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
         <translation>Reinstalare forțată</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/PageMhwd.cpp" line="106"/>
         <source>Unknown device name</source>
         <translation>Nume de dispozitiv necunoscut</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/PageMhwd.cpp" line="166"/>
+        <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
         <translation>Autoinstalează configurația</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
+ the open-source graphic driver?</source>
         <translation>Doriți să autoinstalați
 driverul grafic liber?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
+        <location filename="../pages/PageMhwd.cpp" line="171"/>
+        <source>Installing open-source graphic driver...</source>
         <translation>Se instalează driverul grafic liber...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
+ the proprietary graphic driver?</source>
         <translation>Doriți să autoinstalați
 driverul grafic proprietar?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
+        <location filename="../pages/PageMhwd.cpp" line="187"/>
+        <source>Installing proprietary graphic driver...</source>
         <translation>Se instalează driverul grafic proprietar...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
         <translation>Instalează configurația</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
         <translation>Doriți să instalați
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
         <translation>Se instalează driverul...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/PageMhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
         <translation>Elimină configurația</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
         <translation>Doriți să eliminați
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="240"/>
+        <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
         <translation>Se elimină driverul...</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="254"/>
+        <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
         <translation>Doriți să forțați reinstalarea
 %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
         <translation>Se reinstalează driverul...</translation>
     </message>
 </context>
 <context>
-    <name>Page_Users</name>
+    <name>PageNotifications</name>
     <message>
-        <location filename="../pages/page_users.ui" line="162"/>
+        <location filename="../pages/PageNotifications.ui" line="20"/>
+        <source>Kernel Notifications</source>
+        <translation>Notificări de nuclee</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="26"/>
+        <source>Check unsupported kernels</source>
+        <translation>Verifică nuclee fără suport</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="51"/>
+        <source>Only notify if running an unsupported kernel</source>
+        <translation>Notifică doar dacă rulează un nucleu fără suport</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="60"/>
+        <source>Check new kernels</source>
+        <translation>Verifică nuclee noi</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="85"/>
+        <source>Only notify LTS kernels</source>
+        <translation>Notifică doar pt. nuclee LTS</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="112"/>
+        <source>Only notify recommended kernels</source>
+        <translation>Notifică doar pt. nuclee recomandate</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation>Verifică pachete de limbă lipsă</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="124"/>
+        <source>Language Packs Notifications</source>
+        <translation>Notificări de pachete de limbă</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.cpp" line="32"/>
+        <source>Notifications</source>
+        <translation>Notificări</translation>
+    </message>
+</context>
+<context>
+    <name>PageTimeDate</name>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="20"/>
+        <location filename="../pages/PageTimeDate.cpp" line="38"/>
+        <source>Time and Date</source>
+        <translation>Oră și dată</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="26"/>
+        <source>Set time and date automatically</source>
+        <translation>Setează ora și data automat</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
+        <translation>Fus orar</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="197"/>
+        <source>Change Time Zone</source>
+        <translation>Schimbă fusul orar</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="33"/>
+        <source>Hardware clock in local time zone</source>
+        <translation>Ceasul hardware în fusul orar local</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="51"/>
+        <source>Time:</source>
+        <translation>Oră:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="86"/>
+        <source>Date:</source>
+        <translation>Dată:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="115"/>
+        <source>Hardware clock:</source>
+        <translation>Ceas hardware:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="122"/>
+        <source>Universal time:</source>
+        <translation>Oră universală:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="165"/>
+        <source>Time zone:</source>
+        <translation>Fus orar:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="206"/>
+        <source>Country:</source>
+        <translation>Țară:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="225"/>
+        <source>Has daylight time?</source>
+        <translation>Are oră de vară?</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="232"/>
+        <source>Is daylight time?</source>
+        <translation>Este oră de vară?</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="239"/>
+        <source>Has transitions?</source>
+        <translation>Are tranziții?</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="248"/>
+        <source>Next transition:</source>
+        <translation>Următoarea tranziție:</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="121"/>
+        <source>none</source>
+        <translation>niciuna</translation>
+    </message>
+</context>
+<context>
+    <name>PageUsers</name>
+    <message>
+        <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
         <translation>Imagine</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="169"/>
+        <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
         <translation>Utilizator</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="176"/>
+        <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
         <translation>Tip cont</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="183"/>
+        <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
         <translation>Parolă</translation>
     </message>
-    <message utf8="true">
-        <location filename="../pages/page_users.ui" line="231"/>
+    <message>
+        <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="29"/>
+        <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
         <translation>Cont utilizator</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="82"/>
-        <location filename="../pages/page_users.cpp" line="89"/>
+        <location filename="../pages/PageUsers.cpp" line="74"/>
+        <location filename="../pages/PageUsers.cpp" line="81"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="99"/>
+        <location filename="../pages/PageUsers.cpp" line="91"/>
         <source>Administrator</source>
         <translation>Administrator</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="113"/>
+        <location filename="../pages/PageUsers.cpp" line="104"/>
         <source>Images (*.png *.jpg *.bmp)</source>
         <translation>Imagini (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
-        <location filename="../pages/page_users.cpp" line="159"/>
-        <location filename="../pages/page_users.cpp" line="165"/>
-        <location filename="../pages/page_users.cpp" line="177"/>
-        <location filename="../pages/page_users.cpp" line="183"/>
-        <location filename="../pages/page_users.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Error!</source>
         <translation>Eroare!</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
-        <translation>Nu se pot prelua structurile permisiunilor de utilizator!</translation>
+        <translation>Nu se pot prelua permisiunile de utilizator!</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="159"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
         <translation>Nu se poate copia imaginea în „%1”!</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="165"/>
-        <location filename="../pages/page_users.cpp" line="183"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
         <translation>Nu se pot seta permisiuni pentru fișierul „%1”!</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="177"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
         <translation>Nu se poate lega simbolic „%1” la „%2”!</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
         <translation>Continuați?</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
         <translation>Doriți să eliminați utilizatorul %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
         <translation>Ștergeți /home?</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
         <translation>Doriți să ștergeți dosarul /home al utilizatorului %1?</translation>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Failed to remove user %1!</source>
         <translation>Nu se poate elimina utilizatorul %1!</translation>
     </message>
@@ -797,44 +1124,52 @@ driverul grafic proprietar?</translation>
 <context>
     <name>SelectLocalesDialog</name>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
         <translation>Adaugă localizare</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
         <translation>Limbă</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="70"/>
         <source>Territory</source>
         <translation>Teritoriu</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
-        <source>Description</source>
-        <translation>Descriere</translation>
-    </message>
-    <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
-        <source>Description:</source>
-        <translation>Descriere:</translation>
-    </message>
-    <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
         <translation>Localizare:</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="182"/>
         <source>Cancel</source>
         <translation>Renunță</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
         <translation>Adaugă</translation>
+    </message>
+</context>
+<context>
+    <name>TimeZoneDialog</name>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
+        <source>Time Zone Selection</source>
+        <translation>Selecție fus orar</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
+        <source>Region:</source>
+        <translation>Regiune:</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
+        <source>Zone:</source>
+        <translation>Zonă:</translation>
     </message>
 </context>
 </TS>

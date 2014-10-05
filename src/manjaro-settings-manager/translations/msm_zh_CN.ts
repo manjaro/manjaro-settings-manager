@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
@@ -208,53 +208,158 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
 </context>
 <context>
+    <name>KernelInfoDialog</name>
+    <message>
+        <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
+        <source>Changelog</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
+        <source>about:blank</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="70"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>长期支持</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="71"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>推荐内容</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="72"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>正在运行</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="73"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
+        <translation>已安装</translation>
+    </message>
+    <message>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
+        <source>Unsupported</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="74"/>
-        <source>Outdated</source>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="187"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="252"/>
+        <source>Changelog</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="75"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="101"/>
+        <source>Experimental</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="148"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="207"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>移除</translation>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="149"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="208"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Install</source>
+        <translation>安装</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardModel</name>
+    <message>
+        <location filename="../models/KeyboardModel.cpp" line="208"/>
+        <location filename="../models/KeyboardModel.cpp" line="246"/>
+        <source>Default</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="150"/>
-        <location filename="../delegates/kernel_list_view_delegate.cpp" line="209"/>
-        <source>Info</source>
+        <location filename="../models/KeyboardModel.cpp" line="284"/>
+        <source>Default Keyboard Model</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LanguageListViewDelegate</name>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
+        <source>Display Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
+        <source>Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
+        <source>Collation and Sorting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
+        <source>Messages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
+        <source>Formats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
+        <source>Identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
+        <source>Measurement Units</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
+        <source>Currency</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
+        <source>Names</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
+        <source>Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
+        <source>Paper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
+        <source>Telephone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
+        <source>Time</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -266,498 +371,715 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Manjaro设置管理器</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../mainwindow.ui" line="179"/>
         <source>All Settings</source>
         <translation>所有设置</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="241"/>
-        <location filename="../mainwindow.ui" line="285"/>
+        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="259"/>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="264"/>
+        <location filename="../mainwindow.ui" line="238"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="45"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="54"/>
+        <location filename="../mainwindow.cpp" line="53"/>
         <source>Hardware</source>
         <translation>硬件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="201"/>
+        <location filename="../mainwindow.cpp" line="211"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro设置</translation>
     </message>
 </context>
 <context>
-    <name>Page_Kernel</name>
+    <name>PageKernel</name>
     <message>
-        <location filename="../pages/page_kernel.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../pages/page_kernel.cpp" line="10"/>
+        <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="51"/>
-        <source>Install new kernel</source>
+        <location filename="../pages/PageKernel.cpp" line="81"/>
+        <source>Install Linux %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="52"/>
-        <source>Do you really want install the kernel?</source>
+        <location filename="../pages/PageKernel.cpp" line="82"/>
+        <source>Do you really want to install this kernel?
+</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="70"/>
-        <source>Remove kernel</source>
+        <location filename="../pages/PageKernel.cpp" line="83"/>
+        <source>This will install the following packages:
+</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_kernel.cpp" line="71"/>
-        <source>Do you really want remove the kernel?</source>
+        <location filename="../pages/PageKernel.cpp" line="101"/>
+        <source>Installing new kernel.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="114"/>
+        <source>Remove Linux %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="115"/>
+        <source>Do you really want to remove this kernel?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="116"/>
+        <source>This will remove the following packages:
+</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="134"/>
+        <source>Removing kernel...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKernel.cpp" line="147"/>
+        <source>Linux %1.%2 changelog</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>Page_Keyboard</name>
+    <name>PageKeyboard</name>
     <message>
-        <location filename="../pages/page_keyboard.ui" line="25"/>
+        <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>键盘模式：</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_keyboard.ui" line="128"/>
+        <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
-        <translation>在此输入字符以测试键盘</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_keyboard.cpp" line="32"/>
+        <location filename="../pages/PageKeyboard.cpp" line="39"/>
         <source>Keyboard Settings</source>
-        <translation>键盘设置</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_keyboard.cpp" line="69"/>
+        <location filename="../pages/PageKeyboard.cpp" line="112"/>
         <source>Setting new keyboard layout...</source>
-        <translation>设置新的键盘布局……</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Error</source>
-        <translation>错误</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_keyboard.cpp" line="90"/>
-        <source>Failed to determine current Xorg keyboard layout!</source>
-        <translation>无法识别当前的Xorg键盘布局！</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>Page_Language</name>
+    <name>PageLanguage</name>
     <message>
-        <location filename="../pages/page_language.ui" line="22"/>
+        <location filename="../pages/PageLanguage.ui" line="62"/>
         <source>System Locales</source>
-        <translation>系统语系</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="42"/>
+        <location filename="../pages/PageLanguage.ui" line="35"/>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="49"/>
+        <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Remove</source>
-        <translation>移除</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="56"/>
+        <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Restore</source>
-        <translation>回复</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="66"/>
-        <source>Locale</source>
-        <translation>语系</translation>
+        <location filename="../pages/PageLanguage.ui" line="82"/>
+        <source>Detailed Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="71"/>
-        <location filename="../pages/page_language.cpp" line="29"/>
+        <location filename="../pages/PageLanguage.ui" line="94"/>
+        <source>Display Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="112"/>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="122"/>
+        <source>Collation and Sorting:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="132"/>
+        <source>Messages:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="142"/>
+        <source>CType:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="173"/>
+        <source>Numbers:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="183"/>
+        <source>Time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="193"/>
+        <source>Currency:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="203"/>
+        <source>Measurement Units:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="213"/>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="223"/>
+        <source>Names:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="233"/>
+        <source>Telephone:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="243"/>
+        <source>Identification:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="253"/>
+        <source>Paper:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.ui" line="155"/>
+        <source>Formats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="35"/>
         <source>Language</source>
-        <translation>语言</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.ui" line="76"/>
-        <source>Territory</source>
-        <translation>地区</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="81"/>
-        <source>System Language</source>
-        <translation>系统语言</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.ui" line="86"/>
-        <source>System Formats</source>
-        <translation>系统格式</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_language.cpp" line="108"/>
-        <location filename="../pages/page_language.cpp" line="151"/>
-        <location filename="../pages/page_language.cpp" line="160"/>
-        <location filename="../pages/page_language.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="323"/>
+        <location filename="../pages/PageLanguage.cpp" line="368"/>
+        <location filename="../pages/PageLanguage.cpp" line="380"/>
+        <location filename="../pages/PageLanguage.cpp" line="464"/>
         <source>Error!</source>
-        <translation>错误！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="108"/>
-        <location filename="../pages/page_language.cpp" line="160"/>
+        <location filename="../pages/PageLanguage.cpp" line="324"/>
+        <location filename="../pages/PageLanguage.cpp" line="381"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>无法打开文件&apos;%1&apos;！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="151"/>
+        <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>无法获取语系&apos;%1&apos;中的有效语系字符串！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="192"/>
+        <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
-        <translation>无法设置语系！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="196"/>
+        <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
-        <translation>正在生成locale.gen文件……</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="59"/>
+        <source>Set as default display language and format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="60"/>
+        <source>Set as default display language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="61"/>
+        <source>Set as default format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>Hint</source>
-        <translation>提示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_language.cpp" line="199"/>
+        <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>您可能需要重启图形环境来应用这些新的设定……</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>Page_LanguagePackages</name>
+    <name>PageLanguagePackages</name>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="24"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>可用语言包</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="30"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>额外可安装的语言包：</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="53"/>
-        <location filename="../pages/page_languagepackages.ui" line="101"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="53"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="101"/>
         <source>Package</source>
-        <translation>软件包</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="58"/>
-        <location filename="../pages/page_languagepackages.ui" line="106"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="58"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation>父软件包</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="63"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="63"/>
         <source>Install</source>
-        <translation>安装</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="72"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>已安装的语言包</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.ui" line="78"/>
+        <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>已安装的语言包：</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="30"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>语言包</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="74"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation>正在更新pacman数据库……</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
-        <translation>系统已过期</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="83"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>您的系统不是最新的！必须先更新然后才能继续！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="101"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation>正在安装语言包……</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_languagepackages.cpp" line="143"/>
+        <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation>%1 语言包</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>Page_MHWD</name>
+    <name>PageMhwd</name>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="44"/>
+        <location filename="../pages/PageMhwd.ui" line="37"/>
+        <source>Auto Install
+Open-source Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="45"/>
+        <source>Auto Install
+Proprietary Driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation>驱动</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="49"/>
-        <source>Free</source>
-        <translation>开源</translation>
+        <location filename="../pages/PageMhwd.ui" line="72"/>
+        <source>Open-source</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="54"/>
+        <location filename="../pages/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation>已安装</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="62"/>
+        <location filename="../pages/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation>显示所有设备</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.ui" line="76"/>
-        <source>Auto Install
-Free Driver</source>
-        <translation>自动安装
-开源驱动</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.ui" line="84"/>
-        <source>Auto Install
-Non-Free Driver</source>
-        <translation>自动安装
-闭源驱动</translation>
-    </message>
-    <message>
-        <location filename="../pages/page_mhwd.cpp" line="31"/>
+        <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
-        <translation>硬件检测</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="41"/>
+        <location filename="../pages/PageMhwd.cpp" line="42"/>
         <source>Install</source>
-        <translation>安装</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="43"/>
+        <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation>移除</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="45"/>
-        <location filename="../pages/page_mhwd.cpp" line="253"/>
+        <location filename="../pages/PageMhwd.cpp" line="46"/>
+        <location filename="../pages/PageMhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
-        <translation>强制安装</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="104"/>
+        <location filename="../pages/PageMhwd.cpp" line="106"/>
         <source>Unknown device name</source>
-        <translation>未知的设备名称</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="158"/>
-        <location filename="../pages/page_mhwd.cpp" line="175"/>
+        <location filename="../pages/PageMhwd.cpp" line="166"/>
+        <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
-        <translation>自动安装配置</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="159"/>
+        <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
- the free graphic driver?</source>
-        <translation>您确定继续自动安装开源显卡驱动吗？</translation>
+ the open-source graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="164"/>
-        <source>Installing free graphic driver...</source>
-        <translation>正在安装开源显卡驱动……</translation>
+        <location filename="../pages/PageMhwd.cpp" line="171"/>
+        <source>Installing open-source graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="176"/>
+        <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
- the non-free graphic driver?</source>
-        <translation>您确定继续自动安装闭源显卡驱动吗？</translation>
+ the proprietary graphic driver?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="181"/>
-        <source>Installing non-free graphic driver...</source>
-        <translation>正在安装闭源显卡驱动……</translation>
+        <location filename="../pages/PageMhwd.cpp" line="187"/>
+        <source>Installing proprietary graphic driver...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="215"/>
+        <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
-        <translation>安装配置</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="216"/>
+        <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation>您真的想要安装%1吗？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="221"/>
+        <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
-        <translation>正在安装驱动……</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="234"/>
+        <location filename="../pages/PageMhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
-        <translation>移除配置</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="235"/>
+        <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation>您真的希望移除%1吗？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="240"/>
+        <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
-        <translation>正在移除驱动……</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="254"/>
+        <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation>您真的想强制重装%1吗？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_mhwd.cpp" line="259"/>
+        <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation>正在重新安装驱动……</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>Page_Users</name>
+    <name>PageNotifications</name>
     <message>
-        <location filename="../pages/page_users.ui" line="162"/>
+        <location filename="../pages/PageNotifications.ui" line="20"/>
+        <source>Kernel Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="26"/>
+        <source>Check unsupported kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="51"/>
+        <source>Only notify if running an unsupported kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="60"/>
+        <source>Check new kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="85"/>
+        <source>Only notify LTS kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="112"/>
+        <source>Only notify recommended kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.ui" line="124"/>
+        <source>Language Packs Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageNotifications.cpp" line="32"/>
+        <source>Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PageTimeDate</name>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="20"/>
+        <location filename="../pages/PageTimeDate.cpp" line="38"/>
+        <source>Time and Date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="26"/>
+        <source>Set time and date automatically</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <source>Time Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="197"/>
+        <source>Change Time Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="33"/>
+        <source>Hardware clock in local time zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="51"/>
+        <source>Time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="86"/>
+        <source>Date:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="115"/>
+        <source>Hardware clock:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="122"/>
+        <source>Universal time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="165"/>
+        <source>Time zone:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="206"/>
+        <source>Country:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="225"/>
+        <source>Has daylight time?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="232"/>
+        <source>Is daylight time?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="239"/>
+        <source>Has transitions?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.ui" line="248"/>
+        <source>Next transition:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageTimeDate.cpp" line="121"/>
+        <source>none</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PageUsers</name>
+    <message>
+        <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
-        <translation>图片</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="169"/>
+        <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
-        <translation>用户名</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="176"/>
+        <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
-        <translation>账户类型</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.ui" line="183"/>
+        <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
-        <translation>密码</translation>
+        <translation type="unfinished"/>
     </message>
-    <message utf8="true">
-        <location filename="../pages/page_users.ui" line="231"/>
+    <message>
+        <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation>●●●●●●</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="29"/>
+        <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation>用户帐号</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="82"/>
-        <location filename="../pages/page_users.cpp" line="89"/>
+        <location filename="../pages/PageUsers.cpp" line="74"/>
+        <location filename="../pages/PageUsers.cpp" line="81"/>
         <source>Standard</source>
-        <translation>标准</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="99"/>
+        <location filename="../pages/PageUsers.cpp" line="91"/>
         <source>Administrator</source>
-        <translation>管理员</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="113"/>
+        <location filename="../pages/PageUsers.cpp" line="104"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>图片 (*.png *.jpg *.bmp)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
-        <location filename="../pages/page_users.cpp" line="159"/>
-        <location filename="../pages/page_users.cpp" line="165"/>
-        <location filename="../pages/page_users.cpp" line="177"/>
-        <location filename="../pages/page_users.cpp" line="183"/>
-        <location filename="../pages/page_users.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Error!</source>
-        <translation>错误！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="145"/>
+        <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
-        <translation>无法获取用户权限结构！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="159"/>
+        <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>无法将图片复制到&apos;%1&apos;！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="165"/>
-        <location filename="../pages/page_users.cpp" line="183"/>
+        <location filename="../pages/PageUsers.cpp" line="156"/>
+        <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>无法设置文件&apos;%1&apos;的权限！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="177"/>
+        <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>无法创建&apos;%1&apos;到&apos;%2&apos;的符号链接！</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
-        <translation>继续？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="207"/>
+        <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>您真的希望移除用户%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
-        <translation>移除Home目录？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="212"/>
+        <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>您真的希望移除用户%1的home目录吗？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/page_users.cpp" line="222"/>
+        <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Failed to remove user %1!</source>
-        <translation>无法移除用户%1！</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -792,44 +1114,52 @@ Non-Free Driver</source>
 <context>
     <name>SelectLocalesDialog</name>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="14"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
         <translation>添加语系</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="34"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="70"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="70"/>
         <source>Territory</source>
         <translation>地区</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="102"/>
-        <source>Description</source>
-        <translation>描述</translation>
-    </message>
-    <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="126"/>
-        <source>Description:</source>
-        <translation>描述：</translation>
-    </message>
-    <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="148"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
         <translation>语系：</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="218"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="182"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../widgets/selectlocalesdialog.ui" line="225"/>
+        <location filename="../dialogs/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
         <translation>添加</translation>
+    </message>
+</context>
+<context>
+    <name>TimeZoneDialog</name>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
+        <source>Time Zone Selection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
+        <source>Region:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
+        <source>Zone:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

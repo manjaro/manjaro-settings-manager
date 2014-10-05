@@ -22,6 +22,8 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
+#include "const.h"
+
 #include <QString>
 #include <QFile>
 #include <QTextStream>
@@ -34,7 +36,7 @@
 #include <QDebug>
 #include <QProcess>
 #include <QDir>
-#include "const.h"
+#include <QtCore/QByteArray>
 
 
 class Global
@@ -42,11 +44,6 @@ class Global
 public:
     struct LanguagePackage {
         QString languagePackage, parentPackage, locale;
-    };
-
-    struct KeyboardInfo {
-        QString description;
-        QMap< QString, QString > variants;
     };
 
     struct Locale {
@@ -75,26 +72,22 @@ public:
     static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
     static bool isSystemUpToDate();
 
-    static QMap< QString, KeyboardInfo > getKeyboardLayouts();
-    static QMap<QString, QString> getKeyboardModels();
-    static bool getCurrentXorgKeyboardLayout(QString & layout, QString & variant);
-
     static QList<Global::LocaleInfo> getAllEnabledLocales();
-    static QString getCurrentLocale();
-    static QString getCurrentFormats();
     static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
     static QString localeToValidLocaleGenString(QString locale);
 
     static QList<Global::User> getAllUsers();
     static QList<Global::Group> getAllGroups();
 
-    static QStringList getAllInstalledKernels();
-    static QStringList getAllAvailableKernels();
     static QString getRunningKernel();
-    static QString getKernelVersion(const QString &package, const bool local);
-    static QStringList getKernelModules(const QString &package);
     static QStringList getLtsKernels();
     static QStringList getRecommendedKernels();
+
+    static QByteArray performQuery(const QStringList args);
+    static QByteArray performQuery(const QString &args);
+    static QByteArray packageInformation(const QString &pkgName, bool foreignPackage);
+    static QString extractFieldFromInfo(const QString &field, const QString &pkgInfo);
+    static QString packageVersion(const QString &pkgInfo);
 
 private:
     struct LocaleSplit {

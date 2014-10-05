@@ -4,65 +4,93 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit webkitwidgets 
+QT       += core gui webkitwidgets dbus KItemModels
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-LIBS += -lmhwd
+LIBS += -lhd -licudata -licuuc
 TARGET = manjaro-settings-manager-gui
 TEMPLATE = app
-QMAKE_CXXFLAGS += -std=c++0x
+CONFIG += c++11
 
 SOURCES  += main.cpp \
             mainwindow.cpp \
-            delegates/kernel_list_view_delegate.cpp \
+            delegates/KernelListViewDelegate.cpp \
+            delegates/LanguageListViewDelegate.cpp \
             dialogs/accounttypedialog.cpp \
             dialogs/adduserdialog.cpp \
             dialogs/applydialog.cpp \
             dialogs/changepassworddialog.cpp \
-            dialogs/kernel_info_dialog.cpp \
             dialogs/previewfiledialog.cpp \
-            models/kernel.cpp \
-            pages/page_kernel.cpp \
-            pages/page_keyboard.cpp \
-            pages/page_language.cpp \
-            pages/page_languagepackages.cpp \
-            pages/page_mhwd.cpp \
-            pages/page_notifications.cpp \
-            pages/page_users.cpp \
-            pages/page_time_date.cpp \
-            widgets/flatbutton.cpp \
-            widgets/listwidget.cpp \
+            dialogs/KernelInfoDialog.cpp \
+            dialogs/SelectLocalesDialog.cpp \
+            dialogs/TimeZoneDialog.cpp \
+            mhwd/mhwd.cpp \
+            mhwd/vita/string.cpp \
+            models/EnabledLocalesModel.cpp \
+            models/KernelModel.cpp \
+            models/Kernel.cpp \
+            models/KeyboardItem.cpp \
+            models/KeyboardModel.cpp \
+            models/SupportedLocalesModel.cpp \
+            models/SupportedLocalesItem.cpp \
+            models/TimeDate.cpp \
+            pages/PageKernel.cpp \
+            pages/PageKeyboard.cpp \
+            pages/PageLanguage.cpp \
+            pages/PageLanguagePackages.cpp \
+            pages/PageMhwd.cpp \
+            pages/PageNotifications.cpp \
+            pages/PageTimeDate.cpp \
+            pages/PageUsers.cpp \
+            widgets/FlatButton.cpp \
+            widgets/ListWidget.cpp \
+            widgets/LocaleGlobal.cpp \
             widgets/keyboardpreview.cpp \
-            widgets/pagewidget.cpp \
-            widgets/selectlocalesdialog.cpp \
-            widgets/toolbarstylewidget.cpp
+            widgets/PageWidget.cpp \
+            widgets/TimeZoneWidget.cpp \
+            widgets/ToolBarStyleWidget.cpp
+
 
 
 
 HEADERS  += mainwindow.h \
-            delegates/kernel_list_view_delegate.h \
+            delegates/KernelListViewDelegate.h \
+            delegates/LanguageListViewDelegate.h \
             dialogs/accounttypedialog.h \
             dialogs/adduserdialog.h \
             dialogs/applydialog.h \
             dialogs/changepassworddialog.h \
-            dialogs/kernel_info_dialog.h \
             dialogs/previewfiledialog.h \
-            models/kernel.h \
-            pages/page_kernel.h \
-            pages/page_keyboard.h \
-            pages/page_language.h \
-            pages/page_languagepackages.h \
-            pages/page_mhwd.h \
-            pages/page_notifications.h \
-            pages/page_users.h \
-            pages/page_time_date.h \
-            widgets/flatbutton.h \
-            widgets/listwidget.h \
+            dialogs/KernelInfoDialog.h \
+            dialogs/SelectLocalesDialog.h \
+            dialogs/TimeZoneDialog.h \
+            mhwd/const.hpp \
+            mhwd/mhwd.hpp \
+            mhwd/mhwd_p.hpp \
+            mhwd/vita/string.hpp \
+            models/EnabledLocalesModel.h \
+            models/KernelModel.h \
+            models/Kernel.h \
+            models/KeyboardItem.h \
+            models/KeyboardModel.h \
+            models/SupportedLocalesModel.h \
+            models/SupportedLocalesItem.h \
+            models/TimeDate.h \
+            pages/PageKernel.h \
+            pages/PageKeyboard.h \
+            pages/PageLanguage.h \
+            pages/PageLanguagePackages.h \
+            pages/PageMhwd.h \
+            pages/PageNotifications.h \
+            pages/PageTimeDate.h \
+            pages/PageUsers.h \
+            widgets/FlatButton.h \
+            widgets/ListWidget.h \
+            widgets/LocaleGlobal.h \
             widgets/keyboardpreview.h \
-            widgets/pagewidget.h \
-            widgets/selectlocalesdialog.h \
-            widgets/toolbarstylewidget.h \
+            widgets/PageWidget.h \
+            widgets/TimeZoneWidget.h \
+            widgets/ToolBarStyleWidget.h
+
 
 
 
@@ -71,16 +99,18 @@ FORMS    += mainwindow.ui \
             dialogs/accounttypedialog.ui \
             dialogs/applydialog.ui \
             dialogs/changepassworddialog.ui \
-            dialogs/kernel_info_dialog.ui \
-            pages/page_kernel.ui \
-            pages/page_keyboard.ui \
-            pages/page_language.ui \
-            pages/page_languagepackages.ui \
-            pages/page_mhwd.ui \
-            pages/page_notifications.ui \
-            pages/page_users.ui \
-            pages/page_time_date.ui \
-            widgets/selectlocalesdialog.ui
+            dialogs/KernelInfoDialog.ui \
+            dialogs/SelectLocalesDialog.ui \
+            dialogs/TimeZoneDialog.ui \
+            pages/PageKernel.ui \
+            pages/PageKeyboard.ui \
+            pages/PageLanguage.ui \
+            pages/PageLanguagePackages.ui \
+            pages/PageMhwd.ui \
+            pages/PageNotifications.ui \
+            pages/PageTimeDate.ui \
+            pages/PageUsers.ui
+
 
 
 
@@ -130,8 +160,6 @@ INCLUDEPATH += $$PWD/../global
 DEPENDPATH += $$PWD/../global
 
 unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../global/libglobal.a
-
-
 
 target.path = /usr/bin
 INSTALLS += target

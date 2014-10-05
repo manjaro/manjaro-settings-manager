@@ -6,16 +6,18 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
 TARGET = manjaro-settings-manager-daemon
 TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES += main.cpp\
-    daemon.cpp
+    daemon.cpp \
+    models/Kernel.cpp \
+    models/KernelModel.cpp
 
-HEADERS  += daemon.h
+HEADERS  += daemon.h \
+    models/Kernel.h \
+    models/KernelModel.h
 
 unix:!macx: LIBS += -L$$OUT_PWD/../global/ -lglobal
 
