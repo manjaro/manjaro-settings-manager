@@ -33,7 +33,8 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
     PageWidget(parent),
     ui(new Ui::PageKeyboard),
     keyboardModel_(new KeyboardModel),
-    keyboardProxyModel_(new QSortFilterProxyModel)
+    keyboardProxyModel_(new QSortFilterProxyModel),
+    keyboardPreview_(new KeyBoardPreview)
 {
     ui->setupUi(this);
     setTitel(tr("Keyboard Settings"));
@@ -41,7 +42,8 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
     setShowApplyButton(true);
 
     /* Keyboard preview widget */
-    ui->KBPreviewLayout->addWidget(&keyboardPreview);
+    ui->KBPreviewLayout->addWidget(keyboardPreview_);
+    keyboardPreview_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     /* Connect signals and slots */
     connect(ui->buttonRestore, &QPushButton::clicked,
@@ -92,6 +94,7 @@ PageKeyboard::~PageKeyboard()
     delete ui;
     delete keyboardModel_;
     delete keyboardProxyModel_;
+    delete keyboardModel_;
 }
 
 
@@ -239,7 +242,7 @@ void PageKeyboard::keyboardLayoutListViewActivated(const QModelIndex &index)
 void PageKeyboard::keyboardVariantListViewActivated(const QModelIndex &index)
 {
     if (index.isValid() && index.parent().isValid()) {
-        keyboardPreview.setLayout(index.parent().data(KeyboardModel::KeyRole).toString());
-        keyboardPreview.setVariant(index.data(KeyboardModel::KeyRole).toString());
+        keyboardPreview_->setLayout(index.parent().data(KeyboardModel::KeyRole).toString());
+        keyboardPreview_->setVariant(index.data(KeyboardModel::KeyRole).toString());
     }
 }

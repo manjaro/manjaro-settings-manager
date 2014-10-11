@@ -48,7 +48,7 @@ private:
     Ui::PageKeyboard *ui;
     KeyboardModel *keyboardModel_;
     QSortFilterProxyModel *keyboardProxyModel_;
-    KeyBoardPreview keyboardPreview;
+    KeyBoardPreview *keyboardPreview_;
 
 protected slots:
     void buttonRestore_clicked();
