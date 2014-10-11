@@ -55,7 +55,7 @@
    <item>
     <widget class="QTabWidget" name="languageTabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="localeBasicTab">
       <attribute name="title">
@@ -64,6 +64,12 @@
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QScrollArea" name="localeBasicScrollArea">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
          <property name="widgetResizable">
           <bool>true</bool>
          </property>
@@ -72,8 +78,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>489</width>
-            <height>361</height>
+            <width>568</width>
+            <height>335</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_4">
