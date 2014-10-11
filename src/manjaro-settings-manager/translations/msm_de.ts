@@ -300,7 +300,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Sprache</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
@@ -310,57 +310,57 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Nachrichten</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formate</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identifikation</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Maßeinheiten</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Währung</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Namen</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Nummern</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papier</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Telefon</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Zeit</translation>
     </message>
 </context>
 <context>
@@ -509,7 +509,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.ui" line="82"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ausführliche Einstellungen</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="94"/>
@@ -519,7 +519,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.ui" line="112"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Sprache:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="122"/>
@@ -529,7 +529,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.ui" line="132"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Nachrichten:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="142"/>
@@ -539,52 +539,52 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.ui" line="173"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Nummern:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="183"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Zeit:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="193"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Währung:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="203"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Maßeinheiten:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="213"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="223"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Namen:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="233"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefon:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="243"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identifikation:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="253"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Papier:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="155"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formate</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
@@ -633,7 +633,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Als Standardformat festlegen</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>

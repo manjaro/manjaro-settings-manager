@@ -295,12 +295,12 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Visningsspråk</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Språk</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
@@ -310,42 +310,42 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Meldinger</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formater</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identifikasjon</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Måleenheter</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuta</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Navn</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Nummer</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
@@ -355,12 +355,12 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Telefon</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tid</translation>
     </message>
 </context>
 <context>
@@ -436,28 +436,29 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Fjerne Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Vil du virkelig fjerne denne kjernen?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Dette vil fjerne følgende pakker: 
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Fjerner kjerne...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 endringslogg</translation>
     </message>
 </context>
 <context>
@@ -465,22 +466,22 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturmodell:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Skriv her for å prøve ditt tastatur</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="39"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturinstillinger</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="112"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Setter nytt tastaturoppsett...</translation>
     </message>
 </context>
 <context>
@@ -488,37 +489,37 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageLanguage.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Systemspråk</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Legg til</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Fjern</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Gjenopprett</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="82"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Detaljerte innsillinger</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="94"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Visningsspråk</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="112"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Språk:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="122"/>
@@ -528,7 +529,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageLanguage.ui" line="132"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Meldinger:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="142"/>
@@ -538,42 +539,42 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageLanguage.ui" line="173"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Nummer:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="183"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Tid:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="193"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Valuta:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="203"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Måleenheter:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="213"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="223"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Navn:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="233"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefon:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="243"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identifikasjon:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="253"/>
@@ -583,12 +584,12 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageLanguage.ui" line="155"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formater</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Språk</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="323"/>
@@ -596,53 +597,53 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
         <location filename="../pages/PageLanguage.cpp" line="380"/>
         <location filename="../pages/PageLanguage.cpp" line="464"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Feil!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="324"/>
         <location filename="../pages/PageLanguage.cpp" line="381"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å åpne filen &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å skaffe gyldig stedsstreng for nasjonal innstilling &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å sette nasjonal innstilling!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
-        <translation type="unfinished"/>
+        <translation>Genererer locale.gen fil...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Sett som standard visningsspråk og format</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Sett som standard visnigsspråk</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Sett som standard format</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>Hint</source>
-        <translation type="unfinished"/>
+        <translation>Hint</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Du må kanskje starte det grafiske miljøet for å bruke de nye innstillingene...</translation>
     </message>
 </context>
 <context>
@@ -650,69 +651,69 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Tilgjengelige Språkpakker</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Ekstra språkpakker kan installeres:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="53"/>
         <location filename="../pages/PageLanguagePackages.ui" line="101"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>Pakke</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="58"/>
         <location filename="../pages/PageLanguagePackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>Forelder Pakke</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="63"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Installer</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Installerte Språkpakker</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation type="unfinished"/>
+        <translation>Installerte språkpakker:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Språkpakker</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation type="unfinished"/>
+        <translation>Oppdaterer pacman databaser...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>System er utdatert</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Systemet er ikke oppdatert! Du må oppdatere den først for å fortsette!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation type="unfinished"/>
+        <translation>Installerer språkpakker...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 språkpakker</translation>
     </message>
 </context>
 <context>
@@ -721,130 +722,137 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
         <location filename="../pages/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Autoinstaller
+Åpen kildekode-Driver</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto Installer
+Proprietær Driver</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>Driver</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Åpen kildekode</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Installert</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>Vis alle enheter</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Maskinvare Gjenkjenning</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="42"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Installer</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Fjern</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="46"/>
         <location filename="../pages/PageMhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Tving Reinstallering</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="106"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Ukjent enhetsnavn</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="166"/>
         <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Autoinstaller Konfigurasjon</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Vill du virkelig automatisk installere
+den åpen kildekode-grafikkdriveren?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="171"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installerer åpen kildekode-grafikkdriver...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Vill du virkelig automatisk installere
+den properitære grafikkdriveren?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="187"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installerer properitær grafisk driver ...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Installerkonfigurasjon</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Ønsker du virkelig å installere
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installerer driver...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Fjern Konfigurasjon</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Ønsker du virkelig å fjerne
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Fjerner driver...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Ønsker du virkelig å tvinge reinstallering av
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Reinstallerer driver...</translation>
     </message>
 </context>
 <context>
@@ -852,47 +860,47 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageNotifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Kjernevarsel</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sjekk ikke-støttet kjerne</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Varsle kun ved kjøring av en ikke-støttet kjerne</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sjekk nye kjerner</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Varsle kun LTS-kjerne</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Varsle kun anbefalte kjerner</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Sjekk manglende språkpakker</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Språkpakkevarsler</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.cpp" line="32"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Varsler</translation>
     </message>
 </context>
 <context>
@@ -901,82 +909,82 @@ Proprietary Driver</source>
         <location filename="../pages/PageTimeDate.ui" line="20"/>
         <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Tid og Dato</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>Set tid og dato automatisk</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Tidssone</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Endre Tidssone</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Maskinvareklokke i lokal tidssone</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Tid:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation type="unfinished"/>
+        <translation>Dato:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>Maskinvareklokke:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
+        <translation>Universal tid:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Tidssone:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>Land:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Har sommertid?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="232"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Er sommertid?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="239"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>Har overganger?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>
         <source>Next transition:</source>
-        <translation type="unfinished"/>
+        <translation>Neste overgang:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>ingen</translation>
     </message>
 </context>
 <context>
@@ -984,48 +992,48 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Bilde</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Kontotype</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Passord</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Brukerkontoer</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="74"/>
         <location filename="../pages/PageUsers.cpp" line="81"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="91"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="104"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Bilder (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
@@ -1035,53 +1043,53 @@ Proprietary Driver</source>
         <location filename="../pages/PageUsers.cpp" line="174"/>
         <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Feil!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å få brukerrettighetsstrukturer!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å kopiere bildet til &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="156"/>
         <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å sette tillatelse fra filen &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å symlenke &apos;%1&apos; til &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Fortsette?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Vil du virkelig fjerne brukeren %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Fjern Hjem?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Ønsker du å fjerne hjemmemappen til brukeren %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Failed to remove user %1!</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke fjerne bruker %1!</translation>
     </message>
 </context>
 <context>
@@ -1151,17 +1159,17 @@ Proprietary Driver</source>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>Tidssonevalg</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>Region:</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>Sone:</translation>
     </message>
 </context>
 </TS>

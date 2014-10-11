@@ -295,72 +295,72 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Limbă afișaj</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Limbă</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Ordonare și sortare</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Mesaje</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formate</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adrese</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identificare</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Unități de măsură</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valută</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Nume</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Numere</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Hârtie</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Telefon</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Oră</translation>
     </message>
 </context>
 <context>
@@ -509,82 +509,82 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageLanguage.ui" line="82"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Setări detaliate</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="94"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Limbă afișaj</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="112"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Limbă:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="122"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Ordonare și sortare:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="132"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Mesaje:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="142"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="173"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Numere:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="183"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Oră:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="193"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Valută</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="203"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Unități de măsură:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="213"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adrese:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="223"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Nume:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="233"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefon:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="243"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identificare:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="253"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Hârtie:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="155"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formate</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
@@ -623,17 +623,17 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Setează ca limbă și format implicit</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Setează ca limbă implicită</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Setează ca format implicit</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
