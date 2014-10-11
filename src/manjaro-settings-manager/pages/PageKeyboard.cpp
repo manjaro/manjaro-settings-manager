@@ -94,7 +94,7 @@ PageKeyboard::~PageKeyboard()
     delete ui;
     delete keyboardModel_;
     delete keyboardProxyModel_;
-    delete keyboardModel_;
+    delete keyboardPreview_;
 }
 
 
