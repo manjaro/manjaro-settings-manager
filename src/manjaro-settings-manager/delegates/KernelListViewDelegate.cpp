@@ -45,7 +45,7 @@ QSize KernelListViewDelegate::sizeHint(const QStyleOptionViewItem & option,
 void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
                            const QModelIndex &index) const
  {
-    QStyledItemDelegate::paint(painter,option,index);
+    QStyledItemDelegate::paint(painter, option, QModelIndex());
 
     painter->save();
 
@@ -59,13 +59,6 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     bool isLts = qvariant_cast<bool>(index.data(KernelModel::IsLtsRole));
     bool isRecommended = qvariant_cast<bool>(index.data(KernelModel::IsRecommendedRole));
     bool isRunning = qvariant_cast<bool>(index.data(KernelModel::IsRunningRole));
-
-    if ((index.row() % 2) != 0) {
-        painter->fillRect(option.rect, option.palette.color(QPalette::Normal, QPalette::Window).darker(140));
-    }
-
-    painter->setPen(option.palette.color(QPalette::Normal, QPalette::WindowText));
-    painter->drawLine(option.rect.bottomLeft(), option.rect.bottomRight());
 
     /* draw name */
     QFont nameFont = option.font;

@@ -23,8 +23,8 @@
 KeyBoardPreview::KeyBoardPreview(QWidget *parent) :
     QWidget(parent)
 {
-    setMinimumSize(700, 190);
-
+    setMaximumSize(700, 190);
+    setMinimumSize(600, 165);
     layout = "us";
 
     lowerFont = QFont("Helvetica", 10, QFont::DemiBold);

@@ -20,16 +20,6 @@ void LanguageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewIt
 
     painter->save();
 
-    /* Draw light blue rectangle when hoover */
-    if ((option.state & QStyle::State_MouseOver) &&
-        !(option.state & QStyle::State_HasFocus)) {
-        painter->fillRect(option.rect, option.palette.color(QPalette::Normal, QPalette::Highlight));
-    }
-
-    /* Draw line separating delegates */
-    painter->setPen(option.palette.color(QPalette::Normal, QPalette::WindowText));
-    painter->drawLine(option.rect.bottomLeft(), option.rect.bottomRight());
-
     /* Draw central text */
     const QString key = qvariant_cast<QString>(index.data(EnabledLocalesModel::LocaleCodeRole));
     const QString country = qvariant_cast<QString>(index.data(EnabledLocalesModel::CountryRole));
