@@ -212,12 +212,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Alterações</translation>
     </message>
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -225,55 +225,55 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomendado</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>A executar</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Instalado</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Não suportado</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="187"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="252"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Alterações</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizado</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Experimental</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalar</translation>
     </message>
 </context>
 <context>
@@ -282,12 +282,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../models/KeyboardModel.cpp" line="208"/>
         <location filename="../models/KeyboardModel.cpp" line="246"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Padrão</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="284"/>
         <source>Default Keyboard Model</source>
-        <translation type="unfinished"/>
+        <translation>Modelo de teclado padrão</translation>
     </message>
 </context>
 <context>
@@ -295,72 +295,72 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma de Exibição</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Agrupamento e Ordenação</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Mensagens</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Endereço</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identificação</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Unidades de Medida</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moeda</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Nomes</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Números</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papel</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Telefone</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
 </context>
 <context>
@@ -407,55 +407,58 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="81"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalar Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="82"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation type="unfinished"/>
+        <translation>Tu realmente desejas instalar este kernel?
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="83"/>
         <source>This will install the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Isto irá instalar os seguintes pacotes:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>A instalar novo kernel.</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Remover Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation type="unfinished"/>
+        <translation>Tu realmente desejas remover este kernel?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation type="unfinished"/>
+        <translation>Isto irá remover os seguintes pacotes:
+</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation type="unfinished"/>
+        <translation>Removendo kernel...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Alterações em Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -463,22 +466,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation type="unfinished"/>
+        <translation>Modelo do teclado:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="125"/>
         <source>Type here to test your keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Digite aqui para testar seu teclado</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="39"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Teclado</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="112"/>
         <source>Setting new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>A definir novo layout de teclado...</translation>
     </message>
 </context>
 <context>
@@ -486,107 +489,107 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Localidades do Sistema</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="82"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações Detalhadas</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="94"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma de Exibição</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="112"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Idioma:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="122"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Agrupamento e Ordenação:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="132"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Mensagens:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="142"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="173"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Números:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="183"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Hora:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="193"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Moeda:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="203"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Unidades de Medida:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="213"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Endereço:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="223"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Nomes:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="233"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefone:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="243"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identificação:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="253"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Papel:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="155"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="323"/>
@@ -594,53 +597,53 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageLanguage.cpp" line="380"/>
         <location filename="../pages/PageLanguage.cpp" line="464"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Erro!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="324"/>
         <location filename="../pages/PageLanguage.cpp" line="381"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao abrir ficheiro &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao obter string de localidade válida para localidade &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao definir localidade!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
-        <translation type="unfinished"/>
+        <translation>Gerando ficheiro locale.gen...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Definir idioma de exibição e formato como padrão</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Definir idioma de exibição como padrão</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Definir formato como padrão</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>Hint</source>
-        <translation type="unfinished"/>
+        <translation>Dica</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Podes ter de reiniciar o ambiente gráfico para que as novas configurações sejam aplicadas...</translation>
     </message>
 </context>
 <context>
@@ -648,69 +651,69 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de Idioma disponíveis</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de Idioma adicionais podem ser instalados:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="53"/>
         <location filename="../pages/PageLanguagePackages.ui" line="101"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>Pacote</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="58"/>
         <location filename="../pages/PageLanguagePackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>Pacote pai</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="63"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalar</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de Idioma instalados</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de idioma instalados:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de Idioma</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation type="unfinished"/>
+        <translation>A actualizar banco de dados pacman...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>O sistema está desactualizado</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Seu sistema não está actualizado! Tens de actualizar primeiro para poder continuar!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation type="unfinished"/>
+        <translation>A instalar pacotes de idioma...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de Idioma %1</translation>
     </message>
 </context>
 <context>
@@ -719,130 +722,137 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto Instalar
+Driver Open-Source</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Auto Instalar
+Driver Proprietário</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>Driver</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Open-Source</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Instalado</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar todos dispositivos</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Detecção de Hardware</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="42"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalar</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="46"/>
         <location filename="../pages/PageMhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Forçar Reinstalação</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="106"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do dispositivo desconhecido</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="166"/>
         <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Auto Instalar Configuração</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Queres realmente auto instalar
+o driver gráfico open-source?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="171"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>A instalar driver gráfico open-source...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Queres realmente auto instalar
+o driver gráfico proprietário?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="187"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>A instalar driver gráfico proprietário...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Instalar Configuração</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Queres realmente instalar
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>A instalar driver...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Remover Configuração</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Queres realmente remover
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>A remover driver...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Queres realmente forçar a reinstalação de
+%1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>A reinstalar driver...</translation>
     </message>
 </context>
 <context>
@@ -850,47 +860,47 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageNotifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificações de Kernel</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Checar kernels não suportados</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Notificar apenas se um kernel não suportado estiver em execução</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Checar novos kernels</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notificar apenas kernels LTS</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notificar apenas kernels recomendados</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Checar pacotes de idioma faltantes</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificações de Pacotes de Idiomas</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.cpp" line="32"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificações</translation>
     </message>
 </context>
 <context>
@@ -899,82 +909,82 @@ Proprietary Driver</source>
         <location filename="../pages/PageTimeDate.ui" line="20"/>
         <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Hora e Data</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation type="unfinished"/>
+        <translation>Definir hora e data automaticamente</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Fuso Horário</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Alterar Fuso Horário</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Relógio de Hardware em fuso horário local</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Hora:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation type="unfinished"/>
+        <translation>Data:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation type="unfinished"/>
+        <translation>Relógio de Hardware:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation type="unfinished"/>
+        <translation>Tempo Universal:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Fuso Horário:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation type="unfinished"/>
+        <translation>País:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="225"/>
         <source>Has daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>Tem horário de verão?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="232"/>
         <source>Is daylight time?</source>
-        <translation type="unfinished"/>
+        <translation>É horário de verão?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="239"/>
         <source>Has transitions?</source>
-        <translation type="unfinished"/>
+        <translation>Possui transições?</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>
         <source>Next transition:</source>
-        <translation type="unfinished"/>
+        <translation>Próxima transição:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>nenhum</translation>
     </message>
 </context>
 <context>
@@ -982,48 +992,48 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Imagem</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Nome de utilizador</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Conta</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Palavra-Passe</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Contas de Utilizador</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="74"/>
         <location filename="../pages/PageUsers.cpp" line="81"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Padrão</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="91"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="104"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Imagens (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
@@ -1033,53 +1043,53 @@ Proprietary Driver</source>
         <location filename="../pages/PageUsers.cpp" line="174"/>
         <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Erro!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao obter estruturas de permisão do usuário!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao copiar imagem para &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="156"/>
         <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao definir permissão de arquivo &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao ligar simbolicamente &apos;%1&apos; em &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Continuar?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Queres realmente remover o utilizador %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Remover Home?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Queres realmente remover a pasta home do utilizador %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Failed to remove user %1!</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao remover usuário %1!</translation>
     </message>
 </context>
 <context>
@@ -1149,17 +1159,17 @@ Proprietary Driver</source>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>Seleção do Fuso Horário</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>Região:</translation>
     </message>
     <message>
         <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zona:</translation>
     </message>
 </context>
 </TS>

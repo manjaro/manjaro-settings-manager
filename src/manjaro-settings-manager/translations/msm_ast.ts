@@ -295,72 +295,72 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Llingua p&apos;amosar</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Llingua</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Colocación y orde</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Mensaxes</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Direción</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identificación</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Unidaes de midida</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Moneda</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Nomes</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Númberos</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papel</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Teléfonu</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
 </context>
 <context>
@@ -509,82 +509,82 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="82"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Axustes detallaos</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="94"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Llingua p&apos;amosar</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="112"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Llingua:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="122"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Colocación y orde:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="132"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Mensaxes:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="142"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="173"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Númberos:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="183"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Hora:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="193"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Moneda:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="203"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Unidaes de midida:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="213"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Direción:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="223"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Nomes:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="233"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Teléfonu:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="243"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identificación:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="253"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Papel:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="155"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
@@ -623,17 +623,17 @@ Aconséyase habilitar esos grupos. ¿De xuru quies siguir?</translation>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Afitar como llingua y formatu por defeutu</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Afitar como llingua por defeutu</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Afitar como formatu por defeutu</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
@@ -852,7 +852,7 @@ controlador gráficu propietariu?</translation>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation>Reinstalando controlador...</translation>
+        <translation>Reinstalando&apos;l controlador...</translation>
     </message>
 </context>
 <context>

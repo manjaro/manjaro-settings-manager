@@ -643,7 +643,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Du må kanskje starte det grafiske miljøet for å bruke de nye innstillingene...</translation>
+        <translation>Du må kanskje starte om det grafiske miljøet for å bruke de nye innstillingene...</translation>
     </message>
 </context>
 <context>

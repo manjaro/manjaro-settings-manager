@@ -1,45 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_PT" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_PT" version="2.1">
 <context>
     <name>Daemon</name>
     <message numerus="yes">
-        <location filename="../daemon.cpp" line="88"/>
+        <location filename="../daemon.cpp" line="92"/>
         <source>Additional Language Package(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Pacote(s) de Idioma Adicional/Adicionais</numerusform><numerusform>Pacote(s) de Idioma Adicional/Adicionais</numerusform></translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="205"/>
+        <location filename="../daemon.cpp" line="176"/>
         <source>Running an unsupported kernel, please update</source>
-        <translation type="unfinished"/>
+        <translation>Está a executar um kernel não suportado. Actualize, por favor</translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="207"/>
+        <location filename="../daemon.cpp" line="178"/>
         <source>Unsupported kernel installed in your system.</source>
-        <translation type="unfinished"/>
+        <translation>Kernel não suportado instalado em seu sistema.</translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="211"/>
+        <location filename="../daemon.cpp" line="181"/>
         <source>Your kernels need attention.</source>
-        <translation type="unfinished"/>
+        <translation>Seus kernels necessitam de atenção.</translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="214"/>
+        <location filename="../daemon.cpp" line="184"/>
         <source>Unsupported Kernel Found.</source>
-        <translation type="unfinished"/>
+        <translation>Kernel não suportado encontrado.</translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="216"/>
+        <location filename="../daemon.cpp" line="186"/>
         <source>New Kernel Available.</source>
-        <translation type="unfinished"/>
+        <translation>Novo Kernel disponível.</translation>
     </message>
     <message>
-        <location filename="../daemon.cpp" line="220"/>
+        <location filename="../daemon.cpp" line="189"/>
         <source>A kernel newer than the latest installed is available.</source>
-        <translation type="unfinished"/>
+        <translation>Um kernel mais novo que o instalado está disponível.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../daemon.cpp" line="86"/>
+        <location filename="../daemon.cpp" line="90"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n novo(s) pacote(s) de idioma disponível/disponíveis</numerusform><numerusform>%n novo(s) pacote(s) de idioma disponível/disponíveis</numerusform></translation>
     </message>
 </context>
 </TS>
