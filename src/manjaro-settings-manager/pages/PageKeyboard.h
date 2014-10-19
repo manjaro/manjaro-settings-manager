@@ -36,19 +36,21 @@ class PageKeyboard;
 class PageKeyboard : public PageWidget
 {
     Q_OBJECT
-    
+
 public:
     explicit PageKeyboard(QWidget *parent = 0);
     ~PageKeyboard();
 
     void activated();
     void apply_clicked();
-    
+
 private:
     Ui::PageKeyboard *ui;
     KeyboardModel *keyboardModel_;
     QSortFilterProxyModel *keyboardProxyModel_;
     KeyBoardPreview *keyboardPreview_;
+
+    void setKeyboardLayout();
 
 protected slots:
     void buttonRestore_clicked();

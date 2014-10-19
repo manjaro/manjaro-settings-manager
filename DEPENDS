@@ -1,8 +1,7 @@
 qt5-core
 qt5-webkit
 pacman
-keyboardctl
+ckbcomp
 locale-info
-mhwd
 icu
 hwinfo
