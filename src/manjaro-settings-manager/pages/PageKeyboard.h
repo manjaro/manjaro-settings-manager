@@ -27,6 +27,7 @@
 #include "widgets/keyboardpreview.h"
 #include "widgets/PageWidget.h"
 
+#include <KF5/KItemModels/KSelectionProxyModel>
 
 namespace Ui {
 class PageKeyboard;
@@ -49,14 +50,22 @@ private:
     KeyboardModel *keyboardModel_;
     QSortFilterProxyModel *keyboardProxyModel_;
     KeyBoardPreview *keyboardPreview_;
+    KSelectionProxyModel *layoutsSelectionProxy_;
+    QSortFilterProxyModel *variantsSortProxy_;
+
+    QString currentLayout_;
+    QString currentVariant_;
+    QString currentModel_;
 
     void setKeyboardLayout();
+    void setLayoutsListViewIndex(const QString &layout);
+    void setVariantsListViewIndex(const QString &variant);
+    void setModelComboBoxIndex(const QString &model);
 
 protected slots:
     void buttonRestore_clicked();
-    void keyboardLayoutListViewActivated(const QModelIndex &index);
-    void keyboardVariantListViewActivated(const QModelIndex &index);
-
+    void setDefaultIndexToVariantListView(const QModelIndex &index);
+    void setKeyboardPreviewLayout(const QModelIndex &index);
 };
 
 #endif // PAGEKEYBOARD_H

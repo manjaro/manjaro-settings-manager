@@ -52,9 +52,9 @@ QVariant KeyboardModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole :
         switch (index.column()) {
         case 0:
-            return item->key();
-        case 1:
             return item->description();
+        case 1:
+            return item->key();
         }
         break;
     case KeyRole :
