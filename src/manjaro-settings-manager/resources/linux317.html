@@ -1,0 +1,344 @@
+<div id="page" lang="en" dir="ltr">
+
+
+<h1 class="title">Linux 3.17</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a><a id="line-4"></a><a id="line-5"></a><p>Linux 3.17 <a class="external" href="https://lkml.org/lkml/2014/10/5/126">has been released</a> on Sun, 5 Oct (this document was only finished on Sunday, 13 - sorry for the delay) <a id="line-6"></a></p>
+<a id="line-7"></a><p>Summary: This release adds support for USB device sharing over IP, support for Xbox One controllers, support for Apple's thunderbolt, a new sealing API that restricts operations on shared memory file descriptors that allows easier shared memory programming for developers, support for page fault tracing in perf trace, support for only using signed kernels in kexec, a getrandom() syscall for more secure random number generation, and graphic "render nodes" are no longer experimental. There are also new drivers and many other small improvements. <a id="line-8"></a></p>
+<a id="line-9"></a><a id="line-10"></a><ol>
+<li><a href="#head-68daa86a126e92cb8cea71fa2f86660bf8d6cc79">Prominent features</a><ol>
+<li><a href="#head-ad2bdd52ff1be7c7fc7cb3045a4cfd6032514933">USB device sharing over IP</a></li>
+<li><a href="#head-08b0129cd9e1950e4d6876154ed51d7d9242207c">'File sealing' eases handling of shared memory</a></li>
+<li><a href="#head-57f11bc37df79e2eeb1c91e6ffbf41dd8401c342">Graphic "render nodes" feature enabled by default</a></li>
+<li><a href="#head-1f6d91a9c22c40b69b8410849bbb729d13502b55">Improved power management features enabled for more Radeon GPUs</a></li>
+<li><a href="#head-760fb2b63a9ddee7d23b164b03ec116dcfdf73e0">Thunderbolt support</a></li>
+<li><a href="#head-257c34d85526a043839a4da92010960f46d8ec56">Support for Xbox One controllers</a></li>
+<li><a href="#head-2df606465f76b4164d470f0d692c705812a5fe99">More secure generation of random numbers with the getrandom() syscall</a></li>
+<li><a href="#head-7a9f1b20cab4e8c954d2491140ea49f5b48e31fc">Support for page fault tracing in perf trace</a></li>
+<li><a href="#head-c792f8eea9304723ea091632f2d89f8bf1d9e932">perf timechart adds IO mode</a></li>
+<li><a href="#head-021e2397db399ec42f5af49df263627bed81a6d5">Signed kexec kernels</a></li>
+</ol>
+<li><a href="#head-33d23c6638a0245873f44cd52e245923c1beaccd">Drivers and architectures</a></li>
+<li><a href="#head-1ad106b24bd61288c6f89e13674c84a650359e95">Core</a></li>
+<li><a href="#head-2e2faa41ed86ca113bdf53cff2287499b73f1ec3">Memory management</a></li>
+<li><a href="#head-0bc6cccd4ae203dd2e0a3499c8f48b98db0bb19a">Block layer</a></li>
+<li><a href="#head-2d5240f447e606b4b0ba8006732aec976cb639a2">Power management</a></li>
+<li><a href="#head-5d0da19e390eaeaa87c2f59e61906816543e4208">File systems</a></li>
+<li><a href="#head-7ac10d878c8b59c4dd8e1aa7e75662044007f966">Networking</a></li>
+<li><a href="#head-76696ddae7ce47c54220681291e2fbcf77fa9776">Virtualization</a></li>
+<li><a href="#head-c63d2e93f5bd987491103df8ad5501d06a10896c">Tracing/perf</a></li>
+<li><a href="#head-6fd84937bbba3b384979760008858881c99e4a53">Security</a></li>
+<li><a href="#head-fd049f10ad7c47ead6a7845130d0e50c7ab9d5c3">Crypto</a></li>
+<li><a href="#head-29ddf5ece893748f14c949ce726c63ff4bd4451e">Other news sites that track the changes of this release</a></li>
+</ol>
+<p> <a id="line-11"></a></p>
+
+<h1 id="head-68daa86a126e92cb8cea71fa2f86660bf8d6cc79">1. Prominent features</h1>
+
+<a id="line-12"></a>
+<h2 id="head-ad2bdd52ff1be7c7fc7cb3045a4cfd6032514933">1.1. USB device sharing over IP</h2>
+
+<a id="line-13"></a><p>USB/IP is a project that provides a general USB device sharing system over IP network. To share USB devices between computers with their full functionality, USB/IP encapsulates "USB I/O messages" into TCP/IP payloads and transmits them between computer. Original USB device drivers and applications can be also used for remote USB devices without any modification of them. A computer can use remote USB devices as if they were directly attached. <a id="line-14"></a></p>
+<a id="line-15"></a><p>This project has been for a while in the "staging" area, and it's now considered stable enough for prime consumption. Userspace tools can be found at <a class="external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/tools/usb/usbip">tools/usb/usbip</a> <a id="line-16"></a></p>
+<a id="line-17"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/96c2737716d586a218bc795fcb79d2e2b6003081">commit</a>, <a class="external" href="http://git.kernel.org/linus/588b48caf65c4a92af567948ec0025065e749ddf">commit</a> <a id="line-18"></a></p>
+<a id="line-19"></a><p>Project: <a class="external" href="http://usbip.sourceforge.net/">http://usbip.sourceforge.net</a> <a id="line-20"></a></p>
+<a id="line-21"></a>
+<h2 id="head-08b0129cd9e1950e4d6876154ed51d7d9242207c">1.2. 'File sealing' eases handling of shared memory</h2>
+
+<a id="line-22"></a><a id="line-23"></a><p>When various processes communicate with each other via shared memory, they have to be careful and syncrhonize, because the shared memory can be modified by others at any time, or shrink and grow the buffer. This makes IPC via shared memory fragile, forces servers to do extra checks, encourages making local copies of shared memory and makes zero-copy operations impossible if the source of shared memory is not trusted. <a id="line-24"></a></p>
+<a id="line-25"></a><p>This release includes the concept of "file sealing". Files from shmfs can be "sealed" through <a class="external" href="http://linux.die.net/man/2/fcntl">fcntl(2)</a> different flags that restrict determinate behaviours: shrinking the file, growing, writting to it or setting new seals. <a id="line-26"></a></p>
+<a id="line-27"></a><p>Sealing allows sharing shmfs files without any trust-relationship. This is enforced by rejecting seal modifications if you don't own an exclusive reference to the given file. So if a process owns a file-descriptor, it can be sure that no-one besides him can modify the seals on the given file. This allows mapping shared files from untrusted parties without the fear of the file getting truncated or modified by an attacker. <a id="line-28"></a></p>
+<a id="line-29"></a><p>This has some useful uses. For example, a graphic server (eg. wayland) may want to reject any file descriptors that don't have the SEAL_SHRINK seal set. That way, any memory-mappings are guaranteed to stay accessible (while at the same time allowing to grow the buffer). Another example would be a general purpose IPC mechanism such as dbus. With sealing, zero-copy can be easily done by sharing a file-descriptor that has SEAL_SHRINK | SEAL_GROW | SEAL_WRITE seals set. This way, the source can store sensible data in the file, seal the file and then pass it to the destination. The destination verifies these seals are set and then can parse the message in-line, or even do safe mutlicasts of the message and allow all receivers parse the same zero-copy file without affecting each other. <a id="line-30"></a></p>
+<a id="line-31"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/593918/">Sealed files</a> <a id="line-32"></a></p>
+<a id="line-33"></a><p>Recommended blog article: <a class="external" href="https://dvdhrm.wordpress.com/2014/06/10/memfd_create2/">memfd_create(2)</a> <a id="line-34"></a></p>
+<a id="line-35"></a><p>Code and preliminary API documentation: <a class="external" href="http://git.kernel.org/linus/40e041a2c858b3caefc757e26cb85bfceae5062b">commit</a>, <a class="external" href="http://git.kernel.org/linus/9183df25fe7b194563db3fec6dc3202a5855839c">commit</a> <a id="line-36"></a></p>
+<a id="line-37"></a>
+<h2 id="head-57f11bc37df79e2eeb1c91e6ffbf41dd8401c342">1.3. Graphic "render nodes" feature enabled by default</h2>
+
+<a id="line-38"></a><p>"Render nodes" is a feature <a class="external" href="http://kernelnewbies.org/Linux_3.12#head-276162293c22a1526d6a5162f3cb7d802ea5fc43">merged in Linux 3.12</a>. It allows to create different device nodes for the GPU and the display, thus allowing applications to use the GPU for off-screen rendering by talking directly to the DRM device node. <a id="line-39"></a></p>
+<a id="line-40"></a><p>This feature had been considered experimental for a while and could only be enabled with the "drm.rnodes=1" module parameter. In this release, render nodes have been enabled by default. <a id="line-41"></a></p>
+<a id="line-42"></a><p>For more details about render nodes, see <a class="external" href="https://dvdhrm.wordpress.com/2013/09/01/splitting-drm-and-kms-device-nodes/">this blog</a> <a id="line-43"></a></p>
+<a id="line-44"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/6d6dfcfb883818b40b58bac61cc72cab428a7a03">commit</a> <a id="line-45"></a></p>
+<a id="line-46"></a>
+<h2 id="head-1f6d91a9c22c40b69b8410849bbb729d13502b55">1.4. Improved power management features enabled for more Radeon GPUs</h2>
+
+<a id="line-47"></a><p>Dynamic power management (dpm) has been re-enabled by default on cayman and BTC devices. <a id="line-48"></a></p>
+<a id="line-49"></a><p>Also, a new module parameter (radeon.bapm=1) has been added to enable bidirectional application power management (bapm) on APUs where it's disabled by default due to stability issues. <a id="line-50"></a></p>
+<a id="line-51"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/c08abf11900e19b14dd3a0cc3d105bd74519cd18">commit</a>, <a class="external" href="http://git.kernel.org/linus/8f500af4efe347d1a8ac674d115220e8caa84559">commit</a>, <a class="external" href="http://git.kernel.org/linus/6e909f74db2aa9c5b5606b81efcbe18f2749b008">commit</a> <a id="line-52"></a></p>
+<a id="line-53"></a><a id="line-54"></a>
+<h2 id="head-760fb2b63a9ddee7d23b164b03ec116dcfdf73e0">1.5. Thunderbolt support</h2>
+
+<a id="line-55"></a><a id="line-56"></a><p><a class="external" href="http://en.wikipedia.org/wiki/Thunderbolt_%28interface%29">Thunderbolt</a> is a hardware interface that combines PCI Express and Displayport into one serial signal alongside a DC connection for electric power, transmitted over one cable. Up to six peripherals may be supported by one connector through various topologies. Co-developed by Intel and Apple, it's mostly used in Apple devices. <a id="line-57"></a></p>
+<a id="line-58"></a><p><a class="external" href="http://git.kernel.org/linus/16603153666d22df544ae9f9b3764fd18da28eeb">commit</a> <a id="line-59"></a></p>
+<a id="line-60"></a>
+<h2 id="head-257c34d85526a043839a4da92010960f46d8ec56">1.6. Support for Xbox One controllers</h2>
+
+<a id="line-61"></a><p>This release adds support for Xbox One controllers. <a id="line-62"></a></p>
+<a id="line-63"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/1a48ff81b3912be5fadae3fafde6c2f632246a4c">(commit)</a> <a id="line-64"></a></p>
+<a id="line-65"></a>
+<h2 id="head-2df606465f76b4164d470f0d692c705812a5fe99">1.7. More secure generation of random numbers with the getrandom() syscall</h2>
+
+<a id="line-66"></a><p>Linux systems usually get their random numbers from /dev/[u]random. This interface, however, is vulnerable to file descriptor exhaustion attacks, where the attacker consumes all available file descriptors, and is inconvenient for containers. The getrandom(2) syscall, analogous to OpenBSD's getentropy(2), solves that problems. <a id="line-67"></a></p>
+<a id="line-68"></a><a id="line-69"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/606141/">A system call for random numbers: getrandom()</a> <a id="line-70"></a></p>
+<a id="line-71"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/c6e9d6f38894798696f23c8084ca7edbf16ee895">commit</a> <a id="line-72"></a></p>
+<a id="line-73"></a>
+<h2 id="head-7a9f1b20cab4e8c954d2491140ea49f5b48e31fc">1.8. Support for page fault tracing in perf trace</h2>
+
+<a id="line-74"></a><a id="line-75"></a><p>This release adds page fault tracing support to 'perf trace'. Using -F/--pf option user can specify whether he wants minor, major or all pagefault events to be traced. Output example: <a id="line-76"></a></p>
+<a id="line-77"></a><pre>
+1756272.905 ( 0.000 ms): curl/5937 majfault [0x7fa7261978b6] =&gt; /usr/lib/x86_64-linux-gnu/libkrb5.so.26.0.0@0x85288 (d.) 
+<a id="line-78"></a>1862866.036 ( 0.000 ms): wget/8460 majfault [__clear_user+0x3f] =&gt; 0x659cb4 (?k)</pre>
+<a id="line-79"></a><a id="line-80"></a><p><a class="external" href="http://git.kernel.org/linus/598d02c5a07b60e5c824184cdaf697b70f3c452a">commit</a>, <a class="external" href="http://git.kernel.org/linus/1e28fe0a4ff8680d5a0fb84995fd2444dac19cc4">commit</a>, <a class="external" href="http://git.kernel.org/linus/a2ea67d7b5618c868c1fe15a50af71b858d36887">commit</a> <a id="line-81"></a></p>
+<a id="line-82"></a>
+<h2 id="head-c792f8eea9304723ea091632f2d89f8bf1d9e932">1.9. perf timechart adds IO mode</h2>
+
+<a id="line-83"></a><a id="line-84"></a><p>Currently, perf timechart records only scheduler and CPU events (task switches, running times, CPU power states, etc); this release adds IO mode which makes it possible to record IO (disk, network) activity. In this mode perf timechart will generate SVG with IO charts (writes, reads, tx, rx, polls). <a id="line-85"></a></p>
+<a id="line-86"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/b97b59b93d10a54022afb06d5725d7aa55d98dd7">commit</a>, <a class="external" href="https://git.kernel.org/linus/d243144af0b52fc5164a0823194f29a5979e236c">commit</a> <a id="line-87"></a></p>
+<a id="line-88"></a><a id="line-89"></a>
+<h2 id="head-021e2397db399ec42f5af49df263627bed81a6d5">1.10. Signed kexec kernels</h2>
+
+<a id="line-90"></a><a id="line-91"></a><p>Kexec is a Linux feature that allows to boot a Linux kernel from an existing Linux kernel. It is used for faster rebooting or even for automatically booting a new kernel after a crash. However, UEFI "secure boot" systems are not supposed to allow to boot unsigned operating systems. Kexec allows to bypass the UEFI secure boot by kexec'ing into a unsigned kernel. To solve this problem, this release incorporates support for only allowing to kexec kernels that are signed. <a id="line-92"></a></p>
+<a id="line-93"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/603116/">Reworking kexec for signatures</a> <a id="line-94"></a></p>
+<a id="line-95"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/f0895685c7fd8c938c91a9d8a6f7c11f22df58d2">commit</a>, <a class="external" href="http://git.kernel.org/linus/cb1052581e2bddd6096544f3f944f4e7fdad4c7f">commit</a>, <a class="external" href="http://git.kernel.org/linus/dd5f726076cc7639d9713b334c8c133f77c6757a">commit</a>, <a class="external" href="http://git.kernel.org/linus/8fc5b4d4121c95482b2583a07863c6b0aba2d9e1">commit</a>, <a class="external" href="http://git.kernel.org/linus/daeba0641a707626f3674db71016f333edf64395">commit</a>, <a class="external" href="http://git.kernel.org/linus/6a2c20e7d8900ed273dc34a9af9bf02fc478e427">commit</a>, <a class="external" href="http://git.kernel.org/linus/8e7d838103feac320baf9e68d73f954840ac1eea">commit</a> <a id="line-96"></a></p>
+<a id="line-97"></a><a id="line-98"></a><a id="line-99"></a>
+<h1 id="head-33d23c6638a0245873f44cd52e245923c1beaccd">2. Drivers and architectures</h1>
+
+<a id="line-100"></a><p>All the driver and architecture-specific changes can be found in the <a class="external" href="http://kernelnewbies.org/Linux_3.17-DriversArch">Linux_3.17-DriversArch page</a> <a id="line-101"></a></p>
+<a id="line-102"></a>
+<h1 id="head-1ad106b24bd61288c6f89e13674c84a650359e95">3. Core</h1>
+
+<a id="line-103"></a><ul>
+<li><p>A resizable, Scalable, Concurrent Hash Table <a class="external" href="http://git.kernel.org/linus/7e1e77636e36075ebf118298855268468f1028e8">commit</a> <a id="line-104"></a></p>
+</li>
+<li><p>firmware loader: allow disabling of udev as firmware loader <a class="external" href="https://git.kernel.org/linus/5a1379e8748a5cfa3eb068f812d61bde849ef76c">commit</a> <a id="line-105"></a></p>
+</li>
+<li><p>Add a option to enable dwarf4 debug info format <a class="external" href="https://git.kernel.org/linus/bfaf2dd3509bc73bf4a4cea0e72472755ed860e2">commit</a> <a id="line-106"></a></p>
+</li>
+<li><p>Support the "<a class="external" href="http://gcc.gnu.org/wiki/DebugFission">split debug info</a>" debug info model present in gcc 4.7+ and newer binutils. It avoids having to copy it around multiple times, from the object files to the final executable, lowers the disk space and defaults to compressed debug data <a class="external" href="https://git.kernel.org/linus/866ced950bcd54820c3e571229356adc2b2dd72e">commit</a> <a id="line-107"></a></p>
+</li>
+<li><p>Support initramfs and initrd bigger than 2 GiB <a class="external" href="https://git.kernel.org/linus/d97b07c54f34e88352ebe676beb798c8f59ac588">commit</a>, <a class="external" href="https://git.kernel.org/linus/38747439914c468ecba70b492b54dc4ef0b50453">commit</a> <a id="line-108"></a></p>
+</li>
+<li><p>sysfs: disallow world-writable files. <a class="external" href="http://git.kernel.org/linus/37549e94c77a94a9c32b5ae3313a3801cb66adf9">commit</a> <a id="line-109"></a></p>
+</li>
+<li><p>rcu: Remove CONFIG_PROVE_RCU_DELAY <a class="external" href="http://git.kernel.org/linus/11992c703a1c7d95f5d8759498d7617d4a504819">commit</a> <a id="line-110"></a></p>
+<a id="line-111"></a></li>
+</ul>
+
+<h1 id="head-2e2faa41ed86ca113bdf53cff2287499b73f1ec3">4. Memory management</h1>
+
+<a id="line-112"></a><ul>
+<li><p>dma-buf: add poll support <a class="external" href="https://git.kernel.org/linus/9b495a5887994a6d74d5c261d012083a92b94738">commit</a> <a id="line-113"></a></p>
+</li>
+<li><p>dma-buf: A new "fence" mechanism allows to do cross-device synchronization of DMA buffers. Fences are attached to a buffer which is being filled or consumed by hardware, to allow userspace to pass the buffer without waiting to another device. For example, userspace can call page_flip ioctl to display the next frame of graphics after kicking the GPU but while the GPU is still rendering.  The display device sharing the buffer with the GPU would attach a callback to get notified when the GPU's rendering-complete IRQ fires, to update the scan-out address of the display, without having to wake up userspace  <a class="external" href="https://git.kernel.org/linus/e941759c74a44d6ac2eed21bb0a38b21fe4559e2">commit</a>, <a class="external" href="http://git.kernel.org/linus/606b23ad609c71cfb37eeb972ea4c901034edd3c">commit</a> <a id="line-114"></a></p>
+<a id="line-115"></a><a id="line-116"></a></li>
+<li class="gap"><p>iommu: Add sysfs support <a class="external" href="https://git.kernel.org/linus/c61959ecbbc6bf9034e65c8e8ef03fa9d1066f05">commit</a>, <a class="external" href="https://git.kernel.org/linus/066f2e98d8c7f043747fb08ebaa66bad723b1121">commit</a> <a id="line-117"></a></p>
+</li>
+<li><p>Export NR_SHMEM via sysinfo(2) / si_meminfo() interfaces <a class="external" href="http://git.kernel.org/linus/cc7452b6dca384400960d40090a98d0eb920ab22">commit</a> <a id="line-118"></a></p>
+<a id="line-119"></a></li>
+</ul>
+
+<h1 id="head-0bc6cccd4ae203dd2e0a3499c8f48b98db0bb19a">5. Block layer</h1>
+
+<a id="line-120"></a><ul>
+<li><p>brd: add module option to enable RAM disk visibility in /proc/partitions <a class="external" href="https://git.kernel.org/linus/aeac31819475ad0980cb3a13d5599f5a1127e83d">commit</a> <a id="line-121"></a></p>
+</li>
+<li><p>drbd: New net configuration option socket-check-timeout <a class="external" href="https://git.kernel.org/linus/5d0b17f1a29e8189d04aef447a3a53cfd05529b2">commit</a> <a id="line-122"></a></p>
+<a id="line-123"></a></li>
+</ul>
+
+<h1 id="head-2d5240f447e606b4b0ba8006732aec976cb639a2">6. Power management</h1>
+
+<a id="line-124"></a><ul>
+<li><p>scripts/analyze_suspend.py: update to v3.0, which includes back-2-back suspend testing, device filters to reduce the html size, the inclusion of device_prepare and device_complete callbacks, a usb topography list, and the ability to control USB device autosuspend <a class="external" href="http://git.kernel.org/linus/b8432c6fc12bdf4a6921e1640d3ead23fcd04c10">commit</a> <a id="line-125"></a></p>
+<a id="line-126"></a><a id="line-127"></a></li>
+</ul>
+
+<h1 id="head-5d0da19e390eaeaa87c2f59e61906816543e4208">7. File systems</h1>
+
+<a id="line-128"></a><ul>
+<li><p>Btrfs <a id="line-129"></a></p>
+<ul>
+<li><p>Adjust statfs() space utilization calculations according to RAID profiles <a class="external" href="https://git.kernel.org/linus/ba7b6e62f420f5a8832bc161ab0c7ba767f65b3d">commit</a> <a id="line-130"></a></p>
+</li>
+</ul>
+</li>
+<li><p>XFS <a id="line-131"></a></p>
+<ul>
+<li><p>Add a sysfs /sys/fs/xfs/ directory with various files providing information about XFS filesystems <a class="external" href="http://git.kernel.org/linus/3d8712265c26546823b38eb97487262500ff13db">commit</a>, <a class="external" href="http://git.kernel.org/linus/a31b1d3d89e40f585a1c6745b066774ee3263eb2">commit</a>, <a class="external" href="http://git.kernel.org/linus/80d6d69821a27c3cd4687c2eefe409cbd1b7f458">commit</a>, <a class="external" href="http://git.kernel.org/linus/baff4e44b92aad363dcce176b907a369ee8b348e">commit</a>, <a class="external" href="http://git.kernel.org/linus/a087481811bed920eb5eedbb5574b915881adbea">commit</a> <a id="line-132"></a></p>
+</li>
+<li><p>Create libxfs infrastructure, libxfs will be used by userspace tools <a class="external" href="http://git.kernel.org/linus/69116a1317ce3d2292e062bfb1a22757b95dcd06">commit</a> <a id="line-133"></a></p>
+<a id="line-134"></a></li>
+</ul>
+</li>
+<li class="gap"><p>SMB <a id="line-135"></a></p>
+<ul>
+<li><p>Add sparse file support <a class="external" href="https://git.kernel.org/linus/3d1a3745d8ca7ccdf00905b01fd5ab42ff523a94">commit</a> <a id="line-136"></a></p>
+</li>
+<li><p>Enable fallocate punch hole ("fallocate -p") <a class="external" href="https://git.kernel.org/linus/31742c5a331766bc7df6b0d525df00c6cd20d5a6">commit</a> <a id="line-137"></a></p>
+</li>
+<li><p>Enable fallocate -z support <a class="external" href="https://git.kernel.org/linus/30175628bf7f521e9ee31ac98fa6d6fe7441a556">commit</a> <a id="line-138"></a></p>
+<a id="line-139"></a></li>
+</ul>
+</li>
+<li class="gap"><p>f2fs <a id="line-140"></a></p>
+<ul>
+<li><p>Add nobarrier mount option <a class="external" href="https://git.kernel.org/linus/0f7b2abd188089a44f60e2bf8521d1363ada9e12">commit</a> <a id="line-141"></a></p>
+</li>
+<li><p>Support cross-rename rename2() syscall <a class="external" href="https://git.kernel.org/linus/32f9bc25cbda00410e2379c58ae027e88bf24770">commit</a> <a id="line-142"></a></p>
+</li>
+<li><p>Support O_TMPFILE <a class="external" href="https://git.kernel.org/linus/50732df02eefb39ab414ef655979c2c9b64ad21c">commit</a> <a id="line-143"></a></p>
+<a id="line-144"></a></li>
+</ul>
+</li>
+<li class="gap"><p>nilfs2 <a id="line-145"></a></p>
+<ul>
+<li><p>Add /sys/fs/nilfs2 directory with several files that provide information about the filesystem <a class="external" href="https://git.kernel.org/linus/da7141fb78db915680616e15677539fc8140cf53">commit</a>, <a class="external" href="https://git.kernel.org/linus/02a0ba1c60c2ad532322089a60256c8b0f46678c">commit</a>, <a class="external" href="https://git.kernel.org/linus/a2ecb791a9d6e71a2d37d66034475a92ebc7e02c">commit</a>, <a class="external" href="https://git.kernel.org/linus/a5a7332a291b55beb0863b119816d12ffc04dfb0">commit</a>, <a class="external" href="https://git.kernel.org/linus/abc968dbf291955ac750ecf59e3baf2b529a8257">commit</a>, <a class="external" href="https://git.kernel.org/linus/ef43d5cd84b7d2ea09846de34e14be7d74be3e6f">commit</a>,  <a class="external" href="https://git.kernel.org/linus/caa05d49dfd7fe04820ba8b7e424343d5426a7f3">commit</a>, <a class="external" href="https://git.kernel.org/linus/aebe17f6844488ff0b824fbac28d9f342f7b078e">commit</a> <a id="line-146"></a></p>
+<a id="line-147"></a></li>
+</ul>
+</li>
+<li class="gap"><p>NFS <a id="line-148"></a></p>
+<ul>
+<li><p>Add a new /proc/fs/nfsd/max_connections file <a class="external" href="https://git.kernel.org/linus/5b8db00bae39e5ecd9bafb05478cca5b42564ab1">commit</a> <a id="line-149"></a></p>
+<a id="line-150"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-7ac10d878c8b59c4dd8e1aa7e75662044007f966">8. Networking</h1>
+
+<a id="line-151"></a><ul>
+<li><p>ipv6: Implement automatic generation of flow labels for IPv6 packets on transmit <a class="external" href="https://git.kernel.org/linus/cb1ce2ef387b01686469487edd45994872d52d73">commit</a> <a id="line-152"></a></p>
+</li>
+<li><p>openvswitch: Enable tunnel GSO for Open vSwitch bridge. <a class="external" href="http://git.kernel.org/linus/f6eec614d2252a99b861e288b6301599d2d58da4">commit</a> <a id="line-153"></a></p>
+<a id="line-154"></a></li>
+<li class="gap"><p>timestamp: ACK timestamp for bytestreams <a class="external" href="http://git.kernel.org/linus/e1c8a607b28190cd09a271508aa3025d3c2f312e">commit</a> <a id="line-155"></a></p>
+</li>
+<li><p>timestamp: SCHED timestamp on entering packet scheduler <a class="external" href="http://git.kernel.org/linus/e7fd2885385157d46c85f282fc6d7d297db43e1f">commit</a> <a id="line-156"></a></p>
+</li>
+<li><p>timestamping: TCP timestamping <a class="external" href="http://git.kernel.org/linus/4ed2d765dfaccff5ebdac68e2064b59125033a3b">commit</a> <a id="line-157"></a></p>
+</li>
+<li><p>Remove deprecated syststamp timestamp <a class="external" href="http://git.kernel.org/linus/4d276eb6a478307a28ae843836c455bf04b37a3c">commit</a> <a id="line-158"></a></p>
+</li>
+<li><p>bridge: netlink dump interface at par with brctl <a class="external" href="http://git.kernel.org/linus/5e6d243587990a588143b9da3974833649595587">commit</a> <a id="line-159"></a></p>
+</li>
+<li><p>Wireless <a id="line-160"></a></p>
+<ul>
+<li><p>Add support for Rx reordering offloading <a class="external" href="http://git.kernel.org/linus/08cf42e843f9a7e253502011c81677f61f7e5c42">commit</a> <a id="line-161"></a></p>
+</li>
+<li><p>Remove PID controller based rate control algorithm <a class="external" href="http://git.kernel.org/linus/20edb50e593dca7522b4f3a95b801dbf99f24c52">commit</a> <a id="line-162"></a></p>
+<a id="line-163"></a></li>
+</ul>
+</li>
+<li class="gap"><p>Bluetooth <a id="line-164"></a></p>
+<ul>
+<li><p>Add support for background LE scanning <a class="external" href="http://git.kernel.org/linus/0d2bf13462732d3b2e11d8efb0545c1ed272298b">commit</a> <a id="line-165"></a></p>
+</li>
+<li><p>Add support for changing the public device address <a class="external" href="http://git.kernel.org/linus/9713c17b086c1ebfe34ea4d34147a778276e2dab">commit</a> <a id="line-166"></a></p>
+</li>
+<li><p>Add support for several new commands <a class="external" href="http://git.kernel.org/linus/2faade53e65f276cf1c30a885fb64808a083714e">commit</a><a class="external" href="http://git.kernel.org/linus/958684263d3efbc721fb2b86f94876893eb638d2">commit</a>, <a class="external" href="http://git.kernel.org/linus/9fc3bfb681bdf59999f56072fff4632a5abea897">commit</a>, <a class="external" href="http://git.kernel.org/linus/73d1df2a7a1036a1f000e5f0ece6ade3e082b854">commit</a>, <a class="external" href="http://git.kernel.org/linus/dbece37a3233933ec89f77f04049e13ad9b29634">commit</a>,  <a id="line-167"></a></p>
+</li>
+<li><p>Add support for some new events <a class="external" href="http://git.kernel.org/linus/f4537c04d387eda86ed89e0eafe0352f7fa0c9d0">commit</a>, <a class="external" href="http://git.kernel.org/linus/c70a7e4cc8d22cb1ce684637ef8a4bb3a80d15b7">commit</a>, <a class="external" href="http://git.kernel.org/linus/0602a8adc3ce3f592d03df426c92d1f36229403c">commit</a>, <a class="external" href="http://git.kernel.org/linus/edd3896bc41059fc064c4ec76da004a57203d88e">commit</a> <a id="line-168"></a></p>
+<a id="line-169"></a><a id="line-170"></a></li>
+</ul>
+</li>
+<li class="gap"><p>netfilter/nftables <a id="line-171"></a></p>
+<ul>
+<li><p>Add generic ARP packet logger <a class="external" href="http://git.kernel.org/linus/35b9395104d51f4b85847fa72a1bf4136d36c56e">commit</a> <a id="line-172"></a></p>
+</li>
+<li><p>bridge: add generic packet logger <a class="external" href="http://git.kernel.org/linus/960649d1923c31a7f771162fa0eef00210044262">commit</a> <a id="line-173"></a></p>
+</li>
+<li><p>bridge: add reject support <a class="external" href="http://git.kernel.org/linus/85f5b3086a04c459f9147859fcbf7bdc7578c378">commit</a> <a id="line-174"></a></p>
+</li>
+<li><p>kill ulog targets (deprecated by the NFLOG target) <a class="external" href="http://git.kernel.org/linus/7200135bc1e61f1437dc326ae2ef2f310c50b4eb">commit</a> <a id="line-175"></a></p>
+</li>
+<li><p>nft_log: complete logging support <a class="external" href="http://git.kernel.org/linus/09d27b88f15f08fcfbaf57d9b0b4489816264815">commit</a> <a id="line-176"></a></p>
+<a id="line-177"></a><a id="line-178"></a><a id="line-179"></a></li>
+</ul>
+</li>
+<li class="gap"><p>SCTP <a id="line-180"></a></p>
+<ul>
+<li><p>Deprecate rfc6458, 5.3.2. SCTP_SNDRCV support <a class="external" href="https://git.kernel.org/linus/bbbea41d5e53335fd81e89c728f71b14386f336e">commit</a> <a id="line-181"></a></p>
+</li>
+<li><p>Implement rfc6458, 5.3.4. SCTP_SNDINFO cmsg support <a class="external" href="https://git.kernel.org/linus/63b949382c5f263746b1c177f6ff84de2201ae9d">commit</a> <a id="line-182"></a></p>
+</li>
+<li><p>Implement rfc6458, 5.3.5. SCTP_RCVINFO cmsg support <a class="external" href="https://git.kernel.org/linus/0d3a421d284812d07970b4ccee74d4fa38737e4d">commit</a> <a id="line-183"></a></p>
+</li>
+<li><p>Implement rfc6458, 5.3.6. SCTP_NXTINFO cmsg support <a class="external" href="https://git.kernel.org/linus/2347c80ff127b94ddaa675e2b78ab4cef46dc905">commit</a> <a id="line-184"></a></p>
+</li>
+<li><p>Implement rfc6458, 8.1.31. SCTP_DEFAULT_SNDINFO support <a class="external" href="https://git.kernel.org/linus/6b3fd5f3a2bbc8464a8e0bf134a183b8fa026439">commit</a> <a id="line-185"></a></p>
+<a id="line-186"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-76696ddae7ce47c54220681291e2fbcf77fa9776">9. Virtualization</h1>
+
+<a id="line-187"></a><ul>
+<li><p>virtio-blk: support multiple virtual queues that can get assigned to host's hardware queues <a class="external" href="https://git.kernel.org/linus/6a27b656fc0210e976db362e1368c56db05c8f08">commit</a> <a id="line-188"></a></p>
+</li>
+<li><p>virtio-net: rx busy polling support, 1 byte netperf tcp_rr shows 127% improvement <a class="external" href="http://git.kernel.org/linus/91815639d8804d1eee7ce2e1f7f60b36771db2c9">commit</a> <a id="line-189"></a></p>
+</li>
+<li><p>vfio: EEH support for VFIO PCI device <a class="external" href="https://git.kernel.org/linus/1b69be5e8afc634f39ad695a6ab6aad0cf0975c7">commit</a> <a id="line-190"></a></p>
+</li>
+<li><p>hyperv: Add netpoll support <a class="external" href="https://git.kernel.org/linus/316158feff0078b266d6e423adb016d12eb96a5a">commit</a> <a id="line-191"></a></p>
+</li>
+<li><p>xen: EFI under Xen dom0 support <a class="external" href="http://git.kernel.org/linus/bf1e3ae468aca7ce34110a59ed5d1b877890014b">commit</a>, <a class="external" href="http://git.kernel.org/linus/be81c8a1da24288b0231be50130a64f5cdffdcd4">commit</a> <a id="line-192"></a></p>
+<a id="line-193"></a><a id="line-194"></a></li>
+</ul>
+
+<h1 id="head-c63d2e93f5bd987491103df8ad5501d06a10896c">10. Tracing/perf</h1>
+
+<a id="line-195"></a><ul>
+<li><p>perf timechart: add IO mode <a class="external" href="https://git.kernel.org/linus/b97b59b93d10a54022afb06d5725d7aa55d98dd7">commit</a>, <a class="external" href="https://git.kernel.org/linus/d243144af0b52fc5164a0823194f29a5979e236c">commit</a> <a id="line-196"></a></p>
+</li>
+<li><p>perf trace: Add support for pagefault tracing <a class="external" href="https://git.kernel.org/linus/1e28fe0a4ff8680d5a0fb84995fd2444dac19cc4">commit</a>, <a class="external" href="https://git.kernel.org/linus/598d02c5a07b60e5c824184cdaf697b70f3c452a">commit</a>, add pagefault statistics <a class="external" href="https://git.kernel.org/linus/a2ea67d7b5618c868c1fe15a50af71b858d36887">commit</a> <a id="line-197"></a></p>
+</li>
+<li><p>perf trace: Add possibility to switch off syscall events <a class="external" href="https://git.kernel.org/linus/e281a9606d7073c517f2571e83faaff029ddc1cf">commit</a> <a id="line-198"></a></p>
+</li>
+<li><p>perf bench: Add --repeat option <a class="external" href="https://git.kernel.org/linus/b6f0629a94f7ed6089560be7f0561be19f934fc4">commit</a> <a id="line-199"></a></p>
+</li>
+<li><p>perf hists browser: Display columns header text on 'H' press <a class="external" href="https://git.kernel.org/linus/81a888fea2cfd727052926e95510c11981d9b1c2">commit</a>, <a class="external" href="https://git.kernel.org/linus/c83023676dc34f1b4422b842e1e2dc5c21bfc4dc">commit</a> <a id="line-200"></a></p>
+</li>
+<li><p>perf inject: Add --kallsyms parameter <a class="external" href="https://git.kernel.org/linus/a7a2b8b4ce9e0bfd085c5797d535487594a71882">commit</a> <a id="line-201"></a></p>
+</li>
+<li><p>perf kvm: Add stat support on s390 <a class="external" href="https://git.kernel.org/linus/3be8e2a0a53c3179a44a933614f6a893da0b5c19">commit</a> <a id="line-202"></a></p>
+</li>
+<li><p>perf tools: Add --debug optionto set debug variable <a class="external" href="https://git.kernel.org/linus/bbb2cea7e8dd496b41558df1a0ec9205497b7ebf">commit</a> <a id="line-203"></a></p>
+</li>
+<li><p>tracing: Add ftrace_graph_notrace boot parameter for specifying notrace filter for function graph tracer at boot time <a class="external" href="http://git.kernel.org/linus/0d7d9a16ce112687487fadb2b490519b45f6c70e">commit</a> <a id="line-204"></a></p>
+<a id="line-205"></a></li>
+</ul>
+
+<h1 id="head-6fd84937bbba3b384979760008858881c99e4a53">11. Security</h1>
+
+<a id="line-206"></a><ul>
+<li><p>Allow seccomp to set a filter across all threads (<a class="external" href="http://lwn.net/Articles/600250/">Recommended LWN Article</a>) <a class="external" href="http://git.kernel.org/linus/3ba2530cc06eb4aee4f1f754f43d781e8a12ee09">commit</a>, add "seccomp" syscall <a class="external" href="http://git.kernel.org/linus/48dc92b9fc3926844257316e75ba11eb5c742b2c">commit</a> <a id="line-207"></a></p>
+</li>
+<li><p>seccomp: implement SECCOMP_FILTER_FLAG_TSYNC <a class="external" href="http://git.kernel.org/linus/c2e1f2e30daa551db3c670c0ccfeab20a540b9e1">commit</a> <a id="line-208"></a></p>
+</li>
+<li><p>selinux:  Report permissive mode in avc: denied messages. <a class="external" href="http://git.kernel.org/linus/626b9740fa73cad043e136bfb3b6fca68a4f8a7c">commit</a> <a id="line-209"></a></p>
+<a id="line-210"></a><a id="line-211"></a></li>
+</ul>
+
+<h1 id="head-fd049f10ad7c47ead6a7845130d0e50c7ab9d5c3">12. Crypto</h1>
+
+<a id="line-212"></a><ul>
+<li><p>drbg: NIST SP800-90A compliant Deterministic Random Bit Generator <a class="external" href="http://git.kernel.org/linus/541af946fe1360ec1b45730964e87d7f93c50781">commit</a>, <a class="external" href="http://git.kernel.org/linus/419090c6c6862abb54b7c77efc3c00ed35909d73">commit</a> <a id="line-213"></a></p>
+</li>
+<li><p>Parser for a PKCS#7 signed-data message as described in part of RFC 2315 <a class="external" href="https://git.kernel.org/linus/2e3fadbf730fd0d13c891d5e555af3e7f39ca3f4">commit</a> <a id="line-214"></a></p>
+</li>
+<li><p>pefile: Support for PE file signature verification <a class="external" href="http://git.kernel.org/linus/26d1164be37f1145a96af15f294122876d8e5c77">commit</a> <a id="line-215"></a></p>
+<a id="line-216"></a><a id="line-217"></a></li>
+</ul>
+
+<h1 id="head-29ddf5ece893748f14c949ce726c63ff4bd4451e">13. Other news sites that track the changes of this release</h1>
+
+<a id="line-218"></a><ul>
+<li><p>LWN Merge window, <a class="external" href="http://lwn.net/Articles/607627/">part 1</a>, <a class="external" href="http://lwn.net/Articles/608434/">part 2</a> and <a class="external" href="http://lwn.net/Articles/608748/">part 3</a> <a id="line-219"></a></p>
+</li>
+<li><p>Phoronix <a class="external" href="http://www.phoronix.com/scan.php?page=news_item&amp;px=MTc5ODM">The Top Features Of The Linux 3.17 Kernel</a> <a id="line-220"></a></p>
+</li>
+</ul>
+<a id="bottom"></a>
+<p><a class="external" href="http://kernelnewbies.org/Linux_3.17">Linux 3.17</a> by <a class="external" href="http://kernelnewbies.org">kernelnewbies.org</a> is licensed under <a class="external" href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></p>
+</div>
