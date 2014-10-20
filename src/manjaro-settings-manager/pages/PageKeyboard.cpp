@@ -50,9 +50,9 @@ PageKeyboard::PageKeyboard(QWidget *parent) :
     // Connect signals and slots
     connect(ui->buttonRestore, &QPushButton::clicked,
             this, &PageKeyboard::buttonRestore_clicked);
-    connect(ui->layoutsListView, &QListView::activated,
+    connect(ui->layoutsListView, &QListView::clicked,
             this, &PageKeyboard::setDefaultIndexToVariantListView);
-    connect(ui->variantsListView, &QListView::activated,
+    connect(ui->variantsListView, &QListView::clicked,
             this, &PageKeyboard::setKeyboardPreviewLayout);
 
 
@@ -230,8 +230,8 @@ void PageKeyboard::setVariantsListViewIndex(const QString &variant)
     if (variantDefaultList.size() == 1) {
         QModelIndex variantDefault = variantDefaultList.first();
         ui->variantsListView->setCurrentIndex(variantDefault);
-        // Emit activated(), to update keyboardPreview
-        emit(ui->variantsListView->activated(variantDefault));
+        // Emit clicked(), to update keyboardPreview
+        emit(ui->variantsListView->clicked(variantDefault));
     } else {
         qDebug() << QString("Can't find the keyboard variant %1").arg(variant);
     }

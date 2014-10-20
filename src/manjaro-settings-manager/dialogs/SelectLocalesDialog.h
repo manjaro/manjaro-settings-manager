@@ -62,8 +62,8 @@ private:
     void updateApplyEnabledState();
 
 private slots:
-    void languageListViewActivated(const QModelIndex &index);
-    void countryListViewActivated(const QModelIndex &index);
+    void hideLocaleComboBox(const QModelIndex &index);
+    void showLocaleComboBox(const QModelIndex &index);
     void buttonAdd_clicked();
 
 };

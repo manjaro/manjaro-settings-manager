@@ -29,10 +29,10 @@ SelectLocalesDialog::SelectLocalesDialog(QWidget *parent) :
     ui->setupUi(this);
 
     // Connect signals and slots
-    connect(ui->languageListView, &QListView::activated,
-            this, &SelectLocalesDialog::languageListViewActivated);
-    connect(ui->countryListView, &QListView::activated,
-            this, &SelectLocalesDialog::countryListViewActivated);
+    connect(ui->languageListView, &QListView::clicked,
+            this, &SelectLocalesDialog::hideLocaleComboBox);
+    connect(ui->countryListView, &QListView::clicked,
+            this, &SelectLocalesDialog::showLocaleComboBox);
     connect(ui->buttonCancel, &QPushButton::clicked,
             this, &SelectLocalesDialog::close);
     connect(ui->buttonAdd, &QPushButton::clicked,
@@ -105,7 +105,7 @@ void SelectLocalesDialog::updateApplyEnabledState()
 }
 
 
-void SelectLocalesDialog::languageListViewActivated(const QModelIndex &index)
+void SelectLocalesDialog::hideLocaleComboBox(const QModelIndex &index)
 {
     if (index.isValid()) {
         ui->localeComboBox->hide();
@@ -114,7 +114,7 @@ void SelectLocalesDialog::languageListViewActivated(const QModelIndex &index)
 }
 
 
-void SelectLocalesDialog::countryListViewActivated(const QModelIndex &index)
+void SelectLocalesDialog::showLocaleComboBox(const QModelIndex &index)
 {
     if (index.isValid()) {
         /* Select locale with UTF-8 encoding by default */
