@@ -135,7 +135,10 @@ void PageKeyboard::setKeyboardLayout()
             currentVariant_ = variant;
             currentModel_ = model;
         } else {
-            qDebug() << "Error saving your keyboard layout.";
+            QMessageBox::warning(this,
+                                 tr("Error!"),
+                                 QString(tr("Failed to set keyboard layout")),
+                                 QMessageBox::Ok, QMessageBox::Ok);
         }
     } else {
         // remove leftover keyboardctl file
