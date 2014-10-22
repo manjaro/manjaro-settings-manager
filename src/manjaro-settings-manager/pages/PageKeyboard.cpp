@@ -127,13 +127,22 @@ void PageKeyboard::setKeyboardLayout()
     // Set Xorg keyboard layout
     system(QString("setxkbmap -model \"%1\" -layout \"%2\" -variant \"%3\"").arg(model, layout, variant).toUtf8());
 
-    if (QFile::exists("/usr/bin/keyboardctl")) {
+    // localed d-bus interface to set X11 keyboard layout
+    QDBusInterface dbusInterface("org.freedesktop.locale1",
+                                 "/org/freedesktop/locale1",
+                                 "org.freedesktop.locale1",
+                                 QDBusConnection::systemBus());
+    QString options = dbusInterface.property("X11Options").toString();
+
+    bool isKeyboardctlInstalled = QFile::exists("/usr/bin/keyboardctl");
+    if (isKeyboardctlInstalled) {
         ApplyDialog dialog(this);
         dialog.exec("keyboardctl", QStringList() << "--set-layout" << model << layout << variant, tr("Setting new keyboard layout..."), true);
         if (dialog.processSuccess()) {
             currentLayout_ = layout;
             currentVariant_ = variant;
             currentModel_ = model;
+            dbusInterface.call("SetX11Keyboard", layout, model, variant, options, true, false);
         } else {
             QMessageBox::warning(this,
                                  tr("Error!"),
@@ -146,14 +155,6 @@ void PageKeyboard::setKeyboardLayout()
         if (QFile::exists(keyboardctlFile)) {
             QFile::remove(keyboardctlFile);
         }
-
-        // use localed d-bus interface to set X11 keyboard layout
-        QDBusInterface dbusInterface("org.freedesktop.locale1",
-                                     "/org/freedesktop/locale1",
-                                     "org.freedesktop.locale1",
-                                     QDBusConnection::systemBus());
-
-        QString options = dbusInterface.property("X11Options").toString();
 
         /* ssssbb
          * string -> layout
