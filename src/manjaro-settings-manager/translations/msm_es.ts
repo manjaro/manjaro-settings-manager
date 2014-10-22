@@ -223,55 +223,55 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
 <context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="88"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="89"/>
         <source>Recommended</source>
         <translation>Recomendado</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="90"/>
         <source>Running</source>
         <translation>En ejecución</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="91"/>
         <source>Installed</source>
         <translation>Instalado</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="92"/>
         <source>Unsupported</source>
         <translation>Sin asistencia</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="187"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="252"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="180"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="245"/>
         <source>Changelog</source>
         <translation>Registro de cambios</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="93"/>
         <source>Custom</source>
         <translation>Personalizado</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="101"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
         <source>Experimental</source>
         <translation>Experimental</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="178"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="243"/>
         <source>Remove</source>
         <translation>Desinstalar</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="179"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="244"/>
         <source>Install</source>
         <translation>Instalar</translation>
     </message>
@@ -293,72 +293,72 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
 <context>
     <name>LanguageListViewDelegate</name>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
         <translation>Idioma que mostrar</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
         <source>Language</source>
         <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
         <source>Collation and Sorting</source>
         <translation>Ordenación</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
         <source>Messages</source>
         <translation>Mensajes</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="110"/>
         <source>Formats</source>
         <translation>Formatos</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="112"/>
         <source>Address</source>
         <translation>Dirección</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="113"/>
         <source>Identification</source>
         <translation>Identificación</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="114"/>
         <source>Measurement Units</source>
         <translation>Unidades de medida</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="115"/>
         <source>Currency</source>
         <translation>Moneda</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="116"/>
         <source>Names</source>
         <translation>Nombres</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="117"/>
         <source>Numbers</source>
         <translation>Números</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="118"/>
         <source>Paper</source>
         <translation>Papel</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="119"/>
         <source>Telephone</source>
         <translation>Teléfono</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Time</source>
         <translation>Hora</translation>
     </message>
@@ -469,19 +469,31 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <translation>Modelo del teclado:</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.ui" line="125"/>
+        <location filename="../pages/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
         <translation>Escriba aquí para probar el teclado</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="39"/>
+        <location filename="../pages/PageKeyboard.cpp" line="42"/>
         <source>Keyboard Settings</source>
         <translation>Configuración del teclado</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="112"/>
+        <location filename="../pages/PageKeyboard.cpp" line="140"/>
         <source>Setting new keyboard layout...</source>
         <translation>Estableciendo disposición de teclado nueva…</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="148"/>
+        <location filename="../pages/PageKeyboard.cpp" line="171"/>
+        <source>Error!</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="149"/>
+        <location filename="../pages/PageKeyboard.cpp" line="172"/>
+        <source>Failed to set keyboard layout</source>
+        <translation>No se pudo establecer la disposición de teclado.</translation>
     </message>
 </context>
 <context>
@@ -507,82 +519,82 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
         <translation>Restaurar</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="82"/>
+        <location filename="../pages/PageLanguage.ui" line="125"/>
         <source>Detailed Settings</source>
         <translation>Configuración detallada</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="94"/>
+        <location filename="../pages/PageLanguage.ui" line="170"/>
         <source>Display Language</source>
         <translation>Idioma que mostrar</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="112"/>
+        <location filename="../pages/PageLanguage.ui" line="188"/>
         <source>Language:</source>
         <translation>Idioma:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="122"/>
+        <location filename="../pages/PageLanguage.ui" line="198"/>
         <source>Collation and Sorting:</source>
         <translation>Ordenación:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="132"/>
+        <location filename="../pages/PageLanguage.ui" line="208"/>
         <source>Messages:</source>
         <translation>Mensajes:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="142"/>
+        <location filename="../pages/PageLanguage.ui" line="218"/>
         <source>CType:</source>
         <translation>CType:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="173"/>
+        <location filename="../pages/PageLanguage.ui" line="249"/>
         <source>Numbers:</source>
         <translation>Números:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="183"/>
+        <location filename="../pages/PageLanguage.ui" line="259"/>
         <source>Time:</source>
         <translation>Hora:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="193"/>
+        <location filename="../pages/PageLanguage.ui" line="269"/>
         <source>Currency:</source>
         <translation>Moneda:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="203"/>
+        <location filename="../pages/PageLanguage.ui" line="279"/>
         <source>Measurement Units:</source>
         <translation>Unidades de medida:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="213"/>
+        <location filename="../pages/PageLanguage.ui" line="289"/>
         <source>Address:</source>
         <translation>Dirección:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="223"/>
+        <location filename="../pages/PageLanguage.ui" line="299"/>
         <source>Names:</source>
         <translation>Nombres:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="233"/>
+        <location filename="../pages/PageLanguage.ui" line="309"/>
         <source>Telephone:</source>
         <translation>Teléfono:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="243"/>
+        <location filename="../pages/PageLanguage.ui" line="319"/>
         <source>Identification:</source>
         <translation>Identificación:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="253"/>
+        <location filename="../pages/PageLanguage.ui" line="329"/>
         <source>Paper:</source>
         <translation>Papel:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="155"/>
+        <location filename="../pages/PageLanguage.ui" line="231"/>
         <source>Formats</source>
         <translation>Formatos</translation>
     </message>

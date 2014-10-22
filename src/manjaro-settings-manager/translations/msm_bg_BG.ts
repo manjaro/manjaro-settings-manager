@@ -223,55 +223,55 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="88"/>
         <source>LTS</source>
         <translation>Удължена поддръжка</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="89"/>
         <source>Recommended</source>
         <translation>Препоръчано</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="90"/>
         <source>Running</source>
         <translation>Изпълнява се</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="91"/>
         <source>Installed</source>
         <translation>Инсталиран</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="92"/>
         <source>Unsupported</source>
         <translation>неподдържан</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="187"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="252"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="180"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="245"/>
         <source>Changelog</source>
         <translation>Промени</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="93"/>
         <source>Custom</source>
         <translation>Персонализиран</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="101"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
         <source>Experimental</source>
         <translation>Експериментален</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="185"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="250"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="178"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="243"/>
         <source>Remove</source>
         <translation>Премахни</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="186"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="251"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="179"/>
+        <location filename="../delegates/KernelListViewDelegate.cpp" line="244"/>
         <source>Install</source>
         <translation>Инсталиране</translation>
     </message>
@@ -293,72 +293,72 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>LanguageListViewDelegate</name>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="85"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="87"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
         <source>Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="89"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
         <source>Collation and Sorting</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="90"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
         <source>Messages</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="110"/>
         <source>Formats</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="122"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="112"/>
         <source>Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="123"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="113"/>
         <source>Identification</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="124"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="114"/>
         <source>Measurement Units</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="125"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="115"/>
         <source>Currency</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="126"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="116"/>
         <source>Names</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="127"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="117"/>
         <source>Numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="128"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="118"/>
         <source>Paper</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="129"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="119"/>
         <source>Telephone</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="130"/>
+        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Time</source>
         <translation type="unfinished"/>
     </message>
@@ -469,19 +469,31 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Модел на клавиатурата:</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.ui" line="125"/>
+        <location filename="../pages/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
         <translation>Пиши тук за да тестваш клавиатурата</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="39"/>
+        <location filename="../pages/PageKeyboard.cpp" line="42"/>
         <source>Keyboard Settings</source>
         <translation>Настройки на клавиатурата</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="112"/>
+        <location filename="../pages/PageKeyboard.cpp" line="140"/>
         <source>Setting new keyboard layout...</source>
         <translation>Настройване на новата клавиатурна подредба...</translation>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="148"/>
+        <location filename="../pages/PageKeyboard.cpp" line="171"/>
+        <source>Error!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../pages/PageKeyboard.cpp" line="149"/>
+        <location filename="../pages/PageKeyboard.cpp" line="172"/>
+        <source>Failed to set keyboard layout</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -507,82 +519,82 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation>Възстанови</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="82"/>
+        <location filename="../pages/PageLanguage.ui" line="125"/>
         <source>Detailed Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="94"/>
+        <location filename="../pages/PageLanguage.ui" line="170"/>
         <source>Display Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="112"/>
+        <location filename="../pages/PageLanguage.ui" line="188"/>
         <source>Language:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="122"/>
+        <location filename="../pages/PageLanguage.ui" line="198"/>
         <source>Collation and Sorting:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="132"/>
+        <location filename="../pages/PageLanguage.ui" line="208"/>
         <source>Messages:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="142"/>
+        <location filename="../pages/PageLanguage.ui" line="218"/>
         <source>CType:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="173"/>
+        <location filename="../pages/PageLanguage.ui" line="249"/>
         <source>Numbers:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="183"/>
+        <location filename="../pages/PageLanguage.ui" line="259"/>
         <source>Time:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="193"/>
+        <location filename="../pages/PageLanguage.ui" line="269"/>
         <source>Currency:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="203"/>
+        <location filename="../pages/PageLanguage.ui" line="279"/>
         <source>Measurement Units:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="213"/>
+        <location filename="../pages/PageLanguage.ui" line="289"/>
         <source>Address:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="223"/>
+        <location filename="../pages/PageLanguage.ui" line="299"/>
         <source>Names:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="233"/>
+        <location filename="../pages/PageLanguage.ui" line="309"/>
         <source>Telephone:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="243"/>
+        <location filename="../pages/PageLanguage.ui" line="319"/>
         <source>Identification:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="253"/>
+        <location filename="../pages/PageLanguage.ui" line="329"/>
         <source>Paper:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="155"/>
+        <location filename="../pages/PageLanguage.ui" line="231"/>
         <source>Formats</source>
         <translation type="unfinished"/>
     </message>
