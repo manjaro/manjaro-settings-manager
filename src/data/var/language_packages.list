@@ -30,6 +30,7 @@ libreoffice-fresh:libreoffice-fresh-%
 man-pages:man-pages-%
 libmythes:mythes-%
 vim:vim-spell-%
+kompozer:kompozer-i18n-%
 
 ##
 ## Global language packages
