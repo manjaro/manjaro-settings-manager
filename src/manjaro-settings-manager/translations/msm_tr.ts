@@ -486,13 +486,13 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Hata!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Klavye düzeni ayarlanamadı</translation>
     </message>
 </context>
 <context>

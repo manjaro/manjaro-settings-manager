@@ -487,13 +487,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>錯誤！</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>無法設定鍵盤佈局</translation>
     </message>
 </context>
 <context>

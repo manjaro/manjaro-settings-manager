@@ -487,13 +487,13 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Błąd!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Wystąpił błąd przy ustawianiu układu klawiatury</translation>
     </message>
 </context>
 <context>

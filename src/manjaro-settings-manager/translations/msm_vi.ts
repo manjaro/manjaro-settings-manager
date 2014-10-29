@@ -212,12 +212,12 @@ Khuyến nghị: Bạn nên kích hoạt những nhóm đó. Bạn có thực s�
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Thay đổi</translation>
     </message>
     <message>
         <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -225,55 +225,55 @@ Khuyến nghị: Bạn nên kích hoạt những nhóm đó. Bạn có thực s�
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="88"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="89"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Khuyên dùng</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="90"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Đang chạy</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="91"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Đã cài đặt</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="92"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Không được hỗ trợ</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="180"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="245"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Thay đổi</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="93"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Tùy chọn</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Thử nghiệm</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="178"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="243"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Gỡ bỏ</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="179"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="244"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Cài đặt</translation>
     </message>
 </context>
 <context>
@@ -282,12 +282,12 @@ Khuyến nghị: Bạn nên kích hoạt những nhóm đó. Bạn có thực s�
         <location filename="../models/KeyboardModel.cpp" line="208"/>
         <location filename="../models/KeyboardModel.cpp" line="246"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Mặc định</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="284"/>
         <source>Default Keyboard Model</source>
-        <translation type="unfinished"/>
+        <translation>Mẫu bàn phím mặc định</translation>
     </message>
 </context>
 <context>
@@ -295,12 +295,12 @@ Khuyến nghị: Bạn nên kích hoạt những nhóm đó. Bạn có thực s�
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Ngôn ngữ hiển thị</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Ngôn ngữ</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>

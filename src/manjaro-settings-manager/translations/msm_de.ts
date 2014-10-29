@@ -295,7 +295,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Anzeigesprache</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
@@ -305,7 +305,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Vergleichung und Sortierung</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
@@ -487,13 +487,13 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Fehler!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturbelegung konnte nicht festgelegt werden</translation>
     </message>
 </context>
 <context>
@@ -526,7 +526,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Anzeigesprache</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="188"/>
@@ -536,7 +536,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Vergleichung und Sortierung:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="208"/>
@@ -546,7 +546,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.ui" line="218"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="249"/>
@@ -635,12 +635,12 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Als Standardanzeigesprache und -format festlegen</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Als Standardanzeigesprache festlegen</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
@@ -1063,7 +1063,7 @@ wirklich erzwingen?</translation>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerberechtigungsstrukturen konnten nicht geholt werden!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="150"/>

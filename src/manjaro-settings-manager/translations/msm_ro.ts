@@ -487,13 +487,13 @@ Este recomandat să activați aceste grupe. Doriți să continuați?</translatio
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Eroare!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Nu se poate seta aranjamentul de tastatură</translation>
     </message>
 </context>
 <context>

@@ -487,13 +487,13 @@ Javasolt engedélyezni ezeket a csoportokat. Valóban folytatod?</translation>
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Hiba!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült beállítani a billentyűzet kiosztást.</translation>
     </message>
 </context>
 <context>
