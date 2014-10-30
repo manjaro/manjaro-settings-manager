@@ -46,8 +46,7 @@ SOURCES  += main.cpp \
             widgets/LocaleGlobal.cpp \
             widgets/keyboardpreview.cpp \
             widgets/PageWidget.cpp \
-            widgets/TimeZoneWidget.cpp \
-            widgets/ToolBarStyleWidget.cpp
+            widgets/TimeZoneWidget.cpp
 
 
 
@@ -88,8 +87,7 @@ HEADERS  += mainwindow.h \
             widgets/LocaleGlobal.h \
             widgets/keyboardpreview.h \
             widgets/PageWidget.h \
-            widgets/TimeZoneWidget.h \
-            widgets/ToolBarStyleWidget.h
+            widgets/TimeZoneWidget.h
 
 
 

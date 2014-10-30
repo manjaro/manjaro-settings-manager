@@ -35,7 +35,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="ToolBarStyleWidget" name="widgetHeader" native="true">
+     <widget class="QWidget" name="widgetHeader" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
         <horstretch>0</horstretch>
@@ -165,7 +165,7 @@
      </widget>
     </item>
     <item>
-     <widget class="ToolBarStyleWidget" name="widgetBottom" native="true">
+     <widget class="QWidget" name="widgetBottom" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="buttonAllSettings">
@@ -266,12 +266,6 @@
    <class>ListWidget</class>
    <extends>QListWidget</extends>
    <header>widgets/ListWidget.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ToolBarStyleWidget</class>
-   <extends>QWidget</extends>
-   <header>widgets/ToolBarStyleWidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
