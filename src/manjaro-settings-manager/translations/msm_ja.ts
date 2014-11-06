@@ -324,7 +324,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="113"/>
         <source>Identification</source>
-        <translation>確認</translation>
+        <translation>身元確認</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="114"/>
@@ -349,7 +349,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="118"/>
         <source>Paper</source>
-        <translation>紙</translation>
+        <translation>用紙</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="119"/>
@@ -359,7 +359,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Time</source>
-        <translation>時</translation>
+        <translation>時刻</translation>
     </message>
 </context>
 <context>
@@ -585,12 +585,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.ui" line="319"/>
         <source>Identification:</source>
-        <translation>確認;</translation>
+        <translation>身元確認;</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="329"/>
         <source>Paper:</source>
-        <translation>紙:</translation>
+        <translation>用紙:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="231"/>

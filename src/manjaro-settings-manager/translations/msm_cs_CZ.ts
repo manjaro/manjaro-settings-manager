@@ -296,22 +296,22 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk zobrazení</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Řazení a třízení</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Zprávy</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="110"/>
@@ -336,7 +336,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="115"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Měna</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="116"/>
@@ -361,7 +361,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Čas</translation>
     </message>
 </context>
 <context>
@@ -488,13 +488,13 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Chyba!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Selhalo nastavení rozložení klávesnice</translation>
     </message>
 </context>
 <context>
@@ -522,27 +522,27 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/PageLanguage.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Podrobná nastavení</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk zobrazení</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Jazyk:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Řazení a třízení</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Zprávy:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="218"/>
@@ -562,7 +562,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/PageLanguage.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Měna:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="279"/>
@@ -641,7 +641,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Nastavit implicitní jazyk zobrazení</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
