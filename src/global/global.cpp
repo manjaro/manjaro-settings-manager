@@ -626,7 +626,7 @@ QStringList Global::getLtsKernels()
 
 QStringList Global::getRecommendedKernels()
 {
-    return QStringList() << "linux314";
+    return QStringList() << "linux316";
 }
 
 
