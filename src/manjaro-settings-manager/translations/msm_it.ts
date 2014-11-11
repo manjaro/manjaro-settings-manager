@@ -295,72 +295,72 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Lingua da visualizzare</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Lingua</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Confronto e Ordinamento</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Messaggi</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="110"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formati</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="112"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="113"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identificazione</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="114"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Unità di misura</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="115"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valuta</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="116"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Nomi</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="117"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Numeri</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="118"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Carta</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="119"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Telefono</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Ora</translation>
     </message>
 </context>
 <context>
@@ -487,13 +487,13 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Errore!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile impostare il layout della tastiera</translation>
     </message>
 </context>
 <context>
@@ -521,82 +521,82 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni dettagliate</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Lingua da visualizzare</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Lingua:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Confronto e Ordinamento:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Messaggi:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="218"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Numeri:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Ora:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Valuta:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Unità di misura:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Nomi:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefono:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identificazione:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Carta:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formati</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
@@ -635,17 +635,17 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Imposta come lingua e formato predefiniti</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Imposta come lingua predefinita</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Imposta come formato predefinito</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
@@ -663,12 +663,12 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Pacchetti di lingua disponibili</translation>
+        <translation>Pacchetti della lingua disponibili</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Ulteriori pacchetti di lingua possono essere installati:</translation>
+        <translation>Possono essere installati ulteriori pacchetti della lingua:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="53"/>
@@ -690,22 +690,22 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Pacchetti di lingua installati</translation>
+        <translation>Pacchetti della lingua installati</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Pacchetti di lingua installati:</translation>
+        <translation>Pacchetti della lingua installati:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Pacchetti di lingua installati</translation>
+        <translation>Pacchetti della lingua</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation>Aggiornamento database di pacman...</translation>
+        <translation>Aggiornamento dei database di pacman...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
@@ -715,17 +715,17 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Il vostro sistema non è aggiornato! È necessario aggiornare prima di proseguire!</translation>
+        <translation>Il sistema non è aggiornato! È necessario un aggiornamento prima di proseguire!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation>Installazione dei pacchetti di lingua...</translation>
+        <translation>Installazione dei pacchetti della lingua...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation>%1 pacchetti di lingua</translation>
+        <translation>%1 pacchetti della lingua</translation>
     </message>
 </context>
 <context>
@@ -734,15 +734,15 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../pages/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation>Auto installazione
-Driver libero</translation>
+        <translation>Auto installa
+Driver open-source</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
         <translation>Auto Installa
-Driver proprietari</translation>
+Driver proprietario</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="67"/>
@@ -794,14 +794,14 @@ Driver proprietari</translation>
         <location filename="../pages/PageMhwd.cpp" line="166"/>
         <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
-        <translation>Installazione automatica configurazione</translation>
+        <translation>Installa automaticamente la configurazione</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation>Sicuro di voler installare automaticamente
- i driver grafici open-source?</translation>
+        <translation>Si è sicuri di voler installare automaticamente
+i driver grafici open-source?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="171"/>
@@ -812,8 +812,8 @@ Driver proprietari</translation>
         <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation>Sicuro di voler installare automaticamente
- i driver grafici proprietari?</translation>
+        <translation>Si è sicuri di voler installare automaticamente
+i driver grafici proprietari?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="187"/>
@@ -823,13 +823,13 @@ Driver proprietari</translation>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
-        <translation>Installa configurazione</translation>
+        <translation>Installa la configurazione</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation>Vuoi veramente installare
+        <translation>Si vuole veramente installare
 %1?</translation>
     </message>
     <message>
@@ -846,7 +846,7 @@ Driver proprietari</translation>
         <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation>Vuoi veramente rimuovere
+        <translation>Si vuole veramente rimuovere
 %1?</translation>
     </message>
     <message>
@@ -858,7 +858,7 @@ Driver proprietari</translation>
         <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation>Vuoi veramente forzare la reinstallazione di
+        <translation>Si vuole veramente forzare la reinstallazione di
 %1?</translation>
     </message>
     <message>
@@ -1024,7 +1024,7 @@ Driver proprietari</translation>
     <message>
         <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="29"/>
@@ -1060,7 +1060,7 @@ Driver proprietari</translation>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
-        <translation>Impossibile ottenere strutture di permessi degli utenti!</translation>
+        <translation>Impossibile ottenere le strutture dei permessi utente!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="150"/>
@@ -1086,17 +1086,17 @@ Driver proprietari</translation>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>Vuoi davvero rimuovere l&apos;utente %1?</translation>
+        <translation>Si vuole davvero rimuovere l&apos;utente %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
-        <translation>Remuovere Home?</translation>
+        <translation>Rimuovere Home?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>Vuoi rimuovere la cartella home dell&apos;utente %1?</translation>
+        <translation>Si vuole rimuovere la cartella home dell&apos;utente %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="211"/>

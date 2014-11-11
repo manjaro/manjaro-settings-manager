@@ -399,7 +399,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.cpp" line="211"/>
         <source>Manjaro Settings</source>
-        <translation>Configurações Manjaro</translation>
+        <translation>Definições Manjaro</translation>
     </message>
 </context>
 <context>
@@ -471,12 +471,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
-        <translation>Digite aqui para testar seu teclado</translation>
+        <translation>Digite aqui para testar o seu teclado</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="42"/>
         <source>Keyboard Settings</source>
-        <translation>Configurações de Teclado</translation>
+        <translation>Definições do Teclado</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="140"/>
@@ -487,13 +487,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Erro!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao definir a disposição do teclado</translation>
     </message>
 </context>
 <context>

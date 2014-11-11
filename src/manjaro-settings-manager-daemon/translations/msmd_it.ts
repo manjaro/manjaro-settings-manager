@@ -19,7 +19,7 @@
     <message>
         <location filename="../daemon.cpp" line="181"/>
         <source>Your kernels need attention.</source>
-        <translation>I tuoi kernel richiedono attenzione.</translation>
+        <translation>I kernel richiedono attenzione.</translation>
     </message>
     <message>
         <location filename="../daemon.cpp" line="184"/>
