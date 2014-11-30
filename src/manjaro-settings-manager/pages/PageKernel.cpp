@@ -22,7 +22,6 @@
 #include "ui_PageKernel.h"
 
 #include "delegates/KernelListViewDelegate.h"
-#include "dialogs/KernelInfoDialog.h"
 #include "dialogs/applydialog.h"
 
 #include <QtCore/QProcess>
@@ -31,7 +30,8 @@
 PageKernel::PageKernel(QWidget *parent) :
     PageWidget(parent),
     ui(new Ui::PageKernel),
-    kernelModel(new KernelModel)
+    kernelModel(new KernelModel),
+    kernelInfoDialog(new KernelInfoDialog)
 {
     ui->setupUi(this);
     setTitel(tr("Kernel"));
@@ -140,12 +140,11 @@ void PageKernel::removeKernel(const QModelIndex &index)
 
 void PageKernel::infoButtonClicked(const QModelIndex &index)
 {
-    KernelInfoDialog dialog(this);
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
     QString majorVersion = qvariant_cast<QString>(index.data(KernelModel::MajorVersionRole));
     QString minorVersion = qvariant_cast<QString>(index.data(KernelModel::MinorVersionRole));
     QString title = QString(tr("Linux %1.%2 changelog")).arg(majorVersion, minorVersion);
-    dialog.setWindowTitle(title);
-    dialog.setPackage(package);
-    dialog.exec();
+    kernelInfoDialog->setWindowTitle(title);
+    kernelInfoDialog->setPackage(package);
+    kernelInfoDialog->exec();
 }

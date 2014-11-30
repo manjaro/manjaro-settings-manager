@@ -23,6 +23,7 @@
 
 #include "models/KernelModel.h"
 #include "widgets/PageWidget.h"
+#include "dialogs/KernelInfoDialog.h"
 
 namespace Ui {
 class PageKernel;
@@ -44,6 +45,7 @@ public slots:
 private:
     Ui::PageKernel *ui;
     KernelModel *kernelModel;
+    KernelInfoDialog *kernelInfoDialog;
     void installKernel(const QModelIndex &index);
     void removeKernel(const QModelIndex &index);
 };
