@@ -51,7 +51,7 @@ void Daemon::start()
         return;
     }
     QTimer::singleShot(20000, this, SLOT(run()));
-    QTimer::singleShot(60000, this, SLOT(runKernel()));
+    QTimer::singleShot(40000, this, SLOT(runKernel()));
     QTimer::start();
 }
 
@@ -118,6 +118,7 @@ void Daemon::cKernel()
 {
     Daemon::KernelFlags kernelFlags;
     KernelModel kernelModel;
+    kernelModel.update();
 
     QList< Kernel > unsupportedKernels = kernelModel.unsupportedKernels();
     if (checkUnsupportedKernel && !unsupportedKernels.isEmpty()) {
