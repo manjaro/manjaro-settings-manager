@@ -21,7 +21,6 @@
 #include "PageTimeDate.h"
 #include "ui_PageTimeDate.h"
 #include "TimeZoneDialog.h"
-#include "Version.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>

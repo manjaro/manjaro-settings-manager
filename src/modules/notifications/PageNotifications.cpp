@@ -20,7 +20,6 @@
 
 #include "PageNotifications.h"
 #include "ui_PageNotifications.h"
-#include "Version.h"
 
 #include <QtCore/QSettings>
 #include <QDebug>

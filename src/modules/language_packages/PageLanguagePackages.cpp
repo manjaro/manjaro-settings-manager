@@ -20,7 +20,6 @@
 
 #include "PageLanguagePackages.h"
 #include "ui_PageLanguagePackages.h"
-#include "Version.h"
 
 #include <KAboutData>
 

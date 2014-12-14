@@ -21,7 +21,6 @@
 
 #include "LocaleModule.h"
 #include "ui_LocaleModule.h"
-#include "Version.h"
 
 #include <KAboutData>
 

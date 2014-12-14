@@ -22,7 +22,6 @@
 #include "PageMhwd.h"
 #include "ui_PageMhwd.h"
 #include "libmhwd/mhwd.h"
-#include "Version.h"
 
 #include <KAboutData>
 #include <KPluginFactory>

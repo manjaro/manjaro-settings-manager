@@ -20,7 +20,6 @@
 
 #include "PageUsers.h"
 #include "ui_PageUsers.h"
-#include "Version.h"
 
 #include <KAboutData>
 #include <KPluginFactory>

@@ -23,7 +23,6 @@
 
 #include "KernelListViewDelegate.h"
 #include "applydialog.h"
-#include "Version.h"
 
 #include <KAboutData>
 #include <KAuth>

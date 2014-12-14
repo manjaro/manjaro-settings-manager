@@ -22,7 +22,6 @@
 
 #include "PageKeyboard.h"
 #include "ui_PageKeyboard.h"
-#include "Version.h"
 
 #include <KAboutData>
 #include <KAuth>
