@@ -114,5 +114,6 @@
         <file>resources/linux315.html</file>
         <file>resources/linux316.html</file>
         <file>resources/linux317.html</file>
+        <file>resources/linux318.html</file>
     </qresource>
 </RCC>
