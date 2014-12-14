@@ -1,0 +1,12 @@
+[Domain]
+Name=manjaro-settings-manager
+Name[x-test]=xxmanjaro-settings-managerxx
+Icon=kauth-example
+URL=https://github.com/manjaro/manjaro-settings-manager
+
+[org.manjaro.msm.locale.save]
+Name=Save Locale Settings
+Description=Save Locale Settings
+Policy=auth_admin
+Persistence=session
+

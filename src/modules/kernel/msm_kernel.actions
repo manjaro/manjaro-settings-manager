@@ -1,0 +1,17 @@
+[Domain]
+Name=manjaro-settings-manager
+Name[x-test]=xxmanjaro-settings-managerxx
+Icon=kauth-example
+URL=https://github.com/manjaro/manjaro-settings-manager
+
+[org.manjaro.msm.kernel.install]
+Name=Install Kernel
+Description=Install Kernel
+Policy=auth_admin
+Persistence=session
+
+[org.manjaro.msm.kernel.remove]
+Name=Remove Kernel
+Description=Remove Kernel
+Policy=auth_admin
+Persistence=session

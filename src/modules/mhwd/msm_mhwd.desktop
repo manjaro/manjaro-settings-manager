@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Service
+Icon=audio-card
+Exec=kcmshell5 msm_mhwd
+
+X-KDE-Library=msm_mhwd
+X-KDE-ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=manjaro
+X-KDE-ParentApp=kcontrol
+X-KDE-PluginKeyword=msm_mhwd
+X-KDE-Keywords=hardware
+X-KDE-Keywords[x-test]=xxhardwarexx
+Categories=Qt;KDE;X-KDE-settings-system;manjaro
+
+Name=Hardware Detection
+Name[x-test]=xxHardware Detectionxx
+Comment=Hardware detection and installation
+Comment[x-test]=xxHardware detection and installationxx

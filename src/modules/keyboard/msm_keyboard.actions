@@ -1,0 +1,11 @@
+[Domain]
+Name=manjaro-settings-manager
+Name[x-test]=xxmanjaro-settings-managerxx
+Icon=kauth-example
+URL=https://github.com/manjaro/manjaro-settings-manager
+
+[org.manjaro.msm.keyboard.save]
+Name=Save Keyboard Settings
+Description=Save Keyboard Settings
+Policy=auth_admin
+Persistence=session

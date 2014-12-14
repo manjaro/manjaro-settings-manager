@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="/">
+    <file>icons/add.png</file>
+    <file>icons/ati.png</file>
+    <file>icons/gpudriver.png</file>
+    <file>icons/intel-nvidia.png</file>
+    <file>icons/intel.png</file>
+    <file>icons/nvidia.png</file>
+    <file>icons/remove.png</file>
+    <file>icons/restore.png</file>
+  </qresource>
+</RCC> 
+ 

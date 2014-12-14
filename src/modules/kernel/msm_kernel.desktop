@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Service
+Icon=preferences-system
+Exec=kcmshell5 msm_kernel
+
+X-KDE-Library=msm_kernel
+X-KDE-ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=manjaro
+X-KDE-ParentApp=kcontrol
+X-KDE-PluginKeyword=msm_kernel
+X-KDE-Keywords=kernel
+X-KDE-Keywords[x-test]=xxkernelxx
+Categories=Qt;KDE;X-KDE-settings-system;manjaro
+
+Name=Kernel
+Name[x-test]=xxKernelxx
+Comment=Add and remove manjaro kernels
+Comment[x-test]=xxAdd and remove manjaro kernelsxx

@@ -1,0 +1,17 @@
+[Domain]
+Name=manjaro-settings-manager
+Name[x-test]=xxmanjaro-settings-managerxx
+Icon=kauth-example
+URL=https://github.com/manjaro/manjaro-settings-manager
+
+[org.manjaro.msm.languagepackages.install]
+Name=Install Language Packages
+Description=Install Language Packages
+Policy=auth_admin
+Persistence=session
+
+[org.manjaro.msm.languagepackages.remove]
+Name=Remove Language Packages
+Description=Remove Language Packages
+Policy=auth_admin
+Persistence=session

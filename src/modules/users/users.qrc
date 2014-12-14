@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/">
+    <file>icons/add.png</file>
+    <file>icons/adduser.png</file>
+    <file>icons/lock.png</file>
+    <file>icons/remove.png</file>
+    <file>icons/user.png</file>
+    <file>icons/users.png</file>
+  </qresource>
+</RCC> 
+ 

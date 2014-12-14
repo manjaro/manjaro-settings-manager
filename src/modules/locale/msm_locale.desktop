@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Service
+Icon=preferences-desktop-locale
+Exec=kcmshell5 msm_locale
+
+X-KDE-Library=msm_locale
+X-KDE-ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=manjaro
+X-KDE-ParentApp=kcontrol
+X-KDE-PluginKeyword=msm_locale
+X-KDE-Keywords=locale
+X-KDE-Keywords[x-test]=xxkeyboardxx
+Categories=Qt;KDE;X-KDE-settings-system;manjaro
+
+Name=Locale
+Name[x-test]=xxLocalexx
+Comment=Locale Settings
+Comment[x-test]=xxLocale Settingssxx

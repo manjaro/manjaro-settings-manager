@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Service
+Icon=preferences-desktop-user
+Exec=kcmshell5 msm_users
+
+X-KDE-Library=msm_users
+X-KDE-ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=manjaro
+X-KDE-ParentApp=kcontrol
+X-KDE-PluginKeyword=msm_users
+X-KDE-Keywords=users
+X-KDE-Keywords[x-test]=xxusersxx
+Categories=Qt;KDE;X-KDE-settings-system;manjaro
+
+Name=User Accounts
+Name[x-test]=xxUser Accountsxx
+Comment=User Accounts
+Comment[x-test]=xxUser Accountsxx

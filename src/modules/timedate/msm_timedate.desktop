@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Service
+Icon=preferences-system-time
+Exec=kcmshell5 msm_timedate
+
+X-KDE-Library=msm_timedate
+X-KDE-ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=manjaro
+X-KDE-ParentApp=kcontrol
+X-KDE-PluginKeyword=msm_timedate
+X-KDE-Keywords=timedate
+X-KDE-Keywords[x-test]=xxtimedatesxx
+Categories=Qt;KDE;X-KDE-settings-system;manjaro
+
+Name=Time and Date
+Name[x-test]=xxTime and Datesxx
+Comment=Time and Date Settings
+Comment[x-test]=xxTime and Date Settingsxx

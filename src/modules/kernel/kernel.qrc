@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="/">
+    <file>changelogs/linux34.html</file>
+    <file>changelogs/linux38.html</file>
+    <file>changelogs/linux310.html</file>
+    <file>changelogs/linux311.html</file>
+    <file>changelogs/linux312.html</file>
+    <file>changelogs/linux313.html</file>
+    <file>changelogs/linux314.html</file>
+    <file>changelogs/linux315.html</file>
+    <file>changelogs/linux316.html</file>
+    <file>changelogs/linux317.html</file>
+  </qresource>
+</RCC> 

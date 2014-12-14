@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Service
+Icon=preferences-desktop-notification
+Exec=kcmshell5 msm_notifications
+
+X-KDE-Library=msm_notifications
+X-KDE-ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=manjaro
+X-KDE-ParentApp=kcontrol
+X-KDE-PluginKeyword=msm_notifications
+X-KDE-Keywords=notifications
+X-KDE-Keywords[x-test]=xxnotificationsxx
+Categories=Qt;KDE;X-KDE-settings-system;manjaro
+
+Name=Notifications
+Name[x-test]=xxNotificationsxx
+Comment=Language and Kernel Notifications Settings
+Comment[x-test]=xxLanguage and Kernel Notifications Settingsxx
