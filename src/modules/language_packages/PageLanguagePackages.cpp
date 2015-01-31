@@ -22,6 +22,8 @@
 #include "ui_PageLanguagePackages.h"
 
 #include <KAboutData>
+#include <KAuth>
+#include <KAuthAction>
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY(MsmLanguagePackagesFactory,
@@ -36,7 +38,7 @@ PageLanguagePackages::PageLanguagePackages(QWidget *parent, const QVariantList &
                                            PROJECT_VERSION,
                                            QStringLiteral(""),
                                            KAboutLicense::LicenseKey::GPL_V3,
-                                           i18nc("@info:credit", "Copyright 2014 Ramon Buldó"));
+                                           i18nc("@info:credit", "Copyright 2014-2015 Ramon Buldó"));
 
     aboutData->addAuthor(i18nc("@info:credit", "Ramon Buldó"),
                          i18nc("@info:credit", "Author"),
@@ -57,7 +59,12 @@ PageLanguagePackages::PageLanguagePackages(QWidget *parent, const QVariantList &
     ui->treeWidgetInstalled->setColumnWidth(1, 300);
 
     connect(ui->treeWidgetAvailable, &QTreeWidget::clicked,
-            this, &PageLanguagePackages::updateApplyEnabledState);
+            [=] (const QModelIndex &index)
+    {
+        if (index.isValid()) {
+            emit changed(true);
+        }
+    });
 }
 
 
@@ -80,27 +87,23 @@ void PageLanguagePackages::load() {
         addLanguagePackagesToTreeWidget(ui->treeWidgetAvailable, &availablePackages, true);
         addLanguagePackagesToTreeWidget(ui->treeWidgetInstalled, &installedPackages, false);
     }
-
-    updateApplyEnabledState();
 }
 
 
 
 void PageLanguagePackages::save() {
-    ApplyDialog dialog(this);
 
-    // Update pacman databases first
-    dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogress" << "-Sy", tr("Updating pacman databases..."), true);
+    // TODO: Update pacman database first
+    /*dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogress" << "-Sy", tr("Updating pacman databases..."), true);
 
     if (!dialog.processSuccess()) {
         //emit closePage(this);
         return;
-    }
+    }*/
 
     // Check if system is up-to-date
     if (!Global::isSystemUpToDate()) {
         QMessageBox::warning(this, tr("System is out-of-date"), tr("Your System is not up-to-date! You have to update it first to continue!"), QMessageBox::Ok, QMessageBox::Ok);
-       // emit closePage(this);
         return;
     }
 
@@ -116,32 +119,36 @@ void PageLanguagePackages::save() {
        }
     }
 
-    if (!packages.isEmpty())
-        dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogress" << "-S" << packages, tr("Installing language packages..."), false);
 
-    //emit closePage(this);
+    if (!packages.isEmpty()) {
+        //TODO: Progress UI
+        QStringList arguments;
+        arguments << "--noconfirm" << "--noprogress" << "-S" << packages;
+        QVariantMap args;
+        args["arguments"] = arguments;
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.languagepackages.install"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.languagepackages"));
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *job = installAction.execute();
+        connect(job, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (job->exec()) {
+            qDebug() << "Job Succesfull";
+        } else {
+            qDebug() << "Job Failed";
+        }
+    }
+    load();
 }
+
+
 
 void PageLanguagePackages::defaults()
 {
     this->load();
-}
-
-
-
-void PageLanguagePackages::updateApplyEnabledState() {
-     for(int i = 0; i < ui->treeWidgetAvailable->topLevelItemCount(); ++i) {
-        QTreeWidgetItem *topItem = ui->treeWidgetAvailable->topLevelItem(i);
-
-        for(int x = 0; x < topItem->childCount(); ++x) {
-            if (topItem->child(x)->checkState(2)) {
-                //emit setApplyEnabled(this, true);
-                return;
-            }
-        }
-     }
-
-     //emit setApplyEnabled(this, false);
 }
 
 

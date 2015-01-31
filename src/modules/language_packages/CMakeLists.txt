@@ -1,12 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(MSM_LANGUAGE_PACKAGES_SRCS
-    applydialog.cpp
     global.cpp
     PageLanguagePackages.cpp)
 
 set(MSM_LANGUAGE_PACKAGES_UI
-    ui/applydialog.ui
     ui/PageLanguagePackages.ui)
 ki18n_wrap_ui(MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
 

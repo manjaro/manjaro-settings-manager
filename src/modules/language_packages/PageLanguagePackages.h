@@ -76,10 +76,6 @@ private:
     Ui::PageLanguagePackages *ui;
 
     void addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable);
-
-protected slots:
-    void updateApplyEnabledState();
-
 };
 
 #endif // PAGELANGUAGEPACKAGES_H
