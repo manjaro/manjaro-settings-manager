@@ -1,7 +1,6 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(MSM_LOCALE_SRCS
-    applydialog.cpp
     global.cpp
     EnabledLocalesModel.cpp
     LanguageListViewDelegate.cpp
@@ -11,7 +10,6 @@ set(MSM_LOCALE_SRCS
     SupportedLocalesModel.cpp)
 
 set(MSM_LOCALE_UI
-    ui/applydialog.ui
     ui/LocaleModule.ui
     ui/SelectLocalesDialog.ui)
 ki18n_wrap_ui(MSM_LOCALE_SRCS ${MSM_LOCALE_UI})
@@ -32,7 +30,7 @@ install(FILES msm_locale.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 kauth_install_actions(org.manjaro.msm.locale msm_locale.actions)
 
-add_executable(msm_locale_authhelper LocaleAuthHelper.cpp)
-target_link_libraries(msm_locale_authhelper KF5::Auth KF5::ConfigCore)
+add_executable(msm_locale_authhelper LocaleAuthHelper.cpp global.cpp)
+target_link_libraries(msm_locale_authhelper Qt5::DBus KF5::Auth KF5::ConfigCore)
 install(TARGETS msm_locale_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_locale_authhelper org.manjaro.msm.locale root)

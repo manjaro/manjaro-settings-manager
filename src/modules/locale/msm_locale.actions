@@ -9,4 +9,3 @@ Name=Save Locale Settings
 Description=Save Locale Settings
 Policy=auth_admin
 Persistence=session
-

@@ -23,7 +23,6 @@
 #define LOCALEMODULE_H
 
 #include "global.h"
-#include "applydialog.h"
 #include "SelectLocalesDialog.h"
 #include "LanguageListViewDelegate.h"
 #include "EnabledLocalesModel.h"
@@ -77,8 +76,6 @@ private:
     QAction *setRegionAndFormatsAction_;
     QAction *setRegionAction_;
     QAction *setFormatsAction_;
-    bool updateLocaleGen();
-    bool setSystemLocale();
 
 protected slots:
     void addLocale();

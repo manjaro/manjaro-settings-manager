@@ -23,8 +23,9 @@
 #include "ui_LocaleModule.h"
 
 #include <KAboutData>
+#include <KAuth>
+#include <KAuthAction>
 
-#include <QtDBus/QDBusInterface>
 #include <QtWidgets/QMenu>
 
 #include <KPluginFactory>
@@ -42,7 +43,7 @@ LocaleModule::LocaleModule(QWidget *parent, const QVariantList &args) :
                                            PROJECT_VERSION,
                                            QStringLiteral(""),
                                            KAboutLicense::LicenseKey::GPL_V3,
-                                           i18nc("@info:credit", "Copyright 2014 Ramon Buldó"));
+                                           i18nc("@info:credit", "Copyright 2014-2015 Ramon Buldó"));
 
     aboutData->addAuthor(i18nc("@info:credit", "Ramon Buldó"),
                          i18nc("@info:credit", "Author"),
@@ -196,42 +197,55 @@ LocaleModule::LocaleModule(QWidget *parent, const QVariantList &args) :
         if (roles.contains(EnabledLocalesModel::AddressRole)) {
             ui->addressComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::CollateRole)) {
             ui->collateComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::CtypeRole)) {
             ui->ctypeComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::IdentificationRole)) {
             ui->identificationComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::LangRole)) {
             ui->langComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::MeasurementRole)) {
             ui->measurementComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::MonetaryRole)) {
             ui->monetaryComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::MessagesRole)) {
             ui->messagesComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::NameRole)) {
             ui->nameComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::NumericRole)) {
             ui->numericComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::PaperRole)) {
             ui->paperComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::TelephoneRole)) {
             ui->telephoneComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         } else if (roles.contains(EnabledLocalesModel::TimeRole)) {
             ui->timeComboBox->setCurrentIndex(topLeft.row());
             isSystemLocalesModified_ = true;
+            emit changed();
         }
     });
 
@@ -317,180 +331,85 @@ void LocaleModule::load()
 
 void LocaleModule::save()
 {
-    if (isLocaleListModified_) {
-        updateLocaleGen();
-    }
-    if (isSystemLocalesModified_) {
-        setSystemLocale();
+    if (isLocaleListModified_ || isSystemLocalesModified_) {
+
+        QVariantMap args;
+        args["isLocaleListModified"] = isLocaleListModified_;
+        args["isSystemLocalesModified"] = isSystemLocalesModified_;
+        args["locales"] = enabledLocalesModel_->locales();
+
+        QStringList localeList;
+        if (!enabledLocalesModel_->lang().isEmpty()) {
+            localeList << QString("LANG=%1").arg(enabledLocalesModel_->lang());
+        }
+        if (!enabledLocalesModel_->language().isEmpty()) {
+            localeList << QString("LANGUAGE=%1").arg(enabledLocalesModel_->language());
+        }
+        if (!enabledLocalesModel_->ctype().isEmpty()) {
+            localeList << QString("LC_CTYPE=%1").arg(enabledLocalesModel_->ctype());
+        }
+        if (!enabledLocalesModel_->numeric().isEmpty()) {
+            localeList << QString("LC_NUMERIC=%1").arg(enabledLocalesModel_->numeric());
+        }
+        if (!enabledLocalesModel_->time().isEmpty()) {
+            localeList << QString("LC_TIME=%1").arg(enabledLocalesModel_->time());
+        }
+        if (!enabledLocalesModel_->collate().isEmpty()) {
+            localeList << QString("LC_COLLATE=%1").arg(enabledLocalesModel_->collate());
+        }
+        if (!enabledLocalesModel_->monetary().isEmpty()) {
+            localeList << QString("LC_MONETARY=%1").arg(enabledLocalesModel_->monetary());
+        }
+        if (!enabledLocalesModel_->messages().isEmpty()) {
+            localeList << QString("LC_MESSAGES=%1").arg(enabledLocalesModel_->messages());
+        }
+        if (!enabledLocalesModel_->paper().isEmpty()) {
+            localeList << QString("LC_PAPER=%1").arg(enabledLocalesModel_->paper());
+        }
+        if (!enabledLocalesModel_->name().isEmpty()) {
+            localeList << QString("LC_NAME=%1").arg(enabledLocalesModel_->name());
+        }
+        if (!enabledLocalesModel_->address().isEmpty()) {
+            localeList << QString("LC_ADDRESS=%1").arg(enabledLocalesModel_->address());
+        }
+        if (!enabledLocalesModel_->telephone().isEmpty()) {
+            localeList << QString("LC_TELEPHONE=%1").arg(enabledLocalesModel_->telephone());
+        }
+        if (!enabledLocalesModel_->measurement().isEmpty()) {
+            localeList << QString("LC_MEASUREMENT=%1").arg(enabledLocalesModel_->measurement());
+        }
+        if (!enabledLocalesModel_->identification().isEmpty()) {
+            localeList << QString("LC_IDENTIFICATION=%1").arg(enabledLocalesModel_->identification());
+        }
+
+        args["localeList"] = localeList;
+
+        //TODO: Progress UI
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.locale.save"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.locale"));
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *job = installAction.execute();
+        connect(job, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (job->exec()) {
+            // tr("You might have to restart the graphical environment to apply the new settings...")
+            qDebug() << "Job Succesfull";
+        } else {
+            //QString(tr("Failed to set locale!")
+            qDebug() << "Job Failed";
+        }
+
+        load();
     }
 }
+
 
 void LocaleModule::defaults()
 {
     this->load();
-}
-
-
-/*
- * Update /etc/locale.gen file and run locale-gen
- * Return true if successful
- */
-bool LocaleModule::updateLocaleGen()
-{
-    const QString localeGen = "/etc/locale.gen";
-
-    QStringList locales = enabledLocalesModel_->locales();
-
-    QFile file(localeGen);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QMessageBox::warning(this,
-                             tr("Error!"),
-                             tr("Failed to open file '%1'!").arg(localeGen),
-                             QMessageBox::Ok, QMessageBox::Ok);
-        return false;
-    }
-
-    QStringList content;
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        content.append(line);
-        line = line.trimmed();
-
-        bool found = false;
-
-        for (QString locale : locales) {
-            if (line.startsWith(locale + " ")) {
-                found = true;
-                locales.removeAll(locale);
-                break;
-            }
-
-            if (line.startsWith("#" + locale + " ")) {
-                content.removeLast();
-                content.append(line.remove(0, 1));
-                found = true;
-                locales.removeAll(locale);
-                break;
-            }
-        }
-
-        if (!found && !line.split("#", QString::KeepEmptyParts).first().trimmed().isEmpty()) {
-            content.removeLast();
-            content.append("#" + line);
-        }
-    }
-    file.close();
-
-    // Add missing locales in the file
-    for (QString locale : locales) {
-        QString str = Global::localeToValidLocaleGenString(locale);
-
-        if (str.isEmpty()) {
-            QMessageBox::warning(this,
-                                 tr("Error!"),
-                                 tr("Failed to obtain valid locale string for locale '%1'!").arg(locale),
-                                 QMessageBox::Ok, QMessageBox::Ok);
-            continue;
-        }
-
-        content.append(str);
-    }
-
-
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QMessageBox::warning(this,
-                             tr("Error!"),
-                             tr("Failed to open file '%1'!").arg(localeGen),
-                             QMessageBox::Ok, QMessageBox::Ok);
-        return false;
-    }
-
-    QTextStream out(&file);
-    out << content.join("\n");
-    file.close();
-
-
-    /* Generate new locales */
-    ApplyDialog dialog(this);
-    dialog.exec("locale-gen", QStringList(), tr("Generating locale.gen file..."), false);
-
-    if (dialog.processSuccess()) {
-        QMessageBox::information(this, tr("Hint"), tr("You might have to restart the graphical environment to apply the new settings..."), QMessageBox::Ok, QMessageBox::Ok);
-    }
-    return true;
-}
-
-
-/*
- * Modify /etc/locale.conf using systemd-localed
- */
-bool LocaleModule::setSystemLocale()
-{
-    QStringList localeList;
-    if (!enabledLocalesModel_->lang().isEmpty()) {
-        localeList << QString("LANG=%1").arg(enabledLocalesModel_->lang());
-    }
-    if (!enabledLocalesModel_->language().isEmpty()) {
-        localeList << QString("LANGUAGE=%1").arg(enabledLocalesModel_->language());
-    }
-    if (!enabledLocalesModel_->ctype().isEmpty()) {
-        localeList << QString("LC_CTYPE=%1").arg(enabledLocalesModel_->ctype());
-    }
-    if (!enabledLocalesModel_->numeric().isEmpty()) {
-        localeList << QString("LC_NUMERIC=%1").arg(enabledLocalesModel_->numeric());
-    }
-    if (!enabledLocalesModel_->time().isEmpty()) {
-        localeList << QString("LC_TIME=%1").arg(enabledLocalesModel_->time());
-    }
-    if (!enabledLocalesModel_->collate().isEmpty()) {
-        localeList << QString("LC_COLLATE=%1").arg(enabledLocalesModel_->collate());
-    }
-    if (!enabledLocalesModel_->monetary().isEmpty()) {
-        localeList << QString("LC_MONETARY=%1").arg(enabledLocalesModel_->monetary());
-    }
-    if (!enabledLocalesModel_->messages().isEmpty()) {
-        localeList << QString("LC_MESSAGES=%1").arg(enabledLocalesModel_->messages());
-    }
-    if (!enabledLocalesModel_->paper().isEmpty()) {
-        localeList << QString("LC_PAPER=%1").arg(enabledLocalesModel_->paper());
-    }
-    if (!enabledLocalesModel_->name().isEmpty()) {
-        localeList << QString("LC_NAME=%1").arg(enabledLocalesModel_->name());
-    }
-    if (!enabledLocalesModel_->address().isEmpty()) {
-        localeList << QString("LC_ADDRESS=%1").arg(enabledLocalesModel_->address());
-    }
-    if (!enabledLocalesModel_->telephone().isEmpty()) {
-        localeList << QString("LC_TELEPHONE=%1").arg(enabledLocalesModel_->telephone());
-    }
-    if (!enabledLocalesModel_->measurement().isEmpty()) {
-        localeList << QString("LC_MEASUREMENT=%1").arg(enabledLocalesModel_->measurement());
-    }
-    if (!enabledLocalesModel_->identification().isEmpty()) {
-        localeList << QString("LC_IDENTIFICATION=%1").arg(enabledLocalesModel_->identification());
-    }
-
-    QDBusInterface dbusInterface("org.freedesktop.locale1",
-                                 "/org/freedesktop/locale1",
-                                 "org.freedesktop.locale1",
-                                 QDBusConnection::systemBus());
-    /*
-     * asb
-     * array_string -> locale
-     * boolean -> arg_ask_password
-     */
-    QDBusMessage reply;
-    reply = dbusInterface.call("SetLocale", localeList, true);
-    if (reply.type() == QDBusMessage::ErrorMessage) {
-        QMessageBox::warning(this,
-                             tr("Error!"),
-                             QString(tr("Failed to set locale!") + "\n" + reply.errorMessage()),
-                             QMessageBox::Ok, QMessageBox::Ok);
-        return false;
-    }
-    return true;
 }
 
 
@@ -506,6 +425,7 @@ void LocaleModule::addLocale()
     QString localeCode = dialog.getLocale();
     if (enabledLocalesModel_->insertLocale(enabledLocalesModel_->rowCount(QModelIndex()), 1, localeCode)) {
         isLocaleListModified_ = true;
+        emit changed();
     }
 }
 
@@ -516,6 +436,7 @@ void LocaleModule::removeLocale() {
         if (enabledLocalesModel_->removeLocale(localeCurrentIndex.row(), 1)) {
             ui->localeListView->setCurrentIndex(QModelIndex());
             isLocaleListModified_ = true;
+            emit changed();
         }
     }
 }
