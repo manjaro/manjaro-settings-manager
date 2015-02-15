@@ -8,3 +8,4 @@ build-manjaro-settings-manager-Desktop-Debug
 build-manjaro-settings-manager-Qt4_Desktop-Debug
 *.qm
 .directory
+pkg
