@@ -5,13 +5,11 @@ set(MSM_KERNEL_SRCS
     KernelModel.cpp
     KernelListViewDelegate.cpp
     KernelInfoDialog.cpp
-    PageKernel.cpp
-    applydialog.cpp)
+    PageKernel.cpp)
 
 set(MSM_KERNEL_UI
     ui/PageKernel.ui
-    ui/KernelInfoDialog.ui
-    ui/applydialog.ui)
+    ui/KernelInfoDialog.ui)
 ki18n_wrap_ui(MSM_KERNEL_SRCS ${MSM_KERNEL_UI})
 
 set(MSM_KERNEL_RESOURCES

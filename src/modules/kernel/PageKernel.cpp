@@ -22,7 +22,6 @@
 #include "ui_PageKernel.h"
 
 #include "KernelListViewDelegate.h"
-#include "applydialog.h"
 
 #include <KAboutData>
 #include <KAuth>

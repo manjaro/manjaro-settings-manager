@@ -1,14 +1,12 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(MSM_MHWD_SRCS
-    applydialog.cpp
     global.cpp
     PageMhwd.cpp
     libmhwd/mhwd.cpp
     libmhwd/vita/string.cpp)
 
 set(MSM_MHWD_UI
-    ui/applydialog.ui
     ui/PageMhwd.ui)
 ki18n_wrap_ui(MSM_MHWD_SRCS ${MSM_MHWD_UI})
 

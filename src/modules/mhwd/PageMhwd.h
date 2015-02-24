@@ -24,7 +24,6 @@
 #define PAGEMHWD_H
 
 #include "global.h"
-#include "applydialog.h"
 
 #include <KCModule>
 
