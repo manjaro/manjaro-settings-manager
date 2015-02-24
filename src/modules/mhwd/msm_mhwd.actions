@@ -6,12 +6,12 @@ URL=https://github.com/manjaro/manjaro-settings-manager
 
 [org.manjaro.msm.mhwd.install]
 Name=Install Driver
-Description=Install Driver
+Description=Install MHWD Driver
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.mhwd.remove]
 Name=Remove Driver
-Description=Remove Driver
+Description=Remove MHWD Driver
 Policy=auth_admin
 Persistence=session

@@ -24,6 +24,11 @@
 #include "libmhwd/mhwd.h"
 
 #include <KAboutData>
+#include <KAuth>
+#include <KAuthAction>
+
+#include <QtWidgets/QMessageBox>
+
 #include <KPluginFactory>
 K_PLUGIN_FACTORY(MsmMhwdFactory,
                  registerPlugin<PageMhwd>("msm_mhwd");)
@@ -191,8 +196,24 @@ void PageMhwd::buttonInstallFree_clicked()
                                   tr("Do you really want to auto install\n the open-source graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing open-source graphic driver..."), false);
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.remove"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.mhwd"));
+        QVariantMap args;
+        args["arguments"] = QStringList() << "-a" << "pci" << "free" << "0300";
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *job = installAction.execute();
+        connect(job, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (job->exec()) {
+            qDebug() << "Mwhd install Job Succesfull";
+        } else {
+            qDebug() << "Mwhd install Job Failed";
+        }
+        //ApplyDialog dialog(this);
+        //dialog.exec("mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr("Installing open-source graphic driver..."), false);
     }
     load();
 }
@@ -207,8 +228,24 @@ void PageMhwd::buttonInstallNonFree_clicked()
                                   tr("Do you really want to auto install\n the proprietary graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing proprietary graphic driver..."), false);
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.remove"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.mhwd"));
+        QVariantMap args;
+        args["arguments"] = QStringList() << "-a" << "pci" << "nonfree" << "0300";
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *job = installAction.execute();
+        connect(job, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (job->exec()) {
+            qDebug() << "Mwhd install Job Succesfull";
+        } else {
+            qDebug() << "Mwhd install Job Failed";
+        }
+        //ApplyDialog dialog(this);
+        //dialog.exec("mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr("Installing proprietary graphic driver..."), false);
     }
     load();
 }
@@ -237,14 +274,31 @@ void PageMhwd::installAction_triggered()
 {
     QTreeWidgetItem* temp = ui->treeWidget->currentItem();
     QString configuration = temp->text(0);
+
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,
                                   tr("Install Configuration"),
                                   tr("Do you really want to install\n%1?").arg(configuration),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-i" << "pci" << configuration, tr("Installing driver..."), false);
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.install"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.mhwd"));
+        QVariantMap args;
+        args["arguments"] = QStringList() << "-i" << "pci" << configuration;
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *job = installAction.execute();
+        connect(job, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (job->exec()) {
+            qDebug() << "Mwhd install Job Succesfull";
+        } else {
+            qDebug() << "Mwhd install Job Failed";
+        }
+        //ApplyDialog dialog(this);
+        //dialog.exec("mhwd", QStringList() << "-i" << "pci" << configuration, tr("Installing driver..."), false);
     }
     load();
 }
@@ -261,8 +315,24 @@ void PageMhwd::removeAction_triggered()
                                   tr("Do you really want to remove\n%1?").arg(configuration),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-r" << "pci" << configuration, tr("Removing driver..."), false);
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.remove"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.mhwd"));
+        QVariantMap args;
+        args["arguments"] = QStringList() << "-r" << "pci" << configuration;
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *job = installAction.execute();
+        connect(job, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (job->exec()) {
+            qDebug() << "Mwhd install Job Succesfull";
+        } else {
+            qDebug() << "Mwhd install Job Failed";
+        }
+        //ApplyDialog dialog(this);
+        //dialog.exec("mhwd", QStringList() << "-r" << "pci" << configuration, tr("Removing driver..."), false);
     }
     load();
 }
@@ -279,8 +349,24 @@ void PageMhwd::forceReinstallationAction_triggered()
                                   tr("Do you really want to force the reinstallation of\n%1?").arg(configuration),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        ApplyDialog dialog(this);
-        dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr("Reinstalling driver..."), false);
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.install"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.mhwd"));
+        QVariantMap args;
+        args["arguments"] = QStringList() << "-f" << "-i" << "pci" << configuration;
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *job = installAction.execute();
+        connect(job, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (job->exec()) {
+            qDebug() << "Mwhd install Job Succesfull";
+        } else {
+            qDebug() << "Mwhd install Job Failed";
+        }
+        //ApplyDialog dialog(this);
+        //dialog.exec("mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr("Reinstalling driver..."), false);
     }
     load();
 }
