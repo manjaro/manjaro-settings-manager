@@ -21,8 +21,6 @@
 #ifndef PAGELANGUAGEPACKAGES_H
 #define PAGELANGUAGEPACKAGES_H
 
-#include "applydialog.h"
-
 #include <global.h>
 
 #include <KCModule>
