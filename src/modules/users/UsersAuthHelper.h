@@ -12,9 +12,9 @@ class UsersAuthHelper : public QObject
   public Q_SLOTS:
   ActionReply add(const QVariantMap& args);
   ActionReply remove(const QVariantMap& args);
-  ActionReply changePassword(const QVariantMap& args);
-  ActionReply changeAccountType(const QVariantMap& args);
-  ActionReply changeImage(const QVariantMap& args);
+  ActionReply changepassword(const QVariantMap& args);
+  ActionReply changeaccounttype(const QVariantMap& args);
+  ActionReply changeimage(const QVariantMap& args);
 };
 
 #endif // USERSAUTHHELPER_H
