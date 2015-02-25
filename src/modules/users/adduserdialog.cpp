@@ -21,6 +21,8 @@
 #include "adduserdialog.h"
 #include "ui_adduserdialog.h"
 
+#include <KAuth>
+#include <KAuthAction>
 
 AddUserDialog::AddUserDialog(QWidget *parent) :
     QDialog(parent),
@@ -74,7 +76,7 @@ void AddUserDialog::textbox_textChanged() {
 }
 
 
-
+// TODO: Now it ask twice for a password (add user and change password) fix this.
 void AddUserDialog::buttonCreate_clicked() {
     QString errorMessage;
     QString username = ui->textBoxUsername->text();
@@ -101,26 +103,44 @@ void AddUserDialog::buttonCreate_clicked() {
     dataChanged = true;
 
     // Add user
-    if (Global::runProcess("useradd",
-                           QStringList() << "-m" << "-p" << "" << "-g" << "users" << "-G" << DEFAULT_USER_GROUPS << username,
-                           QStringList(),
-                           errorMessage) != 0)
+    KAuth::Action installActionAdd(QLatin1String("org.manjaro.msm.users.add"));
+    installActionAdd.setHelperId(QLatin1String("org.manjaro.msm.users"));
+    QVariantMap args;
+    args["arguments"] = QStringList() << "-m" << "-p" << "" << "-g" << "users" << "-G" << DEFAULT_USER_GROUPS << username;
+    installActionAdd.setArguments(args);
+    KAuth::ExecuteJob *jobAdd = installActionAdd.execute();
+    connect(jobAdd, &KAuth::ExecuteJob::newData,
+            [=] (const QVariantMap &data)
     {
+        qDebug() << data;
+    });
+    if (jobAdd->exec()) {
+        qDebug() << "Add User Job Succesfull";
+    } else {
         QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to add user!") + "\n" + errorMessage), QMessageBox::Ok, QMessageBox::Ok);
         close();
         return;
     }
 
     // Set password
-    if (Global::runProcess("passwd",
-                           QStringList() << username,
-                           QStringList() << password << password,
-                           errorMessage) != 0)
+    KAuth::Action installActionUsersChangePassword(QLatin1String("org.manjaro.msm.users.changepassword"));
+    installActionUsersChangePassword.setHelperId(QLatin1String("org.manjaro.msm.users"));
+    args.clear();
+    args["arguments"] = QStringList() << username;
+    args["writeArgs"] = QStringList() << password << password;
+    installActionUsersChangePassword.setArguments(args);
+    KAuth::ExecuteJob *jobChangePassword = installActionUsersChangePassword.execute();
+    connect(jobChangePassword, &KAuth::ExecuteJob::newData,
+            [=] (const QVariantMap &data)
     {
+        qDebug() << data;
+    });
+    if (jobChangePassword->exec()) {
+        qDebug() << "Add User Job Succesfull";
+    } else {
         QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set user's password!") + "\n" + errorMessage), QMessageBox::Ok, QMessageBox::Ok);
         close();
         return;
     }
-
     close();
 }
