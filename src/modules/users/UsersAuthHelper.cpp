@@ -1,7 +1,6 @@
 #include "UsersAuthHelper.h"
 
 #include <QtCore/QProcess>
-#include <QDebug>
 
 ActionReply UsersAuthHelper::add(const QVariantMap& args)
 {
@@ -58,7 +57,6 @@ ActionReply UsersAuthHelper::changepassword(const QVariantMap &args)
     }
 
     for (QString arg : args["writeArgs"].toStringList()) {
-        qDebug() << arg;
         passwd->write(QString(arg + "\n").toUtf8());
     }
 
