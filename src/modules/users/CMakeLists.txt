@@ -1,19 +1,19 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(MSM_USERS_SRCS
-    accounttypedialog.cpp
-    adduserdialog.cpp
-    changepassworddialog.cpp
+    AccountTypeDialog.cpp
+    AddUserDialog.cpp
+    ChangePasswordDialog.cpp
     FlatButton.cpp
     global.cpp
     ListWidget.cpp
     PageUsers.cpp
-    previewfiledialog.cpp)
+    PreviewFileDialog.cpp)
 
 set(MSM_USERS_UI
-    ui/accounttypedialog.ui
-    ui/adduserdialog.ui
-    ui/changepassworddialog.ui
+    ui/AccountTypeDialog.ui
+    ui/AddUserDialog.ui
+    ui/ChangePasswordDialog.ui
     ui/PageUsers.ui)
 ki18n_wrap_ui(MSM_USERS_SRCS ${MSM_USERS_UI})
 

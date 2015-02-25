@@ -21,10 +21,10 @@
 #ifndef PAGEUSERS_H
 #define PAGEUSERS_H
 
-#include "adduserdialog.h"
-#include "changepassworddialog.h"
-#include "accounttypedialog.h"
-#include "previewfiledialog.h"
+#include "AddUserDialog.h"
+#include "ChangePasswordDialog.h"
+#include "AccountTypeDialog.h"
+#include "PreviewFileDialog.h"
 #include "global.h"
 #include "const.h"
 

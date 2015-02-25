@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "changepassworddialog.h"
-#include "ui_changepassworddialog.h"
+#include "ChangePasswordDialog.h"
+#include "ui_ChangePasswordDialog.h"
 
 
 ChangePasswordDialog::ChangePasswordDialog(QWidget *parent) :

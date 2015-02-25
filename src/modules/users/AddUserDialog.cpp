@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "adduserdialog.h"
-#include "ui_adduserdialog.h"
+#include "AddUserDialog.h"
+#include "ui_AddUserDialog.h"
 
 #include <KAuth>
 #include <KAuthAction>

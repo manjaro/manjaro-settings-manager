@@ -19,7 +19,7 @@
  */
 
 
-#include "previewfiledialog.h"
+#include "PreviewFileDialog.h"
 
 
 

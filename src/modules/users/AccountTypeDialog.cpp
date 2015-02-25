@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "accounttypedialog.h"
-#include "ui_accounttypedialog.h"
+#include "AccountTypeDialog.h"
+#include "ui_AccountTypeDialog.h"
 
 AccountTypeDialog::AccountTypeDialog(QWidget *parent) :
     QDialog(parent),
