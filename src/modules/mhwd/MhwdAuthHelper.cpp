@@ -5,40 +5,40 @@
 
 ActionReply MhwdAuthHelper::install(const QVariantMap& args)
 {
-    QProcess *pacman = new QProcess();
-    pacman->start("/usr/bin/mhwd", args["arguments"].toStringList());
-    connect(pacman, &QProcess::readyRead,
+    QProcess *mhwd = new QProcess();
+    mhwd->start("/usr/bin/mhwd", args["arguments"].toStringList());
+    connect(mhwd, &QProcess::readyRead,
             [=] ()
     {
-        QString data = QString::fromUtf8(pacman->readAll()).trimmed();
+        QString data = QString::fromUtf8(mhwd->readAll()).trimmed();
         if (!data.isEmpty()) {
             QVariantMap map;
             map.insert(QLatin1String("Data"), data);
             HelperSupport::progressStep(map);
         }
     });
-    pacman->waitForStarted();
-    pacman->waitForFinished(-1);
+    mhwd->waitForStarted();
+    mhwd->waitForFinished(-1);
     return ActionReply::SuccessReply();
 }
 
 
 ActionReply MhwdAuthHelper::remove(const QVariantMap& args)
 {
-    QProcess *pacman = new QProcess();
-    pacman->start("/usr/bin/mhwd", args["arguments"].toStringList());
-    connect(pacman, &QProcess::readyRead,
+    QProcess *mhwd = new QProcess();
+    mhwd->start("/usr/bin/mhwd", args["arguments"].toStringList());
+    connect(mhwd, &QProcess::readyRead,
             [=] ()
     {
-        QString data = QString::fromUtf8(pacman->readAll()).trimmed();
+        QString data = QString::fromUtf8(mhwd->readAll()).trimmed();
         if (!data.isEmpty()) {
             QVariantMap map;
             map.insert(QLatin1String("Data"), data);
             HelperSupport::progressStep(map);
         }
     });
-    pacman->waitForStarted();
-    pacman->waitForFinished(-1);
+    mhwd->waitForStarted();
+    mhwd->waitForFinished(-1);
     return ActionReply::SuccessReply();
 }
 
