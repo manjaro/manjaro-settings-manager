@@ -196,7 +196,7 @@ void PageMhwd::buttonInstallFree_clicked()
                                   tr("Do you really want to auto install\n the open-source graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.remove"));
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.install"));
         installAction.setHelperId(QLatin1String("org.manjaro.msm.mhwd"));
         QVariantMap args;
         args["arguments"] = QStringList() << "-a" << "pci" << "free" << "0300";
@@ -228,7 +228,7 @@ void PageMhwd::buttonInstallNonFree_clicked()
                                   tr("Do you really want to auto install\n the proprietary graphic driver?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.remove"));
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.mhwd.install"));
         installAction.setHelperId(QLatin1String("org.manjaro.msm.mhwd"));
         QVariantMap args;
         args["arguments"] = QStringList() << "-a" << "pci" << "nonfree" << "0300";
