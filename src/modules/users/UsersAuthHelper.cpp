@@ -31,10 +31,36 @@ ActionReply UsersAuthHelper::add(const QVariantMap& args)
     return ActionReply::SuccessReply();
 }
 
+
 ActionReply UsersAuthHelper::remove(const QVariantMap& args)
 {
+    QProcess *userdel = new QProcess();
+    userdel->start("/usr/bin/userdel", args["arguments"].toStringList());
+    connect(userdel, &QProcess::readyRead,
+            [=] ()
+    {
+        QString data = QString::fromUtf8(userdel->readAll()).trimmed();
+        if (!data.isEmpty()) {
+            QVariantMap map;
+            map.insert(QLatin1String("Data"), data);
+            HelperSupport::progressStep(map);
+        }
+    });
+    if (!userdel->waitForStarted(5000)) {
+        return ActionReply::HelperErrorReply();
+    }
+
+    if (!userdel->waitForFinished(15000)) {
+        return ActionReply::HelperErrorReply();
+    }
+
+    if (userdel->exitCode() != QProcess::NormalExit) {
+        return ActionReply::HelperErrorReply();
+    }
+
     return ActionReply::SuccessReply();
 }
+
 
 ActionReply UsersAuthHelper::changepassword(const QVariantMap &args)
 {
@@ -73,10 +99,12 @@ ActionReply UsersAuthHelper::changepassword(const QVariantMap &args)
     return ActionReply::SuccessReply();
 }
 
+
 ActionReply UsersAuthHelper::changeaccounttype(const QVariantMap &args)
 {
     return ActionReply::SuccessReply();
 }
+
 
 ActionReply UsersAuthHelper::changeimage(const QVariantMap &args)
 {

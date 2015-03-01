@@ -22,6 +22,9 @@
 #include "ui_PageUsers.h"
 
 #include <KAboutData>
+#include <KAuth>
+#include <KAuthAction>
+
 #include <KPluginFactory>
 K_PLUGIN_FACTORY(MsmUsersFactory,
                  registerPlugin<PageUsers>("msm_users");)
@@ -243,35 +246,45 @@ void PageUsers::buttonRemoveUser_clicked() {
     if (!item)
         return;
 
+    QString username = item->text();
+
     if (QMessageBox::No == QMessageBox::question(this,
                                                  tr("Continue?"),
-                                                 tr("Do you really want to remove the user %1?").arg(item->text()),
+                                                 tr("Do you really want to remove the user %1?").arg(username),
                                                  QMessageBox::Yes | QMessageBox::No,
-                                                 QMessageBox::No))
+                                                 QMessageBox::No)) {
         return;
+    }
 
-    QStringList args;
-
+    QString removeHome = "";
     if (QMessageBox::Yes == QMessageBox::question(this,
                                                   tr("Remove Home?"),
-                                                  tr("Do you want to remove the home folder of the user %1?").arg(item->text()),
+                                                  tr("Do you want to remove the home folder of the user %1?").arg(username),
                                                   QMessageBox::Yes | QMessageBox::No,
-                                                  QMessageBox::No))
-        args << "-r";
+                                                  QMessageBox::No)) {
+        removeHome = "-r";
+    }
 
     // Remove user
-    QString errorMessage;
+    KAuth::Action installAction(QLatin1String("org.manjaro.msm.users.remove"));
+    installAction.setHelperId(QLatin1String("org.manjaro.msm.users"));
+    QVariantMap args;
+    args["arguments"] = QStringList() << removeHome << username;
+    installAction.setArguments(args);
+    KAuth::ExecuteJob *jobAdd = installAction.execute();
+    connect(jobAdd, &KAuth::ExecuteJob::newData,
+            [=] (const QVariantMap &data)
+    {
+        qDebug() << data;
+    });
+    if (jobAdd->exec()) {
+        qDebug() << "Remove user job succesfull";
+    } else {
+        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to remove user %1").arg(username)), QMessageBox::Ok, QMessageBox::Ok);
+        close();
+        return;
+    }
 
-    if (Global::runProcess("userdel",
-                           args << item->text(),
-                           QStringList(),
-                           errorMessage) != 0)
-        QMessageBox::warning(this,
-                             tr("Error!"),
-                             QString(tr("Failed to remove user %1!").arg(item->text()) + "\n" + errorMessage),
-                             QMessageBox::Ok, QMessageBox::Ok);
-
-    // Refresh list
     load();
 }
 
