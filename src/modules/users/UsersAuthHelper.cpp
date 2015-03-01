@@ -102,6 +102,30 @@ ActionReply UsersAuthHelper::changepassword(const QVariantMap &args)
 
 ActionReply UsersAuthHelper::changeaccounttype(const QVariantMap &args)
 {
+    QProcess *usermod = new QProcess();
+    usermod->start("/usr/bin/usermod", args["arguments"].toStringList());
+    connect(usermod, &QProcess::readyRead,
+            [=] ()
+    {
+        QString data = QString::fromUtf8(usermod->readAll()).trimmed();
+        if (!data.isEmpty()) {
+            QVariantMap map;
+            map.insert(QLatin1String("Data"), data);
+            HelperSupport::progressStep(map);
+        }
+    });
+    if (!usermod->waitForStarted(5000)) {
+        return ActionReply::HelperErrorReply();
+    }
+
+    if (!usermod->waitForFinished(15000)) {
+        return ActionReply::HelperErrorReply();
+    }
+
+    if (usermod->exitCode() != QProcess::NormalExit) {
+        return ActionReply::HelperErrorReply();
+    }
+
     return ActionReply::SuccessReply();
 }
 

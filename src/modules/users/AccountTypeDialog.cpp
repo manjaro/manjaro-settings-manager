@@ -21,6 +21,9 @@
 #include "AccountTypeDialog.h"
 #include "ui_AccountTypeDialog.h"
 
+#include <KAuth>
+#include <KAuthAction>
+
 AccountTypeDialog::AccountTypeDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AccountTypeDialog)
@@ -43,12 +46,10 @@ AccountTypeDialog::AccountTypeDialog(QWidget *parent) :
 }
 
 
-
 AccountTypeDialog::~AccountTypeDialog()
 {
     delete ui;
 }
-
 
 
 int AccountTypeDialog::exec(QString username) {
@@ -93,12 +94,6 @@ int AccountTypeDialog::exec(QString username) {
 }
 
 
-
-//###
-//### Private
-//###
-
-
 void AccountTypeDialog::checkSudoersFile() {
     QFile file(SUDOERSFILE);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -126,46 +121,54 @@ void AccountTypeDialog::checkSudoersFile() {
 }
 
 
-
-
 void AccountTypeDialog::buttonApply_clicked() {
     QStringList groups;
 
     for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
        QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
 
-       if (item->checkState(1) == Qt::Checked)
+       if (item->checkState(1) == Qt::Checked) {
            groups.append(item->text(0));
+       }
     }
 
     // Check if default groups have been disabled
     QStringList missingDefaultGroups, defaultGroups = QString(DEFAULT_USER_GROUPS).split(",", QString::SkipEmptyParts);
     foreach (QString defaultGroup, defaultGroups) {
-        if (!groups.contains(defaultGroup))
+        if (!groups.contains(defaultGroup)) {
             missingDefaultGroups.append(defaultGroup);
+        }
     }
 
     if (!missingDefaultGroups.isEmpty()
             && QMessageBox::No == QMessageBox::question(this,
                                                         tr("Warning!"),
                                                         tr("Following default user groups have been disabled:\n%1\nIt is recommended to enable those groups. Do you really want to continue?").arg(missingDefaultGroups.join(", ")),
-                                                        QMessageBox::Yes | QMessageBox::No, QMessageBox::No))
+                                                        QMessageBox::Yes | QMessageBox::No, QMessageBox::No)) {
         return;
+    }
 
     userGroupDataChanged = true;
 
     // Set groups
-    QString errorMessage;
-    if (Global::runProcess("usermod",
-                           QStringList() << "-G" << groups.join(",") << username,
-                           QStringList(),
-                           errorMessage) != 0)
-        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set groups!") + "\n" + errorMessage), QMessageBox::Ok, QMessageBox::Ok);
-
-    close();
+    KAuth::Action installAction(QLatin1String("org.manjaro.msm.users.changeaccounttype"));
+    installAction.setHelperId(QLatin1String("org.manjaro.msm.users"));
+    QVariantMap args;
+    args["arguments"] = QStringList() << "-G" << groups.join(",") << username;
+    installAction.setArguments(args);
+    KAuth::ExecuteJob *jobAdd = installAction.execute();
+    connect(jobAdd, &KAuth::ExecuteJob::newData,
+            [=] (const QVariantMap &data)
+    {
+        qDebug() << data;
+    });
+    if (jobAdd->exec()) {
+        qDebug() << "Groups set successfully";
+    } else {
+        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set groups!")), QMessageBox::Ok, QMessageBox::Ok);
+        close();
+    }
 }
-
-
 
 
 void AccountTypeDialog::checkBoxShowGroups_toggled(bool toggled) {
@@ -178,7 +181,6 @@ void AccountTypeDialog::checkBoxShowGroups_toggled(bool toggled) {
 }
 
 
-
 void AccountTypeDialog::treeWidget_itemChanged(QTreeWidgetItem *item, int column) {
     if (item->text(0) != ADMIN_GROUP || column != 1)
         return;
@@ -188,7 +190,6 @@ void AccountTypeDialog::treeWidget_itemChanged(QTreeWidgetItem *item, int column
     else
         ui->comboBoxAccountType->setCurrentIndex(0);
 }
-
 
 
 void AccountTypeDialog::comboBoxAccountType_currentIndexChanged(int index) {
