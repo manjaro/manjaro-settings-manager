@@ -24,6 +24,8 @@
 #include <KAuth>
 #include <KAuthAction>
 
+#include <QDebug>
+
 AddUserDialog::AddUserDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddUserDialog)
@@ -40,12 +42,10 @@ AddUserDialog::AddUserDialog(QWidget *parent) :
 }
 
 
-
 AddUserDialog::~AddUserDialog()
 {
     delete ui;
 }
-
 
 
 int AddUserDialog::exec() {
@@ -58,12 +58,6 @@ int AddUserDialog::exec() {
 
     return QDialog::exec();
 }
-
-
-
-//###
-//### Private
-//###
 
 
 void AddUserDialog::textbox_textChanged() {

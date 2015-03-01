@@ -27,7 +27,6 @@
 #include <QRegExp>
 #include <QRegExpValidator>
 #include <const.h>
-#include <global.h>
 
 
 namespace Ui {

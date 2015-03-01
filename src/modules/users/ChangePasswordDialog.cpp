@@ -24,6 +24,8 @@
 #include <KAuth>
 #include <KAuthAction>
 
+#include <QDebug>
+
 ChangePasswordDialog::ChangePasswordDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ChangePasswordDialog)

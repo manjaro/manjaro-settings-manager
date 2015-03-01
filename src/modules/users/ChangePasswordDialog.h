@@ -24,8 +24,6 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <QStringList>
-#include <const.h>
-#include <global.h>
 
 
 namespace Ui {
