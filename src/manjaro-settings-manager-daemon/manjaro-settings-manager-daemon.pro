@@ -26,14 +26,15 @@ DEPENDPATH += $$PWD/../global
 
 unix:!macx: PRE_TARGETDEPS += $$OUT_PWD/../global/libglobal.a
 
-TRANSLATIONS += translations/msmd_ast.ts \
+TRANSLATIONS += translations/msmd_ar.ts \
+                translations/msmd_ast.ts \
                 translations/msmd_bg_BG.ts \
                 translations/msmd_ca.ts \
                 translations/msmd_cs_CZ.ts \
                 translations/msmd_da.ts \
                 translations/msmd_de.ts \
-                translations/msmd_en.ts \
                 translations/msmd_el.ts \
+                translations/msmd_en.ts \
                 translations/msmd_es.ts \
                 translations/msmd_fa.ts \
                 translations/msmd_fa_IR.ts \
@@ -44,8 +45,13 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_hr.ts \
                 translations/msmd_hu.ts \
                 translations/msmd_id_ID.ts \
+                translations/msmd_is.ts \
                 translations/msmd_it.ts \
                 translations/msmd_ja.ts \
+                translations/msmd_ka.ts \
+                translations/msmd_lt.ts \
+                translations/msmd_ml.ts \
+                translations/msmd_ms.ts \
                 translations/msmd_nb.ts \
                 translations/msmd_nl.ts \
                 translations/msmd_pl.ts \
@@ -55,10 +61,15 @@ TRANSLATIONS += translations/msmd_ast.ts \
                 translations/msmd_ru.ts \
                 translations/msmd_sk_SK.ts \
                 translations/msmd_sl.ts \
+                translations/msmd_sr.ts \
                 translations/msmd_sr@latin.ts \
+                translations/msmd_sr_RS.ts \
+                translations/msmd_sr_RS@latin.ts \
                 translations/msmd_sv.ts \
                 translations/msmd_tr.ts \
                 translations/msmd_uk.ts \
+                translations/msmd_ur_PK.ts \
+                translations/msmd_uz@Latn.ts \
                 translations/msmd_vi.ts \
                 translations/msmd_zh_CN.ts \
                 translations/msmd_zh_TW.ts

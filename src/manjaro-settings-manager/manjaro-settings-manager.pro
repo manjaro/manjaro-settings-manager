@@ -112,14 +112,15 @@ FORMS    += mainwindow.ui \
 
 
 
-TRANSLATIONS += translations/msm_ast.ts \
+TRANSLATIONS += translations/msm_ar.ts \
+                translations/msm_ast.ts \
                 translations/msm_bg_BG.ts \
                 translations/msm_ca.ts \
                 translations/msm_cs_CZ.ts \
                 translations/msm_da.ts \
                 translations/msm_de.ts \
-                translations/msm_en.ts \
                 translations/msm_el.ts \
+                translations/msm_en.ts \
                 translations/msm_es.ts \
                 translations/msm_fa.ts \
                 translations/msm_fa_IR.ts \
@@ -130,8 +131,13 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_hr.ts \
                 translations/msm_hu.ts \
                 translations/msm_id_ID.ts \
+                translations/msm_is.ts \
                 translations/msm_it.ts \
                 translations/msm_ja.ts \
+                translations/msm_ka.ts \
+                translations/msm_lt.ts \
+                translations/msm_ml.ts \
+                translations/msm_ms.ts \
                 translations/msm_nb.ts \
                 translations/msm_nl.ts \
                 translations/msm_pl.ts \
@@ -141,10 +147,15 @@ TRANSLATIONS += translations/msm_ast.ts \
                 translations/msm_ru.ts \
                 translations/msm_sk_SK.ts \
                 translations/msm_sl.ts \
+                translations/msm_sr.ts \
                 translations/msm_sr@latin.ts \
+                translations/msm_sr_RS.ts \
+                translations/msm_sr_RS@latin.ts \
                 translations/msm_sv.ts \
                 translations/msm_tr.ts \
                 translations/msm_uk.ts \
+                translations/msm_ur_PK.ts \
+                translations/msm_uz@Latn.ts \
                 translations/msm_vi.ts \
                 translations/msm_zh_CN.ts \
                 translations/msm_zh_TW.ts
