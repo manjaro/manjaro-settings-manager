@@ -18,12 +18,14 @@
 firefox:firefox-i18n-%
 firefox-kde:firefox-kde-i18n-%
 thunderbird:thunderbird-i18n-%
+thunderbird-kde:thunderbird-i18n-%
 aspell:aspell-%
 calligra-words:calligra-l10n-%
+calligra-krita:calligra-l10n-%
 gimp:gimp-help-%
 hunspell:hunspell-%
 hyphen:hyphen-%
-kdebase-workspace:kde-l10n-%
+kdebase-runtime:kde-l10n-%
 libreoffice-common:libreoffice-%
 libreoffice-still-common:libreoffice-still-%
 libreoffice-fresh:libreoffice-fresh-%
