@@ -224,158 +224,44 @@ bool Global::isSystemUpToDate() {
 }
 
 
-
-QList<Global::LocaleInfo> Global::getAllEnabledLocales() {
-    QStringList localeList;
-    QList<Global::LocaleInfo> locales, localeInfoList = getLocaleInfoList();
-
-    QFile file(LOCALE_GEN);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "error: failed to open '" << LOCALE_GEN << "'!";
-        return locales;
-    }
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
-        if (line.isEmpty())
-            continue;
-
-        localeList.append(line.split(" ", QString::SkipEmptyParts).first());
-    }
-
-    file.close();
-    localeList.removeDuplicates();
-
-
-    foreach (QString l, localeList) {
-        bool found = false;
-
-        for (int i = 0; i < localeInfoList.size(); i++) {
-            const LocaleInfo *localeInfo = &localeInfoList.at(i);
-            if (l != localeInfo->locale)
-                continue;
-
-            locales.append(*localeInfo);
-            found = true;
-            break;
-        }
-
-        if (found)
-            continue;
-
-        QString lShort = l.split(QRegExp("[ .@]"), QString::KeepEmptyParts).first().trimmed();
-
-        for (int i = 0; i < localeInfoList.size(); i++) {
-            const LocaleInfo *localeInfo = &localeInfoList.at(i);
-            if (lShort != localeInfo->locale)
-                continue;
-
-            LocaleInfo lInfo = *localeInfo;
-            lInfo.locale = l;
-            locales.append(lInfo);
-            found = true;
-            break;
-        }
-
-        if (found)
-            continue;
-
-        // Just in case...
-        LocaleInfo lInfo;
-        lInfo.locale = l;
-        locales.append(lInfo);
-    }
-
-
-    return locales;
-}
-
-
-
-QHash<QString, QHash<QString, QList<Global::Locale> > > Global::getAllLocales() {
-    QHash<QString, QHash<QString, QList<Global::Locale> > > locales;
-    QList<Global::LocaleInfo> localeInfoList = getLocaleInfoList();
-
-
-    QFile file(LOCALESSUPPORTED);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return locales;
-
-    QStringList listLocales;
-    QTextStream in(&file);
-    bool found=false;
-
-    while (!in.atEnd()) {
-        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
-        if (line.startsWith("SUPPORTED-LOCALES=")) {
-            found = true;
-            line = line.remove("SUPPORTED-LOCALES=").trimmed();
-        }
-
-        if (found && !line.isEmpty())
-            listLocales.append(line.mid(0, line.indexOf("/")).remove("\\").trimmed());
-    }
-    file.close();
-
-    listLocales.removeAll("");
-    listLocales.removeDuplicates();
-
-
-
-    foreach (QString l, listLocales) {
-        bool found = false;
-
-        for (int i = 0; i < localeInfoList.size(); i++) {
-            const LocaleInfo *localeInfo = &localeInfoList.at(i);
-            if (l != localeInfo->locale)
-                continue;
-
-            Locale item;
-            item.locale = l;
-            item.description = localeInfo->description;
-            locales[localeInfo->language][localeInfo->territory].append(item);
-
-            found = true;
-            break;
-        }
-
-        if (found)
-            continue;
-
-        QString lShort = l.split(QRegExp("[ .@]"), QString::KeepEmptyParts).first().trimmed();
-
-        for (int i = 0; i < localeInfoList.size(); i++) {
-            const LocaleInfo *localeInfo = &localeInfoList.at(i);
-            if (lShort != localeInfo->locale)
-                continue;
-
-            Locale item;
-            item.locale = l;
-            item.description = localeInfo->description;
-            locales[localeInfo->language][localeInfo->territory].append(item);
-            break;
-        }
-    }
-
-    return locales;
-}
-
-
-
 QString Global::localeToValidLocaleGenString(QString locale) {
-    QFile file(LOCALESSUPPORTED);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return "";
 
-    QTextStream in(&file);
+    QSet<QString> localeList;
 
-    while (!in.atEnd()) {
-        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().remove("\\").trimmed();
-        if (line.startsWith(locale + "/"))
-            return line.replace("/", " ");
+    QFile localeGen("/etc/locale.gen");
+    QString lines;
+    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in(&localeGen);
+        lines.append(in.readAll());
     }
-    file.close();
+
+    QFile localeGenPacnew("/etc/locale.gen.pacnew");
+    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in(&localeGenPacnew);
+        lines.append(in.readAll());
+    }
+    for (const QString line : lines.split('\n'))
+    {
+        if (line.startsWith( "# " ) || line.simplified() == "#" || line.isEmpty()) {
+            continue;
+        }
+
+        QString lineString = line.simplified();
+
+        if (lineString.startsWith("#")) {
+            lineString.remove( '#' );
+        }
+
+        localeList.insert(lineString);
+    }
+
+    for (const QString line : localeList) {
+        if (line.startsWith(locale + " ")) {
+            return line;
+        }
+    }
 
     return "";
 }
@@ -553,46 +439,6 @@ QList<Global::LocaleSplit> Global::getAllEnabledLocalesSplit() {
     }
 
     return locales;
-}
-
-
-
-QList<Global::LocaleInfo> Global::getLocaleInfoList() {
-    QList<Global::LocaleInfo> localeInfoList;
-
-    QFile file(LOCALESINFO);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return localeInfoList;
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
-        QStringList split = line.split("|", QString::SkipEmptyParts);
-        if (split.size() < 4)
-            continue;
-
-        bool skip = false;
-        foreach (QString str, split) {
-            if (str.trimmed().isEmpty()) {
-                skip = true;
-                break;
-            }
-        }
-
-        if (skip)
-            continue;
-
-        LocaleInfo locale;
-        locale.locale = split.at(0).trimmed();
-        locale.language = split.at(1).trimmed();
-        locale.territory = split.at(2).trimmed();
-        locale.description = split.at(3).trimmed();
-        localeInfoList.append(locale);
-    }
-
-    file.close();
-
-    return localeInfoList;
 }
 
 

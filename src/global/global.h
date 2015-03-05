@@ -72,8 +72,6 @@ public:
     static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
     static bool isSystemUpToDate();
 
-    static QList<Global::LocaleInfo> getAllEnabledLocales();
-    static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
     static QString localeToValidLocaleGenString(QString locale);
 
     static QList<Global::User> getAllUsers();
@@ -97,7 +95,6 @@ private:
     static QStringList getAllInstalledPackages(const QStringList & checkPackages);
     static QStringList getAllAvailableRepoPackages(const QStringList & checkPackages);
     static QList<LocaleSplit> getAllEnabledLocalesSplit();
-    static QList<Global::LocaleInfo> getLocaleInfoList();
 };
 
 

@@ -25,8 +25,6 @@
 #define LANGUAGE_PACKAGES_FILE  "/var/lib/manjaro-system-settings/language_packages.list"
 #define LOCALE_GEN              "/etc/locale.gen"
 #define LOCALE_CONF              "/etc/locale.conf"
-#define LOCALESSUPPORTED "/usr/share/i18n/SUPPORTED"
-#define LOCALESINFO "/usr/share/i18n/LOCALESINFO"
 #define XKB_FILE "/usr/share/X11/xkb/rules/base.lst"
 #define MIN_USER_UUID 1000
 #define PASSWD "/etc/passwd"
