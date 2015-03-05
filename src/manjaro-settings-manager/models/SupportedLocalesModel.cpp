@@ -163,84 +163,100 @@ QHash<int, QByteArray> SupportedLocalesModel::roleNames() const
 
 void SupportedLocalesModel::init(SupportedLocalesItem *parent)
 {
-    QFile file("/usr/share/i18n/SUPPORTED");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Faile to open /usr/share/i18n/SUPPORTED";
-        return;
+    // Fill in meaningful locale/charset lines from locale.gen
+    QSet<QString> localeList;
+
+    QFile localeGen("/etc/locale.gen");
+    QString lines;
+    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in(&localeGen);
+        lines.append(in.readAll());
     }
 
-    QTextStream in(&file);
-    bool found = false;
-    while (!in.atEnd()) {
-        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().trimmed();
-        if (line.startsWith("SUPPORTED-LOCALES=")) {
-            found = true;
+    QFile localeGenPacnew("/etc/locale.gen.pacnew");
+    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in(&localeGenPacnew);
+        lines.append(in.readAll());
+    }
+    for (const QString line : lines.split('\n'))
+    {
+        if (line.startsWith( "# " ) || line.simplified() == "#" || line.isEmpty()) {
             continue;
         }
 
-        if (found && !line.isEmpty()) {
-            QString localeCode = line.mid(0, line.indexOf("/")).remove("\\").trimmed();
+        QString lineString = line.simplified();
 
-            Locale locale(localeCode.toLatin1());
-            /* Get language and country in current system locale */
-            UnicodeString uDisplayLanguage;
-            UnicodeString uDisplayCountry;
-            locale.getDisplayLanguage(locale, uDisplayLanguage);
-            locale.getDisplayCountry(locale, uDisplayCountry);
-
-            /* Capitalize language and country */
-            UErrorCode status;
-            BreakIterator *titleIterator = BreakIterator::createTitleInstance(locale, status);
-            uDisplayLanguage = uDisplayLanguage.toTitle(titleIterator);
-            uDisplayCountry = uDisplayCountry.toTitle(titleIterator);
-
-            QString language = locale.getLanguage();
-            QString country = locale.getCountry();
-            QString displayLanguage = unicodeStringToQString(uDisplayLanguage);
-            QString displayCountry = unicodeStringToQString(uDisplayCountry);
-
-            /* Search if we already added this language to the tree */
-            QModelIndexList languageIndexList = match(index(0,0),
-                                                       KeyRole,
-                                                       language,
-                                                       Qt::MatchFixedString);
-            SupportedLocalesItem *languageItem;
-            QModelIndex languageIndex;
-            if (languageIndexList.count() == 0) {
-                /* Not found, add the language to the root*/
-                languageItem = new SupportedLocalesItem(language, displayLanguage, parent);
-                parent->appendChild(languageItem);
-            } else {
-                Q_ASSERT(languageIndexList.count() == 1);
-                /* Found, convert index to a item */
-                languageIndex = languageIndexList.first();
-                languageItem = static_cast<SupportedLocalesItem*>(languageIndex.internalPointer());
-            }
-
-            /* Search if we already added this country to this language */
-            QModelIndexList countryIndexList = match(languageIndex.child(0,0),
-                                                    KeyRole,
-                                                    country,
-                                                    Qt::MatchFixedString);
-            SupportedLocalesItem *countryItem;
-            QModelIndex countryIndex;
-            if (countryIndexList.count() == 0) {
-                /* Not found, add the country to the language */
-                countryItem = new SupportedLocalesItem(country, displayCountry, languageItem);
-                languageItem->appendChild(countryItem);
-            } else {
-                Q_ASSERT(countryIndexList.count() == 1);
-                /* Found, convert index to a item */
-                countryIndex = countryIndexList.first();
-                countryItem = static_cast<SupportedLocalesItem*>(countryIndex.internalPointer());
-            }
-
-            /* Add the locale code to the language */
-            SupportedLocalesItem *localeItem = new SupportedLocalesItem(localeCode, localeCode, countryItem);
-            countryItem->appendChild(localeItem);
+        if (lineString.startsWith("#")) {
+            lineString.remove( '#' );
         }
+
+        localeList.insert(lineString);
     }
-    file.close();
+    qDebug() << localeList;
+    for (const QString localeLine : localeList) {
+        QString localeCode = localeLine.split(" ", QString::SkipEmptyParts).first().trimmed();
+        Locale locale(localeCode.toLatin1());
+        // Get language and country in current system locale
+        UnicodeString uDisplayLanguage;
+        UnicodeString uDisplayCountry;
+        locale.getDisplayLanguage(locale, uDisplayLanguage);
+        locale.getDisplayCountry(locale, uDisplayCountry);
+
+        // Capitalize language and country
+        UErrorCode status;
+        BreakIterator *titleIterator = BreakIterator::createTitleInstance(locale, status);
+        uDisplayLanguage = uDisplayLanguage.toTitle(titleIterator);
+        uDisplayCountry = uDisplayCountry.toTitle(titleIterator);
+
+        QString language = locale.getLanguage();
+        QString country = locale.getCountry();
+        QString displayLanguage = unicodeStringToQString(uDisplayLanguage);
+        QString displayCountry = unicodeStringToQString(uDisplayCountry);
+
+        // Search if we already added this language to the tree
+        QModelIndexList languageIndexList = match(index(0,0),
+                                                  KeyRole,
+                                                  language,
+                                                  -1,
+                                                  Qt::MatchFixedString);
+        SupportedLocalesItem *languageItem;
+        QModelIndex languageIndex;
+        if (languageIndexList.count() == 0) {
+            // Not found, add the language to the root
+            languageItem = new SupportedLocalesItem(language, displayLanguage, parent);
+            parent->appendChild(languageItem);
+        } else {
+             Q_ASSERT(languageIndexList.count() == 1);
+            // Found, convert index to a item
+            languageIndex = languageIndexList.first();
+            languageItem = static_cast<SupportedLocalesItem*>(languageIndex.internalPointer());
+        }
+
+        // Search if we already added this country to this language
+        QModelIndexList countryIndexList = match(languageIndex.child(0,0),
+                                                 KeyRole,
+                                                 country,
+                                                 -1,
+                                                 Qt::MatchFixedString);
+        SupportedLocalesItem *countryItem;
+        QModelIndex countryIndex;
+        if (countryIndexList.count() == 0) {
+            // Not found, add the country to the language
+            countryItem = new SupportedLocalesItem(country, displayCountry, languageItem);
+            languageItem->appendChild(countryItem);
+        } else {
+            Q_ASSERT(countryIndexList.count() == 1);
+            // Found, convert index to a item
+            countryIndex = countryIndexList.first();
+            countryItem = static_cast<SupportedLocalesItem*>(countryIndex.internalPointer());
+        }
+
+        // Add the locale code to the language
+        SupportedLocalesItem *localeItem = new SupportedLocalesItem(localeCode, localeCode, countryItem);
+        countryItem->appendChild(localeItem);
+    }
 }
 
 
