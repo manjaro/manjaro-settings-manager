@@ -54,40 +54,11 @@ public:
         QString locale, language, territory, description;
     };
 
-    struct User {
-        QString username, homePath;
-        int uuid;
-    };
-
-    struct Group {
-        QString name;
-        QStringList members;
-    };
-
-    static int runProcess(QString cmd, QStringList args, QStringList writeArgs, QString & error);
-
-    static QString getConfigValue(QString value, QString config);
-    static bool setConfigValue(QString value, QString text, QString config);
-
     static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
     static bool isSystemUpToDate();
 
     static QList<Global::LocaleInfo> getAllEnabledLocales();
-    static QHash<QString, QHash<QString, QList<Global::Locale> > > getAllLocales();
-    static QString localeToValidLocaleGenString(QString locale);
 
-    static QList<Global::User> getAllUsers();
-    static QList<Global::Group> getAllGroups();
-
-    static QString getRunningKernel();
-    static QStringList getLtsKernels();
-    static QStringList getRecommendedKernels();
-
-    static QByteArray performQuery(const QStringList args);
-    static QByteArray performQuery(const QString &args);
-    static QByteArray packageInformation(const QString &pkgName, bool foreignPackage);
-    static QString extractFieldFromInfo(const QString &field, const QString &pkgInfo);
-    static QString packageVersion(const QString &pkgInfo);
 
 private:
     struct LocaleSplit {
@@ -97,7 +68,6 @@ private:
     static QStringList getAllInstalledPackages(const QStringList & checkPackages);
     static QStringList getAllAvailableRepoPackages(const QStringList & checkPackages);
     static QList<LocaleSplit> getAllEnabledLocalesSplit();
-    static QList<Global::LocaleInfo> getLocaleInfoList();
 };
 
 
