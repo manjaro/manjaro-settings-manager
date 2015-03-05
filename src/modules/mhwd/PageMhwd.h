@@ -23,8 +23,6 @@
 #ifndef PAGEMHWD_H
 #define PAGEMHWD_H
 
-#include "global.h"
-
 #include <KCModule>
 
 #include <QString>

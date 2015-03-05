@@ -28,6 +28,7 @@
 #include <KAuthAction>
 
 #include <QtWidgets/QMessageBox>
+#include <QtDebug>
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY(MsmMhwdFactory,

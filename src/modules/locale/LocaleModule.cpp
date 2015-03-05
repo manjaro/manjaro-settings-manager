@@ -27,6 +27,7 @@
 #include <KAuthAction>
 
 #include <QtWidgets/QMenu>
+#include <QDebug>
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY(MsmLocaleFactory,

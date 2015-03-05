@@ -1,7 +1,6 @@
 #ifndef LOCALEAUTHHELPER_H
 #define LOCALEAUTHHELPER_H
 
-#include "global.h"
 #include <KAuth>
 
 using namespace KAuth;
@@ -17,6 +16,7 @@ private:
     bool updateLocaleGen(const QStringList locales);
     bool generateLocaleGen();
     bool setSystemLocale(const QStringList locale);
+    QString localeToValidLocaleGenString(const QString locale);
 };
 
 #endif // LOCALEAUTHHELPER_H

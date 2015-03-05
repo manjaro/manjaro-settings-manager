@@ -22,7 +22,6 @@
 #ifndef LOCALEMODULE_H
 #define LOCALEMODULE_H
 
-#include "global.h"
 #include "SelectLocalesDialog.h"
 #include "LanguageListViewDelegate.h"
 #include "EnabledLocalesModel.h"

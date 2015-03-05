@@ -3,9 +3,8 @@
 #include <QtDBus/QDBusInterface>
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
-
-#include <QDebug>
-
+#include <QtCore/QTextStream>
+#include <QtCore/QSet>
 
 ActionReply LocaleAuthHelper::save(const QVariantMap& args)
 {
@@ -24,7 +23,6 @@ ActionReply LocaleAuthHelper::save(const QVariantMap& args)
 // Return true if successful
 bool LocaleAuthHelper::updateLocaleGen(QStringList locales) {
 
-    qDebug() << "Locales: " << locales;
     const QString localeGen = "/etc/locale.gen";
     QFile file(localeGen);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -70,7 +68,7 @@ bool LocaleAuthHelper::updateLocaleGen(QStringList locales) {
 
     // Add missing locales in the file
     for (QString locale : locales) {
-        QString str = Global::localeToValidLocaleGenString(locale);
+        QString str = localeToValidLocaleGenString(locale);
 
         if (str.isEmpty()) {
             /*QMessageBox::warning(this,
@@ -123,7 +121,8 @@ bool LocaleAuthHelper::generateLocaleGen()
 
 
 // Modify /etc/locale.conf using systemd-localed
-bool LocaleAuthHelper::setSystemLocale(const QStringList localeList) {
+bool LocaleAuthHelper::setSystemLocale(const QStringList localeList)
+{
     QDBusInterface dbusInterface("org.freedesktop.locale1",
                                  "/org/freedesktop/locale1",
                                  "org.freedesktop.locale1",
@@ -139,6 +138,48 @@ bool LocaleAuthHelper::setSystemLocale(const QStringList localeList) {
         return false;
     }
     return true;
+}
+
+QString LocaleAuthHelper::localeToValidLocaleGenString(const QString locale)
+{
+    QSet<QString> localeList;
+
+    QFile localeGen("/etc/locale.gen");
+    QString lines;
+    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in(&localeGen);
+        lines.append(in.readAll());
+    }
+
+    QFile localeGenPacnew("/etc/locale.gen.pacnew");
+    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in(&localeGenPacnew);
+        lines.append(in.readAll());
+    }
+    for (const QString line : lines.split('\n'))
+    {
+        if (line.startsWith( "# " ) || line.simplified() == "#" || line.isEmpty()) {
+            continue;
+        }
+
+        QString lineString = line.simplified();
+
+        if (lineString.startsWith("#")) {
+            lineString.remove( '#' );
+        }
+
+        localeList.insert(lineString);
+    }
+
+    for (const QString line : localeList) {
+        if (line.startsWith(locale + " ")) {
+            return line;
+        }
+    }
+
+    return "";
 }
 
 KAUTH_HELPER_MAIN("org.manjaro.msm.locale", LocaleAuthHelper)

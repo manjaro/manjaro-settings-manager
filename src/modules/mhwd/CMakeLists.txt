@@ -1,7 +1,6 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(MSM_MHWD_SRCS
-    global.cpp
     PageMhwd.cpp
     libmhwd/mhwd.cpp
     libmhwd/vita/string.cpp)
