@@ -37,10 +37,6 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
-#include <unistd.h>
-#include <pwd.h>
-#include <grp.h>
-
 
 namespace Ui {
 class PageUsers;

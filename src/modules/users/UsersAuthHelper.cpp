@@ -1,5 +1,6 @@
 #include "UsersAuthHelper.h"
 
+#include <QtCore/QFile>
 #include <QtCore/QProcess>
 
 ActionReply UsersAuthHelper::add(const QVariantMap& args)
@@ -132,6 +133,17 @@ ActionReply UsersAuthHelper::changeaccounttype(const QVariantMap &args)
 
 ActionReply UsersAuthHelper::changeimage(const QVariantMap &args)
 {
+    QString filename = args["filename"].toString();
+    for (QString dest : args["copyDest"].toStringList()) {
+        if (QFile::exists(dest)) {
+            QFile::remove(dest);
+        }
+
+        if (!QFile::copy(filename, dest)) {
+            return ActionReply::HelperErrorReply();
+        }
+    }
+
     return ActionReply::SuccessReply();
 }
 

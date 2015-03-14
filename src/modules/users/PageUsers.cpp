@@ -129,8 +129,9 @@ void PageUsers::setupUserData(QListWidgetItem* current) {
 
 void PageUsers::buttonImage_clicked() {
     ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(ui->listWidget->currentItem());
-    if (!item)
+    if (!item) {
         return;
+    }
 
     PreviewFileDialog dialog(this);
     dialog.setFileMode(QFileDialog::ExistingFile);
@@ -138,76 +139,41 @@ void PageUsers::buttonImage_clicked() {
     dialog.setViewMode(QFileDialog::Detail);
     dialog.setDirectory(FACES_IMAGE_FOLDER);
 
-    if (!dialog.exec() || dialog.selectedFiles().isEmpty())
+    if (!dialog.exec() || dialog.selectedFiles().isEmpty()) {
         return;
+    }
 
-    QString fileName = dialog.selectedFiles().first();
-    QString fileNameEnding = fileName.split(".", QString::KeepEmptyParts).last();
+    QString filename = dialog.selectedFiles().first();
 
     // Set icon in our GUI
-    item->setIcon(QIcon(fileName));
+    item->setIcon(QIcon(filename));
     ui->buttonImage->setIcon(item->icon());
 
+    // Copy .face file to home dir
+    QString faceDest;
+    faceDest = QString("%1/.face").arg(item->user.homePath);
 
-    // Paths to copy/symlink
-    QStringList copyDest, symlinkHomeDest;
-
-    // Fill lists
-    copyDest << QString("%1/.face").arg(item->user.homePath)
-             << QString("/var/lib/AccountsService/icons/%1").arg(item->user.username)
-             << QString("/usr/share/apps/sddm/faces/%1.face.icon").arg(item->user.username);
-
-    symlinkHomeDest << QString("%1/.face.icon").arg(item->user.homePath)
-                    << QString("%1/.icon").arg(item->user.homePath);
-
-
-    // Structs to set permission
-    struct passwd *pwd = getpwnam(item->user.username.toStdString().c_str());
-    struct group *grp = getgrnam("users");
-
-    if (!pwd || !grp) {
+    if (QFile::exists(faceDest)) {
+        QFile::remove(faceDest);
+    }
+    if (!QFile::copy(filename, faceDest)) {
         QMessageBox::warning(this,
                              tr("Error!"),
-                             tr("Failed to get user permission structures!"),
+                             tr("Failed to copy image to '%1'!").arg(faceDest),
                              QMessageBox::Ok,
                              QMessageBox::Ok);
         return;
     }
 
-
-    // Copy files
-    foreach (QString dest, copyDest) {
-        if (!QDir(dest.mid(0, dest.lastIndexOf("/"))).exists())
-            continue;
-
-        if (QFile::exists(dest))
-            QFile::remove(dest);
-
-        if (!QFile::copy(fileName, dest)) {
-            QMessageBox::warning(this,
-                                 tr("Error!"),
-                                 tr("Failed to copy image to '%1'!").arg(dest),
-                                 QMessageBox::Ok,
-                                 QMessageBox::Ok);
-            return;
-        }
-
-        // Set right permission if file is inside the home path
-        if (dest.startsWith(item->user.homePath) && chown(dest.toStdString().c_str(), pwd->pw_uid, grp->gr_gid) < 0) {
-            QMessageBox::warning(this,
-                                 tr("Error!"),
-                                 tr("Failed to set permission of file '%1'!").arg(dest),
-                                 QMessageBox::Ok,
-                                 QMessageBox::Ok);
-            return;
-        }
-    }
-
-
     // Create symlinks to ~/.face
-    foreach (QString dest, symlinkHomeDest) {
-        if (QFile::exists(dest))
+    QStringList symlinkHomeDest;
+    symlinkHomeDest << QString("%1/.face.icon").arg(item->user.homePath)
+                    << QString("%1/.icon").arg(item->user.homePath);
+
+    for (QString dest : symlinkHomeDest) {
+        if (QFile::exists(dest)) {
             QFile::remove(dest);
+        }
 
         if (!QFile::link(".face", dest)) {
             QMessageBox::warning(this,
@@ -217,17 +183,40 @@ void PageUsers::buttonImage_clicked() {
                                  QMessageBox::Ok);
             return;
         }
+    }
 
-        // Set right permission
-        if (chown(dest.toStdString().c_str(), pwd->pw_uid, grp->gr_gid) < 0) {
-            QMessageBox::warning(this,
-                                 tr("Error!"),
-                                 tr("Failed to set permission of file '%1'!").arg(dest),
-                                 QMessageBox::Ok,
-                                 QMessageBox::Ok);
+    // Copy face image to dirs that need admin rights
+    QStringList copyDest;
+    if (QDir("/var/lib/AccountsService/icons/").exists()) {
+        qDebug() << "/var/lib/AccountsService/icons/";
+        copyDest << QString("/var/lib/AccountsService/icons/%1").arg(item->user.username);
+    }
+    if (QDir("/usr/share/sddm/faces/").exists()) {
+        qDebug() << "/usr/share/sddm/faces/";
+        copyDest  << QString("/usr/share/sddm/faces/%1.face.icon").arg(item->user.username);
+    }
+
+    if (!copyDest.isEmpty()) {
+        KAuth::Action installAction(QLatin1String("org.manjaro.msm.users.changeimage"));
+        installAction.setHelperId(QLatin1String("org.manjaro.msm.users"));
+        QVariantMap args;
+        args["copyDest"] = copyDest;
+        args["filename"] = filename;
+        installAction.setArguments(args);
+        KAuth::ExecuteJob *jobAdd = installAction.execute();
+        connect(jobAdd, &KAuth::ExecuteJob::newData,
+                [=] (const QVariantMap &data)
+        {
+            qDebug() << data;
+        });
+        if (jobAdd->exec()) {
+            qDebug() << "Change image job succesfull";
+        } else {
+            QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to change user image")), QMessageBox::Ok, QMessageBox::Ok);
             return;
         }
     }
+
 }
 
 
