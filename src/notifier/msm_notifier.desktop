@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.1.0
+Type=Application
+Name=Manjaro Settings Manager Notifier
+Comment=
+Exec=msm_notifier
+StartupNotify=false
+Terminal=false
+Hidden=false

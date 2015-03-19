@@ -19,7 +19,8 @@ find_package(KF5 REQUIRED COMPONENTS
     Auth
     ConfigWidgets
     ItemModels
-)
+    Notifications)
+
 find_package(ICU REQUIRED)
 
 add_subdirectory(src)

@@ -21,7 +21,7 @@
 #ifndef KERNELMODEL_H
 #define KERNELMODEL_H
 
-#include <Kernel.h>
+#include "Kernel.h"
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QObject>
 #include <QtCore/QSortFilterProxyModel>
