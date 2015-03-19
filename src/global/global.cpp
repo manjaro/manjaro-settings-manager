@@ -466,13 +466,13 @@ QString Global::getRunningKernel()
 
 QStringList Global::getLtsKernels()
 {
-    return QStringList() << "linux310" << "linux312" << "linux314";
+    return QStringList() << "linux310" << "linux312" << "linux314" << "linux318";
 }
 
 
 QStringList Global::getRecommendedKernels()
 {
-    return QStringList() << "linux316";
+    return QStringList() << "linux318";
 }
 
 
