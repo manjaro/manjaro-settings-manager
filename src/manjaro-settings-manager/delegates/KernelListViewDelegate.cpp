@@ -86,7 +86,6 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->drawText(packageRect, Qt::TextSingleLine, package);
 
     /* draw middle labels */
-    //QString ltsStr(tr("LTS"));
     QString recommendedStr(tr("Recommended"));
     QString runningStr(tr("Running"));
     QString installedStr(tr("Installed"));

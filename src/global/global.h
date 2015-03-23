@@ -79,7 +79,7 @@ public:
 
     static QString getRunningKernel();
     static QStringList getLtsKernels();
-    static QStringList getEssKernels();
+    static QStringList getSesKernels();
     static QStringList getRecommendedKernels();
 
     static QByteArray performQuery(const QStringList args);

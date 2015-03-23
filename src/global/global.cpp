@@ -469,7 +469,7 @@ QStringList Global::getLtsKernels()
     return QStringList() << "linux310" << "linux312" << "linux314" << "linux318";
 }
 
-QStringList Global::getEssKernels()
+QStringList Global::getSesKernels()
 {
     return QStringList() << "linux313" << "linux316";
 }

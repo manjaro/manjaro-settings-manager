@@ -51,7 +51,7 @@ void KernelModel::update()
 
     QString runningKernel = Global::getRunningKernel();
     QStringList ltsKernels = Global::getLtsKernels();
-    QStringList essKernels = Global::getEssKernels();
+    QStringList sesKernels = Global::getSesKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
 
     QSet<QString> modulesToInstall;
@@ -87,9 +87,9 @@ void KernelModel::update()
         if (ltsKernels.contains(kernel)) {
             newKernel.setLts(true);
             newKernel.setLtsString("LTS");
-        } else if (essKernels.contains(kernel)) {
+        } else if (sesKernels.contains(kernel)) {
             newKernel.setLts(true);
-            newKernel.setLtsString("ESS");
+            newKernel.setLtsString("SES");
         }
         newKernel.setRecommended(recommendedKernels.contains(kernel));
         newKernel.setRunning(QString::compare(runningKernel, kernel) == 0);
