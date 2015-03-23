@@ -22,11 +22,13 @@
 
 #include "PageKeyboard.h"
 #include "ui_PageKeyboard.h"
+#include "SetKeyboardLayoutJob.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
 #include <QtCore/QMapIterator>
 #include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
 #include <QtWidgets/QMessageBox>
 
 #include <QDebug>
@@ -114,6 +116,7 @@ void PageKeyboard::apply_clicked()
     setKeyboardLayout();
 }
 
+
 void PageKeyboard::setKeyboardLayout()
 {
     QString model = ui->modelComboBox->itemData(ui->modelComboBox->currentIndex(), KeyboardModel::KeyRole).toString();
@@ -127,27 +130,14 @@ void PageKeyboard::setKeyboardLayout()
     // Set Xorg keyboard layout
     system(QString("setxkbmap -model \"%1\" -layout \"%2\" -variant \"%3\"").arg(model, layout, variant).toUtf8());
 
-    // localed d-bus interface to set X11 keyboard layout
-    QDBusInterface dbusInterface("org.freedesktop.locale1",
-                                 "/org/freedesktop/locale1",
-                                 "org.freedesktop.locale1",
-                                 QDBusConnection::systemBus());
-    QString options = dbusInterface.property("X11Options").toString();
+    bool error = false;
 
     bool isKeyboardctlInstalled = QFile::exists("/usr/bin/keyboardctl");
     if (isKeyboardctlInstalled) {
         ApplyDialog dialog(this);
         dialog.exec("keyboardctl", QStringList() << "--set-layout" << model << layout << variant, tr("Setting new keyboard layout..."), true);
-        if (dialog.processSuccess()) {
-            currentLayout_ = layout;
-            currentVariant_ = variant;
-            currentModel_ = model;
-            dbusInterface.call("SetX11Keyboard", layout, model, variant, options, true, false);
-        } else {
-            QMessageBox::warning(this,
-                                 tr("Error!"),
-                                 QString(tr("Failed to set keyboard layout")),
-                                 QMessageBox::Ok, QMessageBox::Ok);
+        if (!dialog.processSuccess()) {
+            error = true;
         }
     } else {
         // remove leftover keyboardctl file
@@ -155,27 +145,46 @@ void PageKeyboard::setKeyboardLayout()
         if (QFile::exists(keyboardctlFile)) {
             QFile::remove(keyboardctlFile);
         }
+    }
 
+    // localed d-bus interface to set X11 keyboard layout
+    QDBusInterface dbusInterface("org.freedesktop.locale1",
+                                 "/org/freedesktop/locale1",
+                                 "org.freedesktop.locale1",
+                                 QDBusConnection::systemBus());
+    QVariant optionsVariant = dbusInterface.property("X11Options");
+
+    if (optionsVariant.isValid()) {
+         QString options = optionsVariant.toString();
         /* ssssbb
-         * string -> layout
-         * string -> model
-         * string -> variant
-         * string -> options
-         * boolean -> convert (set vconsole keyboard too)
-         * boolean -> arg_ask_password
-         */
+             * string -> layout
+             * string -> model
+             * string -> variant
+             * string -> options
+             * boolean -> convert (set vconsole keyboard too)
+             * boolean -> arg_ask_password
+             */
         QDBusMessage reply;
         reply = dbusInterface.call("SetX11Keyboard", layout, model, variant, options, true, true);
         if (reply.type() == QDBusMessage::ErrorMessage) {
-            QMessageBox::warning(this,
-                                 tr("Error!"),
-                                 QString(tr("Failed to set keyboard layout") + "\n" + reply.errorMessage()),
-                                 QMessageBox::Ok, QMessageBox::Ok);
-        } else {
-            currentLayout_ = layout;
-            currentVariant_ = variant;
-            currentModel_ = model;
+            error = true;
         }
+    } else {
+        SetKeyboardLayoutJob job(model, layout, variant);
+        if (job.exec() == false) {
+            error = true;
+        }
+    }
+
+    if (error) {
+        QMessageBox::warning(this,
+                             tr("Error!"),
+                             QString(tr("Failed to set keyboard layout")),
+                             QMessageBox::Ok, QMessageBox::Ok);
+    } else {
+        currentLayout_ = layout;
+        currentVariant_ = variant;
+        currentModel_ = model;
     }
 }
 
@@ -220,6 +229,7 @@ void PageKeyboard::setLayoutsListViewIndex(const QString &layout)
         qDebug() << QString("Can't find the keyboard layout %1").arg(layout);
     }
 }
+
 
 void PageKeyboard::setVariantsListViewIndex(const QString &variant)
 {

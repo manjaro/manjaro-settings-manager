@@ -41,6 +41,7 @@ SOURCES  += main.cpp \
             pages/PageNotifications.cpp \
             pages/PageTimeDate.cpp \
             pages/PageUsers.cpp \
+            pages/SetKeyboardLayoutJob.cpp \
             widgets/FlatButton.cpp \
             widgets/ListWidget.cpp \
             widgets/LocaleGlobal.cpp \
@@ -82,6 +83,7 @@ HEADERS  += mainwindow.h \
             pages/PageNotifications.h \
             pages/PageTimeDate.h \
             pages/PageUsers.h \
+            pages/SetKeyboardLayoutJob.h \
             widgets/FlatButton.h \
             widgets/ListWidget.h \
             widgets/LocaleGlobal.h \
