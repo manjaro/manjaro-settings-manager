@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file>kbd-model-map</file>
+  </qresource>
+</RCC> 

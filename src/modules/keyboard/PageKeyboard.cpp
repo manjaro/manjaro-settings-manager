@@ -188,12 +188,14 @@ void PageKeyboard::setKeyboardLayout()
     saveAction.setArguments(args);
     KAuth::ExecuteJob *job = saveAction.execute();
     if (job->exec()) {
-        qDebug() << "Job Succesful";
         currentLayout_ = layout;
         currentVariant_ = variant;
         currentModel_ = model;
     } else {
-        qDebug() << "Job Failed";
+        QMessageBox::warning(this,
+                             tr("Error!"),
+                             QString(tr("Failed to set keyboard layout")),
+                             QMessageBox::Ok, QMessageBox::Ok);
     }
 }
 

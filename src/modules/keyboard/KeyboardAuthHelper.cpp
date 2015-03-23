@@ -1,4 +1,5 @@
 #include "KeyboardAuthHelper.h"
+#include "SetKeyboardLayoutJob.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
@@ -12,12 +13,7 @@ ActionReply KeyboardAuthHelper::save(const QVariantMap& args)
     QString layout = args["layout"].toString();
     QString variant = args["variant"].toString();
 
-    // localed d-bus interface to set X11 keyboard layout
-    QDBusInterface dbusInterface("org.freedesktop.locale1",
-                                 "/org/freedesktop/locale1",
-                                 "org.freedesktop.locale1",
-                                 QDBusConnection::systemBus());
-    QString options = dbusInterface.property("X11Options").toString();
+    bool error = false;
 
     bool isKeyboardctlInstalled = QFile::exists("/usr/bin/keyboardctl");
     if (isKeyboardctlInstalled) {
@@ -26,10 +22,7 @@ ActionReply KeyboardAuthHelper::save(const QVariantMap& args)
         keyboardctl->waitForStarted();
         keyboardctl->waitForFinished();
         if (keyboardctl->exitStatus()) {
-            qDebug() << tr("Failed to set keyboard layout");
-            return ActionReply::HelperErrorReply();
-        } else {
-            dbusInterface.call("SetX11Keyboard", layout, model, variant, options, true, false);
+            error = true;
         }
     } else {
         // remove leftover keyboardctl files
@@ -41,21 +34,39 @@ ActionReply KeyboardAuthHelper::save(const QVariantMap& args)
         if (QFile::exists(keyboardctlConf)) {
             QFile::remove(keyboardctlConf);
         }
+    }
 
+    // localed d-bus interface to set X11 keyboard layout
+    QDBusInterface dbusInterface("org.freedesktop.locale1",
+                                 "/org/freedesktop/locale1",
+                                 "org.freedesktop.locale1",
+                                 QDBusConnection::systemBus());
+    QVariant optionsVariant = dbusInterface.property("X11Options");
+
+    if (optionsVariant.isValid()) {
+         QString options = optionsVariant.toString();
         /* ssssbb
-         * string -> layout
-         * string -> model
-         * string -> variant
-         * string -> options
-         * boolean -> convert (set vconsole keyboard too)
-         * boolean -> arg_ask_password
-         */
+             * string -> layout
+             * string -> model
+             * string -> variant
+             * string -> options
+             * boolean -> convert (set vconsole keyboard too)
+             * boolean -> arg_ask_password
+             */
         QDBusMessage reply;
         reply = dbusInterface.call("SetX11Keyboard", layout, model, variant, options, true, true);
         if (reply.type() == QDBusMessage::ErrorMessage) {
-            qDebug() << QString(tr("Failed to set keyboard layout") + "\n" + reply.errorMessage());
-            return ActionReply::HelperErrorReply();
+            error = true;
         }
+    } else {
+        SetKeyboardLayoutJob job(model, layout, variant);
+        if (job.exec() == false) {
+            error = true;
+        }
+    }
+
+    if (error) {
+        return ActionReply::HelperErrorReply();
     }
     return ActionReply::SuccessReply();
 }
