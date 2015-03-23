@@ -35,7 +35,8 @@ Kernel::Kernel(const QString &package,
                const bool isInstalled,
                const bool isLts,
                const bool isRecommended,
-               const bool isRunning)
+               const bool isRunning,
+               const QString &ltsString )
     : package_( package ),
       version_( version ),
       installedModules_( installedModules ),
@@ -44,7 +45,8 @@ Kernel::Kernel(const QString &package,
       isInstalled_( isInstalled ),
       isLts_( isLts ),
       isRecommended_( isRecommended ),
-      isRunning_( isRunning )
+      isRunning_( isRunning ),
+      ltsString_( ltsString )
 {
 }
 
@@ -81,6 +83,7 @@ bool Kernel::isInstalled() const { return isInstalled_; }
 bool Kernel::isLts() const {return isLts_; }
 bool Kernel::isRecommended() const { return isRecommended_; }
 bool Kernel::isRunning() const { return isRunning_; }
+QString Kernel::ltsString() const { return ltsString_; }
 
 bool Kernel::isUnsupported() const
 {
@@ -133,4 +136,9 @@ void Kernel::setRecommended(const bool isRecommended)
 void Kernel::setRunning(const bool isRunning)
 {
     isRunning_ = isRunning;
+}
+
+void Kernel::setLtsString(const QString &ltsString)
+{
+    ltsString_ = ltsString;
 }

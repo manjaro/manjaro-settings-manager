@@ -36,7 +36,8 @@ public:
            const bool isInstalled,
            const bool isLts,
            const bool isRecommended,
-           const bool isRunning);
+           const bool isRunning,
+           const QString &ltsSTring);
     ~Kernel();
 
     QString package() const;
@@ -51,6 +52,7 @@ public:
     bool isRecommended() const;
     bool isRunning() const;
     bool isUnsupported() const;
+    QString ltsString() const;
     void setPackage(const QString &package);
     void setVersion(const QString &version);
     void setInstalledModules(const QStringList &modules);
@@ -60,6 +62,7 @@ public:
     void setLts(const bool isLts);
     void setRecommended(const bool isRecommended);
     void setRunning(const bool isRunning);
+    void setLtsString(const QString &ltsString);
 
 private:
     QString package_;
@@ -71,6 +74,7 @@ private:
     bool isLts_;
     bool isRecommended_;
     bool isRunning_;
+    QString ltsString_;
 };
 
 #endif // KERNEL_H

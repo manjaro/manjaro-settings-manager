@@ -51,6 +51,7 @@ void KernelModel::update()
 
     QString runningKernel = Global::getRunningKernel();
     QStringList ltsKernels = Global::getLtsKernels();
+    QStringList essKernels = Global::getEssKernels();
     QStringList recommendedKernels = Global::getRecommendedKernels();
 
     QSet<QString> modulesToInstall;
@@ -83,7 +84,13 @@ void KernelModel::update()
             }
             newKernel.setInstalledModules(installableModules);
         }
-        newKernel.setLts(ltsKernels.contains(kernel));
+        if (ltsKernels.contains(kernel)) {
+            newKernel.setLts(true);
+            newKernel.setLtsString("LTS");
+        } else if (essKernels.contains(kernel)) {
+            newKernel.setLts(true);
+            newKernel.setLtsString("ESS");
+        }
         newKernel.setRecommended(recommendedKernels.contains(kernel));
         newKernel.setRunning(QString::compare(runningKernel, kernel) == 0);
 
@@ -151,6 +158,8 @@ QVariant KernelModel::data(const QModelIndex &index, int role) const
         return kernel.isRunning();
     case IsUnsupportedRole:
         return kernel.isUnsupported();
+    case LtsStringRole:
+        return kernel.ltsString();
     }
     return QVariant();
 }
@@ -170,6 +179,7 @@ QHash<int, QByteArray> KernelModel::roleNames() const
     roles[IsLtsRole] = "isLts";
     roles[IsRecommendedRole] = "isRecommended";
     roles[IsRunningRole] = "isRunning";
+    roles[LtsStringRole] = "ltsString";
     return roles;
 }
 

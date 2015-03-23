@@ -54,6 +54,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
     QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
     QString name = ("Linux " + version);
+    QString ltsStr =  qvariant_cast<QString>(index.data(KernelModel::LtsStringRole));
     bool isAvailable = qvariant_cast<bool>(index.data(KernelModel::IsAvailableRole));
     bool isInstalled = qvariant_cast<bool>(index.data(KernelModel::IsInstalledRole));
     bool isLts = qvariant_cast<bool>(index.data(KernelModel::IsLtsRole));
@@ -85,7 +86,7 @@ void KernelListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->drawText(packageRect, Qt::TextSingleLine, package);
 
     /* draw middle labels */
-    QString ltsStr(tr("LTS"));
+    //QString ltsStr(tr("LTS"));
     QString recommendedStr(tr("Recommended"));
     QString runningStr(tr("Running"));
     QString installedStr(tr("Installed"));
