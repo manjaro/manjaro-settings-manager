@@ -23,4 +23,4 @@ target_link_libraries(msm_notifier
 install(TARGETS msm_notifier DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES msm_notifier.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
 
-install(FILES msm_notifier.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+#install(FILES msm_notifier.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
