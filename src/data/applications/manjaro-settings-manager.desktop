@@ -9,7 +9,7 @@ Comment[de]=Grafische Einstellungsverwaltung für Manjaro
 Comment[en_GB]=Graphical Settings Manager for Manjaro
 Comment[fr]=Gestionnaire graphique de paramètres pour Manjaro
 
-Exec=manjaro-settings-manager
+Exec=manjaro-settings-manager -style=gtk
 Icon=preferences-desktop
 Terminal=false
 Type=Application
