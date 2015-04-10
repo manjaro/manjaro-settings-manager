@@ -13,5 +13,5 @@ Exec=manjaro-settings-manager
 Icon=preferences-desktop
 Terminal=false
 Type=Application
-Categories=Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
+Categories=Settings;DesktopSettings;X-LXDE-Settings;X-KDE-Settings;
 NotShowIn=XFCE;GNOME;Unity;
