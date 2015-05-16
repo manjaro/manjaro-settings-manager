@@ -116,6 +116,7 @@ FORMS    += mainwindow.ui \
 
 TRANSLATIONS += translations/msm_ar.ts \
                 translations/msm_ast.ts \
+                translations/msm_az_AZ.ts \
                 translations/msm_bg_BG.ts \
                 translations/msm_ca.ts \
                 translations/msm_cs_CZ.ts \
@@ -154,6 +155,7 @@ TRANSLATIONS += translations/msm_ar.ts \
                 translations/msm_sr_RS.ts \
                 translations/msm_sr_RS@latin.ts \
                 translations/msm_sv.ts \
+                translations/msm_th_TH.ts \
                 translations/msm_tr.ts \
                 translations/msm_uk.ts \
                 translations/msm_ur_PK.ts \
