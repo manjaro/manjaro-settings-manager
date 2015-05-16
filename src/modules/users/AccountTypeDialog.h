@@ -21,14 +21,15 @@
 #ifndef ACCOUNTTYPEDIALOG_H
 #define ACCOUNTTYPEDIALOG_H
 
+#include "const.h"
+#include "global.h"
+
 #include <QDialog>
 #include <QMessageBox>
 #include <QStringList>
 #include <QTreeWidgetItem>
 #include <QFile>
 #include <QTextStream>
-#include <const.h>
-#include <global.h>
 
 
 namespace Ui {

@@ -33,7 +33,7 @@ PageLanguagePackages::PageLanguagePackages(QWidget *parent, const QVariantList &
     KCModule(parent, args),
     ui(new Ui::PageLanguagePackages)
 {
-    KAboutData *aboutData = new KAboutData("msm_keyboard",
+    KAboutData *aboutData = new KAboutData("msm_language_packages",
                                            i18nc("@title", "Keyboard Settings"),
                                            PROJECT_VERSION,
                                            QStringLiteral(""),

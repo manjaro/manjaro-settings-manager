@@ -1,6 +1,6 @@
 /*
  *  Manjaro Settings Manager
- *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -18,45 +18,40 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ADDUSERDIALOG_H
-#define ADDUSERDIALOG_H
+#ifndef MSMWINDOW_H
+#define MSMWINDOW_H
 
-#include "const.h"
+#include "ModuleView.h"
 
-#include <QDialog>
-#include <QMessageBox>
-#include <QStringList>
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QtWidgets/QMainWindow>
 
-
-
-namespace Ui {
-class AddUserDialog;
-}
-
-
-class AddUserDialog : public QDialog
+#include <QListWidgetItem>
+class MsmWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
-    explicit AddUserDialog(QWidget *parent = 0);
-    ~AddUserDialog();
-
-    bool userDataChanged() { return dataChanged; }
-    using QDialog::exec;
-
-public slots:
-    virtual int exec();
+    explicit MsmWindow(QWidget *parent = 0);
+    ~MsmWindow();
+    void readPositionSettings();
 
 private:
-    Ui::AddUserDialog *ui;
-    bool dataChanged;
+    ModuleView *moduleView;
+    QMap<QString, KCModuleInfo*> moduleInfoList;
 
-private slots:
-    void buttonCreate_clicked();
-    void textbox_textChanged();
+    void init();
+    void addPageWidget(ModuleView &page);
+    void closeEvent(QCloseEvent *);
+    void writePositionSettings();
+
+protected slots:
+    void listWidget_itemClicked(QListWidgetItem *);
+    void buttonShowAllSettings_clicked();
+    void setApplyEnabled(ModuleView *page, bool enabled);
+    void buttonApply_clicked();
+    void closePageRequested(ModuleView *page);
+
 };
 
-#endif // ADDUSERDIALOG_H
+
+#endif // MSMWINDOW_H

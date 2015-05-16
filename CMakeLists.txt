@@ -19,7 +19,9 @@ find_package(KF5 REQUIRED COMPONENTS
     Auth
     ConfigWidgets
     ItemModels
-    Notifications)
+    Notifications
+    KCMUtils
+    IconThemes)
 
 find_package(ICU REQUIRED)
 

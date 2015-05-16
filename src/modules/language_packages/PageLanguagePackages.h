@@ -21,7 +21,7 @@
 #ifndef PAGELANGUAGEPACKAGES_H
 #define PAGELANGUAGEPACKAGES_H
 
-#include <global.h>
+#include "global.h"
 
 #include <KCModule>
 

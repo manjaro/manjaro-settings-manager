@@ -1,6 +1,6 @@
 /*
  *  Manjaro Settings Manager
- *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -18,45 +18,34 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ADDUSERDIALOG_H
-#define ADDUSERDIALOG_H
+#ifndef MSMAPPLICATION_H
+#define MSMAPPLICATION_H
 
-#include "const.h"
+#include <QApplication>
 
-#include <QDialog>
-#include <QMessageBox>
-#include <QStringList>
-#include <QRegExp>
-#include <QRegExpValidator>
+#define APP MsmApplication::instance()
 
+class MsmWindow;
 
-
-namespace Ui {
-class AddUserDialog;
-}
-
-
-class AddUserDialog : public QDialog
+class MsmApplication : public QApplication
 {
     Q_OBJECT
-    
 public:
-    explicit AddUserDialog(QWidget *parent = 0);
-    ~AddUserDialog();
+    MsmApplication(int& argc, char* argv[]);
+    virtual ~MsmApplication();
 
-    bool userDataChanged() { return dataChanged; }
-    using QDialog::exec;
+    void init();
+    static MsmApplication* instance();
 
-public slots:
-    virtual int exec();
+    void setDebug(bool enabled);
+    bool isDebug();
+
+    MsmWindow* mainWindow();
 
 private:
-    Ui::AddUserDialog *ui;
-    bool dataChanged;
-
-private slots:
-    void buttonCreate_clicked();
-    void textbox_textChanged();
+    MsmWindow* m_mainwindow;
+    bool m_debugMode;
 };
 
-#endif // ADDUSERDIALOG_H
+#endif //MSMAPPLICATION_H
+
