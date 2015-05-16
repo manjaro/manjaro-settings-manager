@@ -1,0 +1,670 @@
+<body style="background: #FFFFFF;">
+<div id="page" lang="en" dir="ltr">
+
+
+<h1 class="title">Linux 4.0</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a><a id="line-4"></a><a id="line-5"></a><p>Linux 4.0 <a class="external" href="https://lkml.org/lkml/2015/4/12/178">has been released</a> on Sun, 12 Apr 2015. <a id="line-6"></a></p>
+<a id="line-7"></a><p>Summary: This release adds support for live patching the kernel code, aimed primarily at fixing security updates without rebooting; DAX, a way to avoid using the kernel cache when filesystems run on systems with persistent memory storage; kasan, a dynamic memory error detector that allows to find use-after-free and out-of-bounds bugs; lazytime, an alternative to relatime, which causes access, modified and changed time updates to only be made in the cache and written to the disk opportunistically; allow overlayfs to have multiple lower layers, support of Parallel NFS server architecture; and dm-crypt CPU scalability improvements. There are also new drivers and many other small improvements.  <a id="line-8"></a></p>
+<a id="line-9"></a><ol>
+<li><a href="#head-ec28eb0aa4e4c42d0eb1c3cd2ad6091a48f0fb0a">Prominent features</a><ol>
+<li><a href="#head-f1e69656d8d81838fb11479d5310556c738a311e">Arbitrary version change</a></li>
+<li><a href="#head-9aa7c8499b42911a48c02b24f367bf2bc6db8606">Live patching</a></li>
+<li><a href="#head-fe050921ca23e738d347755a42f15f9972767e44">DAX - Direct Access, for persistent memory storage</a></li>
+<li><a href="#head-8140fec23a123618a0d53db352978acfcfdcd388">kasan, kernel address sanitizer</a></li>
+<li><a href="#head-3e847edbcf4c617048c905b6972979f7bb7547a3">"lazytime" option for better update of file timestamps</a></li>
+<li><a href="#head-2274894c6e481a014a984600daeb55d8e5d6d91a">Multiple lower layers in overlayfs</a></li>
+<li><a href="#head-1360b151c5a4846001e6361ce2b45236df5a5439">Support Parallel NFS server, default to NFS v4.2</a></li>
+<li><a href="#head-c0673746b8f925cd7013db3bf2a1ae1b76a18829">dm-crypt scalability improvements</a></li>
+</ol>
+<li><a href="#head-6e2ee9e5b7cfdb480861fda324a804734dc14f89">File systems</a></li>
+<li><a href="#head-39e71e330520ccd5af4714d153e2f71243b69422">Block</a></li>
+<li><a href="#head-f684858fd4f475a034d69e1838aaa3b8695c2359">Core (various)</a></li>
+<li><a href="#head-474cddd0df82983048ae806188d78808cce0282b">Memory management</a></li>
+<li><a href="#head-e9098861ff5c7fd1c04a0b0e893db8737a8092db">Virtualization</a></li>
+<li><a href="#head-60844173ad259e7ec33ab5163363695cf6f9a1b6">Cryptography</a></li>
+<li><a href="#head-b075f2728662143ec8858c7a6cbd09d794831028">Security</a></li>
+<li><a href="#head-488de44a933b3518ab5668591d9acf7f9cae5478">Networking</a></li>
+<li><a href="#head-4b8740fc1c0b3fa05c88a39aa0c9998dfa96852c">List of merges</a></li>
+<li><a href="#head-08de76b4ee32d261b79fbadaef88d870db8754f0">Other news sites</a></li>
+</ol>
+<p> <a id="line-10"></a></p>
+<a id="line-11"></a>
+<h1 id="head-ec28eb0aa4e4c42d0eb1c3cd2ad6091a48f0fb0a">1. Prominent features</h1>
+
+<a id="line-12"></a>
+<h2 id="head-f1e69656d8d81838fb11479d5310556c738a311e">1.1. Arbitrary version change</h2>
+
+<a id="line-13"></a><a id="line-14"></a><p>This release increases the version to 4.0. This switch from 3.x to 4.0 version numbers is, however, entirely meaningless and it should not be associated to any important changes in the kernel. This release could have been 3.20, but Linus Torvalds just got tired of the old number, <a class="external" href="https://plus.google.com/+LinusTorvalds/posts/jmtzzLiiejc">made a poll</a>, and changed it. Yes, it is frivolous. The less you think about it, the better. <a id="line-15"></a></p>
+<a id="line-16"></a>
+<h2 id="head-9aa7c8499b42911a48c02b24f367bf2bc6db8606">1.2. Live patching</h2>
+
+<a id="line-17"></a><a id="line-18"></a><p>This release introduces "livepatch", a feature for live patching the kernel code, aimed primarily at systems who want to get security updates without needing to reboot. This feature has been born as result of merging kgraft and kpatch, two attempts by SuSE and Red Hat that where started to replace the now propietary ksplice. It's relatively simple and minimalistic, as it's making use of existing kernel infrastructure (namely ftrace) as much as possible. It's also self-contained and it doesn't hook itself in any other kernel subsystems.  <a id="line-19"></a></p>
+<a id="line-20"></a><p>In this release livepatch is not feature complete, yet it provides a basic infrastructure for function "live patching" (i.e. code redirection), including API for kernel modules containing the actual patches, and API/ABI for userspace to be able to operate on the patches (look up what patches are applied, enable/disable them, etc). Most CVEs should be safe to apply this way. Only the x86 architecture is supported in this release, others will follow.  <a id="line-21"></a></p>
+<a id="line-22"></a><p>For more details see the <a class="external" href="http://git.kernel.org/linus/1d9c5d79e6e4385aea6f69c23ba543717434ed70">merge commit</a> <a id="line-23"></a></p>
+<a id="line-24"></a><p>Sample live patching module: <a class="external" href="http://git.kernel.org/linus/13d1cf7e702596e0cd8ec62afa6bd49c431f2d0c">commit</a> <a id="line-25"></a></p>
+<a id="line-26"></a><p>Code <a class="external" href="http://git.kernel.org/linus/b700e7f03df5d92f85fa5247fe1f557528d3363d">commit</a> <a id="line-27"></a></p>
+<a id="line-28"></a>
+<h2 id="head-fe050921ca23e738d347755a42f15f9972767e44">1.3. DAX - Direct Access, for persistent memory storage</h2>
+
+<a id="line-29"></a><a id="line-30"></a><p>Before being read by programs, files are usually first copied from the disk to the kernel caches, kept in RAM. But the possible advent of persistent non-volatile memory that would be also be used as disk changes radically the way the kernel deals with this process: the kernel cache would become unnecesary overhead. <a id="line-31"></a></p>
+<a id="line-32"></a><p>Linux has had, in fact, support for this kind of setups <a class="external" href="http://kernelnewbies.org/Linux_2_6_13">since 2.6.13</a>. But the code wasn't maintaned and only supported ext2. In this release, Linux adds DAX (Direct Access, the X is for eXciting). DAX removes the extra copy incurred by the buffer by performing reads and writes directly to the persistent-memory storage device. For file mappings, the storage device is mapped directly into userspace. Support for ext4 has been added. <a id="line-33"></a></p>
+<a id="line-34"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/610174/">Supporting filesystems in persistent memory</a> <a id="line-35"></a></p>
+<a id="line-36"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/283307c7607de2a06d3bfae4cfbf5a566d457090">commit</a>, <a class="external" href="http://git.kernel.org/linus/fbbbad4bc2101e452b24e6e65d3d5e11314a0b5f">commit</a>, <a class="external" href="http://git.kernel.org/linus/d475c6346a38aef3058eba96867bfa726a3cc940">commit</a>, <a class="external" href="http://git.kernel.org/linus/289c6aedac981533331428bc933fff21ae332c9e">commit</a>, <a class="external" href="http://git.kernel.org/linus/f7ca90b160307d63aaedab8bd451c24a182db20f">commit</a>, <a class="external" href="http://git.kernel.org/linus/4c0ccfef2e9f7418a6eb0bf07a2fc8f216365b18">commit</a>, <a class="external" href="http://git.kernel.org/linus/95ec8daba310b44302d2977dd54b16886527b681">commit</a>, <a class="external" href="http://git.kernel.org/linus/6cd176a51e52e5218b1aa97e1ec916bac25a9b7e">commit</a>, <a class="external" href="http://git.kernel.org/linus/9c3ce9ec58716733232b97771b10f31901caf62e">commit</a>, <a class="external" href="http://git.kernel.org/linus/25726bc15731d42112b579cf73f30edbc43d3973">commit</a>, <a class="external" href="http://git.kernel.org/linus/a7a97fc9ff6c2fcec00feb34d9b87b94452b0b78">commit</a>, <a class="external" href="http://git.kernel.org/linus/d92576f1167cacf7844e5993f343eed4a6d8a147">commit</a>, <a class="external" href="http://git.kernel.org/linus/923ae0ff9250430133b3310fe62c47538cf1cbc1">commit</a> <a id="line-37"></a></p>
+<a id="line-38"></a><a id="line-39"></a>
+<h2 id="head-8140fec23a123618a0d53db352978acfcfdcd388">1.4. kasan, kernel address sanitizer</h2>
+
+<a id="line-40"></a><a id="line-41"></a><p>Kernel Address sanitizer (KASan) is a dynamic memory error detector. It provides fast and comprehensive solution for finding use-after-free and out-of-bounds bugs. Linux already has the kmemcheck feature, but unlike kmemcheck, KASan uses compile-time instrumentation, which makes it significantly faster than kmemcheck. <a id="line-42"></a></p>
+<a id="line-43"></a><p>The main idea of KASAN is to use shadow memory to record whether each byte of memory is safe to access or not, and use compiler's instrumentation to check the shadow memory on each memory access. Address sanitizer uses 1/8 of the memory addressable in kernel for shadow memory and uses direct mapping with a scale and offset to translate a memory address to its corresponding shadow address. <a id="line-44"></a></p>
+<a id="line-45"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/0b24becc810dc3be6e3f94103a866f214c282394">commit</a>, <a class="external" href="http://git.kernel.org/linus/bebf56a1b176c2e1c9efe44e7e6915532cc682cf">commit</a>, <a class="external" href="http://git.kernel.org/linus/c420f167db8c799d69fe43a801c58a7f02e9d57c">commit</a>, <a class="external" href="http://git.kernel.org/linus/0316bec22ec95ea2faca6406437b0b5950553b7c">commit</a>, <a class="external" href="http://git.kernel.org/linus/ef7f0d6a6ca8c9e4b27d78895af86c2fbfaeedb2">commit</a> <a id="line-46"></a></p>
+<a id="line-47"></a><a id="line-48"></a>
+<h2 id="head-3e847edbcf4c617048c905b6972979f7bb7547a3">1.5. "lazytime" option for better update of file timestamps</h2>
+
+<a id="line-49"></a><a id="line-50"></a><p>Unix filesystems keep track of information about files, such as the last time a file was accessed or modified. Keeping track of this information is very expensive, specially the time when a file was accessed ("atime"), which encourages many people to disable it with the mount option "noatime". To alleviate this problem, the "relatime" mount option was added, the atime is only updated if the previous value is earlier than the modification time, or if the file was last accessed more than 24 hours ago. This behaviour, however, breaks some programs that rely on accurate access time tracking to work, and it's also against the POSIX standard. <a id="line-51"></a></p>
+<a id="line-52"></a><p>In this release, Linux adds another alternative: "lazytime". Lazytime causes access, modified and changed time updates to only be made in the cache. The times will only be written to the disk if the inode needs to be updated anyway for some non-time related change, if fsync(), syncfs() or sync() are called, or just before an undeleted inode is evicted from memory. This is POSIX compliant, while at the same time improving the performance. <a id="line-53"></a></p>
+<a id="line-54"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/621046/">Introducing lazytime</a> <a id="line-55"></a></p>
+<a id="line-56"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/0ae45f63d4ef8d8eeec49c7d8b44a1775fff13e8">commit</a>, <a class="external" href="http://git.kernel.org/linus/1efff914afac8a965ad63817ecf8861a927c2ace">commit</a>, <a class="external" href="http://git.kernel.org/linus/a26f49926da938f47561f386be56a83dd37a496d">commit</a> <a id="line-57"></a></p>
+<a id="line-58"></a>
+<h2 id="head-2274894c6e481a014a984600daeb55d8e5d6d91a">1.6. Multiple lower layers in overlayfs</h2>
+
+<a id="line-59"></a><a id="line-60"></a><p>In overlayfs, multiple lower layers can now be given using the the colon (":") as a separator character between the directory names. For example:  <a id="line-61"></a></p>
+<a id="line-62"></a><ul>
+<li style="list-style-type:none"><p>mount -t overlay overlay -olowerdir=/lower1:/lower2:/lower3 /merged <a id="line-63"></a></p>
+<a id="line-64"></a></li>
+</ul>
+<p>The specified lower directories will be stacked beginning from the rightmost one and going left.  In the above example lower1 will be the top, lower2 the middle and lower3 the bottom layer. "upperdir=" and "workdir=" may be omitted, in that case the overlay will be read-only. <a id="line-65"></a></p>
+<a id="line-66"></a><a id="line-67"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/53a08cb9b8bccfe58f1228c7c27baf34a83da78b">commit</a>, <a class="external" href="http://git.kernel.org/linus/a78d9f0d5d5ca9054703376c7c23c901807ddd87">commit</a> <a id="line-68"></a></p>
+<a id="line-69"></a>
+<h2 id="head-1360b151c5a4846001e6361ce2b45236df5a5439">1.7. Support Parallel NFS server, default to NFS v4.2</h2>
+
+<a id="line-70"></a><a id="line-71"></a><p>Parallel NFS (pNFS) is a part of the NFS v4.1 standard that allows compute clients to access storage devices directly and in parallel. The pNFS architecture eliminates the scalability and performance issues associated with NFS servers deployed today. This is achieved by the separation of data and metadata, and moving the metadata server out of the data path. <a id="line-72"></a></p>
+<a id="line-73"></a><p>This release adds support for pNFS server, and drivers for the block layout with XFS support to use XFS filesystems as a block layout target, and the flexfiles layout. <a id="line-74"></a></p>
+<a id="line-75"></a><p>Also, in this release the NFS server defaults to NFS v4.2. <a id="line-76"></a></p>
+<a id="line-77"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/c5c707f96fc9a6e5a57ca5baac892673270abe3d">commit</a>, <a class="external" href="http://git.kernel.org/linus/9cf514ccfacb301f3b1b4509a8ce25dffad55880">commit</a>, <a class="external" href="http://git.kernel.org/linus/8650b8a058502d6957ba13dfb5544724fa038118">commit</a>, <a class="external" href="http://git.kernel.org/linus/527851124d10f9c50b1c578e0a56fcd49922422d">commit</a>, <a class="external" href="http://git.kernel.org/linus/d67ae825a59d639e4d8b82413af84d854617a87e">commit</a>, <a class="external" href="http://git.kernel.org/linus/c23ae6017835b5bc9b9ec9d5d9c2b1523053f503">commit</a> <a id="line-78"></a></p>
+<a id="line-79"></a>
+<h2 id="head-c0673746b8f925cd7013db3bf2a1ae1b76a18829">1.8. dm-crypt scalability improvements</h2>
+
+<a id="line-80"></a><a id="line-81"></a><p>This release significantly increases the dm-crypt CPU scalability performance thanks to changes that enable effective use of an unbound workqueue across all available CPUs. A large battery of tests were performed to validate these changes, summary of results is available <a class="external" href="https://www.redhat.com/archives/dm-devel/2015-February/msg00106.html">here</a> <a id="line-82"></a></p>
+<a id="line-83"></a><p>Merge: <a class="external" href="http://git.kernel.org/linus/a911dcdba190ddf77e9199b9917156f879f42d4b">commit</a> <a id="line-84"></a></p>
+<a id="line-85"></a><a id="line-86"></a>
+<h1 id="head-6e2ee9e5b7cfdb480861fda324a804734dc14f89">2. File systems</h1>
+
+<a id="line-87"></a><a id="line-88"></a><ul>
+<li><p>XFS <a id="line-89"></a></p>
+<ul>
+<li><p>Adds support for sys_renameat2() <a class="external" href="http://git.kernel.org/linus/d31a1825450062b85282b4afed1c840fd306d012">commit</a> <a id="line-90"></a></p>
+</li>
+<li><p>Remove deprecated sysctls xfsbufd_centisecs and age_buffer_centisecs <a class="external" href="http://git.kernel.org/linus/64af7a6ea5a4c7e12ae79415250d054424b7e0c2">commit</a> <a id="line-91"></a></p>
+<a id="line-92"></a><a id="line-93"></a></li>
+</ul>
+</li>
+<li class="gap"><p>EXT4 <a id="line-94"></a></p>
+<ul>
+<li><p>Support "readonly" filesystem flag to mark a FS image as read-only, tunable with tune2fs. It prevents the kernel and e2fsprogs from changing the image <a class="external" href="http://git.kernel.org/linus/2cb5cc8b09c939c77826635956c35995b15c9331">commit</a> <a id="line-95"></a></p>
+<a id="line-96"></a></li>
+</ul>
+</li>
+<li class="gap"><p>Btrfs <a id="line-97"></a></p>
+<ul>
+<li><p>Add code to support file creation time <a class="external" href="http://git.kernel.org/linus/9cc97d646216b6f2473fa4ab9f103514b86c6814">commit</a> <a id="line-98"></a></p>
+<a id="line-99"></a></li>
+</ul>
+</li>
+<li class="gap"><p>NFSv4.1 <a id="line-100"></a></p>
+<ul>
+<li><p>Allow parallel LOCK/LOCKU calls <a class="external" href="http://git.kernel.org/linus/b4019c0e219bb1301865f8b2efedb4773526ed91">commit</a> <a id="line-101"></a></p>
+</li>
+<li><p>Allow parallel OPEN/OPEN_DOWNGRADE/CLOSE <a class="external" href="http://git.kernel.org/linus/63f5f796af613898669b23ccfc091ec77de7591c">commit</a> <a id="line-102"></a></p>
+<a id="line-103"></a><a id="line-104"></a></li>
+</ul>
+</li>
+<li class="gap"><p>UBIFS <a id="line-105"></a></p>
+<ul>
+<li><p>Add security.* XATTR support for the UBIFS <a class="external" href="https://git.kernel.org/linus/d7f0b70d30ffb9bbe6b8a3e1035cf0b79965ef53">commit</a> <a id="line-106"></a></p>
+</li>
+<li><p>Add xattr support for symlinks <a class="external" href="https://git.kernel.org/linus/895d9db253a0b0b1f8a6e635fb2460d80bf72d5a">commit</a> <a id="line-107"></a></p>
+<a id="line-108"></a></li>
+</ul>
+</li>
+<li class="gap"><p>OCFS2 <a id="line-109"></a></p>
+<ul>
+<li><p>Add a mount option journal_async_commit on ocfs2 filesystem. When this feature is opened, journal commit block can be written to disk without waiting for descriptor blocks, which can improve journal commit performance. Using the fs_mark benchmark, using journal_async_commit shows a 50% improvement <a class="external" href="https://git.kernel.org/linus/1dfeb768475dfded66bba03a1744c2e8141d3429">commit</a> <a id="line-110"></a></p>
+</li>
+<li><p>Currently in case of append O_DIRECT write (block not allocated yet), ocfs2 will fall back to buffered I/O.  This has some disadvantages. In this version, the direct I/O write doesn't fallback to buffer I/O write any more because the allocate blocks are enabled in direct I/O now <a class="external" href="https://git.kernel.org/linus/026749a86ebff68cb2accdcd29872d36ac148920">commit</a>, <a class="external" href="https://git.kernel.org/linus/160cc266639d4213c15c103074561c1b44ffe691">commit</a>, <a class="external" href="https://git.kernel.org/linus/18d585f0f2d4c9dc7dfe6e69dcae4933d5a428c9">commit</a> <a id="line-111"></a></p>
+<a id="line-112"></a><a id="line-113"></a></li>
+</ul>
+</li>
+<li class="gap"><p>F2FS <a id="line-114"></a></p>
+<ul>
+<li><p>Introduce a batched trim <a class="external" href="http://git.kernel.org/linus/bba681cbb231920a786cd7303462fb2632af6f36">commit</a> <a id="line-115"></a></p>
+</li>
+<li><p>Support "norecovery" mount option, which is mostly same as "disable_roll_forward". The only difference is that "norecovery" should be activated with read-only mount option. This can be used when user wants to check whether f2fs is mountable or not without any recovery process <a class="external" href="http://git.kernel.org/linus/2d834bf9ac8e40d9ae2a2dcde2348bd028f87ec4">commit</a> <a id="line-116"></a></p>
+</li>
+<li><p>Add F2FS_IOC_GETVERSION ioctl for getting i_generation from inode, after that, users can list file's generation number by using "lsattr -v <a class="external" href="http://git.kernel.org/linus/d49f3e890290bd1db047d02335401026d1886472">commit</a> <a id="line-117"></a></p>
+<a id="line-118"></a><a id="line-119"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-39e71e330520ccd5af4714d153e2f71243b69422">3. Block</h1>
+
+<a id="line-120"></a><ul>
+<li><p>Ported to blk-multiqueue <a id="line-121"></a></p>
+<ul>
+<li><p>loop: Add blk-mq support, which greatly improves performance for sequential and random reads <a class="external" href="https://git.kernel.org/linus/b5dd2f6047ca108001328aac0e8588edd15f1778">commit</a> <a id="line-122"></a></p>
+</li>
+<li><p>Device-mapper <a class="external" href="https://git.kernel.org/e5863d9ad754926e7d3f38b43ac8bd48ef73b097">commit</a> <a id="line-123"></a></p>
+</li>
+<li><p>rbd <a class="external" href="https://git.kernel.org/linus/7ad18afad02f9802f1eeade91cf880b97e7a9902">commit</a> <a id="line-124"></a></p>
+</li>
+<li><p>UBI <a class="external" href="https://git.kernel.org/linus/ff1f48ee3bb3af226f1f8993af0103794b4d4eab">commit</a> <a id="line-125"></a></p>
+<a id="line-126"></a></li>
+</ul>
+</li>
+<li class="gap"><p>blk-multiqueue: Add support for tag allocation policies and make libata use this blk-mq tagging, instead of rolling their own <a class="external" href="http://git.kernel.org/linus/24391c0dc57c3756a219defaa781e68637d6ab7d">commit</a>, <a class="external" href="http://git.kernel.org/linus/12cb5ce101abfaf74421f8cc9f196e708209eb79">commit</a> <a id="line-127"></a></p>
+</li>
+<li><p>UBI: Implement UBI_METAONLY, a new open mode for UBI volumes, it indicates that only meta data is being changed <a class="external" href="https://git.kernel.org/linus/fafdd2bf2638157670f28462b641150d16dbaeca">commit</a> <a id="line-128"></a></p>
+<a id="line-129"></a></li>
+</ul>
+
+<h1 id="head-f684858fd4f475a034d69e1838aaa3b8695c2359">4. Core (various)</h1>
+
+<a id="line-130"></a><ul>
+<li><p>pstore: Add pmsg - user-space accessible pstore object <a class="external" href="http://git.kernel.org/linus/9d5438f462abd6398cdb7b3211bdcec271873a3b">commit</a> <a id="line-131"></a></p>
+</li>
+<li><p>rcu: Optionally run grace-period kthreads at real-time priority. Recent testing has shown that under heavy load, running RCU's grace-period kthreads at real-time priority can improve performance and reduce the incidence of RCU CPU stall warnings <a class="external" href="https://git.kernel.org/linus/a94844b22a2e2b9155bbc0878c507850477221c2">commit</a> <a id="line-132"></a></p>
+</li>
+<li><p>GDB scripts for debugging the kernel. If you load vmlinux into gdb with the option enabled, the helper scripts will be automatically imported by gdb as well, and additional functions are available to analyze a Linux kernel instance. See <a class="external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/gdb-kernel-debugging.txt">Documentation/gdb-kernel-debugging.txt</a> for further details <a class="external" href="https://git.kernel.org/linus/3ee7b3fa2cd0182628cca8d9bb5ce2d4722e8dc5">commit</a> <a id="line-133"></a></p>
+</li>
+<li><p>Remove CONFIG_INIT_FALLBACK <a class="external" href="http://git.kernel.org/linus/5125991c9a9360fbdb717e22783c970bbd140660">commit</a> <a id="line-134"></a></p>
+<a id="line-135"></a><a id="line-136"></a></li>
+</ul>
+
+<h1 id="head-474cddd0df82983048ae806188d78808cce0282b">5. Memory management</h1>
+
+<a id="line-137"></a><ul>
+<li><p>cgroups: Per memory cgroup slab shrinkers <a class="external" href="https://git.kernel.org/linus/cb731d6c62bbc2f890b08ea3d0386d5dad887326">commit</a> <a id="line-138"></a></p>
+</li>
+<li><p>slub: optimize memory alloc/free fastpath by removing preemption on/off <a class="external" href="https://git.kernel.org/linus/9aabf810a67cd97e2d1a48f0bab338b7680f1929">commit</a> <a id="line-139"></a></p>
+</li>
+<li><p>Add KPF_ZERO_PAGE flag for zero_page, so that userspace processes can detect zero_page in /proc/kpageflags, and then do memory analysis more accurately <a class="external" href="http://git.kernel.org/linus/56873f43abdcd574b25105867a990f067747b2f4">commit</a> <a id="line-140"></a></p>
+</li>
+<li><p>Make /dev/mem an optional device <a class="external" href="https://git.kernel.org/linus/73f0718e74e25ac7381450a7a21257b8f26f43f0">commit</a> <a id="line-141"></a></p>
+</li>
+<li><p>Add support for resetting peak RSS, which can be retrieved from the VmHWM field in /proc/pid/status, by writing "5" to /proc/pid/clear_refs  <a class="external" href="http://git.kernel.org/linus/695f055936938c674473ea071ca7359a863551e7">commit</a> <a id="line-142"></a></p>
+</li>
+<li><p>Show page size in /proc/&lt;pid&gt;/numa_maps as "kernelpagesize_kB" field to help identifying the size of pages that are backing memory areas mapped by a given task. This is specially useful to help differentiating between HUGE and GIGANTIC page backed VMAs <a class="external" href="http://git.kernel.org/linus/198d1597cc5a12d04af18b69338a5b1d66ee7020">commit</a> <a id="line-143"></a></p>
+<a id="line-144"></a><a id="line-145"></a><a id="line-146"></a></li>
+<li class="gap"><p>geneve: Add Geneve GRO support <a class="external" href="http://git.kernel.org/linus/a4c9ea5e8fec680134d22aa99b54d1cd8c226ebd">commit</a> <a id="line-147"></a></p>
+<a id="line-148"></a></li>
+<li class="gap"><p>zsmalloc: add statistics support <a class="external" href="https://git.kernel.org/linus/0f050d997e275cf0e47ddc7006284eaa3c6fe049">commit</a> <a id="line-149"></a></p>
+</li>
+<li><p>Incorporate read-only pages into transparent huge pages <a class="external" href="https://git.kernel.org/linus/10359213d05acf804558bda7cc9b8422a828d1cd">commit</a> <a id="line-150"></a></p>
+</li>
+<li><p>memcontrol cgroup: Introduce the basic control files to account, partition, and limit memory using cgroups in default hierarchy mode. The old interface will be maintained, but a clearer model and improved workload performance should encourage existing users to switch over to the new one eventually <a class="external" href="https://git.kernel.org/linus/241994ed8649f7300667be8b13a9e04ae04e05a1">commit</a> <a id="line-151"></a></p>
+</li>
+<li><p>Replace remap_file_pages() syscall with emulation <a class="external" href="https://git.kernel.org/linus/c8d78c1823f46519473949d33f0d1d33fe21ea16">commit</a> <a id="line-152"></a></p>
+</li>
+</ul>
+
+<h1 id="head-e9098861ff5c7fd1c04a0b0e893db8737a8092db">6. Virtualization</h1>
+
+<a id="line-153"></a><ul>
+<li><p>KVM: Add generic support for page modification logging, a new feature in Intel "Broadwell" Xeon CPUs that speeds up dirty page tracking <a class="external" href="https://git.kernel.org/linus/ba0513b5b8ffbcb0cc89e2f172c0bcb70497ba2e">commit</a> <a id="line-154"></a></p>
+</li>
+<li><p>vfio: Add device request interface indicating that the device should be released <a class="external" href="https://git.kernel.org/linus/6140a8f5623820cec7f56c63444b9551d8d35775">commit</a> <a id="line-155"></a></p>
+<a id="line-156"></a><a id="line-157"></a></li>
+<li class="gap"><p>vmxnet3: Make Rx ring 2 size configurable by adjusting rx-jumbo parameter of ethtool -G <a class="external" href="https://git.kernel.org/linus/53831aa12538f8753fb77b7ab6408cce54973b30">commit</a> <a id="line-158"></a></p>
+</li>
+<li><p>virtio_net: add software timestamp support <a class="external" href="https://git.kernel.org/linus/074c3582192b6cb340510b2a6e4579e78f671dcf">commit</a> <a id="line-159"></a></p>
+</li>
+<li><p>virtio_pci: modern driver <a class="external" href="https://git.kernel.org/linus/1fcf0512c9c870e78e1c9898ecb9458593403466">commit</a>, add an options to disable legacy driver <a class="external" href="https://git.kernel.org/linus/46506da5f365efe7fe3e4c9da73ab679c0382fac">commit</a>, <a class="external" href="https://git.kernel.org/linus/ac399d8f39a860655961660efa5c67e7f3c47912">commit</a> <a id="line-160"></a></p>
+<a id="line-161"></a></li>
+</ul>
+
+<h1 id="head-60844173ad259e7ec33ab5163363695cf6f9a1b6">7. Cryptography</h1>
+
+<a id="line-162"></a><ul>
+<li><p>aesni: Add support for 192 &amp; 256 bit keys to AES-NI RFC4106 <a class="external" href="https://git.kernel.org/linus/e31ac32d3bc27c33f002e0c9ffd6ae08b65474e6">commit</a> <a id="line-163"></a></p>
+</li>
+<li><p>algif_rng: add random number generator support <a class="external" href="https://git.kernel.org/linus/5afdfd22e6ba2260129a2a7113ab0916339c4205">commit</a> <a id="line-164"></a></p>
+</li>
+<li><p>octeon: add MD5 module <a class="external" href="https://git.kernel.org/linus/1953c22f53747035b28c36dbb337ac3c10902644">commit</a> <a id="line-165"></a></p>
+</li>
+<li><p>qat: add support for CBC(AES) ablkcipher <a class="external" href="https://git.kernel.org/linus/338e84f3a9740ab3582c8b6bc5a1a027794dac72">commit</a> <a id="line-166"></a></p>
+<a id="line-167"></a></li>
+</ul>
+
+<h1 id="head-b075f2728662143ec8858c7a6cbd09d794831028">8. Security</h1>
+
+<a id="line-168"></a><ul>
+<li><p>Add security hooks to the Android Binder that enable security modules such as SELinux to implement controls over Binder IPC. The security hooks include support for controlling what process can become the Binder context manager, invoke a binder transaction/IPC to another process, transfer a binder reference to another process , transfer an open file to another process. These hooks have been included in the Android kernel trees since Android 4.3 <a class="external" href="https://git.kernel.org/linus/79af73079d753b2d04e46f7445716d3b5f914dbd">commit</a> <a id="line-169"></a></p>
+</li>
+<li><p>Smack: secmark support for netfilter <a class="external" href="https://git.kernel.org/linus/69f287ae6fc8357e0bc561353a2d585b89ee8cdc">commit</a> <a id="line-170"></a></p>
+</li>
+<li><p>TPM 2.0 support <a class="external" href="https://git.kernel.org/linus/7a1d7e6dd76a2070e2d86826391468edc33bb6d6">commit</a>, <a class="external" href="https://git.kernel.org/linus/30fc8d138e9123f374a3c3867e7c7c5cd4004941">commit</a>, <a class="external" href="https://git.kernel.org/linus/aec04cbdf7231c1b0da76172de82dfa2388a80d7">commit</a> <a id="line-171"></a></p>
+</li>
+<li><p>Device class for TPM, sysfs files are moved from /sys/class/misc/tpmX/device/ to /sys/class/tpm/tpmX/device/ <a class="external" href="https://git.kernel.org/linus/313d21eeab9282e01fdcecd40e9ca87e0953627f">commit</a> <a id="line-172"></a></p>
+<a id="line-173"></a><p>= Tracing &amp; perf =  <a id="line-174"></a></p>
+<a id="line-175"></a></li>
+<li class="gap"><p>perf mem: Enable sampling loads and stores simultaneously, it could only do one or the other before yet there was no hardware restriction preventing simultaneous collection [<a class="external" href="https://git.kernel.org/linus/67121f85e464d66596f99afd8d188c1ae892f8fb">commit</a> <a id="line-176"></a></p>
+</li>
+<li><p>perf tools: Support parameterized and symbolic events. See links for documentation <a class="external" href="http://git.kernel.org/linus/688d4dfcdd624192cbf03c08402e444d1d11f294">commit</a>, <a class="external" href="http://git.kernel.org/linus/f9ab9c196d015f3bd8f6bd1c30785c5a49542323">commit</a> <a id="line-177"></a></p>
+<a id="line-178"></a></li>
+<li class="gap"><p>AMD range breakpoints support: breakpoints are extended to support address range through perf event with initial backend support for AMD extended breakpoints. For example set write breakpoint from 0x1000 to 0x1200 (0x1000 + 512): perf record -e mem:0x1000/512:w <a class="external" href="http://git.kernel.org/linus/3741eb9f8c3be3ec59583881c1f49980dad844e0">commit</a>, <a class="external" href="http://git.kernel.org/linus/d6d55f0b9d900673548515614b56ab55aa2c51f8">commit</a> <a id="line-179"></a></p>
+<a id="line-180"></a><a id="line-181"></a></li>
+</ul>
+
+<h1 id="head-488de44a933b3518ab5668591d9acf7f9cae5478">9. Networking</h1>
+
+<a id="line-182"></a><ul>
+<li><p>TCP: Add the possibility to define a per route/destination congestion control algorithm. This opens up the possibility for a machine with different links to enforce specific congestion control algorithms with optimal strategies for each of them based on their network characteristics <a class="external" href="https://git.kernel.org/linus/81164413ad096bafe8ad1068f3f095a7dd081d8b">commit</a> <a id="line-183"></a></p>
+</li>
+<li><p>Mitigate TCP "ACK loop" DoS scenarios by rate-limiting outgoing duplicate ACKs sent in response to incoming "out of window" segments. For more details, see <a class="external" href="https://git.kernel.org/linus/f06535c599354816cfbc653ce8965804c7385c61">merge</a>. Code: <a class="external" href="https://git.kernel.org/linus/032ee4236954eb214651cb9bfc1b38ffa8fd7a01">commit</a>, <a class="external" href="https://git.kernel.org/linus/a9b2c06dbef48ed31cff1764c5ce824829106f4f">commit</a>, <a class="external" href="https://git.kernel.org/linus/f2b2c582e82429270d5818fbabe653f4359d7024">commit</a>, <a class="external" href="https://git.kernel.org/linus/4fb17a6091674f469e8ac85dc770fbf9a9ba7cc8">commit</a> <a id="line-184"></a></p>
+</li>
+<li><p>udpv6: Add lockless sendmsg() support, thus allowing multiple threads to send to a single socket more efficiently <a class="external" href="https://git.kernel.org/linus/03485f2adcde0c2d4e9228b659be78e872486bbb">commit</a> <a id="line-185"></a></p>
+</li>
+<li><p>ipv4: Automatically bring up DSA master network devices, which allows DSA slave network devices to be used as valid interfaces for e.g: NFS root booting by allowing kernel IP auto-configuration to succeed on these interfaces <a class="external" href="https://git.kernel.org/linus/728c02089a0e3eefb02e9927bfae50490f40e72e">commit</a> <a id="line-186"></a></p>
+</li>
+<li><p>ipv6: Add sysctl entry(accept_ra_mtu) to disable MTU updates from router advertisements <a class="external" href="https://git.kernel.org/linus/c2943f14534bdc4230f4da6dcd4ea03c5d8c8162">commit</a> <a id="line-187"></a></p>
+</li>
+<li><p>vxlan: Implement supports for the <a class="external" href="https://tools.ietf.org/html/draft-smith-vxlan-group-policy">Group Policy VXLAN extension</a> to provide a lightweight and simple security label mechanism across network peers based on VXLAN. It allows further mapping to a SELinux context using SECMARK, to implement ACLs directly with nftables, iptables, OVS, tc, etc <a class="external" href="https://git.kernel.org/linus/3511494ce2f3d3b77544c79b87511a4ddb61dc89">commit</a> <a id="line-188"></a></p>
+</li>
+<li><p>vxlan: Add support for remote checksum offload in VXLAN. It is described <a class="external" href="https://tools.ietf.org/html/draft-herbert-vxlan-rco-00">here</a>. <a class="external" href="https://git.kernel.org/linus/dfd8645ea1bd91277f841e74c33e1f4dbbede808">commit</a> <a id="line-189"></a></p>
+</li>
+<li><p>net: openvswitch: Support masked set actions. <a class="external" href="https://git.kernel.org/linus/83d2b9ba1abca241df44a502b6da950a25856b5b">commit</a> <a id="line-190"></a></p>
+<a id="line-191"></a></li>
+<li class="gap"><p>Infiniband: Add support for extensible query device capabilities verb to allow adding new features <a class="external" href="https://git.kernel.org/linus/02d1aa7af17ef0e0655745ce32cab369ed040a67">commit</a> <a id="line-192"></a></p>
+</li>
+<li><p>Layer 2 Tunneling Protocol (l2tp): multicast notification to the registered listeners when the tunnels/sessions are created/modified/deleted <a class="external" href="https://git.kernel.org/linus/33f72e6f0c67f673fd0c63a8182dbd9ffb8cf50b">commit</a> <a id="line-193"></a></p>
+<a id="line-194"></a></li>
+<li class="gap"><p>SUNRPC: Set SO_REUSEPORT socket option for TCP connections to bind multiple TCP connections to the same source address+port combination <a class="external" href="https://git.kernel.org/linus/4dda9c8a5e34773b290c6b5938ccb36e7fcdf35c">commit</a> <a id="line-195"></a></p>
+</li>
+<li><p>tipc: involve namespace infrastructure <a class="external" href="https://git.kernel.org/linus/c93d3baa24095887005647984cff5de8c63d3611">commit</a> <a id="line-196"></a></p>
+<a id="line-197"></a></li>
+<li class="gap"><p>802.15.4: introduce support for cca settings <a class="external" href="https://git.kernel.org/linus/ba2a9506a76450568cbc0d51626d94cf8528c0c7">commit</a> <a id="line-198"></a></p>
+<a id="line-199"></a><a id="line-200"></a></li>
+<li class="gap"><p>Wireless <a id="line-201"></a></p>
+<ul>
+<li><p>Add new GCMP, GCMP-256, CCMP-256, BIP-GMAC-128, BIP-GMAC-256, and BIP-CMAC-256 cipher suites. These new cipher suites were defined in IEEE Std 802.11ac-2013 <a class="external" href="https://git.kernel.org/linus/cfcf1682c4ca8f601a4702255958e0b1c9aa12cc">commit</a>, <a class="external" href="https://git.kernel.org/linus/56c52da2d554f081e8fce58ecbcf6a40c605b95b">commit</a>, <a class="external" href="https://git.kernel.org/linus/8ade538bf39b1ee53418528fdacd36b8e65621b9">commit</a>, <a class="external" href="https://git.kernel.org/linus/2b2ba0db1c820d04d5143452d70012cd44d7b578">commit</a>, <a class="external" href="https://git.kernel.org/linus/00b9cfa3ff38401bd70c34b250ca13e5ea347b4a">commit</a> <a id="line-202"></a></p>
+</li>
+<li><p>New NL80211_ATTR_NETNS_FD which allows to set namespace via nl80211 by fd <a class="external" href="https://git.kernel.org/linus/4b681c82d2f9bef121c912ffcaac89a004af3f2c">commit</a> <a id="line-203"></a></p>
+</li>
+<li><p>Support per-TID station statistics <a class="external" href="https://git.kernel.org/linus/6de39808cf1dd7b02bf42e7d8695d80f5eaf645d">commit</a> <a id="line-204"></a></p>
+</li>
+<li><p>Allow including station info in delete event <a class="external" href="https://git.kernel.org/linus/cf5ead822d5db2d276616ccca91f00eb3b855db2">commit</a>, <a class="external" href="https://git.kernel.org/linus/6f7a8d26e2668e00de524d3da0122a4411047dd2">commit</a> <a id="line-205"></a></p>
+</li>
+<li><p>Allow usermode to query wiphy specific regdom <a class="external" href="https://git.kernel.org/linus/ad30ca2c03cecfb1b0749874bdceead269542de6">commit</a> <a id="line-206"></a></p>
+<a id="line-207"></a></li>
+</ul>
+</li>
+<li class="gap"><p>bridge <a id="line-208"></a></p>
+<ul>
+<li><p>offload bridge port attributes to switch ASIC if feature flag set <a class="external" href="https://git.kernel.org/linus/68e331c785b85b78f4155e2ab6f90e976b609dc1">commit</a> <a id="line-209"></a></p>
+</li>
+<li><p>Support for allowing userspace to pack multiple vlans and VLAN ranges in setlink and dellink requests for improved performance <a class="external" href="https://git.kernel.org/linus/bdced7ef7838c1c4aebe9f295e44b7f0dcae2109">commit</a> <a id="line-210"></a></p>
+</li>
+<li><p>Add ability to enable TSO <a class="external" href="https://git.kernel.org/linus/f902e8812ef657c6cf744ac25e21865217155460">commit</a> <a id="line-211"></a></p>
+<a id="line-212"></a></li>
+</ul>
+</li>
+<li class="gap"><p>Near Field Communication (NFC) <a id="line-213"></a></p>
+<ul>
+<li><p>HCI over NCI protocol support (Some secure elements only understand HCI and thus we need to send them HCI frames) <a class="external" href="https://git.kernel.org/linus/11f54f228643d0248ec00ce8c9fb8d872f87e7b8">commit</a> <a id="line-214"></a></p>
+</li>
+<li><p>NCI NFCEE (NFC Execution Environment, typically an embedded or external secure element) discovery and enabling/disabling support <a class="external" href="https://git.kernel.org/linus/8277f6937ae97c51ced5b54faa4934613c76999c">commit</a>, <a class="external" href="https://git.kernel.org/linus/af9c8aa67d07adcd3b41fb2934af7af056eabecf">commit</a>, <a class="external" href="https://git.kernel.org/linus/f7f793f31378d5e83276871339c2a8374b0e8657">commit</a>, <a class="external" href="https://git.kernel.org/linus/a41bb8448ebaebe1d0d9a268d340fad73c247e09">commit</a>, <a class="external" href="https://git.kernel.org/linus/4aeee6871e8c3b043ef02996db8ac70a1af8be92">commit</a>, <a class="external" href="https://git.kernel.org/linus/6095b0f07d9b1abd98484bc33b329e06a684115b">commit</a>, <a class="external" href="https://git.kernel.org/linus/736bb9577407d3556d81c3c3cd57581cd3ae10ea">commit</a> <a id="line-215"></a></p>
+</li>
+<li><p>NFC_EVT_TRANSACTION userspace API addition, it is sent through netlink in order for a specific application running on a secure element to notify userspace of an event <a class="external" href="https://git.kernel.org/linus/447b27c4f29b510b98e99395120d635f009ed563">commit</a> <a id="line-216"></a></p>
+</li>
+<li><p>Tx timestamps are looped onto the error queue on top of an skb. This mechanism leaks packet headers to processes unless the no-payload options SOF_TIMESTAMPING_OPT_TSONLY is set. A new sysctl (tstamp_allow_data) optionally drops looped timestamp with data. This only affects processes without CAP_NET_RAW <a class="external" href="https://git.kernel.org/linus/b245be1f4db1a0394e4b6eb66059814b46670ac3">commit</a>, <a class="external" href="https://git.kernel.org/linus/49ca0d8bfaf3bc46d5eef60ce67b00eb195bd392">commit</a>, <a class="external" href="https://git.kernel.org/linus/2368592365bc97e941d0c641a3ba24b06d2c469b">commit</a> <a id="line-217"></a></p>
+<a id="line-218"></a></li>
+</ul>
+</li>
+<li class="gap"><p>Bluetooth <a id="line-219"></a></p>
+<ul>
+<li><p>Enable LE Data Length Extension feature from Bluetooth 4.2 specification <a class="external" href="https://git.kernel.org/linus/a9f6068e0072839594d246089204644bffd2c988">commit</a> <a id="line-220"></a></p>
+</li>
+<li><p>Expose information in debugfs: Secure Simple Pairing <a class="external" href="https://git.kernel.org/linus/6e07231a80de33a3721c971e560316d04db16de8">commit</a>, debug keys usage setting <a class="external" href="https://git.kernel.org/linus/0886aea6acd27006888c36bad1fa5f80dac1e171">commit</a>, hardware error code <a class="external" href="https://git.kernel.org/linus/5789f37cbc560aff45ff4d00673705eac92d3b4d">commit</a>, remote OOB information <a class="external" href="https://git.kernel.org/linus/6858bcd073c9ff36f5d341dc6da011a53954fa9a">commit</a> <a id="line-221"></a></p>
+</li>
+<li><p>HCI Read Stored Link Keys <a class="external" href="https://git.kernel.org/linus/cb9627806ce898c436dc74252718e4a757b33bc3">commit</a>, <a class="external" href="https://git.kernel.org/linus/c2f0f979276fc4911cef5da2fc113f0daeda3ebc">commit</a> <a id="line-222"></a></p>
+</li>
+<li><p>HCI Delete Stored Link Key <a class="external" href="https://git.kernel.org/linus/48ce62c4fae7e817d9018020345bbe30a6b9c446">commit</a>, <a class="external" href="https://git.kernel.org/linus/a93661203641eb5e8aa9bbed8d9689e5d5dbe6b1">commit</a> <a id="line-223"></a></p>
+</li>
+<li><p>Support static address when BR/EDR has been disabled <a class="external" href="https://git.kernel.org/linus/50b5b952b7c2bf2c75c257a62a6c456a0bbfdfa3">commit</a> <a id="line-224"></a></p>
+<a id="line-225"></a><a id="line-226"></a></li>
+</ul>
+</li>
+<li class="gap"><p>tc: add BPF-based action. This action provides a possibility to execute custom BPF code <a class="external" href="https://git.kernel.org/linus/d23b8ad8ab23f5a18b91e2396fb63d10f66b08d6">commit</a> <a id="line-227"></a></p>
+</li>
+<li><p>net: sched: Introduce connmark action <a class="external" href="https://git.kernel.org/linus/22a5dc0e5e3e8fef804230cd73ed7b0afd4c7bae">commit</a> <a id="line-228"></a></p>
+</li>
+<li><p>Add Transparent Ethernet Bridging GRO support <a class="external" href="https://git.kernel.org/linus/9b174d88c257150562b0101fcc6cb6c3cb74275c">commit</a> <a id="line-229"></a></p>
+</li>
+<li><p>netdev: introduce new NETIF_F_HW_SWITCH_OFFLOAD feature flag for switch device offloads <a class="external" href="https://git.kernel.org/linus/aafb3e98b27977148c8c86499684f8f5c3decfbb">commit</a> <a id="line-230"></a></p>
+</li>
+<li><p>netfilter: nft_compat: add ebtables support <a class="external" href="https://git.kernel.org/linus/5191f4d82daf22b7ee9446f83527d2795e225974">commit</a> <a id="line-231"></a></p>
+<ul>
+<li><p>network namespace: Add rtnl cmd to add and get peer netns ids. A user can define an id for a peer netns by providing a FD or a PID. These ids are local to the netns where it is added (i.e. valid only into this netns) <a class="external" href="https://git.kernel.org/linus/0c7aecd4bde4b7302cd41986d3a29e4f0b0ed218">commit</a>, <a class="external" href="https://git.kernel.org/linus/d37512a277dfb2cef8a578e25a3246f61399a55a">commit</a> <a id="line-232"></a></p>
+</li>
+</ul>
+</li>
+<li><p>openvswitch: Add support for checksums on UDP tunnels. <a class="external" href="https://git.kernel.org/linus/b8693877ae016ac525d674d5d7a84ea0ea68ba60">commit</a> <a id="line-233"></a></p>
+</li>
+<li><p>openvswitch: Support VXLAN Group Policy extension <a class="external" href="https://git.kernel.org/linus/1dd144cf5b4b47e12438c2c6883925ce1a9b499f">commit</a> <a id="line-234"></a></p>
+<a id="line-235"></a></li>
+</ul>
+
+<h1 id="head-4b8740fc1c0b3fa05c88a39aa0c9998dfa96852c">10. List of merges</h1>
+
+<a id="line-236"></a><ul>
+<li><p><a class="external" href="https://git.kernel.org/linus/5c30c3cc6d5de71f1248875e9213e6c109dda963">Pull hwmon updates </a> <a id="line-237"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/f381f906955a2b0619b5557cc53aafcc7ef27be8">Pull regmap updates </a> <a id="line-238"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/b0c1936c4497d7f06b143241614d85a41fec12cd">Pull spi updates </a> <a id="line-239"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/30d46827c2744f56bb31460007f2d16455f10720">Pull regulator updates </a> <a id="line-240"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/23e8fe2e16587494268510c1bc9f6952f50f0311">Pull RCU updates </a> <a id="line-241"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/8308756f45a12e2ff4f7749c2694fc83cdef0be9">Pull core locking updates </a> <a id="line-242"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a4cbbf549a9be10b7583c44249efccd64839533d">Pull perf updates </a> <a id="line-243"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/5b9b28a63f2e47dac5ff3a2503bfe3ade8796aa0">Pull scheduler updates </a> <a id="line-244"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/0ba97bc4b4b054b71cd348dab838a7545a27b893">Pull timer updates </a> <a id="line-245"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/9d43bade347143b96671b38a7f81c39a81206675">Pull x86 APIC updates </a> <a id="line-246"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/7453311d68f16a5c587c3cbf19563c9a4fbbd41a">Pull x86 asm changes </a> <a id="line-247"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/80f33a5fdf66d4338789e8aa80589bda088cb35d">Pull x86 cleanups </a> <a id="line-248"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/072bc448cc796c4d2d3519795f38e13a6c2a14a5">Pull EFI updates </a> <a id="line-249"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c93ecedab35f5305542a9fe5cfbd37377189589e">Pull x86 fpu updates </a> <a id="line-250"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a8f76842142890883f46b8e7f57f87cf224a832a">Pull x86 SoC updates </a> <a id="line-251"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/57d3629410599a1074b02f9b2139c2a6aa2b787e">Pull x86 mm cleanups </a> <a id="line-252"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/e07e0d4cb0c4bfe822ec8491cc06269096a38bea">Pull x86 RAS update </a> <a id="line-253"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/ed824a625006e47d2584ee0bba9227a34cc06671">Pull EDAC updates </a> <a id="line-254"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c2189e3a3d67e94941c568ee8fab1b86983cd024">Pull percpu changes </a> <a id="line-255"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/15763db134dd60504dbd93137e6654f06d639acf">Pull cgroup changes </a> <a id="line-256"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/44dbf058de9f46cf112518c99bb1352e8350ceb3">Pull workqueue changes </a> <a id="line-257"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/3e8c04eb117445d67ae2b83e08bec4005129356a">Pull libata changes </a> <a id="line-258"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/ab0475df5ce45d80a9e5f056cbad3a58e4930206">Pull m68k updates </a> <a id="line-259"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/98368ab436538103a557fc1f15f54afd8aab6712">Pull Microblaze pupdates </a> <a id="line-260"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/bdccc4edeb03ad68c55053b0260bdaaac547bbd9">Pull xen features and fixes </a> <a id="line-261"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c08f8467939e7d2eebcba7cf2330242c4f53f2f7">Pull PCI changes </a> <a id="line-262"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/872912352c5be930e9568e5f3b6d73107d9f278d">Pull ACPI and power management updates </a> <a id="line-263"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/4b4f8580a4b77126733db8072862793d4deae66a">Pull file locking related changes #1 </a> <a id="line-264"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c5452a58db9bbcb331ee92afa99a6f42e39085c7">Pull quota interface unification and misc cleanups </a> <a id="line-265"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/ae90fb14206efda2c2ea6d61e14f14bf0132f676">Pull xfs update </a> <a id="line-266"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/b2718bffb4088faf13092db30c1ebf088ddee52e">Pull gfs2 updates </a> <a id="line-267"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/992de5a8eca7cbd3215e3eb2c439b2c11582a58b">Merge misc updates </a> <a id="line-268"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/870fd0f5df4e131467612cc46db46fc3b69fd706">Pull HID updates </a> <a id="line-269"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/1d9c5d79e6e4385aea6f69c23ba543717434ed70">Pull live patching infrastructure </a> <a id="line-270"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/29afc4e9a408f2304e09c6dd0dbcfbd2356d0faa">Pull trivial tree changes </a> <a id="line-271"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c5ce28df0e7c01a1de23c36ebdefcd803f2b6cbb">Pull networking updates </a> <a id="line-272"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/13c071907b237058b38ac85b35742a543e522059">Pull power supply and reset changes </a> <a id="line-273"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/6fc26fc5783add961533c819995bd97db05990f0">Pull HSI fix </a> <a id="line-274"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/3e63430a5cc26bc90a6e33ab33f901196b7b63ac">Pull media updates </a> <a id="line-275"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a323ae93a74f669d890926187c68c711895e3454">Pull sound updates </a> <a id="line-276"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/e0c8453769fcaec654cd5870e84c63175658c842">Pull fbdev changes </a> <a id="line-277"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/718749d56214aa97015fe01b76b6d6dd0c171796">Pull input updates </a> <a id="line-278"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/540a7c5061f10a07748c89b6741af90db1a07252">Pull first round of SCSI updates </a> <a id="line-279"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/aa7ed01f93ff7e149cad46f13f66b269d59c9bc0">Pull MMC updates </a> <a id="line-280"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a1df7efedab047a8ea4d5850737f03d3679726a7">Pull GPIO changes </a> <a id="line-281"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/ce01e871a1d44cc97cdd7e5ba6cb0c3613c15552">Pull pincontrol updates </a> <a id="line-282"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/bfe9183fdcc0575a648d1401facc649888a1f49a">Pull mailbox framework updates </a> <a id="line-283"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/73b4f63aebd6d57db4ca1d31fa6f8516651207b0">Pull documentation updates </a> <a id="line-284"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/6f83e5bd3e96228ee0caff0b103addb5f4e95459">Pull NFS client updates </a> <a id="line-285"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/07f80d41cf24b7e6e76cd97d420167932c9a7f82">Pull pstore update </a> <a id="line-286"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/b3d6524ff7956c5a898d51a18eaecb62a60a2b84">Pull s390 updates </a> <a id="line-287"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/6b00f7efb5303418c231994c91fb8239f5ada260">Pull arm64 updates </a> <a id="line-288"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/d3f180ea1a44aecba1b0dab2a253428e77f906bf">Pull powerpc updates </a> <a id="line-289"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/59d53737a8640482995fea13c6e2c0fd016115d6">Merge second set of updates </a> <a id="line-290"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/7184487f14eb7c2fcf8337bb16c6a63b6db1252e">Pull audit fix </a> <a id="line-291"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/8cc748aa76c921d8834ef00f762f31acd2c93aa8">Pull security layer updates </a> <a id="line-292"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/12df4289ee8e4dccf932b7186b391bb6d2b915fa">Pull ktest updates </a> <a id="line-293"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/41cbc01f6e49e48bc3d78158cec0a2d4ff6c906d">Pull tracing updates </a> <a id="line-294"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a2f0bb03f7c499e3db72c70a62b1aa5c55d6a82b">Pull AVR32 update </a> <a id="line-295"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/42cf0f203e877cc7e502883d43b3f72149033d86">Pull ARM updates </a> <a id="line-296"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/cdd305454ebd181fa35b648c0921fe7df27d6f3b">Pull DeviceTree changes </a> <a id="line-297"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a26be149facb22d30cd92cadb26f651d6fe802c9">Pull IOMMU updates </a> <a id="line-298"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/61845143febe6b88349acad4732adc54894009a3">Pull nfsd updates </a> <a id="line-299"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/87c9172f71e3f729729aad27fa6592bb795137fd">Pull jfs updates </a> <a id="line-300"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/5d8e7fb6916556e9b476de33404e8c9e2c9aee61">Pull md updates </a> <a id="line-301"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/6bec0035286119eefc32a5b1102127e6a4032cb2">Pull backing device changes </a> <a id="line-302"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/3e12cefbe143b4947171ff92dd50024c4841e291">Pull core block IO changes </a> <a id="line-303"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/8494bcf5b7c4b2416687e233dd34d4c6b6fe5653">Pull block driver changes </a> <a id="line-304"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/802ea9d8645d33d24b7b4cd4537c14f3e698bde0">Pull device mapper changes </a> <a id="line-305"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/818099574b04c5301eacbbcd441022b353a65466">Merge third set of updates </a> <a id="line-306"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c7d7b98671552abade78834c522b7308bda73c0d">Pull f2fs updates </a> <a id="line-307"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/b9085bcbf5f43adf60533f9b635b2e7faeed0fe9">Pull KVM update </a> <a id="line-308"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/f1252515d901ee2a184a9d49a7f29ae14da823eb">Pull arch/tile changes </a> <a id="line-309"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a42cf70eb81558082e9a26fe8541d160b6c2a694">Pull module update </a> <a id="line-310"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/db3ecdee1cf0538f11832f7ef66945c4dd903918">Pull LED subsystem update </a> <a id="line-311"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/18320f2a6871aaf2522f793fee4a67eccf5e131a">Pull more ACPI and power management updates </a> <a id="line-312"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/83e047c104aa95a8a683d6bd421df1551c17dbd2">Merge fourth set of updates </a> <a id="line-313"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/fee5429e028c414d80d036198db30454cfd91b7a">Pull crypto update </a> <a id="line-314"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c833e17e276bd5d5f174aa924c4f102754ebc2be">Pull ACCESS_ONCE() rule tightening </a> <a id="line-315"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/8c988ae787af4900bec5410658e8a82844185c85">Pull UBI and UBIFS updates </a> <a id="line-316"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/e29876723f7cb7728f0d6a674d23f92673e9f112">Pull USB patches </a> <a id="line-317"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/4ba63072b998cc31515cc6305c25f3b808b50c01">Pull char / misc patches </a> <a id="line-318"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/9682ec9692e5ac11c6caebd079324e727b19e7ce">Pull driver core patches </a> <a id="line-319"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/46f7b635569731ff81a3b72d1bcd4415b293b637">Pull staging drivers patches </a> <a id="line-320"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a9724125ad014decf008d782e60447c811391326">Pull tty/serial driver patches </a> <a id="line-321"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/1fa185ebcbcefdc5229c783450c9f0439a69f0c1">Pull CRIS changes </a> <a id="line-322"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/ea44a160e6dc5d3d7c680ea72dfbabef80343839">Pull m68knommu fixes </a> <a id="line-323"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a68fb48380bb993306dd62a58cbd946b4348222a">Pull ARC updates </a> <a id="line-324"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/37507717de51a8332a34ee07fd88700be88df5bf">Pull x86 perf updates </a> <a id="line-325"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/3c6847eaa3da59f3bbe15eb3004ddab41ae6a201">Pull irqchip updates </a> <a id="line-326"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/8c334ce8f0fec7122fc3059c52a697b669a01b41">Pull clocksource updates </a> <a id="line-327"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/796e1c55717e9a6ff5c81b12289ffa1ffd919b6f">Pull drm updates </a> <a id="line-328"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c397f8fa4379040bada53256c848e62c8b060392">Merge fifth set of updates </a> <a id="line-329"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/4025fa97ff39db054b47b9cdb9f3980480637668">Pull ARM SoC non-critical fixes </a> <a id="line-330"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/ea7531ac4a9d0b39edce43472147dc41cc2b7a34">Pull ARM SoC cleanups </a> <a id="line-331"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/878ba61aa98cbb97a513757800e77613f856a029">Pull ARM SoC platform changes </a> <a id="line-332"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a233bb742aed62fc6164073d9835135f639b8828">Pull ARM SoC DT updates </a> <a id="line-333"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/18656782a820f075cb5c168a2e381a8938b1550a">Pull ARM SoC driver updates </a> <a id="line-334"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/03a40e29941cf7b12d9eef92cd1a56e04affbc06">Pull ARM SoC defconfig changes </a> <a id="line-335"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/cc4f9c2a91b7be7b3590bb1cbe8148873556aa3f">Pull ARM SoC 64-bit changes and additions </a> <a id="line-336"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/1d9e71404e2c3f37387991534983dcb2ab05660d">Pull security subsystem fixes </a> <a id="line-337"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/99fa0ad92c4fd8b529c89b3640b42323984be761">Pull suspend-to-idle updates </a> <a id="line-338"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/b0f0c26a2ed49eccf98a011b86fe24fb9f2b35f6">Pull arch/nios2 update </a> <a id="line-339"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/9cd77374f0a9cbb7ec35a9aaeb6473755afe0e3e">Pull parisc update </a> <a id="line-340"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/e2b74f232e84dfccd0047eb47545b1d028df8ff1">Merge yet more updates </a> <a id="line-341"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/50652963eae6afe13678dc84d789a174306a4df7">Pull misc VFS updates </a> <a id="line-342"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c6b1de1b646fe232206d4065df4d14040cebd613">Pull debugfs patches </a> <a id="line-343"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/05016b0f0a9d900e976db7f50a7761c0aefe5a1c">Pull getname/putname updates </a> <a id="line-344"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/66dc830d14a222c9214a8557e9feb1e4a67a3857">Pull iov_iter updates </a> <a id="line-345"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/038911597e17017cee55fe93d521164a27056866">Pull lazytime mount option support </a> <a id="line-346"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/fbe4da49f86bbc08a1f7994338522bf77d47300d">Pull DocBook build fix </a> <a id="line-347"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/f5af19d10d151c5a2afae3306578f485c244db25">Pull networking updates </a> <a id="line-348"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/402521b8f7cc1f4f442418cc98ec6e37388207b0">Pull MTD updates </a> <a id="line-349"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a5ac1fb13c1265f942ea1d24c43b42d76c1660c2">Pull fireware updates </a> <a id="line-350"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/928fce2f6d8152d897790c1a5bbeef5642f69e0e">Pull watchdog updates </a> <a id="line-351"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/ce1d3fde87d1a21f1ec1147dde32b2825dd3a276">Pull dmaengine updates </a> <a id="line-352"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/9a8b2aa534f23a61a57385309667e42e96941116">Pull pwm updates </a> <a id="line-353"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/5c2770079fb9b8c5bfb7113d9e76de66e77a0e24">Pull MFD updates </a> <a id="line-354"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/53861af9a17022898619a2ae4ead0dfc601b7c13">Pull virtio updates </a> <a id="line-355"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/eaa0eda56223815cd9dc1225f715ff673ae77198">Pull asm-generic uaccess.h cleanup </a> <a id="line-356"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/27a22ee4c7d5839fd7e3e441c9d675c8a5c4c22c">Pull kbuild updates </a> <a id="line-357"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/773433433791b9420c2a0f86b93c91d4115d89b5">Pull misc kbuild changes </a> <a id="line-358"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/b11a2783974791d37e44abbb48d41e8c120b5126">Pull kconfig updates </a> <a id="line-359"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/6ed3e57fd2ffe63385e0073fe3cde8bf91b4c9fa">Pull platform driver update </a> <a id="line-360"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/89d3fa45b4add00cd0056361a2498e978cb1e119">Pull thermal managament updates </a> <a id="line-361"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/4533f6e27a366ecc3da4876074ebfe0cc0ea4f0f">Pull Ceph changes </a> <a id="line-362"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/2b9fb532d4168e8974fe49709e2c4c8d5352a64c">Pull btrfs updates </a> <a id="line-363"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/3d883483dc0a7261d73d8b1857a7387a1dd99eee">Pull more thermal managament updates </a> <a id="line-364"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/7bad2227f639723230dbc40fe32e16101321b5b7">Pull IPMI driver updates </a> <a id="line-365"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/4fbd0a81a0059f22d06780de96e73f9ddbccd8a4">Pull kgdb/kdb updates </a> <a id="line-366"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/3f4d9925e9174b8786bfbb6e9aa132aa6745078f">Pull rcu fix and x86 irq fix </a> <a id="line-367"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/f9677375b0c07e39c78b43aab9fb2c253a4b50c2">Pull Intel Quark SoC support </a> <a id="line-368"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c189cb8ef62832f33b6cf757350a0270532a1ad8">Pull VFIO updates </a> <a id="line-369"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/18a8d49973667aa016e68826eeb374788b7c63b0">Pull clock framework updates </a> <a id="line-370"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/295324556c427d60b41668ab81a43f604533f456">Pull i2c updates </a> <a id="line-371"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/b5ccb078c806f4804aaf85bb59faa9b6fedf85a7">Pull InfiniBand/RDMA updates </a> <a id="line-372"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/1acd2de5facd7fbea499aea64a3a3d0ec7bb9b51">Pull more input updates </a> <a id="line-373"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/e20d3ef5406d3a28b76a63905b2a6bd3fb95c377">Pull SCSI target updates </a> <a id="line-374"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a911dcdba190ddf77e9199b9917156f879f42d4b">Pull more device mapper changes </a> <a id="line-375"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/2bfedd1d9f470506d98cb5662ced381c38225968">Pull followup block layer updates </a> <a id="line-376"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/cd50b70ccd5c87794ec28bfb87b7fba9961eb0ae">Pull one more batch of power management and ACPI updates </a> <a id="line-377"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/24a52e412ef22989b63c35428652598dc995812c">Pull more NFS client updates </a> <a id="line-378"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/93aaa830fc173560505c3411806509299d8871ce">Pull xfs pnfs block layout support </a> <a id="line-379"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/c8c6c9ba39e3fe65cf3497d692bf6fe808ff222b">Pull misc SCSI patches </a> <a id="line-380"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/21770332330800194cb9a76f802e9c77bcb690d3">Pull ARM SoC fixes </a> <a id="line-381"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/a135c717d5cdb311cff7661af4c17fef0562e590">Pull MIPS updates </a> <a id="line-382"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/be5e6616dd74e17fdd8e16ca015cfef94d49b467">Pull more vfs updates </a> <a id="line-383"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/linus/feaf222925cdfbc841a695fd30df8c6d0a694146">Pull ext4 fixes </a> <a id="line-384"></a></p>
+<a id="line-385"></a></li>
+</ul>
+
+<h1 id="head-08de76b4ee32d261b79fbadaef88d870db8754f0">11. Other news sites</h1>
+
+<a id="line-386"></a><ul>
+<li><p>LWN: <a class="external" href="http://lwn.net/Articles/632761/">The merge window opens</a>, <a class="external" href="http://lwn.net/Articles/633096/">merge window part 2</a>, <a class="external" href="http://lwn.net/Articles/634471/">The end of the 4.0 merge window</a> <a id="line-387"></a></p>
+</li>
+<li><p>Phoronix <a class="external" href="http://www.phoronix.com/scan.php?page=news_item&amp;px=Linux-4.0-rc1-Kernel-Released">list of changes</a> <a id="line-388"></a></p>
+</li>
+</ul>
+<a id="bottom"></a>
+</div>
+<p><a class="external" href="http://kernelnewbies.org/Linux_4.0">Linux 4.0</a> by <a class="external" href="http://kernelnewbies.org">kernelnewbies.org</a> is licensed under <a class="external" href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></p>
+</div>
+</body>
