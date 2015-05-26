@@ -471,12 +471,12 @@ QStringList Global::getLtsKernels()
 
 QStringList Global::getSesKernels()
 {
-    return QStringList() << "linux313" << "linux316";
+    return QStringList() << "linux313" << "linux316" << "linux319";
 }
 
 QStringList Global::getRecommendedKernels()
 {
-    return QStringList() << "linux316";
+    return QStringList() << "linux318";
 }
 
 
