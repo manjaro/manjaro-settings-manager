@@ -21,7 +21,7 @@
 #ifndef MSMAPPLICATION_H
 #define MSMAPPLICATION_H
 
-#include <QApplication>
+#include <QtWidgets/QApplication>
 
 #define APP MsmApplication::instance()
 

@@ -40,19 +40,14 @@ private:
     QStackedWidget *stackedWidget;
     ModuleView *moduleView;
     QMap<QString, KCModuleInfo*> moduleInfoList;
+    QWidget *menuView;
 
     void init();
-    void addPageWidget(ModuleView &page);
     void closeEvent(QCloseEvent *);
     void writePositionSettings();
 
 protected slots:
-    void listWidget_itemClicked(QListWidgetItem *);
-    void buttonShowAllSettings_clicked();
-    void setApplyEnabled(ModuleView *page, bool enabled);
-    void buttonApply_clicked();
-    void closePageRequested(ModuleView *page);
-
+    void loadModule(QString text);
 };
 
 

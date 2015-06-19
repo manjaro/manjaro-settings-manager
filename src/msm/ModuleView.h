@@ -89,6 +89,8 @@ public:
      */
     void closeModules();
 
+    void addModule( KCModuleInfo *module );
+
 public Q_SLOTS:
     /**
      * Will open KHelpCenter, and load the help for the active module.
@@ -111,11 +113,14 @@ public Q_SLOTS:
     void moduleDefaults();
 
     /**
+     * Causes the active module to close.
+     */
+    void moduleClose();
+
+    /**
      * Reimplemented for internal reasons.\n
      */
     void keyPressEvent( QKeyEvent * event );
-
-    void addModule( KCModuleInfo *module );
 
 private:
     bool resolveChanges( KCModuleProxy *currentProxy );

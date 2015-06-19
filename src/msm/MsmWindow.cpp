@@ -21,18 +21,14 @@
 #include "MsmWindow.h"
 #include "ModuleView.h"
 
-#include <QtCore/QPropertyAnimation>
 #include <QtCore/QSettings>
-#include <QtWidgets/QGraphicsOpacityEffect>
+#include <QtQuick/QQuickView>
+#include <QtQuick/QQuickItem>
 
 #include <KCModuleInfo>
 
 #include <QDebug>
 
-#include <QVBoxLayout>
-#include <QScrollArea>
-#include <QLabel>
-#include <QtQuick/QQuickView>
 
 MsmWindow::MsmWindow(QWidget *parent) :
     QMainWindow(parent)
@@ -41,21 +37,29 @@ MsmWindow::MsmWindow(QWidget *parent) :
     stackedWidget = new QStackedWidget( this );
     setCentralWidget(stackedWidget);
 
+    QQuickView *view = new QQuickView();
+    menuView = QWidget::createWindowContainer(view, this);
+    menuView->setFocusPolicy(Qt::TabFocus);
+    view->setSource(QUrl("qrc:/qml/main.qml"));
+    stackedWidget->addWidget(menuView);
+    stackedWidget->setCurrentWidget(menuView);
+
     moduleView = new ModuleView();
     stackedWidget->addWidget(moduleView);
 
-    QQuickView *view = new QQuickView();
-    QWidget *container = QWidget::createWindowContainer(view, this);
-    container->setFocusPolicy(Qt::TabFocus);
-    view->setSource(QUrl("qrc:/qml/main.qml"));
-    stackedWidget->addWidget(container);
-    stackedWidget->setCurrentWidget(container);
+    QQuickItem *rootObject = view->rootObject();
+    QQuickItem::connect(rootObject, SIGNAL(itemClicked(QString)),
+                     this, SLOT(loadModule(QString)));
+
+    ModuleView::connect(moduleView, &ModuleView::closeRequest,
+                        [=]() {
+        moduleView->resolveChanges();
+        moduleView->closeModules();
+        stackedWidget->setCurrentWidget(menuView);
+    });
 
     init();
     readPositionSettings();
-
-    // Trigger method to setup titels and icons
-    //buttonShowAllSettings_clicked();
 }
 
 
@@ -63,6 +67,7 @@ MsmWindow::~MsmWindow()
 {
     delete moduleView;
 }
+
 
 void MsmWindow::init()
 {
@@ -72,111 +77,15 @@ void MsmWindow::init()
     for (QString module : moduleList) {
         moduleInfoList.insert(module, new KCModuleInfo(module));
     }
-
-    for (auto moduleInfo : moduleInfoList) {
-        moduleView->addModule(moduleInfo);
-    }
 }
 
 
-void MsmWindow::addPageWidget(ModuleView &page)
+void MsmWindow::loadModule(QString moduleName)
 {
-    // Add list widget item
-    //ListWidgetItem *item = new ListWidgetItem(ui->listWidget);
-    //item->setText(page.getTitel());
-    //item->setIcon(QIcon(page.getIcon()));
-    //item->setSizeHint(QSize(135, 100));
-    //item->page = &page;
-
-    // Add to stacked widget
-    //ui->stackedWidget->addWidget(&page);
-
-    //connect(&page, &PageWidget::setApplyEnabled,
-            //this, &MainWindow::setApplyEnabled);
-    //connect(&page, &PageWidget::closePage,
-            //this, &MainWindow::closePageRequested);
+    qDebug() << QString("Loading module '%1'").arg(moduleName);
+    moduleView->addModule(moduleInfoList.value(moduleName));
+    stackedWidget->setCurrentWidget(moduleView);
 }
-
-
-void MsmWindow::listWidget_itemClicked(QListWidgetItem *current)
-{
-    /*ListWidgetItem *item = dynamic_cast<ListWidgetItem*>(current);
-    if (!item || !item->page) {
-        return;
-    }*/
-
-    // Show page and buttons
-    //ui->stackedWidget->setCurrentWidget(item->page);
-    //ui->buttonAllSettings->setVisible(true);
-    //ui->buttonApply->setEnabled(true);
-    //ui->buttonApply->setVisible(item->page->getShowApplyButton());
-
-    // Setup icon and titel
-    //ui->labelHeader->setText(item->page->getTitel());
-    //ui->labelIcon->setPixmap(item->page->getIcon());
-
-    // Remove list widget selection
-    //ui->listWidget->clearSelection();
-
-    // Trigger activated method of page
-    //item->page->activated();
-}
-
-
-
-void MsmWindow::buttonShowAllSettings_clicked()
-{
-   // ModuleView *page = dynamic_cast<ModuleView*>(ui->stackedWidget->currentWidget());
-    //if (page && !page->showAllSettingsRequested()) {
-    //    return;
-    //}
-
-    // Remove list widget selection
-    //ui->listWidget->clearSelection();
-
-    // Setup icon and titel
-    //ui->labelHeader->setText(tr("Manjaro Settings"));
-    //ui->labelIcon->setPixmap(QPixmap(":/images/resources/settings.png"));
-
-    // Hide buttons
-    //ui->buttonAllSettings->setVisible(false);
-    //ui->buttonApply->setVisible(false);
-
-    // Show all settings
-    //ui->stackedWidget->setCurrentIndex(0);
-}
-
-
-
-void MsmWindow::setApplyEnabled(ModuleView *page, bool enabled)
-{
-    //if (dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget()) != page) {
-    //    return;
-    //}
-    //ui->buttonApply->setEnabled(enabled);
-}
-
-
-
-void MsmWindow::buttonApply_clicked()
-{
-    //PageWidget *page = dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget());
-    //if (!page) {
-    //    return;
-    //}
-    //page->apply_clicked();
-}
-
-
-
-void MsmWindow::closePageRequested(ModuleView *page)
-{
-    //if (dynamic_cast<PageWidget*>(ui->stackedWidget->currentWidget()) != page) {
-    //    return;
-    //}
-    //buttonShowAllSettings_clicked();
-}
-
 
 
 void MsmWindow::writePositionSettings()
@@ -197,7 +106,6 @@ void MsmWindow::writePositionSettings()
 }
 
 
-
 void MsmWindow::readPositionSettings()
 {
     QSettings settings("manjaro", "manjaro-settings-manager");
@@ -213,6 +121,7 @@ void MsmWindow::readPositionSettings()
 
     settings.endGroup();
 }
+
 
 void MsmWindow::closeEvent(QCloseEvent *)
 {

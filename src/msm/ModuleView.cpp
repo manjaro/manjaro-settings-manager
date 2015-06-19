@@ -57,6 +57,7 @@ public:
     QPushButton* mReset;
     QPushButton* mDefault;
     QPushButton* mHelp;
+    QPushButton* mClose;
     bool pageChangeSupressed;
 };
 
@@ -83,6 +84,8 @@ ModuleView::ModuleView( QWidget * parent )
     KGuiItem::assign(d->mReset, KStandardGuiItem::reset());
     d->mHelp = d->mButtons->addButton( QDialogButtonBox::Help );
     KGuiItem::assign(d->mHelp, KStandardGuiItem::help());
+    d->mClose = d->mButtons->addButton( QDialogButtonBox::Close );
+    KGuiItem::assign(d->mClose, KStandardGuiItem::close());
     // Set some more sensible tooltips
     d->mReset->setToolTip( "Reset all current changes to previous values" );
     // Set Auto-Default mode ( KDE Bug #211187 )
@@ -90,16 +93,19 @@ ModuleView::ModuleView( QWidget * parent )
     d->mDefault->setAutoDefault(true);
     d->mReset->setAutoDefault(true);
     d->mHelp->setAutoDefault(true);
+    d->mClose->setAutoDefault(true);
     // Prevent the buttons from being used
     d->mApply->setEnabled(false);
     d->mDefault->setEnabled(false);
     d->mReset->setEnabled(false);
     d->mHelp->setEnabled(false);
+    d->mClose->setEnabled(true);
     // Connect up the buttons
     connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
     connect( d->mReset, SIGNAL(clicked()), this, SLOT(moduleLoad()) );
     connect( d->mHelp, SIGNAL(clicked()), this, SLOT(moduleHelp()) );
     connect( d->mDefault, SIGNAL(clicked()), this, SLOT(moduleDefaults()) );
+    connect( d->mClose, SIGNAL(clicked()), this, SLOT(moduleClose()) );
     connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
              this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)) );
     connect( this, SIGNAL(moduleChanged(bool)), this, SLOT(updateButtons()) );
@@ -183,7 +189,7 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
 
     if( !moduleInfo ) {
         // Seems like we have some form of a race condition going on here...
-        return; 
+        return;
     }
 
     page->setHeader( moduleInfo->comment() );
@@ -297,6 +303,11 @@ void ModuleView::moduleHelp()
     }
     QUrl url( "help:/"+docPath );
     QProcess::startDetached("khelpcenter", QStringList() << url.url());
+}
+
+void ModuleView::moduleClose()
+{
+    emit closeRequest();
 }
 
 void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem * previous)

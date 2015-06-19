@@ -8,22 +8,48 @@ GridView {
     cellWidth: 150
     cellHeight: 150
 
+    signal itemClicked(string msg)
+
     model: ListModel {
         ListElement {
-            name: "Test"
+            name: "Kernel"
             portrait: "tux-manjaro.png"
+            module: "msm_kernel"
         }
         ListElement {
-            name: "Implement this method to return the texture with id. The default implementation returns 0."
+            name: "Keyboard"
             portrait: "tux-manjaro.png"
+            module: "msm_keyboard"
         }
         ListElement {
-            name: "a"
+            name: "Language Packages"
             portrait: "tux-manjaro.png"
+            module: "msm_language_packages"
         }
         ListElement {
-            name: "Implementthismethodtoreturnthetexturewithid. Thedefaultimplementationreturns0."
+            name: "Locale"
             portrait: "tux-manjaro.png"
+            module: "msm_locale"
+        }
+        ListElement {
+            name: "MHWD"
+            portrait: "tux-manjaro.png"
+            module: "msm_mhwd"
+        }
+        ListElement {
+            name: "Notifications"
+            portrait: "tux-manjaro.png"
+            module: "msm_notifications"
+        }
+        ListElement {
+            name: "Timedate"
+            portrait: "tux-manjaro.png"
+            module: "msm_timedate"
+        }
+        ListElement {
+            name: "Users"
+            portrait: "tux-manjaro.png"
+            module: "msm_users"
         }
     }
 
@@ -31,7 +57,7 @@ GridView {
         width: grid.cellWidth; height: grid.cellHeight
 
         Image {
-            id: imageTop
+            id: icon
             source: portrait
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -41,9 +67,15 @@ GridView {
             width: 100
             wrapMode: Text.Wrap
             maximumLineCount: 2
-            elide: Text.ElideCenter
+            elide: Text.ElideMiddle
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: imageTop.bottom
+            anchors.top: icon.bottom
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                grid.itemClicked(module)
+            }
         }
     }
 }
