@@ -38,6 +38,7 @@ public:
     static MsmApplication* instance();
 
     void setDebug(bool enabled);
+    void setStartModule(QString module);
     bool isDebug();
 
     MsmWindow* mainWindow();
@@ -45,6 +46,7 @@ public:
 private:
     MsmWindow* m_mainwindow;
     bool m_debugMode;
+    QString m_startModule;
 };
 
 #endif //MSMAPPLICATION_H

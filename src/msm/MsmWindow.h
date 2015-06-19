@@ -46,7 +46,7 @@ private:
     void closeEvent(QCloseEvent *);
     void writePositionSettings();
 
-protected slots:
+public slots:
     void loadModule(QString text);
 };
 

@@ -34,7 +34,7 @@ MsmWindow::MsmWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     // Prepare the view area
-    stackedWidget = new QStackedWidget( this );
+    stackedWidget = new QStackedWidget(this);
     setCentralWidget(stackedWidget);
 
     QQuickView *view = new QQuickView();
@@ -83,7 +83,9 @@ void MsmWindow::init()
 void MsmWindow::loadModule(QString moduleName)
 {
     qDebug() << QString("Loading module '%1'").arg(moduleName);
-    moduleView->addModule(moduleInfoList.value(moduleName));
+    if (moduleInfoList.contains(moduleName)) {
+        moduleView->addModule(moduleInfoList.value(moduleName));
+    }
     stackedWidget->setCurrentWidget(moduleView);
 }
 

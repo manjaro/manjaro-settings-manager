@@ -46,6 +46,9 @@ MsmApplication::init()
     m_mainwindow->move(
                 this->desktop()->availableGeometry().center() - m_mainwindow->rect().center()
                 );
+    if (m_startModule != nullptr) {
+        m_mainwindow->loadModule(m_startModule);
+    }
     m_mainwindow->show();
 }
 
@@ -67,6 +70,13 @@ void
 MsmApplication::setDebug(bool enabled)
 {
     m_debugMode = enabled;
+}
+
+
+void
+MsmApplication::setStartModule(QString module)
+{
+    m_startModule = module;
 }
 
 

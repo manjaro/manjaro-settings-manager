@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
     app.setDebug(parser.isSet(debugOption));
     if (parser.isSet(moduleOption)) {
-        //app.setCurrentModule(parser.value(moduleOption));
+        app.setStartModule(parser.value(moduleOption));
     }
 
     //QTranslator appTranslator;
