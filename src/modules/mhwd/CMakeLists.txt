@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_MHWD_GLOB
+     msm_mhwd.desktop)
+
 set(MSM_MHWD_SRCS
+    ${MSM_MHWD_GLOB}
     PageMhwd.cpp
     libmhwd/mhwd.cpp
     libmhwd/vita/string.cpp)
@@ -10,7 +14,7 @@ set(MSM_MHWD_UI
 ki18n_wrap_ui(MSM_MHWD_SRCS ${MSM_MHWD_UI})
 
 set(MSM_MHWD_RESOURCES
-    mhwd.qrc)    
+    mhwd.qrc)
 QT5_ADD_RESOURCES (MSM_MHWD_SRCS ${MSM_MHWD_RESOURCES})
 
 add_library(msm_mhwd MODULE ${MSM_MHWD_SRCS})

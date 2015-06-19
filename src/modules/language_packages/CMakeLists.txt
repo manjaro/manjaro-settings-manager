@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_LANGUAGE_PACKAGES_GLOB
+     msm_language_packages.desktop)
+
 set(MSM_LANGUAGE_PACKAGES_SRCS
+    ${MSM_LANGUAGE_PACKAGES_GLOB}
     global.cpp
     PageLanguagePackages.cpp)
 

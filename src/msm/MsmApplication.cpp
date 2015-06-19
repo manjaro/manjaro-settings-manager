@@ -39,7 +39,7 @@ MsmApplication::MsmApplication(int& argc, char* argv[])
 void
 MsmApplication::init()
 {
-    setWindowIcon( QIcon::fromTheme("preferences-desktop-peripherals") );
+    setWindowIcon( QIcon::fromTheme("preferences-system") );
 
     m_mainwindow = new MsmWindow();
 

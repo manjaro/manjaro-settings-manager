@@ -1,6 +1,12 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_NOTIFIER_GLOB
+     msm_notifier.desktop
+     resources/language.png
+     resources/tux-manjaro.png)
+
 set(MSM_NOTIFIER_SRCS
+    ${MSM_NOTIFIER_GLOB}
     Notifier.cpp
     NotifierApp.cpp
     global.cpp
@@ -11,7 +17,7 @@ set(MSM_NOTIFIER_SRCS
 #ki18n_wrap_ui(MSM_NOTIFIER_SRCS ${MSM_NOTIFIER_UI})
 
 set(MSM_NOTIFIER_RESOURCES
-   notifier.qrc)    
+    notifier.qrc)
 QT5_ADD_RESOURCES (MSM_NOTIFIER_SRCS ${MSM_NOTIFIER_RESOURCES})
 
 add_executable(msm_notifier ${MSM_NOTIFIER_SRCS})

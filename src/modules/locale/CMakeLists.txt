@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_LOCALE_GLOB
+     msm_locale.desktop)
+
 set(MSM_LOCALE_SRCS
+    ${MSM_LOCALE_GLOB}
     EnabledLocalesModel.cpp
     LanguageListViewDelegate.cpp
     LocaleModule.cpp

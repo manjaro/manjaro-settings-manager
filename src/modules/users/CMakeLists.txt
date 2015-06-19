@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_USERS_GLOB
+     msm_users.desktop)
+
 set(MSM_USERS_SRCS
+    ${MSM_USERS_GLOB}
     AccountTypeDialog.cpp
     AddUserDialog.cpp
     ChangePasswordDialog.cpp
@@ -18,7 +22,7 @@ set(MSM_USERS_UI
 ki18n_wrap_ui(MSM_USERS_SRCS ${MSM_USERS_UI})
 
 set(MSM_USERS_RESOURCES
-    users.qrc)    
+    users.qrc)
 QT5_ADD_RESOURCES (MSM_USERS_SRCS ${MSM_USERS_RESOURCES})
 
 add_library(msm_users MODULE ${MSM_USERS_SRCS})

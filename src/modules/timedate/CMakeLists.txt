@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_TIMEDATE_GLOB
+     msm_timedate.desktop)
+
 set(MSM_TIMEDATE_SRCS
+    ${MSM_TIMEDATE_GLOB}
     LocaleGlobal.cpp
     PageTimeDate.cpp
     TimeDate.cpp

@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_NOTIFICATIONS_GLOB
+     msm_notifications.desktop)
+
 set(MSM_NOTIFICATIONS_SRCS
+    ${MSM_NOTIFICATIONS_GLOB}
     PageNotifications.cpp)
 
 set(MSM_NOTIFICATIONS_UI

@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_KEYBOARD_GLOB
+     msm_keyboard.desktop)
+
 set(MSM_KEYBOARD_SRCS
+    ${MSM_KEYBOARD_GLOB}
     KeyboardItem.cpp
     KeyboardModel.cpp
     KeyboardPreview.cpp

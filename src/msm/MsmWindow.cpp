@@ -29,11 +29,27 @@
 
 #include <QDebug>
 
+#include <QVBoxLayout>
+#include <QScrollArea>
+#include <QLabel>
+#include <QtQuick/QQuickView>
+
 MsmWindow::MsmWindow(QWidget *parent) :
     QMainWindow(parent)
 {
+    // Prepare the view area
+    stackedWidget = new QStackedWidget( this );
+    setCentralWidget(stackedWidget);
+
     moduleView = new ModuleView();
-    setCentralWidget(moduleView);
+    stackedWidget->addWidget(moduleView);
+
+    QQuickView *view = new QQuickView();
+    QWidget *container = QWidget::createWindowContainer(view, this);
+    container->setFocusPolicy(Qt::TabFocus);
+    view->setSource(QUrl("qrc:/qml/main.qml"));
+    stackedWidget->addWidget(container);
+    stackedWidget->setCurrentWidget(container);
 
     init();
     readPositionSettings();

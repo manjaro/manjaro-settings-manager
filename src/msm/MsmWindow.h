@@ -24,6 +24,7 @@
 #include "ModuleView.h"
 
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QStackedWidget>
 
 #include <QListWidgetItem>
 class MsmWindow : public QMainWindow
@@ -36,6 +37,7 @@ public:
     void readPositionSettings();
 
 private:
+    QStackedWidget *stackedWidget;
     ModuleView *moduleView;
     QMap<QString, KCModuleInfo*> moduleInfoList;
 

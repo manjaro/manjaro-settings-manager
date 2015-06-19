@@ -1,6 +1,10 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+file(GLOB MSM_KERNEL_GLOB
+     msm_kernel.desktop)
+
 set(MSM_KERNEL_SRCS
+    ${MSM_KERNEL_GLOB}
     Kernel.cpp
     KernelModel.cpp
     KernelListViewDelegate.cpp
@@ -13,7 +17,7 @@ set(MSM_KERNEL_UI
 ki18n_wrap_ui(MSM_KERNEL_SRCS ${MSM_KERNEL_UI})
 
 set(MSM_KERNEL_RESOURCES
-    kernel.qrc)    
+    kernel.qrc)
 QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
 
 add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS})
