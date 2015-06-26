@@ -1,7 +1,20 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB MSM_KERNEL_GLOB
-     msm_kernel.desktop)
+     msm_kernel.desktop
+     changelogs/linux34.html
+     changelogs/linux38.html
+     changelogs/linux40.html
+     changelogs/linux310.html
+     changelogs/linux311.html
+     changelogs/linux312.html
+     changelogs/linux313.html
+     changelogs/linux314.html
+     changelogs/linux315.html
+     changelogs/linux316.html
+     changelogs/linux317.html
+     changelogs/linux318.html
+     changelogs/linux319.html)
 
 set(MSM_KERNEL_SRCS
     ${MSM_KERNEL_GLOB}
