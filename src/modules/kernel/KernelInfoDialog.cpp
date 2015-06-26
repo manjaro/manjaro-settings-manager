@@ -19,31 +19,45 @@
  */
 
 #include "KernelInfoDialog.h"
-#include "ui_KernelInfoDialog.h"
 
 #include <QtCore/QFile>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QVBoxLayout>
 
 KernelInfoDialog::KernelInfoDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::KernelInfoDialog)
+    QDialog(parent)
 {
-    ui->setupUi(this);
+    QVBoxLayout *vBoxLayout = new QVBoxLayout();
+    this->setLayout(vBoxLayout);
+    m_webView = new QWebEngineView();
+    vBoxLayout->addWidget(m_webView);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox();
+    vBoxLayout->addWidget(buttonBox);
+    buttonBox->setOrientation(Qt::Horizontal);
+    buttonBox->setStandardButtons(QDialogButtonBox::Close);
+
+    QDialogButtonBox::connect(buttonBox, &QDialogButtonBox::accepted,
+                              this, &KernelInfoDialog::accept);
+    QDialogButtonBox::connect(buttonBox, &QDialogButtonBox::rejected,
+                              this, &KernelInfoDialog::reject);
 }
 
-KernelInfoDialog::~KernelInfoDialog()
-{
-    delete ui;
+
+KernelInfoDialog::~KernelInfoDialog(){
 }
+
 
 void KernelInfoDialog::setPackage(const QString &package)
 {
-    package_ = package;
+    m_package = package;
 }
+
 
 int KernelInfoDialog::exec()
 {
-    QUrl kernelLogUrl(QString("qrc:///changelogs/%1.html").arg(package_));
-    ui->webView->load(kernelLogUrl);
-    ui->webView->show();
+    QUrl kernelLogUrl(QString("qrc:///changelogs/%1.html").arg(m_package));
+    m_webView->load(kernelLogUrl);
+    m_webView->show();
     return QDialog::exec();
 }

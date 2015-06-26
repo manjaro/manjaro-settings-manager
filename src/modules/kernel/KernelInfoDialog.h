@@ -21,12 +21,8 @@
 #ifndef KERNELINFODIALOG_H
 #define KERNELINFODIALOG_H
 
-#include <QtCore/QObject>
 #include <QtWidgets/QDialog>
-
-namespace Ui {
-class KernelInfoDialog;
-}
+#include <QtWebEngineWidgets/QWebEngineView>
 
 class KernelInfoDialog : public QDialog
 {
@@ -41,8 +37,8 @@ public:
     void setPackage(const QString &package);
 
 private:
-    Ui::KernelInfoDialog *ui;
-    QString package_;
+    QWebEngineView *m_webView;
+    QString m_package;
 };
 
 #endif // KERNELINFODIALOG_H

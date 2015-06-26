@@ -25,8 +25,7 @@ set(MSM_KERNEL_SRCS
     PageKernel.cpp)
 
 set(MSM_KERNEL_UI
-    ui/PageKernel.ui
-    ui/KernelInfoDialog.ui)
+    ui/PageKernel.ui)
 ki18n_wrap_ui(MSM_KERNEL_SRCS ${MSM_KERNEL_UI})
 
 set(MSM_KERNEL_RESOURCES
@@ -36,7 +35,7 @@ QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
 add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS})
 target_compile_definitions(msm_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kernel
-    Qt5::WebKitWidgets
+    Qt5::WebEngineWidgets
     KF5::ConfigWidgets
     KF5::CoreAddons
     KF5::I18n)
