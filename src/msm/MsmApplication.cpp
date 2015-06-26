@@ -36,6 +36,12 @@ MsmApplication::MsmApplication(int& argc, char* argv[])
 }
 
 
+MsmApplication::~MsmApplication()
+{
+    qDebug() << "Shutting down Manjaro Settings Manager...";
+}
+
+
 void
 MsmApplication::init()
 {
@@ -50,12 +56,6 @@ MsmApplication::init()
         m_mainwindow->loadModule(m_startModule);
     }
     m_mainwindow->show();
-}
-
-
-MsmApplication::~MsmApplication()
-{
-    qDebug() << "Shutting down Manjaro Settings Manager...";
 }
 
 
