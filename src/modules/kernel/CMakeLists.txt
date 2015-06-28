@@ -22,7 +22,9 @@ set(MSM_KERNEL_SRCS
     KernelModel.cpp
     KernelListViewDelegate.cpp
     KernelInfoDialog.cpp
-    PageKernel.cpp)
+    PageKernel.cpp
+    ../common/ActionDialog.cpp
+    ../common/ActionDialog.h)
 
 set(MSM_KERNEL_UI
     ui/PageKernel.ui)
@@ -32,7 +34,7 @@ set(MSM_KERNEL_RESOURCES
     kernel.qrc)
 QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
 
-add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS})
+add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS} ${COMMON})
 target_compile_definitions(msm_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kernel
     Qt5::WebEngineWidgets

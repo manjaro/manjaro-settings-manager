@@ -22,6 +22,7 @@
 #include "ui_PageKernel.h"
 
 #include "KernelListViewDelegate.h"
+#include "../common/ActionDialog.h"
 
 #include <KAboutData>
 #include <KAuth>
@@ -53,8 +54,8 @@ PageKernel::PageKernel(QWidget *parent, const QVariantList &args) :
                          i18nc("@info:credit", "Author"),
                          QStringLiteral("ramon@manjaro.org"));
 
-    setAboutData(aboutData);  
-  
+    setAboutData(aboutData);
+
     ui->setupUi(this);
 
     KernelSortFilterProxyModel *proxyKernelModel = new KernelSortFilterProxyModel(this);
@@ -71,25 +72,30 @@ PageKernel::PageKernel(QWidget *parent, const QVariantList &args) :
             this, &PageKernel::infoButtonClicked);
 }
 
+
 PageKernel::~PageKernel()
 {
     delete ui;
     delete kernelModel;
 }
 
+
 void PageKernel::load()
 {
     kernelModel->update();
 }
 
+
 void PageKernel::save()
 {
 }
+
 
 void PageKernel::defaults()
 {
     kernelModel->update();
 }
+
 
 void PageKernel::installButtonClicked(const QModelIndex &index)
 {
@@ -100,6 +106,7 @@ void PageKernel::installButtonClicked(const QModelIndex &index)
         installKernel(index);
     }
 }
+
 
 void PageKernel::installKernel(const QModelIndex &index)
 {
@@ -112,43 +119,30 @@ void PageKernel::installKernel(const QModelIndex &index)
     QString title = QString(tr("Install Linux %1")).arg(version);
     QString message = QString(tr("Do you really want to install this kernel?\n"));
     QString information = QString(tr("This will install the following packages:\n"));
-    for (QString p : packageList) {        
+    for (QString p : packageList) {
         information.append(p);
         information.append("\n");
     }
 
-    QMessageBox messageBox;
-    messageBox.setIcon(QMessageBox::Question);
-    messageBox.setWindowTitle(title);
-    messageBox.setText(message);
-    messageBox.setDetailedText(information);
-    messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    messageBox.setDefaultButton(QMessageBox::No);
+    QStringList arguments;
+    arguments << "--noconfirm" << "-S" << packageList;
+    QVariantMap args;
+    args["arguments"] = arguments;
+    KAuth::Action installAction(QLatin1String("org.manjaro.msm.kernel.install"));
+    installAction.setHelperId(QLatin1String("org.manjaro.msm.kernel"));
+    installAction.setArguments(args);
 
-    int reply = messageBox.exec();
-    if (reply == QMessageBox::Yes) {
-        //TODO: Properly implement installing kernels
-        QStringList arguments;
-        arguments << "--noconfirm" << "-S" << packageList;
-        QVariantMap args;
-        args["arguments"] = arguments;
-        KAuth::Action installAction(QLatin1String("org.manjaro.msm.kernel.install"));
-        installAction.setHelperId(QLatin1String("org.manjaro.msm.kernel"));
-        installAction.setArguments(args);
-        KAuth::ExecuteJob *job = installAction.execute();
-        connect(job, &KAuth::ExecuteJob::newData,
-                [=] (const QVariantMap &data)
-        {
-            qDebug() << data;
-        });
-        if (job->exec()) {
-            qDebug() << "Job Succesfull";
-        } else {
-            qDebug() << "Job Failed";
-        }
+    ActionDialog actionDialog;
+    actionDialog.setInstallAction(installAction);
+    actionDialog.setWindowTitle(title);
+    actionDialog.setMessage(message);
+    actionDialog.setInformation(information);
+    actionDialog.exec();
+    if (actionDialog.isJobSuccesful()) {
         kernelModel->update();
     }
 }
+
 
 void PageKernel::removeKernel(const QModelIndex &index)
 {
@@ -161,43 +155,30 @@ void PageKernel::removeKernel(const QModelIndex &index)
     QString title = QString(tr("Remove Linux %1")).arg(version);
     QString message = QString(tr("Do you really want to remove this kernel?"));
     QString information = QString(tr("This will remove the following packages:\n"));
-    for (QString p : packageList) {        
+    for (QString p : packageList) {
         information.append(p);
         information.append("\n");
     }
 
-    QMessageBox messageBox;
-    messageBox.setIcon(QMessageBox::Question);
-    messageBox.setWindowTitle(title);
-    messageBox.setText(message);
-    messageBox.setDetailedText(information);
-    messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    messageBox.setDefaultButton(QMessageBox::No);
+    QStringList arguments;
+    arguments << "--noconfirm" << "-R" << packageList;
+    QVariantMap args;
+    args["arguments"] = arguments;
+    KAuth::Action installAction(QLatin1String("org.manjaro.msm.kernel.remove"));
+    installAction.setHelperId(QLatin1String("org.manjaro.msm.kernel"));
+    installAction.setArguments(args);
 
-    int reply = messageBox.exec();
-    if (reply == QMessageBox::Yes) {
-        //TODO: Properly implement removing kernels
-        QStringList arguments;
-        arguments << "--noconfirm" << "-R" << packageList;
-        QVariantMap args;
-        args["arguments"] = arguments;
-        KAuth::Action installAction(QLatin1String("org.manjaro.msm.kernel.remove"));
-        installAction.setHelperId(QLatin1String("org.manjaro.msm.kernel"));
-        installAction.setArguments(args);
-        KAuth::ExecuteJob *job = installAction.execute();
-        connect(job, &KAuth::ExecuteJob::newData,
-                [=] (const QVariantMap &data)
-        {
-            qDebug() << data;
-        });
-        if (job->exec()) {
-            qDebug() << "Job Succesful";
-        } else {
-            qDebug() << "Job Failed";
-        }
+    ActionDialog actionDialog;
+    actionDialog.setInstallAction(installAction);
+    actionDialog.setWindowTitle(title);
+    actionDialog.setMessage(message);
+    actionDialog.setInformation(information);
+    actionDialog.exec();
+    if (actionDialog.isJobSuccesful()) {
         kernelModel->update();
     }
 }
+
 
 void PageKernel::infoButtonClicked(const QModelIndex &index)
 {
