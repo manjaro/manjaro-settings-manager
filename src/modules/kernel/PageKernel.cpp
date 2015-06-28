@@ -19,7 +19,6 @@
  */
 
 #include "PageKernel.h"
-#include "ui_PageKernel.h"
 
 #include "KernelListViewDelegate.h"
 #include "../common/ActionDialog.h"
@@ -30,6 +29,8 @@
 
 #include <QtCore/QProcess>
 #include <QtWidgets/QMessageBox>
+#include <QtWidgets/QListView>
+#include <QtWidgets/QHBoxLayout>
 
 #include <QDebug>
 
@@ -39,33 +40,38 @@ K_PLUGIN_FACTORY(MsmKernelFactory,
 
 PageKernel::PageKernel(QWidget *parent, const QVariantList &args) :
     KCModule(parent, args),
-    ui(new Ui::PageKernel),
     kernelModel(new KernelModel),
     kernelInfoDialog(new KernelInfoDialog)
 {
     KAboutData *aboutData = new KAboutData("msm_kernel",
-                                           i18nc("@title", "Kernel"),
+                                           tr("Kernel", "@title"),
                                            PROJECT_VERSION,
                                            QStringLiteral(""),
                                            KAboutLicense::LicenseKey::GPL_V3,
-                                           i18nc("@info:credit", "Copyright 2014 Ramon Buldó"));
+                                           "Copyright 2014 Ramon Buldó", "@info:credit");
 
-    aboutData->addAuthor(i18nc("@info:credit", "Ramon Buldó"),
-                         i18nc("@info:credit", "Author"),
+    aboutData->addAuthor("Ramon Buldó",
+                         tr("Author", "@info:credit"),
                          QStringLiteral("ramon@manjaro.org"));
 
     setAboutData(aboutData);
 
-    ui->setupUi(this);
+    this->resize(600, 440);
+    QHBoxLayout *hBoxLayout = new QHBoxLayout();
+    this->setLayout(hBoxLayout);
+
+    QListView *kernelListView = new QListView();
+    hBoxLayout->addWidget(kernelListView);
+    kernelListView->setAlternatingRowColors(true);
 
     KernelSortFilterProxyModel *proxyKernelModel = new KernelSortFilterProxyModel(this);
     proxyKernelModel->setSourceModel(kernelModel);
     proxyKernelModel->setSortRole(KernelModel::VersionRole);
     proxyKernelModel->sort(0, Qt::DescendingOrder);
-    ui->kernelListView->setModel(proxyKernelModel);
+    kernelListView->setModel(proxyKernelModel);
 
     KernelListViewDelegate *kernelListViewDelegate = new KernelListViewDelegate;
-    ui->kernelListView->setItemDelegate(kernelListViewDelegate);
+    kernelListView->setItemDelegate(kernelListViewDelegate);
     connect(kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
             this, &PageKernel::installButtonClicked);
     connect(kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
@@ -75,7 +81,6 @@ PageKernel::PageKernel(QWidget *parent, const QVariantList &args) :
 
 PageKernel::~PageKernel()
 {
-    delete ui;
     delete kernelModel;
 }
 

@@ -26,21 +26,16 @@ set(MSM_KERNEL_SRCS
     ../common/ActionDialog.cpp
     ../common/ActionDialog.h)
 
-set(MSM_KERNEL_UI
-    ui/PageKernel.ui)
-ki18n_wrap_ui(MSM_KERNEL_SRCS ${MSM_KERNEL_UI})
-
 set(MSM_KERNEL_RESOURCES
     kernel.qrc)
 QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
 
-add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS} ${COMMON})
+add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS})
 target_compile_definitions(msm_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kernel
     Qt5::WebEngineWidgets
     KF5::ConfigWidgets
-    KF5::CoreAddons
-    KF5::I18n)
+    KF5::CoreAddons)
 
 install(TARGETS msm_kernel DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_kernel.desktop DESTINATION ${SERVICES_INSTALL_DIR})

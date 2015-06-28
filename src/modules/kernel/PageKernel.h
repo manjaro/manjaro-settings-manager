@@ -25,10 +25,6 @@
 #include "KernelModel.h"
 #include <KCModule>
 
-namespace Ui {
-class PageKernel;
-}
-
 class PageKernel : public KCModule
 {
     Q_OBJECT
@@ -66,7 +62,6 @@ public slots:
     void infoButtonClicked(const QModelIndex &index);
 
 private:
-    Ui::PageKernel *ui;
     KernelModel *kernelModel;
     KernelInfoDialog *kernelInfoDialog;
     void installKernel(const QModelIndex &index);
