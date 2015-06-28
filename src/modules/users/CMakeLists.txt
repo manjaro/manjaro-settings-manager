@@ -19,7 +19,7 @@ set(MSM_USERS_UI
     ui/AddUserDialog.ui
     ui/ChangePasswordDialog.ui
     ui/PageUsers.ui)
-ki18n_wrap_ui(MSM_USERS_SRCS ${MSM_USERS_UI})
+qt5_wrap_ui(MSM_USERS_SRCS ${MSM_USERS_UI})
 
 set(MSM_USERS_RESOURCES
     users.qrc)
@@ -30,8 +30,7 @@ target_compile_definitions(msm_users PRIVATE -DPROJECT_VERSION="${PROJECT_VERSIO
 target_link_libraries(msm_users
     Qt5::Widgets
     KF5::ConfigWidgets
-    KF5::CoreAddons
-    KF5::I18n)
+    KF5::CoreAddons)
 
 install(TARGETS msm_users DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_users.desktop DESTINATION ${SERVICES_INSTALL_DIR})

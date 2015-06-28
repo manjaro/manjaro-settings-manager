@@ -12,7 +12,7 @@ set(MSM_KEYBOARD_SRCS
 
 set(MSM_KEYBOARD_UI
     ui/PageKeyboard.ui)
-ki18n_wrap_ui(MSM_KEYBOARD_SRCS ${MSM_KEYBOARD_UI})
+qt5_wrap_ui(MSM_KEYBOARD_SRCS ${MSM_KEYBOARD_UI})
 
 set(MSM_KEYBOARD_RESOURCES
     keyboard.qrc)
@@ -23,7 +23,6 @@ target_compile_definitions(msm_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VER
 target_link_libraries(msm_keyboard
     KF5::ConfigWidgets
     KF5::CoreAddons
-    KF5::I18n
     KF5::ItemModels)
 
 install(TARGETS msm_keyboard DESTINATION ${PLUGIN_INSTALL_DIR})

@@ -27,7 +27,6 @@ target_link_libraries(msm_bin
     Qt5::Quick
     KF5::ConfigWidgets
     KF5::KCMUtils
-    KF5::I18n
     KF5::IconThemes)
 
 install( TARGETS msm_bin

@@ -11,7 +11,7 @@ set(MSM_MHWD_SRCS
 
 set(MSM_MHWD_UI
     ui/PageMhwd.ui)
-ki18n_wrap_ui(MSM_MHWD_SRCS ${MSM_MHWD_UI})
+qt5_wrap_ui(MSM_MHWD_SRCS ${MSM_MHWD_UI})
 
 set(MSM_MHWD_RESOURCES
     mhwd.qrc)
@@ -23,8 +23,7 @@ target_link_libraries(msm_mhwd
     hd
     Qt5::Widgets
     KF5::ConfigWidgets
-    KF5::CoreAddons
-    KF5::I18n)
+    KF5::CoreAddons)
 
 install(TARGETS msm_mhwd DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_mhwd.desktop DESTINATION ${SERVICES_INSTALL_DIR})

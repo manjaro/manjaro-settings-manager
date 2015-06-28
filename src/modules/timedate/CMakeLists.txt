@@ -14,7 +14,7 @@ set(MSM_TIMEDATE_SRCS
 set(MSM_TIMEDATE_UI
     ui/PageTimeDate.ui
     ui/TimeZoneDialog.ui)
-ki18n_wrap_ui(MSM_TIMEDATE_SRCS ${MSM_TIMEDATE_UI})
+qt5_wrap_ui(MSM_TIMEDATE_SRCS ${MSM_TIMEDATE_UI})
 
 set(MSM_TIMEDATE_RESOURCES
     timedate.qrc)
@@ -26,8 +26,7 @@ target_link_libraries(msm_timedate
     Qt5::DBus
     Qt5::Widgets
     KF5::ConfigWidgets
-    KF5::CoreAddons
-    KF5::I18n)
+    KF5::CoreAddons)
 
 install(TARGETS msm_timedate DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_timedate.desktop DESTINATION ${SERVICES_INSTALL_DIR})

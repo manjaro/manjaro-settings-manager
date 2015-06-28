@@ -10,15 +10,14 @@ set(MSM_LANGUAGE_PACKAGES_SRCS
 
 set(MSM_LANGUAGE_PACKAGES_UI
     ui/PageLanguagePackages.ui)
-ki18n_wrap_ui(MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
+qt5_wrap_ui(MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
 
 add_library(msm_language_packages MODULE ${MSM_LANGUAGE_PACKAGES_SRCS})
 target_compile_definitions(msm_language_packages PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_language_packages
     Qt5::Widgets
     KF5::ConfigWidgets
-    KF5::CoreAddons
-    KF5::I18n)
+    KF5::CoreAddons)
 
 install(TARGETS msm_language_packages DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_language_packages.desktop DESTINATION ${SERVICES_INSTALL_DIR})

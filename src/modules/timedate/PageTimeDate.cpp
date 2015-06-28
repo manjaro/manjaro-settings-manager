@@ -39,18 +39,18 @@ PageTimeDate::PageTimeDate(QWidget *parent, const QVariantList &args) :
     timeDate(new TimeDate)
 {
     KAboutData *aboutData = new KAboutData("msm_timedate",
-                                           i18nc("@title", "Time and Date"),
+                                           tr("Time and Date", "@title"),
                                            PROJECT_VERSION,
                                            QStringLiteral(""),
                                            KAboutLicense::LicenseKey::GPL_V3,
-                                           i18nc("@info:credit", "Copyright 2014 Ramon Buldó"));
+                                           "Copyright 2014-2015 Ramon Buldó");
 
-    aboutData->addAuthor(i18nc("@info:credit", "Ramon Buldó"),
-                         i18nc("@info:credit", "Author"),
+    aboutData->addAuthor("Ramon Buldó",
+                         tr("Author", "@info:credit"),
                          QStringLiteral("ramon@manjaro.org"));
 
-    setAboutData(aboutData);  
-  
+    setAboutData(aboutData);
+
     ui->setupUi(this);
 
     connect(ui->timeEdit, &QTimeEdit::timeChanged, this, &PageTimeDate::timeEdited);

@@ -15,7 +15,7 @@ set(MSM_LOCALE_SRCS
 set(MSM_LOCALE_UI
     ui/LocaleModule.ui
     ui/SelectLocalesDialog.ui)
-ki18n_wrap_ui(MSM_LOCALE_SRCS ${MSM_LOCALE_UI})
+qt5_wrap_ui(MSM_LOCALE_SRCS ${MSM_LOCALE_UI})
 
 add_library(msm_locale MODULE ${MSM_LOCALE_SRCS})
 target_compile_definitions(msm_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
@@ -23,7 +23,6 @@ target_link_libraries(msm_locale
     Qt5::DBus
     KF5::ConfigWidgets
     KF5::CoreAddons
-    KF5::I18n
     KF5::ItemModels
     icudata
     icuuc)

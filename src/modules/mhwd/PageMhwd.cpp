@@ -39,14 +39,14 @@ PageMhwd::PageMhwd(QWidget *parent, const QVariantList &args) :
     ui(new Ui::PageMhwd)
 {
     KAboutData *aboutData = new KAboutData("msm_mhwd",
-                                           i18nc("@title", "Hardware Configuration"),
+                                           tr("Hardware Configuration", "@title"),
                                            PROJECT_VERSION,
                                            QStringLiteral(""),
                                            KAboutLicense::LicenseKey::GPL_V3,
-                                           i18nc("@info:credit", "Copyright 2014 Ramon Buldó"));
+                                           "Copyright 2014 Ramon Buldó");
 
-    aboutData->addAuthor(i18nc("@info:credit", "Ramon Buldó"),
-                         i18nc("@info:credit", "Author"),
+    aboutData->addAuthor("Ramon Buldó",
+                         tr("Author", "@info:credit"),
                          QStringLiteral("ramon@manjaro.org"));
 
     setAboutData(aboutData);
