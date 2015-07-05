@@ -35,11 +35,11 @@ ActionDialog::ActionDialog(QWidget *parent) :
 
     m_messageLabel = new QLabel();
     vBoxLayout->addWidget(m_messageLabel);
-    m_messageLabel->setText("placeholder");
+    m_messageLabel->setText(tr("Do you really want to continue?"));
 
     m_informationLabel = new QLabel();
     vBoxLayout->addWidget(m_informationLabel);
-    m_informationLabel->setText("placeholder\n test \n test");
+    m_informationLabel->setVisible(false);
 
     m_terminal = new QTextEdit();
     vBoxLayout->addWidget(m_terminal);
@@ -118,6 +118,7 @@ void ActionDialog::setInformation(const QString &information)
 {
     m_information = information;
     m_informationLabel->setText(information);
+    m_informationLabel->setVisible(true);
 }
 
 

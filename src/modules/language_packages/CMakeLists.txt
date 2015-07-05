@@ -6,7 +6,9 @@ file(GLOB MSM_LANGUAGE_PACKAGES_GLOB
 set(MSM_LANGUAGE_PACKAGES_SRCS
     ${MSM_LANGUAGE_PACKAGES_GLOB}
     global.cpp
-    PageLanguagePackages.cpp)
+    PageLanguagePackages.cpp
+    ../common/ActionDialog.cpp
+    ../common/ActionDialog.h)
 
 set(MSM_LANGUAGE_PACKAGES_UI
     ui/PageLanguagePackages.ui)

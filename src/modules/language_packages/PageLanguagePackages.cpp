@@ -20,6 +20,7 @@
 
 #include "PageLanguagePackages.h"
 #include "ui_PageLanguagePackages.h"
+#include "../common/ActionDialog.h"
 
 #include <KAboutData>
 #include <KAuth>
@@ -68,15 +69,14 @@ PageLanguagePackages::PageLanguagePackages(QWidget *parent, const QVariantList &
 }
 
 
-
 PageLanguagePackages::~PageLanguagePackages()
 {
     delete ui;
 }
 
 
-
-void PageLanguagePackages::load() {
+void PageLanguagePackages::load()
+{
     // Clean up first
     ui->treeWidgetAvailable->clear();
     ui->treeWidgetInstalled->clear();
@@ -90,8 +90,8 @@ void PageLanguagePackages::load() {
 }
 
 
-
-void PageLanguagePackages::save() {
+void PageLanguagePackages::save()
+{
 
     // TODO: Update pacman database first
     /*dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogress" << "-Sy", tr("Updating pacman databases..."), true);
@@ -119,9 +119,7 @@ void PageLanguagePackages::save() {
        }
     }
 
-
     if (!packages.isEmpty()) {
-        //TODO: Progress UI
         QStringList arguments;
         arguments << "--noconfirm" << "--noprogress" << "-S" << packages;
         QVariantMap args;
@@ -129,21 +127,17 @@ void PageLanguagePackages::save() {
         KAuth::Action installAction(QLatin1String("org.manjaro.msm.languagepackages.install"));
         installAction.setHelperId(QLatin1String("org.manjaro.msm.languagepackages"));
         installAction.setArguments(args);
-        KAuth::ExecuteJob *job = installAction.execute();
-        connect(job, &KAuth::ExecuteJob::newData,
-                [=] (const QVariantMap &data)
-        {
-            qDebug() << data;
-        });
-        if (job->exec()) {
-            qDebug() << "Job Succesfull";
-        } else {
-            qDebug() << "Job Failed";
-        }
+
+        ActionDialog actionDialog;
+        actionDialog.setInstallAction(installAction);
+        actionDialog.setWindowTitle(tr("Install language packages."));
+        actionDialog.exec();
+        //if (actionDialog.isJobSuccesful()) {
+        //    kernelModel->update();
+        //}
     }
     load();
 }
-
 
 
 void PageLanguagePackages::defaults()
@@ -152,8 +146,8 @@ void PageLanguagePackages::defaults()
 }
 
 
-
-void PageLanguagePackages::addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable) {
+void PageLanguagePackages::addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable)
+{
     QMap<QString, QList<Global::LanguagePackage> > sortedPackagesLocale;
 
     for (int i = 0; i < languagePackages->size(); i++) {
@@ -166,6 +160,7 @@ void PageLanguagePackages::addLanguagePackagesToTreeWidget(QTreeWidget *treeWidg
     font.setWeight(75);
 
     QMapIterator<QString, QList<Global::LanguagePackage> > i(sortedPackagesLocale);
+
     while (i.hasNext()) {
         i.next();
         QTreeWidgetItem *parentItem = new QTreeWidgetItem(treeWidget);
