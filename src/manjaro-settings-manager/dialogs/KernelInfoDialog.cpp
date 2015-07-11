@@ -19,31 +19,48 @@
  */
 
 #include "KernelInfoDialog.h"
-#include "ui_KernelInfoDialog.h"
 
 #include <QtCore/QFile>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QVBoxLayout>
 
 KernelInfoDialog::KernelInfoDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::KernelInfoDialog)
+    QDialog(parent)
 {
-    ui->setupUi(this);
+    this->resize(800, 600);
+
+    QVBoxLayout *vBoxLayout = new QVBoxLayout();
+    this->setLayout(vBoxLayout);
+    m_textBrowser = new QTextBrowser();
+    vBoxLayout->addWidget(m_textBrowser);
+    m_textBrowser->setOpenExternalLinks(true);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox();
+    vBoxLayout->addWidget(buttonBox);
+    buttonBox->setOrientation(Qt::Horizontal);
+    buttonBox->setStandardButtons(QDialogButtonBox::Close);
+
+    QDialogButtonBox::connect(buttonBox, &QDialogButtonBox::accepted,
+                              this, &KernelInfoDialog::accept);
+    QDialogButtonBox::connect(buttonBox, &QDialogButtonBox::rejected,
+                              this, &KernelInfoDialog::reject);
 }
 
-KernelInfoDialog::~KernelInfoDialog()
-{
-    delete ui;
+
+KernelInfoDialog::~KernelInfoDialog(){
 }
+
 
 void KernelInfoDialog::setPackage(const QString &package)
 {
-    package_ = package;
+    m_package = package;
 }
+
 
 int KernelInfoDialog::exec()
 {
-    QUrl kernelLogUrl(QString("qrc:///kernel_changelogs/resources/%1.html").arg(package_));
-    ui->webView->load(kernelLogUrl);
-    ui->webView->show();
+    QUrl kernelLogUrl(QString("qrc:///kernel_changelogs/resources/%1.html").arg(m_package));
+    m_textBrowser->setSource(kernelLogUrl);
+    m_textBrowser->show();
     return QDialog::exec();
 }

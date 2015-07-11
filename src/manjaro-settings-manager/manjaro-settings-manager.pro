@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkitwidgets dbus KItemModels
+QT += core widgets dbus KItemModels
 
 LIBS += -lhd -licudata -licuuc
 TARGET = manjaro-settings-manager-gui
@@ -99,7 +99,6 @@ FORMS    += mainwindow.ui \
             dialogs/accounttypedialog.ui \
             dialogs/applydialog.ui \
             dialogs/changepassworddialog.ui \
-            dialogs/KernelInfoDialog.ui \
             dialogs/SelectLocalesDialog.ui \
             dialogs/TimeZoneDialog.ui \
             pages/PageKernel.ui \
@@ -129,6 +128,8 @@ TRANSLATIONS += translations/msm_ar.ts \
                 translations/msm_fa_IR.ts \
                 translations/msm_fo.ts \
                 translations/msm_fr.ts \
+                translations/msm_gl.ts \
+                translations/msm_gl_ES.ts \
                 translations/msm_he.ts \
                 translations/msm_hi.ts \
                 translations/msm_hr.ts \
