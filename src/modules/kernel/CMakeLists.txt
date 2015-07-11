@@ -33,7 +33,6 @@ QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
 add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS})
 target_compile_definitions(msm_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kernel
-    Qt5::WebEngineWidgets
     KF5::ConfigWidgets
     KF5::CoreAddons)
 

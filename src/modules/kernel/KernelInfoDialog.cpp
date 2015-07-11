@@ -27,10 +27,13 @@
 KernelInfoDialog::KernelInfoDialog(QWidget *parent) :
     QDialog(parent)
 {
+    this->resize(800, 600);
+
     QVBoxLayout *vBoxLayout = new QVBoxLayout();
     this->setLayout(vBoxLayout);
-    m_webView = new QWebEngineView();
-    vBoxLayout->addWidget(m_webView);
+    m_textBrowser = new QTextBrowser();
+    vBoxLayout->addWidget(m_textBrowser);
+    m_textBrowser->setOpenExternalLinks(true);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox();
     vBoxLayout->addWidget(buttonBox);
@@ -57,7 +60,7 @@ void KernelInfoDialog::setPackage(const QString &package)
 int KernelInfoDialog::exec()
 {
     QUrl kernelLogUrl(QString("qrc:///changelogs/%1.html").arg(m_package));
-    m_webView->load(kernelLogUrl);
-    m_webView->show();
+    m_textBrowser->setSource(kernelLogUrl);
+    m_textBrowser->show();
     return QDialog::exec();
 }

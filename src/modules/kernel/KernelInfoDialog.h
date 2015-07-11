@@ -22,7 +22,7 @@
 #define KERNELINFODIALOG_H
 
 #include <QtWidgets/QDialog>
-#include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWidgets/QTextBrowser>
 
 class KernelInfoDialog : public QDialog
 {
@@ -37,7 +37,7 @@ public:
     void setPackage(const QString &package);
 
 private:
-    QWebEngineView *m_webView;
+    QTextBrowser *m_textBrowser;
     QString m_package;
 };
 
