@@ -1,0 +1,314 @@
+README for the manjaro-settings-manager
+=======================================
+Manjaro is based on another distribution called Arch Linux. As such, it is
+also able to draw software packages from the community-maintained Arch User 
+Repository (AUR). However, please note that Manjaro is not Arch, and any 
+enquiries about the Manjaro operating system should be directed
+towards the Manjaro forums and Internet Relay Chat (IRC) channels alone.
+
+RESOURCES
+=========
+
+Website        https://manjaro.github.io/
+Wiki           https://wiki.manjaro.org/
+Mailing List   https://lists.manjaro.org/mailman/listinfo
+Download       http://manjaro.github.io/download/
+IRC            #manjaro (www.freenode.com)
+
+BUILD INSTRUCTIONS
+==================
+
+~> makepkg -s
+
+   Install missing dependencies using pacman. When build-time or run-time
+   dependencies are not found, pacman will try to resolve them. If successful,
+   the missing packages will be downloaded and installed. (If the package was
+   already built before you may use -sf to overite the previous build)
+
+
+~> pacman -U <package-name>
+  
+   Upgrade or add package(s) to the system and install the required 
+   dependencies from sync repositories. Enter the path to the build file (.pkg.
+   tar.xz) here. This is a “remove-then-add” process. 
+
+Now the build is complete and you can run it using `msm` command in terminal.
+
+SOURCE CODE CONTENT
+===================
+
+src
+├── CMakeLists.txt   //imports CMakeLists of modules , msm and notifier   
+├── manjaro-category.desktop
+├── modules
+│   ├── CMakeLists.txt
+│   ├── common
+│   │   ├── ActionDialog.cpp
+│   │   ├── ActionDialog.h
+│   │   └── CMakeLists.txt
+│   ├── kernel
+│   │   ├── changelogs
+│   │   │   ├── linux310.html
+│   │   │   ├── linux311.html
+│   │   │   ├── linux312.html
+│   │   │   ├── linux313.html
+│   │   │   ├── linux314.html
+│   │   │   ├── linux315.html
+│   │   │   ├── linux316.html
+│   │   │   ├── linux317.html
+│   │   │   ├── linux318.html
+│   │   │   ├── linux319.html
+│   │   │   ├── linux34.html
+│   │   │   ├── linux38.html
+│   │   │   └── linux40.html
+│   │   ├── CMakeLists.txt
+│   │   ├── KernelAuthHelper.cpp
+│   │   ├── KernelAuthHelper.h
+│   │   ├── Kernel.cpp
+│   │   ├── Kernel.h
+│   │   ├── KernelInfoDialog.cpp
+│   │   ├── KernelInfoDialog.h
+│   │   ├── KernelListViewDelegate.cpp
+│   │   ├── KernelListViewDelegate.h
+│   │   ├── KernelModel.cpp
+│   │   ├── KernelModel.h
+│   │   ├── kernel.qrc
+│   │   ├── msm_kernel.actions
+│   │   ├── msm_kernel.desktop
+│   │   ├── PageKernel.cpp
+│   │   └── PageKernel.h
+│   ├── keyboard
+│   │   ├── CMakeLists.txt
+│   │   ├── kbd-model-map
+│   │   ├── KeyboardAuthHelper.cpp
+│   │   ├── KeyboardAuthHelper.h
+│   │   ├── KeyboardItem.cpp
+│   │   ├── KeyboardItem.h
+│   │   ├── KeyboardModel.cpp
+│   │   ├── KeyboardModel.h
+│   │   ├── KeyboardPreview.cpp
+│   │   ├── KeyboardPreview.h
+│   │   ├── keyboard.qrc
+│   │   ├── msm_keyboard.actions
+│   │   ├── msm_keyboard.desktop
+│   │   ├── PageKeyboard.cpp
+│   │   ├── PageKeyboard.h
+│   │   ├── SetKeyboardLayoutJob.cpp
+│   │   ├── SetKeyboardLayoutJob.h
+│   │   └── ui
+│   │       └── PageKeyboard.ui
+│   ├── language_packages
+│   │   ├── CMakeLists.txt
+│   │   ├── const.h
+│   │   ├── global.cpp
+│   │   ├── global.h
+│   │   ├── LanguagePackagesAuthHelper.cpp
+│   │   ├── LanguagePackagesAuthHelper.h
+│   │   ├── msm_language_packages.actions
+│   │   ├── msm_language_packages.desktop
+│   │   ├── PageLanguagePackages.cpp
+│   │   ├── PageLanguagePackages.h
+│   │   └── ui
+│   │       └── PageLanguagePackages.ui
+│   ├── locale
+│   │   ├── CMakeLists.txt
+│   │   ├── EnabledLocalesModel.cpp
+│   │   ├── EnabledLocalesModel.h
+│   │   ├── LanguageListViewDelegate.cpp
+│   │   ├── LanguageListViewDelegate.h
+│   │   ├── LocaleAuthHelper.cpp
+│   │   ├── LocaleAuthHelper.h
+│   │   ├── LocaleModule.cpp
+│   │   ├── LocaleModule.h
+│   │   ├── msm_locale.actions
+│   │   ├── msm_locale.desktop
+│   │   ├── SelectLocalesDialog.cpp
+│   │   ├── SelectLocalesDialog.h
+│   │   ├── SupportedLocalesItem.cpp
+│   │   ├── SupportedLocalesItem.h
+│   │   ├── SupportedLocalesModel.cpp
+│   │   ├── SupportedLocalesModel.h
+│   │   └── ui
+│   │       ├── LocaleModule.ui
+│   │       └── SelectLocalesDialog.ui
+│   ├── mhwd
+│   │   ├── CMakeLists.txt
+│   │   ├── icons
+│   │   │   ├── add.png
+│   │   │   ├── ati.png
+│   │   │   ├── gpudriver.png
+│   │   │   ├── intel-nvidia.png
+│   │   │   ├── intel.png
+│   │   │   ├── nvidia.png
+│   │   │   ├── remove.png
+│   │   │   └── restore.png
+│   │   ├── libmhwd
+│   │   │   ├── const.h
+│   │   │   ├── mhwd.cpp
+│   │   │   ├── mhwd.h
+│   │   │   ├── mhwd_p.h
+│   │   │   └── vita
+│   │   │       ├── LICENSE
+│   │   │       ├── string.cpp
+│   │   │       └── string.hpp
+│   │   ├── MhwdAuthHelper.cpp
+│   │   ├── MhwdAuthHelper.h
+│   │   ├── mhwd.qrc
+│   │   ├── msm_mhwd.actions
+│   │   ├── msm_mhwd.desktop
+│   │   ├── PageMhwd.cpp
+│   │   ├── PageMhwd.h
+│   │   └── ui
+│   │       └── PageMhwd.ui
+│   ├── notifications
+│   │   ├── CMakeLists.txt
+│   │   ├── msm_notifications.desktop
+│   │   ├── PageNotifications.cpp
+│   │   ├── PageNotifications.h
+│   │   └── ui
+│   │       └── PageNotifications.ui
+│   ├── timedate
+│   │   ├── CMakeLists.txt
+│   │   ├── images
+│   │   │   ├── background.png
+│   │   │   ├── pin.png
+│   │   │   ├── timezone_0.0.png
+│   │   │   ├── timezone_-10.0.png
+│   │   │   ├── timezone_10.0.png
+│   │   │   ├── timezone_10.5.png
+│   │   │   ├── timezone_-1.0.png
+│   │   │   ├── timezone_1.0.png
+│   │   │   ├── timezone_-11.0.png
+│   │   │   ├── timezone_11.0.png
+│   │   │   ├── timezone_11.5.png
+│   │   │   ├── timezone_12.0.png
+│   │   │   ├── timezone_12.75.png
+│   │   │   ├── timezone_13.0.png
+│   │   │   ├── timezone_-2.0.png
+│   │   │   ├── timezone_2.0.png
+│   │   │   ├── timezone_-3.0.png
+│   │   │   ├── timezone_3.0.png
+│   │   │   ├── timezone_-3.5.png
+│   │   │   ├── timezone_3.5.png
+│   │   │   ├── timezone_-4.0.png
+│   │   │   ├── timezone_4.0.png
+│   │   │   ├── timezone_-4.5.png
+│   │   │   ├── timezone_4.5.png
+│   │   │   ├── timezone_-5.0.png
+│   │   │   ├── timezone_5.0.png
+│   │   │   ├── timezone_-5.5.png
+│   │   │   ├── timezone_5.5.png
+│   │   │   ├── timezone_5.75.png
+│   │   │   ├── timezone_-6.0.png
+│   │   │   ├── timezone_6.0.png
+│   │   │   ├── timezone_6.5.png
+│   │   │   ├── timezone_-7.0.png
+│   │   │   ├── timezone_7.0.png
+│   │   │   ├── timezone_-8.0.png
+│   │   │   ├── timezone_8.0.png
+│   │   │   ├── timezone_-9.0.png
+│   │   │   ├── timezone_9.0.png
+│   │   │   ├── timezone_-9.5.png
+│   │   │   └── timezone_9.5.png
+│   │   ├── LocaleGlobal.cpp
+│   │   ├── LocaleGlobal.h
+│   │   ├── msm_timedate.desktop
+│   │   ├── PageTimeDate.cpp
+│   │   ├── PageTimeDate.h
+│   │   ├── TimeDate.cpp
+│   │   ├── TimeDate.h
+│   │   ├── timedate.qrc
+│   │   ├── TimeZoneDialog.cpp
+│   │   ├── TimeZoneDialog.h
+│   │   ├── TimeZoneWidget.cpp
+│   │   ├── TimeZoneWidget.h
+│   │   └── ui
+│   │       ├── PageTimeDate.ui
+│   │       └── TimeZoneDialog.ui
+│   └── users
+│       ├── AccountTypeDialog.cpp
+│       ├── AccountTypeDialog.h
+│       ├── AddUserDialog.cpp
+│       ├── AddUserDialog.h
+│       ├── ChangePasswordDialog.cpp
+│       ├── ChangePasswordDialog.h
+│       ├── CMakeLists.txt
+│       ├── const.h
+│       ├── FlatButton.cpp
+│       ├── FlatButton.h
+│       ├── global.cpp
+│       ├── global.h
+│       ├── icons
+│       │   ├── add.png
+│       │   ├── adduser.png
+│       │   ├── lock.png
+│       │   ├── remove.png
+│       │   ├── user.png
+│       │   └── users.png
+│       ├── ListWidget.cpp
+│       ├── ListWidget.h
+│       ├── msm_users.actions
+│       ├── msm_users.desktop
+│       ├── PageUsers.cpp
+│       ├── PageUsers.h
+│       ├── PreviewFileDialog.cpp
+│       ├── PreviewFileDialog.h
+│       ├── ui
+│       │   ├── AccountTypeDialog.ui
+│       │   ├── AddUserDialog.ui
+│       │   ├── ChangePasswordDialog.ui
+│       │   └── PageUsers.ui
+│       ├── UsersAuthHelper.cpp
+│       ├── UsersAuthHelper.h
+│       └── users.qrc
+├── msm
+│   ├── CMakeLists.txt
+│   ├── main.cpp
+│   ├── ModuleView.cpp
+│   ├── ModuleView.h
+│   ├── MsmApplication.cpp
+│   ├── MsmApplication.h
+│   ├── msm.desktop
+│   ├── msm.qrc
+│   ├── MsmWindow.cpp
+│   ├── MsmWindow.h
+│   └── qml
+│       ├── main.qml
+│       └── tux-manjaro.png
+├── notifier
+│   ├── CMakeLists.txt
+│   ├── const.h
+│   ├── global.cpp
+│   ├── global.h
+│   ├── msm_notifier.desktop
+│   ├── NotifierApp.cpp
+│   ├── Notifier.cpp
+│   ├── Notifier.h
+│   ├── notifier.qrc
+│   ├── qtsingleapplication
+│   │   ├── buildlib
+│   │   │   └── buildlib.pro
+│   │   ├── common.pri
+│   │   ├── configure
+│   │   ├── configure.bat
+│   │   ├── INSTALL.TXT
+│   │   ├── qtsingleapplication.pro
+│   │   ├── README.TXT
+│   │   └── src
+│   │       ├── qtlocalpeer.cpp
+│   │       ├── qtlocalpeer.h
+│   │       ├── QtLockedFile
+│   │       ├── qtlockedfile.cpp
+│   │       ├── qtlockedfile.h
+│   │       ├── qtlockedfile_unix.cpp
+│   │       ├── qtlockedfile_win.cpp
+│   │       ├── QtSingleApplication
+│   │       ├── qtsingleapplication.cpp
+│   │       ├── qtsingleapplication.h
+│   │       ├── qtsingleapplication.pri
+│   │       ├── qtsinglecoreapplication.cpp
+│   │       ├── qtsinglecoreapplication.h
+│   │       └── qtsinglecoreapplication.pri
+│   └── resources
+│       ├── language.png
+│       └── tux-manjaro.png
