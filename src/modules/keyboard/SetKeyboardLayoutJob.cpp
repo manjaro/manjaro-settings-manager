@@ -166,9 +166,7 @@ SetKeyboardLayoutJob::writeX11Data( const QString& keyboardConfPath ) const
     file.open( QIODevice::WriteOnly | QIODevice::Text );
     QTextStream stream( &file );
 
-    stream << "# Read and parsed by systemd-localed. It's probably wise not to edit this file\n"
-              "# manually too freely.\n"
-              "Section \"InputClass\"\n"
+    stream << "Section \"InputClass\"\n"
               "        Identifier \"system-keyboard\"\n"
               "        MatchIsKeyboard \"on\"\n";
 
