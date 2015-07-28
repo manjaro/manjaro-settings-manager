@@ -1,24 +1,18 @@
-README for the manjaro-settings-manager
-=======================================
+# Manjaro Settings Manager
 
 The Manjaro Settings Manager offers you a series of settings, which are
 either enabled by Manjaro (i.e. installation of multiple kernels) or are 
-missing from at least some of popular Desktop Environments and Window 
-Managers.Manjaro-Settings-Manager is under active development.
-Manjaro-settings-manager currently has modules written for Language , Kernel ,
-Time/Date and Hardware Detection.
+missing from at least some of popular Desktop Environments and Window Managers.
 
-RESOURCES
-=========
+Currently has modules written for Manjaro Hardware Detection (MHWD), Language,
+Kernel, Keyboard, Time and Date and User Accounts.
 
-Website        https://manjaro.github.io/
-Wiki           https://wiki.manjaro.org/
-Mailing List   https://lists.manjaro.org/mailman/listinfo
-Download       http://manjaro.github.io/download/
-IRC            #manjaro (www.freenode.com)
+It also includes a daemon to notify user of new language packages or kernels.
 
-BUILD INSTRUCTIONS
-==================
+Manjaro Settings Manager is under active development.
+
+
+### BUILD INSTRUCTIONS
 
 ~> makepkg -s
 
@@ -35,3 +29,12 @@ BUILD INSTRUCTIONS
    tar.xz) here. This is a “remove-then-add” process. 
 
 Now the build is complete and you can run it using `msm` command in terminal.
+
+
+### RESOURCES
+
+* Website        https://manjaro.github.io/
+* Wiki           https://wiki.manjaro.org/
+* Mailing List   https://lists.manjaro.org/mailman/listinfo
+* Download       http://manjaro.github.io/download/
+* IRC            #manjaro (www.freenode.com)
