@@ -1,10 +1,31 @@
-#include "LocaleAuthHelper.h"
+/*
+ *  Manjaro Settings Manager
+ *  Ramon Buldo <ramon@manjaro.org>
+ *
+ *  Copyright (C) 2007 Free Software Foundation, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #include <QtDBus/QDBusInterface>
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
 #include <QtCore/QTextStream>
 #include <QtCore/QSet>
+#include <QtCore/QDebug>
+
+#include "LocaleAuthHelper.h"
 
 ActionReply LocaleAuthHelper::save(const QVariantMap& args)
 {
@@ -19,17 +40,12 @@ ActionReply LocaleAuthHelper::save(const QVariantMap& args)
 }
 
 
-// Update locale.gen file
-// Return true if successful
 bool LocaleAuthHelper::updateLocaleGen(QStringList locales) {
 
     const QString localeGen = "/etc/locale.gen";
     QFile file(localeGen);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        /*QMessageBox::warning(this,
-                             tr("Error!"),
-                             tr("Failed to open file '%1'!").arg(localeGen),
-                             QMessageBox::Ok, QMessageBox::Ok);*/
+        qDebug() << QString("error: failed to open file '%1'").arg(localeGen);
         return false;
     }
 
@@ -59,7 +75,8 @@ bool LocaleAuthHelper::updateLocaleGen(QStringList locales) {
             }
         }
 
-        if (!found && !line.split("#", QString::KeepEmptyParts).first().trimmed().isEmpty()) {
+        if (!found && !line.split("#", QString::KeepEmptyParts).first()
+                .trimmed().isEmpty()) {
             content.removeLast();
             content.append("#" + line);
         }
@@ -68,59 +85,53 @@ bool LocaleAuthHelper::updateLocaleGen(QStringList locales) {
 
     // Add missing locales in the file
     for (QString locale : locales) {
-        QString str = localeToValidLocaleGenString(locale);
-
-        if (str.isEmpty()) {
-            /*QMessageBox::warning(this,
-                                 tr("Error!"),
-                                 tr("Failed to obtain valid locale string for locale '%1'!").arg(locale),
-                                 QMessageBox::Ok, QMessageBox::Ok);*/
+        QString validLocale = localeToLocaleGenFormat(locale);
+        if (validLocale.isEmpty()) {
+            qDebug() << QString("warning: failed to obtain valid locale string"
+                                "for locale '%1'!").arg(locale);
             continue;
         }
-
-        content.append(str);
+        content.append(validLocale);
     }
-
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        /*QMessageBox::warning(this,
-                             tr("Error!"),
-                             tr("Failed to open file '%1'!").arg(localeGen),
-                             QMessageBox::Ok, QMessageBox::Ok);*/
+        qDebug() << QString("error: failed to open file '%1'!").arg(localeGen);
         return false;
     }
-
     QTextStream out(&file);
     out << content.join("\n");
+    out.flush();
     file.close();
+
     return true;
 }
 
 
-// Run local-gen
-// Return true if successful
 bool LocaleAuthHelper::generateLocaleGen()
 {
-    QProcess *localeGen = new QProcess();
-    localeGen->start("/usr/bin/local-gen");
-    connect(localeGen, &QProcess::readyRead,
-            [=] ()
-    {
-        QString data = QString::fromUtf8(localeGen->readAll()).trimmed();
-        if (!data.isEmpty()) {
-            QVariantMap map;
-            map.insert(QLatin1String("Data"), data);
-            HelperSupport::progressStep(map);
-        }
-    });
-    localeGen->waitForStarted();
-    localeGen->waitForFinished(-1);
-
+    QProcess localeGen;
+    localeGen.start("/usr/bin/locale-gen");
+    connect(&localeGen, &QProcess::readyRead,
+            [&] ()
+            {
+                QString data = QString::fromUtf8(localeGen.readAll())
+                        .trimmed();
+                if (!data.isEmpty()) {
+                    QVariantMap map;
+                    map.insert(QLatin1String("Data"), data);
+                    HelperSupport::progressStep(map);
+                }
+            });
+    if (!localeGen.waitForStarted()) {
+        return false;
+    }
+    if (!localeGen.waitForFinished(60000)) {
+        return false;
+    }
     return true;
 }
 
 
-// Modify /etc/locale.conf using systemd-localed
 bool LocaleAuthHelper::setSystemLocale(const QStringList localeList)
 {
     QDBusInterface dbusInterface("org.freedesktop.locale1",
@@ -140,37 +151,34 @@ bool LocaleAuthHelper::setSystemLocale(const QStringList localeList)
     return true;
 }
 
-QString LocaleAuthHelper::localeToValidLocaleGenString(const QString locale)
+QString LocaleAuthHelper::localeToLocaleGenFormat(const QString locale)
 {
     QSet<QString> localeList;
 
     QFile localeGen("/etc/locale.gen");
     QString lines;
-    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
+    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
         QTextStream in(&localeGen);
         lines.append(in.readAll());
     }
 
     QFile localeGenPacnew("/etc/locale.gen.pacnew");
-    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
+    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
         QTextStream in(&localeGenPacnew);
         lines.append(in.readAll());
     }
-    for (const QString line : lines.split('\n'))
-    {
-        if (line.startsWith( "# " ) || line.simplified() == "#" || line.isEmpty()) {
+
+    for (const QString line : lines.split('\n')) {
+        if (line.startsWith( "# " ) || line.simplified() == "#"
+                || line.isEmpty()) {
             continue;
         }
 
-        QString lineString = line.simplified();
-
-        if (lineString.startsWith("#")) {
-            lineString.remove( '#' );
+        if (line.simplified().startsWith("#")) {
+            localeList.insert(line.simplified().remove('#'));
+        } else {
+            localeList.insert(line.simplified());
         }
-
-        localeList.insert(lineString);
     }
 
     for (const QString line : localeList) {
