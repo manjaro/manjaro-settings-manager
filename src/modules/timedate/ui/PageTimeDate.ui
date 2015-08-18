@@ -170,7 +170,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <layout class="QHBoxLayout" name="timeZoneHorizontalLayout">
+         <layout class="QHBoxLayout" name="timeZoneHLayout">
           <item>
            <widget class="QLabel" name="timeZoneLabel_2">
             <property name="text">
@@ -179,7 +179,7 @@
            </widget>
           </item>
           <item>
-           <spacer name="timeZoneHorizontalSpacer">
+           <spacer name="timeZoneHSpacer">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -218,27 +218,96 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <layout class="QHBoxLayout" name="timeZoneInfoHorizontalLayout">
+         <layout class="QHBoxLayout" name="timeZoneInfoHLayout">
           <item>
-           <widget class="QCheckBox" name="hasDaylightTimeCheckBox">
-            <property name="text">
-             <string>Has daylight time?</string>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="hasDaylightTimeHLayout">
+            <item>
+             <widget class="QLabel" name="hasDaylightTimeIcon">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="hasDaylightTimeLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Has daylight time?</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QCheckBox" name="isDaylightTimeCheckBox">
-            <property name="text">
-             <string>Is daylight time?</string>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="isDaylightTimeHLayout">
+            <item>
+             <widget class="QLabel" name="isDaylightTimeIcon">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="isDaylightTimeLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Is daylight time?</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QCheckBox" name="hasTransitionsCheckBox">
-            <property name="text">
-             <string>Has transitions?</string>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="hasTransitionsHLayout">
+            <item>
+             <widget class="QLabel" name="hasTransitionsIcon">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="hasTransitionsLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Has transitions?</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>

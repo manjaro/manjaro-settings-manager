@@ -140,9 +140,26 @@ void PageTimeDate::updateFields()
     if (timeZone.isValid()) {
         ui->timeZoneLabel_2->setText(timeZone_);
         ui->countryLabel_2->setText(QLocale::countryToString(timeZone.country()));
-        ui->hasDaylightTimeCheckBox->setChecked(timeZone.hasDaylightTime());
-        ui->isDaylightTimeCheckBox->setChecked(timeZone.isDaylightTime(QDateTime::currentDateTime()));
-        ui->hasTransitionsCheckBox->setChecked(timeZone.hasTransitions());
+
+        QIcon yesIcon = QIcon();
+        yesIcon.addFile(":/images/yes.svg", QSize(16, 16));
+        QIcon noIcon = QIcon();
+        noIcon.addFile(":/images/no.svg", QSize(16, 16));
+        if (timeZone.hasDaylightTime()) {
+            ui->hasDaylightTimeIcon->setPixmap(yesIcon.pixmap(QSize(16, 16)));
+        } else {
+            ui->hasDaylightTimeIcon->setPixmap(noIcon.pixmap(QSize(16, 16)));
+        }
+        if (timeZone.isDaylightTime(QDateTime::currentDateTime())) {
+            ui->isDaylightTimeIcon->setPixmap(yesIcon.pixmap(QSize(16, 16)));
+        } else {
+            ui->isDaylightTimeIcon->setPixmap(noIcon.pixmap(QSize(16, 16)));
+        }
+        if (timeZone.hasTransitions()) {
+            ui->hasTransitionsIcon->setPixmap(yesIcon.pixmap(QSize(16, 16)));
+        } else {
+            ui->hasTransitionsIcon->setPixmap(noIcon.pixmap(QSize(16, 16)));
+        }
 
         QTimeZone::OffsetData offset = timeZone.nextTransition(QDateTime::currentDateTime());
         if (offset.atUtc != QDateTime()) {
