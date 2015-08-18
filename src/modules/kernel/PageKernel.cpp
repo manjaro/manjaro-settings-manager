@@ -55,6 +55,7 @@ PageKernel::PageKernel(QWidget *parent, const QVariantList &args) :
                          QStringLiteral("ramon@manjaro.org"));
 
     setAboutData(aboutData);
+    setButtons(KCModule::NoAdditionalButton);
 
     QHBoxLayout *hBoxLayout = new QHBoxLayout();
     this->setLayout(hBoxLayout);

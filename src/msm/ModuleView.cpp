@@ -383,7 +383,9 @@ void ModuleView::updateButtons()
     d->mReset->setVisible(buttons & KCModule::Apply );
 
     d->mHelp->setEnabled(buttons & KCModule::Help );
+    d->mHelp->setVisible(buttons & KCModule::Help );
     d->mDefault->setEnabled(buttons & KCModule::Default );
+    d->mDefault->setVisible(buttons & KCModule::Default );
 }
 
 
