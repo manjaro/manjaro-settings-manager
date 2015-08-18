@@ -32,6 +32,7 @@ ActionDialog::ActionDialog(QWidget *parent) :
 {
     QVBoxLayout *vBoxLayout = new QVBoxLayout();
     this->setLayout(vBoxLayout);
+    this->resize(600,400);
 
     m_messageLabel = new QLabel();
     vBoxLayout->addWidget(m_messageLabel);
