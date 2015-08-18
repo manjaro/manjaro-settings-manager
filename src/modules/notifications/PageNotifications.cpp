@@ -53,7 +53,24 @@ PageNotifications::PageNotifications(QWidget *parent, const QVariantList &args) 
             this, &PageNotifications::unsupportedKernelStateBoxChanged);
     connect(ui->checkNewKernelBox, &QCheckBox::stateChanged,
             this, &PageNotifications::newKernelStateBoxChanged);
+    connect(ui->checkLanguagePackage, &QCheckBox::stateChanged,
+            [=] () {
+                emit changed();
+            });
+    connect(ui->checkUnsupportedKernelRunningBox, &QCheckBox::stateChanged,
+            [=] () {
+                emit changed();
+            });
+    connect(ui->checkNewKernelLtsBox, &QCheckBox::stateChanged,
+            [=] () {
+                emit changed();
+            });
+    connect(ui->checkNewKernelRecommendedBox, &QCheckBox::stateChanged,
+            [=] () {
+                emit changed();
+            });
 }
+
 
 PageNotifications::~PageNotifications()
 {
@@ -61,9 +78,6 @@ PageNotifications::~PageNotifications()
 }
 
 
-/***********
- * PRIVATE
- **********/
 void PageNotifications::load()
 {
     QSettings settings("manjaro", "manjaro-settings-manager");
@@ -111,13 +125,13 @@ void PageNotifications::save()
 
     switch (settings.status()) {
     case QSettings::NoError :
-        qDebug() << "Your notifications settings have been saved";
+        qDebug() << "Notifications settings have been saved";
         break;
     case QSettings::FormatError :
-        qDebug() << "Format error when saving your notifications settings";
+        qDebug() << "Format error when saving notifications settings";
         break;
     case QSettings::AccessError :
-        qDebug() << "Access error when saving your notifications settings";
+        qDebug() << "Access error when saving notifications settings";
         break;
     }
 }
@@ -131,11 +145,12 @@ void PageNotifications::defaults()
 
 void PageNotifications::unsupportedKernelStateBoxChanged(int checkState)
 {
+    emit changed();
     switch (checkState) {
-    case Qt::Unchecked :
+    case Qt::Unchecked:
         ui->checkUnsupportedKernelRunningBox->setEnabled(false);
         break;
-    case Qt::Checked   :
+    case Qt::Checked:
         ui->checkUnsupportedKernelRunningBox->setEnabled(true);
         break;
     }
@@ -144,12 +159,13 @@ void PageNotifications::unsupportedKernelStateBoxChanged(int checkState)
 
 void PageNotifications::newKernelStateBoxChanged(int checkState)
 {
+    emit changed();
     switch (checkState) {
-    case Qt::Unchecked :
+    case Qt::Unchecked:
         ui->checkNewKernelLtsBox->setEnabled(false);
         ui->checkNewKernelRecommendedBox->setEnabled(false);
         break;
-    case Qt::Checked   :
+    case Qt::Checked:
         ui->checkNewKernelLtsBox->setEnabled(true);
         ui->checkNewKernelRecommendedBox->setEnabled(true);
     }
