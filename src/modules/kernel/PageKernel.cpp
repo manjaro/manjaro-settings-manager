@@ -56,7 +56,6 @@ PageKernel::PageKernel(QWidget *parent, const QVariantList &args) :
 
     setAboutData(aboutData);
 
-    this->resize(600, 440);
     QHBoxLayout *hBoxLayout = new QHBoxLayout();
     this->setLayout(hBoxLayout);
 
