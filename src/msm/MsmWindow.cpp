@@ -85,6 +85,7 @@ void MsmWindow::loadModule(QString moduleName)
     qDebug() << QString("Loading module '%1'").arg(moduleName);
     if (moduleInfoList.contains(moduleName)) {
         moduleView->addModule(moduleInfoList.value(moduleName));
+        emit moduleView->moduleChanged(false);
     }
     stackedWidget->setCurrentWidget(moduleView);
 }
