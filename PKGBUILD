@@ -8,7 +8,7 @@ pkgdesc="Manjaro settings manager module for Plasma 5"
 arch=('i686' 'x86_64')
 url="https://github.com/manjaro/manjaro-settings-manager"
 license=("GPL")
-depends=('icu' 'qt5-base' 'qt5-webengine' 'hwinfo' 'kitemmodels' 'kauth' 
+depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth' 
          'kconfigwidgets' 'kcoreaddons' 'kcmutils')
 makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools')
 
