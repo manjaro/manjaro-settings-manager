@@ -139,7 +139,12 @@ void PageNotifications::save()
 
 void PageNotifications::defaults()
 {
-    this->load();
+    ui->checkLanguagePackage->setChecked(true);
+    ui->checkUnsupportedKernelBox->setChecked(true);
+    ui->checkUnsupportedKernelRunningBox->setChecked(false);
+    ui->checkNewKernelBox->setChecked(true);
+    ui->checkNewKernelLtsBox->setChecked(false);
+    ui->checkNewKernelRecommendedBox->setChecked(true);
 }
 
 
