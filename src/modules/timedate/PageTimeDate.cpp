@@ -22,7 +22,6 @@
 #include "ui_PageTimeDate.h"
 #include "TimeZoneDialog.h"
 
-#include <QtCore/QDebug>
 #include <QtCore/QStringList>
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
@@ -54,10 +53,25 @@ PageTimeDate::PageTimeDate(QWidget *parent, const QVariantList &args) :
 
     ui->setupUi(this);
 
-    connect(ui->timeEdit, &QTimeEdit::timeChanged, this, &PageTimeDate::timeEdited);
-    connect(ui->dateEdit, &QTimeEdit::dateChanged, this, &PageTimeDate::dateEdited);
     connect(ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &PageTimeDate::isNtpEnabledToggled);
     connect(ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked);
+    connect(ui->timeEdit, &QTimeEdit::timeChanged,
+            [=] ()
+            {
+                isTimeEdited_ = true;
+                emit changed();
+            });
+    connect(ui->dateEdit, &QTimeEdit::dateChanged,
+            [=] ()
+            {
+                isDateEdited_ = true;
+                emit changed();
+            });
+    connect(ui->isRtcLocalCheckBox, &QCheckBox::toggled,
+            [=] ()
+            {
+                emit changed();
+            });
 }
 
 PageTimeDate::~PageTimeDate()
@@ -158,16 +172,6 @@ void PageTimeDate::updateTimeFields() {
     ui->rtcTimeLabel->setText(timeDate->rtcDateTime().toString("dddd yyyy-MM-dd HH:mm:ss"));
 }
 
-void PageTimeDate::timeEdited()
-{
-    isTimeEdited_ = true;
-}
-
-void PageTimeDate::dateEdited()
-{
-    isDateEdited_ = true;
-}
-
 void PageTimeDate::isNtpEnabledToggled()
 {
     if (ui->isNtpEnabledCheckBox->isChecked()) {
@@ -177,6 +181,7 @@ void PageTimeDate::isNtpEnabledToggled()
         ui->timeEdit->setEnabled(true);
         ui->dateEdit->setEnabled(true);
     }
+    emit changed();
 }
 
 void PageTimeDate::timeZoneClicked()
@@ -190,6 +195,7 @@ void PageTimeDate::timeZoneClicked()
         timeZone_ = dialog.getCurrentLocation();
         updateFields();
         updateTimeFields();
+        emit changed();
     }
 }
 

@@ -65,8 +65,6 @@ public:
 public slots:
     void updateFields();
     void updateTimeFields();
-    void timeEdited();
-    void dateEdited();
     void isNtpEnabledToggled();
     void timeZoneClicked();
 
