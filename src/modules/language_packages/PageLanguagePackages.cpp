@@ -49,6 +49,7 @@ PageLanguagePackages::PageLanguagePackages(QWidget *parent, const QVariantList &
                          QStringLiteral("roland@manjaro.org"));
 
     setAboutData(aboutData);
+    setButtons(KCModule::Apply);
 
     ui->setupUi(this);
 

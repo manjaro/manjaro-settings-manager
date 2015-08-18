@@ -48,6 +48,7 @@ PageUsers::PageUsers(QWidget *parent, const QVariantList &args) :
                          QStringLiteral("roland@manjaro.org"));
 
     setAboutData(aboutData);
+    setButtons(KCModule::NoAdditionalButton);
 
     ui->setupUi(this);
 

@@ -50,6 +50,7 @@ PageMhwd::PageMhwd(QWidget *parent, const QVariantList &args) :
                          QStringLiteral("ramon@manjaro.org"));
 
     setAboutData(aboutData);
+    setButtons(KCModule::NoAdditionalButton);
 
     ui->setupUi(this);
 

@@ -45,6 +45,7 @@ PageNotifications::PageNotifications(QWidget *parent, const QVariantList &args) 
                          QStringLiteral("ramon@manjaro.org"));
 
     setAboutData(aboutData);
+    setButtons(KCModule::Default | KCModule::Apply);
 
     ui->setupUi(this);
 

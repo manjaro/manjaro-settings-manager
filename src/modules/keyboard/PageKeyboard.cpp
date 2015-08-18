@@ -60,6 +60,7 @@ PageKeyboard::PageKeyboard(QWidget *parent, const QVariantList &args) :
                          QStringLiteral("roland@manjaro.org"));
 
     setAboutData(aboutData);
+    setButtons(KCModule::Default | KCModule::Apply);
 
     ui->setupUi(this);
 
