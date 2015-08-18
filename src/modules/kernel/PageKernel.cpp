@@ -122,8 +122,8 @@ void PageKernel::installKernel(const QModelIndex &index)
     packageList << kernel << modules;
 
     QString title = QString(tr("Install Linux %1")).arg(version);
-    QString message = QString(tr("Do you really want to install this kernel?\n"));
-    QString information = QString(tr("This will install the following packages:\n"));
+    QString message = QString(tr("The following packages will be installed:"));
+    QString information = QString();
     for (QString p : packageList) {
         information.append(p);
         information.append("\n");
@@ -158,8 +158,8 @@ void PageKernel::removeKernel(const QModelIndex &index)
     packageList << kernel << modules;
 
     QString title = QString(tr("Remove Linux %1")).arg(version);
-    QString message = QString(tr("Do you really want to remove this kernel?"));
-    QString information = QString(tr("This will remove the following packages:\n"));
+    QString message = QString(tr("The following packages will be removed:"));
+    QString information = QString();
     for (QString p : packageList) {
         information.append(p);
         information.append("\n");
