@@ -18,6 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "LocaleAuthHelper.h"
+
 #include <QtDBus/QDBusInterface>
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
@@ -25,7 +27,6 @@
 #include <QtCore/QSet>
 #include <QtCore/QDebug>
 
-#include "LocaleAuthHelper.h"
 
 ActionReply LocaleAuthHelper::save(const QVariantMap& args)
 {
