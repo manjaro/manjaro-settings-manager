@@ -41,7 +41,7 @@ class PageMhwd;
 class PageMhwd : public KCModule
 {
     Q_OBJECT
-    
+
 public:
     /**
      * Constructor.
@@ -69,7 +69,7 @@ public:
      * Overloading the KCModule defaults() function.
      */
     void defaults();
-    
+
 private:
     Ui::PageMhwd *ui;
     QAction *installAction;
@@ -77,13 +77,12 @@ private:
     QAction *forceReinstallationAction;
 
 private slots:
-    void buttonInstallFree_clicked();
-    void buttonInstallNonFree_clicked();
+    void installFreeConfiguration();
+    void installNonFreeConfiguration();
     void showContextMenuForTreeWidget(const QPoint &);
-    void installAction_triggered();
-    void removeAction_triggered();
-    void forceReinstallationAction_triggered();
-    void checkBoxShowAll_toggled();
+    void installConfiguration();
+    void removeConfiguration();
+    void reinstallConfiguration();
 };
 
 #endif // PAGEMHWD_H

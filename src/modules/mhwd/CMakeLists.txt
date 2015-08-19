@@ -7,7 +7,9 @@ set(MSM_MHWD_SRCS
     ${MSM_MHWD_GLOB}
     PageMhwd.cpp
     libmhwd/mhwd.cpp
-    libmhwd/vita/string.cpp)
+    libmhwd/vita/string.cpp
+    ../common/ActionDialog.cpp
+    ../common/ActionDialog.h)
 
 set(MSM_MHWD_UI
     ui/PageMhwd.ui)
