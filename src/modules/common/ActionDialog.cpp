@@ -22,6 +22,7 @@
 
 #include <KAuth/KAuthExecuteJob>
 
+#include <QtCore/QRegularExpression>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 
@@ -66,7 +67,8 @@ void ActionDialog::startJob()
     connect(job, &KAuth::ExecuteJob::newData,
             [=] (const QVariantMap &data)
     {
-        m_terminal->append(data.value("Data").toString());
+        QString output = data.value("Data").toString();
+        m_terminal->append(output.remove(QRegularExpression("\x1b[^m]*m")));
     });
     if (job->exec()) {
         m_jobSuccesful = true;
