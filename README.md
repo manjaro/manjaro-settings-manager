@@ -14,21 +14,40 @@ Manjaro Settings Manager is under active development.
 
 ### BUILD INSTRUCTIONS
 
-~> makepkg -s
-
-   Install missing dependencies using pacman. When build-time or run-time
-   dependencies are not found, pacman will try to resolve them. If successful,
-   the missing packages will be downloaded and installed. (If the package was
-   already built before you may use -sf to overite the previous build)
-
-
-~> pacman -U <package-name>
+    mkdir build  
+    cd build  
+    cmake ../ \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DLIB_INSTALL_DIR=lib \
+        -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+        -DSYSCONF_INSTALL_DIR=/etc
+    make
+    make install  
   
-   Upgrade or add package(s) to the system and install the required 
-   dependencies from sync repositories. Enter the path to the build file (.pkg.
-   tar.xz) here. This is a “remove-then-add” process. 
+You can also use the provided PKGBUILD to compile and install it.
+   
+    makepkg -si
+
+
+### DEPENDENCIES
+
+* Qt5 >= 5.3.0
+* KF5CoreAddons
+* KF5Auth
+* KF5ConfigWidgets
+* KF5ItemModels
+* KF5Notifications
+* KF5KCMUtils
+* KF5IconThemes
+
+
+### EXECUTION
 
 Now the build is complete and you can run it using `msm` command in terminal.
+
+It will also show up the new kcm modules in kde's systemsettings or issuing the command:
+`kcmshell5 msm_{kernel,keyboard,language_packages,locale,mhwd,notifications,timedate,users}`
 
 
 ### RESOURCES
