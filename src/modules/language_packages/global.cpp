@@ -21,8 +21,9 @@
 
 #include "global.h"
 
+#include <QtCore/QFile>
 #include <QtCore/QProcessEnvironment>
-#include <QtNetwork/QNetworkInterface>
+#include <QtCore/QDebug>
 
 bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages) {
     QList<Global::LanguagePackage> languagePackages;
@@ -34,9 +35,10 @@ bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackag
         return false;
     }
 
-    QFile file(LANGUAGE_PACKAGES_FILE);
+    const QString languagePackagesFile { "/var/lib/manjaro-system-settings/language_packages.list" };
+    QFile file(languagePackagesFile);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "error: failed to open '" << LANGUAGE_PACKAGES_FILE << "'!";
+        qDebug() << "error: failed to open '" << languagePackagesFile<< "'!";
         return false;
     }
 
@@ -257,9 +259,10 @@ QList<Global::LocaleSplit> Global::getAllEnabledLocalesSplit() {
     QStringList strLocales;
     QList<Global::LocaleSplit> locales;
 
-    QFile file(LOCALE_GEN);
+    const QString localeGenFile { "/etc/locale.gen" };
+    QFile file(localeGenFile);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "error: failed to open '" << LOCALE_GEN << "'!";
+        qDebug() << "error: failed to open '" << localeGenFile << "'!";
         return locales;
     }
 

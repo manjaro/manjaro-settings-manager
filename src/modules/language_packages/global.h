@@ -22,22 +22,7 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#include "const.h"
-
-#include <QString>
-#include <QFile>
-#include <QTextStream>
-#include <QDir>
-#include <QStringList>
-#include <QList>
-#include <QHash>
-#include <QMap>
-#include <QRegExp>
-#include <QDebug>
-#include <QProcess>
-#include <QDir>
-#include <QtCore/QByteArray>
-
+#include <QtCore/QString>
 
 class Global
 {
