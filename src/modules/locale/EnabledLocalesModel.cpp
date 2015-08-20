@@ -19,6 +19,7 @@
  */
 
 #include "EnabledLocalesModel.h"
+#include "../common/LanguageCommon.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
@@ -354,22 +355,7 @@ int EnabledLocalesModel::findKey(const QString key) const
 void EnabledLocalesModel::init()
 {
     beginResetModel();
-    locales_.clear();
-    QFile file("/etc/locale.gen");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "error: failed to open '" << "/etc/locale.gen" << "'!";
-        return;
-    }
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        if (line.isEmpty() || line.startsWith("#")) {
-            continue;
-        }
-        locales_ << QString(line.split(" ", QString::SkipEmptyParts).value(0));
-    }
-    file.close();
+    locales_ << LanguageCommon::enabledLocales();
     endResetModel();
 }
 

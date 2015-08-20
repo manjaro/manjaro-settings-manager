@@ -10,7 +10,9 @@ set(MSM_LOCALE_SRCS
     LocaleModule.cpp
     SelectLocalesDialog.cpp
     SupportedLocalesItem.cpp
-    SupportedLocalesModel.cpp)
+    SupportedLocalesModel.cpp
+    ../common/LanguageCommon.cpp
+    ../common/LanguageCommon.h)
 
 set(MSM_LOCALE_UI
     ui/LocaleModule.ui

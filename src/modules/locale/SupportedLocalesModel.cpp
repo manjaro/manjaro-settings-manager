@@ -19,6 +19,7 @@
  */
 
 #include "SupportedLocalesModel.h"
+#include "../common/LanguageCommon.h"
 
 #include <QtCore/QFile>
 
@@ -52,7 +53,7 @@ QVariant SupportedLocalesModel::data(const QModelIndex &index, int role) const
             return item->value();
         case 1:
             return item->key();
-        }        
+        }
         break;
     case KeyRole :
         return item->key();
@@ -163,41 +164,9 @@ QHash<int, QByteArray> SupportedLocalesModel::roleNames() const
 
 void SupportedLocalesModel::init(SupportedLocalesItem *parent)
 {
-    // Fill in meaningful locale/charset lines from locale.gen
-    QSet<QString> localeList;
-
-    QFile localeGen("/etc/locale.gen");
-    QString lines;
-    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in(&localeGen);
-        lines.append(in.readAll());
-    }
-
-    QFile localeGenPacnew("/etc/locale.gen.pacnew");
-    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in(&localeGenPacnew);
-        lines.append(in.readAll());
-    }
-    for (const QString line : lines.split('\n'))
-    {
-        if (line.startsWith( "# " ) || line.simplified() == "#" || line.isEmpty()) {
-            continue;
-        }
-
-        QString lineString = line.simplified();
-
-        if (lineString.startsWith("#")) {
-            lineString.remove( '#' );
-        }
-
-        localeList.insert(lineString);
-    }
-    qDebug() << localeList;
-    for (const QString localeLine : localeList) {
-        QString localeCode = localeLine.split(" ", QString::SkipEmptyParts).first().trimmed();
-        Locale locale(localeCode.toLatin1());
+    QStringList localeList { LanguageCommon::supportedLocales() };
+    for (const QString localeString : localeList) {
+        Locale locale(localeString.toLatin1());
         // Get language and country in current system locale
         UnicodeString uDisplayLanguage;
         UnicodeString uDisplayCountry;
@@ -254,7 +223,7 @@ void SupportedLocalesModel::init(SupportedLocalesItem *parent)
         }
 
         // Add the locale code to the language
-        SupportedLocalesItem *localeItem = new SupportedLocalesItem(localeCode, localeCode, countryItem);
+        SupportedLocalesItem *localeItem = new SupportedLocalesItem(localeString, localeString, countryItem);
         countryItem->appendChild(localeItem);
     }
 }
