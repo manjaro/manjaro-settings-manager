@@ -9,7 +9,7 @@ arch=('i686' 'x86_64')
 url="https://github.com/manjaro/manjaro-settings-manager"
 license=("GPL")
 depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth' 
-         'kconfigwidgets' 'kcoreaddons' 'kcmutils')
+         'kconfigwidgets' 'kcoreaddons' 'kcmutils' 'ckbcomp')
 makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools')
 source=(git+$url.git)
 sha256sums=(SKIP)
