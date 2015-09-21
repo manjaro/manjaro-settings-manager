@@ -32,7 +32,7 @@ int main( int argc, char* argv[] )
     MsmApplication app( argc, argv );
 
     QCommandLineParser parser;
-    parser.setApplicationDescription( "Test" );
+    parser.setApplicationDescription( app.applicationName() );
     parser.addHelpOption();
     //parser.addVersionOption();
 
