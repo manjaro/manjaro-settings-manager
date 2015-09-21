@@ -355,7 +355,8 @@ int EnabledLocalesModel::findKey(const QString key) const
 void EnabledLocalesModel::init()
 {
     beginResetModel();
-    locales_ << LanguageCommon::enabledLocales();
+    locales_.clear();
+    locales_ << LanguageCommon::enabledLocales(false);
     endResetModel();
 }
 
