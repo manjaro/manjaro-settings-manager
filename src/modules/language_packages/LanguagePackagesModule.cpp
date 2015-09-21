@@ -20,7 +20,7 @@
 
 #include "LanguagePackagesModule.h"
 #include "ui_PageLanguagePackages.h"
-#include "../common/ActionDialog.h"
+#include "ActionDialog.h"
 
 #include <KAboutData>
 #include <KAuth>

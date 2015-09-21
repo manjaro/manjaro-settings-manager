@@ -7,9 +7,7 @@ set(MSM_MHWD_SRCS
     ${MSM_MHWD_GLOB}
     MhwdModule.cpp
     libmhwd/mhwd.cpp
-    libmhwd/vita/string.cpp
-    ../common/ActionDialog.cpp
-    ../common/ActionDialog.h)
+    libmhwd/vita/string.cpp)
 
 set(MSM_MHWD_UI
     ui/PageMhwd.ui)
@@ -23,6 +21,7 @@ add_library(msm_mhwd MODULE ${MSM_MHWD_SRCS})
 target_compile_definitions(msm_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_mhwd
     hd
+    msm
     Qt5::Widgets
     KF5::ConfigWidgets
     KF5::CoreAddons)

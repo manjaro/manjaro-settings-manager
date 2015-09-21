@@ -21,7 +21,6 @@
 #include "KernelModule.h"
 
 #include "KernelListViewDelegate.h"
-#include "../common/ActionDialog.h"
 
 #include <KAboutData>
 #include <KAuth>

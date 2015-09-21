@@ -22,7 +22,7 @@
 #include "MhwdModule.h"
 #include "ui_PageMhwd.h"
 #include "libmhwd/mhwd.h"
-#include "../common/ActionDialog.h"
+#include "ActionDialog.h"
 
 #include <KAboutData>
 #include <KAuth>

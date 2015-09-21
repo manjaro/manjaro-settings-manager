@@ -10,9 +10,7 @@ set(MSM_LOCALE_SRCS
     LocaleModule.cpp
     SelectLocalesDialog.cpp
     SupportedLocalesItem.cpp
-    SupportedLocalesModel.cpp
-    ../common/LanguageCommon.cpp
-    ../common/LanguageCommon.h)
+    SupportedLocalesModel.cpp)
 
 set(MSM_LOCALE_UI
     ui/LocaleModule.ui
@@ -22,6 +20,7 @@ qt5_wrap_ui(MSM_LOCALE_SRCS ${MSM_LOCALE_UI})
 add_library(msm_locale MODULE ${MSM_LOCALE_SRCS})
 target_compile_definitions(msm_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_locale
+    msm
     Qt5::DBus
     KF5::ConfigWidgets
     KF5::CoreAddons

@@ -19,7 +19,7 @@
  */
 
 #include "EnabledLocalesModel.h"
-#include "../common/LanguageCommon.h"
+#include "LanguageCommon.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>

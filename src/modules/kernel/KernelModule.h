@@ -23,6 +23,7 @@
 
 #include "KernelInfoDialog.h"
 #include "KernelModel.h"
+#include "ActionDialog.h"
 
 #include <KCModule>
 

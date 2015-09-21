@@ -8,11 +8,7 @@ set(MSM_LANGUAGE_PACKAGES_SRCS
     ${MSM_LANGUAGE_PACKAGES_GLOB}
     global.cpp
     LanguagePackagesItem.cpp
-    LanguagePackagesModule.cpp
-    ../common/ActionDialog.cpp
-    ../common/ActionDialog.h
-    ../common/LanguageCommon.cpp
-    ../common/LanguageCommon.h)
+    LanguagePackagesModule.cpp)
 
 set(MSM_LANGUAGE_PACKAGES_RESOURCES
     language_packages.qrc)
@@ -25,6 +21,7 @@ qt5_wrap_ui(MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
 add_library(msm_language_packages MODULE ${MSM_LANGUAGE_PACKAGES_SRCS})
 target_compile_definitions(msm_language_packages PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_language_packages
+    msm
     Qt5::Widgets
     KF5::ConfigWidgets
     KF5::CoreAddons)
