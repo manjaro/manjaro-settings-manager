@@ -20,8 +20,8 @@
  */
 
 #include "Notifier.h"
-#include "../modules/kernel/Kernel.h"
-#include "../modules/kernel/KernelModel.h"
+#include "Kernel.h"
+#include "KernelModel.h"
 
 #include <QtCore/QFile>
 #include <QDebug>

@@ -18,10 +18,8 @@ file(GLOB MSM_KERNEL_GLOB
 
 set(MSM_KERNEL_SRCS
     ${MSM_KERNEL_GLOB}
-    Kernel.cpp
     KernelInfoDialog.cpp
     KernelListViewDelegate.cpp
-    KernelModel.cpp
     KernelModule.cpp)
 
 set(MSM_KERNEL_RESOURCES
