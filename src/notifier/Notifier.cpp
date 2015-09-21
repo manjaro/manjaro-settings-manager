@@ -19,11 +19,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "global.h"
 #include "Notifier.h"
 #include "Kernel.h"
 #include "KernelModel.h"
 
 #include <QtCore/QFile>
+#include <QtCore/QSettings>
+
 #include <QDebug>
 
 Notifier::Notifier( QObject* parent ) :
@@ -268,7 +271,7 @@ Notifier::trayIconClicked()
     // Hide tray icon
     trayIcon.hide();
 
-    QProcess::startDetached( "manjaro-settings-manager", QStringList() << "--page-language-packages" );
+    QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages"" );
 }
 
 
@@ -282,7 +285,7 @@ Notifier::kernelTrayIconClicked()
     // Hide tray icon
     kernelTrayIcon.hide();
 
-    QProcess::startDetached( "manjaro-settings-manager", QStringList() << "--page-kernel" );
+    QProcess::startDetached( "msm", QStringList() << "-m" << "msm_kernel" );
 }
 
 

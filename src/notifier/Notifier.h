@@ -22,16 +22,8 @@
 #ifndef NOTIFIER_H
 #define NOTIFIER_H
 
-#include <QDir>
-#include <QFlags>
-#include <QIcon>
-#include <QLabel>
-#include <QProcess>
-#include <QSettings>
-#include <QStringList>
 #include <QTimer>
 #include <QSystemTrayIcon>
-#include <global.h>
 
 class Notifier : public QTimer
 {
