@@ -2,7 +2,7 @@
 # Maintainer : Ramon Buldo <ramon@manjaro.org>
 
 pkgname=kcm-msm
-pkgver=0.0.1
+pkgver=0.4.80
 pkgrel=1
 pkgdesc="Manjaro settings manager module for Plasma 5"
 arch=('i686' 'x86_64')
