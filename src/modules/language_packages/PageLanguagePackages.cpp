@@ -55,7 +55,7 @@ PageLanguagePackages::PageLanguagePackages(QWidget *parent, const QVariantList &
                          QStringLiteral("roland@manjaro.org"));
 
     setAboutData(aboutData);
-    setButtons(KCModule::Apply);
+    setButtons(KCModule::NoAdditionalButton);
 
     ui->setupUi(this);
 
@@ -73,6 +73,8 @@ PageLanguagePackages::PageLanguagePackages(QWidget *parent, const QVariantList &
             emit changed(true);
         }
     });
+    connect(ui->installPackagesButton, &QPushButton::clicked,
+            this, &PageLanguagePackages::save);
 }
 
 
@@ -96,6 +98,11 @@ void PageLanguagePackages::load()
 
     if (Global::getLanguagePackages(&availablePackages, &installedPackages, lpiList)) {
         addLanguagePackagesToTreeWidget(ui->treeWidgetAvailable, &availablePackages, true);
+        if (availablePackages.size() > 0) {
+            ui->installPackagesButton->setEnabled(true);
+        } else {
+            ui->installPackagesButton->setEnabled(false);
+        }
         addLanguagePackagesToTreeWidget(ui->treeWidgetInstalled, &installedPackages, false);
     }
 }
