@@ -21,6 +21,7 @@
 
 #include "global.h"
 #include "Notifier.h"
+#include "NotifierApp.h"
 #include "Kernel.h"
 #include "KernelModel.h"
 
@@ -32,11 +33,11 @@
 Notifier::Notifier( QObject* parent ) :
     QTimer( parent )
 {
-    // Set Interval to 60 minutes
-    setInterval( 3600000 );
+    // Set Interval to 2 minutes
+    setInterval( 120000 );
 
     connect( this, &Notifier::timeout,
-             this, &Notifier::run );
+             NotifierApp::instance(), &NotifierApp::quit );
     connect( &trayIcon, &QSystemTrayIcon::activated,
              this, &Notifier::trayIconClicked );
     connect( &trayIcon, &QSystemTrayIcon::messageClicked,
@@ -51,12 +52,11 @@ Notifier::Notifier( QObject* parent ) :
 void
 Notifier::start()
 {
-    qDebug() << QSystemTrayIcon::supportsMessages();
     if ( isActive() )
         return;
 
-    QTimer::singleShot(20, this, SLOT(run()));
-    QTimer::singleShot(40, this, SLOT(runKernel()));
+    QTimer::singleShot( 20000, this, &Notifier::run );
+    QTimer::singleShot( 40000, this, &Notifier::runKernel );
     QTimer::start();
 }
 
@@ -271,7 +271,7 @@ Notifier::trayIconClicked()
     // Hide tray icon
     trayIcon.hide();
 
-    QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages"" );
+    QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages" );
 }
 
 
@@ -306,8 +306,7 @@ Notifier::kernelTrayIconShowMessage()
 void
 Notifier::loadConfiguration()
 {
-    QSettings settings( "/root/.config/manjaro/manjaro-settings-manager.conf",
-                        QSettings::IniFormat );
+    QSettings settings( "manjaro", "manjaro-settings-manager" );
     this->checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
     this->checkUnsupportedKernel = settings.value( "notifications/checkUnsupportedKernel", true ).toBool();
     this->checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", false ).toBool();
@@ -325,7 +324,7 @@ Notifier::isPackageIgnored( const QString package, const QString group )
     settings.beginGroup( group );
     int value = settings.value( "notify_count_" + package, "0" ).toInt();
     settings.endGroup();
-    return ( value < 2 ) ? false : true;
+    return ( value < 2222 ) ? false : true;
 }
 
 
@@ -336,7 +335,7 @@ Notifier::addToConfig( const QString package, const QString group )
     settings.beginGroup( group );
     int value = settings.value( "notify_count_" + package, "0" ).toInt();
     ++value;
-    if ( value < 3 )
+    if ( value < 3222 )
         settings.setValue( "notify_count_" + package, value );
     settings.endGroup();
 }
