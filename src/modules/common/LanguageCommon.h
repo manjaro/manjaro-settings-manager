@@ -6,8 +6,8 @@
 class LanguageCommon
 {
 public:
-    static QStringList enabledLocales();
-    static QStringList supportedLocales();
+    static QStringList enabledLocales(bool clean = false);
+    static QStringList supportedLocales(bool clean = false);
 };
 
 #endif // LANGUAGECOMMON_H

@@ -22,6 +22,7 @@
 #define PAGELANGUAGEPACKAGES_H
 
 #include "global.h"
+#include "LanguagePackagesItem.h"
 
 #include <KCModule>
 
@@ -41,7 +42,7 @@ class PageLanguagePackages;
 class PageLanguagePackages : public KCModule
 {
     Q_OBJECT
-    
+
 public:
     /**
      * Constructor.
@@ -69,11 +70,24 @@ public:
      * Overloading the KCModule defaults() function.
      */
     void defaults();
-    
+
+
+
 private:
     Ui::PageLanguagePackages *ui;
 
     void addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable);
+    bool isSystemUpToDate();
+
+    QList<LanguagePackagesItem> getLanguagePackages();
+    QStringList checkInstalled(const QStringList &packages);
+    QStringList checkInstalledLanguagePackages(QString package);
+    QStringList checkAvailableLanguagePackages(QString package);
+    void getInstalledPackages();
+    void getAvailablePackages();
+
+    QStringList m_installedPackages;
+    QStringList m_availablePackages;
 };
 
 #endif // PAGELANGUAGEPACKAGES_H

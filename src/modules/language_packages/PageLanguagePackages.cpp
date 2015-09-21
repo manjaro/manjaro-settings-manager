@@ -26,6 +26,12 @@
 #include <KAuth>
 #include <KAuthAction>
 
+#include <QtCore/QFile>
+#include <QtCore/QJsonArray>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QProcess>
+#include <QtCore/QDebug>
+
 #include <KPluginFactory>
 K_PLUGIN_FACTORY(MsmLanguagePackagesFactory,
                  registerPlugin<PageLanguagePackages>("msm_language_packages");)
@@ -84,7 +90,11 @@ void PageLanguagePackages::load()
 
     QList<Global::LanguagePackage> availablePackages, installedPackages;
 
-    if (Global::getLanguagePackages(&availablePackages, &installedPackages)) {
+    getInstalledPackages();
+    getAvailablePackages();
+    QList<LanguagePackagesItem> lpiList { getLanguagePackages() };
+
+    if (Global::getLanguagePackages(&availablePackages, &installedPackages, lpiList)) {
         addLanguagePackagesToTreeWidget(ui->treeWidgetAvailable, &availablePackages, true);
         addLanguagePackagesToTreeWidget(ui->treeWidgetInstalled, &installedPackages, false);
     }
@@ -93,17 +103,8 @@ void PageLanguagePackages::load()
 
 void PageLanguagePackages::save()
 {
-
-    // TODO: Update pacman database first
-    /*dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogress" << "-Sy", tr("Updating pacman databases..."), true);
-
-    if (!dialog.processSuccess()) {
-        //emit closePage(this);
-        return;
-    }*/
-
     // Check if system is up-to-date
-    if (!Global::isSystemUpToDate()) {
+    if (!isSystemUpToDate()) {
         QMessageBox::warning(this, tr("System is out-of-date"), tr("Your System is not up-to-date! You have to update it first to continue!"), QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
@@ -133,9 +134,6 @@ void PageLanguagePackages::save()
         actionDialog.setInstallAction(installAction);
         actionDialog.setWindowTitle(tr("Install language packages."));
         actionDialog.exec();
-        //if (actionDialog.isJobSuccesful()) {
-        //    kernelModel->update();
-        //}
     }
     load();
 }
@@ -186,6 +184,148 @@ void PageLanguagePackages::addLanguagePackagesToTreeWidget(QTreeWidget *treeWidg
         parentItem->setFlags(Qt::ItemIsEnabled);
         parentItem->setIcon(0, QIcon(":/images/resources/language.png"));
     }
+}
+
+
+bool PageLanguagePackages::isSystemUpToDate()
+{
+    QProcess process;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG", "C");
+    env.insert("LC_MESSAGES", "C");
+    process.setProcessEnvironment(env);
+    process.start("pacman", QStringList() << "-Sup");
+    if (!process.waitForFinished()) {
+        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
+        return false;
+    }
+
+    return QString(process.readAll()).split("\n", QString::SkipEmptyParts) ==
+               (QStringList() << ":: Starting full system upgrade...");
+}
+
+
+QList<LanguagePackagesItem> PageLanguagePackages::getLanguagePackages()
+{
+    QFile file;
+    file.setFileName(":/language_packages.json");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(file.readAll());
+    file.close();
+
+    if (!jsonDocument.isObject()) {
+        qDebug() << "Cannot read 'language_packages.json' resource";
+        return QList<LanguagePackagesItem>();
+    }
+
+    QJsonObject jsonObject = jsonDocument.object();
+    QJsonValue packagesValue = jsonObject.value(QString("Packages"));
+    QList<QVariantMap> packages;
+    if (packagesValue.isArray()) {
+        for (auto val : packagesValue.toArray()) {
+            packages.append(val.toObject().toVariantMap());
+        }
+    }
+
+    QList<LanguagePackagesItem> lpiList;
+    for(QVariantMap package : packages) {
+        QString name { package["name"].toString() };
+        QString languagePackage { package["l10n_package"].toString() };
+        QStringList parentPackages;
+        for (auto val : package["parent_packages"].toList()) {
+            parentPackages << val.toString();
+        }
+        QStringList parentPkgInstalled { checkInstalled(parentPackages) };
+        QStringList languagePkgInstalled { checkInstalledLanguagePackages(languagePackage) };
+        QStringList languagePkgAvailable { checkAvailableLanguagePackages(languagePackage) };
+        LanguagePackagesItem lpi {
+            name,
+            languagePackage,
+            parentPackages,
+            parentPkgInstalled,
+            languagePkgInstalled,
+            languagePkgAvailable
+        };
+        lpiList.append(lpi);
+    }
+    return lpiList;
+}
+
+
+QStringList PageLanguagePackages::checkInstalled(const QStringList &packages)
+{
+    QStringList installedPackages;
+    for (const QString package : packages) {
+        if (m_installedPackages.contains(package))
+            installedPackages.append(package);
+    }
+    return installedPackages;
+}
+
+
+QStringList PageLanguagePackages::checkInstalledLanguagePackages(QString package)
+{
+    package.remove(QChar('%'));
+    QRegularExpression re(QString("^(%1)").arg(package));
+    return m_installedPackages.filter(re);
+}
+
+
+QStringList PageLanguagePackages::checkAvailableLanguagePackages(QString package)
+{
+    package.remove(QChar('%'));
+    QRegularExpression re(QString("^(%1)").arg(package));
+    return m_availablePackages.filter(re);
+}
+
+
+void PageLanguagePackages::getAvailablePackages()
+{
+    QProcess process;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG", "C");
+    env.insert("LC_MESSAGES", "C");
+    process.setProcessEnvironment(env);
+    process.start("pacman", QStringList() << "-Si");
+
+    if (!process.waitForFinished()) {
+        qDebug() << "error: failed to get informations about available packages (pacman)!";
+        return;
+    }
+
+    QStringList output = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
+
+    m_availablePackages.clear();
+    for (QString line : output) {
+        line = line.remove(" ").remove("\t");
+        if (!line.toLower().startsWith("name:")) {
+            continue;
+        }
+        line = line.mid(line.indexOf(":") + 1);
+        m_availablePackages.append(line);
+    }
+}
+
+
+void PageLanguagePackages::getInstalledPackages()
+{
+    QProcess process;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG", "C");
+    env.insert("LC_MESSAGES", "C");
+    process.setProcessEnvironment(env);
+    process.start("pacman", QStringList() << "-Qq");
+    if (!process.waitForFinished()) {
+        qDebug() << "error: failed to get installed packages (pacman)!";
+        return;
+    }
+
+    if (process.exitCode() != 0) {
+        qDebug() << "error: failed to get installed packages (pacman)!";
+        return;
+    }
+
+    m_installedPackages = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
 }
 
 #include "PageLanguagePackages.moc"

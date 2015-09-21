@@ -22,6 +22,8 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
+#include "LanguagePackagesItem.h"
+
 #include <QtCore/QString>
 
 class Global
@@ -39,9 +41,9 @@ public:
         QString locale, language, territory, description;
     };
 
-    static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages, QList<Global::LanguagePackage> *installedPackages);
-    static bool isSystemUpToDate();
-
+    static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages,
+                                    QList<Global::LanguagePackage> *installedPackages,
+                                    QList<LanguagePackagesItem> lpiList);
     static QList<Global::LocaleInfo> getAllEnabledLocales();
 
 

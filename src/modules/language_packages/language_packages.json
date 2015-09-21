@@ -1,0 +1,91 @@
+{
+    "Packages": [
+        {
+            "name": "Firefox",
+            "l10n_package": "firefox-i18n-%",
+            "parent_packages": ["firefox"]
+        },
+        {
+            "name": "Firefox for KDE",
+            "l10n_package": "firefox-kde-i18n-%",
+            "parent_packages": ["firefox-kde"]
+        },
+        {
+            "name": "Thunderbird",
+            "l10n_package": "thunderbird-i18n-%",
+            "parent_packages": ["thunderbird","thunderbird-kde"]
+        },
+        {
+            "name": "Spell Checker (aspell)",
+            "l10n_package": "aspell-%",
+            "parent_packages": ["aspell"]
+        },
+        {
+            "name": "Calligra Suite",
+            "l10n_package": "calligra-l10n-%",
+            "parent_packages": ["calligra-braindump","calligra-flow","calligra-karbon",
+                         "calligra-kexi","calligra-krita","calligra-plan",
+                         "calligra-stage","calligra-sheets","calligra-words"]
+        },
+        {
+            "name": "Gimp",
+            "l10n_package": "gimp-help-%",
+            "parent_packages": ["gimp"]
+        },
+        {
+            "name": "Spell Checker (hunspell)",
+            "l10n_package": "hunspell-%",
+            "parent_packages": ["hunspell"]
+        },
+        {
+            "name": "Hyphenation and Justification (hyphen)",
+            "l10n_package": "hyphen-%",
+            "parent_packages": ["hyphen"]
+        },
+        {
+            "name": "KDE Applications",
+            "l10n_package": "kde-l10n-%",
+            "parent_packages": ["kdebase-runtime"]
+        },
+        {
+            "name": "Libreoffice Still",
+            "l10n_package": "libreoffice-still-%",
+            "parent_packages": ["libreoffice-still"]
+        },
+        {
+            "name": "Libreoffice Fresh",
+            "l10n_package": "libreoffice-fresh-%",
+            "parent_packages": ["libreoffice-fresh"]
+        },
+        {
+            "name": "Man Pages",
+            "l10n_package": "man-pages-%",
+            "parent_packages": ["man-pages"]
+        },
+        {
+            "name": "Thesaurus (mythes)",
+            "l10n_package": "mythes-%",
+            "parent_packages": ["libmythes"]
+        },
+        {
+            "name": "Vim",
+            "l10n_package": "vim-spell-%",
+            "parent_packages": ["vim"]
+        },
+        {
+            "name": "Kompozer",
+            "l10n_package": "kompozer-i18n-%",
+            "parent_packages": ["kompozer"]
+        },
+        {
+            "name": "Eric",
+            "l10n_package": "eric-i18n-%",
+            "parent_packages": ["eric"]
+        },
+        {
+            "name": "Psi",
+            "l10n_package": "psi-i18n",
+            "parent_packages": ["psi"]
+        }
+    ]
+}

@@ -1,14 +1,22 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB MSM_LANGUAGE_PACKAGES_GLOB
-     msm_language_packages.desktop)
+     msm_language_packages.desktop
+     language_packages.json)
 
 set(MSM_LANGUAGE_PACKAGES_SRCS
     ${MSM_LANGUAGE_PACKAGES_GLOB}
     global.cpp
+    LanguagePackagesItem.cpp
     PageLanguagePackages.cpp
     ../common/ActionDialog.cpp
-    ../common/ActionDialog.h)
+    ../common/ActionDialog.h
+    ../common/LanguageCommon.cpp
+    ../common/LanguageCommon.h)
+
+set(MSM_LANGUAGE_PACKAGES_RESOURCES
+    language_packages.qrc)
+QT5_ADD_RESOURCES (MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_RESOURCES})
 
 set(MSM_LANGUAGE_PACKAGES_UI
     ui/PageLanguagePackages.ui)
