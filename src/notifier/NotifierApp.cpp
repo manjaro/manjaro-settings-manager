@@ -26,20 +26,20 @@
 #include "Notifier.h"
 
 
-int main(int argc, char *argv[]) 
+int main( int argc, char* argv[] )
 {
-    QApplication app(argc, argv);
+    QApplication app( argc, argv );
 
     QTranslator appTranslator;
-    appTranslator.load(":/translations/msmd_" + QLocale::system().name());
-    app.installTranslator(&appTranslator);
+    appTranslator.load( ":/translations/msmd_" + QLocale::system().name() );
+    app.installTranslator( &appTranslator );
 
     /*if (app.isRunning()) {
         std::cerr << "warning: an instance of the application is already running..." << endl;
         return 0;
     }*/
 
-    Daemon daemon(&app);
+    Daemon daemon( &app );
     daemon.start();
     return app.exec();
 }

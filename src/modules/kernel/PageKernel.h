@@ -23,6 +23,7 @@
 
 #include "KernelInfoDialog.h"
 #include "KernelModel.h"
+
 #include <KCModule>
 
 class PageKernel : public KCModule
@@ -36,7 +37,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageKernel(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit PageKernel( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -58,14 +59,14 @@ public:
     void defaults();
 
 public slots:
-    void installButtonClicked(const QModelIndex &index);
-    void infoButtonClicked(const QModelIndex &index);
+    void installButtonClicked( const QModelIndex& index );
+    void infoButtonClicked( const QModelIndex& index );
 
 private:
-    KernelModel *kernelModel;
-    KernelInfoDialog *kernelInfoDialog;
-    void installKernel(const QModelIndex &index);
-    void removeKernel(const QModelIndex &index);
+    KernelModel* m_kernelModel;
+    KernelInfoDialog* m_kernelInfoDialog;
+    void installKernel( const QModelIndex& index );
+    void removeKernel( const QModelIndex& index );
 };
 
 #endif // PAGE_KERNEL_H

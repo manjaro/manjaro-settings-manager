@@ -22,8 +22,6 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#include "const.h"
-
 #include <QString>
 #include <QFile>
 #include <QTextStream>
@@ -38,17 +36,18 @@
 #include <QDir>
 #include <QtCore/QByteArray>
 
-
 class Global
 {
 public:
 
-    struct User {
+    struct User
+    {
         QString username, homePath;
         int uuid;
     };
 
-    struct Group {
+    struct Group
+    {
         QString name;
         QStringList members;
     };
@@ -59,6 +58,5 @@ public:
 private:
 
 };
-
 
 #endif // GLOBAL_H

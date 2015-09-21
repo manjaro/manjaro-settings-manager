@@ -29,34 +29,34 @@
 
 #include <QDebug>
 
-
-MsmWindow::MsmWindow(QWidget *parent) :
-    QMainWindow(parent)
+MsmWindow::MsmWindow( QWidget* parent ) :
+    QMainWindow( parent )
 {
     // Prepare the view area
-    stackedWidget = new QStackedWidget(this);
-    setCentralWidget(stackedWidget);
+    m_stackedWidget = new QStackedWidget( this );
+    setCentralWidget( m_stackedWidget );
 
-    QQuickView *view = new QQuickView();
-    menuView = QWidget::createWindowContainer(view, this);
-    menuView->setFocusPolicy(Qt::TabFocus);
-    view->setSource(QUrl("qrc:/qml/main.qml"));
-    stackedWidget->addWidget(menuView);
-    stackedWidget->setCurrentWidget(menuView);
+    QQuickView* view = new QQuickView();
+    m_menuView = QWidget::createWindowContainer( view, this );
+    m_menuView->setFocusPolicy( Qt::TabFocus );
+    view->setSource( QUrl( "qrc:/qml/main.qml" ) );
+    m_stackedWidget->addWidget( m_menuView );
+    m_stackedWidget->setCurrentWidget( m_menuView );
 
-    moduleView = new ModuleView();
-    stackedWidget->addWidget(moduleView);
+    m_moduleView = new ModuleView();
+    m_stackedWidget->addWidget( m_moduleView );
 
-    QQuickItem *rootObject = view->rootObject();
-    QQuickItem::connect(rootObject, SIGNAL(itemClicked(QString)),
-                     this, SLOT(loadModule(QString)));
+    QQuickItem* rootObject = view->rootObject();
+    QQuickItem::connect( rootObject, SIGNAL( itemClicked( QString ) ),
+                         this, SLOT( loadModule( QString ) ) );
 
-    ModuleView::connect(moduleView, &ModuleView::closeRequest,
-                        [=]() {
-        moduleView->resolveChanges();
-        moduleView->closeModules();
-        stackedWidget->setCurrentWidget(menuView);
-    });
+    ModuleView::connect( m_moduleView, &ModuleView::closeRequest,
+                         [=]()
+    {
+        m_moduleView->resolveChanges();
+        m_moduleView->closeModules();
+        m_stackedWidget->setCurrentWidget( m_menuView );
+    } );
 
     init();
     readPositionSettings();
@@ -65,68 +65,74 @@ MsmWindow::MsmWindow(QWidget *parent) :
 
 MsmWindow::~MsmWindow()
 {
-    delete moduleView;
+    delete m_moduleView;
 }
 
 
-void MsmWindow::init()
+void
+MsmWindow::init()
 {
     QStringList moduleList = QStringList() << "msm_kernel" << "msm_keyboard" << "msm_language_packages"
-                                           << "msm_locale" << "msm_mhwd" << "msm_notifications"
-                                           << "msm_timedate" << "msm_users";
-    for (QString module : moduleList) {
-        moduleInfoList.insert(module, new KCModuleInfo(module));
-    }
+                             << "msm_locale" << "msm_mhwd" << "msm_notifications"
+                             << "msm_timedate" << "msm_users";
+    for ( QString module : moduleList )
+        m_moduleInfoList.insert( module, new KCModuleInfo( module ) );
 }
 
 
-void MsmWindow::loadModule(QString moduleName)
+void
+MsmWindow::loadModule( QString moduleName )
 {
-    qDebug() << QString("Loading module '%1'").arg(moduleName);
-    if (moduleInfoList.contains(moduleName)) {
-        moduleView->addModule(moduleInfoList.value(moduleName));
-        emit moduleView->moduleChanged(false);
+    qDebug() << QString( "Loading module '%1'" ).arg( moduleName );
+    if ( m_moduleInfoList.contains( moduleName ) )
+    {
+        m_moduleView->addModule( m_moduleInfoList.value( moduleName ) );
+        emit m_moduleView->moduleChanged( false );
     }
-    stackedWidget->setCurrentWidget(moduleView);
+    m_stackedWidget->setCurrentWidget( m_moduleView );
 }
 
 
-void MsmWindow::writePositionSettings()
+void
+MsmWindow::writePositionSettings()
 {
-    QSettings settings("manjaro", "manjaro-settings-manager");
+    QSettings settings( "manjaro", "manjaro-settings-manager" );
 
-    settings.beginGroup("mainwindow");
+    settings.beginGroup( "mainwindow" );
 
-    settings.setValue("geometry", saveGeometry());
-    settings.setValue("savestate", saveState());
-    settings.setValue("maximized", isMaximized());
-    if (!isMaximized()) {
-        settings.setValue("pos", pos());
-        settings.setValue("size", size());
+    settings.setValue( "geometry", saveGeometry() );
+    settings.setValue( "savestate", saveState() );
+    settings.setValue( "maximized", isMaximized() );
+    if ( !isMaximized() )
+    {
+        settings.setValue( "pos", pos() );
+        settings.setValue( "size", size() );
     }
 
     settings.endGroup();
 }
 
 
-void MsmWindow::readPositionSettings()
+void
+MsmWindow::readPositionSettings()
 {
-    QSettings settings("manjaro", "manjaro-settings-manager");
+    QSettings settings( "manjaro", "manjaro-settings-manager" );
 
-    settings.beginGroup("mainwindow");
+    settings.beginGroup( "mainwindow" );
 
-    restoreGeometry(settings.value("geometry", saveGeometry()).toByteArray());
-    restoreState(settings.value( "savestate", saveState()).toByteArray());
-    move(settings.value("pos", pos()).toPoint());
-    resize(settings.value("size", size()).toSize());
-    if ( settings.value("maximized", isMaximized() ).toBool())
+    restoreGeometry( settings.value( "geometry", saveGeometry() ).toByteArray() );
+    restoreState( settings.value( "savestate", saveState() ).toByteArray() );
+    move( settings.value( "pos", pos() ).toPoint() );
+    resize( settings.value( "size", size() ).toSize() );
+    if ( settings.value( "maximized", isMaximized() ).toBool() )
         showMaximized();
 
     settings.endGroup();
 }
 
 
-void MsmWindow::closeEvent(QCloseEvent *)
+void
+MsmWindow::closeEvent( QCloseEvent* )
 {
     writePositionSettings();
 }

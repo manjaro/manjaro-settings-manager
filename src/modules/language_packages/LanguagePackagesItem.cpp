@@ -21,22 +21,22 @@
 #include "LanguagePackagesItem.h"
 
 LanguagePackagesItem::LanguagePackagesItem() :
-    m_name(QString()),
-    m_languagePackage(QString()),
-    m_parentPackages(QStringList()),
-    m_parentPkgInstalled(QStringList()),
-    m_languagePkgInstalled(QStringList()),
-    m_languagePkgAvailable(QStringList())
+    m_name( QString() ),
+    m_languagePackage( QString() ),
+    m_parentPackages( QStringList() ),
+    m_parentPkgInstalled( QStringList() ),
+    m_languagePkgInstalled( QStringList() ),
+    m_languagePkgAvailable( QStringList() )
 {
 }
 
 LanguagePackagesItem::LanguagePackagesItem(
-        const QString &name,
-        const QString &languagePackage,
-        const QStringList &parentPackages,
-        const QStringList &parentPkgInstalled,
-        const QStringList &languagePkgInstalled,
-        const QStringList &languagePkgAvailable)
+    const QString& name,
+    const QString& languagePackage,
+    const QStringList& parentPackages,
+    const QStringList& parentPkgInstalled,
+    const QStringList& languagePkgInstalled,
+    const QStringList& languagePkgAvailable )
     : m_name( name ),
       m_languagePackage( languagePackage ),
       m_parentPackages( parentPackages ),
@@ -46,6 +46,91 @@ LanguagePackagesItem::LanguagePackagesItem(
 {
 }
 
+
 LanguagePackagesItem::~LanguagePackagesItem()
 {
+}
+
+
+QString
+LanguagePackagesItem::name() const
+{
+    return m_name;
+}
+
+
+void
+LanguagePackagesItem::setName( const QString& name )
+{
+    m_name = name;
+}
+
+
+QString
+LanguagePackagesItem::languagePackage() const
+{
+    return m_languagePackage;
+}
+
+
+void
+LanguagePackagesItem::setLanguagePackage( const QString& languagePackage )
+{
+    m_languagePackage = languagePackage;
+}
+
+
+QStringList
+LanguagePackagesItem::parentPackages() const
+{
+    return m_parentPackages;
+}
+
+
+void
+LanguagePackagesItem::setParentPackages( const QStringList& parentPackages )
+{
+    m_parentPackages = parentPackages;
+}
+
+
+QStringList
+LanguagePackagesItem::parentPkgInstalled() const
+{
+    return m_parentPkgInstalled;
+}
+
+
+void
+LanguagePackagesItem::setParentPkgInstalled( const QStringList& parentPkgInstalled )
+{
+    m_parentPkgInstalled = parentPkgInstalled;
+}
+
+
+QStringList
+LanguagePackagesItem::languagePkgInstalled() const
+{
+    return m_languagePkgInstalled;
+}
+
+
+void
+LanguagePackagesItem::setLanguagePkgInstalled( const QStringList& languagePkgInstalled )
+{
+    m_languagePkgInstalled = languagePkgInstalled;
+}
+
+
+QStringList
+LanguagePackagesItem::languagePkgAvailable() const
+{
+    return m_languagePkgAvailable;
+}
+
+
+void
+LanguagePackagesItem::setLanguagePkgAvailable( const QStringList& languagePkgAvailable )
+{
+    m_languagePkgAvailable = languagePkgAvailable;
 }

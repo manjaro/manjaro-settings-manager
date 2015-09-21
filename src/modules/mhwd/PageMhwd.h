@@ -19,22 +19,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #ifndef PAGEMHWD_H
 #define PAGEMHWD_H
 
 #include <KCModule>
 
-#include <QString>
-#include <QStringList>
-#include <QList>
-#include <QIcon>
-#include <QMenu>
-#include <QAction>
-#include <string>
-#include <vector>
-
-namespace Ui {
+namespace Ui
+{
 class PageMhwd;
 }
 
@@ -49,7 +40,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageMhwd(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit PageMhwd( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -71,15 +62,15 @@ public:
     void defaults();
 
 private:
-    Ui::PageMhwd *ui;
-    QAction *installAction;
-    QAction *removeAction;
-    QAction *forceReinstallationAction;
+    Ui::PageMhwd* ui;
+    QAction* m_installAction;
+    QAction* m_removeAction;
+    QAction* m_forceReinstallationAction;
 
 private slots:
     void installFreeConfiguration();
     void installNonFreeConfiguration();
-    void showContextMenuForTreeWidget(const QPoint &);
+    void showContextMenuForTreeWidget( const QPoint& );
     void installConfiguration();
     void removeConfiguration();
     void reinstallConfiguration();

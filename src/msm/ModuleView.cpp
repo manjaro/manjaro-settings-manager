@@ -44,7 +44,8 @@
 #include <KIconLoader>
 
 
-class ModuleView::Private {
+class ModuleView::Private
+{
 public:
     Private() {}
     QMap<KPageWidgetItem*, KCModuleProxy*> mPages;
@@ -61,114 +62,122 @@ public:
     bool pageChangeSupressed;
 };
 
-ModuleView::ModuleView( QWidget * parent )
+
+ModuleView::ModuleView( QWidget* parent )
     : QWidget( parent )
     , d( new Private() )
 {
     // Configure a layout first
-    d->mLayout = new QVBoxLayout(this);
+    d->mLayout = new QVBoxLayout( this );
     // Create the Page Widget
-    d->mPageWidget = new KPageWidget(this);
-    d->mPageWidget->layout()->setMargin(0);
-    d->mLayout->addWidget(d->mPageWidget);
+    d->mPageWidget = new KPageWidget( this );
+    d->mPageWidget->layout()->setMargin( 0 );
+    d->mLayout->addWidget( d->mPageWidget );
     // Create the dialog
     d->mButtons = new QDialogButtonBox( Qt::Horizontal, this );
-    d->mLayout->addWidget(d->mButtons);
+    d->mLayout->addWidget( d->mButtons );
 
     // Create the buttons in it
     d->mApply = d->mButtons->addButton( QDialogButtonBox::Apply );
-    KGuiItem::assign(d->mApply, KStandardGuiItem::apply());
+    KGuiItem::assign( d->mApply, KStandardGuiItem::apply() );
     d->mDefault = d->mButtons->addButton( QDialogButtonBox::RestoreDefaults );
-    KGuiItem::assign(d->mDefault, KStandardGuiItem::defaults());
+    KGuiItem::assign( d->mDefault, KStandardGuiItem::defaults() );
     d->mReset = d->mButtons->addButton( QDialogButtonBox::Reset );
-    KGuiItem::assign(d->mReset, KStandardGuiItem::reset());
+    KGuiItem::assign( d->mReset, KStandardGuiItem::reset() );
     d->mHelp = d->mButtons->addButton( QDialogButtonBox::Help );
-    KGuiItem::assign(d->mHelp, KStandardGuiItem::help());
+    KGuiItem::assign( d->mHelp, KStandardGuiItem::help() );
     d->mBack = d->mButtons->addButton( QDialogButtonBox::Close );
-    KGuiItem::assign(d->mBack, KStandardGuiItem::back());
+    KGuiItem::assign( d->mBack, KStandardGuiItem::back() );
     // Set some more sensible tooltips
     d->mReset->setToolTip( "Reset all current changes to previous values" );
     // Set Auto-Default mode ( KDE Bug #211187 )
-    d->mApply->setAutoDefault(true);
-    d->mDefault->setAutoDefault(true);
-    d->mReset->setAutoDefault(true);
-    d->mHelp->setAutoDefault(true);
-    d->mBack->setAutoDefault(true);
+    d->mApply->setAutoDefault( true );
+    d->mDefault->setAutoDefault( true );
+    d->mReset->setAutoDefault( true );
+    d->mHelp->setAutoDefault( true );
+    d->mBack->setAutoDefault( true );
     // Prevent the buttons from being used
-    d->mApply->setEnabled(false);
-    d->mDefault->setEnabled(false);
-    d->mReset->setEnabled(false);
-    d->mHelp->setEnabled(false);
-    d->mBack->setEnabled(true);
+    d->mApply->setEnabled( false );
+    d->mDefault->setEnabled( false );
+    d->mReset->setEnabled( false );
+    d->mHelp->setEnabled( false );
+    d->mBack->setEnabled( true );
     // Connect up the buttons
-    connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
-    connect( d->mReset, SIGNAL(clicked()), this, SLOT(moduleLoad()) );
-    connect( d->mHelp, SIGNAL(clicked()), this, SLOT(moduleHelp()) );
-    connect( d->mDefault, SIGNAL(clicked()), this, SLOT(moduleDefaults()) );
-    connect( d->mBack, SIGNAL(clicked()), this, SLOT(moduleClose()) );
-    connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
-             this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)) );
-    connect( this, SIGNAL(moduleChanged(bool)), this, SLOT(updateButtons()) );
+    connect( d->mApply, SIGNAL( clicked() ), this, SLOT( moduleSave() ) );
+    connect( d->mReset, SIGNAL( clicked() ), this, SLOT( moduleLoad() ) );
+    connect( d->mHelp, SIGNAL( clicked() ), this, SLOT( moduleHelp() ) );
+    connect( d->mDefault, SIGNAL( clicked() ), this, SLOT( moduleDefaults() ) );
+    connect( d->mBack, SIGNAL( clicked() ), this, SLOT( moduleClose() ) );
+    connect( d->mPageWidget, SIGNAL( currentPageChanged( KPageWidgetItem*,KPageWidgetItem* ) ),
+             this, SLOT( activeModuleChanged( KPageWidgetItem*,KPageWidgetItem* ) ) );
+    connect( this, SIGNAL( moduleChanged( bool ) ), this, SLOT( updateButtons() ) );
 
-    d->mApplyAuthorize = new KAuth::ObjectDecorator(d->mApply);
+    d->mApplyAuthorize = new KAuth::ObjectDecorator( d->mApply );
     d->mApplyAuthorize->setAuthAction( KAuth::Action() );
 }
+
 
 ModuleView::~ModuleView()
 {
     delete d;
 }
 
-KCModuleInfo * ModuleView::activeModule() const
+
+KCModuleInfo*
+ModuleView::activeModule() const
 {
     return d->mModules.value( d->mPageWidget->currentPage() );
 }
 
-const KAboutData * ModuleView::aboutData() const
+
+const KAboutData*
+ModuleView::aboutData() const
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    KAboutData * aboutData = 0;
-    if( activeModule ) {
+    KCModuleProxy* activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    KAboutData* aboutData = 0;
+    if ( activeModule )
         aboutData = const_cast<KAboutData*>( activeModule->aboutData() );
-    }
-    if ( aboutData ) {
-        QApplication::setWindowIcon( QIcon::fromTheme(activeModule->moduleInfo().service()->icon()) );
+    if ( aboutData )
+    {
+        QApplication::setWindowIcon( QIcon::fromTheme( activeModule->moduleInfo().service()->icon() ) );
         return aboutData;
     }
     return 0;
 }
 
-void ModuleView::addModule( KCModuleInfo *module )
+
+void
+ModuleView::addModule( KCModuleInfo* module )
 {
-    if( !module ) {
+    if ( !module )
         return;
-    }
-    if( !module->service() ) {
+    if ( !module->service() )
+    {
         qWarning() << "ModuleInfo has no associated KService" ;
         return;
     }
-    if ( !KAuthorized::authorizeControlModule( module->service()->menuId() ) ) {
+    if ( !KAuthorized::authorizeControlModule( module->service()->menuId() ) )
+    {
         qWarning() << "Not authorised to load module" ;
         return;
     }
-    if( module->service()->noDisplay() ) {
+    if ( module->service()->noDisplay() )
         return;
-    }
 
     // Create the scroller
-    QScrollArea * moduleScroll = new QScrollArea( this );
+    QScrollArea* moduleScroll = new QScrollArea( this );
     // Prepare the scroll area
     moduleScroll->setWidgetResizable( true );
     moduleScroll->setFrameStyle( QFrame::NoFrame );
     moduleScroll->viewport()->setAutoFillBackground( false );
     // Create the page
-    KPageWidgetItem *page = new KPageWidgetItem( moduleScroll, module->moduleName() );
+    KPageWidgetItem* page = new KPageWidgetItem( moduleScroll, module->moduleName() );
     // Provide information to the users
 
-    KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll );
+    KCModuleProxy* moduleProxy = new KCModuleProxy( *module, moduleScroll );
     moduleScroll->setWidget( moduleProxy );
     moduleProxy->setAutoFillBackground( false );
-    connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
+    connect( moduleProxy, SIGNAL( changed( bool ) ), this, SLOT( stateChanged() ) );
     d->mPages.insert( page, moduleProxy );
 
     d->mModules.insert( page, module );
@@ -177,171 +186,191 @@ void ModuleView::addModule( KCModuleInfo *module )
     d->mPageWidget->addPage( page );
 }
 
-void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
+
+void
+ModuleView::updatePageIconHeader( KPageWidgetItem* page, bool light )
 {
-    if( !page ) {
+    if ( !page )
+    {
         // Page is invalid. Probably means we have a race condition during closure of everyone so do nothing
         return;
     }
 
-    KCModuleProxy * moduleProxy = d->mPages.value( page );
-    KCModuleInfo * moduleInfo = d->mModules.value( page );
+    KCModuleProxy* moduleProxy = d->mPages.value( page );
+    KCModuleInfo* moduleInfo = d->mModules.value( page );
 
-    if( !moduleInfo ) {
+    if ( !moduleInfo )
+    {
         // Seems like we have some form of a race condition going on here...
         return;
     }
 
     page->setHeader( moduleInfo->comment() );
     page->setIcon( QIcon::fromTheme( moduleInfo->icon() ) );
-    if( light ) {
+    if ( light )
         return;
-    }
 
-    if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
+    if ( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() )
+    {
         page->setHeader( "<b>" + moduleInfo->comment() + "</b><br><i>" + moduleProxy->realModule()->rootOnlyMessage() + "</i>" );
         page->setIcon( KDE::icon( moduleInfo->icon(), QStringList() << "dialog-warning" ) );
     }
 }
 
-bool ModuleView::resolveChanges()
+
+bool
+ModuleView::resolveChanges()
 {
-    KCModuleProxy * currentProxy = d->mPages.value( d->mPageWidget->currentPage() );
-    return resolveChanges(currentProxy);
+    KCModuleProxy* currentProxy = d->mPages.value( d->mPageWidget->currentPage() );
+    return resolveChanges( currentProxy );
 }
 
-bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
+
+bool
+ModuleView::resolveChanges( KCModuleProxy* currentProxy )
 {
-    if( !currentProxy || !currentProxy->changed() ) {
+    if ( !currentProxy || !currentProxy->changed() )
         return true;
-    }
 
     // Let the user decide
     const int queryUser = KMessageBox::warningYesNoCancel(
-        this,
-        "The settings of the current module have changed.\n"
-        "Do you want to apply the changes or discard them?",
-        "Apply Settings",
-        KStandardGuiItem::apply(),
-        KStandardGuiItem::discard(),
-        KStandardGuiItem::cancel() );
+                              this,
+                              "The settings of the current module have changed.\n"
+                              "Do you want to apply the changes or discard them?",
+                              "Apply Settings",
+                              KStandardGuiItem::apply(),
+                              KStandardGuiItem::discard(),
+                              KStandardGuiItem::cancel() );
 
-    switch (queryUser) {
-        case KMessageBox::Yes:
-            return moduleSave(currentProxy);
+    switch ( queryUser )
+    {
+    case KMessageBox::Yes:
+        return moduleSave( currentProxy );
 
-        case KMessageBox::No:
-            currentProxy->load();
-            return true;
+    case KMessageBox::No:
+        currentProxy->load();
+        return true;
 
-        case KMessageBox::Cancel:
-            return false;
+    case KMessageBox::Cancel:
+        return false;
 
-        default:
-            Q_ASSERT(false);
-            return false;
+    default:
+        Q_ASSERT( false );
+        return false;
     }
 }
 
-void ModuleView::closeModules()
+
+void
+ModuleView::closeModules()
 {
     d->pageChangeSupressed = true;
     d->mApplyAuthorize->setAuthAction( KAuth::Action() ); // Ensure KAuth knows that authentication is now pointless...
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator page = d->mModules.begin();
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator pageEnd = d->mModules.end();
-    for ( ; page != pageEnd; ++page ) {
+    for ( ; page != pageEnd; ++page )
         d->mPageWidget->removePage( page.key() );
-    }
 
     d->mPages.clear();
     d->mModules.clear();
     d->pageChangeSupressed = false;
 }
 
-bool ModuleView::moduleSave()
+
+bool
+ModuleView::moduleSave()
 {
-    KCModuleProxy * moduleProxy = d->mPages.value( d->mPageWidget->currentPage() );
+    KCModuleProxy* moduleProxy = d->mPages.value( d->mPageWidget->currentPage() );
     return moduleSave( moduleProxy );
 }
 
-bool ModuleView::moduleSave(KCModuleProxy *module)
+
+bool
+ModuleView::moduleSave( KCModuleProxy* module )
 {
-    if( !module ) {
+    if ( !module )
         return false;
-    }
 
     module->save();
     return true;
 }
 
-void ModuleView::moduleLoad()
+
+void
+ModuleView::moduleLoad()
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    if( activeModule ) {
+    KCModuleProxy* activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    if ( activeModule )
         activeModule->load();
-    }
 }
 
-void ModuleView::moduleDefaults()
+
+void
+ModuleView::moduleDefaults()
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    if( activeModule ) {
+    KCModuleProxy* activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    if ( activeModule )
         activeModule->defaults();
-    }
 }
 
-void ModuleView::moduleHelp()
+
+void
+ModuleView::moduleHelp()
 {
-    KCModuleInfo * activeModule = d->mModules.value( d->mPageWidget->currentPage() );
-    if( !activeModule ) {
+    KCModuleInfo* activeModule = d->mModules.value( d->mPageWidget->currentPage() );
+    if ( !activeModule )
         return;
-    }
 
     QString docPath = activeModule->docPath();
-    if( docPath.isEmpty() ) {
+    if ( docPath.isEmpty() )
         return;
-    }
     QUrl url( "help:/"+docPath );
-    QProcess::startDetached("khelpcenter", QStringList() << url.url());
+    QProcess::startDetached( "khelpcenter", QStringList() << url.url() );
 }
 
-void ModuleView::moduleClose()
+
+void
+ModuleView::moduleClose()
 {
     emit closeRequest();
 }
 
-void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem * previous)
+
+void
+ModuleView::activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous )
 {
-    d->mPageWidget->blockSignals(true);
-    d->mPageWidget->setCurrentPage(previous);
-    KCModuleProxy * previousModule = d->mPages.value(previous);
-    if( resolveChanges(previousModule) ) {
-        d->mPageWidget->setCurrentPage(current);
-    }
-    d->mPageWidget->blockSignals(false);
-    if( d->pageChangeSupressed ) {
+    d->mPageWidget->blockSignals( true );
+    d->mPageWidget->setCurrentPage( previous );
+    KCModuleProxy* previousModule = d->mPages.value( previous );
+    if ( resolveChanges( previousModule ) )
+        d->mPageWidget->setCurrentPage( current );
+    d->mPageWidget->blockSignals( false );
+    if ( d->pageChangeSupressed )
         return;
-    }
     // We need to get the state of the now active module
     stateChanged();
 }
 
-void ModuleView::stateChanged()
+
+void
+ModuleView::stateChanged()
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    KCModuleProxy* activeModule = d->mPages.value( d->mPageWidget->currentPage() );
     KAuth::Action moduleAction;
     bool change = false;
-    if( activeModule ) {
+    if ( activeModule )
+    {
         change = activeModule->changed();
 
-        disconnect( d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
-        disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
-        if( activeModule->realModule()->authAction().isValid() ) {
-            connect( d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
+        disconnect( d->mApplyAuthorize, SIGNAL( authorized( KAuth::Action ) ), this, SLOT( moduleSave() ) );
+        disconnect( d->mApply, SIGNAL( clicked() ), this, SLOT( moduleSave() ) );
+        if ( activeModule->realModule()->authAction().isValid() )
+        {
+            connect( d->mApplyAuthorize, SIGNAL( authorized( KAuth::Action ) ), this, SLOT( moduleSave() ) );
             moduleAction = activeModule->realModule()->authAction();
-        } else {
-            connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
         }
+        else
+            connect( d->mApply, SIGNAL( clicked() ), this, SLOT( moduleSave() ) );
     }
 
     updatePageIconHeader( d->mPageWidget->currentPage() );
@@ -351,17 +380,24 @@ void ModuleView::stateChanged()
     emit moduleChanged( change );
 }
 
-void ModuleView::keyPressEvent ( QKeyEvent * event )
+
+void
+ModuleView::keyPressEvent ( QKeyEvent* event )
 {
-    if ( event->key() == Qt::Key_F1 && d->mHelp->isVisible() && d->mHelp->isEnabled()) {
+    if ( event->key() == Qt::Key_F1 && d->mHelp->isVisible() && d->mHelp->isEnabled() )
+    {
         d->mHelp->animateClick();
         event->accept();
         return;
-    } else if ( event->key() == Qt::Key_Escape ) {
+    }
+    else if ( event->key() == Qt::Key_Escape )
+    {
         event->accept();
         emit closeRequest();
         return;
-    } else if ( event->key() == Qt::Key_F1 && event->modifiers() == Qt::ShiftModifier ) {
+    }
+    else if ( event->key() == Qt::Key_F1 && event->modifiers() == Qt::ShiftModifier )
+    {
         QWhatsThis::enterWhatsThisMode();
         event->accept();
         return;
@@ -370,22 +406,21 @@ void ModuleView::keyPressEvent ( QKeyEvent * event )
     QWidget::keyPressEvent( event );
 }
 
-void ModuleView::updateButtons()
+
+void
+ModuleView::updateButtons()
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    if( !activeModule ) {
+    KCModuleProxy* activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    if ( !activeModule )
         return;
-    }
 
     const int buttons = activeModule->buttons();
 
-    d->mApply->setVisible(buttons & KCModule::Apply );
-    d->mReset->setVisible(buttons & KCModule::Apply );
+    d->mApply->setVisible( buttons & KCModule::Apply );
+    d->mReset->setVisible( buttons & KCModule::Apply );
 
-    d->mHelp->setEnabled(buttons & KCModule::Help );
-    d->mHelp->setVisible(buttons & KCModule::Help );
-    d->mDefault->setEnabled(buttons & KCModule::Default );
-    d->mDefault->setVisible(buttons & KCModule::Default );
+    d->mHelp->setEnabled( buttons & KCModule::Help );
+    d->mHelp->setVisible( buttons & KCModule::Help );
+    d->mDefault->setEnabled( buttons & KCModule::Default );
+    d->mDefault->setVisible( buttons & KCModule::Default );
 }
-
-

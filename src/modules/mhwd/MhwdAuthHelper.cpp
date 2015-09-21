@@ -23,34 +23,38 @@
 #include <QtCore/QProcess>
 
 
-ActionReply MhwdAuthHelper::install(const QVariantMap& args)
+ActionReply
+MhwdAuthHelper::install( const QVariantMap& args )
 {
     QProcess mhwd;
-    mhwd.start("/usr/bin/mhwd", args["arguments"].toStringList());
-    connect(&mhwd, &QProcess::readyRead,
-            [&] ()
-            {
-                QString data = QString::fromUtf8(mhwd.readAll()).trimmed();
-                if (!data.isEmpty()) {
-                    QVariantMap map;
-                    map.insert(QLatin1String("Data"), data);
-                    HelperSupport::progressStep(map);
-                }
-            });
-    if (!mhwd.waitForStarted()) {
+    mhwd.start( "/usr/bin/mhwd", args["arguments"].toStringList() );
+    connect( &mhwd, &QProcess::readyRead,
+             [&] ()
+    {
+        QString data = QString::fromUtf8( mhwd.readAll() ).trimmed();
+        if ( !data.isEmpty() )
+        {
+            QVariantMap map;
+            map.insert( QLatin1String( "Data" ), data );
+            HelperSupport::progressStep( map );
+        }
+    } );
+
+    if ( !mhwd.waitForStarted() )
         return ActionReply::HelperErrorReply();
-    }
-    if (!mhwd.waitForFinished(600000)) {
+
+    if ( !mhwd.waitForFinished( 600000 ) )
         return ActionReply::HelperErrorReply();
-    }
+
     return ActionReply::SuccessReply();
 }
 
 
-ActionReply MhwdAuthHelper::remove(const QVariantMap& args)
+ActionReply
+MhwdAuthHelper::remove( const QVariantMap& args )
 {
-    return install(args);
+    return install( args );
 }
 
-KAUTH_HELPER_MAIN("org.manjaro.msm.mhwd", MhwdAuthHelper)
+KAUTH_HELPER_MAIN( "org.manjaro.msm.mhwd", MhwdAuthHelper )
 #include "moc_MhwdAuthHelper.cpp"

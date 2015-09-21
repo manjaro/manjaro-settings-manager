@@ -24,25 +24,27 @@
 #include <KAuth>
 #include <KAuthAction>
 
-AccountTypeDialog::AccountTypeDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::AccountTypeDialog)
+#include <QtWidgets/QMessageBox>
+
+AccountTypeDialog::AccountTypeDialog( QWidget* parent ) :
+    QDialog( parent ),
+    ui( new Ui::AccountTypeDialog )
 {
-    ui->setupUi(this);
-    userGroupDataChanged = false;
+    ui->setupUi( this );
+    m_userGroupDataChanged = false;
 
     // Hide treeWidget
-    checkBoxShowGroups_toggled(false);
+    checkBoxShowGroups_toggled( false );
 
-    ui->treeWidget->setColumnWidth(0, 150);
-    ui->treeWidget->setColumnWidth(1, 100);
+    ui->treeWidget->setColumnWidth( 0, 150 );
+    ui->treeWidget->setColumnWidth( 1, 100 );
 
     // Connect signals and slots
-    connect(ui->buttonCancel, SIGNAL(clicked()) ,   this, SLOT(close()));
-    connect(ui->buttonApply, SIGNAL(clicked()) ,   this, SLOT(buttonApply_clicked()));
-    connect(ui->checkBoxShowGroups, SIGNAL(toggled(bool)) ,   this, SLOT(checkBoxShowGroups_toggled(bool)));
-    connect(ui->treeWidget, SIGNAL(itemChanged(QTreeWidgetItem*,int))   ,   this, SLOT(treeWidget_itemChanged(QTreeWidgetItem*,int)));
-    connect(ui->comboBoxAccountType, SIGNAL(currentIndexChanged(int))   ,   this, SLOT(comboBoxAccountType_currentIndexChanged(int)));
+    connect( ui->buttonCancel, SIGNAL( clicked() ) ,   this, SLOT( close() ) );
+    connect( ui->buttonApply, SIGNAL( clicked() ) ,   this, SLOT( buttonApply_clicked() ) );
+    connect( ui->checkBoxShowGroups, SIGNAL( toggled( bool ) ) ,   this, SLOT( checkBoxShowGroups_toggled( bool ) ) );
+    connect( ui->treeWidget, SIGNAL( itemChanged( QTreeWidgetItem*,int ) )   ,   this, SLOT( treeWidget_itemChanged( QTreeWidgetItem*,int ) ) );
+    connect( ui->comboBoxAccountType, SIGNAL( currentIndexChanged( int ) )   ,   this, SLOT( comboBoxAccountType_currentIndexChanged( int ) ) );
 }
 
 
@@ -52,41 +54,52 @@ AccountTypeDialog::~AccountTypeDialog()
 }
 
 
-int AccountTypeDialog::exec(QString username) {
-    // Block signals
-    ui->treeWidget->blockSignals(true);
+bool
+AccountTypeDialog::userGroupsChanged() const
+{
+    return m_userGroupDataChanged;
+}
 
-    userGroupDataChanged = false;
-    this->username = username;
+
+int
+AccountTypeDialog::exec( QString username )
+{
+    // Block signals
+    ui->treeWidget->blockSignals( true );
+
+    m_userGroupDataChanged = false;
+    this->m_username = username;
     ui->treeWidget->clear();
 
     QList<Global::Group> groups = Global::getAllGroups();
 
-    for (int i = 0; i < groups.size(); i++) {
-        const Global::Group *group = &groups.at(i);
+    for ( int i = 0; i < groups.size(); i++ )
+    {
+        const Global::Group* group = &groups.at( i );
 
-        QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
-        item->setText(0, group->name);
+        QTreeWidgetItem* item = new QTreeWidgetItem( ui->treeWidget );
+        item->setText( 0, group->name );
 
-        if (group->members.contains(username))
-            item->setCheckState(1, Qt::Checked);
+        if ( group->members.contains( username ) )
+            item->setCheckState( 1, Qt::Checked );
         else
-            item->setCheckState(1, Qt::Unchecked);
+            item->setCheckState( 1, Qt::Unchecked );
 
         // Check the account type
-        if (group->name == ADMIN_GROUP) {
-            if (group->members.contains(username))
-                ui->comboBoxAccountType->setCurrentIndex(1);
+        if ( group->name == ADMIN_GROUP )
+        {
+            if ( group->members.contains( username ) )
+                ui->comboBoxAccountType->setCurrentIndex( 1 );
             else
-                ui->comboBoxAccountType->setCurrentIndex(0);
+                ui->comboBoxAccountType->setCurrentIndex( 0 );
         }
     }
 
     // Sort tree widget
-    ui->treeWidget->sortItems(0, Qt::AscendingOrder);
+    ui->treeWidget->sortItems( 0, Qt::AscendingOrder );
 
     // Unblock signals
-    ui->treeWidget->blockSignals(false);
+    ui->treeWidget->blockSignals( false );
 
     show();
     checkSudoersFile();
@@ -94,18 +107,22 @@ int AccountTypeDialog::exec(QString username) {
 }
 
 
-void AccountTypeDialog::checkSudoersFile() {
-    QFile file(SUDOERSFILE);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+void
+AccountTypeDialog::checkSudoersFile()
+{
+    QFile file( SUDOERSFILE );
+    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
         return;
 
-    QTextStream in(&file);
+    QTextStream in( &file );
     bool found = false;
 
-    while (!in.atEnd()) {
-        QString line = in.readLine().split("#", QString::KeepEmptyParts).first().remove(" ");
+    while ( !in.atEnd() )
+    {
+        QString line = in.readLine().split( "#", QString::KeepEmptyParts ).first().remove( " " );
 
-        if (line == "%" + QString(ADMIN_GROUP) + "ALL=(ALL)ALL") {
+        if ( line == "%" + QString( ADMIN_GROUP ) + "ALL=(ALL)ALL" )
+        {
             found = true;
             break;
         }
@@ -113,96 +130,105 @@ void AccountTypeDialog::checkSudoersFile() {
 
     file.close();
 
-    if (!found)
-        QMessageBox::warning(this,
-                             tr("Warning!"),
-                             tr("Admin group %1 isn't enabled in '%2'! You have to enable it to be able to set admin rights...").arg(ADMIN_GROUP, SUDOERSFILE),
-                             QMessageBox::Ok, QMessageBox::Ok);
+    if ( !found )
+        QMessageBox::warning( this,
+                              tr( "Warning!" ),
+                              tr( "Admin group %1 isn't enabled in '%2'! You have to enable it to be able to set admin rights..." ).arg( ADMIN_GROUP, SUDOERSFILE ),
+                              QMessageBox::Ok, QMessageBox::Ok );
 }
 
 
-void AccountTypeDialog::buttonApply_clicked() {
+void
+AccountTypeDialog::buttonApply_clicked()
+{
     QStringList groups;
 
-    for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
-       QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
+    for ( int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i )
+    {
+        QTreeWidgetItem* item = ui->treeWidget->topLevelItem( i );
 
-       if (item->checkState(1) == Qt::Checked) {
-           groups.append(item->text(0));
-       }
+        if ( item->checkState( 1 ) == Qt::Checked )
+            groups.append( item->text( 0 ) );
     }
 
     // Check if default groups have been disabled
-    QStringList missingDefaultGroups, defaultGroups = QString(DEFAULT_USER_GROUPS).split(",", QString::SkipEmptyParts);
-    foreach (QString defaultGroup, defaultGroups) {
-        if (!groups.contains(defaultGroup)) {
-            missingDefaultGroups.append(defaultGroup);
-        }
+    QStringList missingDefaultGroups, defaultGroups = QString( DEFAULT_USER_GROUPS ).split( ",", QString::SkipEmptyParts );
+    foreach ( QString defaultGroup, defaultGroups )
+    {
+        if ( !groups.contains( defaultGroup ) )
+            missingDefaultGroups.append( defaultGroup );
     }
 
-    if (!missingDefaultGroups.isEmpty()
-            && QMessageBox::No == QMessageBox::question(this,
-                                                        tr("Warning!"),
-                                                        tr("Following default user groups have been disabled:\n%1\nIt is recommended to enable those groups. Do you really want to continue?").arg(missingDefaultGroups.join(", ")),
-                                                        QMessageBox::Yes | QMessageBox::No, QMessageBox::No)) {
+    if ( !missingDefaultGroups.isEmpty()
+            && QMessageBox::No == QMessageBox::question( this,
+                    tr( "Warning!" ),
+                    tr( "Following default user groups have been disabled:\n%1\nIt is recommended to enable those groups. Do you really want to continue?" ).arg( missingDefaultGroups.join( ", " ) ),
+                    QMessageBox::Yes | QMessageBox::No, QMessageBox::No ) )
         return;
-    }
 
-    userGroupDataChanged = true;
+    m_userGroupDataChanged = true;
 
     // Set groups
-    KAuth::Action installAction(QLatin1String("org.manjaro.msm.users.changeaccounttype"));
-    installAction.setHelperId(QLatin1String("org.manjaro.msm.users"));
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.users.changeaccounttype" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.users" ) );
     QVariantMap args;
-    args["arguments"] = QStringList() << "-G" << groups.join(",") << username;
-    installAction.setArguments(args);
-    KAuth::ExecuteJob *jobAdd = installAction.execute();
-    connect(jobAdd, &KAuth::ExecuteJob::newData,
-            [=] (const QVariantMap &data)
+    args["arguments"] = QStringList() << "-G" << groups.join( "," ) << m_username;
+    installAction.setArguments( args );
+    KAuth::ExecuteJob* jobAdd = installAction.execute();
+    connect( jobAdd, &KAuth::ExecuteJob::newData,
+             [=] ( const QVariantMap &data )
     {
         qDebug() << data;
-    });
-    if (jobAdd->exec()) {
+    } );
+    if ( jobAdd->exec() )
         qDebug() << "Groups set successfully";
-    } else {
-        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set groups!")), QMessageBox::Ok, QMessageBox::Ok);
+    else
+    {
+        QMessageBox::warning( this, tr( "Error!" ), QString( tr( "Failed to set groups!" ) ), QMessageBox::Ok, QMessageBox::Ok );
         close();
     }
 }
 
 
-void AccountTypeDialog::checkBoxShowGroups_toggled(bool toggled) {
-    if (toggled)
-        ui->treeWidget->setVisible(true);
+void
+AccountTypeDialog::checkBoxShowGroups_toggled( bool toggled )
+{
+    if ( toggled )
+        ui->treeWidget->setVisible( true );
     else
-        ui->treeWidget->setVisible(false);
+        ui->treeWidget->setVisible( false );
 
     adjustSize();
 }
 
 
-void AccountTypeDialog::treeWidget_itemChanged(QTreeWidgetItem *item, int column) {
-    if (item->text(0) != ADMIN_GROUP || column != 1)
+void
+AccountTypeDialog::treeWidget_itemChanged( QTreeWidgetItem* item, int column )
+{
+    if ( item->text( 0 ) != ADMIN_GROUP || column != 1 )
         return;
 
-    if (item->checkState(1) == Qt::Checked)
-        ui->comboBoxAccountType->setCurrentIndex(1);
+    if ( item->checkState( 1 ) == Qt::Checked )
+        ui->comboBoxAccountType->setCurrentIndex( 1 );
     else
-        ui->comboBoxAccountType->setCurrentIndex(0);
+        ui->comboBoxAccountType->setCurrentIndex( 0 );
 }
 
 
-void AccountTypeDialog::comboBoxAccountType_currentIndexChanged(int index) {
-    for(int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
-       QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
-       if (item->text(0) != ADMIN_GROUP)
-           continue;
+void
+AccountTypeDialog::comboBoxAccountType_currentIndexChanged( int index )
+{
+    for ( int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i )
+    {
+        QTreeWidgetItem* item = ui->treeWidget->topLevelItem( i );
+        if ( item->text( 0 ) != ADMIN_GROUP )
+            continue;
 
-       if (index == 0)
-           item->setCheckState(1, Qt::Unchecked);
-       else
-           item->setCheckState(1, Qt::Checked);
+        if ( index == 0 )
+            item->setCheckState( 1, Qt::Unchecked );
+        else
+            item->setCheckState( 1, Qt::Checked );
 
-       break;
+        break;
     }
 }

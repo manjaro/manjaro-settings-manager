@@ -26,19 +26,19 @@
 
 #include <QDebug>
 
-AddUserDialog::AddUserDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::AddUserDialog)
+AddUserDialog::AddUserDialog( QWidget* parent ) :
+    QDialog( parent ),
+    ui( new Ui::AddUserDialog )
 {
-    ui->setupUi(this);
+    ui->setupUi( this );
     dataChanged = false;
 
     // Connect signals and slots
-    connect(ui->buttonCancel, SIGNAL(clicked()) ,   this, SLOT(close()));
-    connect(ui->buttonCreate, SIGNAL(clicked()) ,   this, SLOT(buttonCreate_clicked()));
-    connect(ui->textBoxPassword, SIGNAL(textChanged(QString))   ,   this, SLOT(textbox_textChanged()));
-    connect(ui->textBoxUsername, SIGNAL(textChanged(QString))   ,   this, SLOT(textbox_textChanged()));
-    connect(ui->textBoxVerifiedPassword, SIGNAL(textChanged(QString))   ,   this, SLOT(textbox_textChanged()));
+    connect( ui->buttonCancel, SIGNAL( clicked() ) ,   this, SLOT( close() ) );
+    connect( ui->buttonCreate, SIGNAL( clicked() ) ,   this, SLOT( buttonCreate_clicked() ) );
+    connect( ui->textBoxPassword, SIGNAL( textChanged( QString ) )   ,   this, SLOT( textbox_textChanged() ) );
+    connect( ui->textBoxUsername, SIGNAL( textChanged( QString ) )   ,   this, SLOT( textbox_textChanged() ) );
+    connect( ui->textBoxVerifiedPassword, SIGNAL( textChanged( QString ) )   ,   this, SLOT( textbox_textChanged() ) );
 }
 
 
@@ -48,11 +48,12 @@ AddUserDialog::~AddUserDialog()
 }
 
 
-int AddUserDialog::exec() {
+int AddUserDialog::exec()
+{
     ui->textBoxPassword->clear();
     ui->textBoxUsername->clear();
     ui->textBoxVerifiedPassword->clear();
-    ui->buttonCreate->setEnabled(false);
+    ui->buttonCreate->setEnabled( false );
     ui->buttonCancel->setFocus();
     dataChanged = false;
 
@@ -60,79 +61,84 @@ int AddUserDialog::exec() {
 }
 
 
-void AddUserDialog::textbox_textChanged() {
-    if (ui->textBoxPassword->text().isEmpty() ||
+void AddUserDialog::textbox_textChanged()
+{
+    if ( ui->textBoxPassword->text().isEmpty() ||
             ui->textBoxUsername->text().isEmpty() ||
-            ui->textBoxVerifiedPassword->text().isEmpty())
-        ui->buttonCreate->setEnabled(false);
+            ui->textBoxVerifiedPassword->text().isEmpty() )
+        ui->buttonCreate->setEnabled( false );
     else
-        ui->buttonCreate->setEnabled(true);
+        ui->buttonCreate->setEnabled( true );
 }
 
 
 // TODO: Now it ask twice for a password (add user and change password) fix this.
-void AddUserDialog::buttonCreate_clicked() {
+void AddUserDialog::buttonCreate_clicked()
+{
     QString errorMessage;
     QString username = ui->textBoxUsername->text();
     QString password = ui->textBoxPassword->text();
 
     // Check username
-    QRegExp rx("^[a-z][-a-z0-9_]*\\$");
-    QRegExpValidator val(rx);
+    QRegExp rx( "^[a-z][-a-z0-9_]*\\$" );
+    QRegExpValidator val( rx );
     int pos = -1;
 
-    if (val.validate(username, pos) == QValidator::Invalid)
-        errorMessage = tr("Your username contains invalid characters!");
+    if ( val.validate( username, pos ) == QValidator::Invalid )
+        errorMessage = tr( "Your username contains invalid characters!" );
 
     // Check passwords
-    if (password != ui->textBoxVerifiedPassword->text())
-        errorMessage = tr("Your passwords do not match!");
+    if ( password != ui->textBoxVerifiedPassword->text() )
+        errorMessage = tr( "Your passwords do not match!" );
 
     // Show messagebox if error appeared
-    if (!errorMessage.isEmpty()) {
-        QMessageBox::warning(this, tr("Error!"), errorMessage, QMessageBox::Ok, QMessageBox::Ok);
+    if ( !errorMessage.isEmpty() )
+    {
+        QMessageBox::warning( this, tr( "Error!" ), errorMessage, QMessageBox::Ok, QMessageBox::Ok );
         return;
     }
 
     dataChanged = true;
 
     // Add user
-    KAuth::Action installActionAdd(QLatin1String("org.manjaro.msm.users.add"));
-    installActionAdd.setHelperId(QLatin1String("org.manjaro.msm.users"));
+    KAuth::Action installActionAdd( QLatin1String( "org.manjaro.msm.users.add" ) );
+    installActionAdd.setHelperId( QLatin1String( "org.manjaro.msm.users" ) );
     QVariantMap args;
     args["arguments"] = QStringList() << "-m" << "-p" << "" << "-g" << "users" << "-G" << DEFAULT_USER_GROUPS << username;
-    installActionAdd.setArguments(args);
-    KAuth::ExecuteJob *jobAdd = installActionAdd.execute();
-    connect(jobAdd, &KAuth::ExecuteJob::newData,
-            [=] (const QVariantMap &data)
+    installActionAdd.setArguments( args );
+    KAuth::ExecuteJob* jobAdd = installActionAdd.execute();
+    connect( jobAdd, &KAuth::ExecuteJob::newData,
+             [=] ( const QVariantMap &data )
     {
         qDebug() << data;
-    });
-    if (jobAdd->exec()) {
+    } );
+    if ( jobAdd->exec() )
         qDebug() << "Add User Job Succesfull";
-    } else {
-        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to add user!") + "\n" + errorMessage), QMessageBox::Ok, QMessageBox::Ok);
+    else
+    {
+        QMessageBox::warning( this, tr( "Error!" ), QString( tr( "Failed to add user!" ) + "\n" + errorMessage ), QMessageBox::Ok, QMessageBox::Ok );
         close();
         return;
     }
 
     // Set password
-    KAuth::Action installActionUsersChangePassword(QLatin1String("org.manjaro.msm.users.changepassword"));
-    installActionUsersChangePassword.setHelperId(QLatin1String("org.manjaro.msm.users"));
+    KAuth::Action installActionUsersChangePassword( QLatin1String( "org.manjaro.msm.users.changepassword" ) );
+    installActionUsersChangePassword.setHelperId( QLatin1String( "org.manjaro.msm.users" ) );
     args.clear();
     args["arguments"] = QStringList() << username;
     args["writeArgs"] = QStringList() << password << password;
-    installActionUsersChangePassword.setArguments(args);
-    KAuth::ExecuteJob *jobChangePassword = installActionUsersChangePassword.execute();
-    connect(jobChangePassword, &KAuth::ExecuteJob::newData,
-            [=] (const QVariantMap &data)
+    installActionUsersChangePassword.setArguments( args );
+    KAuth::ExecuteJob* jobChangePassword = installActionUsersChangePassword.execute();
+    connect( jobChangePassword, &KAuth::ExecuteJob::newData,
+             [=] ( const QVariantMap &data )
     {
         qDebug() << data;
-    });
-    if (jobChangePassword->exec()) {
+    } );
+    if ( jobChangePassword->exec() )
         qDebug() << "Add User Job Succesfull";
-    } else {
-        QMessageBox::warning(this, tr("Error!"), QString(tr("Failed to set user's password!") + "\n" + errorMessage), QMessageBox::Ok, QMessageBox::Ok);
+    else
+    {
+        QMessageBox::warning( this, tr( "Error!" ), QString( tr( "Failed to set user's password!" ) + "\n" + errorMessage ), QMessageBox::Ok, QMessageBox::Ok );
         close();
         return;
     }

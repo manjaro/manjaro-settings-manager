@@ -31,35 +31,37 @@
 class SupportedLocalesModel : public QAbstractItemModel
 {
     Q_OBJECT
+
 public:
-    enum SupportedLocalesRoles {
+    enum SupportedLocalesRoles
+    {
         KeyRole = Qt::UserRole + 1,
         ValueRole
     };
 
-    explicit SupportedLocalesModel(QObject *parent = 0);
+    explicit SupportedLocalesModel( QObject* parent = 0 );
     ~SupportedLocalesModel();
 
-    QVariant data(const QModelIndex &index, int role) const;
-    Qt::ItemFlags flags(const QModelIndex &index) const;
-    QVariant headerData(int section, Qt::Orientation orientation,
-                        int role = Qt::DisplayRole) const;
-    QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const;
-    QModelIndex parent(const QModelIndex &index) const;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    QVariant data( const QModelIndex& index, int role ) const;
+    Qt::ItemFlags flags( const QModelIndex& index ) const;
+    QVariant headerData( int section, Qt::Orientation orientation,
+                         int role = Qt::DisplayRole ) const;
+    QModelIndex index( int row, int column,
+                       const QModelIndex& parent = QModelIndex() ) const;
+    QModelIndex parent( const QModelIndex& index ) const;
+    int rowCount( const QModelIndex& parent = QModelIndex() ) const;
+    int columnCount( const QModelIndex& parent = QModelIndex() ) const;
 
-    static icu::UnicodeString qStringToUnicodeString(const QString &sourceStr);
-    static QString unicodeStringToQString(const icu::UnicodeString &sourceStr);
+    static icu::UnicodeString qStringToUnicodeString( const QString& sourceStr );
+    static QString unicodeStringToQString( const icu::UnicodeString& sourceStr );
 
 protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    void init(SupportedLocalesItem *parent);
+    void init( SupportedLocalesItem* parent );
 
-    SupportedLocalesItem *rootItem_;
+    SupportedLocalesItem* m_rootItem;
 
 signals:
 

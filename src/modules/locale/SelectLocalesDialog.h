@@ -24,46 +24,42 @@
 
 #include "SupportedLocalesModel.h"
 
-#include <QDialog>
-#include <QString>
-#include <QStringList>
-#include <QPushButton>
-#include <QComboBox>
-#include <QSortFilterProxyModel>
-
 #include <KF5/KItemModels/KSelectionProxyModel>
 
-namespace Ui {
+#include <QtWidgets/QDialog>
+#include <QtCore/QSortFilterProxyModel>
+
+namespace Ui
+{
 class SelectLocalesDialog;
 }
-
 
 class SelectLocalesDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
-    explicit SelectLocalesDialog(QWidget *parent = 0);
+    explicit SelectLocalesDialog( QWidget* parent = 0 );
     ~SelectLocalesDialog();
 
     int exec();
     bool localeAdded();
     QString getLocale();
-    
+
 private:
-    Ui::SelectLocalesDialog *ui;
-    SupportedLocalesModel *supportedLocalesModel_;
-    QSortFilterProxyModel *languageSortProxy_;
-    QSortFilterProxyModel *countrySortProxy_;
-    KSelectionProxyModel *languageSelectionProxy_;
-    KSelectionProxyModel *countrySelectionProxy_;
-    bool accepted_;
+    Ui::SelectLocalesDialog* ui;
+    SupportedLocalesModel* m_supportedLocalesModel;
+    QSortFilterProxyModel* m_languageSortProxy;
+    QSortFilterProxyModel* m_countrySortProxy;
+    KSelectionProxyModel* m_languageSelectionProxy;
+    KSelectionProxyModel* m_countrySelectionProxy;
+    bool m_accepted;
 
     void updateApplyEnabledState();
 
 private slots:
-    void hideLocaleComboBox(const QModelIndex &index);
-    void showLocaleComboBox(const QModelIndex &index);
+    void hideLocaleComboBox( const QModelIndex& index );
+    void showLocaleComboBox( const QModelIndex& index );
     void buttonAdd_clicked();
 
 };

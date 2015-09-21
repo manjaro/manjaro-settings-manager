@@ -31,7 +31,7 @@ class TimeDate : public QObject
 {
     Q_OBJECT
 public:
-    explicit TimeDate(QObject *parent = 0);
+    explicit TimeDate( QObject* parent = 0 );
     ~TimeDate();
 
     QDateTime localDateTime();
@@ -43,13 +43,13 @@ public:
     bool isNtpSynchronized();
     bool isRtcInLocalTimeZone();
 
-    void setTime(const QDateTime &time);
-    void setTimeZone(const QString &timeZone);
-    void setLocalRtc(const bool local);
-    void setNtp(const bool ntp);
+    void setTime( const QDateTime& time );
+    void setTimeZone( const QString& timeZone );
+    void setLocalRtc( const bool local );
+    void setNtp( const bool ntp );
 
 private:
-    QDBusInterface *dbusInterface_;
+    QDBusInterface* m_dbusInterface;
 };
 
 #endif // TIMEDATE_H

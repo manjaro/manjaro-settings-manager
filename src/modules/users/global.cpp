@@ -24,30 +24,34 @@
 #include <QtCore/QProcessEnvironment>
 #include <QtNetwork/QNetworkInterface>
 
-
-QList<Global::User> Global::getAllUsers() {
+QList<Global::User>
+Global::getAllUsers()
+{
     QList<Global::User> users;
 
-    QFile file(PASSWD);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    const QString passwdFilePath { "/etc/passwd" };
+    QFile file( passwdFilePath );
+    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
         return users;
 
-    QTextStream in(&file);
+    QTextStream in( &file );
 
-    while (!in.atEnd()) {
-        QStringList split = in.readLine().split("#", QString::KeepEmptyParts).first().split(":", QString::KeepEmptyParts);
-        if (split.size() < 7)
+    while ( !in.atEnd() )
+    {
+        QStringList split = in.readLine().split( "#", QString::KeepEmptyParts ).first().split( ":", QString::KeepEmptyParts );
+        if ( split.size() < 7 )
             continue;
 
         User user;
-        user.username = split.at(0);
-        user.homePath = split.at(5);
-        user.uuid = split.at(2).toInt();
+        user.username = split.at( 0 );
+        user.homePath = split.at( 5 );
+        user.uuid = split.at( 2 ).toInt();
 
-        if (user.uuid < MIN_USER_UUID || user.username.isEmpty() || user.homePath.isEmpty())
+        const int minUserUuid { 1000 };
+        if ( user.uuid < minUserUuid || user.username.isEmpty() || user.homePath.isEmpty() )
             continue;
 
-        users.append(user);
+        users.append( user );
     }
 
     file.close();
@@ -56,29 +60,32 @@ QList<Global::User> Global::getAllUsers() {
 }
 
 
-
-QList<Global::Group> Global::getAllGroups() {
+QList<Global::Group>
+Global::getAllGroups()
+{
     QList<Global::Group> groups;
 
-    QFile file(GROUPCONF);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    const QString groupconfFilePath { "/etc/group" };
+    QFile file( groupconfFilePath  );
+    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
         return groups;
 
-    QTextStream in(&file);
+    QTextStream in( &file );
 
-    while (!in.atEnd()) {
-        QStringList split = in.readLine().split("#", QString::KeepEmptyParts).first().split(":", QString::KeepEmptyParts);
-        if (split.size() < 4)
+    while ( !in.atEnd() )
+    {
+        QStringList split = in.readLine().split( "#", QString::KeepEmptyParts ).first().split( ":", QString::KeepEmptyParts );
+        if ( split.size() < 4 )
             continue;
 
         Group group;
-        group.name = split.at(0);
-        group.members = split.at(3).split(",", QString::SkipEmptyParts);
+        group.name = split.at( 0 );
+        group.members = split.at( 3 ).split( ",", QString::SkipEmptyParts );
 
-        if (group.name.isEmpty())
+        if ( group.name.isEmpty() )
             continue;
 
-        groups.append(group);
+        groups.append( group );
     }
 
     file.close();

@@ -25,14 +25,14 @@
 
 #include <QDebug>
 
-MsmApplication::MsmApplication(int& argc, char* argv[])
-    : QApplication(argc, argv),
-      m_mainwindow(0)
+MsmApplication::MsmApplication( int& argc, char* argv[] )
+    : QApplication( argc, argv ),
+      m_mainwindow( 0 )
 {
-    setOrganizationName("Manjaro");
-    setOrganizationDomain("Manjaro");
-    setApplicationName("Manjaro Settings Manager");
-    setApplicationVersion("0.5.0");
+    setOrganizationName( "Manjaro" );
+    setOrganizationDomain( "Manjaro" );
+    setApplicationName( "Manjaro Settings Manager" );
+    setApplicationVersion( "0.5.0" );
 }
 
 
@@ -45,16 +45,15 @@ MsmApplication::~MsmApplication()
 void
 MsmApplication::init()
 {
-    setWindowIcon( QIcon::fromTheme("preferences-system") );
+    setWindowIcon( QIcon::fromTheme( "preferences-system" ) );
 
     m_mainwindow = new MsmWindow();
 
     m_mainwindow->move(
-                this->desktop()->availableGeometry().center() - m_mainwindow->rect().center()
-                );
-    if (m_startModule != nullptr) {
-        m_mainwindow->loadModule(m_startModule);
-    }
+        this->desktop()->availableGeometry().center() - m_mainwindow->rect().center()
+    );
+    if ( m_startModule != nullptr )
+        m_mainwindow->loadModule( m_startModule );
     m_mainwindow->show();
 }
 
@@ -62,19 +61,19 @@ MsmApplication::init()
 MsmApplication*
 MsmApplication::instance()
 {
-    return qobject_cast<MsmApplication*>(QApplication::instance());
+    return qobject_cast<MsmApplication*>( QApplication::instance() );
 }
 
 
 void
-MsmApplication::setDebug(bool enabled)
+MsmApplication::setDebug( bool enabled )
 {
     m_debugMode = enabled;
 }
 
 
 void
-MsmApplication::setStartModule(QString module)
+MsmApplication::setStartModule( QString module )
 {
     m_startModule = module;
 }

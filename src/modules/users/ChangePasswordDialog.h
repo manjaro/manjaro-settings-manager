@@ -26,24 +26,25 @@
 #include <QStringList>
 
 
-namespace Ui {
+namespace Ui
+{
 class ChangePasswordDialog;
 }
 
 class ChangePasswordDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
-    explicit ChangePasswordDialog(QWidget *parent = 0);
+    explicit ChangePasswordDialog( QWidget* parent = 0 );
     ~ChangePasswordDialog();
     using QDialog::exec;
 
 public slots:
-    int exec(QString username);
-    
+    int exec( QString username );
+
 private:
-    Ui::ChangePasswordDialog *ui;
+    Ui::ChangePasswordDialog* ui;
     QString username;
 
 private slots:

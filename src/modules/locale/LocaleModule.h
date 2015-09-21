@@ -36,7 +36,7 @@ class LocaleModule;
 class LocaleModule : public KCModule
 {
     Q_OBJECT
-    
+
 public:
     /**
      * Constructor.
@@ -64,17 +64,17 @@ public:
      * Overloading the KCModule defaults() function.
      */
     void defaults();
-    
+
 private:
     Ui::LocaleModule *ui;
     EnabledLocalesModel *enabledLocalesModel_;
-    LanguageListViewDelegate *languageListViewDelegate_;
-    QString currentLocale_;
-    bool isLocaleListModified_;
-    bool isSystemLocalesModified_;
-    QAction *setRegionAndFormatsAction_;
-    QAction *setRegionAction_;
-    QAction *setFormatsAction_;
+    LanguageListViewDelegate *m_languageListViewDelegate;
+    QString m_currentLocale;
+    bool m_isLocaleListModified;
+    bool m_isSystemLocalesModified;
+    QAction *m_setRegionAndFormatsAction;
+    QAction *m_setRegionAction;
+    QAction *m_setFormatsAction;
 
 protected slots:
     void addLocale();

@@ -29,42 +29,41 @@
 #include <QPen>
 #include <QModelIndex>
 
-
-
 class ListWidgetItemSeperatorDelegate: public QStyledItemDelegate
 {
     Q_OBJECT
+
 public:
-    ListWidgetItemSeperatorDelegate(QListWidget *parent, QListWidgetItem *item);
+    ListWidgetItemSeperatorDelegate( QListWidget* m_parent, QListWidgetItem* m_item );
 
 public slots:
     void parentResized();
 
 private:
-    QListWidget *parent;
-    QListWidgetItem *item;
+    QListWidget* m_parent;
+    QListWidgetItem* m_item;
 
 protected:
-    virtual void paint ( QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const;
-    virtual QSize sizeHint ( const QStyleOptionViewItem & option, const QModelIndex & index ) const;
+    virtual void paint ( QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index ) const;
+    virtual QSize sizeHint ( const QStyleOptionViewItem& option, const QModelIndex& index ) const;
 };
-
 
 
 
 class ListWidget : public QListWidget
 {
     Q_OBJECT
+
 public:
-    explicit ListWidget(QWidget *parent = 0);
-    void addSeparator(QString text);
+    explicit ListWidget( QWidget* parent = 0 );
+    void addSeparator( QString text );
 
 signals:
     void resized();
 
 protected:
-    void resizeEvent(QResizeEvent *e);
-    
+    void resizeEvent( QResizeEvent* e );
+
 };
 
 #endif // LISTWIDGET_H

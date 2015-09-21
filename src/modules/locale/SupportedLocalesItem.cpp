@@ -20,35 +20,35 @@
 
 #include "SupportedLocalesItem.h"
 
-SupportedLocalesItem::SupportedLocalesItem(const QString &key, const QString &value, SupportedLocalesItem *parent)
+SupportedLocalesItem::SupportedLocalesItem( const QString& key, const QString& value, SupportedLocalesItem* parent )
 {
-    parentItem_ = parent;
-    key_ = key;
-    value_ = value;
+    m_parentItem = parent;
+    m_key = key;
+    m_value = value;
 }
 
 
 SupportedLocalesItem::~SupportedLocalesItem()
 {
-    qDeleteAll(childItems_);
+    qDeleteAll( m_childItems );
 }
 
 
-void SupportedLocalesItem::appendChild(SupportedLocalesItem *item)
+void SupportedLocalesItem::appendChild( SupportedLocalesItem* item )
 {
-    childItems_.append(item);
+    m_childItems.append( item );
 }
 
 
-SupportedLocalesItem *SupportedLocalesItem::child(int row)
+SupportedLocalesItem* SupportedLocalesItem::child( int row )
 {
-    return childItems_.value(row);
+    return m_childItems.value( row );
 }
 
 
 int SupportedLocalesItem::childCount() const
 {
-    return childItems_.count();
+    return m_childItems.count();
 }
 
 
@@ -60,21 +60,20 @@ int SupportedLocalesItem::columnCount() const
 
 int SupportedLocalesItem::row() const
 {
-    if (parentItem_) {
-        return parentItem_->childItems_.indexOf(const_cast<SupportedLocalesItem*>(this));
-    }
+    if ( m_parentItem )
+        return m_parentItem->m_childItems.indexOf( const_cast<SupportedLocalesItem*>( this ) );
 
     return 0;
 }
 
 
-SupportedLocalesItem *SupportedLocalesItem::parent()
+SupportedLocalesItem* SupportedLocalesItem::parent()
 {
-    return parentItem_;
+    return m_parentItem;
 }
 
 
-bool SupportedLocalesItem::operator==(const SupportedLocalesItem &other)
+bool SupportedLocalesItem::operator==( const SupportedLocalesItem& other )
 {
-    return (key() == other.key());
+    return ( key() == other.key() );
 }

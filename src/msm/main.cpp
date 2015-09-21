@@ -27,30 +27,29 @@
 
 #include <QDebug>
 
-int main(int argc, char *argv[])
+int main( int argc, char* argv[] )
 {
-    MsmApplication app(argc, argv);
+    MsmApplication app( argc, argv );
 
     QCommandLineParser parser;
-    parser.setApplicationDescription("Test");
+    parser.setApplicationDescription( "Test" );
     parser.addHelpOption();
     //parser.addVersionOption();
 
-    QCommandLineOption debugOption(QStringList() << "d" << "debug",
-                                   "Verbose output for debugging purposes.");
-    parser.addOption(debugOption);
+    QCommandLineOption debugOption( QStringList() << "d" << "debug",
+                                    "Verbose output for debugging purposes." );
+    parser.addOption( debugOption );
 
-    QCommandLineOption moduleOption(QStringList() << "m" << "module",
-                                    "Module to open at start.",
-                                    "module" );
-    parser.addOption(moduleOption);
+    QCommandLineOption moduleOption( QStringList() << "m" << "module",
+                                     "Module to open at start.",
+                                     "module" );
+    parser.addOption( moduleOption );
 
-    parser.process(app);
+    parser.process( app );
 
-    app.setDebug(parser.isSet(debugOption));
-    if (parser.isSet(moduleOption)) {
-        app.setStartModule(parser.value(moduleOption));
-    }
+    app.setDebug( parser.isSet( debugOption ) );
+    if ( parser.isSet( moduleOption ) )
+        app.setStartModule( parser.value( moduleOption ) );
 
     //QTranslator appTranslator;
     //appTranslator.load(":/translations/msm_" + QLocale::system().name());

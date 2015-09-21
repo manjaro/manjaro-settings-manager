@@ -38,7 +38,8 @@
 #include <QMessageBox>
 
 
-namespace Ui {
+namespace Ui
+{
 class PageUsers;
 }
 
@@ -46,7 +47,7 @@ class PageUsers;
 class PageUsers : public KCModule
 {
     Q_OBJECT
-    
+
 public:
     /**
      * Constructor.
@@ -54,7 +55,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageUsers(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit PageUsers( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -74,19 +75,19 @@ public:
      * Overloading the KCModule defaults() function.
      */
     void defaults();
-    
+
 private:
     class ListWidgetItem : public QListWidgetItem
     {
     public:
-        ListWidgetItem(QListWidget *parent) : QListWidgetItem(parent) {}
+        ListWidgetItem( QListWidget* parent ) : QListWidgetItem( parent ) {}
         Global::User user;
     };
 
-    Ui::PageUsers *ui;
+    Ui::PageUsers* ui;
 
 private slots:
-    void setupUserData(QListWidgetItem* current);
+    void setupUserData( QListWidgetItem* current );
     void buttonImage_clicked();
     void buttonAddUser_clicked();
     void buttonRemoveUser_clicked();

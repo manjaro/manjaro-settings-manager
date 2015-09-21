@@ -32,12 +32,12 @@ public slots:
     int exec();
 
 public:
-    explicit KernelInfoDialog(QWidget *parent = 0);
+    explicit KernelInfoDialog( QWidget* parent = 0 );
     ~KernelInfoDialog();
-    void setPackage(const QString &package);
+    void setPackage( const QString& package );
 
 private:
-    QTextBrowser *m_textBrowser;
+    QTextBrowser* m_textBrowser;
     QString m_package;
 };
 

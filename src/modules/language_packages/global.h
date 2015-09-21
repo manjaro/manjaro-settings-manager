@@ -29,31 +29,35 @@
 class Global
 {
 public:
-    struct LanguagePackage {
+    struct LanguagePackage
+    {
         QString languagePackage, parentPackage, locale;
     };
 
-    struct Locale {
+    struct Locale
+    {
         QString description, locale;
     };
 
-    struct LocaleInfo {
+    struct LocaleInfo
+    {
         QString locale, language, territory, description;
     };
 
-    static bool getLanguagePackages(QList<Global::LanguagePackage> *availablePackages,
-                                    QList<Global::LanguagePackage> *installedPackages,
-                                    QList<LanguagePackagesItem> lpiList);
+    static bool getLanguagePackages( QList<Global::LanguagePackage>* availablePackages,
+                                     QList<Global::LanguagePackage>* installedPackages,
+                                     QList<LanguagePackagesItem> lpiList );
     static QList<Global::LocaleInfo> getAllEnabledLocales();
 
 
 private:
-    struct LocaleSplit {
+    struct LocaleSplit
+    {
         QString language, territory;
     };
 
-    static QStringList getAllInstalledPackages(const QStringList & checkPackages);
-    static QStringList getAllAvailableRepoPackages(const QStringList & checkPackages);
+    static QStringList getAllInstalledPackages( const QStringList& checkPackages );
+    static QStringList getAllAvailableRepoPackages( const QStringList& checkPackages );
     static QList<LocaleSplit> getAllEnabledLocalesSplit();
 };
 

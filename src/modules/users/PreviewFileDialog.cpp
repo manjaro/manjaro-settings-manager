@@ -18,90 +18,94 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #include "PreviewFileDialog.h"
 
-
-
-PreviewFileDialog::PreviewFileDialog(QWidget *parent) :
-    QFileDialog(parent)
+PreviewFileDialog::PreviewFileDialog( QWidget* parent ) :
+    QFileDialog( parent )
 {
-    QGridLayout *gridLayout = dynamic_cast<QGridLayout *>(this->layout());
+    QGridLayout* gridLayout = dynamic_cast<QGridLayout*>( this->layout() );
 
-    if (gridLayout) {
-        QLayoutItem *layoutItem = gridLayout->itemAtPosition(1,0);
-        QSplitter *splitter;
-        splitter = dynamic_cast<QSplitter *>(layoutItem->widget());
+    if ( gridLayout )
+    {
+        QLayoutItem* layoutItem = gridLayout->itemAtPosition( 1,0 );
+        QSplitter* splitter;
+        splitter = dynamic_cast<QSplitter*>( layoutItem->widget() );
 
-        if (splitter) {
-            QFrame *framePreview = new QFrame(splitter);
-            splitter->addWidget(framePreview);
+        if ( splitter )
+        {
+            QFrame* framePreview = new QFrame( splitter );
+            splitter->addWidget( framePreview );
 
-            QVBoxLayout *vboxPreviewLayout = new QVBoxLayout(framePreview);
-            QGridLayout *gridPreviewLayout = new QGridLayout();
+            QVBoxLayout* vboxPreviewLayout = new QVBoxLayout( framePreview );
+            QGridLayout* gridPreviewLayout = new QGridLayout();
 
-            labelPreview.setFrameShape(QFrame::NoFrame);
-            labelPreview.setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-            labelPreview.setMinimumSize(100,100);
+            m_labelPreview.setFrameShape( QFrame::NoFrame );
+            m_labelPreview.setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
+            m_labelPreview.setMinimumSize( 100,100 );
 
-            gridPreviewLayout->addWidget(&labelPreviewWidthText, 0, 0, 1, 1, Qt::AlignLeft);
-            gridPreviewLayout->addWidget(&labelPreviewWidth, 0, 1, 1, 1, Qt::AlignLeft);
-            gridPreviewLayout->addWidget(&labelPreviewHeightText, 1, 0, 1, 1, Qt::AlignLeft);
-            gridPreviewLayout->addWidget(&labelPreviewHeight, 1, 1, 1, 1, Qt::AlignLeft);
-            gridPreviewLayout->addWidget(&labelPreviewRatioText, 2, 0, 1, 1, Qt::AlignLeft);
-            gridPreviewLayout->addWidget(&labelPreviewRatio, 2, 1, 1, 1, Qt::AlignLeft);
-            gridPreviewLayout->setColumnStretch(1,1);
+            gridPreviewLayout->addWidget( &m_labelPreviewWidthText, 0, 0, 1, 1, Qt::AlignLeft );
+            gridPreviewLayout->addWidget( &m_labelPreviewWidth, 0, 1, 1, 1, Qt::AlignLeft );
+            gridPreviewLayout->addWidget( &m_labelPreviewHeightText, 1, 0, 1, 1, Qt::AlignLeft );
+            gridPreviewLayout->addWidget( &m_labelPreviewHeight, 1, 1, 1, 1, Qt::AlignLeft );
+            gridPreviewLayout->addWidget( &m_labelPreviewRatioText, 2, 0, 1, 1, Qt::AlignLeft );
+            gridPreviewLayout->addWidget( &m_labelPreviewRatio, 2, 1, 1, 1, Qt::AlignLeft );
+            gridPreviewLayout->setColumnStretch( 1,1 );
 
-            vboxPreviewLayout->addWidget(&labelPreview, 1, Qt::AlignHCenter);
-            vboxPreviewLayout->addLayout(gridPreviewLayout);
-            vboxPreviewLayout->addStretch(1);
+            vboxPreviewLayout->addWidget( &m_labelPreview, 1, Qt::AlignHCenter );
+            vboxPreviewLayout->addLayout( gridPreviewLayout );
+            vboxPreviewLayout->addStretch( 1 );
 
-            framePreview->setLayout(vboxPreviewLayout);
+            framePreview->setLayout( vboxPreviewLayout );
 
-            connect(this, SIGNAL(currentChanged(QString)), this, SLOT(setPreviewPicture(QString)));
+            connect( this, SIGNAL( currentChanged( QString ) ), this, SLOT( setPreviewPicture( QString ) ) );
         }
     }
 }
 
 
-
-void PreviewFileDialog::setPreviewPicture(const QString &picture) {
+void
+PreviewFileDialog::setPreviewPicture( const QString& picture )
+{
     QPixmap pixmapPicture;
 
-    if (pixmapPicture.load(picture)) {
+    if ( pixmapPicture.load( picture ) )
+    {
         int x, y;
         double ratio;
         x = pixmapPicture.width();
         y = pixmapPicture.height();
-        ratio = double(x) / double(y);
+        ratio = double( x ) / double( y );
 
-        if ((x > labelPreview.width()) || (y > labelPreview.height())) {
-            labelPreview.setScaledContents(true);
-            if (x > y)
-                labelPreview.setMinimumHeight(int(labelPreview.size().width() / ratio));
+        if ( ( x > m_labelPreview.width() ) || ( y > m_labelPreview.height() ) )
+        {
+            m_labelPreview.setScaledContents( true );
+            if ( x > y )
+                m_labelPreview.setMinimumHeight( int( m_labelPreview.size().width() / ratio ) );
             else
-                labelPreview.setMinimumWidth(int(labelPreview.size().height() * ratio));
+                m_labelPreview.setMinimumWidth( int( m_labelPreview.size().height() * ratio ) );
         }
-        else {
-            labelPreview.setScaledContents(false);
-            labelPreview.setMinimumSize(100,100);
+        else
+        {
+            m_labelPreview.setScaledContents( false );
+            m_labelPreview.setMinimumSize( 100,100 );
         }
 
-        labelPreview.setPixmap(picture);
-        labelPreviewWidthText.setText(tr("Width:"));
-        labelPreviewHeightText.setText(tr("Height:"));
-        labelPreviewRatioText.setText(tr("Ratio:"));
-        labelPreviewWidth.setText(tr("%1 px").arg(x));
-        labelPreviewHeight.setText(tr("%1 px").arg(y));
-        labelPreviewRatio.setText(tr("%1").arg(ratio,0,'f',3));
+        m_labelPreview.setPixmap( picture );
+        m_labelPreviewWidthText.setText( tr( "Width:" ) );
+        m_labelPreviewHeightText.setText( tr( "Height:" ) );
+        m_labelPreviewRatioText.setText( tr( "Ratio:" ) );
+        m_labelPreviewWidth.setText( tr( "%1 px" ).arg( x ) );
+        m_labelPreviewHeight.setText( tr( "%1 px" ).arg( y ) );
+        m_labelPreviewRatio.setText( tr( "%1" ).arg( ratio,0,'f',3 ) );
     }
-    else {
-        labelPreview.clear();
-        labelPreviewWidthText.clear();
-        labelPreviewHeightText.clear();
-        labelPreviewRatioText.clear();
-        labelPreviewWidth.clear();
-        labelPreviewHeight.clear();
-        labelPreviewRatio.clear();
+    else
+    {
+        m_labelPreview.clear();
+        m_labelPreviewWidthText.clear();
+        m_labelPreviewHeightText.clear();
+        m_labelPreviewRatioText.clear();
+        m_labelPreviewWidth.clear();
+        m_labelPreviewHeight.clear();
+        m_labelPreviewRatio.clear();
     }
 }

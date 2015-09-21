@@ -20,123 +20,200 @@
 
 #include "Kernel.h"
 
-/* Kernel Class */
-Kernel::Kernel() : package_ (QString()), version_ (QString()), installedModules_ (QStringList()),
-                   availableModules_(QStringList()), isAvailable_(false), isInstalled_(false),
-                   isLts_(false), isRecommended_(false), isRunning_(false)
+Kernel::Kernel() : m_package ( QString() ), m_version ( QString() ),
+    m_installedModules ( QStringList() ), m_availableModules( QStringList() ),
+    m_isAvailable( false ), m_isInstalled( false ), m_isLts( false ),
+    m_isRecommended( false ), m_isRunning( false )
 {
 }
 
-Kernel::Kernel(const QString &package,
-               const QString &version,
-               const QStringList &installedModules,
-               const QStringList &availableModules,
-               const bool isAvailable,
-               const bool isInstalled,
-               const bool isLts,
-               const bool isRecommended,
-               const bool isRunning)
-    : package_( package ),
-      version_( version ),
-      installedModules_( installedModules ),
-      availableModules_( availableModules ),
-      isAvailable_( isAvailable ),
-      isInstalled_( isInstalled ),
-      isLts_( isLts ),
-      isRecommended_( isRecommended ),
-      isRunning_( isRunning )
+
+Kernel::Kernel( const QString& package,
+                const QString& version,
+                const QStringList& installedModules,
+                const QStringList& availableModules,
+                const bool isAvailable,
+                const bool isInstalled,
+                const bool isLts,
+                const bool isRecommended,
+                const bool isRunning )
+    : m_package( package ),
+      m_version( version ),
+      m_installedModules( installedModules ),
+      m_availableModules( availableModules ),
+      m_isAvailable( isAvailable ),
+      m_isInstalled( isInstalled ),
+      m_isLts( isLts ),
+      m_isRecommended( isRecommended ),
+      m_isRunning( isRunning )
 {
 }
+
 
 Kernel::~Kernel()
 {
 }
 
-QString Kernel::package() const { return package_; }
-QString Kernel::version() const { return version_; }
 
-int Kernel::majorVersion() const
+QString
+Kernel::package() const
 {
-    if (version_.isEmpty()) {
-        return 0;
-    }
-    QStringList splitVersion = version_.split(".");
-    return splitVersion.value(0).toInt();
+    return m_package;
 }
 
-int Kernel::minorVersion() const
+
+QString
+Kernel::version() const
 {
-    if (version_.isEmpty()) {
+    return m_version;
+}
+
+
+int
+Kernel::majorVersion() const
+{
+    if ( m_version.isEmpty() )
         return 0;
-    }    
-    QStringList splitVersion = version_.split(".");
-    QString aux = splitVersion.value(1);
-    if ( aux.length() > 1 ) {
-        if ( aux.left(2).toInt() == 0 ) {
-            return aux.left(1).toInt(); /* return single number minor version rc 3.1rc -> 1 */
+    QStringList splitVersion = m_version.split( "." );
+    return splitVersion.value( 0 ).toInt();
+}
+
+
+int
+Kernel::minorVersion() const
+{
+    if ( m_version.isEmpty() )
+        return 0;
+    QStringList splitVersion = m_version.split( "." );
+    QString aux = splitVersion.value( 1 );
+    if ( aux.length() > 1 )
+    {
+        if ( aux.left( 2 ).toInt() == 0 )
+        {
+            return aux.left( 1 ).toInt(); /* return single number minor version rc 3.1rc -> 1 */
         }
-        return aux.left(2).toInt(); /* return double number minor version 3.12 or 3.12rc -> 12 */
+        return aux.left( 2 ).toInt(); /* return double number minor version 3.12 or 3.12rc -> 12 */
     }
     return aux.toInt(); /* return single number minor version 3.1 -> 1 */
 }
 
-QStringList Kernel::installedModules() const { return installedModules_; }
-QStringList Kernel::availableModules() const { return availableModules_; }
-bool Kernel::isAvailable() const { return isAvailable_; }
-bool Kernel::isInstalled() const { return isInstalled_; }
-bool Kernel::isLts() const {return isLts_; }
-bool Kernel::isRecommended() const { return isRecommended_; }
-bool Kernel::isRunning() const { return isRunning_; }
 
-bool Kernel::isUnsupported() const
+QStringList
+Kernel::installedModules() const
 {
-    if ( !isAvailable_ ) {
-        return isInstalled_;
-    }
+    return m_installedModules;
+}
+
+
+QStringList
+Kernel::availableModules() const
+{
+    return m_availableModules;
+}
+
+
+bool
+Kernel::isAvailable() const
+{
+    return m_isAvailable;
+}
+
+
+bool
+Kernel::isInstalled() const
+{
+    return m_isInstalled;
+}
+
+
+bool
+Kernel::isLts() const
+{
+    return m_isLts;
+}
+
+
+bool
+Kernel::isRecommended() const
+{
+    return m_isRecommended;
+}
+
+
+bool
+Kernel::isRunning() const
+{
+    return m_isRunning;
+}
+
+
+bool
+Kernel::isUnsupported() const
+{
+    if ( !m_isAvailable )
+        return m_isInstalled;
     return false;
 }
 
-void Kernel::setPackage(const QString &package)
+
+void
+Kernel::setPackage( const QString& package )
 {
-    package_ = package;
+    m_package = package;
 }
 
-void Kernel::setVersion(const QString &version)
+
+void
+Kernel::setVersion( const QString& version )
 {
-    version_ = version;
+    m_version = version;
 }
 
-void Kernel::setInstalledModules(const QStringList &modules)
+
+void
+Kernel::setInstalledModules( const QStringList& modules )
 {
-    installedModules_ = modules;
+    m_installedModules = modules;
 }
 
-void Kernel::setAvailableModules(const QStringList &modules)
+
+void
+Kernel::setAvailableModules( const QStringList& modules )
 {
-    availableModules_ = modules;
+    m_availableModules = modules;
 }
 
-void Kernel::setAvailable(const bool isAvailable)
+
+void
+Kernel::setAvailable( const bool isAvailable )
 {
-    isAvailable_ = isAvailable;
+    m_isAvailable = isAvailable;
 }
 
-void Kernel::setInstalled(const bool isInstalled)
+
+void
+Kernel::setInstalled( const bool isInstalled )
 {
-    isInstalled_ = isInstalled;
+    m_isInstalled = isInstalled;
 }
 
-void Kernel::setLts(const bool isLts)
+
+void
+Kernel::setLts( const bool isLts )
 {
-    isLts_ = isLts;
+    m_isLts = isLts;
 }
 
-void Kernel::setRecommended(const bool isRecommended)
+
+void
+Kernel::setRecommended( const bool isRecommended )
 {
-    isRecommended_ = isRecommended;
+    m_isRecommended = isRecommended;
 }
 
-void Kernel::setRunning(const bool isRunning)
+
+void
+Kernel::setRunning( const bool isRunning )
 {
-    isRunning_ = isRunning;
+    m_isRunning = isRunning;
 }

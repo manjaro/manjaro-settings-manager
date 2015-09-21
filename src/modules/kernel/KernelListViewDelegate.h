@@ -31,21 +31,24 @@
 class KernelListViewDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
+
 public:
-    KernelListViewDelegate(QObject *parent = 0);
+    KernelListViewDelegate( QObject* parent = 0 );
     virtual ~KernelListViewDelegate();
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index);
+    void paint( QPainter* painter, const QStyleOptionViewItem& option,
+                const QModelIndex& index ) const;
+    QSize sizeHint( const QStyleOptionViewItem& option, const QModelIndex& index ) const;
+    bool editorEvent( QEvent* event, QAbstractItemModel* model,
+                      const QStyleOptionViewItem& option, const QModelIndex& index );
 
 signals:
-    void installButtonClicked(const QModelIndex &index);
-    void infoButtonClicked(const QModelIndex &index);
+    void installButtonClicked( const QModelIndex& index );
+    void infoButtonClicked( const QModelIndex& index );
 
 private:
-    QStyle::State stateInstallButton_;
-    QStyle::State stateInfoButton_;
+    QStyle::State m_stateInstallButton;
+    QStyle::State m_stateInfoButton;
 };
 
 #endif // KERNEL_LIST_VIEW_DELEGATE_H

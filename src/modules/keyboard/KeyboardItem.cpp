@@ -20,57 +20,74 @@
 
 #include "KeyboardItem.h"
 
-KeyboardItem::KeyboardItem(const QString &key, const QString &description, KeyboardItem *parent)
+KeyboardItem::KeyboardItem( const QString& key, const QString& description, KeyboardItem* parent )
 {
-    parentItem_ = parent;
-    key_ = key;
-    description_ = description;
+    m_parentItem = parent;
+    m_key = key;
+    m_description = description;
 }
+
 
 KeyboardItem::~KeyboardItem()
 {
-    qDeleteAll(childItems_);
+    qDeleteAll( m_childItems );
 }
 
-void KeyboardItem::appendChild(KeyboardItem *item)
+
+void
+KeyboardItem::appendChild( KeyboardItem* item )
 {
-    childItems_.append(item);
+    m_childItems.append( item );
 }
 
-QString KeyboardItem::key() const
+
+QString
+KeyboardItem::key() const
 {
-    return key_;
+    return m_key;
 }
 
-QString KeyboardItem::description() const
+
+QString
+KeyboardItem::description() const
 {
-    return description_;
+    return m_description;
 }
 
-KeyboardItem *KeyboardItem::child(int row)
+
+KeyboardItem*
+KeyboardItem::child( int row )
 {
-    return childItems_.value(row);
+    return m_childItems.value( row );
 }
 
-int KeyboardItem::childCount() const
+
+int
+KeyboardItem::childCount() const
 {
-    return childItems_.count();
+    return m_childItems.count();
 }
 
-int KeyboardItem::columnCount() const
+
+int
+KeyboardItem::columnCount() const
 {
     return 2;
 }
 
-int KeyboardItem::row() const
+
+int
+KeyboardItem::row() const
 {
-    if (parentItem_)
-        return parentItem_->childItems_.indexOf(const_cast<KeyboardItem*>(this));
+    if ( m_parentItem )
+        return m_parentItem->m_childItems.indexOf( const_cast<KeyboardItem*>( this ) );
 
     return 0;
 }
 
-KeyboardItem *KeyboardItem::parent()
+
+KeyboardItem*
+KeyboardItem::parent()
 {
-    return parentItem_;
+    return m_parentItem;
 }

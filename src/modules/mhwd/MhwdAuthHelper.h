@@ -42,7 +42,7 @@ public Q_SLOTS:
      * @return returns SuccessReply() if success or HelperErrorReply() if
      *         fails
      */
-    ActionReply install(const QVariantMap& args);
+    ActionReply install( const QVariantMap& args );
 
     /**
      * @brief remove calls install function
@@ -50,7 +50,7 @@ public Q_SLOTS:
      * @return returns SuccessReply() if success or HelperErrorReply() if
      *         fails
      */
-    ActionReply remove(const QVariantMap& args);
+    ActionReply remove( const QVariantMap& args );
 };
 
 #endif // MHWDAUTHHELPER_H

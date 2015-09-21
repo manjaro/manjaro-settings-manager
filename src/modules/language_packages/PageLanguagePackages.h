@@ -33,10 +33,10 @@
 #include <QMessageBox>
 
 
-namespace Ui {
+namespace Ui
+{
 class PageLanguagePackages;
 }
-
 
 
 class PageLanguagePackages : public KCModule
@@ -50,7 +50,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageLanguagePackages(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit PageLanguagePackages( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -74,15 +74,15 @@ public:
 
 
 private:
-    Ui::PageLanguagePackages *ui;
+    Ui::PageLanguagePackages* ui;
 
-    void addLanguagePackagesToTreeWidget(QTreeWidget *treeWidget, QList<Global::LanguagePackage> *languagePackages, bool checkable);
+    void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<Global::LanguagePackage>* languagePackages, bool checkable );
     bool isSystemUpToDate();
 
     QList<LanguagePackagesItem> getLanguagePackages();
-    QStringList checkInstalled(const QStringList &packages);
-    QStringList checkInstalledLanguagePackages(QString package);
-    QStringList checkAvailableLanguagePackages(QString package);
+    QStringList checkInstalled( const QStringList& packages );
+    QStringList checkInstalledLanguagePackages( QString package );
+    QStringList checkAvailableLanguagePackages( QString package );
     void getInstalledPackages();
     void getAvailablePackages();
 

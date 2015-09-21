@@ -53,7 +53,7 @@ public:
     /**
      * Constructs a ModuleView, with the parent specified.
      */
-    explicit ModuleView(QWidget * parent = 0);
+    explicit ModuleView( QWidget* parent = 0 );
 
     /**
      * Destroys the module view, along with all modules loaded, and any changes present in them.
@@ -66,12 +66,12 @@ public:
      * Provides the module information, which is used to set the caption of the window when either the
      * active module or configuration changes.
      */
-    KCModuleInfo * activeModule() const;
+    KCModuleInfo* activeModule() const;
 
     /**
      * Provides the about data of the active module, used for the about dialog.
      */
-    const KAboutData * aboutData() const;
+    const KAboutData* aboutData() const;
 
     /**
      * Resolves any changes in the currently active module by prompting the user if they exist.
@@ -89,7 +89,7 @@ public:
      */
     void closeModules();
 
-    void addModule( KCModuleInfo *module );
+    void addModule( KCModuleInfo* module );
 
 public Q_SLOTS:
     /**
@@ -120,15 +120,15 @@ public Q_SLOTS:
     /**
      * Reimplemented for internal reasons.\n
      */
-    void keyPressEvent( QKeyEvent * event );
+    void keyPressEvent( QKeyEvent* event );
 
 private:
-    bool resolveChanges( KCModuleProxy *currentProxy );
-    bool moduleSave( KCModuleProxy *module );
-    void updatePageIconHeader( KPageWidgetItem * page, bool light = false );
+    bool resolveChanges( KCModuleProxy* currentProxy );
+    bool moduleSave( KCModuleProxy* module );
+    void updatePageIconHeader( KPageWidgetItem* page, bool light = false );
 
 private Q_SLOTS:
-    void activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous);
+    void activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous );
     void updateButtons();
     void stateChanged();
 
@@ -146,7 +146,7 @@ Q_SIGNALS:
 
 private:
     class Private;
-    Private *const d;
+    Private* const d;
 };
 
 #endif

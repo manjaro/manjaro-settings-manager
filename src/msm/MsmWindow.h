@@ -23,32 +23,31 @@
 
 #include "ModuleView.h"
 
+#include <QtWidgets/QListWidgetItem>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QStackedWidget>
 
-#include <QListWidgetItem>
 class MsmWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MsmWindow(QWidget *parent = 0);
+    explicit MsmWindow( QWidget* parent = 0 );
     ~MsmWindow();
     void readPositionSettings();
 
 private:
-    QStackedWidget *stackedWidget;
-    ModuleView *moduleView;
-    QMap<QString, KCModuleInfo*> moduleInfoList;
-    QWidget *menuView;
+    QStackedWidget* m_stackedWidget;
+    ModuleView* m_moduleView;
+    QMap<QString, KCModuleInfo*> m_moduleInfoList;
+    QWidget* m_menuView;
 
     void init();
-    void closeEvent(QCloseEvent *);
+    void closeEvent( QCloseEvent* );
     void writePositionSettings();
 
 public slots:
-    void loadModule(QString text);
+    void loadModule( QString text );
 };
-
 
 #endif // MSMWINDOW_H

@@ -28,101 +28,105 @@
 
 #include <QDebug>
 
-ActionDialog::ActionDialog(QWidget *parent) :
-    QDialog(parent)
+ActionDialog::ActionDialog( QWidget* parent ) :
+    QDialog( parent )
 {
-    QVBoxLayout *vBoxLayout = new QVBoxLayout();
-    this->setLayout(vBoxLayout);
-    this->resize(600,400);
+    QVBoxLayout* vBoxLayout = new QVBoxLayout();
+    this->setLayout( vBoxLayout );
+    this->resize( 600,400 );
 
     m_messageLabel = new QLabel();
-    vBoxLayout->addWidget(m_messageLabel);
-    m_messageLabel->setText(tr("Do you really want to continue?"));
+    vBoxLayout->addWidget( m_messageLabel );
+    m_messageLabel->setText( tr( "Do you really want to continue?" ) );
 
     m_informationLabel = new QLabel();
-    vBoxLayout->addWidget(m_informationLabel);
-    m_informationLabel->setVisible(false);
+    vBoxLayout->addWidget( m_informationLabel );
+    m_informationLabel->setVisible( false );
 
     m_terminal = new QTextEdit();
-    vBoxLayout->addWidget(m_terminal);
-    m_terminal->setReadOnly(true);
+    vBoxLayout->addWidget( m_terminal );
+    m_terminal->setReadOnly( true );
 
     m_buttonBox = new QDialogButtonBox();
-    vBoxLayout->addWidget(m_buttonBox);
-    m_buttonBox->setOrientation(Qt::Horizontal);
-    m_buttonBox->setStandardButtons(QDialogButtonBox::Yes | QDialogButtonBox::Cancel);
+    vBoxLayout->addWidget( m_buttonBox );
+    m_buttonBox->setOrientation( Qt::Horizontal );
+    m_buttonBox->setStandardButtons( QDialogButtonBox::Yes | QDialogButtonBox::Cancel );
 
-    QDialogButtonBox::connect(m_buttonBox, &QDialogButtonBox::accepted,
-                              this, &ActionDialog::startJob);
-    QDialogButtonBox::connect(m_buttonBox, &QDialogButtonBox::rejected,
-                              this, &ActionDialog::reject);
+    QDialogButtonBox::connect( m_buttonBox, &QDialogButtonBox::accepted,
+                               this, &ActionDialog::startJob );
+    QDialogButtonBox::connect( m_buttonBox, &QDialogButtonBox::rejected,
+                               this, &ActionDialog::reject );
 }
 
 
-void ActionDialog::startJob()
+void
+ActionDialog::startJob()
 {
-    m_buttonBox->setStandardButtons(QDialogButtonBox::Cancel);
+    m_buttonBox->setStandardButtons( QDialogButtonBox::Cancel );
 
-    KAuth::ExecuteJob *job = m_installAction.execute();
-    connect(job, &KAuth::ExecuteJob::newData,
-            [=] (const QVariantMap &data)
+    KAuth::ExecuteJob* job = m_installAction.execute();
+    connect( job, &KAuth::ExecuteJob::newData,
+             [=] ( const QVariantMap &data )
     {
-        QString output = data.value("Data").toString();
-        m_terminal->append(output.remove(QRegularExpression("\x1b[^m]*m")));
-    });
-    if (job->exec()) {
+        QString output = data.value( "Data" ).toString();
+        m_terminal->append( output.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
+    } );
+    if ( job->exec() )
         m_jobSuccesful = true;
-    } else {
+    else
         m_jobSuccesful = false;
-    }
 
-    m_buttonBox->setStandardButtons(QDialogButtonBox::Close);
+    m_buttonBox->setStandardButtons( QDialogButtonBox::Close );
 }
 
 
-bool ActionDialog::isJobSuccesful() const
+bool
+ActionDialog::isJobSuccesful() const
 {
     return m_jobSuccesful;
 }
 
 
-KAuth::Action ActionDialog::installAction() const
+KAuth::Action
+ActionDialog::installAction() const
 {
     return m_installAction;
 }
 
 
-void ActionDialog::setInstallAction(const KAuth::Action &installAction)
+void
+ActionDialog::setInstallAction( const KAuth::Action& installAction )
 {
     m_installAction = installAction;
 }
 
 
-QString ActionDialog::message() const
+QString
+ActionDialog::message() const
 {
     return m_message;
 }
 
 
-void ActionDialog::setMessage(const QString &message)
+void
+ActionDialog::setMessage( const QString& message )
 {
     m_message = message;
-    m_messageLabel->setText(message);
+    m_messageLabel->setText( message );
 }
 
 
-QString ActionDialog::information() const
+QString
+ActionDialog::information() const
 {
     return m_information;
 }
 
 
-void ActionDialog::setInformation(const QString &information)
+void
+ActionDialog::setInformation( const QString& information )
 {
     m_information = information;
-    m_informationLabel->setText(information);
-    m_informationLabel->setVisible(true);
+    m_informationLabel->setText( information );
+    m_informationLabel->setVisible( true );
 }
-
-
-

@@ -22,194 +22,218 @@
 #include "ui_PageTimeDate.h"
 #include "TimeZoneDialog.h"
 
+#include <KAboutData>
+#include <KPluginFactory>
+
 #include <QtCore/QStringList>
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
 #include <QtCore/QTimer>
 
-#include <KAboutData>
-#include <KPluginFactory>
-K_PLUGIN_FACTORY(MsmTimeDateFactory,
-                 registerPlugin<PageTimeDate>("msm_timedate");)
+K_PLUGIN_FACTORY( MsmTimeDateFactory,
+                  registerPlugin<PageTimeDate>( "msm_timedate" ); )
 
-PageTimeDate::PageTimeDate(QWidget *parent, const QVariantList &args) :
-    KCModule(parent, args),
-    ui(new Ui::PageTimeDate),
-    timeDate(new TimeDate)
+PageTimeDate::PageTimeDate( QWidget* parent, const QVariantList& args ) :
+    KCModule( parent, args ),
+    ui( new Ui::PageTimeDate ),
+    m_timeDate( new TimeDate )
 {
-    KAboutData *aboutData = new KAboutData("msm_timedate",
-                                           tr("Time and Date", "@title"),
-                                           PROJECT_VERSION,
-                                           QStringLiteral(""),
-                                           KAboutLicense::LicenseKey::GPL_V3,
-                                           "Copyright 2014-2015 Ramon Buldó");
+    KAboutData* aboutData = new KAboutData( "msm_timedate",
+                                            tr( "Time and Date", "@title" ),
+                                            PROJECT_VERSION,
+                                            QStringLiteral( "" ),
+                                            KAboutLicense::LicenseKey::GPL_V3,
+                                            "Copyright 2014-2015 Ramon Buldó" );
 
-    aboutData->addAuthor("Ramon Buldó",
-                         tr("Author", "@info:credit"),
-                         QStringLiteral("ramon@manjaro.org"));
+    aboutData->addAuthor( "Ramon Buldó",
+                          tr( "Author", "@info:credit" ),
+                          QStringLiteral( "ramon@manjaro.org" ) );
 
-    setAboutData(aboutData);
-    setButtons(KCModule::Default | KCModule::Apply);
+    setAboutData( aboutData );
+    setButtons( KCModule::Default | KCModule::Apply );
 
-    ui->setupUi(this);
+    ui->setupUi( this );
 
-    connect(ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &PageTimeDate::isNtpEnabledToggled);
-    connect(ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked);
-    connect(ui->timeEdit, &QTimeEdit::timeChanged,
-            [=] ()
-            {
-                isTimeEdited_ = true;
-                emit changed();
-            });
-    connect(ui->dateEdit, &QTimeEdit::dateChanged,
-            [=] ()
-            {
-                isDateEdited_ = true;
-                emit changed();
-            });
-    connect(ui->isRtcLocalCheckBox, &QCheckBox::toggled,
-            [=] ()
-            {
-                emit changed();
-            });
+    connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &PageTimeDate::isNtpEnabledToggled );
+    connect( ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked );
+    connect( ui->timeEdit, &QTimeEdit::timeChanged,
+             [=] ()
+    {
+        m_isTimeEdited = true;
+        emit changed();
+    } );
+    connect( ui->dateEdit, &QTimeEdit::dateChanged,
+             [=] ()
+    {
+        m_isDateEdited = true;
+        emit changed();
+    } );
+    connect( ui->isRtcLocalCheckBox, &QCheckBox::toggled,
+             [=] ()
+    {
+        emit changed();
+    } );
 }
+
 
 PageTimeDate::~PageTimeDate()
 {
     delete ui;
-    delete timeDate;
+    delete m_timeDate;
 }
 
-void PageTimeDate::load()
+
+void
+PageTimeDate::load()
 {
-    isTimeEdited_ = false;
-    isDateEdited_ = false;
-    timeZone_ = timeDate->timeZone();
+    m_isTimeEdited = false;
+    m_isDateEdited = false;
+    m_timeZone = m_timeDate->timeZone();
     updateFields();
     updateTimeFields();
-    QTimer *timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &PageTimeDate::updateTimeFields);
-    timer->start(1000);
+    QTimer* timer = new QTimer( this );
+    connect( timer, &QTimer::timeout, this, &PageTimeDate::updateTimeFields );
+    timer->start( 1000 );
 }
 
-void PageTimeDate::save()
+
+void
+PageTimeDate::save()
 {
-    if (ui->isNtpEnabledCheckBox->isChecked() != timeDate->isNtpEnabled()) {
-        timeDate->setNtp(ui->isNtpEnabledCheckBox->isChecked());
-    }
+    if ( ui->isNtpEnabledCheckBox->isChecked() != m_timeDate->isNtpEnabled() )
+        m_timeDate->setNtp( ui->isNtpEnabledCheckBox->isChecked() );
 
     // Only possible to modify date if ntp is disabled
-    if ((isTimeEdited_ || isDateEdited_) && !ui->isNtpEnabledCheckBox->isChecked()) {
-        QDateTime time(ui->dateEdit->date(), ui->timeEdit->time());
-        timeDate->setTime(time);
+    if ( ( m_isTimeEdited || m_isDateEdited ) && !ui->isNtpEnabledCheckBox->isChecked() )
+    {
+        QDateTime time( ui->dateEdit->date(), ui->timeEdit->time() );
+        m_timeDate->setTime( time );
     }
 
-    if (ui->isRtcLocalCheckBox->isChecked() != timeDate->isRtcInLocalTimeZone()) {
-        timeDate->setLocalRtc(ui->isRtcLocalCheckBox->isChecked());
+    if ( ui->isRtcLocalCheckBox->isChecked() != m_timeDate->isRtcInLocalTimeZone() )
+        m_timeDate->setLocalRtc( ui->isRtcLocalCheckBox->isChecked() );
+
+    if ( !m_timeZone.isEmpty() && QTimeZone( m_timeZone.toLatin1() ).isValid() )
+    {
+        if ( m_timeZone != m_timeDate->timeZone() )
+            m_timeDate->setTimeZone( m_timeZone );
     }
 
-    if (!timeZone_.isEmpty() && QTimeZone(timeZone_.toLatin1()).isValid()) {
-        if (timeZone_ != timeDate->timeZone()) {
-            timeDate->setTimeZone(timeZone_);
-        }
-    }
-
-    isTimeEdited_ = false;
-    isDateEdited_ = false;
+    m_isTimeEdited = false;
+    m_isDateEdited = false;
     updateFields();
     updateTimeFields();
 }
 
-void PageTimeDate::defaults()
+
+void
+PageTimeDate::defaults()
 {
     this->load();
 }
 
-void PageTimeDate::updateFields()
+
+void
+PageTimeDate::updateFields()
 {
-    if (timeDate->canNtp()) {
-        ui->isNtpEnabledCheckBox->setChecked(timeDate->isNtpEnabled());
-    } else {
-        ui->isNtpEnabledCheckBox->setChecked(false);
-        ui->isNtpEnabledCheckBox->setEnabled(false);
+    if ( m_timeDate->canNtp() )
+        ui->isNtpEnabledCheckBox->setChecked( m_timeDate->isNtpEnabled() );
+    else
+    {
+        ui->isNtpEnabledCheckBox->setChecked( false );
+        ui->isNtpEnabledCheckBox->setEnabled( false );
     }
 
-    ui->isRtcLocalCheckBox->setChecked(timeDate->isRtcInLocalTimeZone());
+    ui->isRtcLocalCheckBox->setChecked( m_timeDate->isRtcInLocalTimeZone() );
 
-    QTimeZone timeZone = QTimeZone(timeZone_.toLatin1());
-    if (timeZone.isValid()) {
-        ui->timeZoneLabel_2->setText(timeZone_);
-        ui->countryLabel_2->setText(QLocale::countryToString(timeZone.country()));
+    QTimeZone timeZone = QTimeZone( m_timeZone.toLatin1() );
+    if ( timeZone.isValid() )
+    {
+        ui->timeZoneLabel_2->setText( m_timeZone );
+        ui->countryLabel_2->setText( QLocale::countryToString( timeZone.country() ) );
 
         QIcon yesIcon = QIcon();
-        yesIcon.addFile(":/images/yes.svg", QSize(16, 16));
+        yesIcon.addFile( ":/images/yes.svg", QSize( 16, 16 ) );
         QIcon noIcon = QIcon();
-        noIcon.addFile(":/images/no.svg", QSize(16, 16));
-        if (timeZone.hasDaylightTime()) {
-            ui->hasDaylightTimeIcon->setPixmap(yesIcon.pixmap(QSize(16, 16)));
-        } else {
-            ui->hasDaylightTimeIcon->setPixmap(noIcon.pixmap(QSize(16, 16)));
-        }
-        if (timeZone.isDaylightTime(QDateTime::currentDateTime())) {
-            ui->isDaylightTimeIcon->setPixmap(yesIcon.pixmap(QSize(16, 16)));
-        } else {
-            ui->isDaylightTimeIcon->setPixmap(noIcon.pixmap(QSize(16, 16)));
-        }
-        if (timeZone.hasTransitions()) {
-            ui->hasTransitionsIcon->setPixmap(yesIcon.pixmap(QSize(16, 16)));
-        } else {
-            ui->hasTransitionsIcon->setPixmap(noIcon.pixmap(QSize(16, 16)));
-        }
+        noIcon.addFile( ":/images/no.svg", QSize( 16, 16 ) );
+        if ( timeZone.hasDaylightTime() )
+            ui->hasDaylightTimeIcon->setPixmap( yesIcon.pixmap( QSize( 16, 16 ) ) );
+        else
+            ui->hasDaylightTimeIcon->setPixmap( noIcon.pixmap( QSize( 16, 16 ) ) );
+        if ( timeZone.isDaylightTime( QDateTime::currentDateTime() ) )
+            ui->isDaylightTimeIcon->setPixmap( yesIcon.pixmap( QSize( 16, 16 ) ) );
+        else
+            ui->isDaylightTimeIcon->setPixmap( noIcon.pixmap( QSize( 16, 16 ) ) );
+        if ( timeZone.hasTransitions() )
+            ui->hasTransitionsIcon->setPixmap( yesIcon.pixmap( QSize( 16, 16 ) ) );
+        else
+            ui->hasTransitionsIcon->setPixmap( noIcon.pixmap( QSize( 16, 16 ) ) );
 
-        QTimeZone::OffsetData offset = timeZone.nextTransition(QDateTime::currentDateTime());
-        if (offset.atUtc != QDateTime()) {
-            ui->nextTransitionLabel->setEnabled(true);
-            ui->nextTransitionTimeLabel->setEnabled(true);
-            ui->nextTransitionTimeLabel->setText(offset.atUtc.toString("dddd yyyy-MM-dd HH:mm:ss"));
-        } else {
-            ui->nextTransitionLabel->setEnabled(false);
-            ui->nextTransitionTimeLabel->setEnabled(false);
-            ui->nextTransitionTimeLabel->setText(tr("none"));
+        QTimeZone::OffsetData offset = timeZone.nextTransition( QDateTime::currentDateTime() );
+        if ( offset.atUtc != QDateTime() )
+        {
+            ui->nextTransitionLabel->setEnabled( true );
+            ui->nextTransitionTimeLabel->setEnabled( true );
+            ui->nextTransitionTimeLabel->setText( offset.atUtc.toString( "dddd yyyy-MM-dd HH:mm:ss" ) );
+        }
+        else
+        {
+            ui->nextTransitionLabel->setEnabled( false );
+            ui->nextTransitionTimeLabel->setEnabled( false );
+            ui->nextTransitionTimeLabel->setText( tr( "none" ) );
         }
     }
 }
 
-void PageTimeDate::updateTimeFields() {
-    if (!isTimeEdited_) {
-        ui->timeEdit->blockSignals(true);
-        ui->timeEdit->setTime(timeDate->localDateTime().time());
-        ui->timeEdit->blockSignals(false);
-    }
-    if (!isDateEdited_) {
-        ui->dateEdit->blockSignals(true);
-        ui->dateEdit->setDate(timeDate->localDateTime().date());
-        ui->dateEdit->blockSignals(false);
-    }
-    ui->utcTimeLabel->setText(timeDate->utcDateTime().toString("dddd yyyy-MM-dd HH:mm:ss"));
-    ui->rtcTimeLabel->setText(timeDate->rtcDateTime().toString("dddd yyyy-MM-dd HH:mm:ss"));
-}
 
-void PageTimeDate::isNtpEnabledToggled()
+void
+PageTimeDate::updateTimeFields()
 {
-    if (ui->isNtpEnabledCheckBox->isChecked()) {
-        ui->timeEdit->setEnabled(false);
-        ui->dateEdit->setEnabled(false);
-    } else {
-        ui->timeEdit->setEnabled(true);
-        ui->dateEdit->setEnabled(true);
+    if ( !m_isTimeEdited )
+    {
+        ui->timeEdit->blockSignals( true );
+        ui->timeEdit->setTime( m_timeDate->localDateTime().time() );
+        ui->timeEdit->blockSignals( false );
+    }
+    if ( !m_isDateEdited )
+    {
+        ui->dateEdit->blockSignals( true );
+        ui->dateEdit->setDate( m_timeDate->localDateTime().date() );
+        ui->dateEdit->blockSignals( false );
+    }
+    ui->utcTimeLabel->setText( m_timeDate->utcDateTime().toString( "dddd yyyy-MM-dd HH:mm:ss" ) );
+    ui->rtcTimeLabel->setText( m_timeDate->rtcDateTime().toString( "dddd yyyy-MM-dd HH:mm:ss" ) );
+}
+
+
+void
+PageTimeDate::isNtpEnabledToggled()
+{
+    if ( ui->isNtpEnabledCheckBox->isChecked() )
+    {
+        ui->timeEdit->setEnabled( false );
+        ui->dateEdit->setEnabled( false );
+    }
+    else
+    {
+        ui->timeEdit->setEnabled( true );
+        ui->dateEdit->setEnabled( true );
     }
     emit changed();
 }
 
-void PageTimeDate::timeZoneClicked()
+
+void
+PageTimeDate::timeZoneClicked()
 {
-    TimeZoneDialog dialog(this);
-    QString region = timeZone_.split("/").value(0);
-    QString zone = timeZone_.split("/").value(1);
-    dialog.init(region, zone);
+    TimeZoneDialog dialog( this );
+    QString region = m_timeZone.split( "/" ).value( 0 );
+    QString zone = m_timeZone.split( "/" ).value( 1 );
+    dialog.init( region, zone );
     dialog.exec();
-    if (dialog.getCurrentLocation() != timeZone_) {
-        timeZone_ = dialog.getCurrentLocation();
+    if ( dialog.currentLocation() != m_timeZone )
+    {
+        m_timeZone = dialog.currentLocation();
         updateFields();
         updateTimeFields();
         emit changed();

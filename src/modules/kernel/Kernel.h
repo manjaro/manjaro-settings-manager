@@ -28,15 +28,15 @@ class Kernel
 {
 public:
     Kernel();
-    Kernel(const QString &package,
-           const QString &version,
-           const QStringList &installedModules,
-           const QStringList &availableModules,
-           const bool isAvailable,
-           const bool isInstalled,
-           const bool isLts,
-           const bool isRecommended,
-           const bool isRunning);
+    Kernel( const QString& package,
+            const QString& version,
+            const QStringList& installedModules,
+            const QStringList& availableModules,
+            const bool isAvailable,
+            const bool isInstalled,
+            const bool isLts,
+            const bool isRecommended,
+            const bool isRunning );
     ~Kernel();
 
     QString package() const;
@@ -51,26 +51,26 @@ public:
     bool isRecommended() const;
     bool isRunning() const;
     bool isUnsupported() const;
-    void setPackage(const QString &package);
-    void setVersion(const QString &version);
-    void setInstalledModules(const QStringList &modules);
-    void setAvailableModules(const QStringList &modules);
-    void setAvailable(const bool isAvailable);
-    void setInstalled(const bool isInstalled);
-    void setLts(const bool isLts);
-    void setRecommended(const bool isRecommended);
-    void setRunning(const bool isRunning);
+    void setPackage( const QString& package );
+    void setVersion( const QString& version );
+    void setInstalledModules( const QStringList& modules );
+    void setAvailableModules( const QStringList& modules );
+    void setAvailable( const bool isAvailable );
+    void setInstalled( const bool isInstalled );
+    void setLts( const bool isLts );
+    void setRecommended( const bool isRecommended );
+    void setRunning( const bool isRunning );
 
 private:
-    QString package_;
-    QString version_;
-    QStringList installedModules_;
-    QStringList availableModules_;
-    bool isAvailable_;
-    bool isInstalled_;
-    bool isLts_;
-    bool isRecommended_;
-    bool isRunning_;
+    QString m_package;
+    QString m_version;
+    QStringList m_installedModules;
+    QStringList m_availableModules;
+    bool m_isAvailable;
+    bool m_isInstalled;
+    bool m_isLts;
+    bool m_isRecommended;
+    bool m_isRunning;
 };
 
 #endif // KERNEL_H

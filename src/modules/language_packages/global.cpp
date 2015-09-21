@@ -27,143 +27,156 @@
 #include <QtCore/QProcess>
 #include <QtCore/QDebug>
 
-bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackages,
-                                 QList<Global::LanguagePackage> *installedPackages,
-                                 QList<LanguagePackagesItem> lpiList)
+bool
+Global::getLanguagePackages( QList<Global::LanguagePackage>* availablePackages,
+                             QList<Global::LanguagePackage>* installedPackages,
+                             QList<LanguagePackagesItem> lpiList )
 {
     QList<Global::LanguagePackage> languagePackages;
     QStringList parentPackages, checkLP;
     QList<Global::LocaleSplit> locales = getAllEnabledLocalesSplit();
 
-    if (locales.isEmpty()) {
+    if ( locales.isEmpty() )
+    {
         qDebug() << "error: didn't find any enabled locales!";
         return false;
     }
 
-    for(const auto &lpi : lpiList ) {
-        for (const auto parentPkg : lpi.parentPackages()) {
+    for ( const auto& lpi : lpiList )
+    {
+        for ( const auto parentPkg : lpi.parentPackages() )
+        {
             LanguagePackage lp;
             lp.parentPackage = parentPkg;
             lp.languagePackage = lpi.languagePackage();
-            parentPackages.append(lp.parentPackage);
-            languagePackages.append(lp);
+            parentPackages.append( lp.parentPackage );
+            languagePackages.append( lp );
         }
 
     }
 
     // Keep only installed parent packages
-    parentPackages = getAllInstalledPackages(parentPackages);
+    parentPackages = getAllInstalledPackages( parentPackages );
 
-    for (int i = 0; i < languagePackages.size(); i++) {
-        LanguagePackage *lp = &languagePackages[i];
+    for ( int i = 0; i < languagePackages.size(); i++ )
+    {
+        LanguagePackage* lp = &languagePackages[i];
 
-        if (!parentPackages.contains(lp->parentPackage))
+        if ( !parentPackages.contains( lp->parentPackage ) )
             continue;
 
         // Check if it is a global language pack
-        if (!lp->languagePackage.contains("%")) {
-            checkLP.append(lp->languagePackage);
+        if ( !lp->languagePackage.contains( "%" ) )
+        {
+            checkLP.append( lp->languagePackage );
             continue;
         }
 
-        for (int i = 0; i < locales.size(); i++) {
-            LocaleSplit *locale = &locales[i];
+        for ( int i = 0; i < locales.size(); i++ )
+        {
+            LocaleSplit* locale = &locales[i];
 
             // Example: firefox-i18n-% -> firefox-i18n-en-US
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1-%2").arg(locale->language.toLower(), locale->territory)));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1-%2" ).arg( locale->language.toLower(), locale->territory ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en-us
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1-%2").arg(locale->language.toLower(), locale->territory.toLower())));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1-%2" ).arg( locale->language.toLower(), locale->territory.toLower() ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en_US
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1_%2").arg(locale->language.toLower(), locale->territory)));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1_%2" ).arg( locale->language.toLower(), locale->territory ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en_us
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1_%2").arg(locale->language.toLower(), locale->territory.toLower())));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1_%2" ).arg( locale->language.toLower(), locale->territory.toLower() ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en
-            checkLP.append(QString(lp->languagePackage).replace("%", locale->language.toLower()));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", locale->language.toLower() ) );
         }
     }
 
 
     // Keep only valid language packages
     checkLP.removeDuplicates();
-    checkLP = getAllAvailableRepoPackages(checkLP);
+    checkLP = getAllAvailableRepoPackages( checkLP );
 
     // Sort installed and available packages
-    QStringList availableLP, installedLP = getAllInstalledPackages(checkLP);
+    QStringList availableLP, installedLP = getAllInstalledPackages( checkLP );
 
-    foreach (QString lp, checkLP) {
-        if (!installedLP.contains(lp))
-            availableLP.append(lp);
+    foreach ( QString lp, checkLP )
+    {
+        if ( !installedLP.contains( lp ) )
+            availableLP.append( lp );
     }
 
     availableLP.sort();
     installedLP.sort();
 
     // Now add them to availablePackages and installedPackages
-    for (int i = 0; i < languagePackages.size(); i++) {
-        LanguagePackage *lp = &languagePackages[i];
+    for ( int i = 0; i < languagePackages.size(); i++ )
+    {
+        LanguagePackage* lp = &languagePackages[i];
 
-        if (!parentPackages.contains(lp->parentPackage))
+        if ( !parentPackages.contains( lp->parentPackage ) )
             continue;
 
         // Check if it is a global language pack
-        if (!lp->languagePackage.contains("%")) {
+        if ( !lp->languagePackage.contains( "%" ) )
+        {
             LanguagePackage l = *lp;
-            l.locale = QObject::tr("Global");
+            l.locale = QObject::tr( "Global" );
 
-            if (availableLP.contains(l.languagePackage))
-                availablePackages->append(l);
-            else if (installedLP.contains(l.languagePackage))
-                installedPackages->append(l);
+            if ( availableLP.contains( l.languagePackage ) )
+                availablePackages->append( l );
+            else if ( installedLP.contains( l.languagePackage ) )
+                installedPackages->append( l );
 
             continue;
         }
 
-        for (int i = 0; i < locales.size(); i++) {
-            LocaleSplit *locale = &locales[i];
+        for ( int i = 0; i < locales.size(); i++ )
+        {
+            LocaleSplit* locale = &locales[i];
 
             checkLP.clear();
 
             // Example: firefox-i18n-% -> firefox-i18n-en-US
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1-%2").arg(locale->language.toLower(), locale->territory)));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1-%2" ).arg( locale->language.toLower(), locale->territory ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en-us
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1-%2").arg(locale->language.toLower(), locale->territory.toLower())));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1-%2" ).arg( locale->language.toLower(), locale->territory.toLower() ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en_US
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1_%2").arg(locale->language.toLower(), locale->territory)));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1_%2" ).arg( locale->language.toLower(), locale->territory ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en_us
-            checkLP.append(QString(lp->languagePackage).replace("%", QString("%1_%2").arg(locale->language.toLower(), locale->territory.toLower())));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", QString( "%1_%2" ).arg( locale->language.toLower(), locale->territory.toLower() ) ) );
 
             // Example: firefox-i18n-% -> firefox-i18n-en
-            checkLP.append(QString(lp->languagePackage).replace("%", locale->language.toLower()));
+            checkLP.append( QString( lp->languagePackage ).replace( "%", locale->language.toLower() ) );
 
 
-            foreach (QString alp, availableLP) {
-                if (!checkLP.contains(alp))
+            foreach ( QString alp, availableLP )
+            {
+                if ( !checkLP.contains( alp ) )
                     continue;
 
                 LanguagePackage availableLanguagePackage;
                 availableLanguagePackage.languagePackage = alp;
                 availableLanguagePackage.parentPackage = lp->parentPackage;
                 availableLanguagePackage.locale = locale->language + "_" + locale->territory;
-                availablePackages->append(availableLanguagePackage);
+                availablePackages->append( availableLanguagePackage );
                 break;
             }
 
-            foreach (QString alp, installedLP) {
-                if (!checkLP.contains(alp))
+            foreach ( QString alp, installedLP )
+            {
+                if ( !checkLP.contains( alp ) )
                     continue;
 
                 LanguagePackage installedLanguagePackage;
                 installedLanguagePackage.languagePackage = alp;
                 installedLanguagePackage.parentPackage = lp->parentPackage;
                 installedLanguagePackage.locale = locale->language + "_" + locale->territory;
-                installedPackages->append(installedLanguagePackage);
+                installedPackages->append( installedLanguagePackage );
                 break;
             }
         }
@@ -173,84 +186,92 @@ bool Global::getLanguagePackages(QList<Global::LanguagePackage> *availablePackag
 }
 
 
-QStringList Global::getAllInstalledPackages(const QStringList &checkPackages)
+QStringList
+Global::getAllInstalledPackages( const QStringList& checkPackages )
 {
     QProcess process;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("LANG", "C");
-    env.insert("LC_MESSAGES", "C");
-    process.setProcessEnvironment(env);
-    process.start("pacman", QStringList() << "-Qq");
-    if (!process.waitForFinished()) {
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
+    process.start( "pacman", QStringList() << "-Qq" );
+    if ( !process.waitForFinished() )
+    {
         qDebug() << "error: failed to get installed packages (pacman)!";
         return QStringList();
     }
 
-    if (process.exitCode() != 0) {
+    if ( process.exitCode() != 0 )
+    {
         qDebug() << "error: failed to get installed packages (pacman)!";
         return QStringList();
     }
 
-    QStringList output = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
+    QStringList output = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 
     QStringList result;
-    for (QString package : checkPackages) {
-        if (output.contains(package))
-            result.append(package);
+    for ( QString package : checkPackages )
+    {
+        if ( output.contains( package ) )
+            result.append( package );
     }
 
     return result;
 }
 
 
-
-QStringList Global::getAllAvailableRepoPackages(const QStringList &checkPackages)
+QStringList
+Global::getAllAvailableRepoPackages( const QStringList& checkPackages )
 {
     QProcess process;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("LANG", "C");
-    env.insert("LC_MESSAGES", "C");
-    process.setProcessEnvironment(env);
-    process.start("pacman", QStringList() << "-Si" << checkPackages);
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
+    process.start( "pacman", QStringList() << "-Si" << checkPackages );
 
-    if (!process.waitForFinished()) {
+    if ( !process.waitForFinished() )
+    {
         qDebug() << "error: failed to get informations about available packages (pacman)!";
         return QStringList();
     }
 
-    QStringList output = QString(process.readAll()).split("\n", QString::SkipEmptyParts);
+    QStringList output = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 
     QStringList result;
-    for (QString line : output) {
-        line = line.remove(" ").remove("\t");
+    for ( QString line : output )
+    {
+        line = line.remove( " " ).remove( "\t" );
 
-        if (!line.toLower().startsWith("name:"))
+        if ( !line.toLower().startsWith( "name:" ) )
             continue;
 
-        line = line.mid(line.indexOf(":") + 1);
+        line = line.mid( line.indexOf( ":" ) + 1 );
 
-        if (checkPackages.contains(line))
-            result.append(line);
+        if ( checkPackages.contains( line ) )
+            result.append( line );
     }
 
     return result;
 }
 
 
-QList<Global::LocaleSplit> Global::getAllEnabledLocalesSplit() {
-    QStringList localesList { LanguageCommon::enabledLocales(true) };
+QList<Global::LocaleSplit>
+Global::getAllEnabledLocalesSplit()
+{
+    QStringList localesList { LanguageCommon::enabledLocales( true ) };
     QList<Global::LocaleSplit> locales;
-    for (const QString locale : localesList) {
-        QStringList split = locale.split("_", QString::SkipEmptyParts);
-        if (split.size() != 2) {
+    for ( const QString locale : localesList )
+    {
+        QStringList split = locale.split( "_", QString::SkipEmptyParts );
+        if ( split.size() != 2 )
             continue;
-        }
 
         LocaleSplit lc;
-        lc.language = split.at(0);
-        lc.territory = split.at(1);
+        lc.language = split.at( 0 );
+        lc.territory = split.at( 1 );
 
-        locales.append(lc);
+        locales.append( lc );
     }
     return locales;
 }

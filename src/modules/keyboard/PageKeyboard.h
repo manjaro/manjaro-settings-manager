@@ -28,7 +28,8 @@
 #include <KF5/KItemModels/KSelectionProxyModel>
 #include <KCModule>
 
-namespace Ui {
+namespace Ui
+{
 class PageKeyboard;
 }
 
@@ -43,7 +44,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageKeyboard(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit PageKeyboard( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -65,21 +66,21 @@ public:
     void defaults();
 
 private:
-    Ui::PageKeyboard *ui;
-    KeyboardModel *keyboardModel_;
-    QSortFilterProxyModel *keyboardProxyModel_;
-    KeyBoardPreview *keyboardPreview_;
-    KSelectionProxyModel *layoutsSelectionProxy_;
-    QSortFilterProxyModel *variantsSortProxy_;
+    Ui::PageKeyboard* ui;
+    KeyboardModel* m_keyboardModel;
+    QSortFilterProxyModel* m_keyboardProxyModel;
+    KeyBoardPreview* m_keyboardPreview;
+    KSelectionProxyModel* m_layoutsSelectionProxy;
+    QSortFilterProxyModel* m_variantsSortProxy;
 
-    QString currentLayout_;
-    QString currentVariant_;
-    QString currentModel_;
+    QString m_currentLayout;
+    QString m_currentVariant;
+    QString m_currentModel;
 
     void setKeyboardLayout();
-    void setLayoutsListViewIndex(const QString &layout);
-    void setVariantsListViewIndex(const QString &variant);
-    void setModelComboBoxIndex(const QString &model);
+    void setLayoutsListViewIndex( const QString& layout );
+    void setVariantsListViewIndex( const QString& variant );
+    void setModelComboBoxIndex( const QString& model );
 };
 
 #endif // PAGEKEYBOARD_H

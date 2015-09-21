@@ -27,7 +27,7 @@ class SetKeyboardLayoutJob
 public:
     SetKeyboardLayoutJob( const QString& model,
                           const QString& layout,
-                          const QString& variant);
+                          const QString& variant );
     bool exec();
 
 private:

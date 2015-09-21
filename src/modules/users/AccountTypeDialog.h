@@ -24,46 +24,40 @@
 #include "const.h"
 #include "global.h"
 
-#include <QDialog>
-#include <QMessageBox>
-#include <QStringList>
-#include <QTreeWidgetItem>
-#include <QFile>
-#include <QTextStream>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QTreeWidgetItem>
 
-
-namespace Ui {
+namespace Ui
+{
 class AccountTypeDialog;
 }
-
-
 
 class AccountTypeDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
-    explicit AccountTypeDialog(QWidget *parent = 0);
+    explicit AccountTypeDialog( QWidget* parent = 0 );
     ~AccountTypeDialog();
 
-    bool userGroupsChanged() { return userGroupDataChanged; }
+    bool userGroupsChanged() const;
     using QDialog::exec;
 
 public slots:
-    int exec(QString username);
-    
+    int exec( QString m_username );
+
 private:
-    Ui::AccountTypeDialog *ui;
-    QString username;
-    bool userGroupDataChanged;
+    Ui::AccountTypeDialog* ui;
+    QString m_username;
+    bool m_userGroupDataChanged;
 
     void checkSudoersFile();
 
 private slots:
     void buttonApply_clicked();
-    void checkBoxShowGroups_toggled(bool toggled);
-    void treeWidget_itemChanged(QTreeWidgetItem * item, int column);
-    void comboBoxAccountType_currentIndexChanged(int index);
+    void checkBoxShowGroups_toggled( bool toggled );
+    void treeWidget_itemChanged( QTreeWidgetItem* item, int column );
+    void comboBoxAccountType_currentIndexChanged( int index );
 
 };
 

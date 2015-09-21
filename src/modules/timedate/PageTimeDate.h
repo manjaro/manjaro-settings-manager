@@ -26,7 +26,8 @@
 
 #include <KCModule>
 
-namespace Ui {
+namespace Ui
+{
 class PageTimeDate;
 }
 
@@ -41,7 +42,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageTimeDate(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit PageTimeDate( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -69,13 +70,12 @@ public slots:
     void timeZoneClicked();
 
 private:
-    Ui::PageTimeDate *ui;
-    TimeDate *timeDate;
-    TimeZoneWidget timeZoneWidget;
-    bool isTimeEdited_;
-    bool isDateEdited_;
-    QString timeZone_;
-
+    Ui::PageTimeDate* ui;
+    TimeDate* m_timeDate;
+    TimeZoneWidget m_timeZoneWidget;
+    bool m_isTimeEdited;
+    bool m_isDateEdited;
+    QString m_timeZone;
 };
 
 #endif // PAGETIMEDATE_H

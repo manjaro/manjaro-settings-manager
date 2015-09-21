@@ -28,26 +28,31 @@ class LanguagePackagesItem
 {
 public:
     LanguagePackagesItem();
-    LanguagePackagesItem(const QString &name,
-           const QString &languagePackage,
-           const QStringList &parentPackages,
-           const QStringList &parentPkgInstalled,
-           const QStringList &languagePkgInstalled,
-           const QStringList &languagePkgAvailable);
+    LanguagePackagesItem( const QString& name,
+                          const QString& languagePackage,
+                          const QStringList& parentPackages,
+                          const QStringList& parentPkgInstalled,
+                          const QStringList& languagePkgInstalled,
+                          const QStringList& languagePkgAvailable );
     ~LanguagePackagesItem();
 
-    QString name() const { return m_name; }
-    QString languagePackage() const { return m_languagePackage; }
-    QStringList parentPackages() const { return m_parentPackages; }
-    QStringList parentPkgInstalled() const { return m_parentPkgInstalled; }
-    QStringList languagePkgInstalled() const { return m_languagePkgInstalled; }
-    QStringList languagePkgAvailable() const { return m_languagePkgAvailable; }
-    void setName(const QString &package);
-    void setLanguagePackage(const QString &version);
-    void setParentPackages(const QStringList &modules);
-    void setParentPkgInstalled(const QStringList &modules);
-    void setLanguagePkgInstalled(const QStringList &modules);
-    void setLanguagePkgAvailable(const QStringList &modules);
+    QString name() const;
+    void setName( const QString& name );
+
+    QString languagePackage() const;
+    void setLanguagePackage( const QString& languagePackage );
+
+    QStringList parentPackages() const;
+    void setParentPackages( const QStringList& parentPackages );
+
+    QStringList parentPkgInstalled() const;
+    void setParentPkgInstalled( const QStringList& parentPkgInstalled );
+
+    QStringList languagePkgInstalled() const;
+    void setLanguagePkgInstalled( const QStringList& languagePkgInstalled );
+
+    QStringList languagePkgAvailable() const;
+    void setLanguagePkgAvailable( const QStringList& languagePkgAvailable );
 
 private:
     QString m_name;

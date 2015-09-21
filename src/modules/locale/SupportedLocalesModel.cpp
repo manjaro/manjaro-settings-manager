@@ -25,30 +25,33 @@
 
 #include <QDebug>
 
-SupportedLocalesModel::SupportedLocalesModel(QObject *parent)
-    : QAbstractItemModel(parent)
+SupportedLocalesModel::SupportedLocalesModel( QObject* parent )
+    : QAbstractItemModel( parent )
 {
-    rootItem_ = new SupportedLocalesItem(QString("key"), QString("value"));
-    init(rootItem_);
+    m_rootItem = new SupportedLocalesItem( QString( "key" ), QString( "value" ) );
+    init( m_rootItem );
 }
+
 
 SupportedLocalesModel::~SupportedLocalesModel()
 {
-    delete rootItem_;
+    delete m_rootItem;
 }
 
 
-QVariant SupportedLocalesModel::data(const QModelIndex &index, int role) const
+QVariant
+SupportedLocalesModel::data( const QModelIndex& index, int role ) const
 {
-    if (!index.isValid()) {
+    if ( !index.isValid() )
         return QVariant();
-    }
 
-    SupportedLocalesItem *item = static_cast<SupportedLocalesItem*>(index.internalPointer());
+    SupportedLocalesItem* item = static_cast<SupportedLocalesItem*>( index.internalPointer() );
 
-    switch (role) {
+    switch ( role )
+    {
     case Qt::DisplayRole :
-        switch (index.column()) {
+        switch ( index.column() )
+        {
         case 0:
             return item->value();
         case 1:
@@ -65,95 +68,93 @@ QVariant SupportedLocalesModel::data(const QModelIndex &index, int role) const
 }
 
 
-Qt::ItemFlags SupportedLocalesModel::flags(const QModelIndex &index) const
+Qt::ItemFlags
+SupportedLocalesModel::flags( const QModelIndex& index ) const
 {
-    if (!index.isValid()) {
+    if ( !index.isValid() )
         return 0;
-    }
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
 
-QVariant SupportedLocalesModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant
+SupportedLocalesModel::headerData( int section, Qt::Orientation orientation, int role ) const
 {
-    if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
-        if (section == 0) {
-            return rootItem_->key();
-        }
+    if ( orientation == Qt::Horizontal && role == Qt::DisplayRole )
+    {
+        if ( section == 0 )
+            return m_rootItem->key();
     }
 
     return QVariant();
 }
 
 
-QModelIndex SupportedLocalesModel::index(int row, int column, const QModelIndex &parent) const
+QModelIndex
+SupportedLocalesModel::index( int row, int column, const QModelIndex& parent ) const
 {
-    if (!hasIndex(row, column, parent)) {
+    if ( !hasIndex( row, column, parent ) )
         return QModelIndex();
-    }
 
-    SupportedLocalesItem *parentItem;
+    SupportedLocalesItem* parentItem;
 
-    if (!parent.isValid()) {
-        parentItem = rootItem_;
-    } else {
-        parentItem = static_cast<SupportedLocalesItem*>(parent.internalPointer());
-    }
+    if ( !parent.isValid() )
+        parentItem = m_rootItem;
+    else
+        parentItem = static_cast<SupportedLocalesItem*>( parent.internalPointer() );
 
-    SupportedLocalesItem *childItem = parentItem->child(row);
-    if (childItem) {
-        return createIndex(row, column, childItem);
-    } else {
+    SupportedLocalesItem* childItem = parentItem->child( row );
+    if ( childItem )
+        return createIndex( row, column, childItem );
+    else
         return QModelIndex();
-    }
 }
 
 
-QModelIndex SupportedLocalesModel::parent(const QModelIndex &index) const
+QModelIndex
+SupportedLocalesModel::parent( const QModelIndex& index ) const
 {
-    if (!index.isValid()) {
+    if ( !index.isValid() )
         return QModelIndex();
-    }
 
-    SupportedLocalesItem *childItem = static_cast<SupportedLocalesItem*>(index.internalPointer());
-    SupportedLocalesItem *parentItem = childItem->parent();
+    SupportedLocalesItem* childItem = static_cast<SupportedLocalesItem*>( index.internalPointer() );
+    SupportedLocalesItem* parentItem = childItem->parent();
 
-    if (parentItem == rootItem_) {
+    if ( parentItem == m_rootItem )
         return QModelIndex();
-    }
 
-    return createIndex(parentItem->row(), 0, parentItem);
+    return createIndex( parentItem->row(), 0, parentItem );
 }
 
 
-int SupportedLocalesModel::rowCount(const QModelIndex &parent) const
+int
+SupportedLocalesModel::rowCount( const QModelIndex& parent ) const
 {
-    if (parent.column() > 0) {
+    if ( parent.column() > 0 )
         return 0;
-    }
 
-    SupportedLocalesItem *parentItem;
-    if (!parent.isValid()) {
-        parentItem = rootItem_;
-    } else {
-        parentItem = static_cast<SupportedLocalesItem*>(parent.internalPointer());
-    }
+    SupportedLocalesItem* parentItem;
+    if ( !parent.isValid() )
+        parentItem = m_rootItem;
+    else
+        parentItem = static_cast<SupportedLocalesItem*>( parent.internalPointer() );
 
     return parentItem->childCount();
 }
 
 
-int SupportedLocalesModel::columnCount(const QModelIndex &parent) const
+int
+SupportedLocalesModel::columnCount( const QModelIndex& parent ) const
 {
-    if (parent.isValid()) {
-        return static_cast<SupportedLocalesItem*>(parent.internalPointer())->columnCount();
-    } else {
-        return rootItem_->columnCount();
-    }
+    if ( parent.isValid() )
+        return static_cast<SupportedLocalesItem*>( parent.internalPointer() )->columnCount();
+    else
+        return m_rootItem->columnCount();
 }
 
 
-QHash<int, QByteArray> SupportedLocalesModel::roleNames() const
+QHash<int, QByteArray>
+SupportedLocalesModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[KeyRole] = "key";
@@ -162,82 +163,92 @@ QHash<int, QByteArray> SupportedLocalesModel::roleNames() const
 }
 
 
-void SupportedLocalesModel::init(SupportedLocalesItem *parent)
+void
+SupportedLocalesModel::init( SupportedLocalesItem* parent )
 {
     QStringList localeList { LanguageCommon::supportedLocales() };
-    for (const QString localeString : localeList) {
-        Locale locale(localeString.toLatin1());
+    for ( const QString localeString : localeList )
+    {
+        Locale locale( localeString.toLatin1() );
         // Get language and country in current system locale
         UnicodeString uDisplayLanguage;
         UnicodeString uDisplayCountry;
-        locale.getDisplayLanguage(locale, uDisplayLanguage);
-        locale.getDisplayCountry(locale, uDisplayCountry);
+        locale.getDisplayLanguage( locale, uDisplayLanguage );
+        locale.getDisplayCountry( locale, uDisplayCountry );
 
         // Capitalize language and country
         UErrorCode status;
-        BreakIterator *titleIterator = BreakIterator::createTitleInstance(locale, status);
-        uDisplayLanguage = uDisplayLanguage.toTitle(titleIterator);
-        uDisplayCountry = uDisplayCountry.toTitle(titleIterator);
+        BreakIterator* titleIterator = BreakIterator::createTitleInstance( locale, status );
+        uDisplayLanguage = uDisplayLanguage.toTitle( titleIterator );
+        uDisplayCountry = uDisplayCountry.toTitle( titleIterator );
 
         QString language = locale.getLanguage();
         QString country = locale.getCountry();
-        QString displayLanguage = unicodeStringToQString(uDisplayLanguage);
-        QString displayCountry = unicodeStringToQString(uDisplayCountry);
+        QString displayLanguage = unicodeStringToQString( uDisplayLanguage );
+        QString displayCountry = unicodeStringToQString( uDisplayCountry );
 
         // Search if we already added this language to the tree
-        QModelIndexList languageIndexList = match(index(0,0),
-                                                  KeyRole,
-                                                  language,
-                                                  -1,
-                                                  Qt::MatchFixedString);
-        SupportedLocalesItem *languageItem;
+        QModelIndexList languageIndexList = match( index( 0,0 ),
+                                            KeyRole,
+                                            language,
+                                            -1,
+                                            Qt::MatchFixedString );
+        SupportedLocalesItem* languageItem;
         QModelIndex languageIndex;
-        if (languageIndexList.count() == 0) {
+        if ( languageIndexList.count() == 0 )
+        {
             // Not found, add the language to the root
-            languageItem = new SupportedLocalesItem(language, displayLanguage, parent);
-            parent->appendChild(languageItem);
-        } else {
-             Q_ASSERT(languageIndexList.count() == 1);
+            languageItem = new SupportedLocalesItem( language, displayLanguage, parent );
+            parent->appendChild( languageItem );
+        }
+        else
+        {
+            Q_ASSERT( languageIndexList.count() == 1 );
             // Found, convert index to a item
             languageIndex = languageIndexList.first();
-            languageItem = static_cast<SupportedLocalesItem*>(languageIndex.internalPointer());
+            languageItem = static_cast<SupportedLocalesItem*>( languageIndex.internalPointer() );
         }
 
         // Search if we already added this country to this language
-        QModelIndexList countryIndexList = match(languageIndex.child(0,0),
-                                                 KeyRole,
-                                                 country,
-                                                 -1,
-                                                 Qt::MatchFixedString);
-        SupportedLocalesItem *countryItem;
+        QModelIndexList countryIndexList = match( languageIndex.child( 0,0 ),
+                                           KeyRole,
+                                           country,
+                                           -1,
+                                           Qt::MatchFixedString );
+        SupportedLocalesItem* countryItem;
         QModelIndex countryIndex;
-        if (countryIndexList.count() == 0) {
+        if ( countryIndexList.count() == 0 )
+        {
             // Not found, add the country to the language
-            countryItem = new SupportedLocalesItem(country, displayCountry, languageItem);
-            languageItem->appendChild(countryItem);
-        } else {
-            Q_ASSERT(countryIndexList.count() == 1);
+            countryItem = new SupportedLocalesItem( country, displayCountry, languageItem );
+            languageItem->appendChild( countryItem );
+        }
+        else
+        {
+            Q_ASSERT( countryIndexList.count() == 1 );
             // Found, convert index to a item
             countryIndex = countryIndexList.first();
-            countryItem = static_cast<SupportedLocalesItem*>(countryIndex.internalPointer());
+            countryItem = static_cast<SupportedLocalesItem*>( countryIndex.internalPointer() );
         }
 
         // Add the locale code to the language
-        SupportedLocalesItem *localeItem = new SupportedLocalesItem(localeString, localeString, countryItem);
-        countryItem->appendChild(localeItem);
+        SupportedLocalesItem* localeItem = new SupportedLocalesItem( localeString, localeString, countryItem );
+        countryItem->appendChild( localeItem );
     }
 }
 
 
-icu::UnicodeString SupportedLocalesModel::qStringToUnicodeString(const QString &sourceStr)
+icu::UnicodeString
+SupportedLocalesModel::qStringToUnicodeString( const QString& sourceStr )
 {
-    return UnicodeString(static_cast<const UChar *>(sourceStr.utf16()),
-                         sourceStr.length());
+    return UnicodeString( static_cast<const UChar*>( sourceStr.utf16() ),
+                          sourceStr.length() );
 }
 
 
-QString SupportedLocalesModel::unicodeStringToQString(const icu::UnicodeString &sourceStr)
+QString
+SupportedLocalesModel::unicodeStringToQString( const icu::UnicodeString& sourceStr )
 {
-    return QString(reinterpret_cast<const QChar *>(sourceStr.getBuffer()),
-                   sourceStr.length());
+    return QString( reinterpret_cast<const QChar*>( sourceStr.getBuffer() ),
+                    sourceStr.length() );
 }

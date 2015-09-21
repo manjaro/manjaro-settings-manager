@@ -26,28 +26,34 @@
 class SupportedLocalesItem
 {
 public:
-    explicit SupportedLocalesItem(const QString &key, const QString &value, SupportedLocalesItem *parent = 0);
+    explicit SupportedLocalesItem( const QString& key, const QString& value, SupportedLocalesItem* parent = 0 );
     ~SupportedLocalesItem();
 
-    void appendChild(SupportedLocalesItem *item);
+    void appendChild( SupportedLocalesItem* item );
 
-    QString key() const { return key_; }
-    QString value() const { return value_; }
+    QString key() const
+    {
+        return m_key;
+    }
+    QString value() const
+    {
+        return m_value;
+    }
 
-    SupportedLocalesItem *child(int row);
+    SupportedLocalesItem* child( int row );
     int childCount() const;
     int columnCount() const;
     int row() const;
-    SupportedLocalesItem *parent();
+    SupportedLocalesItem* parent();
 
-    bool operator==(const SupportedLocalesItem &other);
+    bool operator==( const SupportedLocalesItem& other );
 
 private:
-    QString key_;
-    QString value_;
+    QString m_key;
+    QString m_value;
 
-    QList<SupportedLocalesItem*> childItems_;
-    SupportedLocalesItem *parentItem_;
+    QList<SupportedLocalesItem*> m_childItems;
+    SupportedLocalesItem* m_parentItem;
 };
 
 #endif // SUPPORTEDLOCALESITEM_H

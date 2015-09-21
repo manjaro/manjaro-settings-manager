@@ -23,7 +23,8 @@
 
 #include <KCModule>
 
-namespace Ui {
+namespace Ui
+{
 class PageNotifications;
 }
 
@@ -38,7 +39,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageNotifications(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit PageNotifications( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -60,11 +61,11 @@ public:
     void defaults();
 
 private:
-    Ui::PageNotifications *ui;
+    Ui::PageNotifications* ui;
 
 protected slots:
-    void unsupportedKernelStateBoxChanged(int);
-    void newKernelStateBoxChanged(int);
+    void unsupportedKernelStateBoxChanged( int );
+    void newKernelStateBoxChanged( int );
 };
 
 #endif // PAGENOTIFICATIONS_H

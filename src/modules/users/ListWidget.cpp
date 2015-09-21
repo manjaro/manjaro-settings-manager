@@ -20,74 +20,80 @@
 
 #include "ListWidget.h"
 
-
-ListWidgetItemSeperatorDelegate::ListWidgetItemSeperatorDelegate(QListWidget *parent, QListWidgetItem *item) :
-    QStyledItemDelegate(parent)
+ListWidgetItemSeperatorDelegate::ListWidgetItemSeperatorDelegate( QListWidget* parent, QListWidgetItem* item ) :
+    QStyledItemDelegate( parent )
 {
-    this->parent = parent;
-    this->item = item;
+    this->m_parent = parent;
+    this->m_item = item;
 }
 
 
-void ListWidgetItemSeperatorDelegate::parentResized()
+void
+ListWidgetItemSeperatorDelegate::parentResized()
 {
-    item->setSizeHint(QSize(parent->width() - 2*parent->spacing(), 30));
+    m_item->setSizeHint( QSize( m_parent->width() - 2*m_parent->spacing(), 30 ) );
 }
 
 
-void ListWidgetItemSeperatorDelegate::paint(QPainter * painter,
-                                            const QStyleOptionViewItem & option,
-                                            const QModelIndex & index ) const
+void
+ListWidgetItemSeperatorDelegate::paint( QPainter* painter,
+                                        const QStyleOptionViewItem& option,
+                                        const QModelIndex& index ) const
 {
     QPen origPen, pen = painter->pen();
     origPen = pen;
-    pen.setBrush(parent->palette().midlight());
-    painter->setPen(pen);
-    painter->drawLine(option.rect.bottomLeft(), option.rect.bottomRight());
-    painter->setPen(origPen);
+    pen.setBrush( m_parent->palette().midlight() );
+    painter->setPen( pen );
+    painter->drawLine( option.rect.bottomLeft(), option.rect.bottomRight() );
+    painter->setPen( origPen );
 
     QFont font = painter->font();
-    font.setBold(true);
-    painter->setFont(font);
+    font.setBold( true );
+    painter->setFont( font );
 
-    QFontMetrics fm(font);
-    QString text = index.data(Qt::DisplayRole).toString();
+    QFontMetrics fm( font );
+    QString text = index.data( Qt::DisplayRole ).toString();
 
-    QRect fnBound = fm.boundingRect(text);
-    fnBound.moveLeft(option.rect.left());
-    fnBound.translate(0, option.rect.bottom() - 8);
+    QRect fnBound = fm.boundingRect( text );
+    fnBound.moveLeft( option.rect.left() );
+    fnBound.translate( 0, option.rect.bottom() - 8 );
 
-    painter->drawText(fnBound, Qt::AlignBottom | Qt::AlignLeft, text);
+    painter->drawText( fnBound, Qt::AlignBottom | Qt::AlignLeft, text );
 }
 
 
-QSize ListWidgetItemSeperatorDelegate::sizeHint(const QStyleOptionViewItem &, const QModelIndex &) const
+QSize
+ListWidgetItemSeperatorDelegate::sizeHint( const QStyleOptionViewItem&,
+        const QModelIndex& ) const
 {
-    return QSize(parent->width() - 2*parent->spacing(), 30);
+    return QSize( m_parent->width() - 2*m_parent->spacing(), 30 );
 }
 
 
 
-ListWidget::ListWidget(QWidget *parent) :
-    QListWidget(parent)
+ListWidget::ListWidget( QWidget* parent ) :
+    QListWidget( parent )
 {
 }
 
 
-void ListWidget::addSeparator(QString text)
+void
+ListWidget::addSeparator( QString text )
 {
-    QListWidgetItem *item = new QListWidgetItem(this);
-    item->setText(text);
+    QListWidgetItem* item = new QListWidgetItem( this );
+    item->setText( text );
 
-    ListWidgetItemSeperatorDelegate *delegate = new ListWidgetItemSeperatorDelegate(this, item);
-    setItemDelegateForRow(count()-1, delegate);
-    connect(this, &ListWidget::resized,
-            delegate, &ListWidgetItemSeperatorDelegate::parentResized);
+    ListWidgetItemSeperatorDelegate* delegate = new ListWidgetItemSeperatorDelegate( this, item );
+    setItemDelegateForRow( count()-1, delegate );
+    connect( this, &ListWidget::resized,
+             delegate, &ListWidgetItemSeperatorDelegate::parentResized );
 }
 
 
-void ListWidget::resizeEvent(QResizeEvent *e) {
+void
+ListWidget::resizeEvent( QResizeEvent* e )
+{
     emit resized();
     this->reset();
-    QListWidget::resizeEvent(e);
+    QListWidget::resizeEvent( e );
 }

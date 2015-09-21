@@ -1,81 +1,101 @@
+/*
+ *  Manjaro Settings Manager
+ *  Ramon Buldó <ramon@manjaro.org>
+ *
+ *  Copyright (C) 2007 Free Software Foundation, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "TimeZoneDialog.h"
 #include "ui_TimeZoneDialog.h"
 
-TimeZoneDialog::TimeZoneDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::TimeZoneDialog),
-    blockTimeZoneWidgetSet(false)
+TimeZoneDialog::TimeZoneDialog( QWidget* parent ) :
+    QDialog( parent ),
+    ui( new Ui::TimeZoneDialog ),
+    m_blockTimeZoneWidgetSet( false )
 {
-    ui->setupUi(this);
-    timeZoneWidget = new TimeZoneWidget(this);
+    ui->setupUi( this );
+    m_timeZoneWidget = new TimeZoneWidget( this );
     ui->timeZoneLayout->addStretch();
-    ui->timeZoneLayout->addWidget(timeZoneWidget);
+    ui->timeZoneLayout->addWidget( m_timeZoneWidget );
     ui->timeZoneLayout->addStretch();
 
     connect( ui->regionComboBox,
-                 static_cast< void ( QComboBox::* )( const QString& ) >( &QComboBox::currentIndexChanged ),
-                 [this]( const QString& current )
-        {
-            QHash< QString, QList< LocaleGlobal::Location > > regions = LocaleGlobal::getLocations();
-            if ( !regions.contains( current ) )
-                return;
+             static_cast< void ( QComboBox::* )( const QString& ) >( &QComboBox::currentIndexChanged ),
+             [this]( const QString& current )
+    {
+        QHash< QString, QList< LocaleGlobal::Location > > regions = LocaleGlobal::getLocations();
+        if ( !regions.contains( current ) )
+            return;
 
-            ui->zoneComboBox->blockSignals( true );
+        ui->zoneComboBox->blockSignals( true );
 
-            ui->zoneComboBox->clear();
+        ui->zoneComboBox->clear();
 
-            QList< LocaleGlobal::Location > zones = regions.value( current );
-            foreach ( const LocaleGlobal::Location& zone, zones )
-            {
-                ui->zoneComboBox->addItem( zone.zone );
-            }
+        QList< LocaleGlobal::Location > zones = regions.value( current );
+        foreach ( const LocaleGlobal::Location& zone, zones )
+            ui->zoneComboBox->addItem( zone.zone );
 
-            ui->zoneComboBox->model()->sort( 0 );
+        ui->zoneComboBox->model()->sort( 0 );
 
-            ui->zoneComboBox->blockSignals( false );
+        ui->zoneComboBox->blockSignals( false );
 
-            ui->zoneComboBox->currentIndexChanged( ui->zoneComboBox->currentText() );
-        });
+        ui->zoneComboBox->currentIndexChanged( ui->zoneComboBox->currentText() );
+    } );
 
-        connect( ui->zoneComboBox,
-                 static_cast< void ( QComboBox::* )( const QString& ) >( &QComboBox::currentIndexChanged ),
-                 [this]( const QString& current )
-        {
-            if ( !blockTimeZoneWidgetSet )
-                timeZoneWidget->setCurrentLocation( ui->regionComboBox->currentText(), current );
-        });
+    connect( ui->zoneComboBox,
+             static_cast< void ( QComboBox::* )( const QString& ) >( &QComboBox::currentIndexChanged ),
+             [this]( const QString& current )
+    {
+        if ( !m_blockTimeZoneWidgetSet )
+            m_timeZoneWidget->setCurrentLocation( ui->regionComboBox->currentText(), current );
+    } );
 
-        connect( timeZoneWidget, &TimeZoneWidget::locationChanged,
-                 [this]( LocaleGlobal::Location location )
-        {
-            blockTimeZoneWidgetSet = true;
+    connect( m_timeZoneWidget, &TimeZoneWidget::locationChanged,
+             [this]( LocaleGlobal::Location location )
+    {
+        m_blockTimeZoneWidgetSet = true;
 
-            // Set region index
-            int index = ui->regionComboBox->findText( location.region );
-            if ( index < 0 )
-                return;
+        // Set region index
+        int index = ui->regionComboBox->findText( location.region );
+        if ( index < 0 )
+            return;
 
-            ui->regionComboBox->setCurrentIndex( index );
+        ui->regionComboBox->setCurrentIndex( index );
 
-            // Set zone index
-            index = ui->zoneComboBox->findText( location.zone );
-            if ( index < 0 )
-                return;
+        // Set zone index
+        index = ui->zoneComboBox->findText( location.zone );
+        if ( index < 0 )
+            return;
 
-            ui->zoneComboBox->setCurrentIndex( index );
+        ui->zoneComboBox->setCurrentIndex( index );
 
-            blockTimeZoneWidgetSet = false;
-        });
+        m_blockTimeZoneWidgetSet = false;
+    } );
 }
+
 
 TimeZoneDialog::~TimeZoneDialog()
 {
     delete ui;
-    delete timeZoneWidget;
+    delete m_timeZoneWidget;
 }
 
+
 void
-TimeZoneDialog::init(const QString& initialRegion, const QString& initialZone)
+TimeZoneDialog::init( const QString& initialRegion, const QString& initialZone )
 {
     ui->regionComboBox->blockSignals( true );
     ui->zoneComboBox->blockSignals( true );
@@ -87,9 +107,7 @@ TimeZoneDialog::init(const QString& initialRegion, const QString& initialZone)
     keys.sort();
 
     foreach ( const QString& key, keys )
-    {
         ui->regionComboBox->addItem( key );
-    }
 
     ui->regionComboBox->blockSignals( false );
     ui->zoneComboBox->blockSignals( false );
@@ -109,20 +127,18 @@ TimeZoneDialog::init(const QString& initialRegion, const QString& initialZone)
     };
 
     if ( keys.contains( initialRegion ) &&
-         containsLocation( regions.value( initialRegion ), initialZone ) )
-    {
-        timeZoneWidget->setCurrentLocation( initialRegion, initialZone );
-    }
+            containsLocation( regions.value( initialRegion ), initialZone ) )
+        m_timeZoneWidget->setCurrentLocation( initialRegion, initialZone );
     else
-    {
-        timeZoneWidget->setCurrentLocation( "Europe", "Berlin" );
-    }
-    emit timeZoneWidget->locationChanged( timeZoneWidget->getCurrentLocation() );
+        m_timeZoneWidget->setCurrentLocation( "Europe", "Berlin" );
+    emit m_timeZoneWidget->locationChanged( m_timeZoneWidget->currentLocation() );
 }
 
-QString TimeZoneDialog::getCurrentLocation()
+
+QString
+TimeZoneDialog::currentLocation()
 {
-    return QString("%1/%2")
-            .arg(timeZoneWidget->getCurrentLocation().region)
-            .arg(timeZoneWidget->getCurrentLocation().zone);
+    return QString( "%1/%2" )
+           .arg( m_timeZoneWidget->currentLocation().region )
+           .arg( m_timeZoneWidget->currentLocation().zone );
 }

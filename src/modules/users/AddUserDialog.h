@@ -31,7 +31,8 @@
 
 
 
-namespace Ui {
+namespace Ui
+{
 class AddUserDialog;
 }
 
@@ -39,19 +40,22 @@ class AddUserDialog;
 class AddUserDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
-    explicit AddUserDialog(QWidget *parent = 0);
+    explicit AddUserDialog( QWidget* parent = 0 );
     ~AddUserDialog();
 
-    bool userDataChanged() { return dataChanged; }
+    bool userDataChanged()
+    {
+        return dataChanged;
+    }
     using QDialog::exec;
 
 public slots:
     virtual int exec();
 
 private:
-    Ui::AddUserDialog *ui;
+    Ui::AddUserDialog* ui;
     bool dataChanged;
 
 private slots:

@@ -33,26 +33,26 @@ class ActionDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ActionDialog(QWidget *parent = 0);
+    explicit ActionDialog( QWidget* parent = 0 );
 
     KAuth::Action installAction() const;
-    void setInstallAction(const KAuth::Action &installAction);
+    void setInstallAction( const KAuth::Action& installAction );
 
     QString message() const;
-    void setMessage(const QString &message);
+    void setMessage( const QString& message );
 
     QString information() const;
-    void setInformation(const QString &information);
+    void setInformation( const QString& information );
 
     bool isJobSuccesful() const;
 
 private:
     void startJob();
 
-    QTextEdit *m_terminal;
-    QLabel *m_messageLabel;
-    QLabel *m_informationLabel;
-    QDialogButtonBox *m_buttonBox;
+    QTextEdit* m_terminal;
+    QLabel* m_messageLabel;
+    QLabel* m_informationLabel;
+    QDialogButtonBox* m_buttonBox;
 
     KAuth::Action m_installAction;
     QString m_message;

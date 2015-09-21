@@ -22,10 +22,10 @@
 
 #include <QtCore/QDebug>
 
-TimeDate::TimeDate(QObject *parent) :
-    QObject(parent)
+TimeDate::TimeDate( QObject* parent ) :
+    QObject( parent )
 {
-    dbusInterface_ = new QDBusInterface( "org.freedesktop.timedate1",
+    m_dbusInterface = new QDBusInterface( "org.freedesktop.timedate1",
                                          "/org/freedesktop/timedate1",
                                          "org.freedesktop.timedate1",
                                          QDBusConnection::systemBus(),
@@ -34,56 +34,74 @@ TimeDate::TimeDate(QObject *parent) :
 
 TimeDate::~TimeDate()
 {
-    delete dbusInterface_;
+    delete m_dbusInterface;
 }
 
-QDateTime TimeDate::localDateTime()
+
+QDateTime
+TimeDate::localDateTime()
 {
-    return QDateTime::fromMSecsSinceEpoch(dbusInterface_->property("TimeUSec").toLongLong() / 1000);
+    return QDateTime::fromMSecsSinceEpoch( m_dbusInterface->property( "TimeUSec" ).toLongLong() / 1000 );
 }
 
-QDateTime TimeDate::utcDateTime()
+
+QDateTime
+TimeDate::utcDateTime()
 {
     QDateTime aux;
-    aux.setMSecsSinceEpoch((dbusInterface_->property("TimeUSec")).toLongLong() / 1000);
-    aux.setTimeSpec(Qt::LocalTime);
+    aux.setMSecsSinceEpoch( ( m_dbusInterface->property( "TimeUSec" ) ).toLongLong() / 1000 );
+    aux.setTimeSpec( Qt::LocalTime );
     return aux.toUTC();
 }
 
-QDateTime TimeDate::rtcDateTime()
+
+QDateTime
+TimeDate::rtcDateTime()
 {
     QDateTime aux;
-    aux.setMSecsSinceEpoch((dbusInterface_->property("RTCTimeUSec")).toLongLong() / 1000);
-    aux.setTimeSpec(Qt::LocalTime);
+    aux.setMSecsSinceEpoch( ( m_dbusInterface->property( "RTCTimeUSec" ) ).toLongLong() / 1000 );
+    aux.setTimeSpec( Qt::LocalTime );
     return aux.toUTC();
 }
 
-QString TimeDate::timeZone()
+
+QString
+TimeDate::timeZone()
 {
-    return dbusInterface_->property("Timezone").toString();
+    return m_dbusInterface->property( "Timezone" ).toString();
 }
 
-bool TimeDate::canNtp()
+
+bool
+TimeDate::canNtp()
 {
-    return dbusInterface_->property("CanNTP").toBool();
+    return m_dbusInterface->property( "CanNTP" ).toBool();
 }
 
-bool TimeDate::isNtpEnabled()
+
+bool
+TimeDate::isNtpEnabled()
 {
-    return dbusInterface_->property("NTP").toBool();
+    return m_dbusInterface->property( "NTP" ).toBool();
 }
 
-bool TimeDate::isNtpSynchronized()
+
+bool
+TimeDate::isNtpSynchronized()
 {
-    return dbusInterface_->property("NTPSynchronized").toBool();
+    return m_dbusInterface->property( "NTPSynchronized" ).toBool();
 }
 
-bool TimeDate::isRtcInLocalTimeZone()
+
+bool
+TimeDate::isRtcInLocalTimeZone()
 {
-    return dbusInterface_->property("LocalRTC").toBool();
+    return m_dbusInterface->property( "LocalRTC" ).toBool();
 }
 
-void TimeDate::setTime(const QDateTime &time)
+
+void
+TimeDate::setTime( const QDateTime& time )
 {
     /*
      * xbb
@@ -93,11 +111,13 @@ void TimeDate::setTime(const QDateTime &time)
      */
     qint64 timeUSec = time.toMSecsSinceEpoch() * 1000;
     QDBusMessage reply;
-    reply = dbusInterface_->call("SetTime", timeUSec, false, true);
+    reply = m_dbusInterface->call( "SetTime", timeUSec, false, true );
     qDebug() << reply;
 }
 
-void TimeDate::setTimeZone(const QString &timeZone)
+
+void
+TimeDate::setTimeZone( const QString& timeZone )
 {
     /*
      * sb
@@ -105,11 +125,13 @@ void TimeDate::setTimeZone(const QString &timeZone)
      * boolean -> arg_ask_password
      */
     QDBusMessage reply;
-    reply = dbusInterface_->call("SetTimezone", timeZone, true);
+    reply = m_dbusInterface->call( "SetTimezone", timeZone, true );
     qDebug() << reply;
 }
 
-void TimeDate::setLocalRtc(const bool local)
+
+void
+TimeDate::setLocalRtc( const bool local )
 {
     /*
      * bbb
@@ -118,11 +140,13 @@ void TimeDate::setLocalRtc(const bool local)
      * boolean -> arg_ask_password
      */
     QDBusMessage reply;
-    reply = dbusInterface_->call("SetLocalRTC", local, false, true);
+    reply = m_dbusInterface->call( "SetLocalRTC", local, false, true );
     qDebug() << reply;
 }
 
-void TimeDate::setNtp(const bool ntp)
+
+void
+TimeDate::setNtp( const bool ntp )
 {
     /*
      * bb
@@ -130,6 +154,6 @@ void TimeDate::setNtp(const bool ntp)
      * boolean -> arg_ask_password
      */
     QDBusMessage reply;
-    reply = dbusInterface_->call("SetNTP", ntp, true);
+    reply = m_dbusInterface->call( "SetNTP", ntp, true );
     qDebug() << reply;
 }

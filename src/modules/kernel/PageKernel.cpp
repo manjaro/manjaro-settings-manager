@@ -35,165 +35,171 @@
 #include <QDebug>
 
 #include <KPluginFactory>
-K_PLUGIN_FACTORY(MsmKernelFactory,
-                 registerPlugin<PageKernel>("msm_kernel");)
+K_PLUGIN_FACTORY( MsmKernelFactory,
+                  registerPlugin<PageKernel>( "msm_kernel" ); )
 
-PageKernel::PageKernel(QWidget *parent, const QVariantList &args) :
-    KCModule(parent, args),
-    kernelModel(new KernelModel),
-    kernelInfoDialog(new KernelInfoDialog)
+PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
+    KCModule( parent, args ),
+    m_kernelModel( new KernelModel ),
+    m_kernelInfoDialog( new KernelInfoDialog )
 {
-    KAboutData *aboutData = new KAboutData("msm_kernel",
-                                           tr("Kernel", "@title"),
-                                           PROJECT_VERSION,
-                                           QStringLiteral(""),
-                                           KAboutLicense::LicenseKey::GPL_V3,
-                                           "Copyright 2014 Ramon Buldó", "@info:credit");
+    KAboutData* aboutData = new KAboutData( "msm_kernel",
+                                            tr( "Kernel", "@title" ),
+                                            PROJECT_VERSION,
+                                            QStringLiteral( "" ),
+                                            KAboutLicense::LicenseKey::GPL_V3,
+                                            "Copyright 2014 Ramon Buldó", "@info:credit" );
 
-    aboutData->addAuthor("Ramon Buldó",
-                         tr("Author", "@info:credit"),
-                         QStringLiteral("ramon@manjaro.org"));
+    aboutData->addAuthor( "Ramon Buldó",
+                          tr( "Author", "@info:credit" ),
+                          QStringLiteral( "ramon@manjaro.org" ) );
 
-    setAboutData(aboutData);
-    setButtons(KCModule::NoAdditionalButton);
+    setAboutData( aboutData );
+    setButtons( KCModule::NoAdditionalButton );
 
-    QHBoxLayout *hBoxLayout = new QHBoxLayout();
-    this->setLayout(hBoxLayout);
+    QHBoxLayout* hBoxLayout = new QHBoxLayout();
+    this->setLayout( hBoxLayout );
 
-    QListView *kernelListView = new QListView();
-    hBoxLayout->addWidget(kernelListView);
-    kernelListView->setAlternatingRowColors(true);
+    QListView* kernelListView = new QListView();
+    hBoxLayout->addWidget( kernelListView );
+    kernelListView->setAlternatingRowColors( true );
 
-    KernelSortFilterProxyModel *proxyKernelModel = new KernelSortFilterProxyModel(this);
-    proxyKernelModel->setSourceModel(kernelModel);
-    proxyKernelModel->setSortRole(KernelModel::VersionRole);
-    proxyKernelModel->sort(0, Qt::DescendingOrder);
-    kernelListView->setModel(proxyKernelModel);
+    KernelSortFilterProxyModel* proxyKernelModel = new KernelSortFilterProxyModel( this );
+    proxyKernelModel->setSourceModel( m_kernelModel );
+    proxyKernelModel->setSortRole( KernelModel::VersionRole );
+    proxyKernelModel->sort( 0, Qt::DescendingOrder );
+    kernelListView->setModel( proxyKernelModel );
 
-    KernelListViewDelegate *kernelListViewDelegate = new KernelListViewDelegate;
-    kernelListView->setItemDelegate(kernelListViewDelegate);
-    connect(kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
-            this, &PageKernel::installButtonClicked);
-    connect(kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
-            this, &PageKernel::infoButtonClicked);
+    KernelListViewDelegate* kernelListViewDelegate = new KernelListViewDelegate;
+    kernelListView->setItemDelegate( kernelListViewDelegate );
+    connect( kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
+             this, &PageKernel::installButtonClicked );
+    connect( kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
+             this, &PageKernel::infoButtonClicked );
 }
 
 
 PageKernel::~PageKernel()
 {
-    delete kernelModel;
+    delete m_kernelModel;
 }
 
 
-void PageKernel::load()
+void
+PageKernel::load()
 {
-    kernelModel->update();
+    m_kernelModel->update();
 }
 
 
-void PageKernel::save()
+void
+PageKernel::save()
 {
 }
 
 
-void PageKernel::defaults()
+void
+PageKernel::defaults()
 {
-    kernelModel->update();
+    m_kernelModel->update();
 }
 
 
-void PageKernel::installButtonClicked(const QModelIndex &index)
+void
+PageKernel::installButtonClicked( const QModelIndex& index )
 {
-    bool isInstalled = qvariant_cast<bool>(index.data(KernelModel::IsInstalledRole));
-    if (isInstalled) {
-        removeKernel(index);
-    } else {
-        installKernel(index);
-    }
+    bool isInstalled = qvariant_cast<bool>( index.data( KernelModel::IsInstalledRole ) );
+    if ( isInstalled )
+        removeKernel( index );
+    else
+        installKernel( index );
 }
 
 
-void PageKernel::installKernel(const QModelIndex &index)
+void
+PageKernel::installKernel( const QModelIndex& index )
 {
-    QStringList modules = qvariant_cast<QStringList>(index.data(KernelModel::InstalledModulesRole));
-    QString kernel = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
-    QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
+    QStringList modules = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
+    QString kernel = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
+    QString version = qvariant_cast<QString>( index.data( KernelModel::VersionRole ) );
     QStringList packageList;
     packageList << kernel << modules;
 
-    QString title = QString(tr("Install Linux %1")).arg(version);
-    QString message = QString(tr("The following packages will be installed:"));
+    QString title = QString( tr( "Install Linux %1" ) ).arg( version );
+    QString message = QString( tr( "The following packages will be installed:" ) );
     QString information = QString();
-    for (QString p : packageList) {
-        information.append(p);
-        information.append("\n");
+    for ( QString p : packageList )
+    {
+        information.append( p );
+        information.append( "\n" );
     }
 
     QStringList arguments;
     arguments << "--noconfirm" << "-S" << packageList;
     QVariantMap args;
     args["arguments"] = arguments;
-    KAuth::Action installAction(QLatin1String("org.manjaro.msm.kernel.install"));
-    installAction.setHelperId(QLatin1String("org.manjaro.msm.kernel"));
-    installAction.setArguments(args);
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.install" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.kernel" ) );
+    installAction.setArguments( args );
 
     ActionDialog actionDialog;
-    actionDialog.setInstallAction(installAction);
-    actionDialog.setWindowTitle(title);
-    actionDialog.setMessage(message);
-    actionDialog.setInformation(information);
+    actionDialog.setInstallAction( installAction );
+    actionDialog.setWindowTitle( title );
+    actionDialog.setMessage( message );
+    actionDialog.setInformation( information );
     actionDialog.exec();
-    if (actionDialog.isJobSuccesful()) {
-        kernelModel->update();
-    }
+    if ( actionDialog.isJobSuccesful() )
+        m_kernelModel->update();
 }
 
 
-void PageKernel::removeKernel(const QModelIndex &index)
+void
+PageKernel::removeKernel( const QModelIndex& index )
 {
-    QStringList modules = qvariant_cast<QStringList>(index.data(KernelModel::InstalledModulesRole));
-    QString kernel = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
-    QString version = qvariant_cast<QString>(index.data(KernelModel::VersionRole));
+    QStringList modules = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
+    QString kernel = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
+    QString version = qvariant_cast<QString>( index.data( KernelModel::VersionRole ) );
     QStringList packageList;
     packageList << kernel << modules;
 
-    QString title = QString(tr("Remove Linux %1")).arg(version);
-    QString message = QString(tr("The following packages will be removed:"));
+    QString title = QString( tr( "Remove Linux %1" ) ).arg( version );
+    QString message = QString( tr( "The following packages will be removed:" ) );
     QString information = QString();
-    for (QString p : packageList) {
-        information.append(p);
-        information.append("\n");
+    for ( QString p : packageList )
+    {
+        information.append( p );
+        information.append( "\n" );
     }
 
     QStringList arguments;
     arguments << "--noconfirm" << "-R" << packageList;
     QVariantMap args;
     args["arguments"] = arguments;
-    KAuth::Action installAction(QLatin1String("org.manjaro.msm.kernel.remove"));
-    installAction.setHelperId(QLatin1String("org.manjaro.msm.kernel"));
-    installAction.setArguments(args);
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.remove" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.kernel" ) );
+    installAction.setArguments( args );
 
     ActionDialog actionDialog;
-    actionDialog.setInstallAction(installAction);
-    actionDialog.setWindowTitle(title);
-    actionDialog.setMessage(message);
-    actionDialog.setInformation(information);
+    actionDialog.setInstallAction( installAction );
+    actionDialog.setWindowTitle( title );
+    actionDialog.setMessage( message );
+    actionDialog.setInformation( information );
     actionDialog.exec();
-    if (actionDialog.isJobSuccesful()) {
-        kernelModel->update();
-    }
+    if ( actionDialog.isJobSuccesful() )
+        m_kernelModel->update();
 }
 
 
-void PageKernel::infoButtonClicked(const QModelIndex &index)
+void
+PageKernel::infoButtonClicked( const QModelIndex& index )
 {
-    QString package = qvariant_cast<QString>(index.data(KernelModel::PackageRole));
-    QString majorVersion = qvariant_cast<QString>(index.data(KernelModel::MajorVersionRole));
-    QString minorVersion = qvariant_cast<QString>(index.data(KernelModel::MinorVersionRole));
-    QString title = QString(tr("Linux %1.%2 changelog")).arg(majorVersion, minorVersion);
-    kernelInfoDialog->setWindowTitle(title);
-    kernelInfoDialog->setPackage(package);
-    kernelInfoDialog->exec();
+    QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
+    QString majorVersion = qvariant_cast<QString>( index.data( KernelModel::MajorVersionRole ) );
+    QString minorVersion = qvariant_cast<QString>( index.data( KernelModel::MinorVersionRole ) );
+    QString title = QString( tr( "Linux %1.%2 changelog" ) ).arg( majorVersion, minorVersion );
+    m_kernelInfoDialog->setWindowTitle( title );
+    m_kernelInfoDialog->setPackage( package );
+    m_kernelInfoDialog->exec();
 }
 
 #include "PageKernel.moc"

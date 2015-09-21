@@ -31,14 +31,14 @@ class MsmApplication : public QApplication
 {
     Q_OBJECT
 public:
-    MsmApplication(int& argc, char* argv[]);
+    MsmApplication( int& argc, char* argv[] );
     virtual ~MsmApplication();
 
     void init();
     static MsmApplication* instance();
 
-    void setDebug(bool enabled);
-    void setStartModule(QString module);
+    void setDebug( bool enabled );
+    void setStartModule( QString module );
     bool isDebug();
 
     MsmWindow* mainWindow();

@@ -23,17 +23,15 @@
 
 #include <QPushButton>
 
-
 class FlatButton : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit FlatButton(QWidget *parent = 0);
-    
-protected:
-    void enterEvent(QEvent *);
-    void leaveEvent(QEvent *);
+    explicit FlatButton( QWidget* parent = 0 );
 
+protected:
+    void enterEvent( QEvent* );
+    void leaveEvent( QEvent* );
 };
 
 #endif // FLATBUTTON_H

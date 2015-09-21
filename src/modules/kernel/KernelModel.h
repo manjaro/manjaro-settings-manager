@@ -26,12 +26,13 @@
 #include <QtCore/QObject>
 #include <QtCore/QSortFilterProxyModel>
 
-
 class KernelModel : public QAbstractListModel
 {
     Q_OBJECT
+
 public:
-    enum KernelRoles {
+    enum KernelRoles
+    {
         PackageRole = Qt::UserRole + 1,
         VersionRole,
         MajorVersionRole,
@@ -46,22 +47,22 @@ public:
         IsUnsupportedRole
     };
 
-    KernelModel(QObject *parent = 0);
+    KernelModel( QObject* parent = 0 );
 
     void update();
-    void add(const Kernel &kernel);
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    bool remove(int position, int rows, const QModelIndex &parent);
+    void add( const Kernel& kernel );
+    int rowCount( const QModelIndex& parent = QModelIndex() ) const;
+    QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
+    bool remove( int position, int rows, const QModelIndex& parent );
     Kernel latestInstalledKernel();
-    QList<Kernel> newerKernels(const Kernel auxKernel);
+    QList<Kernel> newerKernels( const Kernel auxKernel );
     QList<Kernel> unsupportedKernels() const;
 
 protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    QList<Kernel> kernels_;
+    QList<Kernel> m_kernels;
     QHash<QString, QString> getInstalledPackages() const;
     QHash<QString, QString> getAvailablePackages() const;
     QString getRunningKernel() const;
@@ -74,12 +75,12 @@ private:
 class KernelSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+
 public:
-    KernelSortFilterProxyModel(QObject *parent = 0);
+    KernelSortFilterProxyModel( QObject* parent = 0 );
 
 protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
+    bool lessThan( const QModelIndex& left, const QModelIndex& right ) const;
 };
 
 #endif // KERNELMODEL_H
-

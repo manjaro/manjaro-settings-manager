@@ -33,8 +33,8 @@
 #include <QDebug>
 
 SetKeyboardLayoutJob::SetKeyboardLayoutJob( const QString& model,
-                                            const QString& layout,
-                                            const QString& variant)
+        const QString& layout,
+        const QString& variant )
     : m_model( model )
     , m_layout( layout )
     , m_variant( variant )
@@ -167,8 +167,8 @@ SetKeyboardLayoutJob::writeX11Data( const QString& keyboardConfPath ) const
     QTextStream stream( &file );
 
     stream << "Section \"InputClass\"\n"
-              "        Identifier \"system-keyboard\"\n"
-              "        MatchIsKeyboard \"on\"\n";
+           "        Identifier \"system-keyboard\"\n"
+           "        MatchIsKeyboard \"on\"\n";
 
     if ( !m_layout.isEmpty() )
         stream << "        Option \"XkbLayout\" \"" << m_layout << "\"\n";

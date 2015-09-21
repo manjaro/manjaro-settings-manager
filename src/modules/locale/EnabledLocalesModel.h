@@ -31,8 +31,10 @@
 class EnabledLocalesModel : public QAbstractListModel
 {
     Q_OBJECT
+
 public:
-    enum EnabledLocalesRoles {
+    enum EnabledLocalesRoles
+    {
         LocaleCodeRole = Qt::UserRole + 1,
         CountryRole,
         LanguageRole,
@@ -52,61 +54,104 @@ public:
         TimeRole
     };
 
-    struct SystemLocales {
+    struct SystemLocales
+    {
 
     };
 
-    explicit EnabledLocalesModel(QObject *parent = 0);
+    explicit EnabledLocalesModel( QObject* parent = 0 );
     void init();
     void updateSystemLocales();
 
-    int rowCount(const QModelIndex &parent) const;
-    int columnCount(const QModelIndex &parent) const;
-    QVariant data(const QModelIndex &index, int role) const;
-    bool insertLocale(int row, int count, const QString &localeCode);
-    bool removeLocale(int row, int count);
+    int rowCount( const QModelIndex& parent ) const;
+    int columnCount( const QModelIndex& parent ) const;
+    QVariant data( const QModelIndex& index, int role ) const;
+    bool insertLocale( int row, int count, const QString& localeCode );
+    bool removeLocale( int row, int count );
 
-    void setAddress(const QModelIndex &index);
-    void setCollate(const QModelIndex &index);
-    void setCtype(const QModelIndex &index);
-    void setIdentification(const QModelIndex &index);
-    void setLang(const QModelIndex &index);
-    void setLanguage(const QModelIndex &index);
-    void setMeasurement(const QModelIndex &index);
-    void setMonetary(const QModelIndex &index);
-    void setMessages(const QModelIndex &index);
-    void setName(const QModelIndex &index);
-    void setNumeric(const QModelIndex &index);
-    void setPaper(const QModelIndex &index);
-    void setTelephone(const QModelIndex &index);
-    void setTime(const QModelIndex &index);
+    void setAddress( const QModelIndex& index );
+    void setCollate( const QModelIndex& index );
+    void setCtype( const QModelIndex& index );
+    void setIdentification( const QModelIndex& index );
+    void setLang( const QModelIndex& index );
+    void setLanguage( const QModelIndex& index );
+    void setMeasurement( const QModelIndex& index );
+    void setMonetary( const QModelIndex& index );
+    void setMessages( const QModelIndex& index );
+    void setName( const QModelIndex& index );
+    void setNumeric( const QModelIndex& index );
+    void setPaper( const QModelIndex& index );
+    void setTelephone( const QModelIndex& index );
+    void setTime( const QModelIndex& index );
 
-    QString address() const { return address_; }
-    QString collate() const { return collate_; }
-    QString ctype() const { return ctype_; }
-    QString identification() const { return identification_; }
-    QString lang() const { return lang_; }
-    QString language() const { return language_; }
-    QString measurement() const { return measurement_; }
-    QString monetary() const { return monetary_; }
-    QString messages() const { return messages_; }
-    QString name() const { return name_; }
-    QString numeric() const { return numeric_; }
-    QString paper() const { return paper_; }
-    QString telephone() const { return telephone_; }
-    QString time() const { return time_; }
+    QString address() const
+    {
+        return address_;
+    }
+    QString collate() const
+    {
+        return collate_;
+    }
+    QString ctype() const
+    {
+        return ctype_;
+    }
+    QString identification() const
+    {
+        return identification_;
+    }
+    QString lang() const
+    {
+        return lang_;
+    }
+    QString language() const
+    {
+        return language_;
+    }
+    QString measurement() const
+    {
+        return measurement_;
+    }
+    QString monetary() const
+    {
+        return monetary_;
+    }
+    QString messages() const
+    {
+        return messages_;
+    }
+    QString name() const
+    {
+        return name_;
+    }
+    QString numeric() const
+    {
+        return numeric_;
+    }
+    QString paper() const
+    {
+        return paper_;
+    }
+    QString telephone() const
+    {
+        return telephone_;
+    }
+    QString time() const
+    {
+        return time_;
+    }
 
-    bool contains(const QString &localeCode) const;
+    bool contains( const QString& localeCode ) const;
     QStringList locales() const;
 
-    static icu::UnicodeString qStringToUnicodeString(const QString &sourceStr);
-    static QString unicodeStringToQString(const icu::UnicodeString &sourceStr);
+    static icu::UnicodeString qStringToUnicodeString( const QString& sourceStr );
+    static QString unicodeStringToQString( const icu::UnicodeString& sourceStr );
 
 protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    QStringList locales_;
+    QStringList m_locales;
     QString address_;
     QString collate_;
     QString ctype_;
@@ -122,7 +167,7 @@ private:
     QString telephone_;
     QString time_;
 
-    int findKey(const QString key) const;
+    int findKey( const QString key ) const;
 
 signals:
 

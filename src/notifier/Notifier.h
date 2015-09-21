@@ -36,16 +36,18 @@
 class Daemon : public QTimer
 {
     Q_OBJECT
+
 public:
-    explicit Daemon(QObject *parent = 0);
+    explicit Daemon( QObject* parent = 0 );
     void start();
 
-    enum KernelFlag {
+    enum KernelFlag
+    {
         Unsupported = 0x01,
         Running = 0x02,
         New = 0x04,
     };
-    Q_DECLARE_FLAGS(KernelFlags, KernelFlag)
+    Q_DECLARE_FLAGS( KernelFlags, KernelFlag )
 
 
 private:
@@ -58,10 +60,10 @@ private:
 
     void cLanguagePackage();
     void cKernel();
-    void showMessage(QString messageTitle, QString messageText);
-    void showKernelMessage(QString messageTitle, QString messageText);
-    bool isPackageIgnored(const QString package, const QString group);
-    void addToConfig(const QString package, const QString group);
+    void showMessage( QString messageTitle, QString messageText );
+    void showKernelMessage( QString messageTitle, QString messageText );
+    bool isPackageIgnored( const QString package, const QString group );
+    void addToConfig( const QString package, const QString group );
 
     bool hasPacmanEverSynced();
 
@@ -77,6 +79,6 @@ protected slots:
 
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(Daemon::KernelFlags)
+Q_DECLARE_OPERATORS_FOR_FLAGS( Daemon::KernelFlags )
 
 #endif // NOTIFIER_H

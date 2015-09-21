@@ -45,7 +45,7 @@ public Q_SLOTS:
      *        localeList: array of environment variables, see setSystemLocale
      * @return
      */
-    ActionReply save(const QVariantMap& args);
+    ActionReply save( const QVariantMap& args );
 
 private:
     /**
@@ -54,7 +54,7 @@ private:
      * @param locales list of locales.
      * @return true if succesfull, false otherwise.
      */
-    bool updateLocaleGen(const QStringList locales);
+    bool updateLocaleGen( const QStringList locales );
 
     /**
      * @brief generateLocaleGen run locale-gen system utility.
@@ -71,7 +71,7 @@ private:
      *        LC_IDENTIFICATION=.
      * @return true if succesfull, false otherwise.
      */
-    bool setSystemLocale(const QStringList locale);
+    bool setSystemLocale( const QStringList locale );
 
     /**
      * @brief localeToLocaleGenFormat converts a locale string to the format
@@ -79,7 +79,7 @@ private:
      * @param locale locale string
      * @return converted locale, or empty if it fails
      */
-    QString localeToLocaleGenFormat(const QString locale);
+    QString localeToLocaleGenFormat( const QString locale );
 };
 
 #endif // LOCALEAUTHHELPER_H

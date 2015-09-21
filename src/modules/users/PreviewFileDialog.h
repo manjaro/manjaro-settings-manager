@@ -37,19 +37,19 @@ class PreviewFileDialog : public QFileDialog
 {
     Q_OBJECT
 public:
-    explicit PreviewFileDialog(QWidget *parent = 0);
-    
+    explicit PreviewFileDialog( QWidget* parent = 0 );
+
 private:
-    QLabel labelPreview;
-    QLabel labelPreviewWidth;
-    QLabel labelPreviewHeight;
-    QLabel labelPreviewRatio;
-    QLabel labelPreviewWidthText;
-    QLabel labelPreviewHeightText;
-    QLabel labelPreviewRatioText;
-    
+    QLabel m_labelPreview;
+    QLabel m_labelPreviewWidth;
+    QLabel m_labelPreviewHeight;
+    QLabel m_labelPreviewRatio;
+    QLabel m_labelPreviewWidthText;
+    QLabel m_labelPreviewHeightText;
+    QLabel m_labelPreviewRatioText;
+
 private slots:
-    void setPreviewPicture(const QString &picture);
+    void setPreviewPicture( const QString& picture );
 
 };
 

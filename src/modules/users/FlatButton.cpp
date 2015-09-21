@@ -22,21 +22,23 @@
 #include "FlatButton.h"
 
 
-FlatButton::FlatButton(QWidget *parent) :
-    QPushButton(parent)
+FlatButton::FlatButton( QWidget* parent ) :
+    QPushButton( parent )
 {
-    setFlat(true);
+    setFlat( true );
 }
 
 
-void FlatButton::enterEvent(QEvent *) {
-    if (!isEnabled())
-        setFlat(true);
+void FlatButton::enterEvent( QEvent* )
+{
+    if ( !isEnabled() )
+        setFlat( true );
     else
-        setFlat(false);
+        setFlat( false );
 }
 
 
-void FlatButton::leaveEvent(QEvent *) {
-    setFlat(true);
+void FlatButton::leaveEvent( QEvent* )
+{
+    setFlat( true );
 }

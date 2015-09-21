@@ -21,54 +21,59 @@
 #include "PageNotifications.h"
 #include "ui_PageNotifications.h"
 
+#include <KAboutData>
+
 #include <QtCore/QSettings>
 #include <QDebug>
 
-#include <KAboutData>
 #include <KPluginFactory>
-K_PLUGIN_FACTORY(MsmNotificationsFactory,
-                 registerPlugin<PageNotifications>("msm_notifications");)
+K_PLUGIN_FACTORY( MsmNotificationsFactory,
+                  registerPlugin<PageNotifications>( "msm_notifications" ); )
 
-PageNotifications::PageNotifications(QWidget *parent, const QVariantList &args) :
-    KCModule(parent, args),
-    ui(new Ui::PageNotifications)
+PageNotifications::PageNotifications( QWidget* parent, const QVariantList& args ) :
+    KCModule( parent, args ),
+    ui( new Ui::PageNotifications )
 {
-    KAboutData *aboutData = new KAboutData("msm_notifications",
-                                           tr("Notifications", "@title"),
-                                           PROJECT_VERSION,
-                                           QStringLiteral(""),
-                                           KAboutLicense::LicenseKey::GPL_V3,
-                                           "Copyright 2014 Ramon Buldó");
+    KAboutData* aboutData = new KAboutData( "msm_notifications",
+                                            tr( "Notifications", "@title" ),
+                                            PROJECT_VERSION,
+                                            QStringLiteral( "" ),
+                                            KAboutLicense::LicenseKey::GPL_V3,
+                                            "Copyright 2014 Ramon Buldó" );
 
-    aboutData->addAuthor("Ramon Buldó",
-                         tr("Author", "@info:credit"),
-                         QStringLiteral("ramon@manjaro.org"));
+    aboutData->addAuthor( "Ramon Buldó",
+                          tr( "Author", "@info:credit" ),
+                          QStringLiteral( "ramon@manjaro.org" ) );
 
-    setAboutData(aboutData);
-    setButtons(KCModule::Default | KCModule::Apply);
+    setAboutData( aboutData );
+    setButtons( KCModule::Default | KCModule::Apply );
 
-    ui->setupUi(this);
+    ui->setupUi( this );
 
-    connect(ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
-            this, &PageNotifications::unsupportedKernelStateBoxChanged);
-    connect(ui->checkNewKernelBox, &QCheckBox::stateChanged,
-            this, &PageNotifications::newKernelStateBoxChanged);
-    connect(ui->checkLanguagePackage, &QCheckBox::stateChanged,
-            [=] () {
-                emit changed();
-            });
-    connect(ui->checkUnsupportedKernelRunningBox, &QCheckBox::stateChanged,
-            [=] () {
-                emit changed();
-            });
-    connect(ui->checkNewKernelLtsBox, &QCheckBox::stateChanged,
-            [=] () {
-                emit changed();
-            });
-    connect(ui->checkNewKernelRecommendedBox, &QCheckBox::stateChanged,
-            [=] () {
-                emit changed();
-            });
+    connect( ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
+             this, &PageNotifications::unsupportedKernelStateBoxChanged );
+    connect( ui->checkNewKernelBox, &QCheckBox::stateChanged,
+             this, &PageNotifications::newKernelStateBoxChanged );
+    connect( ui->checkLanguagePackage, &QCheckBox::stateChanged,
+             [=] ()
+    {
+        emit changed();
+    } );
+    connect( ui->checkUnsupportedKernelRunningBox, &QCheckBox::stateChanged,
+             [=] ()
+    {
+        emit changed();
+    } );
+    connect( ui->checkNewKernelLtsBox, &QCheckBox::stateChanged,
+             [=] ()
+    {
+        emit changed();
+    } );
+    connect( ui->checkNewKernelRecommendedBox, &QCheckBox::stateChanged,
+             [=] ()
+    {
+        emit changed();
+    } );
 }
 
 
@@ -80,27 +85,27 @@ PageNotifications::~PageNotifications()
 
 void PageNotifications::load()
 {
-    QSettings settings("manjaro", "manjaro-settings-manager");
-    bool checkLanguagePackage = settings.value("notifications/checkLanguagePackages", true).toBool();
-    bool checkUnsupportedKernel = settings.value("notifications/checkUnsupportedKernel", true).toBool();
-    bool checkUnsupportedKernelRunning = settings.value("notifications/checkUnsupportedKernelRunning", false).toBool();
-    bool checkNewKernel = settings.value("notifications/checkNewKernel", true).toBool();
-    bool checkNewKernelLts = settings.value("notifications/checkNewKernelLts", false).toBool();
-    bool checkNewKernelRecommended = settings.value("notifications/checkNewKernelRecommended", true).toBool();
+    QSettings settings( "manjaro", "manjaro-settings-manager" );
+    bool checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
+    bool checkUnsupportedKernel = settings.value( "notifications/checkUnsupportedKernel", true ).toBool();
+    bool checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", false ).toBool();
+    bool checkNewKernel = settings.value( "notifications/checkNewKernel", true ).toBool();
+    bool checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", false ).toBool();
+    bool checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", true ).toBool();
 
-    ui->checkLanguagePackage->setChecked(checkLanguagePackage);
-    ui->checkUnsupportedKernelBox->setChecked(checkUnsupportedKernel);
-    ui->checkUnsupportedKernelRunningBox->setChecked(checkUnsupportedKernelRunning);
-    ui->checkNewKernelBox->setChecked(checkNewKernel);
-    ui->checkNewKernelLtsBox->setChecked(checkNewKernelLts);
-    ui->checkNewKernelRecommendedBox->setChecked(checkNewKernelRecommended);
+    ui->checkLanguagePackage->setChecked( checkLanguagePackage );
+    ui->checkUnsupportedKernelBox->setChecked( checkUnsupportedKernel );
+    ui->checkUnsupportedKernelRunningBox->setChecked( checkUnsupportedKernelRunning );
+    ui->checkNewKernelBox->setChecked( checkNewKernel );
+    ui->checkNewKernelLtsBox->setChecked( checkNewKernelLts );
+    ui->checkNewKernelRecommendedBox->setChecked( checkNewKernelRecommended );
 
-    if(!checkUnsupportedKernel) {
-        ui->checkUnsupportedKernelRunningBox->setEnabled(false);
-    }
-    if(!checkNewKernel) {
-        ui->checkNewKernelLtsBox->setEnabled(false);
-        ui->checkNewKernelRecommendedBox->setEnabled(false);
+    if ( !checkUnsupportedKernel )
+        ui->checkUnsupportedKernelRunningBox->setEnabled( false );
+    if ( !checkNewKernel )
+    {
+        ui->checkNewKernelLtsBox->setEnabled( false );
+        ui->checkNewKernelRecommendedBox->setEnabled( false );
     }
 }
 
@@ -114,16 +119,17 @@ void PageNotifications::save()
     bool checkNewKernelLts = ui->checkNewKernelLtsBox->isChecked();
     bool checkNewKernelRecommended = ui->checkNewKernelRecommendedBox->isChecked();
 
-    QSettings settings("manjaro", "manjaro-settings-manager");
-    settings.setValue("notifications/checkLanguagePackages", checkLanguagePackage);
-    settings.setValue("notifications/checkUnsupportedKernel", checkUnsupportedKernel);
-    settings.setValue("notifications/checkUnsupportedKernelRunning", checkUnsupportedKernelRunning);
-    settings.setValue("notifications/checkNewKernel", checkNewKernel);
-    settings.setValue("notifications/checkNewKernelLts", checkNewKernelLts);
-    settings.setValue("notifications/checkNewKernelRecommended", checkNewKernelRecommended);
+    QSettings settings( "manjaro", "manjaro-settings-manager" );
+    settings.setValue( "notifications/checkLanguagePackages", checkLanguagePackage );
+    settings.setValue( "notifications/checkUnsupportedKernel", checkUnsupportedKernel );
+    settings.setValue( "notifications/checkUnsupportedKernelRunning", checkUnsupportedKernelRunning );
+    settings.setValue( "notifications/checkNewKernel", checkNewKernel );
+    settings.setValue( "notifications/checkNewKernelLts", checkNewKernelLts );
+    settings.setValue( "notifications/checkNewKernelRecommended", checkNewKernelRecommended );
     settings.sync();
 
-    switch (settings.status()) {
+    switch ( settings.status() )
+    {
     case QSettings::NoError :
         qDebug() << "Notifications settings have been saved";
         break;
@@ -139,40 +145,42 @@ void PageNotifications::save()
 
 void PageNotifications::defaults()
 {
-    ui->checkLanguagePackage->setChecked(true);
-    ui->checkUnsupportedKernelBox->setChecked(true);
-    ui->checkUnsupportedKernelRunningBox->setChecked(false);
-    ui->checkNewKernelBox->setChecked(true);
-    ui->checkNewKernelLtsBox->setChecked(false);
-    ui->checkNewKernelRecommendedBox->setChecked(true);
+    ui->checkLanguagePackage->setChecked( true );
+    ui->checkUnsupportedKernelBox->setChecked( true );
+    ui->checkUnsupportedKernelRunningBox->setChecked( false );
+    ui->checkNewKernelBox->setChecked( true );
+    ui->checkNewKernelLtsBox->setChecked( false );
+    ui->checkNewKernelRecommendedBox->setChecked( true );
 }
 
 
-void PageNotifications::unsupportedKernelStateBoxChanged(int checkState)
+void PageNotifications::unsupportedKernelStateBoxChanged( int checkState )
 {
     emit changed();
-    switch (checkState) {
+    switch ( checkState )
+    {
     case Qt::Unchecked:
-        ui->checkUnsupportedKernelRunningBox->setEnabled(false);
+        ui->checkUnsupportedKernelRunningBox->setEnabled( false );
         break;
     case Qt::Checked:
-        ui->checkUnsupportedKernelRunningBox->setEnabled(true);
+        ui->checkUnsupportedKernelRunningBox->setEnabled( true );
         break;
     }
 }
 
 
-void PageNotifications::newKernelStateBoxChanged(int checkState)
+void PageNotifications::newKernelStateBoxChanged( int checkState )
 {
     emit changed();
-    switch (checkState) {
+    switch ( checkState )
+    {
     case Qt::Unchecked:
-        ui->checkNewKernelLtsBox->setEnabled(false);
-        ui->checkNewKernelRecommendedBox->setEnabled(false);
+        ui->checkNewKernelLtsBox->setEnabled( false );
+        ui->checkNewKernelRecommendedBox->setEnabled( false );
         break;
     case Qt::Checked:
-        ui->checkNewKernelLtsBox->setEnabled(true);
-        ui->checkNewKernelRecommendedBox->setEnabled(true);
+        ui->checkNewKernelLtsBox->setEnabled( true );
+        ui->checkNewKernelRecommendedBox->setEnabled( true );
     }
 }
 
