@@ -37,7 +37,7 @@ Notifier::Notifier( QObject* parent ) :
     setInterval( 120000 );
 
     connect( this, &Notifier::timeout,
-             NotifierApp::instance(), &NotifierApp::quit );
+             this, &Notifier::start );
     connect( &trayIcon, &QSystemTrayIcon::activated,
              this, &Notifier::trayIconClicked );
     connect( &trayIcon, &QSystemTrayIcon::messageClicked,
@@ -268,7 +268,6 @@ Notifier::trayIconClicked()
     stop();
     QTimer::start();
 
-    // Hide tray icon
     trayIcon.hide();
 
     QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages" );
@@ -282,7 +281,6 @@ Notifier::kernelTrayIconClicked()
     stop();
     QTimer::start();
 
-    // Hide tray icon
     kernelTrayIcon.hide();
 
     QProcess::startDetached( "msm", QStringList() << "-m" << "msm_kernel" );
