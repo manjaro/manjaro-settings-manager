@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageKernel.h"
+#include "KernelModule.h"
 
 #include "KernelListViewDelegate.h"
 #include "../common/ActionDialog.h"
@@ -202,4 +202,4 @@ PageKernel::infoButtonClicked( const QModelIndex& index )
     m_kernelInfoDialog->exec();
 }
 
-#include "PageKernel.moc"
+#include "KernelModule.moc"

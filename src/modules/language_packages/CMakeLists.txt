@@ -8,7 +8,7 @@ set(MSM_LANGUAGE_PACKAGES_SRCS
     ${MSM_LANGUAGE_PACKAGES_GLOB}
     global.cpp
     LanguagePackagesItem.cpp
-    PageLanguagePackages.cpp
+    LanguagePackagesModule.cpp
     ../common/ActionDialog.cpp
     ../common/ActionDialog.h
     ../common/LanguageCommon.cpp

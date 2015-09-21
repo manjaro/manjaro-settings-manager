@@ -6,8 +6,8 @@ file(GLOB MSM_TIMEDATE_GLOB
 set(MSM_TIMEDATE_SRCS
     ${MSM_TIMEDATE_GLOB}
     LocaleGlobal.cpp
-    PageTimeDate.cpp
     TimeDate.cpp
+    TimeDateModule.cpp
     TimeZoneDialog.cpp
     TimeZoneWidget.cpp)
 

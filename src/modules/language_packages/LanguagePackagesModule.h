@@ -1,7 +1,6 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
- *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -19,21 +18,28 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGEKEYBOARD_H
-#define PAGEKEYBOARD_H
+#ifndef LANGUAGEPACKAGESMODULE_H
+#define LANGUAGEPACKAGESMODULE_H
 
-#include "KeyboardModel.h"
-#include "KeyboardPreview.h"
+#include "global.h"
+#include "LanguagePackagesItem.h"
 
-#include <KF5/KItemModels/KSelectionProxyModel>
 #include <KCModule>
+
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QMap>
+#include <QMapIterator>
+#include <QMessageBox>
+
 
 namespace Ui
 {
-class PageKeyboard;
+class PageLanguagePackages;
 }
 
-class PageKeyboard : public KCModule
+
+class PageLanguagePackages : public KCModule
 {
     Q_OBJECT
 
@@ -44,11 +50,11 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageKeyboard( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit PageLanguagePackages( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~PageKeyboard();
+    ~PageLanguagePackages();
 
     /**
      * Overloading the KCModule load() function.
@@ -65,22 +71,23 @@ public:
      */
     void defaults();
 
+
+
 private:
-    Ui::PageKeyboard* ui;
-    KeyboardModel* m_keyboardModel;
-    QSortFilterProxyModel* m_keyboardProxyModel;
-    KeyBoardPreview* m_keyboardPreview;
-    KSelectionProxyModel* m_layoutsSelectionProxy;
-    QSortFilterProxyModel* m_variantsSortProxy;
+    Ui::PageLanguagePackages* ui;
 
-    QString m_currentLayout;
-    QString m_currentVariant;
-    QString m_currentModel;
+    void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<Global::LanguagePackage>* languagePackages, bool checkable );
+    bool isSystemUpToDate();
 
-    void setKeyboardLayout();
-    void setLayoutsListViewIndex( const QString& layout );
-    void setVariantsListViewIndex( const QString& variant );
-    void setModelComboBoxIndex( const QString& model );
+    QList<LanguagePackagesItem> getLanguagePackages();
+    QStringList checkInstalled( const QStringList& packages );
+    QStringList checkInstalledLanguagePackages( QString package );
+    QStringList checkAvailableLanguagePackages( QString package );
+    void getInstalledPackages();
+    void getAvailablePackages();
+
+    QStringList m_installedPackages;
+    QStringList m_availablePackages;
 };
 
-#endif // PAGEKEYBOARD_H
+#endif // LANGUAGEPACKAGESMODULE_H

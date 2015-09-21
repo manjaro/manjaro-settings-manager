@@ -1,6 +1,5 @@
 /*
  *  Manjaro Settings Manager
- *  Roland Singer <roland@manjaro.org>
  *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
@@ -19,17 +18,17 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGEMHWD_H
-#define PAGEMHWD_H
+#ifndef NOTIFICATIONSMODULE_H
+#define NOTIFICATIONSMODULE_H
 
 #include <KCModule>
 
 namespace Ui
 {
-class PageMhwd;
+class PageNotifications;
 }
 
-class PageMhwd : public KCModule
+class PageNotifications : public KCModule
 {
     Q_OBJECT
 
@@ -40,11 +39,11 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageMhwd( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit PageNotifications( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~PageMhwd();
+    ~PageNotifications();
 
     /**
      * Overloading the KCModule load() function.
@@ -62,18 +61,11 @@ public:
     void defaults();
 
 private:
-    Ui::PageMhwd* ui;
-    QAction* m_installAction;
-    QAction* m_removeAction;
-    QAction* m_forceReinstallationAction;
+    Ui::PageNotifications* ui;
 
-private slots:
-    void installFreeConfiguration();
-    void installNonFreeConfiguration();
-    void showContextMenuForTreeWidget( const QPoint& );
-    void installConfiguration();
-    void removeConfiguration();
-    void reinstallConfiguration();
+protected slots:
+    void unsupportedKernelStateBoxChanged( int );
+    void newKernelStateBoxChanged( int );
 };
 
-#endif // PAGEMHWD_H
+#endif // NOTIFICATIONSMODULE_H

@@ -19,10 +19,10 @@ file(GLOB MSM_KERNEL_GLOB
 set(MSM_KERNEL_SRCS
     ${MSM_KERNEL_GLOB}
     Kernel.cpp
-    KernelModel.cpp
-    KernelListViewDelegate.cpp
     KernelInfoDialog.cpp
-    PageKernel.cpp
+    KernelListViewDelegate.cpp
+    KernelModel.cpp
+    KernelModule.cpp
     ../common/ActionDialog.cpp
     ../common/ActionDialog.h)
 

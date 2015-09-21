@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageNotifications.h"
+#include "NotificationsModule.h"
 #include "ui_PageNotifications.h"
 
 #include <KAboutData>
@@ -184,4 +184,4 @@ void PageNotifications::newKernelStateBoxChanged( int checkState )
     }
 }
 
-#include "PageNotifications.moc"
+#include "NotificationsModule.moc"

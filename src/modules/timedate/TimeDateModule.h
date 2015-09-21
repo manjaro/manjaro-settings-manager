@@ -1,6 +1,6 @@
 /*
  *  Manjaro Settings Manager
- *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -18,33 +18,20 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGEUSERS_H
-#define PAGEUSERS_H
+#ifndef TIMEDATEMODULE_H
+#define TIMEDATEMODULE_H
 
-#include "AddUserDialog.h"
-#include "ChangePasswordDialog.h"
-#include "AccountTypeDialog.h"
-#include "PreviewFileDialog.h"
-#include "global.h"
-#include "const.h"
+#include "TimeDate.h"
+#include "TimeZoneWidget.h"
 
 #include <KCModule>
 
-#include <QIcon>
-#include <QPixmap>
-#include <QFile>
-#include <QListWidgetItem>
-#include <QFileDialog>
-#include <QMessageBox>
-
-
 namespace Ui
 {
-class PageUsers;
+class PageTimeDate;
 }
 
-
-class PageUsers : public KCModule
+class PageTimeDate : public KCModule
 {
     Q_OBJECT
 
@@ -55,11 +42,11 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageUsers( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit PageTimeDate( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~PageUsers();
+    ~PageTimeDate();
 
     /**
      * Overloading the KCModule load() function.
@@ -76,24 +63,19 @@ public:
      */
     void defaults();
 
+public slots:
+    void updateFields();
+    void updateTimeFields();
+    void isNtpEnabledToggled();
+    void timeZoneClicked();
+
 private:
-    class ListWidgetItem : public QListWidgetItem
-    {
-    public:
-        ListWidgetItem( QListWidget* parent ) : QListWidgetItem( parent ) {}
-        Global::User user;
-    };
-
-    Ui::PageUsers* ui;
-
-private slots:
-    void setupUserData( QListWidgetItem* current );
-    void buttonImage_clicked();
-    void buttonAddUser_clicked();
-    void buttonRemoveUser_clicked();
-    void buttonChangePassword_clicked();
-    void buttonChangeAccountType_clicked();
-
+    Ui::PageTimeDate* ui;
+    TimeDate* m_timeDate;
+    TimeZoneWidget m_timeZoneWidget;
+    bool m_isTimeEdited;
+    bool m_isDateEdited;
+    QString m_timeZone;
 };
 
-#endif // PAGEUSERS_H
+#endif // TIMEDATEMODULE_H

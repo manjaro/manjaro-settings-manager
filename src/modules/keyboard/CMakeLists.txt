@@ -7,8 +7,8 @@ set(MSM_KEYBOARD_SRCS
     ${MSM_KEYBOARD_GLOB}
     KeyboardItem.cpp
     KeyboardModel.cpp
-    KeyboardPreview.cpp
-    PageKeyboard.cpp)
+    KeyboardModule.cpp
+    KeyboardPreview.cpp)
 
 set(MSM_KEYBOARD_UI
     ui/PageKeyboard.ui)

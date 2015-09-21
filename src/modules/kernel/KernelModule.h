@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGE_KERNEL_H
-#define PAGE_KERNEL_H
+#ifndef KERNELMODULE_H
+#define KERNELMODULE_H
 
 #include "KernelInfoDialog.h"
 #include "KernelModel.h"
@@ -69,4 +69,4 @@ private:
     void removeKernel( const QModelIndex& index );
 };
 
-#endif // PAGE_KERNEL_H
+#endif // KERNELMODULE_H

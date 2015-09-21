@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageLanguagePackages.h"
+#include "LanguagePackagesModule.h"
 #include "ui_PageLanguagePackages.h"
 #include "../common/ActionDialog.h"
 
@@ -359,4 +359,4 @@ PageLanguagePackages::getInstalledPackages()
     m_installedPackages = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 }
 
-#include "PageLanguagePackages.moc"
+#include "LanguagePackagesModule.moc"

@@ -19,7 +19,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageMhwd.h"
+#include "MhwdModule.h"
 #include "ui_PageMhwd.h"
 #include "libmhwd/mhwd.h"
 #include "../common/ActionDialog.h"
@@ -330,4 +330,4 @@ PageMhwd::reinstallConfiguration()
         load();
 }
 
-#include "PageMhwd.moc"
+#include "MhwdModule.moc"

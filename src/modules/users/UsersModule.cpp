@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageUsers.h"
+#include "UsersModule.h"
 #include "ui_PageUsers.h"
 
 #include <KAboutData>
@@ -325,4 +325,4 @@ PageUsers::buttonChangeAccountType_clicked()
         setupUserData( item );
 }
 
-#include "PageUsers.moc"
+#include "UsersModule.moc"

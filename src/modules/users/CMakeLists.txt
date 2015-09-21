@@ -11,8 +11,8 @@ set(MSM_USERS_SRCS
     FlatButton.cpp
     global.cpp
     ListWidget.cpp
-    PageUsers.cpp
-    PreviewFileDialog.cpp)
+    PreviewFileDialog.cpp
+    UsersModule.cpp)
 
 set(MSM_USERS_UI
     ui/AccountTypeDialog.ui

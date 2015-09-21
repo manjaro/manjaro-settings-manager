@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageTimeDate.h"
+#include "TimeDateModule.h"
 #include "ui_PageTimeDate.h"
 #include "TimeZoneDialog.h"
 
@@ -240,4 +240,4 @@ PageTimeDate::timeZoneClicked()
     }
 }
 
-#include "PageTimeDate.moc"
+#include "TimeDateModule.moc"

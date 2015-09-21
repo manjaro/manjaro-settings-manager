@@ -5,7 +5,7 @@ file(GLOB MSM_NOTIFICATIONS_GLOB
 
 set(MSM_NOTIFICATIONS_SRCS
     ${MSM_NOTIFICATIONS_GLOB}
-    PageNotifications.cpp)
+    NotificationsModule.cpp)
 
 set(MSM_NOTIFICATIONS_UI
     ui/PageNotifications.ui)

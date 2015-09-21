@@ -20,7 +20,7 @@
  */
 
 
-#include "PageKeyboard.h"
+#include "KeyboardModule.h"
 #include "ui_PageKeyboard.h"
 
 #include <KAboutData>
@@ -285,4 +285,4 @@ PageKeyboard::setModelComboBoxIndex( const QString& model )
         qDebug() << QString( "Can't find the keyboard model %1" ).arg( model );
 }
 
-#include "PageKeyboard.moc"
+#include "KeyboardModule.moc"

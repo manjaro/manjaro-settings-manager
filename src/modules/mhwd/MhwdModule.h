@@ -1,5 +1,6 @@
 /*
  *  Manjaro Settings Manager
+ *  Roland Singer <roland@manjaro.org>
  *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
@@ -18,20 +19,17 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGETIMEDATE_H
-#define PAGETIMEDATE_H
-
-#include "TimeDate.h"
-#include "TimeZoneWidget.h"
+#ifndef MHWDMODULE_H
+#define MHWDMODULE_H
 
 #include <KCModule>
 
 namespace Ui
 {
-class PageTimeDate;
+class PageMhwd;
 }
 
-class PageTimeDate : public KCModule
+class PageMhwd : public KCModule
 {
     Q_OBJECT
 
@@ -42,11 +40,11 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageTimeDate( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit PageMhwd( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~PageTimeDate();
+    ~PageMhwd();
 
     /**
      * Overloading the KCModule load() function.
@@ -63,19 +61,19 @@ public:
      */
     void defaults();
 
-public slots:
-    void updateFields();
-    void updateTimeFields();
-    void isNtpEnabledToggled();
-    void timeZoneClicked();
-
 private:
-    Ui::PageTimeDate* ui;
-    TimeDate* m_timeDate;
-    TimeZoneWidget m_timeZoneWidget;
-    bool m_isTimeEdited;
-    bool m_isDateEdited;
-    QString m_timeZone;
+    Ui::PageMhwd* ui;
+    QAction* m_installAction;
+    QAction* m_removeAction;
+    QAction* m_forceReinstallationAction;
+
+private slots:
+    void installFreeConfiguration();
+    void installNonFreeConfiguration();
+    void showContextMenuForTreeWidget( const QPoint& );
+    void installConfiguration();
+    void removeConfiguration();
+    void reinstallConfiguration();
 };
 
-#endif // PAGETIMEDATE_H
+#endif // MHWDMODULE_H

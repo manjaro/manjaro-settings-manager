@@ -5,7 +5,7 @@ file(GLOB MSM_MHWD_GLOB
 
 set(MSM_MHWD_SRCS
     ${MSM_MHWD_GLOB}
-    PageMhwd.cpp
+    MhwdModule.cpp
     libmhwd/mhwd.cpp
     libmhwd/vita/string.cpp
     ../common/ActionDialog.cpp
