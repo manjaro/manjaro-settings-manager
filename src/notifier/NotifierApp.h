@@ -18,37 +18,24 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "NotifierApp.h"
+#ifndef NOTIFIERAPP_H
+#define NOTIFIERAPP_H
 
-#include <QtGui/QIcon>
+#include <QtWidgets/QApplication>
 
-#include <QDebug>
+#define APP NotifierApp::instance()
 
-NotifierApp::NotifierApp( int& argc, char* argv[] )
-    : QApplication( argc, argv )
+class NotifierApp : public QApplication
 {
-    setOrganizationName( "Manjaro" );
-    setOrganizationDomain( "Manjaro" );
-    setApplicationName( "MSM Notifier" );
-    setApplicationVersion( "0.5.0" );
-}
+    Q_OBJECT
+    
+public:
+    NotifierApp( int& argc, char* argv[] );
+    virtual ~NotifierApp();
 
+    void init();
+    static NotifierApp* instance();
+};
 
-NotifierApp::~NotifierApp()
-{
-    qDebug() << "Shutting down MSM Notifier...";
-}
+#endif //NOTIFIERAPP_H
 
-
-void
-NotifierApp::init()
-{
-    setWindowIcon( QIcon::fromTheme( "preferences-system" ) );
-}
-
-
-NotifierApp*
-NotifierApp::instance()
-{
-    return qobject_cast<NotifierApp*>( QApplication::instance() );
-}

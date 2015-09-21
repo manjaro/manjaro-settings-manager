@@ -23,59 +23,43 @@
 #include "../modules/kernel/Kernel.h"
 #include "../modules/kernel/KernelModel.h"
 
-#include <KNotification>
-
 #include <QtCore/QFile>
+#include <QDebug>
 
-Daemon::Daemon( QObject* parent ) :
+Notifier::Notifier( QObject* parent ) :
     QTimer( parent )
 {
     // Set Interval to 60 minutes
     setInterval( 3600000 );
 
-    connect( this, &Daemon::timeout,
-             this, &Daemon::run );
+    connect( this, &Notifier::timeout,
+             this, &Notifier::run );
     connect( &trayIcon, &QSystemTrayIcon::activated,
-             this, &Daemon::trayIconClicked );
+             this, &Notifier::trayIconClicked );
     connect( &trayIcon, &QSystemTrayIcon::messageClicked,
-             this, &Daemon::trayIconClicked );
+             this, &Notifier::trayIconClicked );
     connect( &kernelTrayIcon, &QSystemTrayIcon::activated,
-             this, &Daemon::kernelTrayIconClicked );
+             this, &Notifier::kernelTrayIconClicked );
     connect( &kernelTrayIcon, &QSystemTrayIcon::messageClicked,
-             this, &Daemon::kernelTrayIconClicked );
+             this, &Notifier::kernelTrayIconClicked );
 }
 
 
 void
-Daemon::start()
+Notifier::start()
 {
+    qDebug() << QSystemTrayIcon::supportsMessages();
     if ( isActive() )
         return;
-    QTimer::singleShot( 20, this, SLOT( check() ) );
 
+    QTimer::singleShot(20, this, SLOT(run()));
+    QTimer::singleShot(40, this, SLOT(runKernel()));
     QTimer::start();
 }
 
 
 void
-Daemon::check()
-{
-    qDebug() << "check";
-    KNotification* notification= new KNotification ( "contactOnline" );
-    notification->setText( "The contact <i>%1</i> has gone online" );
-    //notification->setPixmap( contact->pixmap() );
-    notification->setActions( QStringList( "Open chat" ) );
-    /*foreach( const QString &group , contact->groups() ) {
-    notification->addContext( "group" , group ) ;
-    }*/
-    //connect(notification, SIGNAL(activated(unsigned int )), contact , SLOT(slotOpenChat()) );
-    notification->sendEvent();
-
-}
-
-
-void
-Daemon::run()
+Notifier::run()
 {
     loadConfiguration();
     if ( checkLanguagePackage )
@@ -84,7 +68,7 @@ Daemon::run()
 
 
 void
-Daemon::runKernel()
+Notifier::runKernel()
 {
     loadConfiguration();
     if ( checkKernel && Global::isSystemUpToDate() && hasPacmanEverSynced() )
@@ -93,7 +77,7 @@ Daemon::runKernel()
 
 
 void
-Daemon::cLanguagePackage()
+Notifier::cLanguagePackage()
 {
     // Check if language packages are available
     QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
@@ -112,6 +96,8 @@ Daemon::cLanguagePackage()
         if ( !trayIcon.isVisible() )
         {
             trayIcon.setIcon( QIcon( ":/images/resources/language.png" ) );
+
+
             trayIcon.show();
             int packagesCount = packages.size();
             QString messageText = QString( tr( "%n new additional language package(s) available", "", packagesCount ) );
@@ -132,9 +118,9 @@ Daemon::cLanguagePackage()
 
 
 void
-Daemon::cKernel()
+Notifier::cKernel()
 {
-    Daemon::KernelFlags kernelFlags;
+    Notifier::KernelFlags kernelFlags;
     KernelModel kernelModel;
     kernelModel.update();
 
@@ -255,7 +241,7 @@ Daemon::cKernel()
 
 
 void
-Daemon::showMessage( QString messageTitle, QString messageText )
+Notifier::showMessage( QString messageTitle, QString messageText )
 {
     this->messageTitle = messageTitle;
     this->messageText = messageText;
@@ -264,7 +250,7 @@ Daemon::showMessage( QString messageTitle, QString messageText )
 
 
 void
-Daemon::showKernelMessage( QString messageTitle, QString messageText )
+Notifier::showKernelMessage( QString messageTitle, QString messageText )
 {
     this->kernelMessageTitle = messageTitle;
     this->kernelMessageText = messageText;
@@ -273,7 +259,7 @@ Daemon::showKernelMessage( QString messageTitle, QString messageText )
 
 
 void
-Daemon::trayIconClicked()
+Notifier::trayIconClicked()
 {
     // Restart timer
     stop();
@@ -287,7 +273,7 @@ Daemon::trayIconClicked()
 
 
 void
-Daemon::kernelTrayIconClicked()
+Notifier::kernelTrayIconClicked()
 {
     // Restart timer
     stop();
@@ -301,21 +287,21 @@ Daemon::kernelTrayIconClicked()
 
 
 void
-Daemon::trayIconShowMessage()
+Notifier::trayIconShowMessage()
 {
     trayIcon.showMessage( messageTitle, messageText, QSystemTrayIcon::Information, 30000 );
 }
 
 
 void
-Daemon::kernelTrayIconShowMessage()
+Notifier::kernelTrayIconShowMessage()
 {
     kernelTrayIcon.showMessage( kernelMessageTitle, kernelMessageText, QSystemTrayIcon::Information, 30000 );
 }
 
 
 void
-Daemon::loadConfiguration()
+Notifier::loadConfiguration()
 {
     QSettings settings( "/root/.config/manjaro/manjaro-settings-manager.conf",
                         QSettings::IniFormat );
@@ -330,9 +316,9 @@ Daemon::loadConfiguration()
 
 
 bool
-Daemon::isPackageIgnored( const QString package, const QString group )
+Notifier::isPackageIgnored( const QString package, const QString group )
 {
-    QSettings settings( "manjaro", "manjaro-settings-manager-daemon" );
+    QSettings settings( "manjaro", "manjaro-settings-manager-Notifier" );
     settings.beginGroup( group );
     int value = settings.value( "notify_count_" + package, "0" ).toInt();
     settings.endGroup();
@@ -341,9 +327,9 @@ Daemon::isPackageIgnored( const QString package, const QString group )
 
 
 void
-Daemon::addToConfig( const QString package, const QString group )
+Notifier::addToConfig( const QString package, const QString group )
 {
-    QSettings settings( "manjaro", "manjaro-settings-manager-daemon" );
+    QSettings settings( "manjaro", "manjaro-settings-manager-Notifier" );
     settings.beginGroup( group );
     int value = settings.value( "notify_count_" + package, "0" ).toInt();
     ++value;
@@ -354,7 +340,7 @@ Daemon::addToConfig( const QString package, const QString group )
 
 
 bool
-Daemon::hasPacmanEverSynced()
+Notifier::hasPacmanEverSynced()
 {
     QString path( "/var/lib/pacman/sync/" );
     QStringList files = QStringList() << "core.db" << "community.db" << "extra.db";

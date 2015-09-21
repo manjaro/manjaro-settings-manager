@@ -1,6 +1,6 @@
 /*
  *  Manjaro Settings Manager
- *  Ramon Buldó <ramon@manjaro.org>
+ *  Ramon Buldó <rbuldo@gmail.com>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -19,36 +19,30 @@
  */
 
 #include "NotifierApp.h"
+#include "Notifier.h"
 
-#include <QtGui/QIcon>
+#include <QtWidgets/QApplication>
+#include <QtCore/QTranslator>
+#include <QtCore/QFile>
+#include <QtCore/QDir>
 
 #include <QDebug>
 
-NotifierApp::NotifierApp( int& argc, char* argv[] )
-    : QApplication( argc, argv )
+int main( int argc, char* argv[] )
 {
-    setOrganizationName( "Manjaro" );
-    setOrganizationDomain( "Manjaro" );
-    setApplicationName( "MSM Notifier" );
-    setApplicationVersion( "0.5.0" );
+    NotifierApp app( argc, argv );
+
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msmd_" + QLocale::system().name() );
+    app.installTranslator( &appTranslator );
+    /*if (app.isRunning()) {
+        std::cerr << "warning: an instance of the application is already running..." << endl;
+        return 0;
+    }*/
+
+    app.init();
+    Notifier notifier( &app );
+    notifier.start();
+    return app.exec();
 }
 
-
-NotifierApp::~NotifierApp()
-{
-    qDebug() << "Shutting down MSM Notifier...";
-}
-
-
-void
-NotifierApp::init()
-{
-    setWindowIcon( QIcon::fromTheme( "preferences-system" ) );
-}
-
-
-NotifierApp*
-NotifierApp::instance()
-{
-    return qobject_cast<NotifierApp*>( QApplication::instance() );
-}

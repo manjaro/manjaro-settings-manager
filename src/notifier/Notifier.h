@@ -33,12 +33,12 @@
 #include <QSystemTrayIcon>
 #include <global.h>
 
-class Daemon : public QTimer
+class Notifier : public QTimer
 {
     Q_OBJECT
 
 public:
-    explicit Daemon( QObject* parent = 0 );
+    explicit Notifier( QObject* parent = 0 );
     void start();
 
     enum KernelFlag
@@ -68,7 +68,6 @@ private:
     bool hasPacmanEverSynced();
 
 protected slots:
-    void check();
     void run();
     void runKernel();
     void trayIconClicked();
@@ -79,6 +78,6 @@ protected slots:
 
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS( Daemon::KernelFlags )
+Q_DECLARE_OPERATORS_FOR_FLAGS( Notifier::KernelFlags )
 
 #endif // NOTIFIER_H
