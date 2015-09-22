@@ -33,4 +33,4 @@ install( TARGETS msm_bin
     # BUNDLE DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
-install(FILES msm.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+# install(FILES msm.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
