@@ -99,6 +99,24 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
         this->changed();
     } );
 
+
+	//setting the current values for delay and rate 
+	ui -> sliderDelay -> setValue(this -> getKeyboardDelay());
+	ui -> sliderRate -> setValue(this -> getKeyboardRate());
+	ui -> label_2 -> setText(QString::number(this -> getKeyboardDelay()));
+	ui -> label_3 -> setText(QString::number(this -> getKeyboardRate()));
+	//adding signals and slots for the delay and rate slider 
+	connect( ui -> sliderDelay, &QSlider::valueChanged,
+		[=] ( int value ){
+			ui -> label_2 -> setText(QString::number(value));
+			this -> changed();
+	});
+	connect( ui -> sliderRate, &QSlider::valueChanged,
+		[=] (int value){
+			ui -> label_3 -> setText(QString::number(value));
+			this -> changed();
+	});
+
     m_keyboardProxyModel->setSourceModel( m_keyboardModel );
     m_keyboardProxyModel->setSortLocaleAware( true );
     m_keyboardProxyModel->setSortRole( KeyboardModel::DescriptionRole );
@@ -160,6 +178,7 @@ void
 PageKeyboard::save()
 {
     setKeyboardLayout();
+	configureKeystroke();
 }
 
 
@@ -169,8 +188,21 @@ PageKeyboard::defaults()
     setLayoutsListViewIndex( m_currentLayout );
     setVariantsListViewIndex( m_currentVariant );
     setModelComboBoxIndex( m_currentModel );
+	ui -> sliderDelay -> setValue(this -> getKeyboardDelay());
+	ui -> sliderRate -> setValue(this -> getKeyboardRate());
+	ui -> label_2 -> setText(QString::number(this -> getKeyboardDelay()));
+	ui -> label_3 -> setText(QString::number(this -> getKeyboardRate()));
 }
 
+
+void PageKeyboard::configureKeystroke()
+{
+	int delay = ui -> sliderDelay -> value();
+	int rate  = ui -> sliderRate  -> value();
+	char command[100];
+	sprintf(command,"xset r rate %d %d",delay,rate);
+	system(command);
+}
 
 void
 PageKeyboard::setKeyboardLayout()
@@ -283,6 +315,22 @@ PageKeyboard::setModelComboBoxIndex( const QString& model )
     }
     else
         qDebug() << QString( "Can't find the keyboard model %1" ).arg( model );
+}
+
+int PageKeyboard::getKeyboardDelay(){
+	FILE * file = popen("xset q | grep rate","r");
+	int delay,rate;
+	fscanf(file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate);
+	pclose(file);
+	return delay;
+}
+
+int PageKeyboard::getKeyboardRate(){
+	FILE * file = popen("xset q | grep rate","r");
+	int delay,rate;
+	fscanf(file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate);
+	pclose(file);
+	return rate;
 }
 
 #include "KeyboardModule.moc"
