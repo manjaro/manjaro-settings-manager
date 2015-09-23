@@ -78,9 +78,13 @@ private:
     QString m_currentModel;
 
     void setKeyboardLayout();
+	void configureKeystroke();
     void setLayoutsListViewIndex( const QString& layout );
     void setVariantsListViewIndex( const QString& variant );
     void setModelComboBoxIndex( const QString& model );
+
+	int getKeyboardRate();
+	int getKeyboardDelay();
 };
 
 #endif // KEYBOARDMODULE_H
