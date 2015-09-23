@@ -32,6 +32,10 @@ class KernelAuthHelper : public QObject
 public Q_SLOTS:
     ActionReply install( const QVariantMap& args );
     ActionReply remove( const QVariantMap& args );
+
+private:
+    ActionReply runPacman( const QVariantMap& args);
+    ActionReply actionReply;
 };
 
 #endif // KERNELAUTHHELPER_H

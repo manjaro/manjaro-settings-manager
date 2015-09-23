@@ -134,7 +134,7 @@ PageKernel::installKernel( const QModelIndex& index )
     }
 
     QStringList arguments;
-    arguments << "--noconfirm" << "-S" << packageList;
+    arguments << "--noconfirm" << "--noprogressbar" << "-S" << packageList;
     QVariantMap args;
     args["arguments"] = arguments;
     KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.install" ) );
@@ -171,7 +171,7 @@ PageKernel::removeKernel( const QModelIndex& index )
     }
 
     QStringList arguments;
-    arguments << "--noconfirm" << "-R" << packageList;
+    arguments << "--noconfirm" << "--noprogressbar" << "-R" << packageList;
     QVariantMap args;
     args["arguments"] = arguments;
     KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.remove" ) );

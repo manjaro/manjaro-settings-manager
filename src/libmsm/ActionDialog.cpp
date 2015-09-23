@@ -75,7 +75,8 @@ ActionDialog::startJob()
         m_jobSuccesful = true;
     else
         m_jobSuccesful = false;
-
+    m_terminal->append( QString( "\n" ) );
+    m_terminal->append( QString( tr( "Done ..." ) ) );
     m_buttonBox->setStandardButtons( QDialogButtonBox::Close );
 }
 

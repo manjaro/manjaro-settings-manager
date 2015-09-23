@@ -25,34 +25,33 @@
 ActionReply
 KernelAuthHelper::install( const QVariantMap& args )
 {
-    QProcess* pacman = new QProcess();
-    pacman->start( "/usr/bin/pacman", args["arguments"].toStringList() );
-    connect( pacman, &QProcess::readyRead,
-             [=] ()
-    {
-        QString data = QString::fromUtf8( pacman->readAll() ).trimmed();
-        if ( !data.isEmpty() )
-        {
-            QVariantMap map;
-            map.insert( QLatin1String( "Data" ), data );
-            HelperSupport::progressStep( map );
-        }
-    } );
-    pacman->waitForStarted();
-    pacman->waitForFinished( -1 );
-    return ActionReply::SuccessReply();
+    return runPacman( args );
 }
 
 
 ActionReply
 KernelAuthHelper::remove( const QVariantMap& args )
 {
+    return runPacman( args );
+}
+
+
+ActionReply
+KernelAuthHelper::runPacman( const QVariantMap& args )
+{
     QProcess* pacman = new QProcess();
     pacman->start( "/usr/bin/pacman", args["arguments"].toStringList() );
+    actionReply = ActionReply::SuccessType;
     connect( pacman, &QProcess::readyRead,
              [=] ()
     {
-        QString data = QString::fromUtf8( pacman->readAll() ).trimmed();
+        QString data = QString::fromUtf8( pacman->readAllStandardOutput() ).trimmed();
+        QString dataErr = QString::fromUtf8( pacman->readAllStandardError() ).trimmed();
+        if ( !dataErr.isEmpty() )
+        {
+            actionReply = ActionReply::HelperErrorType;
+            data.append( "\n" ).append( dataErr );
+        }
         if ( !data.isEmpty() )
         {
             QVariantMap map;
@@ -62,7 +61,7 @@ KernelAuthHelper::remove( const QVariantMap& args )
     } );
     pacman->waitForStarted();
     pacman->waitForFinished( -1 );
-    return ActionReply::SuccessReply();
+    return actionReply;
 }
 
 KAUTH_HELPER_MAIN( "org.manjaro.msm.kernel", KernelAuthHelper )
