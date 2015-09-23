@@ -202,6 +202,12 @@ void PageKeyboard::configureKeystroke()
 	char command[100];
 	sprintf(command,"xset r rate %d %d",delay,rate);
 	system(command);
+	//Also adding this command to .xinitrc in case the system reboots
+	QFile file ("~/.xinitrc");
+	file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text);
+	QTextStream out(&file);
+	out << "\nexec " << command;
+	file.close();
 }
 
 void
