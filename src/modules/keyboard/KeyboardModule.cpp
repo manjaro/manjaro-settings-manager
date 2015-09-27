@@ -32,6 +32,9 @@
 #include <QtCore/QMapIterator>
 #include <QtWidgets/QMessageBox>
 
+#include <fstream>
+#include <iostream>
+
 #include <QDebug>
 
 #include <KPluginFactory>
@@ -202,6 +205,30 @@ void PageKeyboard::configureKeystroke()
 	char command[100];
 	sprintf(command,"xset r rate %d %d",delay,rate);
 	system(command);
+	//time to make the changes persistant throughout the reboot
+	bool added_to_xinitrc = false;
+	std::ifstream filein("~/.xinitrc");
+	std::string buffer;
+	std::string new_xinitrc;
+	std::string prefix = "xset r rate";
+	while(std::getline(filein,buffer))
+	{
+		qDebug() << buffer.c_str();
+		//condition to check if xset prev defined
+		if(buffer.substr(0,prefix.length()) == prefix){
+			buffer = command;
+			added_to_xinitrc = true;
+		}
+		new_xinitrc = new_xinitrc + buffer + "\n";
+	}
+	filein.close();
+	if(!added_to_xinitrc){
+		new_xinitrc = new_xinitrc + command + "\n";
+	}
+	qDebug() << new_xinitrc.c_str();
+	std::ofstream fileout("~/.xinitrc",std::ios_base::app);
+	fileout.write(new_xinitrc.c_str(),new_xinitrc.length());
+	fileout.close();
 }
 
 void
