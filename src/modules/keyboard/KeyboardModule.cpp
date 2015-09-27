@@ -103,22 +103,24 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     } );
 
 
-	//setting the current values for delay and rate 
-	ui -> sliderDelay -> setValue(this -> getKeyboardDelay());
-	ui -> sliderRate -> setValue(this -> getKeyboardRate());
-	ui -> label_2 -> setText(QString::number(this -> getKeyboardDelay()));
-	ui -> label_3 -> setText(QString::number(this -> getKeyboardRate()));
-	//adding signals and slots for the delay and rate slider 
-	connect( ui -> sliderDelay, &QSlider::valueChanged,
-		[=] ( int value ){
-			ui -> label_2 -> setText(QString::number(value));
-			this -> changed();
-	});
-	connect( ui -> sliderRate, &QSlider::valueChanged,
-		[=] (int value){
-			ui -> label_3 -> setText(QString::number(value));
-			this -> changed();
-	});
+    //setting the current values for delay and rate
+    ui -> sliderDelay -> setValue( this -> getKeyboardDelay() );
+    ui -> sliderRate -> setValue( this -> getKeyboardRate() );
+    ui -> label_2 -> setText( QString::number( this -> getKeyboardDelay() ) );
+    ui -> label_3 -> setText( QString::number( this -> getKeyboardRate() ) );
+    //adding signals and slots for the delay and rate slider
+    connect( ui -> sliderDelay, &QSlider::valueChanged,
+             [=] ( int value )
+    {
+        ui -> label_2 -> setText( QString::number( value ) );
+        this -> changed();
+    } );
+    connect( ui -> sliderRate, &QSlider::valueChanged,
+             [=] ( int value )
+    {
+        ui -> label_3 -> setText( QString::number( value ) );
+        this -> changed();
+    } );
 
     m_keyboardProxyModel->setSourceModel( m_keyboardModel );
     m_keyboardProxyModel->setSortLocaleAware( true );
@@ -181,7 +183,7 @@ void
 PageKeyboard::save()
 {
     setKeyboardLayout();
-	configureKeystroke();
+    configureKeystroke();
 }
 
 
@@ -191,44 +193,44 @@ PageKeyboard::defaults()
     setLayoutsListViewIndex( m_currentLayout );
     setVariantsListViewIndex( m_currentVariant );
     setModelComboBoxIndex( m_currentModel );
-	ui -> sliderDelay -> setValue(this -> getKeyboardDelay());
-	ui -> sliderRate -> setValue(this -> getKeyboardRate());
-	ui -> label_2 -> setText(QString::number(this -> getKeyboardDelay()));
-	ui -> label_3 -> setText(QString::number(this -> getKeyboardRate()));
+    ui -> sliderDelay -> setValue( this -> getKeyboardDelay() );
+    ui -> sliderRate -> setValue( this -> getKeyboardRate() );
+    ui -> label_2 -> setText( QString::number( this -> getKeyboardDelay() ) );
+    ui -> label_3 -> setText( QString::number( this -> getKeyboardRate() ) );
 }
 
 
 void PageKeyboard::configureKeystroke()
 {
-	int delay = ui -> sliderDelay -> value();
-	int rate  = ui -> sliderRate  -> value();
-	char command[100];
-	sprintf(command,"xset r rate %d %d",delay,rate);
-	system(command);
-	//time to make the changes persistant throughout the reboot
-	bool added_to_xinitrc = false;
-	std::ifstream filein("~/.xinitrc");
-	std::string buffer;
-	std::string new_xinitrc;
-	std::string prefix = "xset r rate";
-	while(std::getline(filein,buffer))
-	{
-		qDebug() << buffer.c_str();
-		//condition to check if xset prev defined
-		if(buffer.substr(0,prefix.length()) == prefix){
-			buffer = command;
-			added_to_xinitrc = true;
-		}
-		new_xinitrc = new_xinitrc + buffer + "\n";
-	}
-	filein.close();
-	if(!added_to_xinitrc){
-		new_xinitrc = new_xinitrc + command + "\n";
-	}
-	qDebug() << new_xinitrc.c_str();
-	std::ofstream fileout("~/.xinitrc",std::ios_base::app);
-	fileout.write(new_xinitrc.c_str(),new_xinitrc.length());
-	fileout.close();
+    int delay = ui -> sliderDelay -> value();
+    int rate  = ui -> sliderRate  -> value();
+    char command[100];
+    sprintf( command,"xset r rate %d %d",delay,rate );
+    system( command );
+    //time to make the changes persistant throughout the reboot
+    bool added_to_xinitrc = false;
+    std::ifstream filein( "~/.xinitrc" );
+    std::string buffer;
+    std::string new_xinitrc;
+    std::string prefix = "xset r rate";
+    while ( std::getline( filein,buffer ) )
+    {
+        qDebug() << buffer.c_str();
+        //condition to check if xset prev defined
+        if ( buffer.substr( 0,prefix.length() ) == prefix )
+        {
+            buffer = command;
+            added_to_xinitrc = true;
+        }
+        new_xinitrc = new_xinitrc + buffer + "\n";
+    }
+    filein.close();
+    if ( !added_to_xinitrc )
+        new_xinitrc = new_xinitrc + command + "\n";
+    qDebug() << new_xinitrc.c_str();
+    std::ofstream fileout( "~/.xinitrc",std::ios_base::app );
+    fileout.write( new_xinitrc.c_str(),new_xinitrc.length() );
+    fileout.close();
 }
 
 void
@@ -344,20 +346,22 @@ PageKeyboard::setModelComboBoxIndex( const QString& model )
         qDebug() << QString( "Can't find the keyboard model %1" ).arg( model );
 }
 
-int PageKeyboard::getKeyboardDelay(){
-	FILE * file = popen("xset q | grep rate","r");
-	int delay,rate;
-	fscanf(file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate);
-	pclose(file);
-	return delay;
+int PageKeyboard::getKeyboardDelay()
+{
+    FILE* file = popen( "xset q | grep rate","r" );
+    int delay,rate;
+    fscanf( file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate );
+    pclose( file );
+    return delay;
 }
 
-int PageKeyboard::getKeyboardRate(){
-	FILE * file = popen("xset q | grep rate","r");
-	int delay,rate;
-	fscanf(file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate);
-	pclose(file);
-	return rate;
+int PageKeyboard::getKeyboardRate()
+{
+    FILE* file = popen( "xset q | grep rate","r" );
+    int delay,rate;
+    fscanf( file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate );
+    pclose( file );
+    return rate;
 }
 
 #include "KeyboardModule.moc"
