@@ -27,6 +27,8 @@
 
 #include <KCModule>
 
+#include <QtWidgets/QCheckBox>
+
 class PageKernel : public KCModule
 {
     Q_OBJECT
@@ -68,6 +70,12 @@ private:
     KernelInfoDialog* m_kernelInfoDialog;
     void installKernel( const QModelIndex& index );
     void removeKernel( const QModelIndex& index );
+
+    QCheckBox* m_checkUnsupportedKernelBox;
+    QCheckBox* m_checkUnsupportedKernelRunningBox;
+    QCheckBox* m_checkNewKernelBox;
+    QCheckBox* m_checkNewKernelLtsBox;
+    QCheckBox* m_checkNewKernelRecommendedBox;
 };
 
 #endif // KERNELMODULE_H

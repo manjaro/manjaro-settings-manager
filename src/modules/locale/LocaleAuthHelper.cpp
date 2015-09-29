@@ -128,8 +128,7 @@ LocaleAuthHelper::generateLocaleGen()
     connect( &localeGen, &QProcess::readyRead,
              [&] ()
     {
-        QString data = QString::fromUtf8( localeGen.readAll() )
-                       .trimmed();
+        QString data = QString::fromUtf8( localeGen.readAll() ).trimmed();
         if ( !data.isEmpty() )
         {
             QVariantMap map;

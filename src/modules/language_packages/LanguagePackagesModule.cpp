@@ -31,6 +31,7 @@
 #include <QtCore/QJsonDocument>
 #include <QtCore/QProcess>
 #include <QtCore/QDebug>
+#include <QtCore/QSettings>
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmLanguagePackagesFactory,
@@ -66,14 +67,17 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent, const QVariantList&
     ui->treeWidgetInstalled->setColumnWidth( 0, 300 );
     ui->treeWidgetInstalled->setColumnWidth( 1, 300 );
 
-    connect( ui->treeWidgetAvailable, &QTreeWidget::clicked,
-             [=] ( const QModelIndex &index )
-    {
-        if ( index.isValid() )
-            emit changed( true );
-    } );
     connect( ui->installPackagesButton, &QPushButton::clicked,
-             this, &PageLanguagePackages::save );
+             this, &PageLanguagePackages::installPackages );
+
+    connect( ui->checkLanguagePackage, &QCheckBox::stateChanged,
+             [=] ()
+    {
+        QSettings settings( "manjaro", "manjaro-settings-manager" );
+        settings.setValue( "notifications/checkLanguagePackages",
+                           ui->checkLanguagePackage->isChecked() );
+        settings.sync();
+    } );
 }
 
 
@@ -86,7 +90,14 @@ PageLanguagePackages::~PageLanguagePackages()
 void
 PageLanguagePackages::load()
 {
-    // Clean up first
+    loadLanguagePackages();
+    loadNotificationsSettings();
+}
+
+
+void
+PageLanguagePackages::loadLanguagePackages()
+{
     ui->treeWidgetAvailable->clear();
     ui->treeWidgetInstalled->clear();
 
@@ -109,7 +120,22 @@ PageLanguagePackages::load()
 
 
 void
+PageLanguagePackages::loadNotificationsSettings()
+{
+    QSettings settings( "manjaro", "manjaro-settings-manager" );
+    bool checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
+    ui->checkLanguagePackage->setChecked( checkLanguagePackage );
+}
+
+
+void
 PageLanguagePackages::save()
+{
+}
+
+
+void
+PageLanguagePackages::installPackages()
 {
     // Check if system is up-to-date
     if ( !isSystemUpToDate() )
@@ -154,7 +180,7 @@ PageLanguagePackages::save()
 void
 PageLanguagePackages::defaults()
 {
-    this->load();
+    ui->checkLanguagePackage->setChecked( true );
 }
 
 

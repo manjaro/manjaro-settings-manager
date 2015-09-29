@@ -76,6 +76,9 @@ public:
 private:
     Ui::PageLanguagePackages* ui;
 
+    void loadLanguagePackages();
+    void loadNotificationsSettings();
+    void installPackages();
     void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<Global::LanguagePackage>* languagePackages, bool checkable );
     bool isSystemUpToDate();
 
