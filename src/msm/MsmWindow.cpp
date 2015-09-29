@@ -73,8 +73,7 @@ void
 MsmWindow::init()
 {
     QStringList moduleList = QStringList() << "msm_kernel" << "msm_keyboard" << "msm_language_packages"
-                             << "msm_locale" << "msm_mhwd" << "msm_notifications"
-                             << "msm_timedate" << "msm_users";
+                             << "msm_locale" << "msm_mhwd" << "msm_timedate" << "msm_users";
     for ( QString module : moduleList )
         m_moduleInfoList.insert( module, new KCModuleInfo( module ) );
 }
