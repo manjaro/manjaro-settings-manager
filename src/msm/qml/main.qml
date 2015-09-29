@@ -37,11 +37,6 @@ GridView {
             module: "msm_mhwd"
         }
         ListElement {
-            name: "Notifications"
-            portrait: "tux-manjaro.png"
-            module: "msm_notifications"
-        }
-        ListElement {
             name: "Timedate"
             portrait: "tux-manjaro.png"
             module: "msm_timedate"
