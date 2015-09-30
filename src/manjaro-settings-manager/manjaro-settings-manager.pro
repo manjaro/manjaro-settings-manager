@@ -126,6 +126,7 @@ TRANSLATIONS += translations/msm_ar.ts \
                 translations/msm_es.ts \
                 translations/msm_fa.ts \
                 translations/msm_fa_IR.ts \
+                translations/msm_fi.ts \
                 translations/msm_fo.ts \
                 translations/msm_fr.ts \
                 translations/msm_gl.ts \

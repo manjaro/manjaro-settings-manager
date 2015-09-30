@@ -39,6 +39,7 @@ TRANSLATIONS += translations/msmd_ar.ts \
                 translations/msmd_es.ts \
                 translations/msmd_fa.ts \
                 translations/msmd_fa_IR.ts \
+                translations/msmd_fi.ts \
                 translations/msmd_fo.ts \
                 translations/msmd_fr.ts \
                 translations/msmd_he.ts \

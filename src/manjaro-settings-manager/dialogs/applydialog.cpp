@@ -21,6 +21,8 @@
 #include "applydialog.h"
 #include "ui_applydialog.h"
 
+#include <QtCore/QRegularExpression>
+
 ApplyDialog::ApplyDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ApplyDialog)
@@ -133,5 +135,5 @@ void ApplyDialog::process_readyRead() {
     QString data = QString::fromUtf8(process.readAll()).trimmed();
 
     if (!data.isEmpty())
-        ui->textEdit->append(data);
+        ui->textEdit->append(data.remove(QRegularExpression("\x1b[^m]*m")));
 }
