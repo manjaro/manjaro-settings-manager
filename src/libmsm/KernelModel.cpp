@@ -324,7 +324,7 @@ KernelModel::getRunningKernel() const
 QStringList
 KernelModel::getLtsKernels() const
 {
-    return QStringList() << "linux310" << "linux312" << "linux314" << "linux41";
+    return QStringList() << "linux310" << "linux312" << "linux314" << "linux318" << "linux41";
 }
 
 
