@@ -64,7 +64,8 @@ void Daemon::start()
 void Daemon::run()
 {
     loadConfiguration();
-    if (checkLanguagePackage) {
+    if (checkLanguagePackage && Global::isSystemUpToDate() &&
+        !isPacmanUpdating() && hasPacmanEverSynced()) {
         cLanguagePackage();
     }
 }
@@ -73,7 +74,8 @@ void Daemon::run()
 void Daemon::runKernel()
 {
     loadConfiguration();
-    if (checkKernel && Global::isSystemUpToDate() && hasPacmanEverSynced()) {
+    if (checkKernel && Global::isSystemUpToDate() &&
+        !isPacmanUpdating() && hasPacmanEverSynced()) {
         cKernel();
     }
 }
@@ -325,4 +327,9 @@ bool Daemon::hasPacmanEverSynced()
     return true;
 }
 
+
+bool Daemon::isPacmanUpdating()
+{
+    return QFile::exists( "/var/lib/pacman/db.lck" );
+}
 
