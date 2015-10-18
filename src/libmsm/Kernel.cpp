@@ -217,3 +217,31 @@ Kernel::setRunning( const bool isRunning )
 {
     m_isRunning = isRunning;
 }
+
+QString Kernel::toString()
+{
+    return QString( "{"
+                    "package: '%1', "
+                    "version: '%2', "
+                    "majorVersion: '%3', "
+                    "minorVersion: '%4', "
+                    "installedModules: '%5', "
+                    "availableModules: '%6', "
+                    "isAvailable: '%7', "
+                    "isInstalled: '%8', "
+                    "isLts: '%9', "
+                    "isRecommended: '%10', "
+                    "isRunning: '%11', "
+                    "}" )
+           .arg( m_package )
+           .arg( m_version )
+           .arg( majorVersion() )
+           .arg( minorVersion() )
+           .arg( m_installedModules.join( ", " ) )
+           .arg( m_availableModules.join( ", " ) )
+           .arg( m_isAvailable )
+           .arg( m_isInstalled )
+           .arg( m_isLts )
+           .arg( m_isRecommended )
+           .arg( m_isRunning );
+}

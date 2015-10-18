@@ -61,6 +61,8 @@ public:
     void setRecommended( const bool isRecommended );
     void setRunning( const bool isRunning );
 
+    QString toString();
+
 private:
     QString m_package;
     QString m_version;
