@@ -58,6 +58,7 @@ private:
     void addToConfig( const QString package, const QString group );
 
     bool hasPacmanEverSynced();
+    bool isPacmanUpdating();
 
 protected slots:
     void run();
