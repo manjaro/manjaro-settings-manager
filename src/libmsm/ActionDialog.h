@@ -58,6 +58,8 @@ private:
     QString m_message;
     QString m_information;
     bool m_jobSuccesful;
+
+    QString m_last_message;
 };
 
 #endif // ACTIONDIALOG_H

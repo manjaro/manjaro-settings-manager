@@ -69,7 +69,12 @@ ActionDialog::startJob()
              [=] ( const QVariantMap &data )
     {
         QString output = data.value( "Data" ).toString();
-        m_terminal->append( output.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
+        if ( output != m_last_message )
+        {
+            m_terminal->append( output.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
+            m_last_message = output;
+        }
+
     } );
     if ( job->exec() )
         m_jobSuccesful = true;

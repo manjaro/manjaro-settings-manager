@@ -161,7 +161,7 @@ PageLanguagePackages::installPackages()
     if ( !packages.isEmpty() )
     {
         QStringList arguments;
-        arguments << "--noconfirm" << "--noprogress" << "-S" << packages;
+        arguments << "--noconfirm" << "--noprogressbar" << "-S" << packages;
         QVariantMap args;
         args["arguments"] = arguments;
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.languagepackages.install" ) );
