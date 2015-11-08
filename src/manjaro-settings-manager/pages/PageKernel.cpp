@@ -99,7 +99,7 @@ void PageKernel::installKernel(const QModelIndex &index)
     if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         QString infoText = QString(tr("Installing new kernel."));
-        dialog.exec("pacman", QStringList() << "-S" << "--noconfirm" << package << packageList,
+        dialog.exec("pacman", QStringList() << "-S" << "--noconfirm" << "--noprogressbar" << package << packageList,
                     infoText, false);
         kernelModel->update();
     }
@@ -132,7 +132,7 @@ void PageKernel::removeKernel(const QModelIndex &index)
     if (reply == QMessageBox::Yes) {
         ApplyDialog dialog(this);
         QString infoText = QString(tr("Removing kernel..."));
-        dialog.exec("pacman", QStringList() << "-R" << "--noconfirm" << package << packageList,
+        dialog.exec("pacman", QStringList() << "-R" << "--noconfirm" << "--noprogressbar" << package << packageList,
                     infoText, false);
         kernelModel->update();
     }

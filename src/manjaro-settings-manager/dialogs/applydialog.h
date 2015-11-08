@@ -40,7 +40,7 @@ class ApplyDialog;
 class ApplyDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
     explicit ApplyDialog(QWidget *parent = 0);
     ~ApplyDialog();
@@ -49,13 +49,14 @@ public:
 
 public slots:
     int exec(QString cmd, QStringList arguments, QString infoText = "",bool skipCloseTimer = false);
-    
+
 private:
     Ui::ApplyDialog *ui;
     QProcess process;
     QTimer closeTimer;
     int closeSec;
     bool skipCloseTimer;
+    QString lastMessage;
 
 protected slots:
     void buttonCancel_clicked();

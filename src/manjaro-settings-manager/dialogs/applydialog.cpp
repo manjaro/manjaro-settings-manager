@@ -134,6 +134,14 @@ void ApplyDialog::closeTimer_timeout() {
 void ApplyDialog::process_readyRead() {
     QString data = QString::fromUtf8(process.readAll()).trimmed();
 
-    if (!data.isEmpty())
-        ui->textEdit->append(data.remove(QRegularExpression("\x1b[^m]*m")));
+    if (!data.isEmpty()) {
+        QStringList dataList = data.split(QRegularExpression("[\r\n]"), QString::SkipEmptyParts);
+        for(auto line : dataList) {
+            if (line != lastMessage) {
+                ui->textEdit->append(line.remove(QRegularExpression("\x1b[^m]*m")));
+                lastMessage = line;
+            }
+        }
+    }
+
 }
