@@ -72,7 +72,7 @@ void PageLanguagePackages::apply_clicked() {
     ApplyDialog dialog(this);
 
     // Update pacman databases first
-    dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogress" << "-Sy", tr("Updating pacman databases..."), true);
+    dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogressbar" << "-Sy", tr("Updating pacman databases..."), true);
 
     if (!dialog.processSuccess()) {
         emit closePage(this);
@@ -99,7 +99,7 @@ void PageLanguagePackages::apply_clicked() {
     }
 
     if (!packages.isEmpty())
-        dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogress" << "-S" << packages, tr("Installing language packages..."), false);
+        dialog.exec("pacman", QStringList() << "--noconfirm" << "--noprogressbar" << "-S" << packages, tr("Installing language packages..."), false);
 
     emit closePage(this);
 }
