@@ -18,6 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "IconThemeImageProvider.h"
 #include "MsmWindow.h"
 #include "ModuleView.h"
 
@@ -36,7 +37,12 @@ MsmWindow::MsmWindow( QWidget* parent ) :
     m_stackedWidget = new QStackedWidget( this );
     setCentralWidget( m_stackedWidget );
 
-    QQuickView* view = new QQuickView();
+    QQuickView* view = new QQuickView;
+
+    QQmlEngine* engine = view->engine();
+    engine->addImageProvider( QLatin1String( "icon" ),
+                              new IconThemeImageProvider( QQuickImageProvider::Pixmap ) );
+
     m_menuView = QWidget::createWindowContainer( view, this );
     m_menuView->setFocusPolicy( Qt::TabFocus );
     view->setSource( QUrl( "qrc:/qml/main.qml" ) );

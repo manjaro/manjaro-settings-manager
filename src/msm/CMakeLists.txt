@@ -6,6 +6,7 @@ file(GLOB MSM_GLOB
 
 set(MSM_SRCS
     ${MSM_GLOB}
+    IconThemeImageProvider.cpp
     main.cpp
     ModuleView.cpp
     MsmApplication.cpp

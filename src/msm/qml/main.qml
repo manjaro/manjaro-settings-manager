@@ -13,37 +13,37 @@ GridView {
     model: ListModel {
         ListElement {
             name: "Kernel"
-            portrait: "tux-manjaro.png"
+            themeIcon: "image://icon/preferences-system"
             module: "msm_kernel"
         }
         ListElement {
             name: "Keyboard"
-            portrait: "tux-manjaro.png"
+            themeIcon: "image://icon/preferences-desktop-keyboard"
             module: "msm_keyboard"
         }
         ListElement {
             name: "Language Packages"
-            portrait: "tux-manjaro.png"
+            themeIcon: "image://icon/preferences-desktop-locale"
             module: "msm_language_packages"
         }
         ListElement {
             name: "Locale"
-            portrait: "tux-manjaro.png"
+            themeIcon: "image://icon/preferences-desktop-locale"
             module: "msm_locale"
         }
         ListElement {
             name: "MHWD"
-            portrait: "tux-manjaro.png"
+            themeIcon: "image://icon/audio-card"
             module: "msm_mhwd"
         }
         ListElement {
             name: "Timedate"
-            portrait: "tux-manjaro.png"
+            themeIcon: "image://icon/preferences-system-time"
             module: "msm_timedate"
         }
         ListElement {
             name: "Users"
-            portrait: "tux-manjaro.png"
+            themeIcon: "image://icon/preferences-desktop-user"
             module: "msm_users"
         }
     }
@@ -53,7 +53,7 @@ GridView {
 
         Image {
             id: icon
-            source: portrait
+            source: themeIcon
             anchors.horizontalCenter: parent.horizontalCenter
         }
         Text {
