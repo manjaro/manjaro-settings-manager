@@ -3,11 +3,13 @@ Name=Manjaro Settings Manager
 Name[de]=Manjaro Einstellungen
 Name[en_GB]=Manjaro Settings Manager
 Name[fr]=Manjaro Gestionnaire de paramètres
+Name[ro]=Gestionar de Setări Manjaro
 
 Comment=Graphical Settings Manager for Manjaro
 Comment[de]=Grafische Einstellungsverwaltung für Manjaro
 Comment[en_GB]=Graphical Settings Manager for Manjaro
 Comment[fr]=Gestionnaire graphique de paramètres pour Manjaro
+Comment[ro]=Gestionar grafic de setări de sistem pt. Manjaro
 
 Exec=manjaro-settings-manager -style=gtk
 Icon=preferences-desktop
