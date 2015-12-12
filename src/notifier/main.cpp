@@ -20,6 +20,7 @@
 
 #include "NotifierApp.h"
 #include "Notifier.h"
+#include "kdsingleapplicationguard/kdsingleapplicationguard.h"
 
 #include <QtWidgets/QApplication>
 #include <QtCore/QTranslator>
@@ -35,14 +36,20 @@ int main( int argc, char* argv[] )
     QTranslator appTranslator;
     appTranslator.load( ":/translations/msmd_" + QLocale::system().name() );
     app.installTranslator( &appTranslator );
-    /*if (app.isRunning()) {
-        std::cerr << "warning: an instance of the application is already running..." << endl;
-        return 0;
-    }*/
 
-    app.init();
-    Notifier notifier( &app );
-    notifier.start();
-    return app.exec();
+    KDSingleApplicationGuard guard( KDSingleApplicationGuard::AutoKillOtherInstances );
+
+    int returnCode = 0;
+    if ( guard.isPrimaryInstance() )
+    {
+        app.init();
+        Notifier notifier( &app );
+        notifier.start();
+        returnCode = app.exec();
+    }
+    else
+        qDebug() << "MSM Notifier is already running, shutting down.";
+
+    return returnCode;
 }
 

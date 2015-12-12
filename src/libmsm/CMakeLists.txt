@@ -4,7 +4,12 @@ set(LIBMSM_SRCS
     KernelModel.cpp
     LanguageCommon.cpp
     LanguagePackagesCommon.cpp
-    LanguagePackagesItem.cpp)
+    LanguagePackagesItem.cpp
+
+    kdsingleapplicationguard/kdsingleapplicationguard.cpp
+    kdsingleapplicationguard/kdsharedmemorylocker.cpp
+    kdsingleapplicationguard/kdtoolsglobal.cpp
+    kdsingleapplicationguard/kdlockedsharedmemorypointer.cpp)
 
 add_library (msm STATIC ${LIBMSM_SRCS})
 target_link_libraries (msm KF5::ConfigWidgets
