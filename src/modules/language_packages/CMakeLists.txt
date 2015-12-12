@@ -6,8 +6,6 @@ file(GLOB MSM_LANGUAGE_PACKAGES_GLOB
 
 set(MSM_LANGUAGE_PACKAGES_SRCS
     ${MSM_LANGUAGE_PACKAGES_GLOB}
-    global.cpp
-    LanguagePackagesItem.cpp
     LanguagePackagesModule.cpp)
 
 set(MSM_LANGUAGE_PACKAGES_RESOURCES

@@ -20,11 +20,16 @@
  */
 
 #include "global.h"
+#include "LanguageCommon.h"
 
-#include <QtCore/QProcessEnvironment>
-#include <QtNetwork/QNetworkInterface>
+#include <QtCore/QFile>
+#include <QtCore/QProcess>
+#include <QtCore/QDebug>
 
-bool Global::getLanguagePackages( QList<Global::LanguagePackage>* availablePackages, QList<Global::LanguagePackage>* installedPackages )
+bool
+Global::getLanguagePackages( QList<Global::LanguagePackage>* availablePackages,
+                             QList<Global::LanguagePackage>* installedPackages,
+                             QList<LanguagePackagesItem> lpiList )
 {
     QList<Global::LanguagePackage> languagePackages;
     QStringList parentPackages, checkLP;
@@ -36,33 +41,18 @@ bool Global::getLanguagePackages( QList<Global::LanguagePackage>* availablePacka
         return false;
     }
 
-    QFile file( LANGUAGE_PACKAGES_FILE );
-    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    for ( const auto& lpi : lpiList )
     {
-        qDebug() << "error: failed to open '" << LANGUAGE_PACKAGES_FILE << "'!";
-        return false;
-    }
-
-    QTextStream in( &file );
-    while ( !in.atEnd() )
-    {
-        QStringList split = in.readLine().split( "#", QString::KeepEmptyParts ).first().split( ":", QString::SkipEmptyParts );
-        if ( split.size() < 2 )
-            continue;
-
-        LanguagePackage lp;
-        lp.parentPackage = split.at( 0 ).trimmed();
-        lp.languagePackage = split.at( 1 ).trimmed();
-
-        if ( !lp.parentPackage.isEmpty() && !lp.languagePackage.isEmpty() )
+        for ( const auto parentPkg : lpi.parentPackages() )
         {
+            LanguagePackage lp;
+            lp.parentPackage = parentPkg;
+            lp.languagePackage = lpi.languagePackage();
             parentPackages.append( lp.parentPackage );
             languagePackages.append( lp );
         }
+
     }
-
-    file.close();
-
 
     // Keep only installed parent packages
     parentPackages = getAllInstalledPackages( parentPackages );
@@ -195,47 +185,33 @@ bool Global::getLanguagePackages( QList<Global::LanguagePackage>* availablePacka
 }
 
 
-
-bool Global::isSystemUpToDate()
+QStringList
+Global::getAllInstalledPackages( const QStringList& checkPackages )
 {
     QProcess process;
-    process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
-    process.start( "pacman", QStringList() << "-Sup" );
-    if ( !process.waitForFinished() )
-    {
-        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
-        return false;
-    }
-
-    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts ) ==
-           ( QStringList() << ":: Starting full system upgrade..." );
-}
-
-
-QStringList Global::getAllInstalledPackages( const QStringList& checkPackages )
-{
-    QStringList result;
-
-    QProcess process;
-    process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
     process.start( "pacman", QStringList() << "-Qq" );
     if ( !process.waitForFinished() )
     {
         qDebug() << "error: failed to get installed packages (pacman)!";
-        return result;
+        return QStringList();
     }
 
     if ( process.exitCode() != 0 )
     {
         qDebug() << "error: failed to get installed packages (pacman)!";
-        return result;
+        return QStringList();
     }
 
-    QStringList allPackages = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
+    QStringList output = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 
-    foreach ( QString package, checkPackages )
+    QStringList result;
+    for ( QString package : checkPackages )
     {
-        if ( allPackages.contains( package ) )
+        if ( output.contains( package ) )
             result.append( package );
     }
 
@@ -243,23 +219,26 @@ QStringList Global::getAllInstalledPackages( const QStringList& checkPackages )
 }
 
 
-
-QStringList Global::getAllAvailableRepoPackages( const QStringList& checkPackages )
+QStringList
+Global::getAllAvailableRepoPackages( const QStringList& checkPackages )
 {
-    QStringList result;
-
     QProcess process;
-    process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
     process.start( "pacman", QStringList() << "-Si" << checkPackages );
+
     if ( !process.waitForFinished() )
     {
         qDebug() << "error: failed to get informations about available packages (pacman)!";
-        return result;
+        return QStringList();
     }
 
     QStringList output = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 
-    foreach ( QString line, output )
+    QStringList result;
+    for ( QString line : output )
     {
         line = line.remove( " " ).remove( "\t" );
 
@@ -276,56 +255,22 @@ QStringList Global::getAllAvailableRepoPackages( const QStringList& checkPackage
 }
 
 
-QList<Global::LocaleSplit> Global::getAllEnabledLocalesSplit()
+QList<Global::LocaleSplit>
+Global::getAllEnabledLocalesSplit()
 {
-    QStringList strLocales;
+    QStringList localesList { LanguageCommon::enabledLocales( true ) };
     QList<Global::LocaleSplit> locales;
-
-    QFile file( LOCALE_GEN );
-    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    for ( const QString locale : localesList )
     {
-        qDebug() << "error: failed to open '" << LOCALE_GEN << "'!";
-        return locales;
-    }
-
-    QTextStream in( &file );
-    while ( !in.atEnd() )
-    {
-        QString line = in.readLine().split( "#", QString::KeepEmptyParts ).first().trimmed();
-        if ( line.isEmpty() )
-            continue;
-
-        strLocales.append( line.split( " ", QString::SkipEmptyParts ).first() );
-    }
-
-    file.close();
-    strLocales.removeDuplicates();
-
-
-    foreach ( QString locale, strLocales )
-    {
-        QStringList split = locale.split( QRegExp( "[ .@]" ), QString::SkipEmptyParts ).first().split( "_", QString::SkipEmptyParts );
-        if ( split.size() < 2 )
+        QStringList split = locale.split( "_", QString::SkipEmptyParts );
+        if ( split.size() != 2 )
             continue;
 
         LocaleSplit lc;
         lc.language = split.at( 0 );
         lc.territory = split.at( 1 );
 
-        // Check if this locale is already in list
-        bool found = false;
-        for ( int i = 0; i < locales.size(); i++ )
-        {
-            if ( locales.at( i ).language == lc.language && locales.at( i ).territory == lc.territory )
-            {
-                found = true;
-                break;
-            }
-        }
-
-        if ( !found )
-            locales.append( lc );
+        locales.append( lc );
     }
-
     return locales;
 }

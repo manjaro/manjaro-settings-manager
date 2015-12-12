@@ -19,21 +19,25 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "global.h"
+#include "LanguagePackagesCommon.h"
 #include "LanguageCommon.h"
 
+#include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
-#include <QtCore/QDebug>
+#include <QtCore/QRegularExpression>
+#include <QtCore/QJsonArray>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QJsonObject>
 
 bool
-Global::getLanguagePackages( QList<Global::LanguagePackage>* availablePackages,
-                             QList<Global::LanguagePackage>* installedPackages,
-                             QList<LanguagePackagesItem> lpiList )
+LanguagePackagesCommon::getLanguagePackages( QList<LanguagePackagesCommon::LanguagePackage>* availablePackages,
+        QList<LanguagePackagesCommon::LanguagePackage>* installedPackages,
+        QList<LanguagePackagesItem> lpiList )
 {
-    QList<Global::LanguagePackage> languagePackages;
+    QList<LanguagePackagesCommon::LanguagePackage> languagePackages;
     QStringList parentPackages, checkLP;
-    QList<Global::LocaleSplit> locales = getAllEnabledLocalesSplit();
+    QList<LanguagePackagesCommon::LocaleSplit> locales = getAllEnabledLocalesSplit();
 
     if ( locales.isEmpty() )
     {
@@ -186,7 +190,7 @@ Global::getLanguagePackages( QList<Global::LanguagePackage>* availablePackages,
 
 
 QStringList
-Global::getAllInstalledPackages( const QStringList& checkPackages )
+LanguagePackagesCommon::getAllInstalledPackages( const QStringList& checkPackages )
 {
     QProcess process;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -220,7 +224,7 @@ Global::getAllInstalledPackages( const QStringList& checkPackages )
 
 
 QStringList
-Global::getAllAvailableRepoPackages( const QStringList& checkPackages )
+LanguagePackagesCommon::getAllAvailableRepoPackages( const QStringList& checkPackages )
 {
     QProcess process;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -255,11 +259,11 @@ Global::getAllAvailableRepoPackages( const QStringList& checkPackages )
 }
 
 
-QList<Global::LocaleSplit>
-Global::getAllEnabledLocalesSplit()
+QList<LanguagePackagesCommon::LocaleSplit>
+LanguagePackagesCommon::getAllEnabledLocalesSplit()
 {
     QStringList localesList { LanguageCommon::enabledLocales( true ) };
-    QList<Global::LocaleSplit> locales;
+    QList<LanguagePackagesCommon::LocaleSplit> locales;
     for ( const QString locale : localesList )
     {
         QStringList split = locale.split( "_", QString::SkipEmptyParts );
@@ -273,4 +277,144 @@ Global::getAllEnabledLocalesSplit()
         locales.append( lc );
     }
     return locales;
+}
+
+
+QList<LanguagePackagesItem>
+LanguagePackagesCommon::getLanguagePackages()
+{
+    const QStringList installedPackages { getInstalledPackages() };
+    const QStringList availablePackages { getAvailablePackages() };
+
+    QFile file;
+    file.setFileName( ":/language_packages.json" );
+    file.open( QIODevice::ReadOnly | QIODevice::Text );
+    QJsonDocument jsonDocument = QJsonDocument::fromJson( file.readAll() );
+    file.close();
+
+    if ( !jsonDocument.isObject() )
+    {
+        qDebug() << "Cannot read 'language_packages.json' resource";
+        return QList<LanguagePackagesItem>();
+    }
+
+    QJsonObject jsonObject = jsonDocument.object();
+    QJsonValue packagesValue = jsonObject.value( QString( "Packages" ) );
+    QList<QVariantMap> packages;
+    if ( packagesValue.isArray() )
+    {
+        for ( auto val : packagesValue.toArray() )
+            packages.append( val.toObject().toVariantMap() );
+    }
+
+    QList<LanguagePackagesItem> lpiList;
+    for ( QVariantMap package : packages )
+    {
+        QString name { package["name"].toString() };
+        QString languagePackage { package["l10n_package"].toString() };
+        QStringList parentPackages;
+        for ( auto val : package["parent_packages"].toList() )
+            parentPackages << val.toString();
+        QStringList parentPkgInstalled { checkInstalled( parentPackages, installedPackages ) };
+        QStringList languagePkgInstalled { checkInstalledLanguagePackages( languagePackage, installedPackages ) };
+        QStringList languagePkgAvailable { checkAvailableLanguagePackages( languagePackage, availablePackages ) };
+        LanguagePackagesItem lpi
+        {
+            name,
+            languagePackage,
+            parentPackages,
+            parentPkgInstalled,
+            languagePkgInstalled,
+            languagePkgAvailable
+        };
+        lpiList.append( lpi );
+    }
+    return lpiList;
+}
+
+
+QStringList
+LanguagePackagesCommon::checkInstalled( const QStringList& packages, const QStringList& installedPackages )
+{
+    QStringList checkedInstalledPackages;
+    for ( const QString package : packages )
+    {
+        if ( installedPackages.contains( package ) )
+            checkedInstalledPackages.append( package );
+    }
+    return checkedInstalledPackages;
+}
+
+
+QStringList
+LanguagePackagesCommon::checkInstalledLanguagePackages( QString package, const QStringList& installedPackages )
+{
+    package.remove( QChar( '%' ) );
+    QRegularExpression re( QString( "^(%1)" ).arg( package ) );
+    return installedPackages.filter( re );
+}
+
+
+QStringList
+LanguagePackagesCommon::checkAvailableLanguagePackages( QString package, const QStringList& availablePackages )
+{
+    package.remove( QChar( '%' ) );
+    QRegularExpression re( QString( "^(%1)" ).arg( package ) );
+    return availablePackages.filter( re );
+}
+
+
+QStringList
+LanguagePackagesCommon::getAvailablePackages()
+{
+    QProcess process;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
+    process.start( "pacman", QStringList() << "-Si" );
+
+    if ( !process.waitForFinished() )
+    {
+        qDebug() << "error: failed to get informations about available packages (pacman)!";
+        return QStringList();
+    }
+
+    QStringList output = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
+
+    QStringList availablePackages;
+    for ( QString line : output )
+    {
+        line = line.remove( " " ).remove( "\t" );
+        if ( !line.toLower().startsWith( "name:" ) )
+            continue;
+        line = line.mid( line.indexOf( ":" ) + 1 );
+        availablePackages.append( line );
+    }
+    return availablePackages;
+}
+
+
+QStringList
+LanguagePackagesCommon::getInstalledPackages()
+{
+    QProcess process;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
+    process.start( "pacman", QStringList() << "-Qq" );
+    if ( !process.waitForFinished() )
+    {
+        qDebug() << "error: failed to get installed packages (pacman)!";
+        return QStringList();
+    }
+
+    if ( process.exitCode() != 0 )
+    {
+        qDebug() << "error: failed to get installed packages (pacman)!";
+        return QStringList();
+    }
+
+    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 }

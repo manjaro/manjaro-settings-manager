@@ -3,4 +3,7 @@
         <file>resources/language.png</file>
         <file>resources/tux-manjaro.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>language_packages.json</file>
+    </qresource>
 </RCC>

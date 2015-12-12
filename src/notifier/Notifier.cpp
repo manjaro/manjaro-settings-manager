@@ -19,44 +19,67 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "global.h"
+#include "LanguagePackagesCommon.h"
 #include "Notifier.h"
 #include "NotifierApp.h"
 #include "Kernel.h"
 #include "KernelModel.h"
 
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 #include <QtCore/QFile>
+#include <QtCore/QProcess>
 #include <QtCore/QSettings>
+#include <QtCore/QJsonArray>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QJsonObject>
+#include <QMap>
+#include <QMapIterator>
 
 #include <QDebug>
 
 Notifier::Notifier( QObject* parent ) :
     QTimer( parent )
 {
-    // Set Interval to 2 minutes
-    setInterval( 120000 );
+    m_tray.setTitle( QString( "Manjaro Settings Manager" ) );
+    m_tray.setIconByName( "manjaro" );
+    m_tray.setStatus( KStatusNotifierItem::Passive );
+
+    auto menu = m_tray.contextMenu();
+
+    QAction* msmKernel = new QAction( QIcon( ":/images/resources/tux-manjaro.png" ),
+                                      QString( "Kernels" ),
+                                      menu );
+    QAction* msmLanguagePackages = new QAction(
+        QIcon( ":/images/resources/language.png" ),
+        QString( "Language packages" ),
+        menu );
+    menu->addAction( msmKernel );
+    menu->addAction( msmLanguagePackages );
+
+    connect( msmKernel, &QAction::triggered, this, [msmKernel, this]()
+    {
+        QProcess::startDetached( "msm", QStringList() << "-m" << "msm_kernel" );
+        m_tray.setStatus( KStatusNotifierItem::Passive );
+    } );
+    connect( msmLanguagePackages, &QAction::triggered, this, [msmLanguagePackages, this]()
+    {
+        QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages" );
+        m_tray.setStatus( KStatusNotifierItem::Passive );
+    } );
+
+    // Set Interval to 24 hours
+    setInterval( 24 * 60 * 60 * 1000 );
 
     connect( this, &Notifier::timeout,
-             this, &Notifier::start );
-    connect( &trayIcon, &QSystemTrayIcon::activated,
-             this, &Notifier::trayIconClicked );
-    connect( &trayIcon, &QSystemTrayIcon::messageClicked,
-             this, &Notifier::trayIconClicked );
-    connect( &kernelTrayIcon, &QSystemTrayIcon::activated,
-             this, &Notifier::kernelTrayIconClicked );
-    connect( &kernelTrayIcon, &QSystemTrayIcon::messageClicked,
-             this, &Notifier::kernelTrayIconClicked );
+             this, &Notifier::run );
 }
 
 
 void
 Notifier::start()
 {
-    if ( isActive() )
-        return;
-
-    QTimer::singleShot( 20000, this, &Notifier::run );
-    QTimer::singleShot( 40000, this, &Notifier::runKernel );
+    QTimer::singleShot( 30000, this, &Notifier::run );
     QTimer::start();
 }
 
@@ -65,19 +88,12 @@ void
 Notifier::run()
 {
     loadConfiguration();
-    if ( checkLanguagePackage && Global::isSystemUpToDate() &&
-         !isPacmanUpdating() && hasPacmanEverSynced())
+    if ( checkLanguagePackage && isSystemUpToDate() &&
+            !isPacmanUpdating() && hasPacmanEverSynced() )
+    {
         cLanguagePackage();
-}
-
-
-void
-Notifier::runKernel()
-{
-    loadConfiguration();
-    if ( checkKernel && Global::isSystemUpToDate() &&
-         !isPacmanUpdating() && hasPacmanEverSynced() )
         cKernel();
+    }
 }
 
 
@@ -85,40 +101,35 @@ void
 Notifier::cLanguagePackage()
 {
     // Check if language packages are available
-    QList<Global::LanguagePackage> availablePackages, installedPackages, packages;
-    Global::getLanguagePackages( &availablePackages, &installedPackages );
+    QList<LanguagePackagesCommon::LanguagePackage> availablePackages, installedPackages, packages;
+    QList<LanguagePackagesItem> lpiList { LanguagePackagesCommon::getLanguagePackages() };
+
+    LanguagePackagesCommon::getLanguagePackages( &availablePackages, &installedPackages, lpiList );
 
     // Check if packages should be ignored
     for ( int i = 0; i < availablePackages.size(); i++ )
     {
-        const Global::LanguagePackage* l = &availablePackages.at( i );
+        const LanguagePackagesCommon::LanguagePackage* l = &availablePackages.at( i );
         if ( !isPackageIgnored( l->languagePackage, "language_package" ) )
             packages.append( *l );
     }
 
     if ( !packages.isEmpty() )
     {
-        if ( !trayIcon.isVisible() )
+        qDebug() << "Missing language packages found.";
+        m_tray.setStatus( KStatusNotifierItem::Active );
+        m_tray.showMessage( tr( "Additional Language Package(s)" ),
+                            QString( tr( "%n new additional language package(s) available", "", packages.size() ) ),
+                            QString( "dialog-information" ),
+                            10000 );
+
+        // Add to Config
+        for ( int i = 0; i < packages.size(); i++ )
         {
-            trayIcon.setIcon( QIcon( ":/images/resources/language.png" ) );
-
-
-            trayIcon.show();
-            int packagesCount = packages.size();
-            QString messageText = QString( tr( "%n new additional language package(s) available", "", packagesCount ) );
-            trayIcon.setToolTip( messageText );
-            showMessage( tr( "Additional Language Package(s)", "", packagesCount ),
-                         messageText );
-            // Add to Config
-            for ( int i = 0; i < packages.size(); i++ )
-            {
-                const Global::LanguagePackage* l = &packages.at( i );
-                addToConfig( l->languagePackage, "language_package" );
-            }
+            const LanguagePackagesCommon::LanguagePackage* l = &packages.at( i );
+            addToConfig( l->languagePackage, "language_package" );
         }
     }
-    else
-        trayIcon.hide();
 }
 
 
@@ -208,100 +219,49 @@ Notifier::cKernel()
         }
     }
 
-    QString messageTitle;
-    QString messageText;
-    if ( kernelFlags.testFlag( KernelFlag::Unsupported ) && kernelFlags.testFlag( KernelFlag::Running ) )
-        messageText = QString( tr( "Running an unsupported kernel, please update" ) );
-    else if ( kernelFlags.testFlag( KernelFlag::Unsupported ) )
-        messageText = QString( tr( "Unsupported kernel installed in your system." ) );
+    /*
+    kernelFlags = 0;
+    kernelFlags |= KernelFlag::Unsupported;
+    kernelFlags |= KernelFlag::Running;
+    kernelFlags |= KernelFlag::New;
+    */
 
-    if ( kernelFlags.testFlag( KernelFlag::Unsupported ) && kernelFlags.testFlag( KernelFlag::New ) )
+    if  ( kernelFlags.testFlag( KernelFlag::Unsupported ) || kernelFlags.testFlag( KernelFlag::New ) )
+        m_tray.setStatus( KStatusNotifierItem::Active );
+
+    // Notify about unsupported kernels
+    if ( kernelFlags.testFlag( KernelFlag::Unsupported ) )
     {
-        messageTitle = QString( tr( "Your kernels need attention." ) );
-        messageText.append( "\n" );
-    }
-    else if ( kernelFlags.testFlag( KernelFlag::Unsupported ) )
-        messageTitle = QString( tr( "Unsupported Kernel Found." ) );
-    else if ( kernelFlags.testFlag( KernelFlag::New ) )
-        messageTitle = QString( tr( "New Kernel Available." ) );
-
-    if ( kernelFlags.testFlag( KernelFlag::New ) )
-        messageText.append( QString( tr( "A kernel newer than the latest installed is available." ) ) );
-
-    if ( kernelFlags.testFlag( KernelFlag::Unsupported ) || kernelFlags.testFlag( KernelFlag::New ) )
-    {
-        if ( !kernelTrayIcon.isVisible() )
+        QString messageTitle = QString( tr( "Unsupported Kernel Found" ) );
+        if ( kernelFlags.testFlag( KernelFlag::Running ) )
         {
-            kernelTrayIcon.setIcon( QIcon( ":/images/resources/tux-manjaro.png" ) );
-            kernelTrayIcon.show();
-            kernelTrayIcon.setToolTip( messageText );
-            showKernelMessage( messageTitle, messageText );
-            for ( Kernel kernel : unsupportedKernels )
-                addToConfig( kernel.package(), "unsupported_kernel" );
-            for ( Kernel kernel : newNotIgnoredKernels )
-                addToConfig( kernel.package(), "new_kernel" );
+            m_tray.showMessage( messageTitle,
+                                QString( tr( "Running an unsupported kernel, please update." ) ),
+                                QString( "dialog-warning" ),
+                                10000 );
         }
+        else
+        {
+            m_tray.showMessage( messageTitle,
+                                QString( tr( "Unsupported kernel installed in your system, please remove it." ) ),
+                                QString( "dialog-information" ),
+                                10000 );
+        }
+        for ( Kernel kernel : unsupportedKernels )
+            addToConfig( kernel.package(), "unsupported_kernel" );
+    }
+
+    // Notify about new kernels
+    if ( kernelFlags.testFlag( KernelFlag::New ) )
+    {
+        m_tray.showMessage( QString( tr( "New Kernel Available" ) ),
+                            QString( tr( "A newer kernel is available." ) ),
+                            QString( "dialog-information" ),
+                            10000 );
+        for ( Kernel kernel : newNotIgnoredKernels )
+            addToConfig( kernel.package(), "new_kernel" );
     }
 }
-
-
-void
-Notifier::showMessage( QString messageTitle, QString messageText )
-{
-    this->messageTitle = messageTitle;
-    this->messageText = messageText;
-    QTimer::singleShot( 2000, this, SLOT( trayIconShowMessage() ) );
-}
-
-
-void
-Notifier::showKernelMessage( QString messageTitle, QString messageText )
-{
-    this->kernelMessageTitle = messageTitle;
-    this->kernelMessageText = messageText;
-    QTimer::singleShot( 2000, this, SLOT( kernelTrayIconShowMessage() ) );
-}
-
-
-void
-Notifier::trayIconClicked()
-{
-    // Restart timer
-    stop();
-    QTimer::start();
-
-    trayIcon.hide();
-
-    QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages" );
-}
-
-
-void
-Notifier::kernelTrayIconClicked()
-{
-    // Restart timer
-    stop();
-    QTimer::start();
-
-    kernelTrayIcon.hide();
-
-    QProcess::startDetached( "msm", QStringList() << "-m" << "msm_kernel" );
-}
-
-
-void
-Notifier::trayIconShowMessage()
-{
-    trayIcon.showMessage( messageTitle, messageText, QSystemTrayIcon::Information, 30000 );
-}
-
-
-void
-Notifier::kernelTrayIconShowMessage()
-{
-    kernelTrayIcon.showMessage( kernelMessageTitle, kernelMessageText, QSystemTrayIcon::Information, 30000 );
-}
-
 
 void
 Notifier::loadConfiguration()
@@ -324,7 +284,7 @@ Notifier::isPackageIgnored( const QString package, const QString group )
     settings.beginGroup( group );
     int value = settings.value( "notify_count_" + package, "0" ).toInt();
     settings.endGroup();
-    return ( value < 2222 ) ? false : true;
+    return ( value < 2 ) ? false : true;
 }
 
 
@@ -335,7 +295,7 @@ Notifier::addToConfig( const QString package, const QString group )
     settings.beginGroup( group );
     int value = settings.value( "notify_count_" + package, "0" ).toInt();
     ++value;
-    if ( value < 3222 )
+    if ( value < 3 )
         settings.setValue( "notify_count_" + package, value );
     settings.endGroup();
 }
@@ -354,7 +314,26 @@ Notifier::hasPacmanEverSynced()
     return true;
 }
 
-bool Notifier::isPacmanUpdating()
+
+bool
+Notifier::isPacmanUpdating()
 {
     return QFile::exists( "/var/lib/pacman/db.lck" );
+}
+
+
+bool
+Notifier::isSystemUpToDate()
+{
+    QProcess process;
+    process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
+    process.start( "pacman", QStringList() << "-Sup" );
+    if ( !process.waitForFinished() )
+    {
+        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
+        return false;
+    }
+
+    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts ) ==
+           ( QStringList() << ":: Starting full system upgrade..." );
 }

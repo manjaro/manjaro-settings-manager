@@ -22,6 +22,10 @@
 #ifndef NOTIFIER_H
 #define NOTIFIER_H
 
+#include "LanguagePackagesItem.h"
+
+#include <KNotifications/KStatusNotifierItem>
+
 #include <QTimer>
 #include <QSystemTrayIcon>
 
@@ -43,6 +47,8 @@ public:
 
 
 private:
+    KStatusNotifierItem m_tray;
+
     QSystemTrayIcon trayIcon, kernelTrayIcon;
     QString messageTitle, messageText;
     QString kernelMessageTitle, kernelMessageText;
@@ -52,21 +58,15 @@ private:
 
     void cLanguagePackage();
     void cKernel();
-    void showMessage( QString messageTitle, QString messageText );
-    void showKernelMessage( QString messageTitle, QString messageText );
     bool isPackageIgnored( const QString package, const QString group );
     void addToConfig( const QString package, const QString group );
 
     bool hasPacmanEverSynced();
     bool isPacmanUpdating();
+    bool isSystemUpToDate();
 
 protected slots:
     void run();
-    void runKernel();
-    void trayIconClicked();
-    void trayIconShowMessage();
-    void kernelTrayIconClicked();
-    void kernelTrayIconShowMessage();
     void loadConfiguration();
 
 };

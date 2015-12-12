@@ -2,7 +2,9 @@ set(LIBMSM_SRCS
     ActionDialog.cpp
     Kernel.cpp
     KernelModel.cpp
-    LanguageCommon.cpp)
+    LanguageCommon.cpp
+    LanguagePackagesCommon.cpp
+    LanguagePackagesItem.cpp)
 
 add_library (msm STATIC ${LIBMSM_SRCS})
 target_link_libraries (msm KF5::ConfigWidgets

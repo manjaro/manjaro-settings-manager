@@ -21,7 +21,7 @@
 #ifndef LANGUAGEPACKAGESMODULE_H
 #define LANGUAGEPACKAGESMODULE_H
 
-#include "global.h"
+#include "LanguagePackagesCommon.h"
 #include "LanguagePackagesItem.h"
 
 #include <KCModule>
@@ -79,18 +79,8 @@ private:
     void loadLanguagePackages();
     void loadNotificationsSettings();
     void installPackages();
-    void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<Global::LanguagePackage>* languagePackages, bool checkable );
+    void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<LanguagePackagesCommon::LanguagePackage>* languagePackages, bool checkable );
     bool isSystemUpToDate();
-
-    QList<LanguagePackagesItem> getLanguagePackages();
-    QStringList checkInstalled( const QStringList& packages );
-    QStringList checkInstalledLanguagePackages( QString package );
-    QStringList checkAvailableLanguagePackages( QString package );
-    void getInstalledPackages();
-    void getAvailablePackages();
-
-    QStringList m_installedPackages;
-    QStringList m_availablePackages;
 };
 
 #endif // LANGUAGEPACKAGESMODULE_H

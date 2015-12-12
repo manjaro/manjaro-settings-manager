@@ -26,7 +26,7 @@
 
 #include <QtCore/QString>
 
-class Global
+class LanguagePackagesCommon
 {
 public:
     struct LanguagePackage
@@ -44,11 +44,11 @@ public:
         QString locale, language, territory, description;
     };
 
-    static bool getLanguagePackages( QList<Global::LanguagePackage>* availablePackages,
-                                     QList<Global::LanguagePackage>* installedPackages,
+    static bool getLanguagePackages( QList<LanguagePackagesCommon::LanguagePackage>* availablePackages,
+                                     QList<LanguagePackagesCommon::LanguagePackage>* installedPackages,
                                      QList<LanguagePackagesItem> lpiList );
-    static QList<Global::LocaleInfo> getAllEnabledLocales();
-
+    static QList<LanguagePackagesCommon::LocaleInfo> getAllEnabledLocales();
+    static QList<LanguagePackagesItem> getLanguagePackages();
 
 private:
     struct LocaleSplit
@@ -59,6 +59,12 @@ private:
     static QStringList getAllInstalledPackages( const QStringList& checkPackages );
     static QStringList getAllAvailableRepoPackages( const QStringList& checkPackages );
     static QList<LocaleSplit> getAllEnabledLocalesSplit();
+
+    static QStringList checkInstalled( const QStringList& packages, const QStringList& installedPackages );
+    static QStringList checkInstalledLanguagePackages( QString package, const QStringList& installedPackages );
+    static QStringList checkAvailableLanguagePackages( QString package, const QStringList& availablePackages );
+    static QStringList getInstalledPackages();
+    static QStringList getAvailablePackages();
 };
 
 
