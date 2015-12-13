@@ -1,9 +1,9 @@
 # Maintainer : Ramon Buldo <ramon@manjaro.org>
 
 pkgname=kcm-msm
-pkgver=0.4.85
+pkgver=0.4.90
 pkgrel=1
-_pkgver=0.4.85
+_pkgver=0.4.90
 pkgdesc="Manjaro Linux System Settings Tool (KCM for Plasma 5)"
 arch=('i686' 'x86_64')
 url="https://github.com/manjaro/manjaro-settings-manager"
