@@ -1,6 +1,4 @@
 import QtQuick 2.2
-import QtPositioning 5.2
-import QtLocation 5.3
 
 GridView {
     id: grid
