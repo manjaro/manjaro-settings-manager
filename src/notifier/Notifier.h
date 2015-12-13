@@ -27,7 +27,6 @@
 #include <KNotifications/KStatusNotifierItem>
 
 #include <QTimer>
-#include <QSystemTrayIcon>
 
 class Notifier : public QTimer
 {
@@ -48,13 +47,13 @@ public:
 
 private:
     KStatusNotifierItem m_tray;
-
-    QSystemTrayIcon trayIcon, kernelTrayIcon;
-    QString messageTitle, messageText;
-    QString kernelMessageTitle, kernelMessageText;
-    bool checkLanguagePackage;
-    bool checkKernel, checkUnsupportedKernel, checkUnsupportedKernelRunning;
-    bool checkNewKernel, checkNewKernelLts, checkNewKernelRecommended;
+    bool m_checkLanguagePackage;
+    bool m_checkKernel;
+    bool m_checkUnsupportedKernel;
+    bool m_checkUnsupportedKernelRunning;
+    bool m_checkNewKernel;
+    bool m_checkNewKernelLts;
+    bool m_checkNewKernelRecommended;
 
     void cLanguagePackage();
     void cKernel();

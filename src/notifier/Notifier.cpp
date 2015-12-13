@@ -30,11 +30,6 @@
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
 #include <QtCore/QSettings>
-#include <QtCore/QJsonArray>
-#include <QtCore/QJsonDocument>
-#include <QtCore/QJsonObject>
-#include <QMap>
-#include <QMapIterator>
 
 #include <QDebug>
 
@@ -88,11 +83,13 @@ void
 Notifier::run()
 {
     loadConfiguration();
-    if ( checkLanguagePackage && isSystemUpToDate() &&
-            !isPacmanUpdating() && hasPacmanEverSynced() )
+    if ( isSystemUpToDate() && !isPacmanUpdating() && hasPacmanEverSynced() )
     {
-        cLanguagePackage();
-        cKernel();
+        if ( m_checkLanguagePackage )
+            cLanguagePackage();
+
+        if ( m_checkKernel )
+            cKernel();
     }
 }
 
@@ -141,7 +138,7 @@ Notifier::cKernel()
     kernelModel.update();
 
     QList< Kernel > unsupportedKernels = kernelModel.unsupportedKernels();
-    if ( checkUnsupportedKernel && !unsupportedKernels.isEmpty() )
+    if ( m_checkUnsupportedKernel && !unsupportedKernels.isEmpty() )
     {
         for ( Kernel kernel : unsupportedKernels )
         {
@@ -152,7 +149,7 @@ Notifier::cKernel()
             }
             qDebug() << "Unsupported kernel: " << kernel.version();
             kernelFlags |= KernelFlag::Unsupported;
-            if ( checkUnsupportedKernelRunning && kernel.isRunning() )
+            if ( m_checkUnsupportedKernelRunning && kernel.isRunning() )
             {
                 kernelFlags |= KernelFlag::Running;
                 qDebug() << "Unsupported kernel running: " << kernel.version();
@@ -166,7 +163,7 @@ Notifier::cKernel()
     QList<Kernel> newLtsKernels;
     QList<Kernel> newRecommendedKernels;
     QList<Kernel> newNotIgnoredKernels;
-    if ( checkNewKernel )
+    if ( m_checkNewKernel )
     {
         for ( Kernel kernel : newKernels )
         {
@@ -197,17 +194,17 @@ Notifier::cKernel()
         }
 
 
-        if ( checkNewKernelLts && checkNewKernelRecommended )
+        if ( m_checkNewKernelLts && m_checkNewKernelRecommended )
         {
             if ( !newLtsRecommendedKernels.isEmpty() )
                 kernelFlags |= KernelFlag::New;
         }
-        else if ( checkNewKernelLts )
+        else if ( m_checkNewKernelLts )
         {
             if ( !newLtsKernels.isEmpty() )
                 kernelFlags |= KernelFlag::New;
         }
-        else if ( checkNewKernelRecommended )
+        else if ( m_checkNewKernelRecommended )
         {
             if ( !newRecommendedKernels.isEmpty() )
                 kernelFlags |= KernelFlag::New;
@@ -267,13 +264,13 @@ void
 Notifier::loadConfiguration()
 {
     QSettings settings( "manjaro", "manjaro-settings-manager" );
-    this->checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
-    this->checkUnsupportedKernel = settings.value( "notifications/checkUnsupportedKernel", true ).toBool();
-    this->checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", false ).toBool();
-    this->checkNewKernel = settings.value( "notifications/checkNewKernel", true ).toBool();
-    this->checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", false ).toBool();
-    this->checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", true ).toBool();
-    this->checkKernel = checkUnsupportedKernel | checkNewKernel;
+    m_checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
+    m_checkUnsupportedKernel = settings.value( "notifications/checkUnsupportedKernel", true ).toBool();
+    m_checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", false ).toBool();
+    m_checkNewKernel = settings.value( "notifications/checkNewKernel", true ).toBool();
+    m_checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", false ).toBool();
+    m_checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", true ).toBool();
+    m_checkKernel = m_checkUnsupportedKernel | m_checkNewKernel;
 }
 
 
