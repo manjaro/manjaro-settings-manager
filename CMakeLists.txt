@@ -24,6 +24,7 @@ find_package(KF5 REQUIRED COMPONENTS
 
 find_package(ICU REQUIRED)
 
+add_subdirectory(resources)
 add_subdirectory(src)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

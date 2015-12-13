@@ -42,7 +42,7 @@ Notifier::Notifier( QObject* parent ) :
     QTimer( parent )
 {
     m_tray.setTitle( QString( "Manjaro Settings Manager" ) );
-    m_tray.setIconByName( "manjaro" );
+    m_tray.setIconByName( "manjaro-settings-manager" );
     m_tray.setStatus( KStatusNotifierItem::Passive );
 
     auto menu = m_tray.contextMenu();
@@ -118,7 +118,7 @@ Notifier::cLanguagePackage()
     {
         qDebug() << "Missing language packages found.";
         m_tray.setStatus( KStatusNotifierItem::Active );
-        m_tray.showMessage( tr( "Additional Language Package(s)" ),
+        m_tray.showMessage( tr( "Manjaro Settings Manager" ),
                             QString( tr( "%n new additional language package(s) available", "", packages.size() ) ),
                             QString( "dialog-information" ),
                             10000 );
@@ -176,7 +176,7 @@ Notifier::cKernel()
                 continue;
             }
             newNotIgnoredKernels << kernel;
-            qDebug() << "Newer kernel " << kernel.version();
+            qDebug() << "Newer kernel: " << kernel.version();
             if ( kernel.isRecommended() && kernel.isLts() )
             {
                 qDebug() << "Newer kernel LTS & Recommended: " << kernel.version();
@@ -232,7 +232,7 @@ Notifier::cKernel()
     // Notify about unsupported kernels
     if ( kernelFlags.testFlag( KernelFlag::Unsupported ) )
     {
-        QString messageTitle = QString( tr( "Unsupported Kernel Found" ) );
+        QString messageTitle = QString( tr( "Manjaro Settings Manager" ) );
         if ( kernelFlags.testFlag( KernelFlag::Running ) )
         {
             m_tray.showMessage( messageTitle,
@@ -254,8 +254,8 @@ Notifier::cKernel()
     // Notify about new kernels
     if ( kernelFlags.testFlag( KernelFlag::New ) )
     {
-        m_tray.showMessage( QString( tr( "New Kernel Available" ) ),
-                            QString( tr( "A newer kernel is available." ) ),
+        m_tray.showMessage( QString( tr( "Manjaro Settings Manager" ) ),
+                            QString( tr( "Newer kernel is available, please update." ) ),
                             QString( "dialog-information" ),
                             10000 );
         for ( Kernel kernel : newNotIgnoredKernels )

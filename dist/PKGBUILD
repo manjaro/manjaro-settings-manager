@@ -10,8 +10,9 @@ url="https://github.com/manjaro/manjaro-settings-manager"
 license=("GPL")
 depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth' 
          'kconfigwidgets' 'kcoreaddons' 'kcmutils' 'ckbcomp'
-         'knotifications')
+         'knotifications' 'xdg-utils')
 makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools')
+install=${pkgname}.install
 source=(git+$url.git)
 sha256sums=(SKIP)
 

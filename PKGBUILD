@@ -2,7 +2,7 @@
 # Maintainer : Ramon Buldo <ramon@manjaro.org>
 
 pkgname=kcm-msm
-pkgver=0.4.85
+pkgver=0.4.90
 pkgrel=1
 pkgdesc="Manjaro settings manager module for Plasma 5"
 arch=('i686' 'x86_64')
@@ -10,8 +10,9 @@ url="https://github.com/manjaro/manjaro-settings-manager"
 license=("GPL")
 depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth' 
          'kconfigwidgets' 'kcoreaddons' 'kcmutils' 'ckbcomp'
-         'knotifications')
+         'knotifications' 'xdg-utils')
 makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools')
+install=${pkgname}.install
 
 build() {
   cd ..
