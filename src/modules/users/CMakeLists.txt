@@ -25,6 +25,8 @@ set(MSM_USERS_RESOURCES
     users.qrc)
 QT5_ADD_RESOURCES (MSM_USERS_SRCS ${MSM_USERS_RESOURCES})
 
+cmake_policy(SET CMP0063 NEW)
+
 add_library(msm_users MODULE ${MSM_USERS_SRCS})
 target_compile_definitions(msm_users PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_users

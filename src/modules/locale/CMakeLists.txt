@@ -17,6 +17,8 @@ set(MSM_LOCALE_UI
     ui/SelectLocalesDialog.ui)
 qt5_wrap_ui(MSM_LOCALE_SRCS ${MSM_LOCALE_UI})
 
+cmake_policy(SET CMP0063 NEW)
+
 add_library(msm_locale MODULE ${MSM_LOCALE_SRCS})
 target_compile_definitions(msm_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_locale

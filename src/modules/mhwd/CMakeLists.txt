@@ -17,6 +17,8 @@ set(MSM_MHWD_RESOURCES
     mhwd.qrc)
 QT5_ADD_RESOURCES (MSM_MHWD_SRCS ${MSM_MHWD_RESOURCES})
 
+cmake_policy(SET CMP0063 NEW)
+
 add_library(msm_mhwd MODULE ${MSM_MHWD_SRCS})
 target_compile_definitions(msm_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_mhwd

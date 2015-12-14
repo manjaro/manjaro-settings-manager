@@ -16,6 +16,8 @@ set(MSM_LANGUAGE_PACKAGES_UI
     ui/PageLanguagePackages.ui)
 qt5_wrap_ui(MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
 
+cmake_policy(SET CMP0063 NEW)
+
 add_library(msm_language_packages MODULE ${MSM_LANGUAGE_PACKAGES_SRCS})
 target_compile_definitions(msm_language_packages PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_language_packages

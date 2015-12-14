@@ -26,6 +26,8 @@ set(MSM_KERNEL_RESOURCES
     kernel.qrc)
 QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
 
+cmake_policy(SET CMP0063 NEW)
+
 add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS})
 target_compile_definitions(msm_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kernel

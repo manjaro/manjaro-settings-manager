@@ -18,6 +18,8 @@ set(MSM_KEYBOARD_RESOURCES
     keyboard.qrc)
 QT5_ADD_RESOURCES (MSM_KEYBOARD_SRCS ${MSM_KEYBOARD_RESOURCES})
 
+cmake_policy(SET CMP0063 NEW)
+
 add_library(msm_keyboard MODULE ${MSM_KEYBOARD_SRCS})
 target_compile_definitions(msm_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_keyboard

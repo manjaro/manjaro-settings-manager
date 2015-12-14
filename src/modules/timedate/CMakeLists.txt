@@ -20,6 +20,8 @@ set(MSM_TIMEDATE_RESOURCES
     timedate.qrc)
 QT5_ADD_RESOURCES (MSM_TIMEDATE_SRCS ${MSM_TIMEDATE_RESOURCES})
 
+cmake_policy(SET CMP0063 NEW)
+
 add_library(msm_timedate MODULE ${MSM_TIMEDATE_SRCS})
 target_compile_definitions(msm_timedate PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_timedate
