@@ -280,7 +280,7 @@ KernelModel::unsupportedKernels() const
  * @return QList of kernels with higher version comapre to auxKernel
  */
 QList<Kernel>
-KernelModel::newerKernels( const Kernel auxKernel )
+KernelModel::newerKernels( const Kernel& auxKernel )
 {
     QList<Kernel> auxList;
     for ( Kernel& kernel : m_kernels )

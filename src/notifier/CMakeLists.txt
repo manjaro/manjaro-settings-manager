@@ -9,8 +9,7 @@ set(MSM_NOTIFIER_SRCS
     ${MSM_NOTIFIER_GLOB}
     main.cpp
     Notifier.cpp
-    NotifierApp.cpp
-    global.cpp)
+    NotifierApp.cpp)
 
 set(MSM_NOTIFIER_RESOURCES
     notifier.qrc)

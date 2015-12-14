@@ -107,7 +107,7 @@ PageMhwd::load()
 
     for ( std::vector<mhwd::Device*>::iterator dev_iter = data.PCIDevices.begin();
             dev_iter != data.PCIDevices.end();
-            dev_iter++ )
+            ++dev_iter )
     {
         QTreeWidgetItem* deviceItem = new QTreeWidgetItem();
         // Check if deviceClass node its already added
@@ -132,7 +132,7 @@ PageMhwd::load()
 
 
         for ( std::vector<mhwd::Config*>::iterator conf_iter = ( *dev_iter )->availableConfigs.begin();
-                conf_iter != ( *dev_iter )->availableConfigs.end(); conf_iter++ )
+                conf_iter != ( *dev_iter )->availableConfigs.end(); ++conf_iter )
         {
             //Always expand and show devices with configuration
             deviceItem->parent()->setHidden( false );
