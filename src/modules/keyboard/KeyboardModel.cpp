@@ -175,7 +175,7 @@ KeyboardModel::init( KeyboardItem* parent )
     fh.open( QIODevice::ReadOnly );
 
     if ( !fh.isOpen() )
-        qDebug() << "X11 Keyboard layout and models definitions not found!";
+        qDebug() << "X11 Keyboard layout and models definitions not found.";
 
     // Root item for layouts
     KeyboardItem* layoutsRoot = new KeyboardItem( "layouts", "keyboard layouts", parent );

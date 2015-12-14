@@ -36,18 +36,18 @@
 Notifier::Notifier( QObject* parent ) :
     QTimer( parent )
 {
-    m_tray.setTitle( QString( "Manjaro Settings Manager" ) );
+    m_tray.setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
     m_tray.setIconByName( "manjaro-settings-manager" );
     m_tray.setStatus( KStatusNotifierItem::Passive );
 
     auto menu = m_tray.contextMenu();
 
     QAction* msmKernel = new QAction( QIcon( ":/images/resources/tux-manjaro.png" ),
-                                      QString( "Kernels" ),
+                                      QString( tr ( "Kernels" ) ),
                                       menu );
     QAction* msmLanguagePackages = new QAction(
         QIcon( ":/images/resources/language.png" ),
-        QString( "Language packages" ),
+        QString( tr ( "Language packages" ) ),
         menu );
     menu->addAction( msmKernel );
     menu->addAction( msmLanguagePackages );
@@ -113,7 +113,7 @@ Notifier::cLanguagePackage()
 
     if ( !packages.isEmpty() )
     {
-        qDebug() << "Missing language packages found.";
+        qDebug() << "Missing language packages found, notifying user...";
         m_tray.setStatus( KStatusNotifierItem::Active );
         m_tray.showMessage( tr( "Manjaro Settings Manager" ),
                             QString( tr( "%n new additional language package(s) available", "", packages.size() ) ),
@@ -144,16 +144,18 @@ Notifier::cKernel()
         {
             if ( isPackageIgnored( kernel.package(), "unsupported_kernel" ) )
             {
-                qDebug() << "Ignored unsupported kernel: " << kernel.version();
+                qDebug() << "Found ignored unsupported kernel: " << kernel.version();
                 continue;
             }
-            qDebug() << "Unsupported kernel: " << kernel.version();
+
             kernelFlags |= KernelFlag::Unsupported;
             if ( m_checkUnsupportedKernelRunning && kernel.isRunning() )
             {
                 kernelFlags |= KernelFlag::Running;
-                qDebug() << "Unsupported kernel running: " << kernel.version();
+                qDebug() << "Found unsupported kernel running: " << kernel.version();
             }
+            else
+                qDebug() << "Found unsupported kernel: " << kernel.version();
         }
     }
 
@@ -169,27 +171,28 @@ Notifier::cKernel()
         {
             if ( isPackageIgnored( kernel.package(), "new_kernel" ) )
             {
-                qDebug() << "Ignored new kernel: " << kernel.version();
+                qDebug() << "Found newer kernel, but ignored: " << kernel.version();
                 continue;
             }
             newNotIgnoredKernels << kernel;
-            qDebug() << "Newer kernel: " << kernel.version();
             if ( kernel.isRecommended() && kernel.isLts() )
             {
-                qDebug() << "Newer kernel LTS & Recommended: " << kernel.version();
+                qDebug() << "Found newer kernel LTS and recommended: " << kernel.version();
                 newLtsRecommendedKernels << kernel;
                 newLtsKernels << kernel;
                 newRecommendedKernels << kernel;
             }
             else if ( kernel.isLts() )
             {
-                qDebug() << "Newer kernel LTS: " << kernel.version();
+                qDebug() << "Found newer kernel LTS: " << kernel.version();
                 newLtsKernels << kernel;
             }
             else if ( kernel.isRecommended() )
             {
-                qDebug() << "Newer kernel Recommended: " << kernel.version();
+                qDebug() << "Found newer kernel recommended: " << kernel.version();
                 newRecommendedKernels << kernel;
+            } else {
+                qDebug() << "Found newer kernel: " << kernel.version();
             }
         }
 

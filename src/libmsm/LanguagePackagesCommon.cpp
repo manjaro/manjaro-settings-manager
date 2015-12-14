@@ -41,7 +41,7 @@ LanguagePackagesCommon::getLanguagePackages( QList<LanguagePackagesCommon::Langu
 
     if ( locales.isEmpty() )
     {
-        qDebug() << "error: didn't find any enabled locales!";
+        qDebug() << "error: didn't find any enabled locale";
         return false;
     }
 

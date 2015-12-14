@@ -33,7 +33,7 @@ LanguageCommon::enabledLocales( bool clean )
     QFile localeGen( "/etc/locale.gen" );
     if ( !localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
     {
-        qDebug() << "error: failed to open '" << "/etc/locale.gen" << "'!";
+        qDebug() << "error: failed to open '/etc/locale.gen'";
         return QStringList();
     }
 
@@ -71,7 +71,7 @@ LanguageCommon::supportedLocales( bool clean )
         lines.append( in.readAll() );
     }
     else
-        qDebug() << "error: failed to open '" << "/etc/locale.gen" << "'!";
+        qDebug() << "error: failed to open '/etc/locale.gen'";
 
     QFile localeGenPacnew( "/etc/locale.gen.pacnew" );
     if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
@@ -80,7 +80,7 @@ LanguageCommon::supportedLocales( bool clean )
         lines.append( in.readAll() );
     }
     else
-        qDebug() << "warning: failed to open '" << "/etc/locale.gen.pacnew" << "'!";
+        qDebug() << "warning: failed to open '/etc/locale.gen.pacnew'";
 
     QSet<QString> localeList;
     for ( QString line : lines.split( '\n' ) )
