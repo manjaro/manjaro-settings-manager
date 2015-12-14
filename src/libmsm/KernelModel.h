@@ -55,7 +55,7 @@ public:
     QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
     bool remove( int position, int rows, const QModelIndex& parent );
     Kernel latestInstalledKernel();
-    QList<Kernel> newerKernels( const Kernel auxKernel );
+    QList<Kernel> newerKernels( const Kernel& auxKernel );
     QList<Kernel> unsupportedKernels() const;
 
 protected:
