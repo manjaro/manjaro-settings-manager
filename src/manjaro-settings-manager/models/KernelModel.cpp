@@ -67,7 +67,7 @@ void KernelModel::update()
 
         newKernel.setPackage(kernel);
         newKernel.setAvailable(availableKernelPackages.contains(kernel));
-        newKernel.setInstalled(installedKernelPackages.contains(kernel));       
+        newKernel.setInstalled(installedKernelPackages.contains(kernel));
         newKernel.setVersion(allKernelPackages.value(kernel));
         newKernel.setAvailableModules(QStringList(availableKernelPackages.keys())
                                       .filter(QRegularExpression(QString("^%1-").arg(kernel))));
@@ -89,7 +89,7 @@ void KernelModel::update()
             newKernel.setLtsString("LTS");
         } else if (sesKernels.contains(kernel)) {
             newKernel.setLts(true);
-            newKernel.setLtsString("SES");
+            newKernel.setLtsString("ESS");
         }
         newKernel.setRecommended(recommendedKernels.contains(kernel));
         newKernel.setRunning(QString::compare(runningKernel, kernel) == 0);
