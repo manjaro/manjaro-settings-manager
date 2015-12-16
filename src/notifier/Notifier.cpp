@@ -83,7 +83,7 @@ void
 Notifier::run()
 {
     loadConfiguration();
-    if ( isSystemUpToDate() && !isPacmanUpdating() && hasPacmanEverSynced() )
+    if ( !isPacmanUpdating() && hasPacmanEverSynced() )
     {
         if ( m_checkLanguagePackage )
             cLanguagePackage();
