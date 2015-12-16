@@ -128,7 +128,7 @@ MsmWindow::readPositionSettings()
     restoreGeometry( settings.value( "geometry", saveGeometry() ).toByteArray() );
     restoreState( settings.value( "savestate", saveState() ).toByteArray() );
     move( settings.value( "pos", pos() ).toPoint() );
-    resize( settings.value( "size", size() ).toSize() );
+    resize( settings.value( "size", QSize(740, 520) ).toSize() );
     if ( settings.value( "maximized", isMaximized() ).toBool() )
         showMaximized();
 
