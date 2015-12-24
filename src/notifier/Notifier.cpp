@@ -90,6 +90,13 @@ Notifier::run()
 
         if ( m_checkKernel )
             cKernel();
+
+        setInterval( 24 * 60 * 60 * 1000 );
+    }
+    else
+    {
+        // Try again in 30 minutes
+        setInterval( 30 * 60 * 1000 );
     }
 }
 
@@ -191,9 +198,9 @@ Notifier::cKernel()
             {
                 qDebug() << "Found newer kernel recommended: " << kernel.version();
                 newRecommendedKernels << kernel;
-            } else {
-                qDebug() << "Found newer kernel: " << kernel.version();
             }
+            else
+                qDebug() << "Found newer kernel: " << kernel.version();
         }
 
 
