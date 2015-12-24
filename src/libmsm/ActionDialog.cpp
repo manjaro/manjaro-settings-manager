@@ -62,17 +62,21 @@ ActionDialog::ActionDialog( QWidget* parent ) :
 void
 ActionDialog::startJob()
 {
-    m_buttonBox->setStandardButtons( QDialogButtonBox::Cancel );
+    m_buttonBox->setStandardButtons( QDialogButtonBox::Close );
+    m_buttonBox->setDisabled( true );
 
     KAuth::ExecuteJob* job = m_installAction.execute();
     connect( job, &KAuth::ExecuteJob::newData,
              [=] ( const QVariantMap &data )
     {
         QString output = data.value( "Data" ).toString();
-        if ( output != m_last_message )
+        for ( auto line : output.split( QRegExp( "[\r\n]" ),QString::SkipEmptyParts ) )
         {
-            m_terminal->append( output.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
-            m_last_message = output;
+            if ( line != m_last_message )
+            {
+                m_terminal->append( line.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
+                m_last_message = line;
+            }
         }
 
     } );
@@ -82,7 +86,7 @@ ActionDialog::startJob()
         m_jobSuccesful = false;
     m_terminal->append( QString( "\n" ) );
     m_terminal->append( QString( tr( "Done ..." ) ) );
-    m_buttonBox->setStandardButtons( QDialogButtonBox::Close );
+    m_buttonBox->setEnabled( true );
 }
 
 
