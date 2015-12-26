@@ -14,6 +14,7 @@ set(LIBMSM_SRCS
     Kernel.cpp
     KernelModel.cpp
     LanguageCommon.cpp
+    LanguagePackages.cpp
     LanguagePackagesCommon.cpp
     LanguagePackagesItem.cpp
 
