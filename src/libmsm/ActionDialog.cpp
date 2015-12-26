@@ -72,10 +72,10 @@ ActionDialog::startJob()
         QString output = data.value( "Data" ).toString();
         for ( auto line : output.split( QRegExp( "[\r\n]" ),QString::SkipEmptyParts ) )
         {
-            if ( line != m_last_message )
+            if ( line != m_lastMessage )
             {
                 m_terminal->append( line.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
-                m_last_message = line;
+                m_lastMessage = line;
             }
         }
 
