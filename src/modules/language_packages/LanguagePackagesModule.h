@@ -22,6 +22,7 @@
 #define LANGUAGEPACKAGESMODULE_H
 
 #include "LanguagePackagesCommon.h"
+#include "LanguagePackages.h"
 #include "LanguagePackagesItem.h"
 
 #include <KCModule>

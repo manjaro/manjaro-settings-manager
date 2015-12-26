@@ -21,22 +21,22 @@
 #include "LanguagePackagesItem.h"
 
 LanguagePackagesItem::LanguagePackagesItem() :
-    m_name( QString() ),
-    m_languagePackage( QString() ),
-    m_parentPackages( QStringList() ),
-    m_parentPkgInstalled( QStringList() ),
-    m_languagePkgInstalled( QStringList() ),
-    m_languagePkgAvailable( QStringList() )
+    m_name( QByteArray() ),
+    m_languagePackage( QByteArray() ),
+    m_parentPackages( QList<QByteArray>() ),
+    m_parentPkgInstalled( QList<QByteArray>() ),
+    m_languagePkgInstalled( QList<QByteArray>() ),
+    m_languagePkgAvailable( QList<QByteArray>() )
 {
 }
 
 LanguagePackagesItem::LanguagePackagesItem(
-    const QString& name,
-    const QString& languagePackage,
-    const QStringList& parentPackages,
-    const QStringList& parentPkgInstalled,
-    const QStringList& languagePkgInstalled,
-    const QStringList& languagePkgAvailable )
+    const QByteArray& name,
+    const QByteArray& languagePackage,
+    const QList<QByteArray>& parentPackages,
+    const QList<QByteArray>& parentPkgInstalled,
+    const QList<QByteArray>& languagePkgInstalled,
+    const QList<QByteArray>& languagePkgAvailable )
     : m_name( name ),
       m_languagePackage( languagePackage ),
       m_parentPackages( parentPackages ),
@@ -52,7 +52,7 @@ LanguagePackagesItem::~LanguagePackagesItem()
 }
 
 
-QString
+QByteArray
 LanguagePackagesItem::name() const
 {
     return m_name;
@@ -60,13 +60,13 @@ LanguagePackagesItem::name() const
 
 
 void
-LanguagePackagesItem::setName( const QString& name )
+LanguagePackagesItem::setName( const QByteArray& name )
 {
     m_name = name;
 }
 
 
-QString
+QByteArray
 LanguagePackagesItem::languagePackage() const
 {
     return m_languagePackage;
@@ -74,13 +74,13 @@ LanguagePackagesItem::languagePackage() const
 
 
 void
-LanguagePackagesItem::setLanguagePackage( const QString& languagePackage )
+LanguagePackagesItem::setLanguagePackage( const QByteArray& languagePackage )
 {
     m_languagePackage = languagePackage;
 }
 
 
-QStringList
+QList<QByteArray>
 LanguagePackagesItem::parentPackages() const
 {
     return m_parentPackages;
@@ -88,13 +88,13 @@ LanguagePackagesItem::parentPackages() const
 
 
 void
-LanguagePackagesItem::setParentPackages( const QStringList& parentPackages )
+LanguagePackagesItem::setParentPackages( const QList<QByteArray>& parentPackages )
 {
     m_parentPackages = parentPackages;
 }
 
 
-QStringList
+QList<QByteArray>
 LanguagePackagesItem::parentPkgInstalled() const
 {
     return m_parentPkgInstalled;
@@ -102,13 +102,13 @@ LanguagePackagesItem::parentPkgInstalled() const
 
 
 void
-LanguagePackagesItem::setParentPkgInstalled( const QStringList& parentPkgInstalled )
+LanguagePackagesItem::setParentPkgInstalled( const QList<QByteArray>& parentPkgInstalled )
 {
     m_parentPkgInstalled = parentPkgInstalled;
 }
 
 
-QStringList
+QList<QByteArray>
 LanguagePackagesItem::languagePkgInstalled() const
 {
     return m_languagePkgInstalled;
@@ -116,13 +116,13 @@ LanguagePackagesItem::languagePkgInstalled() const
 
 
 void
-LanguagePackagesItem::setLanguagePkgInstalled( const QStringList& languagePkgInstalled )
+LanguagePackagesItem::setLanguagePkgInstalled( const QList<QByteArray>& languagePkgInstalled )
 {
     m_languagePkgInstalled = languagePkgInstalled;
 }
 
 
-QStringList
+QList<QByteArray>
 LanguagePackagesItem::languagePkgAvailable() const
 {
     return m_languagePkgAvailable;
@@ -130,7 +130,7 @@ LanguagePackagesItem::languagePkgAvailable() const
 
 
 void
-LanguagePackagesItem::setLanguagePkgAvailable( const QStringList& languagePkgAvailable )
+LanguagePackagesItem::setLanguagePkgAvailable( const QList<QByteArray>& languagePkgAvailable )
 {
     m_languagePkgAvailable = languagePkgAvailable;
 }

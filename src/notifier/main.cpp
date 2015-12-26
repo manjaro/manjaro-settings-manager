@@ -44,7 +44,6 @@ int main( int argc, char* argv[] )
     {
         app.init();
         Notifier notifier( &app );
-        notifier.start();
         returnCode = app.exec();
     }
     else

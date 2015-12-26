@@ -26,15 +26,15 @@
 
 #include <KNotifications/KStatusNotifierItem>
 
-#include <QTimer>
+#include <QtCore/QTimer>
 
-class Notifier : public QTimer
+class Notifier : public QObject
 {
     Q_OBJECT
 
 public:
     explicit Notifier( QObject* parent = 0 );
-    void start();
+    virtual ~Notifier();
 
     enum KernelFlag
     {
@@ -46,7 +46,8 @@ public:
 
 
 private:
-    KStatusNotifierItem m_tray;
+    KStatusNotifierItem* m_tray;
+    QTimer* m_timer;
     bool m_checkLanguagePackage;
     bool m_checkKernel;
     bool m_checkUnsupportedKernel;
@@ -65,7 +66,6 @@ private:
     bool isSystemUpToDate();
 
 protected slots:
-    void run();
     void loadConfiguration();
 
 };

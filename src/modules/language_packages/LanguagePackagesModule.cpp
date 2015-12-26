@@ -101,8 +101,10 @@ PageLanguagePackages::loadLanguagePackages()
     ui->treeWidgetAvailable->clear();
     ui->treeWidgetInstalled->clear();
 
+    LanguagePackages languagePackages;
+
     QList<LanguagePackagesCommon::LanguagePackage> availablePackages, installedPackages;
-    QList<LanguagePackagesItem> lpiList { LanguagePackagesCommon::getLanguagePackages() };
+    QList<LanguagePackagesItem> lpiList { languagePackages.languagePackages() };
 
     if ( LanguagePackagesCommon::getLanguagePackages( &availablePackages, &installedPackages, lpiList ) )
     {

@@ -20,6 +20,7 @@
  */
 
 #include "LanguagePackagesCommon.h"
+#include "LanguagePackages.h"
 #include "Notifier.h"
 #include "NotifierApp.h"
 #include "Kernel.h"
@@ -34,13 +35,14 @@
 #include <QDebug>
 
 Notifier::Notifier( QObject* parent ) :
-    QTimer( parent )
+    QObject( parent )
 {
-    m_tray.setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
-    m_tray.setIconByName( "manjaro-settings-manager" );
-    m_tray.setStatus( KStatusNotifierItem::Passive );
+    m_tray = new KStatusNotifierItem( this );
+    m_tray->setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
+    m_tray->setIconByName( "manjaro-settings-manager" );
+    m_tray->setStatus( KStatusNotifierItem::Passive );
 
-    auto menu = m_tray.contextMenu();
+    auto menu = m_tray->contextMenu();
 
     QAction* msmKernel = new QAction( QIcon( ":/images/resources/tux-manjaro.png" ),
                                       QString( tr ( "Kernels" ) ),
@@ -55,58 +57,56 @@ Notifier::Notifier( QObject* parent ) :
     connect( msmKernel, &QAction::triggered, this, [msmKernel, this]()
     {
         QProcess::startDetached( "msm", QStringList() << "-m" << "msm_kernel" );
-        m_tray.setStatus( KStatusNotifierItem::Passive );
+        m_tray->setStatus( KStatusNotifierItem::Passive );
     } );
     connect( msmLanguagePackages, &QAction::triggered, this, [msmLanguagePackages, this]()
     {
         QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages" );
-        m_tray.setStatus( KStatusNotifierItem::Passive );
+        m_tray->setStatus( KStatusNotifierItem::Passive );
     } );
 
-    // Set Interval to 24 hours
-    setInterval( 24 * 60 * 60 * 1000 );
+    m_timer = new QTimer( this );
+    // 1 min
+    m_timer->setInterval( 60 * 1000 );
+    m_timer->start();
 
-    connect( this, &Notifier::timeout,
-             this, &Notifier::run );
+    connect( m_timer, &QTimer::timeout, [=] ()
+    {
+        loadConfiguration();
+        if ( !isPacmanUpdating() && hasPacmanEverSynced() )
+        {
+            if ( m_checkLanguagePackage )
+                cLanguagePackage();
+
+            if ( m_checkKernel )
+                cKernel();
+
+            // 12 hours
+            m_timer->setInterval( 12 * 60 * 60 * 1000 );
+        }
+        else
+        {
+            // 30 minutes
+            m_timer->setInterval( 30 * 60 * 1000 );
+        }
+    } );
 }
 
 
-void
-Notifier::start()
+Notifier::~Notifier()
 {
-    QTimer::singleShot( 30000, this, &Notifier::run );
-    QTimer::start();
-}
 
-
-void
-Notifier::run()
-{
-    loadConfiguration();
-    if ( !isPacmanUpdating() && hasPacmanEverSynced() )
-    {
-        if ( m_checkLanguagePackage )
-            cLanguagePackage();
-
-        if ( m_checkKernel )
-            cKernel();
-
-        setInterval( 24 * 60 * 60 * 1000 );
-    }
-    else
-    {
-        // Try again in 30 minutes
-        setInterval( 30 * 60 * 1000 );
-    }
 }
 
 
 void
 Notifier::cLanguagePackage()
 {
+    LanguagePackages lpkg;
+
     // Check if language packages are available
     QList<LanguagePackagesCommon::LanguagePackage> availablePackages, installedPackages, packages;
-    QList<LanguagePackagesItem> lpiList { LanguagePackagesCommon::getLanguagePackages() };
+    QList<LanguagePackagesItem> lpiList { lpkg.languagePackages() };
 
     LanguagePackagesCommon::getLanguagePackages( &availablePackages, &installedPackages, lpiList );
 
@@ -121,11 +121,11 @@ Notifier::cLanguagePackage()
     if ( !packages.isEmpty() )
     {
         qDebug() << "Missing language packages found, notifying user...";
-        m_tray.setStatus( KStatusNotifierItem::Active );
-        m_tray.showMessage( tr( "Manjaro Settings Manager" ),
-                            QString( tr( "%n new additional language package(s) available", "", packages.size() ) ),
-                            QString( "dialog-information" ),
-                            10000 );
+        m_tray->setStatus( KStatusNotifierItem::Active );
+        m_tray->showMessage( tr( "Manjaro Settings Manager" ),
+                             QString( tr( "%n new additional language package(s) available", "", packages.size() ) ),
+                             QString( "dialog-information" ),
+                             10000 );
 
         // Add to Config
         for ( int i = 0; i < packages.size(); i++ )
@@ -234,7 +234,7 @@ Notifier::cKernel()
     */
 
     if  ( kernelFlags.testFlag( KernelFlag::Unsupported ) || kernelFlags.testFlag( KernelFlag::New ) )
-        m_tray.setStatus( KStatusNotifierItem::Active );
+        m_tray->setStatus( KStatusNotifierItem::Active );
 
     // Notify about unsupported kernels
     if ( kernelFlags.testFlag( KernelFlag::Unsupported ) )
@@ -242,17 +242,17 @@ Notifier::cKernel()
         QString messageTitle = QString( tr( "Manjaro Settings Manager" ) );
         if ( kernelFlags.testFlag( KernelFlag::Running ) )
         {
-            m_tray.showMessage( messageTitle,
-                                QString( tr( "Running an unsupported kernel, please update." ) ),
-                                QString( "dialog-warning" ),
-                                10000 );
+            m_tray->showMessage( messageTitle,
+                                 QString( tr( "Running an unsupported kernel, please update." ) ),
+                                 QString( "dialog-warning" ),
+                                 10000 );
         }
         else
         {
-            m_tray.showMessage( messageTitle,
-                                QString( tr( "Unsupported kernel installed in your system, please remove it." ) ),
-                                QString( "dialog-information" ),
-                                10000 );
+            m_tray->showMessage( messageTitle,
+                                 QString( tr( "Unsupported kernel installed in your system, please remove it." ) ),
+                                 QString( "dialog-information" ),
+                                 10000 );
         }
         for ( Kernel kernel : unsupportedKernels )
             addToConfig( kernel.package(), "unsupported_kernel" );
@@ -261,10 +261,10 @@ Notifier::cKernel()
     // Notify about new kernels
     if ( kernelFlags.testFlag( KernelFlag::New ) )
     {
-        m_tray.showMessage( QString( tr( "Manjaro Settings Manager" ) ),
-                            QString( tr( "Newer kernel is available, please update." ) ),
-                            QString( "dialog-information" ),
-                            10000 );
+        m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
+                             QString( tr( "Newer kernel is available, please update." ) ),
+                             QString( "dialog-information" ),
+                             10000 );
         for ( Kernel kernel : newNotIgnoredKernels )
             addToConfig( kernel.package(), "new_kernel" );
     }

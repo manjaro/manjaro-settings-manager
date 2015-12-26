@@ -21,46 +21,46 @@
 #ifndef LANGUAGEPACKAGESITEM_H
 #define LANGUAGEPACKAGESITEM_H
 
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QtCore/QByteArray>
+#include <QtCore/QList>
 
 class LanguagePackagesItem
 {
 public:
     LanguagePackagesItem();
-    LanguagePackagesItem( const QString& name,
-                          const QString& languagePackage,
-                          const QStringList& parentPackages,
-                          const QStringList& parentPkgInstalled,
-                          const QStringList& languagePkgInstalled,
-                          const QStringList& languagePkgAvailable );
+    LanguagePackagesItem( const QByteArray& name,
+                          const QByteArray& languagePackage,
+                          const QList<QByteArray>& parentPackages,
+                          const QList<QByteArray>& parentPkgInstalled,
+                          const QList<QByteArray>& languagePkgInstalled,
+                          const QList<QByteArray>& languagePkgAvailable );
     ~LanguagePackagesItem();
 
-    QString name() const;
-    void setName( const QString& name );
+    QByteArray name() const;
+    void setName( const QByteArray& name );
 
-    QString languagePackage() const;
-    void setLanguagePackage( const QString& languagePackage );
+    QByteArray languagePackage() const;
+    void setLanguagePackage( const QByteArray& languagePackage );
 
-    QStringList parentPackages() const;
-    void setParentPackages( const QStringList& parentPackages );
+    QList<QByteArray> parentPackages() const;
+    void setParentPackages( const QList<QByteArray>& parentPackages );
 
-    QStringList parentPkgInstalled() const;
-    void setParentPkgInstalled( const QStringList& parentPkgInstalled );
+    QList<QByteArray> parentPkgInstalled() const;
+    void setParentPkgInstalled( const QList<QByteArray>& parentPkgInstalled );
 
-    QStringList languagePkgInstalled() const;
-    void setLanguagePkgInstalled( const QStringList& languagePkgInstalled );
+    QList<QByteArray> languagePkgInstalled() const;
+    void setLanguagePkgInstalled( const QList<QByteArray>& languagePkgInstalled );
 
-    QStringList languagePkgAvailable() const;
-    void setLanguagePkgAvailable( const QStringList& languagePkgAvailable );
+    QList<QByteArray> languagePkgAvailable() const;
+    void setLanguagePkgAvailable( const QList<QByteArray>& languagePkgAvailable );
 
 private:
-    QString m_name;
-    QString m_languagePackage;
-    QStringList m_parentPackages;
-    QStringList m_parentPkgInstalled;
-    QStringList m_languagePkgInstalled;
-    QStringList m_languagePkgAvailable;
+    QByteArray m_name;
+    QByteArray m_languagePackage;
+    QList<QByteArray> m_parentPackages;
+    QList<QByteArray> m_parentPkgInstalled;
+    QList<QByteArray> m_languagePkgInstalled;
+    QList<QByteArray> m_languagePkgAvailable;
 };
 
 #endif // LANGUAGEPACKAGESITEM_H
