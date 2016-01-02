@@ -18,21 +18,15 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TIMEDATEMODULE_H
-#define TIMEDATEMODULE_H
+#ifndef TIMEDATEKCM_H
+#define TIMEDATEKCM_H
 
 #include "TimeDate.h"
+#include "TimeZoneWidget.h"
+#include "TimeDateModule.h"
+#include <KCModule>
 
-#include <KAboutData>
-
-#include <QtWidgets/QWidget>
-
-namespace Ui
-{
-class TimeDateModule;
-}
-
-class TimeDateModule : public QWidget
+class TimeDateKcm : public KCModule
 {
     Q_OBJECT
 
@@ -41,12 +35,13 @@ public:
      * Constructor.
      *
      * @param parent Parent widget of the module
+     * @param args Arguments for the module
      */
-    explicit TimeDateModule( QWidget* parent );
+    explicit TimeDateKcm( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~TimeDateModule();
+    ~TimeDateKcm();
 
     /**
      * Overloading the KCModule load() function.
@@ -63,26 +58,8 @@ public:
      */
     void defaults();
 
-    KAboutData* aboutData() const;
-
-signals:
-    void changed();
-
-public slots:
-    void updateFields();
-    void updateTimeFields();
-    void isNtpEnabledToggled();
-    void timeZoneClicked();
-
 private:
-    Ui::TimeDateModule* ui;
-    TimeDate* m_timeDate;
-    KAboutData* m_aboutData;
-    QTimer* m_timeFieldsTimer;
-
-    bool m_isTimeEdited;
-    bool m_isDateEdited;
-    QString m_timeZone;
+    TimeDateModule* m_timeDateModule;
 };
 
-#endif // TIMEDATEMODULE_H
+#endif // TIMEDATEKCM_H

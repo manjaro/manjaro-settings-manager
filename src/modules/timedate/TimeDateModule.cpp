@@ -18,87 +18,84 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "TimeDateModule.h"
-#include "ui_PageTimeDate.h"
 #include "TimeZoneDialog.h"
-
-#include <KAboutData>
-#include <KPluginFactory>
+#include "TimeDateModule.h"
+#include "ui_TimeDateModule.h"
 
 #include <QtCore/QStringList>
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
 #include <QtCore/QTimer>
 
-K_PLUGIN_FACTORY( MsmTimeDateFactory,
-                  registerPlugin<PageTimeDate>( "msm_timedate" ); )
 
-PageTimeDate::PageTimeDate( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
-    ui( new Ui::PageTimeDate ),
-    m_timeDate( new TimeDate )
+TimeDateModule::TimeDateModule( QWidget* parent ) :
+    QWidget( parent ),
+    ui( new Ui::TimeDateModule ),
+    m_timeDate( new TimeDate ),
+    m_timeFieldsTimer ( new QTimer ( this ) )
 {
-    KAboutData* aboutData = new KAboutData( "msm_timedate",
-                                            tr( "Time and Date", "@title" ),
-                                            PROJECT_VERSION,
-                                            QStringLiteral( "" ),
-                                            KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014-2015 Ramon Buldó" );
-
-    aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
-                          QStringLiteral( "ramon@manjaro.org" ) );
-
-    setAboutData( aboutData );
-    setButtons( KCModule::Default | KCModule::Apply );
-
     ui->setupUi( this );
 
-    connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &PageTimeDate::isNtpEnabledToggled );
-    connect( ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked );
+    m_aboutData = new KAboutData( "msm_timedate",
+                                  tr( "Time and Date", "@title" ),
+                                  PROJECT_VERSION,
+                                  tr( "Time and date configuration." ),
+                                  KAboutLicense::LicenseKey::GPL_V3,
+                                  "Copyright 2014-2015 Ramon Buldó" );
+
+    m_aboutData->addAuthor( "Ramon Buldó",
+                            tr( "Author", "@info:credit" ),
+                            QStringLiteral( "ramon@manjaro.org" ) );
+
+    m_aboutData->setCustomAuthorText( QString(),
+                                      tr( "Please use <a href='%1'>%1</a> to report bugs." )
+                                      .arg( "https://github.com/manjaro/manjaro-settings-manager/issues" ) );
+
+    connect( m_timeFieldsTimer, &QTimer::timeout, this, &TimeDateModule::updateTimeFields );
+    connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &TimeDateModule::isNtpEnabledToggled );
+    connect( ui->timeZonePushButton, &QPushButton::clicked, this, &TimeDateModule::timeZoneClicked );
     connect( ui->timeEdit, &QTimeEdit::timeChanged,
-             [=] ()
+             [this] ()
     {
         m_isTimeEdited = true;
         emit changed();
     } );
     connect( ui->dateEdit, &QTimeEdit::dateChanged,
-             [=] ()
+             [this] ()
     {
         m_isDateEdited = true;
         emit changed();
     } );
     connect( ui->isRtcLocalCheckBox, &QCheckBox::toggled,
-             [=] ()
+             [this] ()
     {
         emit changed();
     } );
 }
 
 
-PageTimeDate::~PageTimeDate()
+TimeDateModule::~TimeDateModule()
 {
     delete ui;
     delete m_timeDate;
+    delete m_aboutData;
 }
 
 
 void
-PageTimeDate::load()
+TimeDateModule::load()
 {
     m_isTimeEdited = false;
     m_isDateEdited = false;
     m_timeZone = m_timeDate->timeZone();
     updateFields();
     updateTimeFields();
-    QTimer* timer = new QTimer( this );
-    connect( timer, &QTimer::timeout, this, &PageTimeDate::updateTimeFields );
-    timer->start( 1000 );
+    m_timeFieldsTimer->start( 1000 );
 }
 
 
 void
-PageTimeDate::save()
+TimeDateModule::save()
 {
     if ( ui->isNtpEnabledCheckBox->isChecked() != m_timeDate->isNtpEnabled() )
         m_timeDate->setNtp( ui->isNtpEnabledCheckBox->isChecked() );
@@ -127,14 +124,21 @@ PageTimeDate::save()
 
 
 void
-PageTimeDate::defaults()
+TimeDateModule::defaults()
 {
     this->load();
 }
 
 
+KAboutData*
+TimeDateModule::aboutData() const
+{
+    return m_aboutData;
+}
+
+
 void
-PageTimeDate::updateFields()
+TimeDateModule::updateFields()
 {
     if ( m_timeDate->canNtp() )
         ui->isNtpEnabledCheckBox->setChecked( m_timeDate->isNtpEnabled() );
@@ -187,7 +191,7 @@ PageTimeDate::updateFields()
 
 
 void
-PageTimeDate::updateTimeFields()
+TimeDateModule::updateTimeFields()
 {
     if ( !m_isTimeEdited )
     {
@@ -207,7 +211,7 @@ PageTimeDate::updateTimeFields()
 
 
 void
-PageTimeDate::isNtpEnabledToggled()
+TimeDateModule::isNtpEnabledToggled()
 {
     if ( ui->isNtpEnabledCheckBox->isChecked() )
     {
@@ -224,7 +228,7 @@ PageTimeDate::isNtpEnabledToggled()
 
 
 void
-PageTimeDate::timeZoneClicked()
+TimeDateModule::timeZoneClicked()
 {
     TimeZoneDialog dialog( this );
     QString region = m_timeZone.split( "/" ).value( 0 );
@@ -239,5 +243,3 @@ PageTimeDate::timeZoneClicked()
         emit changed();
     }
 }
-
-#include "TimeDateModule.moc"
