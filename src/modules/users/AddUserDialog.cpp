@@ -104,7 +104,7 @@ void AddUserDialog::buttonCreate_clicked()
     KAuth::Action installActionAdd( QLatin1String( "org.manjaro.msm.users.add" ) );
     installActionAdd.setHelperId( QLatin1String( "org.manjaro.msm.users" ) );
     QVariantMap args;
-    args["arguments"] = QStringList() << "-m" << "-p" << "" << "-g" << "users" << "-G" << DEFAULT_USER_GROUPS << username;
+    args["arguments"] = QStringList() << "-m" << "-p" << "" << "-U" << "-G" << DEFAULT_USER_GROUPS << username;
     installActionAdd.setArguments( args );
     KAuth::ExecuteJob* jobAdd = installActionAdd.execute();
     connect( jobAdd, &KAuth::ExecuteJob::newData,
