@@ -19,8 +19,6 @@
  */
 
 #include "TimeDateKcm.h"
-#include "ui_PageTimeDate.h"
-#include "TimeZoneDialog.h"
 
 #include <KAboutData>
 #include <KPluginFactory>
@@ -29,6 +27,7 @@
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
 #include <QtCore/QTimer>
+#include <QtWidgets/QHBoxLayout>
 
 K_PLUGIN_FACTORY( MsmTimeDateFactory,
                   registerPlugin<TimeDateKcm>( "msm_timedate" ); )
@@ -55,7 +54,7 @@ TimeDateKcm::TimeDateKcm( QWidget* parent, const QVariantList& args ) :
 
 TimeDateKcm::~TimeDateKcm()
 {
-    delete m_timeDateModule;
+
 }
 
 void TimeDateKcm::load()

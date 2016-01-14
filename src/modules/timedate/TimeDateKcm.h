@@ -21,9 +21,8 @@
 #ifndef TIMEDATEKCM_H
 #define TIMEDATEKCM_H
 
-#include "TimeDate.h"
-#include "TimeZoneWidget.h"
 #include "TimeDateModule.h"
+
 #include <KCModule>
 
 class TimeDateKcm : public KCModule
