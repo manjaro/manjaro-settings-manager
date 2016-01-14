@@ -102,7 +102,7 @@ void AddUserDialog::buttonCreate_clicked() {
 
     // Add user
     if (Global::runProcess("useradd",
-                           QStringList() << "-m" << "-p" << "" << "-g" << "users" << "-G" << DEFAULT_USER_GROUPS << username,
+                           QStringList() << "-m" << "-p" << "" << "-U" << "-G" << DEFAULT_USER_GROUPS << username,
                            QStringList(),
                            errorMessage) != 0)
     {
