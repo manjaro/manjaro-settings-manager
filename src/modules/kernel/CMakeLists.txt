@@ -5,6 +5,10 @@ file(GLOB MSM_KERNEL_GLOB
      changelogs/linux34.html
      changelogs/linux38.html
      changelogs/linux40.html
+     changelogs/linux41.html
+     changelogs/linux42.html
+     changelogs/linux43.html
+     changelogs/linux44.html
      changelogs/linux310.html
      changelogs/linux311.html
      changelogs/linux312.html
