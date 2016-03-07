@@ -50,14 +50,14 @@
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>El grup d&apos;administració %1 no està habilitat a &apos;%2&apos;! Ha d&apos;habilitar-lo per ser capaç d&apos;establir drets d&apos;administrador...</translation>
+        <translation>El grup d&apos;administració %1 no està habilitat a &quot;%2&quot;! Heu d&apos;habilitar-lo per poder establir drets d&apos;administrador...</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>El següents grups d&apos;usuaris predeterminats s&apos;han desactivat:
+        <translation>Els grups d&apos;usuaris predeterminats següents s&apos;han inhabilitat:
 %1
 Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     </message>
@@ -69,7 +69,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
         <source>Failed to set groups!</source>
-        <translation>No s&apos;ha pogut establir els grups!</translation>
+        <translation>No s&apos;han pogut establir els grups!</translation>
     </message>
 </context>
 <context>
@@ -77,7 +77,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Nou usuari</translation>
+        <translation>Usuari nou</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="71"/>
@@ -92,7 +92,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Torni a escriure la contrasenya</translation>
+        <translation>Torneu a escriure la contrasenya</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.ui" line="164"/>
@@ -107,7 +107,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="89"/>
         <source>Your username contains invalid characters!</source>
-        <translation>El seu nom d&apos;usuari conté caràcters invàlids!</translation>
+        <translation>El nom d&apos;usuari conté caràcters no vàlids!</translation>
     </message>
     <message>
         <location filename="../dialogs/adduserdialog.cpp" line="93"/>
@@ -164,7 +164,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../dialogs/applydialog.cpp" line="114"/>
         <source>Process failed!</source>
-        <translation>Error en el procés!</translation>
+        <translation>Ha fallat el procés!</translation>
     </message>
 </context>
 <context>
@@ -173,12 +173,12 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../dialogs/changepassworddialog.ui" line="14"/>
         <location filename="../dialogs/changepassworddialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Nova contrasenya</translation>
+        <translation>Contrasenya nova </translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Torni a escriure la contrasenya</translation>
+        <translation>Torneu a escriure la contrasenya</translation>
     </message>
     <message>
         <location filename="../dialogs/changepassworddialog.ui" line="129"/>
@@ -245,7 +245,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="92"/>
         <source>Unsupported</source>
-        <translation>No suportat</translation>
+        <translation>Sense suport</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="180"/>
@@ -267,13 +267,13 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="178"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="243"/>
         <source>Remove</source>
-        <translation>Esborrar</translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="179"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="244"/>
         <source>Install</source>
-        <translation>Instal·lar</translation>
+        <translation>Instal·la</translation>
     </message>
 </context>
 <context>
@@ -282,7 +282,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../models/KeyboardModel.cpp" line="208"/>
         <location filename="../models/KeyboardModel.cpp" line="246"/>
         <source>Default</source>
-        <translation>Defecte</translation>
+        <translation>Per defecte</translation>
     </message>
     <message>
         <location filename="../models/KeyboardModel.cpp" line="284"/>
@@ -295,17 +295,17 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
-        <translation>Idioma de la pantalla</translation>
+        <translation>Llengua de la pantalla</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation>Llengua</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
         <source>Collation and Sorting</source>
-        <translation>Cotejament i ordenació</translation>
+        <translation>Comparació i classificació</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
@@ -345,7 +345,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="117"/>
         <source>Numbers</source>
-        <translation>Nombres</translation>
+        <translation>Números</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="118"/>
@@ -368,12 +368,12 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Administrador de Configuració de Manjaro</translation>
+        <translation>Gestor de configuració del Manjaro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="179"/>
         <source>All Settings</source>
-        <translation>Vista general</translation>
+        <translation>Tots els paràmetres</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
@@ -399,7 +399,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../mainwindow.cpp" line="211"/>
         <source>Manjaro Settings</source>
-        <translation>Configuració de Manjaro</translation>
+        <translation>Configuració del Manjaro</translation>
     </message>
 </context>
 <context>
@@ -407,53 +407,53 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageKernel.cpp" line="37"/>
         <source>Kernel</source>
-        <translation>Kernel</translation>
+        <translation>Nucli</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="81"/>
         <source>Install Linux %1</source>
-        <translation>Instal·la Linux %1</translation>
+        <translation>Instal·la el Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="82"/>
         <source>Do you really want to install this kernel?
 </source>
-        <translation>Realment desitja instal·lar aquest kernel?
+        <translation>Realment voleu instal·lar aquest nucli?
 </translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="83"/>
         <source>This will install the following packages:
 </source>
-        <translation>Això instal·larà els següents paquets:
+        <translation>Això instal·larà els paquets següents:
 </translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="101"/>
         <source>Installing new kernel.</source>
-        <translation>Instal·lant nou kernel.</translation>
+        <translation>Instal·lant un nucli nou.</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="114"/>
         <source>Remove Linux %1</source>
-        <translation>Esborrar Linux %1</translation>
+        <translation>Elimina el Linux %1</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="115"/>
         <source>Do you really want to remove this kernel?</source>
-        <translation>Realment desitja esborrar aquest kernel?</translation>
+        <translation>Realment voleu eliminar aquest nucli?</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="116"/>
         <source>This will remove the following packages:
 </source>
-        <translation>Això esborrarà els següents paquets:
+        <translation>Això eliminarà els paquets següents:
 </translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="134"/>
         <source>Removing kernel...</source>
-        <translation>Esborrant kernel...</translation>
+        <translation>Eliminant el nucli...</translation>
     </message>
     <message>
         <location filename="../pages/PageKernel.cpp" line="147"/>
@@ -466,12 +466,12 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Model de teclat:</translation>
+        <translation>Model del teclat:</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
-        <translation>Escriu aquí per provar el teu teclat</translation>
+        <translation>Escriviu aquí per provar el teclat</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="42"/>
@@ -481,7 +481,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="140"/>
         <source>Setting new keyboard layout...</source>
-        <translation>Ajustant la nova distribució del teclat...</translation>
+        <translation>Establint la nova disposició del teclat...</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
@@ -501,7 +501,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="62"/>
         <source>System Locales</source>
-        <translation>Localització</translation>
+        <translation>Llengües del sistema</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="35"/>
@@ -511,7 +511,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="42"/>
         <source>Remove</source>
-        <translation>Esborra</translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="49"/>
@@ -526,17 +526,17 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="170"/>
         <source>Display Language</source>
-        <translation>Idioma de la pantalla</translation>
+        <translation>Llengua de la pantalla</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="188"/>
         <source>Language:</source>
-        <translation>Idioma:</translation>
+        <translation>Llengua:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation>Cotejament i ordenació:</translation>
+        <translation>Comparació i classificació:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="208"/>
@@ -551,7 +551,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguage.ui" line="249"/>
         <source>Numbers:</source>
-        <translation>Nombres:</translation>
+        <translation>Números</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="259"/>
@@ -601,7 +601,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation>Llengua</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="323"/>
@@ -615,37 +615,37 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../pages/PageLanguage.cpp" line="324"/>
         <location filename="../pages/PageLanguage.cpp" line="381"/>
         <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>No s&apos;ha pogut obrir el fitxer &apos;%1&apos;!</translation>
+        <translation>No s&apos;ha pogut obrir el fitxer &quot;%1&quot;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>No s&apos;ha pogut obtenir una cadena vàlida per l&apos;idioma &apos;%1&apos;!</translation>
+        <translation>No s&apos;ha pogut obtenir una cadena vàlida per a la llengua &quot;%1&quot;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
-        <translation>No s&apos;ha pogut establir la localització!</translation>
+        <translation>No s&apos;ha pogut establir la llengua!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
-        <translation>Generant fitxer locales.gen...</translation>
+        <translation>Generant el fitxer locales.gen...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation>Establir com a idioma de la pantalla i format prefeterminat</translation>
+        <translation>Estableix com a llengua de la pantalla i format predeterminats</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation>Establir com a idioma de la pantalla prefeterminat</translation>
+        <translation>Estableix com a llengua predeterminada de la pantalla </translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation>Establir com a format prefeterminat</translation>
+        <translation>Estableix com a format predeterminat</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
@@ -655,7 +655,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>És possible que hagi de reiniciar l&apos;entorn gràfic per aplicar la nova configuració ...</translation>
+        <translation>És possible que s&apos;hagi de reiniciar l&apos;entorn gràfic per aplicar la configuració nova...</translation>
     </message>
 </context>
 <context>
@@ -663,12 +663,12 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Paquets d&apos;idioma disponibles</translation>
+        <translation>Paquets de llengua disponibles</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Es poden instal·lar paquets d&apos;idiomes addicionals:</translation>
+        <translation>Es poden instal·lar paquets de llengua addicionals:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="53"/>
@@ -690,42 +690,42 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation>Paquets d&apos;idioma instal·lats</translation>
+        <translation>Paquets de llengua instal·lats</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation>Paquets d&apos;idioma instal·lats:</translation>
+        <translation>Paquets de llengua instal·lats:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation>Paquets d&apos;idioma</translation>
+        <translation>Paquets de llengua</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation>Actualitzant base de dades de pacman...</translation>
+        <translation>Actualitzant la base de dades del pacman...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
-        <translation>El sistema està desactualitzat</translation>
+        <translation>El sistema no està actualitzat</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>El seu sistema no està actualitzat! Ha d&apos;actualitzar-lo per continuar!</translation>
+        <translation>El sistema no està actualitzat! Heu d&apos;actualitzar-lo primer per poder continuar!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation>Instal·lant paquets d&apos;idioma...</translation>
+        <translation>Instal·lant paquets de llengua...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation>%1 paquets d&apos;idioma</translation>
+        <translation>%1 paquets de llengua</translation>
     </message>
 </context>
 <context>
@@ -767,7 +767,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
-        <translation>Detecció del maquinari</translation>
+        <translation>Detecció de maquinari</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="42"/>
@@ -777,7 +777,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation>Esborra</translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="46"/>
@@ -800,25 +800,25 @@ del controlador propietari</translation>
         <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation>Realment vols instal·lar automàticament
-el controlador de codi obert?</translation>
+        <translation>Realment voleu instal·lar automàticament
+el controlador gràfic de codi obert?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="171"/>
         <source>Installing open-source graphic driver...</source>
-        <translation>Instal·lant el controlador de codi obert...</translation>
+        <translation>Instal·lant el controlador gràfic de codi obert...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation>Realment vols instal·lar automàticament
-el controlador propietari?</translation>
+        <translation>Realment voleu instal·lar automàticament
+el controlador gràfic de propietat?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="187"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation>Instal·lant el controlador propietari...</translation>
+        <translation>Instal·lant el controlador gràfic de propietat...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="218"/>
@@ -829,13 +829,13 @@ el controlador propietari?</translation>
         <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation>Realment vols instal·lar
+        <translation>Realment voleu instal·lar
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
-        <translation>Instal·lant controlador...</translation>
+        <translation>Instal·lant el controlador...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="236"/>
@@ -846,25 +846,25 @@ el controlador propietari?</translation>
         <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation>Realment vols esborrar
+        <translation>Realment voleu eliminar
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
-        <translation>Esborrant controlador...</translation>
+        <translation>Eliminant el controlador...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation>Realment vols forçar la reinstal·lació de
+        <translation>Realment voleu forçar la reinstal·lació de
 %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation>Reinstal·lant controlador...</translation>
+        <translation>Reinstal·lant el controlador...</translation>
     </message>
 </context>
 <context>
@@ -872,42 +872,42 @@ el controlador propietari?</translation>
     <message>
         <location filename="../pages/PageNotifications.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation>Notificacions del kernel</translation>
+        <translation>Notificacions del nucli</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation>Comprova kernels sense suport</translation>
+        <translation>Comprova si hi ha nuclis sense suport</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation>Només notificar si està funcionant un kernel sense support</translation>
+        <translation>Només notifica si està funcionant un nucli sense support</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation>Comprova nous kernels</translation>
+        <translation>Comprova si hi ha nuclis nous</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation>Notifica només kernels LTS</translation>
+        <translation>Notifica només els nuclis LTS</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation>Notifica només kernels recomanats</translation>
+        <translation>Notifica només els nuclis recomanats</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation>Comprova paquets d&apos;idioma que falten</translation>
+        <translation>Comprova si falten paquets de llengua</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation>Notificacions de paquets d&apos;idioma</translation>
+        <translation>Notificacions de paquets de llengua</translation>
     </message>
     <message>
         <location filename="../pages/PageNotifications.cpp" line="32"/>
@@ -921,12 +921,12 @@ el controlador propietari?</translation>
         <location filename="../pages/PageTimeDate.ui" line="20"/>
         <location filename="../pages/PageTimeDate.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation>Hora i Data</translation>
+        <translation>Data i hora</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation>Estableix la data i hora automàticament</translation>
+        <translation>Estableix la data i l&apos;hora automàticament</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="148"/>
@@ -936,7 +936,7 @@ el controlador propietari?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation>Canviar la zona horària</translation>
+        <translation>Canvia la zona horària</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
@@ -991,7 +991,7 @@ el controlador propietari?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="248"/>
         <source>Next transition:</source>
-        <translation>Següent transició:</translation>
+        <translation>Transició següent:</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.cpp" line="121"/>
@@ -1065,23 +1065,23 @@ el controlador propietari?</translation>
     <message>
         <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>Error en copiar la imatge a &apos;%1&apos;!</translation>
+        <translation>Error en copiar la imatge a &quot;%1&quot;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="156"/>
         <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>No s&apos;ha pogut establir el permís de l&apos;arxiu &apos;%1&apos;!</translation>
+        <translation>No s&apos;ha pogut establir el permís del fitxer &quot;%1&quot;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Error a establir l&apos;enllaç simbòlic de &apos;%1&apos; a &apos;%2&apos;!</translation>
+        <translation>Error en establir l&apos;enllaç simbòlic de &quot;%1&quot; a &quot;%2&quot;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
-        <translation>Continuar?</translation>
+        <translation>Voleu continuar?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
@@ -1091,12 +1091,12 @@ el controlador propietari?</translation>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
-        <translation>Esborrar la carpeta d&apos;inici?</translation>
+        <translation>Voleu esborrar la carpeta d&apos;inici?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>Vol eliminar la carpeta d&apos;inici de l&apos;usuari %1?</translation>
+        <translation>Voleu eliminar la carpeta d&apos;inici de l&apos;usuari %1?</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="211"/>
@@ -1138,12 +1138,12 @@ el controlador propietari?</translation>
     <message>
         <location filename="../dialogs/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Nova ubicació</translation>
+        <translation>Afegeix una llengua</translation>
     </message>
     <message>
         <location filename="../dialogs/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation>Llengua</translation>
     </message>
     <message>
         <location filename="../dialogs/SelectLocalesDialog.ui" line="70"/>
@@ -1153,7 +1153,7 @@ el controlador propietari?</translation>
     <message>
         <location filename="../dialogs/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
-        <translation>Ubicació:</translation>
+        <translation>Llengua:</translation>
     </message>
     <message>
         <location filename="../dialogs/SelectLocalesDialog.ui" line="182"/>

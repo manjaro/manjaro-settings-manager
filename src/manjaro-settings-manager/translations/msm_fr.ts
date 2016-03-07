@@ -251,7 +251,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
         <location filename="../delegates/KernelListViewDelegate.cpp" line="180"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="245"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Liste des changements </translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="93"/>
@@ -267,7 +267,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
         <location filename="../delegates/KernelListViewDelegate.cpp" line="178"/>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="243"/>
         <source>Remove</source>
-        <translation>Supprimer</translation>
+        <translation>Enlever</translation>
     </message>
     <message>
         <location filename="../delegates/KernelListViewDelegate.cpp" line="179"/>

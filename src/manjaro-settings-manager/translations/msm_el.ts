@@ -9,12 +9,12 @@
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Τυπικός</translation>
+        <translation>Κανονικός</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Διαχειρηστής</translation>
+        <translation>Διαχειριστής</translation>
     </message>
     <message>
         <location filename="../dialogs/accounttypedialog.ui" line="79"/>
@@ -295,72 +295,72 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Γλώσσα Προβολής</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Γλώσσα</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Συγκέντρωση και Διαλογή</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Μηνύματα</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="110"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Μορφές</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="112"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Διεύθυνση</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="113"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Ταυτότητα</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="114"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Μονάδες Μέτρησης</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="115"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Νόμισμα</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="116"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Ονόματα</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="117"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Αριθμοί</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="118"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Χαρτί</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="119"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Τηλέφωνο</translation>
     </message>
     <message>
         <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Ώρα</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Διαχειρηστής Ρυθμίσεων Manjaro</translation>
+        <translation>Διαχειριστής Ρυθμίσεων Manjaro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="179"/>
@@ -487,13 +487,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageKeyboard.cpp" line="148"/>
         <location filename="../pages/PageKeyboard.cpp" line="171"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Σφάλμα!</translation>
     </message>
     <message>
         <location filename="../pages/PageKeyboard.cpp" line="149"/>
         <location filename="../pages/PageKeyboard.cpp" line="172"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία ορισμού διάταξης πληκτρολογίου</translation>
     </message>
 </context>
 <context>
@@ -521,27 +521,27 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Λεπτομερείς Ρυθμίσεις</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Γλώσσα Προβολής</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Γλώσσα</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Συγκέντρωση και Διαλογή:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Μηνύματα</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="218"/>
@@ -551,52 +551,52 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Αριθμοί</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Ώρα</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Νόμισμα</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Μονάδες Μέτρησης</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Διεύθυνση</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Ονόματα</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Τηλέφωνο</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Ταυτότητα</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Χαρτί:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Μορφές</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="35"/>
@@ -620,32 +620,32 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.cpp" line="369"/>
         <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία απόκτησης έγκυρου τοπικού νήματος για το τοπικό &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="465"/>
         <source>Failed to set locale!</source>
-        <translation>Αποτυχία ορισμού τοπικού!</translation>
+        <translation>Αποτυχία ορισμού τοπικοποίησης!</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="393"/>
         <source>Generating locale.gen file...</source>
-        <translation>Δημιουργία αρχείου locale.gen...</translation>
+        <translation>Δημιουργία αρχείου τοπικοποίησης...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="59"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Ορισμός ως προεπιλεγμένης γλώσσας εμφάνισης και διάταξης</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="60"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Ορισμός ως προεπιλεγμένης γλώσσας εμφάνισης</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="61"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Το σύστημα είναι απαρχαιωμένο</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
@@ -655,7 +655,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguage.cpp" line="396"/>
         <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation type="unfinished"/>
+        <translation>Ίσως θα πρέπει να επανεκκινήσεις το γραφικό περιβάλλον για να εφαρμοστούν οι νέες ρυθμίσεις...</translation>
     </message>
 </context>
 <context>
@@ -663,69 +663,69 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Διαθέσιμα Πακέτα Γλωσσών</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="30"/>
         <source>Additional language packages can be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Μπορούν να εγκατασταθούν επιπλεόν πακέτα γλωσσών:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="53"/>
         <location filename="../pages/PageLanguagePackages.ui" line="101"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>Πακέτο</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="58"/>
         <location filename="../pages/PageLanguagePackages.ui" line="106"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>Γονικό Πακέτο</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="63"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="72"/>
         <source>Installed Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατεστημένα Γλωσσικά Πακέτα</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.ui" line="78"/>
         <source>Installed language packages:</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατεστημένα γλωσσικά πακέτα:</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Πακέτα Γλωσσών</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation type="unfinished"/>
+        <translation>Ενημέρωση βάσης δεδομένων του pacman...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>Το σύστημα σας δεν είναι ενημερωμένο</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Το Σύστημά σου δεν είναι ενημερωμένο! Πρέπει να το ανανεώσεις πριν την χρήση του.</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
         <source>Installing language packages...</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση γλωσσικών πακέτων...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 γλωσσικά πακέτα</translation>
     </message>
 </context>
 <context>
@@ -734,130 +734,137 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../pages/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation type="unfinished"/>
+        <translation>Αυτόματη Εγκατάσταση
+Οδηγού Ανοιχτού κώδικα</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation type="unfinished"/>
+        <translation>Αυτόματη Εγκατάσταση
+Ιδιοκτησιακού Οδηγού</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>Οδηγός</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>Ανοιχτού κώδικα</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατεστημένος</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>Εμφάνιση όλων των συσκευών</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="32"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Ανίχνευση Υλικού</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="42"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="44"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="46"/>
         <location filename="../pages/PageMhwd.cpp" line="254"/>
         <source>Force Reinstallation</source>
-        <translation type="unfinished"/>
+        <translation>Εξαναγκασμένη Επανεγκατάσταση</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="106"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Άγνωστο όνομα συσκευής</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="166"/>
         <location filename="../pages/PageMhwd.cpp" line="182"/>
         <source>Auto Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Αυτόματη Εγκατάσταση Ρυθμίσεων</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="167"/>
         <source>Do you really want to auto install
  the open-source graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλεις πραγματικά να εγκαταστήσεις αυτόματα
+ τον οδηγό γραφικών ανοιχτού κώδικα;</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="171"/>
         <source>Installing open-source graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση οδηγού γραφικών ανοιχτού κώδικα...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="183"/>
         <source>Do you really want to auto install
  the proprietary graphic driver?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλεις πραγματικά να εγκαταστήσεις αυτόματα
+τον ιδιοκτησιακό οδηγό γραφικών;</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="187"/>
         <source>Installing proprietary graphic driver...</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση ιδιοκτησιακού οδηγού γραφικών...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="218"/>
         <source>Install Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση Ρυθμίσεων</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="219"/>
         <source>Do you really want to install
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλεις πραγματικά να εγκαταστήσεις το
+%1;</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="223"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση οδηγού...</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="236"/>
         <source>Remove Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Αφαίρεση Διαμόρφωσης</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="237"/>
         <source>Do you really want to remove
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλεις πραγματικά να αφαιρέσεις
+%1;</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="241"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Αφαίρεση οδηγού</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="255"/>
         <source>Do you really want to force the reinstallation of
 %1?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλεις πραγματικά να εξαναγκάσεις την επανεγκατάσταση του
+ %1;</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.cpp" line="259"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Επανεγκατάσταση οδηγού...</translation>
     </message>
 </context>
 <context>
@@ -934,7 +941,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation type="unfinished"/>
+        <translation>Ρολόι υλικού σε τοπική ζώνη ώρας</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
@@ -997,48 +1004,48 @@ Proprietary Driver</source>
     <message>
         <location filename="../pages/PageUsers.ui" line="162"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Εικόνα</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="169"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Όνομα χρήστη</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="176"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Τύπος Λογαριασμού</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="183"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Κωδικός πρόσβασης</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.ui" line="231"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="29"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Λογαριασμοί Χρηστών</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="74"/>
         <location filename="../pages/PageUsers.cpp" line="81"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Κανονικός</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="91"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Διαχειριστής</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="104"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Εικόνες (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
@@ -1048,53 +1055,53 @@ Proprietary Driver</source>
         <location filename="../pages/PageUsers.cpp" line="174"/>
         <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Σφάλμα!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="136"/>
         <source>Failed to get user permission structures!</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία λήψης δομών δικαιωμάτων χρήστη!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="150"/>
         <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία αντιγραφής εικόνας σε &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="156"/>
         <location filename="../pages/PageUsers.cpp" line="174"/>
         <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία ορισμού άδειας αρχείου &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="168"/>
         <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία δέσμευσης του &apos;%1&apos; με το &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Συνέχεια;</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="196"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλετε πραγματικά να αφαιρέσετε τον χρήστη %1;</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Αφαίρεση Προσωπικού φακέλου;</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="201"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλεις πραγματικά να αφαιρέσεις τον οικιακό φάκελο του χρήστη %1;</translation>
     </message>
     <message>
         <location filename="../pages/PageUsers.cpp" line="211"/>
         <source>Failed to remove user %1!</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία αφαίρεσης χρήστη %1!</translation>
     </message>
 </context>
 <context>

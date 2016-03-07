@@ -368,7 +368,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Ayar Yöneticisi</translation>
+        <translation>Manjaro Yapılandırma Merkezi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="179"/>
@@ -734,14 +734,14 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <source>Auto Install
 Open-source Driver</source>
         <translation>Otomatik yükle
-Açık-kaynak Sürücü</translation>
+Açık Kaynak Sürücü</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
         <translation>Otomatik Yükle
-Özel Sürücü</translation>
+Kapalı Kaynak Sürücü</translation>
     </message>
     <message>
         <location filename="../pages/PageMhwd.ui" line="67"/>
@@ -940,7 +940,7 @@ otomatik olarak yüklemek ve yapılandırmak istiyor musunuz?</translation>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation>Donanım, saati yerel saati kullansın</translation>
+        <translation>Donanım yerel saati kullansın</translation>
     </message>
     <message>
         <location filename="../pages/PageTimeDate.ui" line="51"/>
