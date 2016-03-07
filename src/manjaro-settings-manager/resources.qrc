@@ -118,5 +118,9 @@
         <file>resources/linux318.html</file>
         <file>resources/linux319.html</file>
         <file>resources/linux40.html</file>
+        <file>resources/linux41.html</file>
+        <file>resources/linux42.html</file>
+        <file>resources/linux43.html</file>
+        <file>resources/linux44.html</file>
     </qresource>
 </RCC>
