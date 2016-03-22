@@ -22,7 +22,7 @@
 #define MSMWINDOW_H
 
 #include "PageKernel.h"
-#include "pages/PageKeyboard.h"
+#include "PageKeyboard.h"
 #include "pages/PageLanguage.h"
 #include "pages/PageLanguagePackages.h"
 #include "pages/PageMhwd.h"

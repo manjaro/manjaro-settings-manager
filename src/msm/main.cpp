@@ -31,6 +31,7 @@ int main( int argc, char* argv[] )
 {
     MsmApplication app( argc, argv );
     Q_INIT_RESOURCE(kernel);
+    Q_INIT_RESOURCE(keyboard);
 
     QCommandLineParser parser;
     parser.setApplicationDescription( app.applicationName() );

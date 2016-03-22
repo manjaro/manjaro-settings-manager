@@ -20,12 +20,9 @@ set(MSM_SRCS
     mhwd/mhwd.cpp
     mhwd/vita/string.cpp
     models/EnabledLocalesModel.cpp
-    models/KeyboardModel.cpp
-    models/KeyboardItem.cpp
     models/SupportedLocalesItem.cpp
     models/SupportedLocalesModel.cpp
     models/TimeDate.cpp
-    pages/PageKeyboard.cpp
     pages/PageLanguage.cpp
     pages/PageLanguagePackages.cpp
     pages/PageMhwd.cpp
@@ -34,7 +31,6 @@ set(MSM_SRCS
     pages/PageUsers.cpp
     pages/SetKeyboardLayoutJob.cpp
     widgets/FlatButton.cpp
-    widgets/KeyboardPreview.cpp
     widgets/ListWidget.cpp
     widgets/LocaleGlobal.cpp
     widgets/TimeZoneWidget.cpp)
@@ -46,7 +42,6 @@ set(MSM_UI
     dialogs/ChangePasswordDialog.ui
     dialogs/SelectLocalesDialog.ui
     dialogs/TimeZoneDialog.ui
-    pages/PageKeyboard.ui
     pages/PageLanguage.ui
     pages/PageLanguagePackages.ui
     pages/PageMhwd.ui
@@ -67,6 +62,7 @@ SET_TARGET_PROPERTIES(msm_bin
         RUNTIME_OUTPUT_NAME msm)
 target_link_libraries(msm_bin
     msm_page_kernel
+    msm_page_keyboard
     Qt5::Core
     Qt5::Widgets
     Qt5::DBus

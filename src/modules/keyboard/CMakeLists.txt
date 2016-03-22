@@ -36,3 +36,20 @@ add_executable(msm_keyboard_authhelper KeyboardAuthHelper.cpp SetKeyboardLayoutJ
 target_link_libraries(msm_keyboard_authhelper KF5::Auth KF5::ConfigCore Qt5::DBus)
 install(TARGETS msm_keyboard_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_keyboard_authhelper org.manjaro.msm.keyboard root)
+
+
+#msm_page_kernel library
+set(MSM_KEYBOARD_PAGE_SRCS
+    KeyboardItem.cpp
+    KeyboardModel.cpp
+    KeyboardPreview.cpp
+    PageKeyboard.cpp)
+set(MSM_KEYBOARD_PAGE_UI
+    PageKeyboard.ui)
+qt5_wrap_ui(MSM_KEYBOARD_PAGE_SRCS ${MSM_KEYBOARD_PAGE_UI})
+QT5_ADD_RESOURCES (MSM_KEYBOARD_PAGE_SRCS ${MSM_KEYBOARD_RESOURCES})
+
+add_library(msm_page_keyboard STATIC ${MSM_KEYBOARD_PAGE_SRCS})
+target_compile_definitions(msm_page_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_link_libraries(msm_page_keyboard
+    msm)

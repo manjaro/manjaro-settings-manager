@@ -22,10 +22,11 @@
 #ifndef PAGEKEYBOARD_H
 #define PAGEKEYBOARD_H
 
-#include "ApplyDialog.h"
-#include "models/KeyboardModel.h"
-#include "widgets/KeyboardPreview.h"
+#include "KeyboardModel.h"
+#include "KeyboardPreview.h"
 #include "PageWidget.h"
+
+#include "ApplyDialog.h"
 
 #include <KF5/KItemModels/KSelectionProxyModel>
 
