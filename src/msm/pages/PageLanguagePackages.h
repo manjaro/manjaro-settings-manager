@@ -21,8 +21,8 @@
 #ifndef PAGELANGUAGEPACKAGES_H
 #define PAGELANGUAGEPACKAGES_H
 
-#include "dialogs/ApplyDialog.h"
-#include "widgets/PageWidget.h"
+#include "ApplyDialog.h"
+#include "PageWidget.h"
 
 #include "global/Global.h"
 

@@ -21,7 +21,7 @@
 #ifndef MSMWINDOW_H
 #define MSMWINDOW_H
 
-#include "pages/PageKernel.h"
+#include "PageKernel.h"
 #include "pages/PageKeyboard.h"
 #include "pages/PageLanguage.h"
 #include "pages/PageLanguagePackages.h"
@@ -29,7 +29,7 @@
 #include "pages/PageNotifications.h"
 #include "pages/PageTimeDate.h"
 #include "pages/PageUsers.h"
-#include "widgets/PageWidget.h"
+#include "PageWidget.h"
 
 #include <QApplication>
 #include <QMainWindow>

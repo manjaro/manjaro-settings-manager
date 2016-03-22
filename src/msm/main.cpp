@@ -30,6 +30,7 @@
 int main( int argc, char* argv[] )
 {
     MsmApplication app( argc, argv );
+    Q_INIT_RESOURCE(kernel);
 
     QCommandLineParser parser;
     parser.setApplicationDescription( app.applicationName() );

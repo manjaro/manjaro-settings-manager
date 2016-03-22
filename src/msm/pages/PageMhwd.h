@@ -24,8 +24,8 @@
 #define PAGEMHWD_H
 
 #include "global/Global.h"
-#include "dialogs/ApplyDialog.h"
-#include "widgets/PageWidget.h"
+#include "ApplyDialog.h"
+#include "PageWidget.h"
 
 #include <QString>
 #include <QStringList>

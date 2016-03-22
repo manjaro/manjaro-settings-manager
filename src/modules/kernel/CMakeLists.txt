@@ -49,3 +49,21 @@ add_executable(msm_kernel_authhelper KernelAuthHelper.cpp)
 target_link_libraries(msm_kernel_authhelper KF5::Auth KF5::ConfigCore)
 install(TARGETS msm_kernel_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_kernel_authhelper org.manjaro.msm.kernel root)
+
+
+#msm_page_kernel library
+set(MSM_KERNEL_PAGE_SRCS
+    ${MSM_KERNEL_GLOB}
+    KernelInfoDialog.cpp
+    KernelListViewDelegate.cpp
+    PageKernel.cpp)
+set(MSM_KERNEL_UI
+    PageKernel.ui)
+qt5_wrap_ui(MSM_KERNEL_PAGE_SRCS ${MSM_KERNEL_UI})
+QT5_ADD_RESOURCES (MSM_KERNEL_PAGE_SRCS ${MSM_KERNEL_RESOURCES})
+
+add_library(msm_page_kernel STATIC ${MSM_KERNEL_PAGE_SRCS})
+target_compile_definitions(msm_page_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_link_libraries(msm_page_kernel
+    msm)
+#target_include_directories (msm_page_kernel PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

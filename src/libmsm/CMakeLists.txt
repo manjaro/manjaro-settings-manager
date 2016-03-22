@@ -17,8 +17,14 @@ set(LIBMSM_SRCS
     LanguagePackages.cpp
     LanguagePackagesCommon.cpp
     LanguagePackagesItem.cpp
+    PageWidget.cpp
+    ApplyDialog.cpp
 
     ${KDSINGLEAPPLICATIONGUARD})
+
+set(LIBMSM_UI
+    ApplyDialog.ui)
+qt5_wrap_ui(LIBMSM_SRCS ${LIBMSM_UI})
 
 cmake_policy(SET CMP0063 NEW)
 

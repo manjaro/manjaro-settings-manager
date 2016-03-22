@@ -18,27 +18,38 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KERNELINFODIALOG_H
-#define KERNELINFODIALOG_H
+#ifndef PAGE_KERNEL_H
+#define PAGE_KERNEL_H
 
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QTextBrowser>
+#include "KernelModel.h"
+#include "PageWidget.h"
+#include "KernelInfoDialog.h"
 
-class KernelInfoDialog : public QDialog
+
+namespace Ui
+{
+class PageKernel;
+}
+
+class PageKernel : public PageWidget
 {
     Q_OBJECT
 
-public slots:
-    int exec();
-
 public:
-    explicit KernelInfoDialog( QWidget* parent = 0 );
-    ~KernelInfoDialog();
-    void setPackage( const QString& package );
+    explicit PageKernel( QWidget* parent = 0 );
+    ~PageKernel();
+    void activated();
+
+public slots:
+    void installButtonClicked( const QModelIndex& index );
+    void infoButtonClicked( const QModelIndex& index );
 
 private:
-    QTextBrowser* m_textBrowser;
-    QString m_package;
+    Ui::PageKernel* ui;
+    KernelModel* kernelModel;
+    KernelInfoDialog* kernelInfoDialog;
+    void installKernel( const QModelIndex& index );
+    void removeKernel( const QModelIndex& index );
 };
 
-#endif // KERNELINFODIALOG_H
+#endif // PAGE_KERNEL_H

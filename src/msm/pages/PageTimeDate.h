@@ -23,7 +23,7 @@
 
 #include "models/TimeDate.h"
 #include "widgets/TimeZoneWidget.h"
-#include "widgets/PageWidget.h"
+#include "PageWidget.h"
 
 
 namespace Ui

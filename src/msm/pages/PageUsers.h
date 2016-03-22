@@ -25,7 +25,7 @@
 #include "dialogs/ChangePasswordDialog.h"
 #include "dialogs/AccountTypeDialog.h"
 #include "dialogs/PreviewFileDialog.h"
-#include "widgets/PageWidget.h"
+#include "PageWidget.h"
 
 #include "global/Global.h"
 #include "global/Const.h"

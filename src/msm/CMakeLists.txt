@@ -8,13 +8,10 @@ set(MSM_SRCS
     main.cpp
     MsmApplication.cpp
     MsmWindow.cpp
-    delegates/KernelListViewDelegate.cpp
     delegates/LanguageListViewDelegate.cpp
     dialogs/AccountTypeDialog.cpp
     dialogs/AddUserDialog.cpp
-    dialogs/ApplyDialog.cpp
     dialogs/ChangePasswordDialog.cpp
-    dialogs/KernelInfoDialog.cpp
     dialogs/SelectLocalesDialog.cpp
     dialogs/TimeZoneDialog.cpp
     dialogs/PreviewFileDialog.cpp
@@ -23,14 +20,11 @@ set(MSM_SRCS
     mhwd/mhwd.cpp
     mhwd/vita/string.cpp
     models/EnabledLocalesModel.cpp
-    models/Kernel.cpp
-    models/KernelModel.cpp
     models/KeyboardModel.cpp
     models/KeyboardItem.cpp
     models/SupportedLocalesItem.cpp
     models/SupportedLocalesModel.cpp
     models/TimeDate.cpp
-    pages/PageKernel.cpp
     pages/PageKeyboard.cpp
     pages/PageLanguage.cpp
     pages/PageLanguagePackages.cpp
@@ -41,7 +35,6 @@ set(MSM_SRCS
     pages/SetKeyboardLayoutJob.cpp
     widgets/FlatButton.cpp
     widgets/KeyboardPreview.cpp
-    widgets/PageWidget.cpp
     widgets/ListWidget.cpp
     widgets/LocaleGlobal.cpp
     widgets/TimeZoneWidget.cpp)
@@ -50,11 +43,9 @@ set(MSM_UI
     MsmWindow.ui
     dialogs/AccountTypeDialog.ui
     dialogs/AddUserDialog.ui
-    dialogs/ApplyDialog.ui
     dialogs/ChangePasswordDialog.ui
     dialogs/SelectLocalesDialog.ui
     dialogs/TimeZoneDialog.ui
-    pages/PageKernel.ui
     pages/PageKeyboard.ui
     pages/PageLanguage.ui
     pages/PageLanguagePackages.ui
@@ -75,6 +66,7 @@ SET_TARGET_PROPERTIES(msm_bin
         ENABLE_EXPORTS TRUE
         RUNTIME_OUTPUT_NAME msm)
 target_link_libraries(msm_bin
+    msm_page_kernel
     Qt5::Core
     Qt5::Widgets
     Qt5::DBus

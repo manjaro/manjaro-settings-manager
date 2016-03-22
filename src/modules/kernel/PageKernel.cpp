@@ -21,8 +21,8 @@
 #include "PageKernel.h"
 #include "ui_PageKernel.h"
 
-#include "delegates/KernelListViewDelegate.h"
-#include "dialogs/ApplyDialog.h"
+#include "KernelListViewDelegate.h"
+#include "ApplyDialog.h"
 
 #include <QtCore/QProcess>
 #include <QtWidgets/QMessageBox>
