@@ -86,6 +86,11 @@
             "name": "Psi",
             "l10n_package": "psi-i18n",
             "parent_packages": ["psi"]
+        },
+        {
+            "name": "Poppler",
+            "l10n_package": "poppler-data",
+            "parent_packages": ["poppler"]
         }
     ]
 }
