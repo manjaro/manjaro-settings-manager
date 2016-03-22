@@ -1,0 +1,676 @@
+<body style="background: #FFFFFF;">
+<div id="page" lang="en" dir="ltr">
+
+
+<h1 class="title">Linux 4.4</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a><a id="line-3"></a><p>Changes done in each Linux kernel release. Other places to get news about the Linux kernel are <a class="external" href="http://lwn.net/Kernel/">LWN kernel status</a>, <a class="external" href="http://www.h-online.com/open/features/">H-Online</a>, or the Linux Kernel mailing list (there is a web interface in <a class="external" href="http://www.lkml.org">www.lkml.org</a>). List of changes of older releases can be found at <a href="/LinuxVersions">LinuxVersions</a>. If you're going to add something here look first at <a href="/LinuxChangesRules">LinuxChangesRules</a>! <a id="line-4"></a></p>
+<a id="line-5"></a><p>You can discuss the latest Linux kernel changes on the <a class="external" href="http://forum.kernelnewbies.org/list.php?4">New Linux Kernel Features Forum</a>. <a id="line-6"></a></p>
+<a id="line-7"></a><div lang="en" id="Include_Linux_4.4" dir="ltr">
+<a id="top_Include_Linux_4.4"></a><a id="line-4"></a><a id="line-5"></a><p>Linux 4.4 <a class="external" href="https://lkml.org/lkml/2016/1/10/305">has been released</a> on Sun, 10 Jan 2016. <a id="line-6"></a></p>
+<a id="line-7"></a><p>Summary:  This release adds support for 3D support in virtual GPU driver, which allows 3D hardware-accelerated graphics in virtualization guests; loop device support for Direct I/O and Asynchronous I/O, which saves memory and increases performance; support for Open-channel SSDs, which are devices that share the responsibility of the Flash Translation Layer with the operating system; the TCP listener handling is completely lockless and allows for faster and more scalable TCP servers;  journalled RAID5 in the MD layer which fixes the RAID write hole; eBPF programs can now be run by unprivileged users, they can be made persistent, and perf has added support for eBPF programs aswell; a new mlock2() syscall that allows users to request memory to be locked on page fault; and block polling support for improved performance in high-end storage devices. There are also new drivers and many other small improvements. <a id="line-8"></a></p>
+<a id="line-9"></a><ol>
+<li><a href="#head-fc976d02d7fa7843af79cfbeb1fb6e5ce36b8d86">Prominent features</a><ol>
+<li><a href="#head-09e411776aaa14b44af3f15db0100e456aa6ded5">Faster and leaner loop device with Direct I/O and Asynchronous I/O support</a></li>
+<li><a href="#head-497c48b5f4044fce160029252cbef19d604e45bb">3D support in virtual GPU driver</a></li>
+<li><a href="#head-32dd92647b0b3fde9508387960d78b8531b78070">LightNVM adds support for Open-Channel SSDs</a></li>
+<li><a href="#head-557b84828246ed29a7ddf82858396178a52294ad">TCP listener handling completely lockless, making TCP servers faster and more scalable</a></li>
+<li><a href="#head-7066d6087c1ea4beb33b022377cc3249f32ed5c1">Journalled RAID5 MD support</a></li>
+<li><a href="#head-499203d4528daf2b65e33e35968d75ec86feb615">Unprivileged eBPF + persistent eBPF programs</a></li>
+<li><a href="#head-19115d3a62c28c3cfad54ff314540aa27c1d7037">perf  + eBPF integration</a></li>
+<li><a href="#head-089af5b53c057413dc18d831e6d7adc468848fc4">Block polling support</a></li>
+<li><a href="#head-da56427768e918c9b25e4c3d150dd701ac272550">mlock2() syscall allow users to request memory to be locked on page fault</a></li>
+</ol>
+<li><a href="#head-d8a5e8ddfd7421cde28083b86bd05f561849ec51">Drivers and architectures</a></li>
+<li><a href="#head-37dc0ea91d2c6f2e2b1bc92a46ce530084895152">Core (various)</a></li>
+<li><a href="#head-d8fe4af96082ea92fb0cdcc9016dac77dbb075f8">File systems</a></li>
+<li><a href="#head-6fb5893e54d5550b1b366733bf905a5f1876d0cf">Memory management</a></li>
+<li><a href="#head-a7958775413dd120042c2b3c221dbd262c03801d">Block layer</a></li>
+<li><a href="#head-f0005c6558fb69ec2293d2e4ce48103a2c315655">Cryptography</a></li>
+<li><a href="#head-83ff49fcdbdd808770397aca0fee86e09e347ced">Security</a></li>
+<li><a href="#head-7930ef2c51004e8adefa5730a59fe77afca864ac">Tracing and perf tool</a></li>
+<li><a href="#head-fa61dae46360c5dc22c226fc223bab56b698e4ca">Virtualization</a></li>
+<li><a href="#head-9e6241efc1f158dbd959c74450b0c7730b69ae2c">Networking</a></li>
+<li><a href="#head-0b0b5f9d989b5c46eded2cf3c4f29a6ce629aad1">List of merges</a></li>
+<li><a href="#head-dc2f1da930e252f239669a80075f9c0dffb2e951">Other news sites</a></li>
+</ol>
+<p> <a id="line-10"></a></p>
+
+<h1 id="head-d25b11bddf3ec3177069403bc4acb199d77fd296">1. Prominent features</h1>
+
+<a id="line-11"></a>
+<h2 id="head-3cc86ac8e0d9bd425cf00a78234248f1e72d6b26">1.1. Faster and leaner loop device with Direct I/O and Asynchronous I/O support</h2>
+
+<a id="line-12"></a><a id="line-13"></a><p>This release introduces support of Direct I/O and asynchronous I/O for the loop block device. There are several advantages to use direct I/O and AIO on read/write loop's backing file: double cache is avoided due to Direct I/O which reduces memory usage a lot; unlike user space direct I/O there isn't cost of pinning pages; avoids context switches in some cases because concurrent submissions can be avoided. See commits for benchmarks. <a id="line-14"></a></p>
+<a id="line-15"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/ab1cb278bc7027663adbfb0b81404f8398437e11">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/2e5ab5f379f96a6207c45be40c357ebb1beb8ef3">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/5b5e20f421c0b6d437b3dec13e53674161998d56">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/bc07c10a3603a5ab3ef01ba42b3d41f9ac63d1b6">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/e03a3d7a94e2485b6e2fa3fb630b9b3a30b65718">commit</a> <a id="line-16"></a></p>
+<a id="line-17"></a><a id="line-18"></a>
+<h2 id="head-2eeb49fa6ff17e43ad0a5bf743c945a9289a58f4">1.2. 3D support in virtual GPU driver</h2>
+
+<a id="line-19"></a><a id="line-20"></a><p>virtio-gpu is a driver for virtualization guests that allows to use the host graphics card efficiently. In this release, it allows the virtualization guest to use the capabilities of the host GPU to accelerate 3D rendering. In practice, this means that a virtualized linux guest can run a opengl game while using the GPU acceleration capabilities of the host, as show in <a class="external" href="https://www.youtube.com/watch?v=ONFGnUaln-4">this</a> or <a class="external" href="https://www.youtube.com/watch?v=ZuuF092RDDc">this</a> video. This also requires running <a class="external" href="http://wiki.qemu.org/ChangeLog/2.5#virtio">QEMU 2.5</a>. <a id="line-21"></a></p>
+<a id="line-22"></a><p><a class="external" href="https://virgil3d.github.io/">project page</a> <a id="line-23"></a></p>
+<a id="line-24"></a><p><a class="external" href="https://www.youtube.com/watch?v=rPeMrmeLTig">44m linux.conf talk about the project</a> <a id="line-25"></a></p>
+<a id="line-26"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/3187567222178d4b3742e88242f7abb3c3b7a215">commit</a> <a id="line-27"></a></p>
+<a id="line-28"></a>
+<h2 id="head-80dee68c457cfb97bfa62b68f68de022e9c3c912">1.3. LightNVM adds support for Open-Channel SSDs</h2>
+
+<a id="line-29"></a><a id="line-30"></a><p>Open-channel SSDs are devices that share responsibilities with the operating system in order to implement and maintain features that typical SSDs keep strictly in firmware. These include the Flash Translation Layer (FTL), bad block management, and hardware units such as the flash controller, the interface controller, and large amounts of flash chips. In this way, Open-channels SSDs exposes direct access to their physical flash storage, while keeping a subset of the internal features of SSDs. <a id="line-31"></a></p>
+<a id="line-32"></a><p>LightNVM is a specification that gives support to Open-channel SSDs. LightNVM allows the host to manage data placement, garbage collection, and parallelism. Device specific responsibilities such as bad block management, FTL extensions to support atomic IOs, or metadata persistence are still handled by the device. This Linux release adds support for lightnvm, (and adds support to NVMe as well). <a id="line-33"></a></p>
+<a id="line-34"></a><p>Recommended LWN article: <a class="external" href="https://lwn.net/Articles/641247/">Taking control of SSDs with LightNVM</a> <a id="line-35"></a></p>
+<a id="line-36"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/48add0f5a6f46919dd307575aad6ea3de7c9cb2a">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/cd9e9808d18fe7107c306f6e71c8be7230ee42b4">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ca0640850e43f5f80c6029e2895b119b705f23bd">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/b2b7e00148a203e9934bbd17aebffae3f447ade7">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ae1519ec448bc31a7fe7369b66e7c78872f91e84">commit</a> <a id="line-37"></a></p>
+<a id="line-38"></a>
+<h2 id="head-7c34e3af145ac61502d1e032726946e9b380d03d">1.4. TCP listener handling completely lockless, making TCP servers faster and more scalable</h2>
+
+<a id="line-39"></a><a id="line-40"></a><p>In this release, and as a result from an effort that started two years ago, the TCP implementation has been refactored to make the TCP listener fast path completely lockless. During tests, a server was able to process 3,500,000 SYN packets per second on one listener and still have available CPU cycles - about 2 to 3 order of magnitude what it was possible before. SO_REUSEPORT has also been extended (see Networking section) to add proper CPU/NUMA affinities, so that heavy duty TCP servers can get proper siloing thanks to multi-queues NICs. <a id="line-41"></a></p>
+<a id="line-42"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/4d54d86546f62c7c4a0fe3b36a64c5e3b98ce1a9">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/e6934f3ec00b04234acb24a1a2c28af59763d3b5">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/c3fc7ac9a0b978ee8538058743d21feef25f7b33">commit</a> <a id="line-43"></a></p>
+<a id="line-44"></a><a id="line-45"></a>
+<h2 id="head-03220801c2a2859dec391c499195a01c15e1d7c6">1.5. Journalled RAID5 MD support</h2>
+
+<a id="line-46"></a><a id="line-47"></a><p>This release adds journalled RAID 5 support to the MD (RAID/LVM) layer. With a journal device configured (typically NVRAM or SSD),  Data/parity writing to RAID array first writes to the log, then write to raid array disks. If crash happens, we can recovery data from the log. This can speed up RAID resync and fixes RAID5 write hole issue - a crash during degraded operations cannot result in data corruption. In future releases the journal will also be used to improve performance and latency <a id="line-48"></a></p>
+<a id="line-49"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/ac322de6bf5416cb145b58599297b8be73cd86ac">merge</a> <a id="line-50"></a></p>
+<a id="line-51"></a>
+<h2 id="head-20c20e63018e8fb916fd26476eda2512e2d96632">1.6. Unprivileged eBPF + persistent eBPF programs</h2>
+
+<a id="line-52"></a><a id="line-53"></a><p><strong>Unprivileged eBPF </strong> <a id="line-54"></a></p>
+<a id="line-55"></a><p>eBPF programs got its own syscall in <a class="external" href="http://kernelnewbies.org/Linux_3.18#head-ead251efb6bbdbe2922e7c6bd0c7b46342e03dad">Linux 3.18</a>, but until now its use had been restricted to root, because these programs were dangerous for security. eBPF programs are, however, validated by the kernel, and in this release the eBPF verifier has been improved and unprivileged users can use it (although unprivileged eBPF is only meaningful for 'socket filter'-like programs, eBPF programs for tracing and TC classifiers/actions will stay root only). This feature can be switched off with the sysctl <em>kernel.unprivileged_bpf_disabled</em> (once true, bpf programs and maps cannot be accessed from unprivileged process, and the toggle cannot be set back to false) <a id="line-56"></a></p>
+<a id="line-57"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/660331/">Unprivileged bpf()</a> <a id="line-58"></a></p>
+<a id="line-59"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/1be7f75d1668d6296b80bf35dcf6762393530afc">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/aaac3ba95e4c8b496d22f68bd1bc01cfbf525eca">commit</a> <a id="line-60"></a></p>
+<a id="line-61"></a><p><strong>Persistent eBPF maps/progs</strong> <a id="line-62"></a></p>
+<a id="line-63"></a><p>This release also adds support for "persistent" eBPF maps/programs. The term "persistent" is to be understood that maps/programs have a facility that lets them survive process termination. This is desired by various eBPF subsystem users, for example: tc classifier/action. Whenever tc parses the ELF object, extracts and loads maps/progs into the kernel, these file descriptors will be out of reach after the tc instance exits, so a subsequent tc invocation won't be able to access/relocate on this resource, and therefore maps cannot easily be shared, f.e. between the ingress and egress networking data path. <a id="line-64"></a></p>
+<a id="line-65"></a><p>To fix issues as these, a new minimal file system has been created that can hold map/prog objects at <em>/sys/fs/bpf/</em>. Any subsequent mounts within a given namespace will point to the same instance. The file system allows for creating a user-defined directory structure. The objects for maps/progs are created/fetched through <em>bpf(2)</em> along with a pathname with two new commands (<em>BPF_OBJ_PIN/BPF_OBJ_GET</em>), that in turn creates the file system nodes. The user can use that to access maps and progs later on, through <em>bpf(2)</em>. <a id="line-66"></a></p>
+<a id="line-67"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/b2197755b2633e164a439682fb05a9b5ea48f706">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/https://git.kernel.org/torvalds/c/42984d7c1e563bf92e6ca7a0fd89f8e933f2162e">commit</a> <a id="line-68"></a></p>
+<a id="line-69"></a>
+<h2 id="head-e39d9c2f7a1c61c0c684a7f387ef10dd214637af">1.7. perf  + eBPF integration</h2>
+
+<a id="line-70"></a><a id="line-71"></a><p>In this release, eBPF programs have been integrated with perf. When perf is given an eBPF .c source file (or .o file built for the 'bpf' target with clang), will get it automatically built, validated and loaded into the kernel, which can then be used and seen using <em>perf trace</em> and other tools. <a id="line-72"></a></p>
+<a id="line-73"></a><p>Users are allowed to use BPF filter like: <em># perf record --event ./hello_world.o ls</em>, and the eBPF program is attached to a newly created perf event which works with all tools. <a id="line-74"></a></p>
+<a id="line-75"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/69d262a93a25cf475012ea2e00aeb29f4932c028">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/84c86ca12b2189df751eed7b2d67cb63bc8feda5">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ed63f34c026e9a60d17fa750ecdfe3f600d49393">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/1f45b1d49073541947193bd7dac9e904142576aa">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/4edf30e39e6cff32390eaff6a1508969b3cd967b">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/71dc2326252ff1bcdddc05db03c0f831d16c9447">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/d509db0473e40134286271b1d1adadccf42ac467">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/aa3abf30bb28addcf593578d37447d42e3f65fc3">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/1e5e3ee8ff3877db6943032b54a6ac21c095affd">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ba1fae431e74bb427a699187434142fd3fe98390">commit</a> <a id="line-76"></a></p>
+<a id="line-77"></a><a id="line-78"></a>
+<h2 id="head-cd57c6abf8822152b3a175dd68c9610562b220d5">1.8. Block polling support</h2>
+
+<a id="line-79"></a><a id="line-80"></a><p>This release adds basic support for polling for specific IO to complete, which can improve latency and throughput in very fast devices. Currently O_DIRECT sync read/write are supported.  This support is only intended for testing, in future releases  stats tracking will be used to auto-tune this. For now, for benchmark and testing purposes, we add a sysfs file (<em>io_poll</em>) that controls whether polling is enabled or not. <a id="line-81"></a></p>
+<a id="line-82"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/663879/">Block-layer I/O polling</a> <a id="line-83"></a></p>
+<a id="line-84"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/15c4f638f3d41bae52105ca4c0c8760afbcbeaab">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/05229beeddf7e75e2e616ddaad4b70e7fca9528d">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/a0fa9647a54e81883abd57c5c865d1747f68a577">commit</a> <a id="line-85"></a></p>
+<a id="line-86"></a>
+<h2 id="head-f1cad34645b06cbeb9dc5cea4c23678718dd2b37">1.9. mlock2() syscall allow users to request memory to be locked on page fault</h2>
+
+<a id="line-87"></a><a id="line-88"></a><p><em>mlock()</em> allows a user to control page out of program memory, but this comes at the cost of faulting in the entire mapping when it is allocated. For large mappings this is not ideal: For example, security applications that need <em>mlock()</em> are forced to lock an entire buffer, no matter how big it is. Or maybe a large graphical models where the path through the graph is not known until run time, they are forced to lock the entire graph or lock page by page as they are faulted in. <a id="line-89"></a></p>
+<a id="line-90"></a><p>This new <em>mlock2()</em> syscall set creates a middle ground. Pages are marked to be placed on the unevictable LRU (locked) when they are first used, but they are not faulted in by the mlock call.  The new system call that takes a flags argument along with the start address and size.  This flags argument gives the caller the ability to request memory be locked in the traditional way, or to be locked after the page is faulted in. New calls are added for <em>munlock()</em> and <em>munlockall()</em> which give the called a way to specify which flags are supposed to be cleared. A new MCL flag is added to mirror the lock on fault behavior from mlock() in mlockall().  Finally, a flag for mmap() is added that allows a user to specify that the covered are should not be paged out, but only after the memory has been used the first time. <a id="line-91"></a></p>
+<a id="line-92"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/650538/">Deferred memory locking</a> <a id="line-93"></a></p>
+<a id="line-94"></a><p>Code: <a class="external" href="https://git.kernel.org/torvalds/c/de60f5f10c58d4f34b68622442c0e04180367f3f">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/b0f205c2a3082dd9081f9a94e50658c5fa906ff1">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/a8ca5d0ecbdde5cc3d7accacbd69968b0c98764e">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/1aab92ec3de552362397b718744872ea2d17add2">commit</a> <a id="line-95"></a></p>
+<a id="line-96"></a>
+<h1 id="head-d273e1d4d4be5aca12b09c48477a4eda7d0b5338">2. Drivers and architectures</h1>
+
+<a id="line-97"></a><ul>
+<li style="list-style-type:none"><p>All the driver and architecture-specific changes can be found in the <a class="external" href="http://kernelnewbies.org/Linux_4.4-DriversArch">Linux_4.4-DriversArch</a> page  <a id="line-98"></a></p>
+<a id="line-99"></a></li>
+</ul>
+
+<h1 id="head-2181980ff07b547c9cd34c07c3744841660921ce">3. Core (various)</h1>
+
+<a id="line-100"></a><ul>
+<li><p>process scheduler: Apply a frequency scaling correction factor to per-entity load tracking to make it invariant with respect to CPU frequency. Currently, load appears bigger when the CPU is running at slower frequencies, which affects load-balancing decisions <a class="external" href="https://git.kernel.org/torvalds/c/e0f5f3afd2cffa96291cd852056d83ff4e2e99c7">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/e3279a2e6d697e00e74f905851ee7cf532f72b2d">commit</a> <a id="line-101"></a></p>
+</li>
+<li><p>seccomp: add support for dumping a process' (classic BFP) seccomp filters via ptrace + PTRACE_SECCOMP_GET_FILTER <a class="external" href="https://git.kernel.org/torvalds/c/f8e529ed941ba2bbcbf310b575d968159ce7e895">commit</a> <a id="line-102"></a></p>
+</li>
+<li><p>watchdog: Mimic the <em>softlockup_panic</em> kernel knob and create a <em>/proc/sys/kernel/hardlockup_panic</em>. It enables a hardlockup to panic the machine <a class="external" href="https://git.kernel.org/torvalds/c/ac1f591249d95372f3a5ab3828d4af5dfbf5efd3">commit</a> <a id="line-103"></a></p>
+</li>
+<li><p>watchdog: optionally perform all-CPU backtrace in case of hard lockup. Can be enabled with sysctl <em>/proc/sys/kernel/hardlockup_all_cpu_backtrace</em> <a class="external" href="https://git.kernel.org/torvalds/c/55537871ef666b4153fd1ef8782e4a13fee142cc">commit</a> <a id="line-104"></a></p>
+</li>
+<li><p>coredump: Add two new flags to the existing coredump mechanism for ELF and FDPIC ELF files to allow us to explicitly filter DAX mappings. This is desirable because DAX mappings, like hugetlb mappings, have the potential to be very large <a class="external" href="https://git.kernel.org/torvalds/c/5037835c1f3eabf4f22163fc0278dd87165f8957">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ab27a8d04b32b6ee8c30c14c4afd1058e8addc82">commit</a> <a id="line-105"></a></p>
+</li>
+<li><p>test_printf: test printf family at runtime <a class="external" href="https://git.kernel.org/torvalds/c/707cc7280f452a162c52bc240eae62568b9753c2">commit</a> <a id="line-106"></a></p>
+</li>
+<li><p>Make sync_file_range(2) use WB_SYNC_NONE writeback. It helps PostgreSQL avoid large latency spikes when flushing data in the background <a class="external" href="https://git.kernel.org/torvalds/c/23d0127096cb91cb6d354bdc71bd88a7bae3a1d5">commit</a> <a id="line-107"></a></p>
+<a id="line-108"></a></li>
+</ul>
+
+<h1 id="head-0deb7c4482d1f0afe8c7d27f82a524b2dc9d9789">4. File systems</h1>
+
+<a id="line-109"></a><ul>
+<li><p>XFS <a id="line-110"></a></p>
+<ul>
+<li><p>Add per-filesystem stats in <em>/sys/fs/xfs/&lt;block&gt;/stats/stats</em>, and a <em>stats_clear</em> file to clear them. Also, the global stats that are currently present in <em>/proc</em> are duplicated in <em>/sys/fs/xfs/stats/stats</em> (along with a <em>stats_clear</em> file) <a class="external" href="https://git.kernel.org/torvalds/c/bb230c124730f21eea13deab433f9f8fc96bd5f3">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/225e4635580ce9fb12f8a2dc88473161cd64dbf6">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ff6d6af2351caea7db681f4539d0d893e400557a">commit</a> <a id="line-111"></a></p>
+<a id="line-112"></a></li>
+</ul>
+</li>
+<li class="gap"><p>BTRFS <a id="line-113"></a></p>
+<ul>
+<li><p>Add <em>fragment</em> debug mount option. It can be used to cause extreme fragmentation in data, metadata or both <a class="external" href="https://git.kernel.org/torvalds/c/d0bd456074dca089579818312da7cbe726ad2ff9">commit</a> <a id="line-114"></a></p>
+</li>
+<li><p>Add balance filter for stripes. This is useful to selectively rebalance only chunks that do not span enough devices, applies to RAID0/10/5/6.  <a class="external" href="https://git.kernel.org/torvalds/c/dee32d0ac3719ef8d640efaf0884111df444730f">commit</a> <a id="line-115"></a></p>
+<a id="line-116"></a><a id="line-117"></a></li>
+</ul>
+</li>
+<li class="gap"><p>CIFS <a id="line-118"></a></p>
+<ul>
+<li><p>Allow duplicate extents (<em>cp --reflink</em>) in SMB3.0 not just SMB3.1.1 <a class="external" href="https://git.kernel.org/torvalds/c/ca9e7a1c85594f61d7ffb414071e6cae82eae23a">commit</a> <a id="line-119"></a></p>
+</li>
+<li><p>Add resilienthandles mount parameter. Since many servers (Windows clients, and non-clustered servers) do not  support persistent handles but do support resilient handles, allow the user to specify a mount option "resilienthandles" in order to get more reliable connections and less chance of data loss (at least when SMB2.1 or later).  Default resilient handle  timeout (120 seconds to recent Windows server) is used <a class="external" href="https://git.kernel.org/torvalds/c/592fafe644bf3a48b9e00e182a67d301493634fc">commit</a> <a id="line-120"></a></p>
+</li>
+<li><p>Add support for persistent handles, which are like durable file handles with strong guarantees <a class="external" href="https://git.kernel.org/torvalds/c/b2a3077414fd6ff1de8972ea55e91f27bcabd913">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/f16dfa7cd1b588e5d7ef4b5a19ee579f11b7a41f">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/b618f001a20e44f691dd0e2ffea651a40a651871">commit</a> <a id="line-121"></a></p>
+</li>
+<li><p>Allow copy offload (copychunk) across shares <a class="external" href="https://git.kernel.org/torvalds/c/7b52e2793a58af61b5d349c2c080437a437a4edb">commit</a> <a id="line-122"></a></p>
+<a id="line-123"></a></li>
+</ul>
+</li>
+<li class="gap"><p>NFS <a id="line-124"></a></p>
+<ul>
+<li><p>Support for NFSv4.2 file CLONE using the btrfs ioctl <a class="external" href="https://git.kernel.org/torvalds/c/21fad313d5890b674432fe3ad0c7bcf040320340">commit</a> <a class="external" href="https://git.kernel.org/torvalds/c/e5341f3a5762d17be9cdd06257c02c0098bdcab8">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/36022770de6cf9a403c40a68712ed2d2ea2746be">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/bea51b30b281039f0f43fb4f42028ddf33fb601f">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/a340abcf4173461f688292a6879b4d5bc781c2b1">commit</a> <a id="line-125"></a></p>
+<a id="line-126"></a></li>
+</ul>
+</li>
+<li class="gap"><p>EXT4 <a id="line-127"></a></p>
+<ul>
+<li><p>Store checksum seed in superblock <a class="external" href="https://git.kernel.org/torvalds/c/8c81bd8f586c46eaf114758a78d82895a2b081c2">commit</a> <a id="line-128"></a></p>
+<a id="line-129"></a></li>
+</ul>
+</li>
+<li class="gap"><p>OCFS2 <a id="line-130"></a></p>
+<ul>
+<li><p>Improve performance for localalloc <a class="external" href="https://git.kernel.org/torvalds/c/1d1aff8cf367d2216a678c722161784e207965c4">commit</a> <a id="line-131"></a></p>
+<a id="line-132"></a></li>
+</ul>
+</li>
+<li class="gap"><p>UBIFS <a id="line-133"></a></p>
+<ul>
+<li><p>atime support <a class="external" href="https://git.kernel.org/torvalds/c/8c1c5f263833ec2dc8fd716cf4281265c485d7ad">commit</a> <a id="line-134"></a></p>
+<a id="line-135"></a><a id="line-136"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-2b3f4d76d25b6a7723a40f6fae206f0d45fffb27">5. Memory management</h1>
+
+<a id="line-137"></a><ul>
+<li><p>Get rid of <em>vmalloc_info</em> from <em>/proc/meminfo</em>. It is too expensive to calculate and shows up in real workloads, people who actually want to know what the situation is wrt the vmalloc area should just look at the much more complete <em>/proc/vmallocinfo</em> instead <a class="external" href="https://git.kernel.org/torvalds/c/a5ad88ce8c7fae7ddc72ee49a11a75aa837788e0">commit</a> <a id="line-138"></a></p>
+</li>
+<li><p>Add <em><a class="nonexistent" href="/HugetlbPages">HugetlbPages</a></em> field to <em>/proc/PID/status</em>. Currently there's no easy way to get per-process usage of hugetlb pages, which is inconvenient because userspace applications which use hugetlb can need it <a class="external" href="https://git.kernel.org/torvalds/c/5d317b2b6536592a9b51fe65faed43d65ca9158e">commit</a> <a id="line-139"></a></p>
+</li>
+<li><p>Add hugetlb-related fields to <em>/proc/PID/smaps</em> to know per-task or per-vma base hugetlb usage: <em><a class="nonexistent" href="/AnonHugePages">AnonHugePages</a></em> shows the amount of memory backed by transparent hugepage; <em>Shared_Hugetlb</em> and <em>Private_Hugetlb</em> show the amounts of memory backed by hugetlbfs page which is not counted in <em>RSS</em> or <em>PSS</em> field for historical reasons. And these are not included in <em>{Shared,Private}_{Clean,Dirty}</em> field <a class="external" href="https://git.kernel.org/torvalds/c/25ee01a2fca02dfb5a3ce316e77910c468108199">commit</a> <a id="line-140"></a></p>
+</li>
+<li><p>memcontrol: eliminate <em>memory.current</em> on the root level, because it doesn't add anything that wouldn't be more accurate and detailed using system statistics <a class="external" href="https://git.kernel.org/torvalds/c/f5fc3c5d817435970aa301d066820a9ac12c8120">commit</a> <a id="line-141"></a></p>
+<a id="line-142"></a><a id="line-143"></a></li>
+</ul>
+
+<h1 id="head-017585806b54728eb30242c4e34c84ddb9f479d0">6. Block layer</h1>
+
+<a id="line-144"></a><ul>
+<li><p>Block polling support <a class="external" href="https://git.kernel.org/torvalds/c/15c4f638f3d41bae52105ca4c0c8760afbcbeaab">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/05229beeddf7e75e2e616ddaad4b70e7fca9528d">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/a0fa9647a54e81883abd57c5c865d1747f68a577">commit</a> <a id="line-145"></a></p>
+</li>
+<li><p>loop: direct and asynchronous I/O <a class="external" href="https://git.kernel.org/torvalds/c/ab1cb278bc7027663adbfb0b81404f8398437e11">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/2e5ab5f379f96a6207c45be40c357ebb1beb8ef3">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/5b5e20f421c0b6d437b3dec13e53674161998d56">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/bc07c10a3603a5ab3ef01ba42b3d41f9ac63d1b6">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/e03a3d7a94e2485b6e2fa3fb630b9b3a30b65718">commit</a> <a id="line-146"></a></p>
+<a id="line-147"></a></li>
+<li class="gap"><p>Add  Persistent Reservations support. It includes a user space interface for simplified Persistent Reservations which map to block devices that support these (only SCSI for now). Persistent Reservations allow restricting access to block devices to specific initiators in a shared storage setup  <a class="external" href="https://git.kernel.org/torvalds/c/bbd3e064362e5057cc4799ba2e4d68c7593e490b">commit</a>,  <a class="external" href="https://git.kernel.org/torvalds/c/924d55b06347d813b38c51e75ce1a6666c113933">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/71cdb6978a80f9f6c51bef0622388c1414c2fe32">commit</a> <a id="line-148"></a></p>
+</li>
+<li><p>Export integrity data interval size in <em>/sys/block/&lt;disk&gt;/integrity/protection_interval_bytes</em>, so that apps can tell whether the interval  is different from the device's logical block size <a class="external" href="https://git.kernel.org/torvalds/c/4c241d08dbfcbdc7a949b91d72707a289d464954">commit</a> <a id="line-149"></a></p>
+</li>
+<li><p>cdrom: Random writing support for BD-RE media <a class="external" href="https://git.kernel.org/torvalds/c/f7e7868b4743f1cc5e59e6e0ddd3ccf9cfe53a1b">commit</a> <a id="line-150"></a></p>
+<a id="line-151"></a></li>
+</ul>
+
+<h1 id="head-64a788b1ab4b9b0a3e4fce04c7d0ee104bd47369">7. Cryptography</h1>
+
+<a id="line-152"></a><p>crypto: caam - add support for acipher xts(aes) <a class="external" href="https://git.kernel.org/torvalds/c/c6415a6016bff0b547c13cadb1d5e50e9ace2be3">commit</a> <a id="line-153"></a>crypto: keywrap - add key wrapping block chaining mode <a class="external" href="https://git.kernel.org/torvalds/c/e28facde3c39005071cc5323d56539bb44efa446">commit</a> <a id="line-154"></a>crypto: qat - add support for ctr(aes) and xts(aes) <a class="external" href="https://git.kernel.org/torvalds/c/def14bfaf30d5d5a4a8fe5bf600ce09232e688c0">commit</a> <a id="line-155"></a></p>
+<a id="line-156"></a><a id="line-157"></a>
+<h1 id="head-0fba4768713dc137d16f44c867c733aa9027cecc">8. Security</h1>
+
+<a id="line-158"></a><ul>
+<li><p>TPM: Support TPM 2.0 chips <a class="external" href="https://git.kernel.org/torvalds/c/954650efb79f99d5c817c121bb0a7c6c53362048">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/0fe5480303a1657b328a0a389f8d99249d9961f5">commit</a> <a id="line-159"></a></p>
+<a id="line-160"></a><a id="line-161"></a></li>
+</ul>
+
+<h1 id="head-2e85cd674efbd9c923a4cd1fb5fd5ef097abc410">9. Tracing and perf tool</h1>
+
+<a id="line-162"></a><ul>
+<li><p>Integration of perf with eBPF that, given an eBPF .c source file (or .o file built for the 'bpf' target with clang), will get it automatically built, validated and loaded into the kernel via the sys_bpf syscall, which can then be used and seen using 'perf trace' and other tools. Users can run commands like <em>perf record --event bpf-file.c ls</em> to try it <a class="external" href="https://git.kernel.org/torvalds/c/69d262a93a25cf475012ea2e00aeb29f4932c028">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/84c86ca12b2189df751eed7b2d67cb63bc8feda5">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ed63f34c026e9a60d17fa750ecdfe3f600d49393">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/1f45b1d49073541947193bd7dac9e904142576aa">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/4edf30e39e6cff32390eaff6a1508969b3cd967b">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/71dc2326252ff1bcdddc05db03c0f831d16c9447">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/d509db0473e40134286271b1d1adadccf42ac467">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/aa3abf30bb28addcf593578d37447d42e3f65fc3">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/1e5e3ee8ff3877db6943032b54a6ac21c095affd">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ba1fae431e74bb427a699187434142fd3fe98390">commit</a> <a id="line-163"></a></p>
+<a id="line-164"></a></li>
+<li class="gap"><p>Add a new branch type sampling filter to perf record, named  'call' (<em>perf record -j call -e cycles .....</em>), that samples only call branches (function calls), unlike 'any_call'  that included direct, indirect calls and far jumps. Only x86 and PowerPC are supported in this release <a class="external" href="https://git.kernel.org/torvalds/c/43e41adc9e8c36545888d78fed2ef8d102a938dc">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/c229bf9dc179d2023e185c0f705bdf68484c1e73">commit</a> <a id="line-165"></a></p>
+<a id="line-166"></a></li>
+<li class="gap"><p>Add Intel cstate (aka idle states) Performance Monitoring Unit support. This allows perf to support cstate related free running (read-only and system-wide) counters. For example, to caculate the fraction of time when the core is running in C6 state: <em> perf stat -x, -e"cstate_core/c6-residency/,msr/tsc/" -C0 -- taskset -c 0 sleep 5 </em> <a class="external" href="https://git.kernel.org/torvalds/c/7ce1346a6842550a3c4c453cdf1c7b81fb60b07e">commit</a> <a id="line-167"></a></p>
+<a id="line-168"></a></li>
+<li class="gap"><p>CPU socket filtering: perf tools introduce a new sort type "socket" for the processor socket, eg. <em>perf report --stdio --sort socket,comm,dso,symbol</em> <a class="external" href="https://git.kernel.org/torvalds/c/2e7ea3ab8282f6bb1d211d8af760a734c055f493">commit</a>. Also, perf report introduces a --socket-filter option for 'perf report' to only show entries for a processor socket that match this filter <a class="external" href="https://git.kernel.org/torvalds/c/21394d948a0c7c451d4a4d68afed9a06c4969636">commit</a>. perf hists browser can zoom in/out for processor socket <a class="external" href="https://git.kernel.org/torvalds/c/84734b06b63093cd44533f4caa43d4452fb11ec3">commit</a> <a id="line-169"></a></p>
+</li>
+<li><p>perf tools: Introduce 'P' modifier, it will cause the event to get maximum possible detected precise level. For example, <em>perf record -e cycles:P ...</em> will detect maximum precise level for 'cycles' event and use it <a class="external" href="https://git.kernel.org/torvalds/c/7f94af7a489fada17d28cc60e8f4409ce216bd6d">commit</a> <a id="line-170"></a></p>
+<a id="line-171"></a></li>
+<li class="gap"><p>perf tools: Add support for sorting on the iaddr. New sort option is: symbol_iaddr, header label is 'Code Symbol', eg <em>perf mem report --stdio -F +symbol_iaddr</em> <a class="external" href="https://git.kernel.org/torvalds/c/28e6db205b3ed3f1d86a00c69b3304190377da5f">commit</a> <a id="line-172"></a></p>
+<a id="line-173"></a></li>
+<li class="gap"><p>perf tools: enables config terms for tracepoint perf events. Valid terms for tracepoint events are 'call-graph' and 'stack-size', so  different callgraph settings can be used for each event and eliminate unnecessary overhead. An example for using different call-graph config for each tracepoint: <em>perf record -e syscalls:sys_enter_write/call-graph=fp -e syscalls:sys_exit_write/call-graph=no dd if=/dev/zero of=test bs=4k count=10</em> <a class="external" href="https://git.kernel.org/torvalds/c/e637d17757a10732fa5d573c18f20b3cd4d31245">commit</a> <a id="line-174"></a></p>
+<a id="line-175"></a></li>
+<li class="gap"><p>perf script: Enable printing of branch stack viaa the 'brstack' and 'brstacksym' arguments to the field selection option -F. The option is off by default and operates only if the perf.data file has branch stack content <a class="external" href="https://git.kernel.org/torvalds/c/dc323ce8e72d6d1beb9af9bbd29c4d55ce3d7fb0">commit</a> <a id="line-176"></a></p>
+<a id="line-177"></a></li>
+<li class="gap"><p>perf auxtrace: Add AUX area tracing option 'l' to synthesize branch stacks on samples just like sample type PERF_SAMPLE_BRANCH_STACK <a class="external" href="https://git.kernel.org/torvalds/c/601897b54c7ed492a89b262dccd7c6f7faf12b30">commit</a> <a id="line-178"></a></p>
+<a id="line-179"></a></li>
+<li class="gap"><p>perf hists browser: Add 'm' key for context menu display <a class="external" href="https://git.kernel.org/torvalds/c/31eb4360546b4bd890f349db01295a173c09b0fb">commit</a> <a id="line-180"></a></p>
+</li>
+<li><p>perf inject: Add --strip option which is used with --itrace to strip out non-synthesized events <a class="external" href="https://git.kernel.org/torvalds/c/f56fb9864c501dc85ebe40af5bf925dd07d990c0">commit</a> <a id="line-181"></a></p>
+</li>
+<li><p>perf script: Allow time to be displayed in nanoseconds <a class="external" href="https://git.kernel.org/torvalds/c/83e1986032dfcd3f9e9fc0d06e11d9153edae19b">commit</a> <a id="line-182"></a></p>
+</li>
+<li><p>Intel PT hardware tracer: Accept a zero <em>--itrace</em> period, meaning "as often as possible".  In the case of Intel PT that is the same as a period of 1 and a unit of 'instructions' (i.e.  --itrace=i1i)<a class="external" href="https://git.kernel.org/torvalds/c/e1791347b5d57d13326cf0114df1a3f3b1c4ca24">commit</a> <a id="line-183"></a></p>
+</li>
+<li><p>Intel PT: Add support for generating branch stack context for PT samples. This is useful for: reporting accurate basic block edge frequencies through the perf report branch view or using with --branch-history to get the wider context of samples.  Examples, record with Intel PT: <em>perf record -e intel_pt//u ls</em> <a id="line-184"></a></p>
+</li>
+<li><p>ftrace: add module globbing <a class="external" href="https://git.kernel.org/torvalds/c/0b507e1ed1b7364def464cfb348ea7c9e87e6e18">commit</a> <a id="line-185"></a></p>
+<a id="line-186"></a></li>
+</ul>
+
+<h1 id="head-a9125d63fca438c887d126ad36cff3f573ee8fbf">10. Virtualization</h1>
+
+<a id="line-187"></a><ul>
+<li><p>Support for VT-d posted interrupts (i.e. PCI devices can inject interrupts directly into vCPUs). Used by KVM and VFIO <a class="external" href="https://git.kernel.org/torvalds/c/f73f8173126ba68eb1c42bd9a234a51d78576ca6">commit</a> <a id="line-188"></a></p>
+</li>
+<li><p>KVM: Nested virtualization now supports VPID (same as PCID but for vCPUs) which makes it quite a bit faster <a class="external" href="https://git.kernel.org/torvalds/c/99b83ac893b84ed1a62ad6d1f2b6cc32026b9e85">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/089d7b6ec5151ad06a2cd524bc0580d311b641ad">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/5c614b3583e7b6dab0c86356fa36c2bcbb8322a0">commit</a> <a id="line-189"></a></p>
+</li>
+<li><p>KVM: Support for "split irqchip", i.e.  LAPIC in kernel and IOAPIC/PIC/PIT in userspace, which reduces the attack surface of the hypervisor <a class="external" href="https://git.kernel.org/torvalds/c/b053b2aef25d00773fa6762dcd4b7f5c9c42d171">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/7543a635aa09eb138b2cbf60ac3ff19503ae6954">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/1c1a9ce973a7863dd46767226bce2a5f12d48bc6">commit</a> <a id="line-190"></a></p>
+</li>
+<li><p>KVM: add capability for any-length ioeventfds. With KVM_CAP_IOEVENTFD_ANY_LENGTH, a zero length ioeventfd is allowed, and the kernel will ignore the length of guest write and may get a faster vmexit <a class="external" href="https://git.kernel.org/torvalds/c/e9ea5069d9e569c32ab913c39467df32e056b3a7">commit</a> <a id="line-191"></a></p>
+</li>
+<li><p>VMware balloon:  Get notified immediately via VMCI when a balloon target is set, instead of waiting for up to one second <a class="external" href="https://git.kernel.org/torvalds/c/48e3d668b7902cca3c61e9e2098e7f76b5646c28">commit</a> <a id="line-192"></a></p>
+</li>
+<li><p>VMware balloon: Support ballooning with 2 MB sized pages. It significantly reduces the hypervisor side (and guest side) overhead of ballooning and unballooning <a class="external" href="https://git.kernel.org/torvalds/c/365bd7ef7ec8eb9c2e081cd970a5cdfa237dc243">commit</a> <a id="line-193"></a></p>
+</li>
+<li><p>Vmware vmxnet3: Extend register dump support <a class="external" href="https://git.kernel.org/torvalds/c/b6bd9b5448a9362e3ca33b21f1461baa5500520f">commit</a> <a id="line-194"></a></p>
+<a id="line-195"></a></li>
+</ul>
+
+<h1 id="head-2583c31a65e6592bef9af426a78940078df7f630">11. Networking</h1>
+
+<a id="line-196"></a><ul>
+<li><p>Lockless TCP listener <a class="external" href="https://git.kernel.org/torvalds/c/4d54d86546f62c7c4a0fe3b36a64c5e3b98ce1a9">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/e6934f3ec00b04234acb24a1a2c28af59763d3b5">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/c3fc7ac9a0b978ee8538058743d21feef25f7b33">commit</a> <a id="line-197"></a></p>
+</li>
+<li><p>Add setsockopt() support for SO_INCOMING_CPU and extend SO_REUSEPORT selection logic : If a TCP listener or UDP socket has this option set, a packet is delivered to this socket only if CPU handling the packet matches the specified one. This allows to build very efficient TCP servers, using one listener per RX queue, as the associated TCP listener should only accept flows handled in softirq by the same cpu. This provides optimal NUMA behavior and keep cpu caches hot <a class="external" href="https://git.kernel.org/torvalds/c/76973dd79fd52f187ba3df018bca65792a3d942">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/70da268b569d32a9fddeea85dc18043de9d89f89">commit</a> <a id="line-198"></a></p>
+</li>
+<li><p>TCP: Recent ACK (RACK) loss recovery. RACK loss recovery uses the notion of time instead of packet sequence (FACK) or counts (dupthresh) (see commit for details). In the current patch set RACK is only a supplemental loss detection and does not trigger fast recovery. However RACK is being developed to replace or consolidate FACK/dupthresh, early retransmit, and thin-dupack.  Since RACK is still experimental, it is now used as a supplemental  loss detection on top of existing algorithms. It can be disabled with sysctl <em>net.ipv4.tcp_recovery</em> <a class="external" href="https://git.kernel.org/torvalds/c/eb9fae328faff9807a4ab5c1834b19f34dd155d4">commit</a> <a id="line-199"></a></p>
+</li>
+<li><p>IP Virtual Server: Support scheduling of ICMP packets to  IPVS instances. A new sysctl <em>net.ipv4.vs.schedule_icmp</em> has been introduced, that will enable this feature if set to 1 (by default, it is set by default to 0 to retain the old behaviour) <a class="external" href="https://git.kernel.org/torvalds/c/99cb99aa055a72d3880d8a95a71034c4d64bcf9a">merge commit</a> <a id="line-200"></a></p>
+</li>
+<li><p>IP Virtual Server: Allow to ignore tunnelled packets with new Sysctl <em>net.ipv4.vs.ignore_tunneled</em>. If set, ipvs will set the ipvs_property on all packets which are of unrecognised protocols. This prevents the kernel from routing tunnelled protocols like ipip, which is useful to prevent rescheduling packets that have been tunneled to the ipvs host (i.e. to prevent ipvs routing loops when ipvs is also acting as a real server) <a class="external" href="https://git.kernel.org/torvalds/c/4e478098ac0ac1b6ef9a70fcdc2ec8b93f1b59a1">commit</a> <a id="line-201"></a></p>
+</li>
+<li><p>Provide FIB table ID in ipv4 route dumps just as ipv6 does <a class="external" href="https://git.kernel.org/torvalds/c/b7503e0cdb5dbec5d201aa69d8888c14679b5ae8">commit</a> <a id="line-202"></a></p>
+</li>
+<li><p>IPv4: Hash-based multipath routing. When the routing cache was <a class="external" href="http://kernelnewbies.org/Linux_3.6#head-85de5e5247a939f2a61d0c5ccbc13ff5b4f1a6a0">removed in 3.6</a>, the IPv4 multipath algorithm changed from more or less being destination-based into being quasi-random per-packet scheduling. This increased the risk of out-of-order packets and made it impossible to use multipath together with anycast services. In this release, the multipath routing implementation is replaced with a flow-based load balancing based on a hash over the source and destination addresses <a class="external" href="https://git.kernel.org/torvalds/c/07355737a8badd951e6b72aa8609a2d6eed0a7e7">merge commit</a> <a id="line-203"></a></p>
+</li>
+<li><p>IPv6 support to the Virtual Routing and Forwarding (VRF) devices <a class="external" href="https://git.kernel.org/torvalds/c/ccf3c8c3fe1bd4828556650ae7928da6ffb4aaf6">commit</a>,  <a class="external" href="https://git.kernel.org/torvalds/c/35402e31366349a32b505afdfe856aeeb8d939a0">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/ca254490c8dfdaddb5df8a763774db0f4c5200c3">commit</a> <a id="line-204"></a></p>
+</li>
+<li><p>IPv4: Currently adding a new ipv4 address always cause the creation of the related network route, with default metric. Add support for IFA_F_NOPREFIXROUTE for ipv4 address. When an address is added with such flag set, no associated network route is created, no network route is deleted when said IP is gone and it's up to the user space manage such route <a class="external" href="https://git.kernel.org/torvalds/c/7b1311807f3d3eb8bef3ccc53127838b3bea3771">commit</a> <a id="line-205"></a></p>
+</li>
+<li><p>IPv6: gro: support sit protocol <a class="external" href="https://git.kernel.org/torvalds/c/feec0cb3f20b837f8ca36e974267918d7a4497f8">commit</a> <a id="line-206"></a></p>
+</li>
+<li><p>Allow the user to ask for the statistics to be filtered out of ipv4/ipv6 address netlink dumps, because many commonly used functions like getifaddrs() invoke RTM_GETLINK to dump the interface information, and do not need the AF_INET6 statistics, which are expensive to calculate <a class="external" href="https://git.kernel.org/torvalds/c/d5566fd72ec1924958fcfd48b65c022c8f7eae64">commit</a> <a id="line-207"></a></p>
+<a id="line-208"></a></li>
+<li class="gap"><p>bridge: Allow setting the bridge attribute <em>ageing_time</em> in rocker and switchdev <a class="external" href="https://git.kernel.org/torvalds/c/c62987bbd8a1a1664f99e89e3959339350a6131e">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/d0cf57f9dddb50ea404bf747a3c6b22b29f82b9a">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/f55ac58ae64cbb0315382e738681fe31837dcac0">commit</a> <a id="line-209"></a></p>
+</li>
+<li><p>vxlan: support both IPv4 and IPv6 sockets in a single vxlan device <a class="external" href="https://git.kernel.org/torvalds/c/b1be00a6c39fda2ec380e168d7bcf96fb8c9da42">commit</a> <a id="line-210"></a></p>
+</li>
+<li><p>bridge: complete the bridge device's netlink support and makes it possible to view and configure everything that can be configured via sysfs <a class="external" href="https://git.kernel.org/torvalds/c/3e087caa23ef36370bfb925d3bbca78e8302d3ce">commit</a> <a id="line-211"></a></p>
+</li>
+<li><p>bridge: Enable adding fdb entries pointing to the bridge device. This can be used to propagate mac address of vlan interfaces configured on top of the vlan filtering bridge <a class="external" href="https://git.kernel.org/torvalds/c/3741873b4f73b572b8f8835e6bd114e08316a160">commit</a> <a id="line-212"></a></p>
+<a id="line-213"></a><a id="line-214"></a></li>
+<li class="gap"><p>Multi Protocol Label Switching (MPLS): Add support for multipath routes <a class="external" href="https://git.kernel.org/torvalds/c/1c78efa8319cad2f10f421afa627745fb4d9b29f">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/f8efb73c97e2fa0abbe2e07c5c5df07800312643">commit</a> <a id="line-215"></a></p>
+<a id="line-216"></a></li>
+<li class="gap"><p>bonding: support encapsulated ipv6 TSO <a class="external" href="https://git.kernel.org/torvalds/c/e87eb4051efe76b35d0a297db772f5964a001544">commit</a> <a id="line-217"></a></p>
+</li>
+<li><p>Add support for filtering neighbor dumps by master device by adding the NDA_MASTER attribute to the dump request. A new netlink flag, NLM_F_DUMP_FILTERED, is added to indicate the kernel supports the request and output is filtered as requested <a class="external" href="https://git.kernel.org/torvalds/c/21fdd092acc7ebda0dfe682008592eb79c382707">commit</a> <a id="line-218"></a></p>
+</li>
+<li><p>Add support for filtering neighbor dumps by device by adding the NDA_IFINDEX attribute to the dump request <a class="external" href="https://git.kernel.org/torvalds/c/16660f0bd942cec203eaf4de0e2ac1695bd9d32d">commit</a> <a id="line-219"></a></p>
+<a id="line-220"></a></li>
+<li class="gap"><p>Support for disabling certain features on devices which, when disabled on an upper device, such as a bonding master or a bridge, must be disabled and cannot be re-enabled on underlying devices  <a class="external" href="https://git.kernel.org/torvalds/c/fd867d51f889aec11cca235ebb008578780d052d">commit</a> <a id="line-221"></a></p>
+</li>
+<li><p>Introduce L3 Master device abstraction support. It provides glue between core networking code and device drivers to support L3 master devices like VRF <a class="external" href="https://git.kernel.org/torvalds/c/1b69c6d0ae90b7f1a4f61d5c8209d5cb7a55f849">commit</a> <a id="line-222"></a></p>
+</li>
+<li><p>dummy: add more features <a class="external" href="https://git.kernel.org/torvalds/c/8f3af27786913851e720bc9466d1abffcfa7aff6">commit</a> <a id="line-223"></a></p>
+</li>
+<li><p>tso: add support for IPv6 <a class="external" href="https://git.kernel.org/torvalds/c/8941faa161b526199e55ca7764cf875383453612">commit</a> <a id="line-224"></a></p>
+</li>
+<li><p>netfilter: nfnetlink_log: enables to include the conntrack information together with the packet that is sent to user-space via NFLOG, then a user-space program can acquire NATed information by this NFULA_CT attribute <a class="external" href="https://git.kernel.org/torvalds/c/a29a9a585b2840a205f085a34dfd65c75e86f7c3">commit</a> <a id="line-225"></a></p>
+<a id="line-226"></a></li>
+<li class="gap"><p>Wireless <a id="line-227"></a></p>
+<ul>
+<li><p>Allow changing station capabilities for unassociated stations <a class="external" href="https://git.kernel.org/torvalds/c/47edb11b522561658fe719e56aa69a3c3098a3fe">commit</a> <a id="line-228"></a></p>
+</li>
+<li><p>Implement Very High Throughput support for mesh networks <a class="external" href="https://git.kernel.org/torvalds/c/c85fb53c4fa6521352028c40ce096a808aabd389">commit</a> <a id="line-229"></a></p>
+</li>
+<li><p>Make CRDA support optional <a class="external" href="https://git.kernel.org/torvalds/c/b68630369167a7fd2c4c3d1be96430defc59fb9a">commit</a> <a id="line-230"></a></p>
+</li>
+<li><p>Advertise support for full station state in AP mode <a class="external" href="https://git.kernel.org/torvalds/c/44674d9c2267f454f38df7b2395939bfa911f92e">commit</a> <a id="line-231"></a></p>
+</li>
+<li><p>Put current TX power in interface info replies <a class="external" href="https://git.kernel.org/torvalds/c/d55d0d598e6610bbfcc1f2ecd6e8af669b94783b">commit</a> <a id="line-232"></a></p>
+</li>
+<li><p>Enable wiphy device to suspend/resume asynchronously <a class="external" href="https://git.kernel.org/torvalds/c/9f0e13546ef5773b7059b531a667ec47a5f897ee">commit</a> <a id="line-233"></a></p>
+<a id="line-234"></a></li>
+</ul>
+</li>
+<li class="gap"><p>ieee802154: experimental netlink support <a class="external" href="https://git.kernel.org/torvalds/c/a26c5fd7622d4951425131d54a8c99f076fe2068">commit</a> <a id="line-235"></a></p>
+</li>
+<li><p>ieee802154: 6lowpan: add tx/rx stats <a class="external" href="https://git.kernel.org/torvalds/c/1c64f147d3cc9bbafe091a7b335ea3ec700186f0">commit</a> <a id="line-236"></a></p>
+</li>
+<li><p>ipconfig: Allow to send Client-identifier in DHCP requests with something like <em>ip=dhcp,client_id_type, client_id_value</em>, as a kernel parameter to enable the kernel to identify itself to the server <a class="external" href="https://git.kernel.org/torvalds/c/26fb342c734061859fec1bd9e987bb6b78061ef0">commit</a> <a id="line-237"></a></p>
+</li>
+<li><p>Add netlink directives and ndo entry to trust VF user. This controls the special permission of VF user. The administrator will dedicatedly trust VF user to use some features which impacts security and/or performance <a class="external" href="https://git.kernel.org/torvalds/c/dd461d6aa894761fe67c30ddf81eec0d08be216b">commit</a> <a id="line-238"></a></p>
+</li>
+<li><p>IB: Add support of checksum capability reporting for RC and RAW <a class="external" href="https://git.kernel.org/torvalds/c/470a55358186d0bb93558a87d13159dfbc989351">commit</a> <a id="line-239"></a></p>
+</li>
+<li><p>IB: Add support for network namespaces <a class="external" href="https://git.kernel.org/torvalds/c/565edd1d555513ab5d67a847d50d7c14c82ef6c3">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/fa20105e09e97e81aadf02f722c31195e4a75c84">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/4be74b42a6d05a74a21362010cd3920fa17f63c7">commit</a> <a id="line-240"></a></p>
+</li>
+<li><p>openvswitch: Add netlink attributes for IPv6 tunnel addresses. This enables IPv6 support for tunnels <a class="external" href="https://git.kernel.org/torvalds/c/6b26ba3a7d952e611dcde1f3f77ce63bcc70540a">commit</a> <a id="line-241"></a></p>
+</li>
+<li><p>switchdev: Add support for flood control <a class="external" href="https://git.kernel.org/torvalds/c/741af0053b43d8b9a688a12c57ece62338616ae8">commit</a>, <a class="external" href="https://git.kernel.org/torvalds/c/371e59adcebf9953385bf46d5325ac39a53c5520">commit</a> <a id="line-242"></a></p>
+</li>
+<li><p>TIPC: introduce jumbo frame support for broadcast <a class="external" href="https://git.kernel.org/torvalds/c/959e1781aa230aecc90e4deb80117fd9a53dede7">commit</a> <a id="line-243"></a></p>
+</li>
+<li><p>xprtrdma: Enable swap-on-NFS/RDMA <a class="external" href="https://git.kernel.org/torvalds/c/a045178887ebafa9514d6b4cb840ac13a26c8365">commit</a> <a id="line-244"></a></p>
+<a id="line-245"></a></li>
+</ul>
+
+<h1 id="head-5be6912e23bf0d76ef8943ccafd37001d1922348">12. List of merges</h1>
+
+<a id="line-246"></a><ul>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/2e002662973fd8d67d5a760776a5d3ea3d3399a9">Merge file descriptor allocation speedup.</a> <a id="line-247"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/66b019967845a5af58802fd9af77f2317e5298a1">Pull hwmon updates </a> <a id="line-248"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/17a1359034e1fb5cfe9e5196a8ab5153acfacdc6">Pull MMC updates </a> <a id="line-249"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/9ff3ca58b0f99475f269cd6faf4ab1b194243b3f">Pull EDAC updates </a> <a id="line-250"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/bc9d8c20ffb47e64a41a4716a06d37cdf88fcc42">Pull pin control updates </a> <a id="line-251"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e86328c489d7ecdca99410a06a3f448caf7857bf">Pull GPIO updates </a> <a id="line-252"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/5062ecdb662bf3aed6dc975019c53ffcd3b01d1c">Pull regmap updates </a> <a id="line-253"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e8a2a176dd0f3e4c7252b79dc5cea6bd4acaf78e">Pull LED updates </a> <a id="line-254"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/df91fba5e7ed414b1856b33bbed6d55439a14c47">Pull m68k update </a> <a id="line-255"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/15f93405aae307a3cb2c33c795286463601963f7">Pull avr32 update </a> <a id="line-256"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/0921f1efb605d8fda43d794734222d1ad39c6840">Pull CRIS changes </a> <a id="line-257"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/2c2b8285dcd4d0674b6e77269cf32721fffea59e">Pull ARC updates </a> <a id="line-258"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/316dde2fe95b33657de1fc2db54bfc16aa065790">Pull ARM updates </a> <a id="line-259"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/7b2a4306f9e7d64bb408a6df3bb419500578068a">Pull timer updates </a> <a id="line-260"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/6aa2fdb87cf01d7746955c600cbac352dc04d451">Pull irq updates </a> <a id="line-261"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/7eeef2abe87dc0d8c276f97ccfdb1f42d9d1e4d8">Pull wchan kernel address hiding </a> <a id="line-262"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/f5a8160c1e055c0fd8d16a5b3ac97c638365b0db">Pull EFI changes </a> <a id="line-263"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/281422869942c19f05a08d4017c633d08d390938">Pull RCU changes </a> <a id="line-264"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/d63a9788650fcd999b34584316afee6bd4378f19">Pull locking changes </a> <a id="line-265"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/b02ac6b18cd4e2c76bf0a102c20c429b973f5f76">Pull perf updates </a> <a id="line-266"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/b831ef2cad979912850e34f82415c0c5d59de8cb">Pull RAS changes </a> <a id="line-267"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/53528695ff6d8b77011bc818407c13e30914a946">Pull scheduler changes </a> <a id="line-268"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/d2bea739f8b41d620c235d81e00289d01169dc3c">Pull x86 apic changes </a> <a id="line-269"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/a75a3f6fc92888e4119744d8594ffdf748c3d444">Pull x86 asm changes </a> <a id="line-270"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/378e4e98258ad92097bfdf795dbef8b49cf52a34">Pull x86 boot cleanup </a> <a id="line-271"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/33d46f9765901a08d7759c031779073263e8b4e3">Pull x86 cleanups </a> <a id="line-272"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/f323c49b300baf89e2cb4050b0def1856c0b1852">Pull x86 cpu changes </a> <a id="line-273"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/0f25f2c1b18f7e47279ec2cf1d24c11c3108873b">Pull x86 kgdb fixlet </a> <a id="line-274"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ce4d72fac16a9540452957b526443b6080030bff">Pull x86 fpu changes </a> <a id="line-275"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/4302d506d5f3419109abdd0d6e400ed6e8148209">Pull x86 sigcontext header cleanups </a> <a id="line-276"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/639ab3eb38c6e92e27e061551dddee6dd3bbb5d2">Pull x86 mm changes </a> <a id="line-277"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/66ef3493d4bb387f5a83915e33dc893102fd1b43">Pull x86 platform changes </a> <a id="line-278"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ccc9d4a6d640cbde05d519edeb727881646cf71b">Pull crypto update </a> <a id="line-279"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/b0f85fa11aefc4f3e03306b4cd47f113bd57dcba">Pull networking updates </a> <a id="line-280"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/1b1050cdc5cdde43177b375b5f22dc070d45d8f8">Pull IDE fixlet </a> <a id="line-281"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/14c79092909a52b6fd6394b6ad5e7756c4f9565e">Pull parisc updates </a> <a id="line-282"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e627078a0cbdc0c391efeb5a2c4eb287328fd633">Pull s390 updates </a> <a id="line-283"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/2dc10ad81fc017837037e60439662e1b16bdffb9">Pull arm64 updates </a> <a id="line-284"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/41ecf1404b34d9975eb97f5005d9e4274eaeb76a">Pull xen updates </a> <a id="line-285"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/0d51ce9ca1116e8f4dc87cb51db8dd250327e9bb">Pull power management and ACPI updates </a> <a id="line-286"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/d9734e0d1ccf87e828ad172c58a96dff97cfc0ba">Pull core block updates </a> <a id="line-287"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/a9aa31cdc2a7be4a70b0ea24a451dfeb00ce0024">Pull block driver updates </a> <a id="line-288"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/effa04cc5a31b3f12cda6025ab93460f1f0e454e">Pull lightnvm support </a> <a id="line-289"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/527d1529e38b36fd22e65711b653ab773179d9e8">Pull block integrity updates </a> <a id="line-290"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ccf21b69a83afaee4d5499e0d03eacf23946e08c">Pull block reservation support </a> <a id="line-291"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ac322de6bf5416cb145b58599297b8be73cd86ac">Pull md updates </a> <a id="line-292"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e0700ce70921fbe3d1913968c663beb9df2b01a9">Pull device mapper updates </a> <a id="line-293"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3d6f47801c34e42da26e2b6b29706f0bfe423978">Pull USB updates </a> <a id="line-294"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/fd0d351de7bbd718bc2b34d5846854831aa2b88c">Pull tty/serial driver updates </a> <a id="line-295"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/118c216e16c5ccb028cd03a0dcd56d17a07ff8d7">Pull staging driver updates </a> <a id="line-296"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e880e87488d5bbf630dd716e6de8a53585614568">Pull driver core updates </a> <a id="line-297"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/8e483ed1342a4ea45b70f0f33ac54eff7a33d918">Pull char/misc driver updates </a> <a id="line-298"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/9576c2f2934eb5839a468ae156418ef595d5fec6">Pull file locking updates </a> <a id="line-299"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/d000f8d67f2bb464c9cf4fb5103f78d8cb406c05">Pull dlm update </a> <a id="line-300"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/0fcb9d21b4e18ede3727b8905e74acd0d1daef56">Pull f2fs updates </a> <a id="line-301"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/66339fdacb63fc7908e7eb755b9fffa672ffbb10">Pull pstore updates </a> <a id="line-302"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/b0378657549bbc73ac0ec6e9332fcf3c53362365">Pull media updates </a> <a id="line-303"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/9bd9fa6c147e68fc4dc3b35893979720ba7d0321">Pull HSI updates </a> <a id="line-304"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/400c5bd5a5b1faf3089322ace58b974446a8ddc3">Pull power supply and reset updates </a> <a id="line-305"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/f66477a0aeb77f97a7de5f791700dadc42f3f792">Pull clk updates </a> <a id="line-306"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/52787e91bf5375e68e90f381bd157bd92e1f4a77">Pull regulator updates </a> <a id="line-307"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/75f5db39ff14ed95056f2cca3ad98c3cae97170c">Pull spi updates </a> <a id="line-308"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e25ac7ddaae0e798f794cdaf9109bc71246110cd">Pull workqueue update </a> <a id="line-309"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/11eaaadb3ea376c6c194491c2e9bddd647f9d253">Pull libata updates </a> <a id="line-310"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/69234acee54407962a20bedf90ef9c96326994b5">Pull cgroup updates </a> <a id="line-311"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/6de29ccb50f2caef07cdd888efc8cb933497b6a4">Pull userns hardlink capability check fix </a> <a id="line-312"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3460b01b12aaf0011cb30f6f502edd05752f70eb">Pull audit updates </a> <a id="line-313"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/1873499e13648a2dd01a394ed3217c9290921b3d">Pull security subsystem update </a> <a id="line-314"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/5ebe0ee802c52cdf0c0eed8f3eccc9a056e412a3">Pull documentation update </a> <a id="line-315"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ab1228e42e71f5cb687c740c4c304f1d48bcf68a">Pull intel iommu updates </a> <a id="line-316"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/39cf7c398122ff6d7df13d2832810933d227ac59">Pull iommu updates </a> <a id="line-317"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/a3e7531535a0c6e5acbaa5436f37933bb471aa95">Pull SCSI updates </a> <a id="line-318"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/933425fb0010bd02bd459b41e63082756818ffce">Pull KVM updates </a> <a id="line-319"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/2c302e7e41050dbc174d50b58ad42eedf5dbd6fa">Pull sparc updates </a> <a id="line-320"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/2e3078af2c67730c479f1d183af5b367f5d95337">Merge patch-bomb </a> <a id="line-321"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/2f4bf528eca5b2d9eef12b6d323c040254f8f67c">Pull powerpc updates </a> <a id="line-322"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/d1e41ff11941784f469f17795a4d9425c2eb4b7a">Pull x86 platform driver update </a> <a id="line-323"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/bc914532a08892b30954030a0ba68f8534c67f76">Pull MFD updates </a> <a id="line-324"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/5bc23a0cdee4a6757fcc2919eb26827fe11e3bee">Pull backlight updates </a> <a id="line-325"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/0280d1a099da1d211e76ec47cc0944c993a36316">Pull sound updates </a> <a id="line-326"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3c87b791880a2e0dad281c6494b94968d412bfa3">Pull PCI updates </a> <a id="line-327"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/2d49dcb9e48f65a69281fe4c698c8f1a20215daf">Pull mailbox updates </a> <a id="line-328"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/02f0d3f758ab456c50199b723a53f2443fa4f684">Pull MTD updates </a> <a id="line-329"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3e069adabc9487b5e28065a17e6a228da3412dfd">Pull input updates </a> <a id="line-330"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/9bbd4b9f38f56b4ee2c8ff268a1104ff38333e90">Pull DeviceTree updates </a> <a id="line-331"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/22402cd0af685c1a5d067c87db3051db7fff7709">Pull tracking updates </a> <a id="line-332"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/9cf5c095b65da63c08b928a7d0015d5d5dca8a66">Pull asm-generic cleanups </a> <a id="line-333"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/713009809681e5a7871e96e6992692c805b4480b">Pull ext4 updates </a> <a id="line-334"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/27eb427bdc0960ad64b72da03e3596c801e7a9e9">Pull btrfs updates </a> <a id="line-335"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/6f1da317ac1df15f442b5fd37be7740c7cb55057">Pull HID updates </a> <a id="line-336"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/75021d28594d9b6fb4d05bbc41f77948a0db0e02">Pull trivial updates </a> <a id="line-337"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ab9f2faf8f40604551336e5b0a18e0910a57b92c">Pull rdma updates </a> <a id="line-338"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ad804a0b2a769a0eed29015c53fe395449c09d13">Merge second patch-bomb </a> <a id="line-339"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/50c36504fc6090847f1fbdc7cf4852ae16d6e500">Pull module updates </a> <a id="line-340"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e4da7e9a54649d6877ac23828ff93ce7191eae2c">Pull m68knommu/coldfire fix </a> <a id="line-341"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3510ca19a82ba4c6a17af79c1f0448622a406efa">Pull xtensa updates </a> <a id="line-342"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/f4d68930a88219ffda60f137dcc858e4f5db6680">Pull nios2 updates </a> <a id="line-343"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/373ee21eecebc5c06786a803d99661a3657afcc7">Pull parisc updates </a> <a id="line-344"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/123a28d8b522b03dd97c1f791245924088616ac0">Pull ext2 fix </a> <a id="line-345"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/9d74288ca79249af4b906215788b37d52263b58b">Pull gfs2 updates </a> <a id="line-346"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/e6604ecb70d4b1dbc0372c6518b51c25c4b135a1">Pull NFS client updates </a> <a id="line-347"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/bd4f203e433387d39be404b67ad02acf6f76b7bc">Merge third patch-bomb </a> <a id="line-348"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3e82806b97398d542a5e03bd94861f79ce10ecee">Pull drm updates </a> <a id="line-349"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3b13866869b8407497d20a916450594e117583e6">Pull fbdev updates </a> <a id="line-350"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/7d884710bb3635f94dac152ae226ca54a585a223">Pull RTC updates </a> <a id="line-351"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/041c79514af9080c75197078283134f538f46b44">Pull dmaengine updates </a> <a id="line-352"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/6aabef681df96b851b4a11459520d4a20ab1cae4">Pull tiny hwmon update </a> <a id="line-353"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/42d4ebb42a17754d2e8344dc1aa486119671d0eb">Pull watchdog update </a> <a id="line-354"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/d55fc37856244c929965c190c8e9dcb49e2c07aa">Pull i2c updates </a> <a id="line-355"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/264015f8a83fefc62c5125d761fbbadf924e520c">Pull libnvdimm updates </a> <a id="line-356"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/a5e1d715a8d0696961d99d31d869aa522f1cad5a">Pull ARM SoC cleanups </a> <a id="line-357"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/56e0464980febfa50432a070261579415c72664e">Pull ARM SoC platform updates </a> <a id="line-358"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/b44a3d2a85c64208a57362a1728efb58a6556cd6">Pull ARM SoC driver updates </a> <a id="line-359"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/c0d6fe2f01c475cc137d90607a07578586883df8">Pull ARM DT updates </a> <a id="line-360"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/52e9a33333fc337d03ffb865048f9ccae8552a8d">Pull ARM SoC defconfig updates </a> <a id="line-361"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/c6de7f1754bd474019c60d6f076fa3f704e46b78">Pull metag arch updates </a> <a id="line-362"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/4bde961e5245bb37dab4831107bbed23e433d55a">Pull UML updates </a> <a id="line-363"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/01504f5e9e071f1dde1062e3be15f54d4555308f">Pull UBI/UBIFS updates </a> <a id="line-364"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3419b45039c6b799c974a8019361c045e7ca232c">Pull block IO poll support </a> <a id="line-365"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/6a177af775d92cff7ef36a681c304dc750dbe121">Pull kselftest updates </a> <a id="line-366"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/c34e6e0bd5d729948119d4b3e15b075ec0b80d6f">Pull kbuild update </a> <a id="line-367"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/152813e6e4bbb5f017e33eba7eb01bbda4b389b8">Pull kconfig updates </a> <a id="line-368"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/5dfe5b2c714a5bea0908c1e00da0e8e00535f55c">Pull misc kbuild updates </a> <a id="line-369"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/c5a37883f42be712a989e54d5d6c0159b0e56599">Merge final patch-bomb </a> <a id="line-370"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/baf51c43926ec9aa42ef9d33ca6ee9e3e043aebe">Pull thermal updates </a> <a id="line-371"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/c8fff3ed321abf11bea7464884b0876c46ff2491">Pull pwm updates </a> <a id="line-372"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/842cf0b9525813b084720a82d0d3aabc750b7ccc">Pull vfs update </a> <a id="line-373"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/31c1febd7a45229edb3e5d86f354e3c1df543cbb">Pull nfsd updates </a> <a id="line-374"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/5d50ac70fe98518dbf620bfba8184254663125eb">Pull xfs updates </a> <a id="line-375"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/be23c9d20b341a58ad7107f9e9aa5735cea3da13">Pull more power management and ACPI updates </a> <a id="line-376"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/3370b69eb0c1f6a05f9051e8fc3e8768461a80f7">Pull second batch of kvm updates </a> <a id="line-377"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/7dac7102afbeb99daa454f555f1ea1f42fad2f78">Pull h8300 updates </a> <a id="line-378"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/0e976064256523ca604bd82048ae0e3402ce2467">Pull trace cleanups </a> <a id="line-379"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/be4773e6a11a0cc1e63c9c32f000b870e51b8c01">Pull drm sti driver updates </a> <a id="line-380"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/4aeabc6b5ca3b9d025f287978096e138bdfbdd35">Pull more documentation updates </a> <a id="line-381"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/ca4ba96e02e932a0c9997a40fd51253b5b2d0f9d">Pull Ceph updates </a> <a id="line-382"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/f3996e6ac6e2bd739d8a82cc9acae0653c2d5dca">Pull SMB3 updates </a> <a id="line-383"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/934f98d7e8123892bd9ca8ea08728ee0784e6597">Pull VFIO updates </a> <a id="line-384"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/5d2eb548b309be34ecf3b91f0b7300a2b9d09b8c">Pull vfs xattr cleanups </a> <a id="line-385"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/9aa3d651a9199103eb6451aeb0ac1b66a6d770a6">Pull SCSI target updates </a> <a id="line-386"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/d83763f4a6adb2f417c3288ee903982985ae949c">Pull final round of SCSI updates </a> <a id="line-387"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/a30b7ca2894994e4e2f2e06811ee67fa637bca2e">Pull more input updates </a> <a id="line-388"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/4bfc89d26a0d177a79574fc1b54fc728e3bb8b4e">Pull another x86 platform driver update </a> <a id="line-389"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/63f4f7e8df6c504f39c6493799b54775916030d6">Pull chrome platform updates </a> <a id="line-390"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/b84da9fa47cf6e8dfd71d673a2f744ec1cac452c">Pull MIPS updates </a> <a id="line-391"></a></p>
+</li>
+<li><p><a class="external" href="https://git.kernel.org/torvalds/c/0ca9b67606f0ce984b5811b0830cfd7d143f6077">Pull perf updates </a> <a id="line-392"></a></p>
+<a id="line-393"></a></li>
+</ul>
+
+<h1 id="head-560c4624302d5c2202b1016e61826b36bae37e49">13. Other news sites</h1>
+
+<a id="line-394"></a><ul>
+<li><p>LWN <a class="external" href="http://lwn.net/Articles/663742/">merge window part 1</a> and <a class="external" href="http://lwn.net/Articles/664461/">part 2</a> <a id="line-395"></a></p>
+</li>
+<li><p>Phoronix <a class="external" href="http://www.phoronix.com/scan.php?page=article&amp;item=linux-44-features&amp;num=1">A Look At The New Features Of The Linux 4.4 Kernel</a> <a id="line-396"></a></p>
+</li>
+</ul>
+<a id="bottom_Include_Linux_4.4"></a>
+</div>
+<p> <a id="line-8"></a></p>
+<a id="bottom"></a>
+</div>
+<p><a class="external" href="http://kernelnewbies.org/Linux_4.0">Linux 4.4</a> by <a class="external" href="http://kernelnewbies.org">kernelnewbies.org</a> is licensed under <a class="external" href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></p>
+</div>
+</body>

@@ -1,16 +1,68 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB MSM_GLOB
-     msm.desktop
-     qml/main.qml)
+     msm.desktop)
 
 set(MSM_SRCS
     ${MSM_GLOB}
-    IconThemeImageProvider.cpp
     main.cpp
-    ModuleView.cpp
     MsmApplication.cpp
-    MsmWindow.cpp)
+    MsmWindow.cpp
+    delegates/KernelListViewDelegate.cpp
+    delegates/LanguageListViewDelegate.cpp
+    dialogs/AccountTypeDialog.cpp
+    dialogs/AddUserDialog.cpp
+    dialogs/ApplyDialog.cpp
+    dialogs/ChangePasswordDialog.cpp
+    dialogs/KernelInfoDialog.cpp
+    dialogs/SelectLocalesDialog.cpp
+    dialogs/TimeZoneDialog.cpp
+    dialogs/PreviewFileDialog.cpp
+    global/Global.cpp
+    global/Const.h
+    mhwd/mhwd.cpp
+    mhwd/vita/string.cpp
+    models/EnabledLocalesModel.cpp
+    models/Kernel.cpp
+    models/KernelModel.cpp
+    models/KeyboardModel.cpp
+    models/KeyboardItem.cpp
+    models/SupportedLocalesItem.cpp
+    models/SupportedLocalesModel.cpp
+    models/TimeDate.cpp
+    pages/PageKernel.cpp
+    pages/PageKeyboard.cpp
+    pages/PageLanguage.cpp
+    pages/PageLanguagePackages.cpp
+    pages/PageMhwd.cpp
+    pages/PageNotifications.cpp
+    pages/PageTimeDate.cpp
+    pages/PageUsers.cpp
+    pages/SetKeyboardLayoutJob.cpp
+    widgets/FlatButton.cpp
+    widgets/KeyboardPreview.cpp
+    widgets/PageWidget.cpp
+    widgets/ListWidget.cpp
+    widgets/LocaleGlobal.cpp
+    widgets/TimeZoneWidget.cpp)
+
+set(MSM_UI
+    MsmWindow.ui
+    dialogs/AccountTypeDialog.ui
+    dialogs/AddUserDialog.ui
+    dialogs/ApplyDialog.ui
+    dialogs/ChangePasswordDialog.ui
+    dialogs/SelectLocalesDialog.ui
+    dialogs/TimeZoneDialog.ui
+    pages/PageKernel.ui
+    pages/PageKeyboard.ui
+    pages/PageLanguage.ui
+    pages/PageLanguagePackages.ui
+    pages/PageMhwd.ui
+    pages/PageNotifications.ui
+    pages/PageTimeDate.ui
+    pages/PageUsers.ui)
+qt5_wrap_ui(MSM_SRCS ${MSM_UI})
 
 set(MSM_RESOURCES
     msm.qrc)
@@ -25,10 +77,14 @@ SET_TARGET_PROPERTIES(msm_bin
 target_link_libraries(msm_bin
     Qt5::Core
     Qt5::Widgets
-    Qt5::Quick
+    Qt5::DBus
     KF5::ConfigWidgets
     KF5::KCMUtils
-    KF5::IconThemes)
+    KF5::IconThemes
+    KF5::ItemModels
+    hd
+    icudata
+    icuuc)
 
 install( TARGETS msm_bin
     # BUNDLE DESTINATION .

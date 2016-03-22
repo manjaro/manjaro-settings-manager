@@ -51,9 +51,9 @@ int main( int argc, char* argv[] )
     if ( parser.isSet( moduleOption ) )
         app.setStartModule( parser.value( moduleOption ) );
 
-    //QTranslator appTranslator;
-    //appTranslator.load(":/translations/msm_" + QLocale::system().name());
-    //app.installTranslator(&appTranslator);
+    QTranslator appTranslator;
+    appTranslator.load(":/translations/msm_" + QLocale::system().name());
+    app.installTranslator(&appTranslator);
 
     app.init();
     return app.exec();

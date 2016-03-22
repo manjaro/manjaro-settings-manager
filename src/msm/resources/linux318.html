@@ -1,0 +1,372 @@
+<body style="background: #FFFFFF;">
+<div id="page" lang="en" dir="ltr">
+
+
+<h1 class="title">Linux 3.18</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a><a id="line-4"></a><a id="line-5"></a><p>Linux 3.18 <a class="external" href="https://lkml.org/lkml/2014/12/7/202">has been released</a> on Sun, 7 Dec 2014 <a id="line-6"></a></p>
+<a id="line-7"></a><a id="line-8"></a><p>Summary: This release adds support for overlayfs, which allows to combine two filesystem in a single mount point; support for mapping user space memory into the GPU on Radeon devices, a bpf() syscall that allows to upload BPF-like programs that can be attached to events; a TCP congestion algorithm optimized for data centers; the Geneve virtualization encapsulation, support for embedding IP protocols over UDP, improved networking performance thanks to batching the processing of socket buffers, and optional multi-queue SCSI support. There are also new drivers and many other small improvements. <a id="line-9"></a></p>
+<a id="line-10"></a><a id="line-11"></a><ol>
+<li><a href="#head-62219498efc023b8fcdd50dcd6ec99e96d891988">Prominent features</a><ol>
+<li><a href="#head-f514a511bf32b818dbde50c24a51fb095e81cc8e">Overlayfs</a></li>
+<li><a href="#head-fce092cea4be6ff68381ec32a49d94445953570b">Radeon: mapping of user pages into video memory</a></li>
+<li><a href="#head-ead251efb6bbdbe2922e7c6bd0c7b46342e03dad">bpf() syscall for eBFP virtual machine programs</a></li>
+<li><a href="#head-85a4e706b1cf06489c0e3904e3fca8729406d1e9">TCP: Data Center TCP congestion algorithm</a></li>
+<li><a href="#head-9a54b849927abcab695bd0214ae2fa936b69c7a4">Networking: Geneve Virtualization Encapsulation</a></li>
+<li><a href="#head-587e23f80e596cf8c0f9cf525174553ef2dbfb6b">Networking performance optimization: transmission queue batching</a></li>
+<li><a href="#head-5fc120b7ad38986e59776a2dffb0276f46eb45e6">Foo-over-UDP support</a></li>
+<li><a href="#head-33c4411268090eb7f26e857fd25010a2f60215e1">Optional multiqueue SCSI support</a></li>
+</ol>
+<li><a href="#head-400541a7542398cdf7bb440c525cb73b62d88dce">Drivers and architectures</a></li>
+<li><a href="#head-da508b03f8f8daf2b9cd8fe1ee7d78ad59615d81">File systems</a></li>
+<li><a href="#head-433a7cd6f23ed1911f3d612bd346ee743159c489">Security</a></li>
+<li><a href="#head-69adc3f784bb71294a64036472a3ee79bc0cf809">Block</a></li>
+<li><a href="#head-72b944e61fff924fb5cc3df4959152c30d8ebfcd">Memory management</a></li>
+<li><a href="#head-9e16356d90611893ff2f18fd69eefd7456c6057b">Crypto</a></li>
+<li><a href="#head-80b98a600106e0842e9a38a5a6d653a4d87f53a0">Virtualization</a></li>
+<li><a href="#head-e1a4d7eb36f2eda95b079556b24b6454743c3f0a">Tracing &amp; perf</a></li>
+<li><a href="#head-8021e97008880afc7b9e79a09719c53b9052c558">Networking</a></li>
+<li><a href="#head-9836f5b24c28adbd36660e8975d7445fa933403c">Core (various)</a></li>
+</ol>
+<p> <a id="line-12"></a></p>
+
+<h1 id="head-62219498efc023b8fcdd50dcd6ec99e96d891988">1. Prominent features</h1>
+
+<a id="line-13"></a>
+<h2 id="head-f514a511bf32b818dbde50c24a51fb095e81cc8e">1.1. Overlayfs</h2>
+
+<a id="line-14"></a><p>An overlay filesystem combines two filesystems, an 'upper' filesystem and a 'lower' filesystem, into a single file system namespace, modifications will be done to the upper filesystem. It has many uses, but it is most often used for live CDs, where a read-only OS image is used as lower filesystem and a writeable RAM-backed filesystem is used as the upper one. Any modifications will be done in the upper filesystem, thus allowing users to run the OS image provided normally. Overlayfs differs from other "union filesystem" implementations in that after a file is opened all operations go directly to the underlying, lower or upper, filesystems. This simplifies the implementation and allows native performance in these cases. <a id="line-15"></a></p>
+<a id="line-16"></a><p>It is possible for both directory trees to be in the same filesystem and there is no requirement that the root of a filesystem be given for either upper or lower. The lower filesystem can be any filesystem supported by Linux and does not need to be writable.  The lower filesystem can even be another overlayfs.  The upper filesystem will normally be writable and if it is it must support the creation of trusted.* extended attributes, and must provide valid d_type in readdir() responses, so NFS is not suitable. <a id="line-17"></a></p>
+<a id="line-18"></a><p>Documentation: <a class="external" href="http://git.kernel.org/linus/7c37fbda85ceb9be7bdb9d5f53e702efc40cf783">commit</a> <a id="line-19"></a>Code: <a class="external" href="http://git.kernel.org/linus/e9be9d5e76e34872f0c37d72e25bc27fe9e2c54c">commit</a> <a id="line-20"></a></p>
+<a id="line-21"></a>
+<h2 id="head-fce092cea4be6ff68381ec32a49d94445953570b">1.2. Radeon: mapping of user pages into video memory</h2>
+
+<a id="line-22"></a><a id="line-23"></a><p><a class="external" href="http://kernelnewbies.org/Linux_3.16#head-822ab6b7936786bb9e91c16ecdcefe6fd20dc6bf">Linux 3.16 added</a> the ability to map users addresses into the video memory for Intel hardware. In this release, Radeon has also gained support for this feature. Normal application data can be used as a texture source or even as a render target (depending upon the capabilities of the chipset). This has a number of uses, with zero-copy downloads to the GPU and efficient readback making the intermixed streaming of CPU and GPU operations fairly efficient. This ability has many widespread implications from faster rendering of client-side software rasterisers (chromium), mitigation of stalls due to read back (firefox) and to faster pipelining of texture data (such as pixel buffer objects in GL or data blobs in CL).  <a id="line-24"></a></p>
+<a id="line-25"></a><a id="line-26"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/f72a113a71ab08c4df8a5f80ab2f8a140feb81f6">commit</a> <a id="line-27"></a></p>
+<a id="line-28"></a>
+<h2 id="head-ead251efb6bbdbe2922e7c6bd0c7b46342e03dad">1.3. bpf() syscall for eBFP virtual machine programs</h2>
+
+<a id="line-29"></a><p>bpf() syscall is a multiplexor for a range of different operations on eBPF which can be characterized as "universal in-kernel virtual machine". eBPF is similar to original Berkeley Packet Filter used to filter network packets. eBPF "extends" classic BPF in multiple ways including ability to call in-kernel helper functions and access shared data structures like eBPF maps. The programs can be written in a restricted C that is compiled into eBPF bytecode and executed on the eBPF virtual machine or JITed into native instruction set. <a id="line-30"></a></p>
+<a id="line-31"></a><p>eBPF programs are similar to kernel modules. They are loaded by the user process and automatically unloaded when process exits. Each eBPF program is a safe run-to-completion set of instructions. eBPF verifier statically determines that the program terminates and is safe to execute. The programs are attached to different events. These events can be packets, tracepoint events and other types in the future. Beyond storing data the programs may call into in-kernel helper functions which may, for example, dump stack, do trace_printk or other forms of live kernel debugging. <a id="line-32"></a></p>
+<a id="line-33"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/612878/">The BPF system call API, version 14</a> <a id="line-34"></a></p>
+<a id="line-35"></a><p>ebfp() man page and design documentation can be read on the merge commit: <a class="external" href="http://git.kernel.org/linus/b4fc1a460f3017e958e6a8ea560ea0afd91bf6fe">commit</a> <a id="line-36"></a></p>
+<a id="line-37"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/99c55f7d47c0dc6fc64729f37bf435abf43f4c60">commit 1</a>, <a class="external" href="http://git.kernel.org/linus/db20fd2b01087bdfbe30bce314a198eefedcc42e">2</a>, <a class="external" href="http://git.kernel.org/linus/09756af46893c18839062976c3252e93a1beeba7">3</a>, <a class="external" href="http://git.kernel.org/linus/0a542a86d73b1577e7d4f55fc95dcffd3fe62643">4</a>, <a class="external" href="http://git.kernel.org/linus/51580e798cb61b0fc63fa3aa6c5c975375aa0550">5</a>, <a class="external" href="http://git.kernel.org/linus/cbd357008604925355ae7b54a09137dabb81b580">6</a>, <a class="external" href="http://git.kernel.org/linus/0246e64d9a5fcd4805198de59b9b5cf1f974eb41">7</a>, <a class="external" href="http://git.kernel.org/linus/475fb78fbf48592ce541627c60a7b331060e31f5">8</a>, <a class="external" href="http://git.kernel.org/linus/17a5267067f3c372fec9ffb798d6eaba6b5e6a4c">9</a>, <a class="external" href="http://git.kernel.org/linus/3c731eba48e1b0650decfc91a839b80f0e05ce8f">10</a> <a id="line-38"></a></p>
+<a id="line-39"></a>
+<h2 id="head-85a4e706b1cf06489c0e3904e3fca8729406d1e9">1.4. TCP: Data Center TCP congestion algorithm</h2>
+
+<a id="line-40"></a><a id="line-41"></a><p>This release adds the Data Center TCP (DCTCP) congestion control algorithm. DCTCP is an enhancement to the TCP congestion control algorithm for data center networks. DCTCP has been designed for workloads typical of data center environments to provide/achieve: high burst tolerance, low latency and high throughput. <a id="line-42"></a></p>
+<a id="line-43"></a><p>For more details about DCTCP, see the <a class="external" href="http://simula.stanford.edu/~alizade/Site/DCTCP.html">DCTCP web page</a> <a id="line-44"></a></p>
+<a id="line-45"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/e3118e8359bb7c59555aca60c725106e6d78c5ce">commit</a> <a id="line-46"></a></p>
+<a id="line-47"></a>
+<h2 id="head-9a54b849927abcab695bd0214ae2fa936b69c7a4">1.5. Networking: Geneve Virtualization Encapsulation</h2>
+
+<a id="line-48"></a><a id="line-49"></a><p>Advent of network virtualization has caused a surge of renewed interest and a corresponding increase in the introduction of new protocols, ranging all the way from VLANs and MPLS through the more recent VXLAN, NVGRE , and STT. Existing tunnel protocols have each attempted to solve different aspects of the new requirements, only to be quickly rendered out of date. This release adds Geneve, a protocol which seeks to avoid these problems by providing a framework for tunneling that provide Layer 2 Networks over Layer 3 Networks. <a id="line-50"></a></p>
+<a id="line-51"></a><p>For more information see <a class="www" href="http://tools.ietf.org/html/draft-gross-geneve-01">http://tools.ietf.org/html/draft-gross-geneve-01</a> <a id="line-52"></a></p>
+<a id="line-53"></a><p>Related vmware blog post: <a class="external" href="http://blogs.vmware.com/cto/geneve-vxlan-network-virtualization-encapsulations/">Geneve, VXLAN, and Network Virtualization Encapsulations</a> <a id="line-54"></a></p>
+<a id="line-55"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/0b5e8b8eeae40bae6ad7c7e91c97c3c0d0e57882">commit</a> <a id="line-56"></a></p>
+<a id="line-57"></a>
+<h2 id="head-587e23f80e596cf8c0f9cf525174553ef2dbfb6b">1.6. Networking performance optimization: transmission queue batching</h2>
+
+<a id="line-58"></a><a id="line-59"></a><p>This release adds support for deferred flushing of transmission <a class="external" href="http://vger.kernel.org/~davem/skb.html">SKB</a>s (socket buffers) to the networking driver. Processing the transmission queue is expensive, so some batching shares that cost with other SKBs. This change allows to achieve 10Gbit/s full TX wirespeed smallest packet size on a single CPU core (14.8Mpps). Several drivers already have support for this feature: i40e, igb, ixgbe, mlx4, virtio_net, more will follow in next releases. <a id="line-60"></a></p>
+<a id="line-61"></a><p>Recommended LWN article: <a class="external" href="http://lwn.net/Articles/615238/">Bulk network packet transmission</a> <a id="line-62"></a></p>
+<a id="line-63"></a><p>Recommended blog post <a class="external" href="http://netoptimizer.blogspot.dk/2014/10/unlocked-10gbps-tx-wirespeed-smallest.html">Unlocked 10Gbps TX wirespeed smallest packet single core</a>  <a id="line-64"></a></p>
+<a id="line-65"></a><p>Code: see the blog post link <a id="line-66"></a></p>
+<a id="line-67"></a>
+<h2 id="head-5fc120b7ad38986e59776a2dffb0276f46eb45e6">1.7. Foo-over-UDP support</h2>
+
+<a id="line-68"></a><a id="line-69"></a><p>This release adds the ability to encapsulate any IP protocol over UDP including tunnels (IPIP, GRE, SIT). <a id="line-70"></a></p>
+<a id="line-71"></a><p>The rationale for this funcionality is that network mechanisms, hardware and optimizations for UDP (such as ECMP and RSS) can be leveraged to provide better service. GRE, IPIP, and SIT have been modified with netlink commands to configure use of FOU on transmit. A new "ip fou" has been added in newer releases of ip to make use of this feature. Details on configuration can be found in the merge link. <a id="line-72"></a></p>
+<a id="line-73"></a><p>Recommended LWN link: <a class="external" href="http://lwn.net/Articles/614348/">Foo over UDP</a> <a id="line-74"></a></p>
+<a id="line-75"></a><p>Merge link: <a class="external" href="https://git.kernel.org/linus/fb5690d2458340b645ea3b36e8db560cb3272e65">merge</a> <a id="line-76"></a></p>
+<a id="line-77"></a>
+<h2 id="head-33c4411268090eb7f26e857fd25010a2f60215e1">1.8. Optional multiqueue SCSI support</h2>
+
+<a id="line-78"></a><a id="line-79"></a><p>Linux 3.13 [<a class="external" href="http://kernelnewbies.org/Linux_3.13#head-3e5f0c2bcebc98efd197e3036dd814eadd62839c">added</a> a new design for the block layer that allowed to process multiple IO queues in parallel. This feature, however, wasn't transparent, and required modifications in drivers to support it. In this release, support for the multi-queue layer has been added to the SCSI layer (used by ATA and SATA drivers) as an optional configuration option. <a id="line-80"></a></p>
+<a id="line-81"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/24c20f10583647e30afe87b6f6d5e14bc7b1cbc6">commit</a> <a id="line-82"></a></p>
+<a id="line-83"></a>
+<h1 id="head-400541a7542398cdf7bb440c525cb73b62d88dce">2. Drivers and architectures</h1>
+
+<a id="line-84"></a><p>All the driver and architecture-specific changes can be found in the <a class="external" href="http://kernelnewbies.org/Linux_3.18-DriversArch">Linux_3.18-DriversArch page</a> <a id="line-85"></a></p>
+<a id="line-86"></a>
+<h1 id="head-da508b03f8f8daf2b9cd8fe1ee7d78ad59615d81">3. File systems</h1>
+
+<a id="line-87"></a><ul>
+<li><p>F2FS <a id="line-88"></a></p>
+<ul>
+<li><p>Introduce FITRIM discard support <a class="external" href="http://git.kernel.org/linus/4b2fecc84655055a6a1fe9151786992ac04b56ce">commit</a> <a id="line-89"></a></p>
+</li>
+<li><p>Support atomic writes <a class="external" href="http://git.kernel.org/linus/88b88a66797159949cec32eaab12b4968f6fae2d">commit</a> <a id="line-90"></a></p>
+</li>
+<li><p>Support large sector size <a class="external" href="http://git.kernel.org/linus/55cf9cb63f0e5439f208d78ed944de9a8df65011">commit</a> <a id="line-91"></a></p>
+</li>
+<li><p>Support volatile operations for transient data <a class="external" href="http://git.kernel.org/linus/02a1335f25a386db9afc68f8315162f862aac93f">commit</a> <a id="line-92"></a></p>
+<a id="line-93"></a></li>
+</ul>
+</li>
+<li class="gap"><p>EXT4 <a id="line-94"></a></p>
+<ul>
+<li><p>Support freezing ext2 (nojournal) file systems <a class="external" href="http://git.kernel.org/linus/bb0445765866e5b1607af81e2f48ca5a8efbeed8">commit</a> <a id="line-95"></a></p>
+</li>
+<li><p>Add sysfs entry showing whether the fs contains errors <a class="external" href="http://git.kernel.org/linus/52c198c6820f68b6fbe1d83f76e34a82bf736024">commit</a> <a id="line-96"></a></p>
+<a id="line-97"></a></li>
+</ul>
+</li>
+<li class="gap"><p>NFS <a id="line-98"></a></p>
+<ul>
+<li><p>Implement NFS v4.2 SEEK operation, allowing to use lseek() call with either the SEEK_HOLE or SEEK_DATA flags set <a class="external" href="http://git.kernel.org/linus/1c6dcbe5ceff81c2cf8d929646af675cd59fe7c0">commit</a>, <a class="external" href="http://git.kernel.org/linus/24bab491220faa446d945624086d838af41d616c">commit</a> <a id="line-99"></a></p>
+</li>
+<li><p>Allow turning off nfsv3 readdir_plus <a class="external" href="http://git.kernel.org/linus/18c01ab30288d9d0a7d80b08b659531f37ed379d">commit</a> <a id="line-100"></a></p>
+</li>
+<li><p>nfsd: add a v4_end_grace file to /proc/fs/nfsd that allows a privileged userland process to end the v4 grace period early <a class="external" href="http://git.kernel.org/linus/7f5ef2e900d9462bf9cffaf6bb246ed87a20a6d6">commit</a> <a id="line-101"></a></p>
+</li>
+<li><p>lockd: add a /proc/fs/lockd/nlm_end_grace file that will allow a (privileged) userland process to end the NLM grace period early <a class="external" href="http://git.kernel.org/linus/d68e3c4aa416d592d79152a49af121e4ecb204e3">commit</a> <a id="line-102"></a></p>
+<a id="line-103"></a></li>
+</ul>
+</li>
+<li class="gap"><p>SMB <a id="line-104"></a></p>
+<ul>
+<li><p>Add mfsymlinks support for SMB2.1/SMB3 <a class="external" href="http://git.kernel.org/linus/5ab97578cbb3bf9a28dec4534cb86fbc35e600bb">commit</a>, <a class="external" href="http://git.kernel.org/linus/c22870ea2deb2841402133909cfa707a2c0b12ed">commit</a> <a id="line-105"></a></p>
+</li>
+<li><p>Allow mknod and mkfifo on SMB2/SMB3 mounts <a class="external" href="http://git.kernel.org/linus/db8b631d4bc4eaa9f7e13a6b0a287306cac0cb72">commit</a> <a id="line-106"></a></p>
+</li>
+<li><p>Allow conversion of characters in Mac remap range <a class="external" href="http://git.kernel.org/linus/b693855fe67314d501aae74b9adff8788eb2fd82">commit</a>, <a class="external" href="http://git.kernel.org/linus/a4153cb1d3cb7d7c16968b0a9cf7c8aacf31424e">commit</a> <a id="line-107"></a></p>
+</li>
+<li><p>Remap reserved posix characters by default  <a class="external" href="http://git.kernel.org/linus/2baa2682531ff02928e2d3904800696d9e7193db">commit</a> <a id="line-108"></a></p>
+<a id="line-109"></a></li>
+</ul>
+</li>
+<li class="gap"><p>BTRFS <a id="line-110"></a></p>
+<ul>
+<li><p>Make defragment work with nodatacow option <a class="external" href="http://git.kernel.org/linus/47059d930f0e002ff851beea87d738146804726d">commit</a> <a id="line-111"></a></p>
+</li>
+<li><p>Improve free space cache management and space allocation <a class="external" href="http://git.kernel.org/linus/200055239604cf4bfaed40d8f404228ea606b4f9">commit</a> <a id="line-112"></a></p>
+</li>
+<li><p>Implement repair function when direct read fails <a class="external" href="http://git.kernel.org/linus/8b110e393c5a6e72d50fcdf9fa7ed8b647cfdfc9">commit</a> <a id="line-113"></a></p>
+<a id="line-114"></a><a id="line-115"></a></li>
+</ul>
+</li>
+<li class="gap"><p>XFS <a id="line-116"></a></p>
+<ul>
+<li><p>Add debug sysfs attribute set <a class="external" href="https://git.kernel.org/linus/65b65735fede29b516fed1d8c2391e8bc373b805">commit</a>, <a class="external" href="https://git.kernel.org/linus/2e2271787419a12496bf5da5c3028a9c73c9697f">commit</a> <a id="line-117"></a></p>
+</li>
+</ul>
+</li>
+<li><p>NTFS <a id="line-118"></a></p>
+<ul>
+<li><p>Add FIBMAP ioctl support <a class="external" href="https://git.kernel.org/linus/3f7fc6f2a2ba0f72a09e9f9999c3812fdee8fe70">commit</a> <a id="line-119"></a></p>
+<a id="line-120"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-433a7cd6f23ed1911f3d612bd346ee743159c489">4. Security</h1>
+
+<a id="line-121"></a><ul>
+<li><p>Smack: Add a new access (aka permissive) mode <a class="external" href="https://git.kernel.org/linus/d166c8024d620d654b12834fac354fb4203c6c22">commit</a> <a id="line-122"></a></p>
+</li>
+<li><p>ima: provide 'ima_appraise=log' kernel option that allows logging only mode without fixing it, in order to properly analyze the system <a class="external" href="https://git.kernel.org/linus/2faa6ef3b21152cc05b69a84113625dcee63176f">commit</a> <a id="line-123"></a></p>
+<a id="line-124"></a></li>
+</ul>
+
+<h1 id="head-69adc3f784bb71294a64036472a3ee79bc0cf809">5. Block</h1>
+
+<a id="line-125"></a><ul>
+<li><p>Implement readpages() to optimize sequential reads of /dev block devices <a class="external" href="http://git.kernel.org/linus/447f05bb488bff4282088259b04f47f0f9f76760">commit</a> <a id="line-126"></a></p>
+</li>
+<li><p>SCSI target userspace backend that uses UIO + shared memory ring to dispatch I/O and control commands into user-space <a class="external" href="http://git.kernel.org/linus/7c9e7a6fe11c8dc5b3b9d0e889dde73347247584">commit</a> <a id="line-127"></a></p>
+<a id="line-128"></a></li>
+<li class="gap"><p>dm raid: add discard support for RAID levels 1 and 10 <a class="external" href="http://git.kernel.org/linus/75b8e04bbf01bdd5c42a1d8ac54abf757196ce49">commit</a> and 4, 5 and 6 <a class="external" href="http://git.kernel.org/linus/48cf06bc5f508d5f71bc0fd7530daebb12a48428">commit</a> <a id="line-129"></a></p>
+</li>
+<li><p>zram memory size limitation <a class="external" href="http://git.kernel.org/linus/9ada9da9573f3460b156b7755c093e30b258eacb">commit</a> <a id="line-130"></a></p>
+</li>
+<li><p>zram: report maximum used memory <a class="external" href="http://git.kernel.org/linus/461a8eee6af3b55745be64bea403ed0b743563cf">commit</a> <a id="line-131"></a></p>
+<a id="line-132"></a><a id="line-133"></a></li>
+</ul>
+
+<h1 id="head-72b944e61fff924fb5cc3df4959152c30d8ebfcd">6. Memory management</h1>
+
+<a id="line-134"></a><ul>
+<li><p>memory-hotplug: add /sys/devices/system/memory/memoryX/valid_zones, shows which zone this memory block can be onlined to <a class="external" href="https://git.kernel.org/linus/ed2f240094f900833ac06f533ab8bbcf0a1e8199">commit</a> <a id="line-135"></a></p>
+</li>
+<li><p>balloon_compaction: adds three counters into /proc/vmstat: "balloon_inflate", "balloon_deflate" and "balloon_migrate". They accumulate balloon activity. Under option CONFIG_MEMORY_BALLOON <a class="external" href="https://git.kernel.org/linus/09316c09dde33aae14f34489d9e3d243ec0d5938">commit</a> <a id="line-136"></a></p>
+</li>
+<li><p>slab merge: If new creating slab has similar size and property with exsitent slab, this feature reuse it rather than creating new one <a class="external" href="https://git.kernel.org/linus/12220dea07f1ac6ac717707104773d771c3f3077">commit</a> <a id="line-137"></a></p>
+</li>
+<li><p>Support compiling out madvise() and fadvise() <a class="external" href="https://git.kernel.org/linus/d3ac21cacc24790eb45d735769f35753f5b56ceb">commit</a> <a id="line-138"></a></p>
+</li>
+<li><p>Support fadvise without CONFIG_MMU <a class="external" href="https://git.kernel.org/linus/887e7019e3b8f00c7901c0bc66fb689ced69f7b4">commit</a> <a id="line-139"></a></p>
+</li>
+<li><p>Introduce dump_vma <a class="external" href="https://git.kernel.org/linus/0bf55139782db1fa96af66e37cc84afde18443ef">commit</a> <a id="line-140"></a></p>
+</li>
+<li><p>NUMA: Memory zones are allocated by the page allocator in either node or zone order. This release defaults node-ordering on 64-bit NUMA, and to zone-ordering on 32-bit <a class="external" href="https://git.kernel.org/linus/3193913ce62c63056bc67a6ae378beaf494afa66">commit</a> <a id="line-141"></a></p>
+</li>
+<li><p>Stress test for memory compaction <a class="external" href="http://git.kernel.org/linus/0085d61fe05ec5a3739afb8ffb8a88130402633e">commit</a> <a id="line-142"></a></p>
+<a id="line-143"></a><a id="line-144"></a></li>
+</ul>
+
+<h1 id="head-9e16356d90611893ff2f18fd69eefd7456c6057b">7. Crypto</h1>
+
+<a id="line-145"></a><ul>
+<li><p>Software asynchronous crypto daemon that provides the kernel thread to assist multi-buffer crypto algorithms for submitting jobs and flushing jobs in multi-buffer crypto algorithms <a class="external" href="https://git.kernel.org/linus/116177782392739f06868cfc2e6df5267aec4639">commit</a>, <a class="external" href="https://git.kernel.org/linus/12d2513d5fe23aed53872f9303d9cb4b61b60d80">commit</a>, <a class="external" href="https://git.kernel.org/linus/ad61e042e9151b55b393d5875e467e7fe0c7470c">commit</a>, <a class="external" href="https://git.kernel.org/linus/2249cbb53ead12539c4ab7f422400e82263d174b">commit</a>, <a class="external" href="https://git.kernel.org/linus/1e65b81a90df50bf450193065cc9073b706b8dda">commit</a> <a id="line-146"></a></p>
+</li>
+<li><p>KEYS: Implement binary asymmetric key ID handling <a class="external" href="https://git.kernel.org/linus/7901c1a8effbe5f89673bfc09d6e37b8f334f1a7">commit</a> <a id="line-147"></a></p>
+<a id="line-148"></a></li>
+</ul>
+
+<h1 id="head-80b98a600106e0842e9a38a5a6d653a4d87f53a0">8. Virtualization</h1>
+
+<a id="line-149"></a><ul>
+<li><p>Xen <a id="line-150"></a></p>
+<ul>
+<li><p>Xen PV SCSI backend driver <a class="external" href="https://git.kernel.org/linus/d9d660f6e562a47b4065eeb7e538910b0471b988">commit</a> <a id="line-151"></a></p>
+</li>
+<li><p>Add Xen PV SCSI frontend driver <a class="external" href="https://git.kernel.org/linus/8beb8d4c91d652617dc992de565ec9904361c33e">commit</a> <a id="line-152"></a></p>
+</li>
+<li><p>Remap Xen Identity Mapped RAM <a class="external" href="https://git.kernel.org/linus/4fbb67e3c87b806ad54445a1b4a9c6bde2359c98">commit</a> <a id="line-153"></a></p>
+<a id="line-154"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-e1a4d7eb36f2eda95b079556b24b6454743c3f0a">9. Tracing &amp; perf</h1>
+
+<a id="line-155"></a><ul>
+<li><p>perf tools <a id="line-156"></a></p>
+<ul>
+<li><p>Add +field argument support for --field option <a class="external" href="http://git.kernel.org/linus/2f3f9bcf000b2043a480e7cc0cae582559fb0f13">commit</a> <a id="line-157"></a></p>
+</li>
+<li><p>Add +field argument support for --sort option <a class="external" href="http://git.kernel.org/linus/1a1c0ffb2adb2d2ce7bb9c4dfd2935ba345cf2c2">commit</a> <a id="line-158"></a></p>
+</li>
+<li><p>Add perf-with-kcore script <a class="external" href="http://git.kernel.org/linus/c501e90b4700e4f247ccdcf5ae81f9846a2ef5f9">commit</a> <a id="line-159"></a></p>
+</li>
+<li><p>Add report.queue-size config file option <a class="external" href="http://git.kernel.org/linus/94786b67b5f4577c16486e8eb10ff045e59f80ef">commit</a> <a id="line-160"></a></p>
+</li>
+<li><p>Add support to new style format of kernel PMU event <a class="external" href="http://git.kernel.org/linus/ba32a4511c65e41958384d2f7a046a6ec6e151e5">commit</a> <a id="line-161"></a></p>
+</li>
+<li><p>Let a user specify a PMU event without any config terms <a class="external" href="http://git.kernel.org/linus/ad96227349901838e1a7f96f1dc22d96a97520c0">commit</a> <a id="line-162"></a></p>
+</li>
+<li><p>Let default config be defined for a PMU <a class="external" href="http://git.kernel.org/linus/dc0a6202421170a6d8d2c6f5176575b3f60e0f85">commit</a> <a id="line-163"></a></p>
+</li>
+</ul>
+</li>
+<li><p>top <a id="line-164"></a></p>
+<ul>
+<li><p>Add -w option for setting column width <a class="external" href="http://git.kernel.org/linus/cf59002fdebc9c00ee29233e65bc39dd69e0eaf6">commit</a> <a id="line-165"></a></p>
+</li>
+<li><p>Add a visual cue for toggle zeroing of samples <a class="external" href="http://git.kernel.org/linus/1e378ebd117d1828b9d5dbe0538887478fcb9d84">commit</a> <a id="line-166"></a></p>
+</li>
+<li><p>Handle 'z' key for toggle zeroing samples in TUI <a class="external" href="http://git.kernel.org/linus/42337a222c93cd22864f20ef9b157765ab1086a0">commit</a> <a id="line-167"></a></p>
+</li>
+</ul>
+</li>
+<li><p>perf bench futex: Support operations for shared futexes <a class="external" href="http://git.kernel.org/linus/86c87e13f8a5dffc6cc7b0f37340f815dc172945">commit</a> <a id="line-168"></a></p>
+</li>
+<li><p>perf kvm stat report: Enable the target.system_wide flag <a class="external" href="http://git.kernel.org/linus/f181957c2849478fc963a8ac3c7dacf0a87c6b05">commit</a> <a id="line-169"></a></p>
+<a id="line-170"></a></li>
+</ul>
+
+<h1 id="head-8021e97008880afc7b9e79a09719c53b9052c558">10. Networking</h1>
+
+<a id="line-171"></a><ul>
+<li><p>ipv4: implement igmp_qrv sysctl to tune IGMP robustness variable <a class="external" href="https://git.kernel.org/linus/a9fe8e29945d56f35235a3a0fba99b4cf181d211">commit</a> <a id="line-172"></a></p>
+</li>
+<li><p>ipv6: add sysctl_mld_qrv to configure how many retransmit of unsolicited Multicast Listener Discovery retransmit should happen. Admins might want to tune this on lossy links <a class="external" href="https://git.kernel.org/linus/2f711939d2ea9dfaecebecd1324d2ec7a7a21f65">commit</a> <a id="line-173"></a></p>
+</li>
+<li><p>ipv6: notify userspace when we added or changed an ipv6 token <a class="external" href="https://git.kernel.org/linus/b2ed64a97430a26a63c6ea91c9b50e639a98dfbc">commit</a> <a id="line-174"></a></p>
+</li>
+<li><p>ipvs: Allow heterogeneous pools <a class="external" href="https://git.kernel.org/linus/6cff339bbd5f9eda7a5e8a521f91a88d046e6d0c">commit</a>, <a class="external" href="https://git.kernel.org/linus/bc18d37f676f76edbb5e0c37def78c704b5fbed0">commit</a> <a id="line-175"></a></p>
+<a id="line-176"></a></li>
+<li class="gap"><p>TCP: Restore RFC5961-compliant behavior for SYN packets <a class="external" href="https://git.kernel.org/linus/0c228e833c88e3aa029250f5db77d5968c5ce5b5">commit</a> <a id="line-177"></a></p>
+</li>
+<li><p>TCP: TCP Small Queues and strange attractors. The purpose is to try to keep number of packets in qdisc as small as possible <a class="external" href="https://git.kernel.org/linus/9b462d02d6dd671a9ebdc45caed6fe98a53c0ebe">commit</a> <a id="line-178"></a></p>
+</li>
+<li><p>TCP: improve undo on timeout (increases the undo events by 50% on Google servers) <a class="external" href="https://git.kernel.org/linus/989e04c5bc3ff77d65e1f0d87bf7904dfa30d41c">commit</a> <a id="line-179"></a></p>
+</li>
+<li><p>TIPC: add name distributor resiliency queue, helps to avoid race conditions in TIPC distributed name table updates <a class="external" href="https://git.kernel.org/linus/a5325ae5b8bff051933a754db7727fc9823e6414">commit</a> <a id="line-180"></a></p>
+</li>
+<li><p>UDP: GRO for UDPv6  <a class="external" href="https://git.kernel.org/linus/57c67ff4bd92af634f7c91c40eb02a96dd785dda">commit</a> <a id="line-181"></a></p>
+</li>
+<li><p>ip_tunnel: Add GUE support <a class="external" href="https://git.kernel.org/linus/bc1fc390e1728672b5b343b85185fcc1fe41043b">commit</a> <a id="line-182"></a></p>
+</li>
+<li><p>ethtool: adds new ethtool cmd, ETHTOOL_GTUNABLE &amp; ETHTOOL_STUNABLE for getting and setting tunable values <a class="external" href="http://git.kernel.org/linus/f0db9b073415848709dd59a6394969882f517da9">commit</a> <a id="line-183"></a></p>
+</li>
+<li><p>pktgen: add flag NO_TIMESTAMP to disable timestamping <a class="external" href="http://git.kernel.org/linus/afb84b6261841f8ab387e267e748236fa805bea0">commit</a> <a id="line-184"></a></p>
+</li>
+<li><p>xfrm: Enable to specify local and remote prefix length thresholds for the policy hash table via a netlink XFRM_MSG_NEWSPDINFO message <a class="external" href="http://git.kernel.org/linus/880a6fab8f6ba5b5abe59ea68533202ddea1012c">commit</a> <a id="line-185"></a></p>
+</li>
+<li><p>openvswitch: Add recirc and hash action. <a class="external" href="http://git.kernel.org/linus/971427f353f3c42c8dcef62e7124440df68eb809">commit</a> <a id="line-186"></a></p>
+</li>
+<li><p>openvswitch: Add support for Geneve tunneling. <a class="external" href="http://git.kernel.org/linus/f5796684069e0c71c65bce6a6d4766114aec1396">commit</a> <a id="line-187"></a></p>
+</li>
+<li><p>Bluetooth: 6lowpan: Enable multicast support <a class="external" href="http://git.kernel.org/linus/156395c9989a76228e0da40e71267a3d4fb07419">commit</a> <a id="line-188"></a></p>
+</li>
+<li><p>bridge: Add a default_pvid sysfs attribute <a class="external" href="http://git.kernel.org/linus/96a20d9d7fff7068a2233b00379f0778a150bf86">commit</a> <a id="line-189"></a></p>
+</li>
+<li><p>bridge: Add filtering support for default_pvid <a class="external" href="http://git.kernel.org/linus/5be5a2df40f005ea7fb7e280e87bbbcfcf1c2fc0">commit</a> <a id="line-190"></a></p>
+</li>
+<li><p>Wireless <a id="line-191"></a></p>
+<ul>
+<li><p>Support DTPC IE (from Cisco Client eXtensions) <a class="external" href="https://git.kernel.org/linus/c8d6591752e96c550cb98b781326d72d8eedcc79">commit</a> <a id="line-192"></a></p>
+</li>
+<li><p>Add Radio Resource Management support to assoc request <a class="external" href="https://git.kernel.org/linus/">commit</a> <a id="line-193"></a></p>
+</li>
+<li><p>Add WMM traffic stream API <a class="external" href="http://git.kernel.org/linus/960d01acf62747d6518694f92be5b06f67473833">commit</a> <a id="line-194"></a></p>
+</li>
+<li><p>Re-enable CSA for drivers that support it <a class="external" href="http://git.kernel.org/linus/f41ef64853fb1e02728e56b2d0d55aef8ed12b26">commit</a> <a id="line-195"></a></p>
+<a id="line-196"></a><a id="line-197"></a></li>
+</ul>
+</li>
+<li class="gap"><p>nftables <a id="line-198"></a></p>
+<ul>
+<li><p>IPv4 masquerading support <a class="external" href="https://git.kernel.org/linus/8dd33cc93ec92b8460ed2ad98c6db39276f6a72b">commit</a> <a id="line-199"></a></p>
+</li>
+<li><p>IPv6 masquerading support <a class="external" href="https://git.kernel.org/linus/be6b635cd674add9410efa9ac6f03e0040848b12">commit</a> <a id="line-200"></a></p>
+</li>
+<li><p>allow to filter from pre-routing and post-routing <a class="external" href="https://git.kernel.org/linus/36d2af5998258344993dd43729997a7a3baa9d99">commit</a> <a id="line-201"></a></p>
+</li>
+<li><p>extend NFT_MSG_DELTABLE to support flushing the ruleset <a class="external" href="https://git.kernel.org/linus/b9ac12ef099707f405d7478009564302d7ed8393">commit</a> <a id="line-202"></a></p>
+</li>
+<li><p>nfnetlink_acct: add filter support to nfacct counter list/reset <a class="external" href="https://git.kernel.org/linus/f111f780ae1abf4cdc464f24293be90c010a04f6">commit</a> <a id="line-203"></a></p>
+</li>
+<li><p>export rule-set generation ID <a class="external" href="https://git.kernel.org/linus/84d7fce693884897c6196cc98228a2ad56ae2a9a">commit</a> <a id="line-204"></a></p>
+</li>
+<li><p>nft_meta: Add CPU attribute support, allows to match packets with CPU number <a class="external" href="https://git.kernel.org/linus/afc5be3079796b024823bad42dc5ebf716453575">commit</a> <a id="line-205"></a></p>
+</li>
+<li><p>nft_meta: add pkttype support for ip, ipv6 and inet families of tables. Allows to match packets based on the link layer information <a class="external" href="https://git.kernel.org/linus/e2a093ff0dbfa4c5d99f25241cf33325e9691d91">commit</a> <a id="line-206"></a></p>
+</li>
+<li><p>nft_meta: add devgroup support in meta expression, lets match device group of a packets incoming or outgoing interface <a class="external" href="https://git.kernel.org/linus/3045d76070abe725dbb7fd8ff39c27b820d5a7eb">commit</a> <a id="line-207"></a></p>
+</li>
+</ul>
+</li>
+<li><p>netfilter <a id="line-208"></a></p>
+<ul>
+<li><p>ipset: hash:mac type added to ipset, by which one can store MAC (Ethernet address) elements in a set. <a class="external" href="https://git.kernel.org/linus/07034aeae152de52c29f032ca995bf9dafbe24e2">commit</a> <a id="line-209"></a></p>
+</li>
+<li><p>conntrack: disable generic tracking for known protocols <a class="external" href="https://git.kernel.org/linus/db29a9508a9246e77087c5531e45b2c88ec6988b">commit</a> <a id="line-210"></a></p>
+<a id="line-211"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-9836f5b24c28adbd36660e8975d7445fa933403c">11. Core (various)</h1>
+
+<a id="line-212"></a><ul>
+<li><p>Add support for gcc 5 <a class="external" href="http://git.kernel.org/linus/71458cfc782eafe4b27656e078d379a34e472adf">commit</a> <a id="line-213"></a></p>
+</li>
+<li><p>locktorture: Add infrastructure for torturing read locks <a class="external" href="http://git.kernel.org/linus/4f6332c1dce9c64ef6bf93842067250dd850e482">commit</a>, mutexes <a class="external" href="http://git.kernel.org/linus/42ddc75ddd478edac6ad9dc8c63abb4441541af2">commit</a>, rwlocks <a class="external" href="http://git.kernel.org/linus/e34191fad8e5d9fe4e76f6d03b5e29e3eae7535a">commit</a>, rwsems <a class="external" href="http://git.kernel.org/linus/4a3b427f0b27c7e15edfa607524ff012a155337a">commit</a> <a id="line-214"></a></p>
+</li>
+<li><p>kbuild: handle module compression while running 'make modules_install'. <a class="external" href="http://git.kernel.org/linus/beb50df39e91745604ce3cb9dc6a503f39f4383d">commit</a> <a id="line-215"></a></p>
+</li>
+<li><p>Increase the buffer-head per-CPU LRU size <a class="external" href="http://git.kernel.org/linus/86cf78d73de8c6bfa89804b91ee0ace71a459961">commit</a> <a id="line-216"></a></p>
+</li>
+<li><p>sched: Add default-disabled option to BUG() when stack end location is overwritten <a class="external" href="http://git.kernel.org/linus/0d9e26329b0c9263d4d9e0422d80a0e73268c52f">commit</a> <a id="line-217"></a></p>
+</li>
+<li><p>sched: Improve sysbench performance by fixing spurious active migration <a class="external" href="http://git.kernel.org/linus/43f4d66637bc752e93a77ff2536474a5a3888442">commit</a> <a id="line-218"></a></p>
+</li>
+<li><p>prctl: introduce PR_SET_MM_MAP operation to allow checkpoint/restore utilities to restore a process memory properties <a class="external" href="http://git.kernel.org/linus/f606b77f1a9e362451aca8f81d8f36a3a112139e">commit</a> <a id="line-219"></a></p>
+</li>
+</ul>
+<a id="bottom"></a>
+<p><a class="external" href="http://kernelnewbies.org/Linux_3.18">Linux 3.18</a> by <a class="external" href="http://kernelnewbies.org">kernelnewbies.org</a> is licensed under <a class="external" href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></p>
+</div>
+</body>

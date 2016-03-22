@@ -1,0 +1,405 @@
+<body style="background: #FFFFFF;">
+<div id="page" lang="en" dir="ltr">
+
+
+<h1 class="title">Linux 3.14</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a><a id="line-4"></a><a id="line-5"></a><p>Linux 3.14 <a class="external" href="https://lkml.org/lkml/2014/3/30/336">has been released</a> on Sun, 30 Mar 2014. <a id="line-6"></a></p>
+<a id="line-7"></a><p><strong>Summary</strong>: This release includes the deadline task scheduling policy for real-time tasks, a memory compression mechanism is now considered stable, a port of the locking validator to userspace, ability to store properties such as compression for each inode in Btrfs, trigger support for tracing events, improvements to userspace probing, kernel address space randomization, TCP automatic coalescing of certain kinds of connections, a new network packet scheduler to fight bufferbloat, new drivers and many other small improvements.  <a id="line-8"></a></p>
+<a id="line-9"></a><ol>
+<li><a href="#head-94cfae8b94ac24c80f5a87e8e95979bc34c18196">Prominent features</a><ol>
+<li><a href="#head-651929cdcf19cc2e2cfc7feb16b78ef963d195fe">Deadline scheduling class for better real-time scheduling</a></li>
+<li><a href="#head-72b295b09fea85de2e80f0b7850048264fed887e">zram: Memory compression mechanism considered stable</a></li>
+<li><a href="#head-aeabac8d9880286137cfb48fd88e6d1d74a205ca">Btrfs: inode properties</a></li>
+<li><a href="#head-fe6e9b6f3f772f221b01bf437698322e2b433ece">Trigger support for tracing events</a></li>
+<li><a href="#head-ca18fd90b3cee1181d74251909e0dda6934b5add">Userspace probes access to all arguments</a></li>
+<li><a href="#head-7d22f7ca26be36422718f2c5f890518e2fcc6457">Userspace locking validator</a></li>
+<li><a href="#head-192cae48200fccde67b36c75cdb6c6d8214cccb3">Kernel address space randomization</a></li>
+<li><a href="#head-ffc580bfdcfa9ce8f20f9489357172d55d8d51fe">TCP automatic corking</a></li>
+<li><a href="#head-76a4de38bc41859c6d8f7cfa348266ce55f8cdd9">Antibufferbloat: "Proportional Integral controller Enhanced" packet scheduler</a></li>
+</ol>
+<li><a href="#head-2242f140cb93580051e914ada75c3183b4f26e7b">Drivers and architectures</a></li>
+<li><a href="#head-2a1c60de23027315150ffb8ccb8c8cee01e5377d">Core</a></li>
+<li><a href="#head-a952f27aa3ced7becf3c949c160a7c3522f29430">Memory management</a></li>
+<li><a href="#head-1f9ef1fa5b33f2b8cfd639a04c1a82652dcc3e3a">Block layer</a></li>
+<li><a href="#head-51752d337c9e2aa866ca4e11c2868950de875b06">File systems</a></li>
+<li><a href="#head-957683b629e0952979c6f180e96bed08b62d2af3">Networking</a></li>
+<li><a href="#head-e6b0194a509ca6aac2cb186fce4b6bcceecbac7d">Virtualization</a></li>
+<li><a href="#head-13bd96cbfdc8200a8f6a6171781818f19fc6afe5">Security</a></li>
+<li><a href="#head-b4f164b060a44be012ff02abcd733f3d8cf8b70d">Crypto</a></li>
+<li><a href="#head-1c3000f016b38aa924500670f486fd553f7c1811">Tracing/perf</a></li>
+<li><a href="#head-f9e08d1fc5b430a553a20296fe67367c2c1cef4a">Other news sites that track the changes of this release</a></li>
+</ol>
+<p> <a id="line-10"></a></p>
+
+<h1 id="head-94cfae8b94ac24c80f5a87e8e95979bc34c18196">1. Prominent features</h1>
+
+<a id="line-11"></a>
+<h2 id="head-651929cdcf19cc2e2cfc7feb16b78ef963d195fe">1.1. Deadline scheduling class for better real-time scheduling</h2>
+
+<a id="line-12"></a><a id="line-13"></a><p>Operating systems traditionally provide scheduling priorities for processes: The higher priority a process has, the more scheduling time that process it can get with respect other processes with lower priorities. In Linux, users usually set scheduling priorities from a value of -20 to 19 using the nice(2) tool (in addition, Linux supports the notion scheduling classes: each class provides different scheduling policies; for example, there is a SCHED_FIFO class with a "first in, first out" policy, and a SCHED_RR with a round-robin policy). <a id="line-14"></a></p>
+<a id="line-15"></a><p>The approach of process priorities is, however, not well suited for real-time tasks. <a class="external" href="http://en.wikipedia.org/wiki/SCHED_DEADLINE">Evidence Srl and the ReTiS Lab</a> have created an alternative designed around real time concepts: deadline scheduling, implemented as a new scheduling policy, SCHED_DEADLINE.  <a id="line-16"></a></p>
+<a id="line-17"></a><p>Deadline scheduling gets away with the notion of process priorities. Instead, processes provide three parameters: runtime, period, and deadline. A SCHED_DEADLINE task is guaranteed to receive "runtime" microseconds of execution time every "period" microseconds, and these "runtime" microseconds are available within "deadline" microseconds from the beginning of the period. The task scheduler uses that information to run the process with the earliest deadline, a behavior closer to the requirements needed by real-time systems. For more details about the scheduling algorithms, <a class="external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/plain/Documentation/scheduler/sched-deadline.txt?id=712e5e34aef449ab680b35c0d9016f59b0a4494c">read the documentation</a> <a id="line-18"></a></p>
+<a id="line-19"></a><p>Recommended LWN article: <a class="external" href="https://lwn.net/Articles/575497/">Deadline scheduling: coming soon?</a> <a id="line-20"></a></p>
+<a id="line-21"></a><p>Recommended page on Wikipedia: <a class="external" href="https://en.wikipedia.org/wiki/SCHED_DEADLINE">SCHED_DEADLINE</a> <a id="line-22"></a></p>
+<a id="line-23"></a><p>Documentation: <a class="external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/plain/Documentation/scheduler/sched-deadline.txt?id=712e5e34aef449ab680b35c0d9016f59b0a4494c">Documentation/scheduler/sched-deadline.txt</a> <a id="line-24"></a></p>
+<a id="line-25"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/1baca4ce16b8cc7d4f50be1f7914799af30a2861">commit 1</a>, <a class="external" href="https://git.kernel.org/linus/239be4a982154ea0c979fca5846349bb68973aed">2</a>, <a class="external" href="https://git.kernel.org/linus/aab03e05e8f7e26f51dee792beddcb5cca9215a5">3</a>, <a class="external" href="https://git.kernel.org/linus/755378a47192a3d1f7c3a8ca6c15c1cf76de0af2">4</a>, <a class="external" href="https://git.kernel.org/linus/2d3d891d3344159d5b452a645e355bbe29591e8b">5</a>, <a class="external" href="https://git.kernel.org/linus/332ac17ef5bfcff4766dfdfd3b4cdf10b8f8f155">6</a>, <a class="external" href="https://git.kernel.org/linus/af6ace764d03900524e9b1ac621a1c520ee49fc6">7</a>, <a class="external" href="https://git.kernel.org/linus/de212f18e92c952533d57c5510d2790199c75734">8</a>, <a class="external" href="https://git.kernel.org/linus/e4099a5e929435cd6349343f002583f29868c900">9</a>, <a class="external" href="https://git.kernel.org/linus/1724813d9f2c7ff702b46d3e4a4f6d9b10a8f8c2">10</a>, <a class="external" href="https://git.kernel.org/linus/6bfd6d72f51c51177676f2b1ba113fe0a85fdae4">11</a>, <a class="external" href="https://git.kernel.org/linus/712e5e34aef449ab680b35c0d9016f59b0a4494c">12</a>, <a class="external" href="https://git.kernel.org/linus/d50dde5a10f305253cbc3855307f608f8a3c5f73">13</a> <a id="line-26"></a></p>
+<a id="line-27"></a>
+<h2 id="head-72b295b09fea85de2e80f0b7850048264fed887e">1.2. zram: Memory compression mechanism considered stable</h2>
+
+<a id="line-28"></a><a id="line-29"></a><p>zram provides RAM block devices. Everything written to these block devices gets compressed. If zram block devices are used as swap, when the system tries to move parts of memory to swap it will be effectively moving memory from one part of the RAM to another, except that the data will be compressed before being copied to the destination. This effectively works as a cheap memory compression mechanism to improve responsiveness in systems with limited amounts of memory. Zram is being used by TV companies, Android 4.4, Cyanogenmod, Chrome OS, Lubuntu... <a id="line-30"></a></p>
+<a id="line-31"></a><p>Zram has been in staging since <a class="external" href="http://kernelnewbies.org/Linux_2_6_33#head-2d401df4d54a65a60c31ce7c591cf7660851cfd8">Linux 2.6.33</a>. In this release, zram has been moved out of staging to drivers/block/zram. <a id="line-32"></a></p>
+<a id="line-33"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/cd67e10ac6997c6d1e1504e3c111b693bfdbc148">commit</a>, <a class="external" href="https://git.kernel.org/linus/1b945aeef0b9cb5e98d682c310272b08198e54b5">commit</a>, <a class="external" href="https://git.kernel.org/linus/bcf1647d0899666f0fb90d176abf63bae22abb7c">commit</a> <a id="line-34"></a></p>
+<a id="line-35"></a>
+<h2 id="head-aeabac8d9880286137cfb48fd88e6d1d74a205ca">1.3. Btrfs: inode properties</h2>
+
+<a id="line-36"></a><a id="line-37"></a><p>This release adds infrastructure in Btrfsto attach name/value pairs to inodes as xattrs. The purpose of these pairs is to store properties for inodes, such as compression. These properties can be inherited, this means when a directory inode has inheritable properties set, these are added to new inodes created under that directory. Subvolumes can also have properties associated with them, and they can be inherited from their parent subvolume. This release adds one specific property implementation, named "compression", whose values can be "lzo" or "zlib" and it's an inheritable property. <a id="line-38"></a></p>
+<a id="line-39"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/63541927c8d11d2686778b1e8ec71c14b4fd53e4">commit</a> <a id="line-40"></a></p>
+<a id="line-41"></a><a id="line-42"></a>
+<h2 id="head-fe6e9b6f3f772f221b01bf437698322e2b433ece">1.4. Trigger support for tracing events</h2>
+
+<a id="line-43"></a><a id="line-44"></a><p>The tracing infastructure in the Linux kernel allows to easily register probe functions as events (for more details, see <a class="external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/plain/Documentation/trace/events.txt">Documentation/trace/events.txt</a>. This release allows these events to conditionally trigger "commands". These commands can take various forms, examples would be enabling or disabling other trace events or invoking a stack trace whenever the trace event is hit. Any given trigger can additionally have an event filter, the command will only be invoked if the event being invoked passes the associated filter. <a id="line-45"></a></p>
+<a id="line-46"></a><p>For example, the following trigger dumps a stacktrace the first 5 times a kmalloc request happens with a size &gt;= 64K: <a id="line-47"></a></p>
+<pre>
+# echo 'stacktrace:5 if bytes_req &gt;= 65536' &gt; \
+<a id="line-48"></a>        /sys/kernel/debug/tracing/events/kmem/kmalloc/trigger</pre>
+<a id="line-49"></a><a id="line-50"></a><p>For more details, see Section 6 in <a class="external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/trace/events.txt">Documentation/trace/events.txt</a> <a id="line-51"></a></p>
+<a id="line-52"></a><p>Recommended LWN article: <a class="external" href="https://lwn.net/Articles/556186/">Triggers for tracing</a> <a id="line-53"></a></p>
+<a id="line-54"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/7862ad1846e994574cb47dc503cc2b1646ea6593">commit 1</a>, <a class="external" href="https://git.kernel.org/linus/93e31ffbf417a84fbae518fb46b3ea3f0d8fa6e1">2</a>, <a class="external" href="https://git.kernel.org/linus/f21ecbb35f865a508073c0e73854da469a07f278">3</a>, <a class="external" href="https://git.kernel.org/linus/2a2df321158817811c5dc206dce808e0aa9f6d89">4</a>,<a class="external" href="https://git.kernel.org/linus/bac5fb97a173aeef8296b3efdb552e3489d55179">5</a>, <a class="external" href="https://git.kernel.org/linus/85f2b08268c014e290b600ba49fa85530600eaa1">6</a>, <a class="external" href="https://git.kernel.org/linus/ac38fb8582d86ba887b5d07c0912dec135bf6931">7</a> <a id="line-55"></a></p>
+<a id="line-56"></a><a id="line-57"></a>
+<h2 id="head-ca18fd90b3cee1181d74251909e0dda6934b5add">1.5. Userspace probes access to all arguments</h2>
+
+<a id="line-58"></a><a id="line-59"></a><p>Userspace probes are a <a class="external" href="http://kernelnewbies.org/Linux_3.5#head-95fccbb746226f6b9dfa4d1a48801f63e11688de">Linux 3.5</a> feature that allows to set tracing probes in userspace programs at runtime. This release enables to fetch other types of argument for the uprobes:  memory, stack, deference, bitfield, retval and file offset. For more details see <a class="external" href="https://lwn.net/Articles/577142/">here</a>. <a id="line-60"></a></p>
+<a id="line-61"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/b7e0bf341f6cfa92ae0a0e3d0c3496729595e1e9">commit 1</a>, <a class="external" href="https://git.kernel.org/linus/b079d374fd84637aba4b825a329e794990b7b486">2</a>, <a class="external" href="https://git.kernel.org/linus/306cfe2025adcba10fb883ad0c540f5541d1b086">3</a> <a id="line-62"></a></p>
+<a id="line-63"></a>
+<h2 id="head-7d22f7ca26be36422718f2c5f890518e2fcc6457">1.6. Userspace locking validator</h2>
+
+<a id="line-64"></a><a id="line-65"></a><p>The Linux kernel has (<a class="external" href="http://kernelnewbies.org/Linux_2_6_18#head-5f53299debf913cd806ce6e9a2670f28d708832d">since 2.6.18</a>) a lock validator that can find locking issues at runtime. This release makes possible to run the Linux locking validator in userspace, making possible to debug locking issues in userspace programs. For more details, see the recommended LWN link. <a id="line-66"></a></p>
+<a id="line-67"></a><p>Recommended LWN article: <a class="external" href="https://lwn.net/Articles/536363/">User-space lockdep</a> <a id="line-68"></a></p>
+<a id="line-69"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/5634bd7d2ab14fbf736b62b0788fb68e2cb0fde2">commit 1</a>, <a class="external" href="https://git.kernel.org/linus/45e6207464b59dca63c8a9a79a7befbbf6a68fdb">2</a>, <a class="external" href="https://git.kernel.org/linus/878f968eeb852383ff79dc3f181db24e5b52fd75">3</a>, <a class="external" href="https://git.kernel.org/linus/5a52c9b480e09a782618dbf08de57f9ca54c8b49">4</a>, <a class="external" href="https://git.kernel.org/linus/dbe941827eab53194eda5cd350a4e1414f192658">5</a>, <a class="external" href="https://git.kernel.org/linus/231941eec8aeee4f0ac210a28e484200b20f74d8">6</a>, <a class="external" href="https://git.kernel.org/linus/f612ac05b7ce66919507d25f4c81e4272f7a8705">7</a> <a id="line-70"></a></p>
+<a id="line-71"></a>
+<h2 id="head-192cae48200fccde67b36c75cdb6c6d8214cccb3">1.7. Kernel address space randomization</h2>
+
+<a id="line-72"></a><a id="line-73"></a><p>This release allows to randomize the physical and virtual address at which the kernel image is decompressed, as a security feature that deters exploit attempts relying on knowledge of the location of kernel internals. <a id="line-74"></a></p>
+<a id="line-75"></a><p>Recommended LWN article: <a class="external" href="https://lwn.net/Articles/569635/">Kernel address space layout randomization</a> <a id="line-76"></a></p>
+<a id="line-77"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/e8236c4d9338d52d0f2fcecc0b792ac0542e4ee9">1</a>, <a class="external" href="https://git.kernel.org/linus/da2b6fb990cf782b18952f534ec7323453bc4fc9">2</a>, <a class="external" href="https://git.kernel.org/linus/a653f3563c51c7bb7de63d607bef09d3baddaeb8">3</a>, <a class="external" href="https://git.kernel.org/linus/5bfce5ef55cbe78ee2ee6e97f2e26a8a582008f3">4</a>, <a class="external" href="https://git.kernel.org/linus/6145cfe394a7f138f6b64491c5663f97dba12450">5</a>, <a class="external" href="https://git.kernel.org/linus/19259943f0954dcd1817f94776376bf51c6a46d5">6</a>, <a class="external" href="https://git.kernel.org/linus/f32360ef6608434a032dc7ad262d45e9693c27f3">7</a>, <a class="external" href="https://git.kernel.org/linus/8ab3820fd5b2896d66da7bb2a906bc382e63e7bc">8</a>, <a class="external" href="https://git.kernel.org/linus/82fa9637a2ba285bcc7c5050c73010b2c1b3d803">9</a> <a id="line-78"></a></p>
+<a id="line-79"></a>
+<h2 id="head-ffc580bfdcfa9ce8f20f9489357172d55d8d51fe">1.8. TCP automatic corking</h2>
+
+<a id="line-80"></a><a id="line-81"></a><p>When applications do consecutive small write()/sendmsg() system calls, the Linux kernel will try to coalesce these small writes as much as possible, to lower total amount of sent packets - this feature is called "automatic corking". Automatic corking is done if at least one prior packet for the flow is waiting in Qdisc queues or device transmit queue. Applications can still <a class="external" href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_MRG/1.2/html/Realtime_Tuning_Guide/sect-Realtime_Tuning_Guide-Application_Tuning_and_Deployment-TCP_NODELAY_and_Small_Buffer_Writes.html">use TCP_CORK</a> for optimal behavior when they know how/when to uncork their sockets. A new sysctl (/proc/sys/net/ipv4/tcp_autocorking) has been added to control this feature, which defaults to enabled. For benchmarks and more details see the commit link. <a id="line-82"></a></p>
+<a id="line-83"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/f54b311142a92ea2e42598e347b84e1655caf8e3">commit</a> <a id="line-84"></a></p>
+<a id="line-85"></a>
+<h2 id="head-76a4de38bc41859c6d8f7cfa348266ce55f8cdd9">1.9. Antibufferbloat: "Proportional Integral controller Enhanced" packet scheduler</h2>
+
+<a id="line-86"></a><a id="line-87"></a><p>Bufferbloat is a phenomenon where excess buffers in the network cause high latency and jitter. As more and more interactive applications (e.g. voice over IP, real-time video streaming and financial transactions) run in the Internet, high latency and jitter degrade application performance. There has been a number of features and improvements in the Linux kernel network stack that try to address this problem. <a id="line-88"></a></p>
+<a id="line-89"></a><p>This release adds a new network packet scheduler: PIE(Proportional Integral controller Enhanced) that can effectively control the average queueing latency to a target value. Simulation results, theoretical analysis and Linux testbed results have shown that PIE can ensure low latency and achieve high link utilization under various congestion situations. The design incurs very small overhead. For more information, please <a class="external" href="ftp://ftpeng.cisco.com/pie/documents/">see technical paper about PIE</a> in the IEEE Conference on High Performance Switching and Routing 2013. Also you can refer to the <a class="external" href="https://tools.ietf.org/html/draft-pan-tsvwg-pie-00">IETF draft submission</a>. All relevant code, documents and test scripts and results can be found at <a class="www" href="ftp://ftpeng.cisco.com/pie/">ftp://ftpeng.cisco.com/pie/</a>. <a id="line-90"></a></p>
+<a id="line-91"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/d4b36210c2e6ecef0ce52fb6c18c51144f5c2d88">commit</a> <a id="line-92"></a></p>
+<a id="line-93"></a><a id="line-94"></a><a id="line-95"></a>
+<h1 id="head-2242f140cb93580051e914ada75c3183b4f26e7b">2. Drivers and architectures</h1>
+
+<a id="line-96"></a><p>All the driver and architecture-specific changes can be found in the <a class="external" href="http://kernelnewbies.org/Linux_3.14-DriversArch">Linux_3.14-DriversArch page</a> <a id="line-97"></a></p>
+<a id="line-98"></a>
+<h1 id="head-2a1c60de23027315150ffb8ccb8c8cee01e5377d">3. Core</h1>
+
+<a id="line-99"></a><ul>
+<li><p>Tool for suspend/resume performance analysis and optimization <a class="external" href="https://git.kernel.org/linus/ee8b09cd60bfe45d856e7c3bef8742835686bf4e">commit</a> <a id="line-100"></a></p>
+</li>
+<li><p>futexes: Increase hash table size for better performance <a class="external" href="https://git.kernel.org/linus/a52b89ebb6d4499be38780db8d176c5d3a6fbc17">commit</a> <a id="line-101"></a></p>
+</li>
+<li><p>IPC queues: remove limits for the amount of system-wide queues that were added in 93e6f119c0ce <a class="external" href="https://git.kernel.org/linus/f3713fd9cff733d9df83116422d8e4af6e86b2bb">commit</a> <a id="line-102"></a></p>
+</li>
+<li><p>kexec: add sysctl to disable future kexec usage <a class="external" href="https://git.kernel.org/linus/7984754b99b6c89054edc405e9d9d35810a91d36">commit</a> <a id="line-103"></a></p>
+</li>
+<li><p>lib: introduce arch optimized hash library <a class="external" href="https://git.kernel.org/linus/71ae8aac3e198c6f3577cb7ad3a17f6128e97bfa">commit</a> <a id="line-104"></a></p>
+</li>
+<li><p>locking: Optimize lock_bh functions <a class="external" href="https://git.kernel.org/linus/9ea4c380066fbe23fe0da7f4abfabc444f2467f4">commit</a> <a id="line-105"></a></p>
+</li>
+<li><p>scheduler: Drop sysctl_numa_balancing_settle_count sysctl <a class="external" href="https://git.kernel.org/linus/1bd53a7efdc988163ec4c25f656df38dbe500632">commit</a> <a id="line-106"></a></p>
+</li>
+<li><p>scheduler: add tracepoints related to NUMA task migration <a class="external" href="https://git.kernel.org/linus/286549dcaf4f128cb04f0ad56dfb677d7d19b500">commit</a> <a id="line-107"></a></p>
+<a id="line-108"></a><a id="line-109"></a></li>
+<li class="gap"><p>stackprotector: Introduce CONFIG_CC_STACKPROTECTOR_STRONG <a class="external" href="https://git.kernel.org/linus/8779657d29c0ebcc0c94ede4df2f497baf1b563f">commit</a> <a id="line-110"></a></p>
+</li>
+<li><p>swap: add a simple detector for inappropriate swapin readahead <a class="external" href="https://git.kernel.org/linus/579f82901f6f41256642936d7e632f3979ad76d4">commit</a> <a id="line-111"></a></p>
+</li>
+<li><p>sysfs, kernfs: add skeletons for kernfs <a class="external" href="https://git.kernel.org/linus/b8441ed279bff09a0a5ddeacf8f4087d2fb424ca">commit</a> <a id="line-112"></a></p>
+<a id="line-113"></a></li>
+<li class="gap"><p>rcutorture: Add --bootargs argument to specify additional boot arguments <a class="external" href="https://git.kernel.org/linus/7dca927328fce6f6854486c4c2355ffbe1469240">commit</a>, add --buildonly dry-run capability <a class="external" href="https://git.kernel.org/linus/1127481392c8b95ad5066b6be99b3482522d4c89">commit</a>, add --kmake-arg argument to kvm.sh <a class="external" href="https://git.kernel.org/linus/74878fb6368eb254d5bedd8f21a165562222919f">commit</a>, add --no-initrd argument to kvm.sh <a class="external" href="https://git.kernel.org/linus/73931b5ee92d013b7b7d62927cca2a8dfdf3a9d3">commit</a>, add --qemu-args argument to kvm.sh <a class="external" href="https://git.kernel.org/linus/e9ce640001c681a1ec01a996dfae2f8fa5d1cfba">commit</a>, add KVM-based test framework <a class="external" href="https://git.kernel.org/linus/c87b9c601ac862b1fa41a9d759a3c05711a8391d">commit</a>, add SRCU Kconfig-fragment files <a class="external" href="https://git.kernel.org/linus/a0b8e0853a87ef008a819e8cbe905735934396da">commit</a>, add datestamp argument to kvm.sh <a class="external" href="https://git.kernel.org/linus/847bfd254399eebc8752d39f43628e6c1baac076">commit</a>, add per-Kconfig fragment boot parameters <a class="external" href="https://git.kernel.org/linus/0cc2441447eafd4e0742b6363e416967167c5137">commit</a>, add per-version default Kconfig fragments and module parameters <a class="external" href="https://git.kernel.org/linus/4275be83b807c2926d2b23e67eb61692a1810080">commit</a>, add v3.12 version, which adds sysidle testing <a class="external" href="https://git.kernel.org/linus/ccb51a893c8c2b7c933b93f5c298e00b9d6eb76f">commit</a>, eliminate --rcu-kvm argument <a class="external" href="https://git.kernel.org/linus/2bcdf4e31ae4e215b1e61831d9defa3632cb7bd3">commit</a>, eliminate configdir argument from kvm-recheck.sh script <a class="external" href="https://git.kernel.org/linus/06d9d1b2e2e58347af37f00856156a550522b2cb">commit</a>, remove decorative qemu argument <a class="external" href="https://git.kernel.org/linus/14db63f575db5e27a733f873e17930f3071076ef">commit</a> <a id="line-114"></a></p>
+<a id="line-115"></a></li>
+<li class="gap"><p>cpufreq: support for boost frequency support <a class="external" href="https://git.kernel.org/linus/2fb4719b25602a03fb6c7da77d029db03103663d">commit</a>, <a class="external" href="https://git.kernel.org/linus/6f19efc0a1ca08bc61841b971d8b85ab505d95c8">commit</a> <a id="line-116"></a></p>
+<a id="line-117"></a><a id="line-118"></a></li>
+</ul>
+
+<h1 id="head-a952f27aa3ced7becf3c949c160a7c3522f29430">4. Memory management</h1>
+
+<a id="line-119"></a><ul>
+<li><p>/proc/meminfo: provide estimated available memory <a class="external" href="https://git.kernel.org/linus/34e431b0ae398fc54ea69ff85ec700722c9da773">commit</a> <a id="line-120"></a></p>
+</li>
+<li><p>Add overcommit_kbytes sysctl variable, it allows a more finer grain configuration than overcommit_ratio in machines with lots of memory <a class="external" href="https://git.kernel.org/linus/49f0ce5f92321cdcf741e35f385669a421013cb7">commit</a> <a id="line-121"></a></p>
+</li>
+<li><p>Document improved handling of swappiness==0 (implemented long time ago) <a class="external" href="https://git.kernel.org/linus/8582cb96b0bfd6891766d8c30d759bf21aad3b4d">commit</a> <a id="line-122"></a></p>
+<a id="line-123"></a><a id="line-124"></a></li>
+</ul>
+
+<h1 id="head-1f9ef1fa5b33f2b8cfd639a04c1a82652dcc3e3a">5. Block layer</h1>
+
+<a id="line-125"></a><ul>
+<li><p>Immutable bio vecs <a class="external" href="https://git.kernel.org/linus/4550dd6c6b062fc5e5b647296d55da22616123c3">commit</a> <a id="line-126"></a></p>
+</li>
+<li><p>rbd: add support for single-major device number allocation scheme <a class="external" href="https://git.kernel.org/linus/9b60e70b3b6a8e4bc2d1b6d9f858a30e1cec496b">commit</a>, enable extended devt in single-major mode <a class="external" href="https://git.kernel.org/linus/7e513d43669a0505ee3b122344176147a674bcbf">commit</a> <a id="line-127"></a></p>
+<a id="line-128"></a></li>
+<li class="gap"><p>Device Manager <a id="line-129"></a></p>
+<ul>
+<li><p>dm cache policy mq: introduce three promotion threshold tunables <a class="external" href="https://git.kernel.org/linus/78e03d69733c48312ae81fe4ac0790dbea412b9d">commit</a> <a id="line-130"></a></p>
+</li>
+<li><p>dm cache: add block sizes and total cache blocks to status output <a class="external" href="https://git.kernel.org/linus/6a388618f120cdc70cd6b6dbcab5f7a4aff500f6">commit</a> <a id="line-131"></a></p>
+</li>
+<li><p>dm cache: add policy name to status output <a class="external" href="https://git.kernel.org/linus/2e68c4e6caad9fdadc1cef8b6cb9569192e8a42b">commit</a> <a id="line-132"></a></p>
+<a id="line-133"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-51752d337c9e2aa866ca4e11c2868950de875b06">6. File systems</h1>
+
+<a id="line-134"></a><ul>
+<li><p>Btrfs <a id="line-135"></a></p>
+<ul>
+<li><p>Incompatible format change to remove hole extents <a class="external" href="https://git.kernel.org/linus/16e7549f045d33b0c5b0ebf19d08439e9221d40c">commit</a> <a id="line-136"></a></p>
+</li>
+<li><p>Add a few mount options so that features can be changed on remounts: "barrier" <a class="external" href="https://git.kernel.org/linus/842bef5891aaf13e2dede01d86397d810fde2dd8">commit</a>, "datacow" <a class="external" href="https://git.kernel.org/linus/a258af7a3e395a1d36190c81614dca0bcb5f6012">commit</a>, "datasum" <a class="external" href="https://git.kernel.org/linus/d399167d88ea53590d6c0850b2d5534cbd21da02">commit</a>, "noautodefrag" <a class="external" href="https://git.kernel.org/linus/fc0ca9af180b91aad2fbf2fe3b16a12e1e05a760">commit</a>, "nodiscard" <a class="external" href="https://git.kernel.org/linus/e07a2ade4426a2cbafae4018aa7b6944bb627a6e">commit</a>, "noenospc_debug" <a class="external" href="https://git.kernel.org/linus/530362934332e4efac81d40583aa1225e64f556f">commit</a>, "noflushoncommit" <a class="external" href="https://git.kernel.org/linus/2c9ee85671f66cd3ffc7067de47cc59ed6677299">commit</a>, "noinode_cache" <a class="external" href="https://git.kernel.org/linus/3818aea275423236db38a2d2d0a4951bc6da2e01">commit</a>, "treelog" <a class="external" href="https://git.kernel.org/linus/a88998f291fc707f18ee42ae45220a3a3e384c27">commit</a> <a id="line-137"></a></p>
+</li>
+<li><p>Publish btrfs internal information in sysfs, some of the features can be changed <a class="external" href="https://git.kernel.org/linus/ba631941ef09c10e229661219dbd1707e56131d8">commit 1</a>, <a class="external" href="https://git.kernel.org/linus/6ab0a2029ceaedb78af807871820708b7353e3be">2</a>, <a class="external" href="https://git.kernel.org/linus/29e5be240a3caf175364fdeecb0441dff500d5d9">3</a>, <a class="external" href="https://git.kernel.org/linus/f8ba9c11f8320be0d553d4b18000e35f7ad672ac">4</a>, <a class="external" href="https://git.kernel.org/linus/5ac1d209f11271fbfad0fa31ba56ec64c142d9ea">5</a>, <a class="external" href="https://git.kernel.org/linus/510d73600aafbc64efee8d0e71c219c0e651cb7f">6</a>, <a class="external" href="https://git.kernel.org/linus/079b72bca30dbc74c86c7c7825b8c34eb86ce3ee">7</a>, <a class="external" href="https://git.kernel.org/linus/79da4fa4d9dcf8c948ef8b5848f747ef08f6e732">8</a> <a id="line-138"></a></p>
+</li>
+</ul>
+</li>
+<li><p>Add ioctls to query/change feature bits online <a class="external" href="https://git.kernel.org/linus/2eaa055fab4e3127c9f572fda1b710cbb2acdf1c">commit</a> <a id="line-139"></a></p>
+</li>
+<li><p>Performance improvements: Various performance improvements, see each commit for details <a class="external" href="https://git.kernel.org/linus/1b8e7e45e57cc98bf6c8ab9b3087d634636ba2e6">commit</a>, <a class="external" href="https://git.kernel.org/linus/32193c147f451652c6c089b5fa1c9852d53d65ee">commit</a>, <a class="external" href="https://git.kernel.org/linus/1acae57b161ef1282f565ef907f72aeed0eb71d9">commit</a>, <a class="external" href="https://git.kernel.org/linus/23c671a58831a5aaca3b56b915c8394a274a96df">commit</a>, <a class="external" href="https://git.kernel.org/linus/67de11769bd5ec339a62169f500b04f304826c00">commit</a>, <a class="external" href="https://git.kernel.org/linus/5039eddc19aee8c894191c24f2dde4e645ca1bbb">commit</a>, <a class="external" href="https://git.kernel.org/linus/12cfbad90e02793b7a71b7591ebd5c3f9228dc5d">commit</a>, <a class="external" href="https://git.kernel.org/linus/2ef1fed285d58e77ce777d9a525fed4788b5a6d0">commit</a>, <a class="external" href="https://git.kernel.org/linus/7ef81ac86c8a44ab9f4e6e04e1f4c9ea53615b8a">commit</a>, <a class="external" href="https://git.kernel.org/linus/eb653de15987612444b6cde3b0e67b1edd94625f">commit</a>, <a class="external" href="https://git.kernel.org/linus/0a2b2a844af616addc87cac3cc18dcaba2a9d0fb">commit</a>, <a class="external" href="https://git.kernel.org/linus/5a4267ca20d4c452a97dace4612f1dfc04147fbd">commit</a> <a id="line-140"></a></p>
+</li>
+<li><p>Add ioctl to export size of global metadata reservation, for better btrfs df reporting <a class="external" href="https://git.kernel.org/linus/01e219e8069516cdb98594d417b8bb8d906ed30d">commit</a> <a id="line-141"></a></p>
+<a id="line-142"></a></li>
+<li class="gap"><p>f2fs <a id="line-143"></a></p>
+<ul>
+<li><p>Add a new mount option: inline_data <a class="external" href="https://git.kernel.org/linus/8274de77b7072d983fe4b452b981b3e520f12698">commit</a> <a id="line-144"></a></p>
+</li>
+<li><p>Add a sysfs entry to control max_discards <a class="external" href="https://git.kernel.org/linus/7ac8c3b051ed3a3e71df72a7ffc44e14cc5c2bae">commit</a> <a id="line-145"></a></p>
+</li>
+<li><p>Improve write performance under frequent fsync calls <a class="external" href="https://git.kernel.org/linus/fb5566da9181d33ecdd9892e44f90320e7d4cc9f">commit</a> <a id="line-146"></a></p>
+</li>
+<li><p>Introduce sysfs entry to control in-place-update policy <a class="external" href="https://git.kernel.org/linus/216fbd64437452d23db54ae845916facd7215caa">commit</a> <a id="line-147"></a></p>
+<a id="line-148"></a></li>
+</ul>
+</li>
+<li class="gap"><p>hfsplus: add HFSX subfolder count support <a class="external" href="https://git.kernel.org/linus/d7d673a591701f131e53d4fd4e2b9352f1316642">commit</a> <a id="line-149"></a></p>
+<a id="line-150"></a></li>
+<li class="gap"><p>exofs: Allow O_DIRECT open <a class="external" href="https://git.kernel.org/linus/d83c7eb65d9bf0a57e7d5ed87a5bd8e5ea6b1fb6">commit</a> <a id="line-151"></a></p>
+<a id="line-152"></a></li>
+<li class="gap"><p>ext4: enable punch hole for bigalloc <a class="external" href="https://git.kernel.org/linus/9cb00419faa7dd81e921328a71931d2b95ed5876">commit</a> <a id="line-153"></a></p>
+<a id="line-154"></a></li>
+<li class="gap"><p>Ceph: Add ACL support <a class="external" href="https://git.kernel.org/linus/7221fe4c2ed72804b28633c8e0217d65abb0023f">commit</a>, <a class="external" href="https://git.kernel.org/linus/45195e42c78ea91135108207dbcaf75e5556a309">commit</a> <a id="line-155"></a></p>
+<a id="line-156"></a></li>
+<li class="gap"><p>XFS: Allow logical-sector sized O_DIRECT <a class="external" href="https://git.kernel.org/linus/7c71ee78031c248dca13fc94dea9a4cc217db6cf">commit</a> <a id="line-157"></a></p>
+</li>
+<li><p>9P: Introduction of a new cache=mmap model. <a class="external" href="https://git.kernel.org/linus/fb89b45cdfdc8bdab93986f1bc1474e313295c31">commit</a> <a id="line-158"></a></p>
+<a id="line-159"></a></li>
+</ul>
+
+<h1 id="head-957683b629e0952979c6f180e96bed08b62d2af3">7. Networking</h1>
+
+<a id="line-160"></a><ul>
+<li><p>ipv6 addrconf: add IFA_F_NOPREFIXROUTE flag to suppress creation of IP6 routes <a class="external" href="https://git.kernel.org/linus/761aac737eb11901c382a3f021dead59a26983fc">commit</a> <a id="line-161"></a></p>
+</li>
+<li><p>ipv6: enable anycast addresses as source addresses for datagrams <a class="external" href="https://git.kernel.org/linus/7c90cc2d40cab15adc78545edba8b5996bd4cade">commit</a> <a id="line-162"></a></p>
+</li>
+<li><p>ipv6: router reachability probing <a class="external" href="https://git.kernel.org/linus/7e9805696428113e34625a65a30dbc62cb78acc5">commit</a> <a id="line-163"></a></p>
+</li>
+<li><p>ipv6: send Change Status Report after DAD is completed <a class="external" href="https://git.kernel.org/linus/6a7cc41872dd46719fde09756e55e870cd453da8">commit</a> <a id="line-164"></a></p>
+</li>
+<li><p>ipv6: support IPV6_PMTU_INTERFACE on sockets <a class="external" href="https://git.kernel.org/linus/93b36cf3425b9bd9c56df7680fb237686b9c82ae">commit</a> <a id="line-165"></a></p>
+</li>
+<li><p>ipv6: add the option to use anycast addresses as source addresses in echo reply  <a id="line-166"></a></p>
+</li>
+</ul>
+<p><a class="external" href="https://git.kernel.org/linus/509aba3b0d366b7f16a9a2eebac1156b25f5f622">commit</a> <a id="line-167"></a></p>
+<ul>
+<li><p>mac80211 <a id="line-168"></a></p>
+<ul>
+<li><p>Add support for QoS mapping <a class="external" href="https://git.kernel.org/linus/32db6b54dfba38aa8fa4072b2a3fc6425139166a">commit</a>,  <a id="line-169"></a></p>
+</li>
+<li><p>Tx frame latency statistics <a class="external" href="https://git.kernel.org/linus/ad38bfc916da6aee9160bfa5335aed8d6c190e39">commit</a> <a id="line-170"></a></p>
+</li>
+<li><p>Add generic cipher scheme support <a class="external" href="https://git.kernel.org/linus/2475b1cc0d5283a33144b79f3eba6d401d873962">commit</a> <a id="line-171"></a></p>
+</li>
+<li><p>Vendor command support <a class="external" href="https://git.kernel.org/linus/ad7e718c9b4f717823fd920a0103f7b0fb06183f">commit</a> <a id="line-172"></a></p>
+<a id="line-173"></a></li>
+</ul>
+</li>
+<li class="gap"><p>macvtap: Add support of packet capture on macvtap device. <a class="external" href="https://git.kernel.org/linus/6acf54f1cf0a6747bac9fea26f34cfc5a9029523">commit</a> <a id="line-174"></a></p>
+</li>
+<li><p>net-gre-gro: Add GRE support to the GRO stack <a class="external" href="https://git.kernel.org/linus/bf5a755f5e9186406bbf50f4087100af5bd68e40">commit</a> <a id="line-175"></a></p>
+</li>
+<li><p>net-sysfs: add support for device-specific rx queue sysfs attributes <a class="external" href="https://git.kernel.org/linus/a953be53ce40440acb4740edb48577b9468d4c3d">commit</a> <a id="line-176"></a></p>
+</li>
+<li><p>Add GRO support for UDP encapsulating protocols <a class="external" href="https://git.kernel.org/linus/b582ef0990d457f7ce8ccf827af51a575ca0b4a6">commit</a> <a id="line-177"></a></p>
+</li>
+<li><p>Add GRO support for vxlan traffic <a class="external" href="https://git.kernel.org/linus/dc01e7d3447793fd9e4090aa9d50c549848b5a18">commit</a> <a id="line-178"></a></p>
+</li>
+<li><p>Add NETDEV_PRECHANGEMTU to notify before mtu change happens <a class="external" href="https://git.kernel.org/linus/1d486bfb66971ebacc2a46a23431ace9af70dc66">commit</a> <a id="line-179"></a></p>
+</li>
+<li><p>if_arp: add ARPHRD_6LOWPAN type <a class="external" href="https://git.kernel.org/linus/0abc652c796dab74d34d60473ec5594cd21620be">commit</a> <a id="line-180"></a></p>
+</li>
+<li><p>net_tstamp: Add SIOCGHWTSTAMP ioctl to match SIOCSHWTSTAMP <a class="external" href="https://git.kernel.org/linus/fd468c74bd4d6949736810a80d6ca05eb20fba84">commit</a> <a id="line-181"></a></p>
+</li>
+<li><p>netconf: add proxy-arp support <a class="external" href="https://git.kernel.org/linus/f085ff1c131c08fb6b34802f63c22921c4d8c506">commit</a>, add support for IPv6 proxy_ndp <a class="external" href="https://git.kernel.org/linus/c92d5491a6d9774c5fb863512e93f1f86aa083ad">commit</a> <a id="line-182"></a></p>
+<a id="line-183"></a></li>
+<li class="gap"><p>netfilter <a id="line-184"></a></p>
+<ul>
+<li><p>Add IPv4/6 IPComp extension match support <a class="external" href="https://git.kernel.org/linus/6a649f339802f104549e1fb211e381036661e244">commit</a> <a id="line-185"></a></p>
+</li>
+<li><p>Introduce l2tp match extension <a class="external" href="https://git.kernel.org/linus/74f77a6b2b1c98d3f14364dccdd2353b99ecfeda">commit</a> <a id="line-186"></a></p>
+</li>
+<li><p>nf_nat: add full port randomization support <a class="external" href="https://git.kernel.org/linus/34ce324019e76f6d93768d68343a0e78f464d754">commit</a> <a id="line-187"></a></p>
+</li>
+<li><p>nf_tables: add "inet" table for IPv4/IPv6 <a class="external" href="https://git.kernel.org/linus/1d49144c0aaa61be4e3ccbef9cc5c40b0ec5f2fe">commit</a> <a id="line-188"></a></p>
+</li>
+<li><p>nf_tables: add nfproto support to meta expression <a class="external" href="https://git.kernel.org/linus/124edfa9e0451e97d621cd2796a44ff499e21036">commit</a> <a id="line-189"></a></p>
+</li>
+<li><p>nf_tables: add support for multi family tables <a class="external" href="https://git.kernel.org/linus/115a60b173af0170e0db26b9a3fd6a911fba70a3">commit</a> <a id="line-190"></a></p>
+</li>
+<li><p>nfnetlink_queue: enable UID/GID socket info retrieval <a class="external" href="https://git.kernel.org/linus/08c0cad69f32ad1e881fa3fb7f5e0a25db5b07ce">commit</a> <a id="line-191"></a></p>
+</li>
+<li><p>nft: add queue module <a class="external" href="https://git.kernel.org/linus/0aff078d58e1c69139189e45ba5e929c030e8056">commit</a> <a id="line-192"></a></p>
+</li>
+<li><p>nft_ct: Add support to set the connmark <a class="external" href="https://git.kernel.org/linus/c4ede3d3821a732120fd671846c2606a1eb4e8b3">commit</a> <a id="line-193"></a></p>
+</li>
+<li><p>nft_meta: add l4proto support <a class="external" href="https://git.kernel.org/linus/4566bf27069b7780e453cffb24ea5f5323059885">commit</a> <a id="line-194"></a></p>
+</li>
+<li><p>nft_reject: support for IPv6 and TCP reset <a class="external" href="https://git.kernel.org/linus/bee11dc78fc8a41299be5ce04b1c76b0057af450">commit</a> <a id="line-195"></a></p>
+</li>
+</ul>
+</li>
+<li><p>numa: add a sysctl for numa_balancing <a class="external" href="https://git.kernel.org/linus/54a43d54988a3731d644fdeb7a1d6f46b4ac64c7">commit</a> <a id="line-196"></a></p>
+</li>
+<li><p>openvswitch: Allow user space to announce ability to accept unaligned Netlink messages <a class="external" href="https://git.kernel.org/linus/43d4be9cb55f3bac5253e9289996fd9d735531db">commit</a>, enable memory mapped Netlink i/o <a class="external" href="https://git.kernel.org/linus/795449d8b846a42d11d47d6ff2f51ab2967411c3">commit</a> <a id="line-197"></a></p>
+</li>
+<li><p>packet: improve socket create/bind latency in some cases <a class="external" href="https://git.kernel.org/linus/902fefb82ef72a50c78cb4a20cc954b037a98d1c">commit</a>, introduce PACKET_QDISC_BYPASS socket option <a class="external" href="https://git.kernel.org/linus/d346a3fae3ff1d99f5d0c819bf86edf9094a26a1">commit</a>, use percpu mmap tx frame pending refcount <a class="external" href="https://git.kernel.org/linus/b013840810c221f2b0cf641d01531526052dc1fb">commit</a> <a id="line-198"></a></p>
+</li>
+<li><p>tcp: metrics: New netlink attribute for src IP and dumped in netlink reply <a class="external" href="https://git.kernel.org/linus/8a59359cb80f448923a7bc9f555d477e74547d7a">commit</a> <a id="line-199"></a></p>
+</li>
+<li><p>sunrpc: add an "info" file for the dummy gssd pipe <a class="external" href="https://git.kernel.org/linus/e2f0c83a9de331d9352185ca3642616c13127539">commit</a> <a id="line-200"></a></p>
+</li>
+<li><p>tun: Add support for RFS on tun flows <a class="external" href="https://git.kernel.org/linus/9bc8893937c8369c9c3a045c05f5820f2242bc96">commit</a> <a id="line-201"></a></p>
+</li>
+<li><p>pktgen, xfrm: Add statistics counting when transforming <a class="external" href="https://git.kernel.org/linus/6de9ace4aeef861bf093c5e9b55dc65d1558d1b3">commit</a> <a id="line-202"></a></p>
+</li>
+<li><p>rtnetlink: provide api for getting and setting slave info <a class="external" href="https://git.kernel.org/linus/ba7d49b1f0f8e5f24294a880ed576964059af5ef">commit</a> <a id="line-203"></a></p>
+</li>
+<li><p>IB: Add flow steering support for IPoIB UD traffic <a class="external" href="https://git.kernel.org/linus/90f1d1b41b70474bf73d07d4300196901cd81718">commit</a>, ethernet L2 attributes in verbs/cm structures <a class="external" href="https://git.kernel.org/linus/dd5f03beb4f76ae65d76d8c22a8815e424fc607c">commit</a> <a id="line-204"></a></p>
+</li>
+<li><p>NFC: NCI: Add set_config API <a class="external" href="https://git.kernel.org/linus/22c15bf30b70ab2eae300f093ffc64e182620aba">commit</a> <a id="line-205"></a></p>
+</li>
+<li><p>af_packet: Add Queue mapping mode to af_packet fanout operation <a class="external" href="https://git.kernel.org/linus/2d36097d26b5991d71a2cf4a20c1a158f0f1bfcd">commit</a> <a id="line-206"></a></p>
+</li>
+<li><p>batman-adv: add bonding again <a class="external" href="https://git.kernel.org/linus/f3b3d9018975ffb2680b7c1d37122f9d80301587">commit</a> <a id="line-207"></a></p>
+</li>
+<li><p>bonding: add netlink attribute support: ad_info <a class="external" href="https://git.kernel.org/linus/4ee7ac7526d4a9413cafa733d824edfe49fdcc46">commit</a>, ad_select <a class="external" href="https://git.kernel.org/linus/ec029fac3e96980fa8f6f81b8327787a9600dfaa">commit</a>, all_slaves_active <a class="external" href="https://git.kernel.org/linus/1cc0b1e30c662d84a89690f42826cf49e2278b97">commit</a>, arp_all_targets <a class="external" href="https://git.kernel.org/linus/d5c842544342fc3f13774ffc5581d4dd3975059b">commit</a>, arp_interval <a class="external" href="https://git.kernel.org/linus/06151dbcf3f76edbe900138cde9e862f429918c9">commit</a>, arp_ip_target <a class="external" href="https://git.kernel.org/linus/7f28fa10e21376a10d3b9faad5836869465cc376">commit</a>, add arp_validate <a class="external" href="https://git.kernel.org/linus/29c4948293bfc426e52a921f4259eb3676961e81">commit</a>, downdelay <a class="external" href="https://git.kernel.org/linus/c7461f9bf5a11bf88fdbd05b26c6d55b77dcd46d">commit</a>, fail_over_mac <a class="external" href="https://git.kernel.org/linus/89901972de4c00e74e56529804493734d77ee3d3">commit</a>, lacp_rate <a class="external" href="https://git.kernel.org/linus/998e40bbf8f0e10b5d84107afc61e29dbc8d2de4">commit</a>, lp_interval <a class="external" href="https://git.kernel.org/linus/8d836d092ed7b77d13ac1108399165ee7de7463f">commit</a>, miimon <a class="external" href="https://git.kernel.org/linus/eecdaa6e20284efbe9e76eebd44eac2b22f7b5d7">commit</a>, min_links <a class="external" href="https://git.kernel.org/linus/7d1010082785b2020b1e2e1211b76209976a33df">commit</a>, num_grat_arp <a class="external" href="https://git.kernel.org/linus/2c9839c143bbc8c6612f56351dae8d57111aee37">commit</a>, packets_per_slave <a class="external" href="https://git.kernel.org/linus/c13ab3ff176eab78b6ee93817484584af5807cf2">commit</a>, primary <a class="external" href="https://git.kernel.org/linus/0a98a0d12c40f9354b942325045cae123d594341">commit</a>, resend_igmp <a class="external" href="https://git.kernel.org/linus/d8838de70adc64e20db531333e035aacd5910fca">commit</a>, updelay <a class="external" href="https://git.kernel.org/linus/25852e29dfc58d249ad0db235996b36c33db6d61">commit</a>, use_carrier <a class="external" href="https://git.kernel.org/linus/9f53e14e86c46a2300f17309f6308ad0dfbb53ff">commit</a>, xmit_hash_policy <a class="external" href="https://git.kernel.org/linus/f70161c67231f54f784529d7447ce4386d258b7a">commit</a> <a id="line-208"></a></p>
+<a id="line-209"></a></li>
+<li class="gap"><p>bonding: add sysfs /slave dir for bond slave devices. <a class="external" href="https://git.kernel.org/linus/07699f9a7c8d1002e07011d5aa382cd63241eea8">commit</a> <a id="line-210"></a></p>
+</li>
+<li><p>bonding: add option lp_interval for loading module <a class="external" href="https://git.kernel.org/linus/3a7129e52766f015f0d4035ac9c7c9408829b9a1">commit</a> <a id="line-211"></a></p>
+<a id="line-212"></a></li>
+<li class="gap"><p>cfg80211: Add support for QoS mapping <a class="external" href="https://git.kernel.org/linus/fa9ffc745610f31c6bc136d5a6a1782e00870e72">commit</a> <a id="line-213"></a></p>
+</li>
+<li><p>filter: bpf_dbg: add minimal bpf debugger <a class="external" href="https://git.kernel.org/linus/fd981e3c321a7e8661e06fa6077aea89e8228c3a">commit</a> <a id="line-214"></a></p>
+<a id="line-215"></a><a id="line-216"></a></li>
+</ul>
+
+<h1 id="head-e6b0194a509ca6aac2cb186fce4b6bcceecbac7d">8. Virtualization</h1>
+
+<a id="line-217"></a><ul>
+<li><p>Add support for Hyper-V reference time counter <a class="external" href="https://git.kernel.org/linus/e984097b553ed2d6551c805223e4057421370f00">commit</a> <a id="line-218"></a></p>
+</li>
+<li><p>virtio-net: auto-tune mergeable rx buffer size for improved performance <a class="external" href="https://git.kernel.org/linus/ab7db91705e95ed1bba1304388936fccfa58c992">commit</a> <a id="line-219"></a></p>
+</li>
+<li><p>virtio-net: initial rx sysfs support, export mergeable rx buffer size <a class="external" href="https://git.kernel.org/linus/fbf28d78f54016faa7f0b68cf632ac739f2204f7">commit</a> <a id="line-220"></a></p>
+</li>
+<li><p>xen/pvh: Support <a class="nonexistent" href="/ParaVirtualized">ParaVirtualized</a> Hardware extensions (v3). <a class="external" href="https://git.kernel.org/linus/4e903a20da51ed2329c1b9c182dba74f47ac2ca8">commit</a> <a id="line-221"></a></p>
+</li>
+<li><p>xen-netfront: add support for IPv6 offloads <a class="external" href="https://git.kernel.org/linus/2c0057dec90bf65618c5e8f97e9193ff756ee2fb">commit</a> <a id="line-222"></a></p>
+</li>
+<li><p>xen/events: Add the hypervisor interface for the FIFO-based event channels <a class="external" href="https://git.kernel.org/linus/bf2bbe07f13846a90d4447521d87566d6f87bc0e">commit</a> <a id="line-223"></a></p>
+</li>
+<li><p>xen: balloon: enable for ARM <a class="external" href="https://git.kernel.org/linus/72f28071f14fd9b6cc03aaf83b057d169d817411">commit</a> <a id="line-224"></a></p>
+<a id="line-225"></a></li>
+</ul>
+
+<h1 id="head-13bd96cbfdc8200a8f6a6171781818f19fc6afe5">9. Security</h1>
+
+<a id="line-226"></a><ul>
+<li><p>Smack: Make the syslog control configurable <a class="external" href="https://git.kernel.org/linus/00f84f3f2e9d088f06722f4351d67f5f577abe22">commit</a> <a id="line-227"></a></p>
+<a id="line-228"></a></li>
+<li class="gap"><p>audit <a id="line-229"></a></p>
+<ul>
+<li><p>Added exe field to audit core dump signal log <a class="external" href="https://git.kernel.org/linus/ff235f51a138fc61e1a22dcb8b072d9c78c2a8cc">commit</a> <a id="line-230"></a></p>
+</li>
+<li><p>Add audit_backlog_wait_time configuration option <a class="external" href="https://git.kernel.org/linus/51cc83f024ee51de9da70c17e01ec6de524f5906">commit</a> <a id="line-231"></a></p>
+</li>
+<li><p>Allow unlimited backlog queue <a class="external" href="https://git.kernel.org/linus/40c0775e5ea47667db497565b79a8dc154530992">commit</a> <a id="line-232"></a></p>
+</li>
+<li><p>log on errors from filter user rules <a class="external" href="https://git.kernel.org/linus/724e4fcc8d80c63c7e56873b41987533db2a04c2">commit</a> <a id="line-233"></a></p>
+</li>
+<li><p>log task info on feature change <a class="external" href="https://git.kernel.org/linus/ad2ac263278620205555a572c29b3ebb4a5bce3b">commit</a> <a id="line-234"></a></p>
+<a id="line-235"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-b4f164b060a44be012ff02abcd733f3d8cf8b70d">10. Crypto</h1>
+
+<a id="line-236"></a><ul>
+<li><p>Support for AMD Cryptographic Coprocessor which can be used to accelerate or offload encryption operations such as SHA, AES and more <a class="external" href="https://git.kernel.org/linus/7c1853711fc11df00f20bb6989358f1d3ce0fc04">commit 1</a>, <a class="external" href="https://git.kernel.org/linus/2b789435d7f36ed918d92db647f3a2f3fec9bb1f">2</a>, <a class="external" href="https://git.kernel.org/linus/0ab0a1d505ab6f684076b9c5ef9279e29c2b08ae">3</a>, <a class="external" href="https://git.kernel.org/linus/1d6b8a6f64076aee9e63474c0778a50f95c054ee">4</a>, <a class="external" href="https://git.kernel.org/linus/63b945091a070d8d4275dc0f7699ba22cd5f9435">5</a>, <a class="external" href="https://git.kernel.org/linus/d312359978e91fc43889ac0d386ab617215f802a">6</a>, <a class="external" href="https://git.kernel.org/linus/f114766088f352a47f57307ff927b815e0239644">7</a> <a id="line-237"></a></p>
+</li>
+<li><p>mxs - Add Freescale MXS DCP driver <a class="external" href="https://git.kernel.org/linus/15b59e7c3733f90ff1f7dd66ad77ae1c90bcdff5">commit</a>, remove the old DCP driver <a class="external" href="https://git.kernel.org/linus/c493c04403769d833864ad5be2ff64dee7567ca7">commit</a> <a id="line-238"></a></p>
+</li>
+<li><p>aesni: AVX and AVX2 version of AESNI-GCM encode and decode <a class="external" href="https://git.kernel.org/linus/d764593af924930d5c15685bc5946cb943da1a55">commit</a> <a id="line-239"></a></p>
+<a id="line-240"></a></li>
+</ul>
+
+<h1 id="head-1c3000f016b38aa924500670f486fd553f7c1811">11. Tracing/perf</h1>
+
+<a id="line-241"></a><ul>
+<li><p>perf kvm: Introduce option -v for perf kvm command. <a class="external" href="https://git.kernel.org/linus/100b907350c87aa1f3b5dbd95bac3ad5aad3e108">commit</a>, make perf kvm diff support --guestmount. <a class="external" href="https://git.kernel.org/linus/d8d9608fdd19f85a524db0a41bc2def5c88cbdd0">commit</a> <a id="line-242"></a></p>
+</li>
+<li><p>perf probe: Support basic dwarf-based operations on uprobe events <a class="external" href="https://git.kernel.org/linus/fb7345bbf7fad9bf72ef63a19c707970b9685812">commit</a> <a id="line-243"></a></p>
+</li>
+<li><p>perf record: add --initial-delay option <a class="external" href="https://git.kernel.org/linus/6619a53ef7572b9eaf7aa71ff7f74c0d06b3817b">commit</a>, default -t option to no inheritance <a class="external" href="https://git.kernel.org/linus/69e7e5b02bc6a9e5cf4a54911b27ca133cc1f99f">commit</a>, make per-cpu mmaps the default. <a class="external" href="https://git.kernel.org/linus/3aa5939d71fa22a947808ba9c798b8537c35097a">commit</a>, rename --initial-delay to --delay <a class="external" href="https://git.kernel.org/linus/a6205a35ba2d56dcfb79b08cc11b8c7d549826aa">commit</a>, rename --no-delay to --no-buffering <a class="external" href="https://git.kernel.org/linus/509051ea8427b2f73f065a1b0a1ef871727c9cb2">commit</a> <a id="line-244"></a></p>
+</li>
+<li><p>perf report: Add --header/--header-only options <a class="external" href="https://git.kernel.org/linus/5cfe2c82f3eb6876cf4b55e99decea0bd015d6b8">commit</a> <a id="line-245"></a></p>
+</li>
+<li><p>perf script: add --header/--header-only options <a class="external" href="https://git.kernel.org/linus/e90debddf8f26094cd90162b9af2a8ed37ed57cb">commit</a>, add an option to print the source line number <a class="external" href="https://git.kernel.org/linus/cc8fae1d81648e85587f5d18b4f93e0b771fb02d">commit</a>, print callchains and symbols if they exist <a class="external" href="https://git.kernel.org/linus/80b8b496ec6edaff01f9ab74dbe8a517cd718de8">commit</a>, print comm, fork and exit events also <a class="external" href="https://git.kernel.org/linus/ad7ebb9a48f59bad2714b64725653a73d78b686e">commit</a>, print mmap events also <a class="external" href="https://git.kernel.org/linus/ba1ddf42f3c3af111d3adee277534f73c1ef6a9b">commit</a> <a id="line-246"></a></p>
+</li>
+<li><p>perf timechart: Add --highlight option <a class="external" href="https://git.kernel.org/linus/e57a2dffbc7e28cef5f4659b98a9d5595010ab4d">commit</a>, add backtrace support <a class="external" href="https://git.kernel.org/linus/6f8d67fa0c6bdca535ecab137c44b095023cc1b4">commit</a>, add backtrace support to CPU info <a class="external" href="https://git.kernel.org/linus/8b6dcca017aa53fe13066411a653b5997c158a2c">commit</a>, add option to limit number of tasks <a class="external" href="https://git.kernel.org/linus/54874e3236b834064943c02a647823ab5d97be57">commit</a>, add support for -P and -T in timechart recording <a class="external" href="https://git.kernel.org/linus/367b3152d72c20d789b07650bd1189ce0fe266b8">commit</a>, add support for displaying only tasks related data <a class="external" href="https://git.kernel.org/linus/c87097d39dae1c42a5068e00dd3b76a4162ee0fc">commit</a>, always try to print at least 15 tasks <a class="external" href="https://git.kernel.org/linus/0a8eb275cbdb8462854d5f7e1168d86cee4cc9ea">commit</a>, group figures and add title with details <a class="external" href="https://git.kernel.org/linus/cbb2e81e5232b1bca5cd2aa1d7a7eb1cd30f8304">commit</a>,  <a id="line-247"></a></p>
+</li>
+<li><p>perf tools: Add 'build-test' make target <a class="external" href="https://git.kernel.org/linus/a7077234d240f16ead29ffeb3cc17ceada50ea5f">commit</a>, add build and install plugins targets <a class="external" href="https://git.kernel.org/linus/3d7c0144491bd8c21d53b43032274a85efdfe434">commit</a>, allow '--inherit' as the negation of '--no-inherit' <a class="external" href="https://git.kernel.org/linus/4bc437964ef540462bd15af4a713da62961809aa">commit</a> <a id="line-248"></a></p>
+</li>
+<li><p>perf trace: Add support for syscalls vs raw_syscalls <a class="external" href="https://git.kernel.org/linus/9aca7f1792c5d2d5d367bbe5cfe204fe40517929">commit</a> <a id="line-249"></a></p>
+</li>
+<li><p>perf ui/tui: Implement header window <a class="external" href="https://git.kernel.org/linus/6dd601354f14b5cd7a0a4103811e52ccec22ac53">commit</a> <a id="line-250"></a></p>
+</li>
+<li><p>perf stat: Add event unit and scale support <a class="external" href="https://git.kernel.org/linus/410136f5dd96b6013fe6d1011b523b1c247e1ccb">commit</a> <a id="line-251"></a></p>
+<a id="line-252"></a></li>
+</ul>
+
+<h1 id="head-f9e08d1fc5b430a553a20296fe67367c2c1cef4a">12. Other news sites that track the changes of this release</h1>
+
+<a id="line-253"></a><ul>
+<li><p>LWN list of changes: <a class="external" href="https://lwn.net/Articles/581657/">part 1</a>, <a class="external" href="https://lwn.net/Articles/582352/">part 2</a>, <a class="external" href="https://lwn.net/Articles/583681/">part 3</a> <a id="line-254"></a></p>
+</li>
+<li><p>Phoronix: <a class="external" href="http://www.phoronix.com/scan.php?page=news_item&amp;px=MTYzNDg">Recapping The Top Changes Of The Linux 3.14 Kernel</a> <a id="line-255"></a></p>
+</li>
+</ul>
+<a id="bottom"></a>
+<p><a class="external" href="http://kernelnewbies.org/Linux_3.14">Linux 3.14</a> by <a class="external" href="http://kernelnewbies.org">kernelnewbies.org</a> is licensed under <a class="external" href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></p>
+</div>
+</body>

@@ -1,0 +1,356 @@
+<body style="background: #FFFFFF;">
+<div id="page" lang="en" dir="ltr">
+
+<h1 class="title">Linux 3.16</h1>
+<div lang="en" id="content" dir="ltr">
+<a id="top"></a><a id="line-4"></a><a id="line-5"></a><p>Linux 3.16 released <a class="external" href="https://lkml.org/lkml/2014/8/3/82">has been released</a> on Sun, 3 Aug <a id="line-6"></a></p>
+<a id="line-7"></a><p>Summary: This release improves performance with the support dynamically switch the clock frequency on Nvidia cards, it adds support for mapping user space memory into the GPU on Intel devices, XFS has a free inode btree for faster inode allocation, ARM 64 kernels can be used as EFI stubs, TCP Fast Open is supported in IPv6, some radeon devices have better performance thanks to improved power management support , Intel Cherryview graphics are supported, and control groups have gained an optional Unified Hierarchy mode, new drivers and many other small improvements have also been added. <a id="line-8"></a></p>
+<a id="line-9"></a><ol>
+<li><a href="#head-59be83381af5fdda0d6f6317d7dd296ed1fb7eaf">Prominent features</a><ol>
+<li><a href="#head-183640e7efaf9348a60b5cda0da566857692a6ad">Nvidia graphics performance improvements, initial support for GK20A devices and GK110B</a></li>
+<li><a href="#head-822ab6b7936786bb9e91c16ecdcefe6fd20dc6bf">Intel graphic driver allows mapping of user pages into video memory</a></li>
+<li><a href="#head-c8889cafd94fac58408ccc55a02589eda7608eb9">Unified Control Group hierarchy</a></li>
+<li><a href="#head-42e03cfe84cece01b59e07958221dc509de9715a">XFS free inode btree, for faster inode allocation</a></li>
+<li><a href="#head-26d40d2f96db5b9ea1b4c0cdaabf5c43cbbbe930">Allow booting ARM 64 kernels as EFI stubs</a></li>
+<li><a href="#head-93fbb9abc6149e9c3055322f27cdc3a8fcc198e6">TCP Fast Open server mode on IPv6 support</a></li>
+<li><a href="#head-84c429498d299d7c8e4c1672623672a347f5f90a">Intel Cherryview graphics support</a></li>
+<li><a href="#head-96c9f8ef11da0a44f511e14d58733751dffe4b84">Radeon performance improvements through improved APU power management have been enabled in some APUs</a></li>
+</ol>
+<li><a href="#head-d6be981655047381117ee6008795542c22f17ea3">Drivers and architectures</a></li>
+<li><a href="#head-344911eda1ee97f7164fff8149d663f79b379dd7">Core</a></li>
+<li><a href="#head-44c450bc2e9e188bb11ed9be9023f85ed963b07d">Memory management</a></li>
+<li><a href="#head-842cbff1a92d67b7cf85d79ff4861e15cbcc3e2e">Block layer</a></li>
+<li><a href="#head-590c78e8554275014aab95fecf35129f5020809f">Power management</a></li>
+<li><a href="#head-a693f6e8159146a83d6f1a0c27977a761fc56127">File systems</a></li>
+<li><a href="#head-a17f041e140fe01822c9ad6e794b38daf6825579">Networking</a></li>
+<li><a href="#head-a8df1fce7a5a427c3f5bf9d7f6e5ff7a37643408">Virtualization</a></li>
+<li><a href="#head-faef5bc471130be516156fed056725ee3644cc11">Tracing/perf</a></li>
+<li><a href="#head-641cd3651026bdbfedd63befd6a0ba0b99da5924">Security</a></li>
+<li><a href="#head-fcd0a202a9d99f7993ce6f67ca301d2f7c793046">Crypto</a></li>
+<li><a href="#head-707fdad03ba3aa85a9721ef1ed698faab9d657ef">Other news sites that track the changes of this release</a></li>
+</ol>
+<p> <a id="line-10"></a></p>
+
+<h1 id="head-59be83381af5fdda0d6f6317d7dd296ed1fb7eaf">1. Prominent features</h1>
+
+<a id="line-11"></a>
+<h2 id="head-183640e7efaf9348a60b5cda0da566857692a6ad">1.1. Nvidia graphics performance improvements, initial support for GK20A devices and GK110B</h2>
+
+<a id="line-12"></a><a id="line-13"></a><p>Nouveau, the opensource driver for Nvidia graphic GPUs, has gained support for allowing to change the frequency of the GPU from the BIOS predefined values. This feature (which for now needs to be enabled manually) <a class="external" href="http://www.phoronix.com/scan.php?page=article&amp;item=linux316_nouveau_clocks">improves performance noticeably</a>. The Nvidia GPUs that got reclocking support in this release are those with nv40, nvaa, and nve0 clock types. <a id="line-14"></a></p>
+<a id="line-15"></a><p>This release also adds initial (but incomplete) support for NVidia GK20A graphic chips, found in <a class="external" href="http://en.wikipedia.org/wiki/Tegra#Tegra_K1">Tegra K1</a> SoC; and GK110B devices <a id="line-16"></a></p>
+<a id="line-17"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/ed05ba72c841d330cef111282d76a5c7881940f5">commit</a>, <a class="external" href="http://git.kernel.org/linus/fef94f6272c6d1ce1c9177770f50f7281d61f5f6">commit</a>, <a class="external" href="http://git.kernel.org/linus/9abdbab031f3f4f1817ecac737771b071eb48443">commit</a> <a id="line-18"></a></p>
+<a id="line-19"></a>
+<h2 id="head-822ab6b7936786bb9e91c16ecdcefe6fd20dc6bf">1.2. Intel graphic driver allows mapping of user pages into video memory</h2>
+
+<a id="line-20"></a><a id="line-21"></a><p>By exporting the ability to map user address into the video memory, normal application data can be used as a texture source or even as a render target (depending upon the capabilities of the chipset). This has a number of uses, with zero-copy downloads to the GPU and efficient readback making the intermixed streaming of CPU and GPU operations fairly efficient. This ability has many widespread implications from faster rendering of client-side software rasterisers (chromium), mitigation of stalls due to read back (firefox) and to faster pipelining of texture data (such as pixel buffer objects in GL or data blobs in CL). <a id="line-22"></a></p>
+<a id="line-23"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/5cc9ed4b9a7ac579362ccebac67f7a4cdb36de06">commit</a> <a id="line-24"></a></p>
+<a id="line-25"></a><a id="line-26"></a>
+<h2 id="head-c8889cafd94fac58408ccc55a02589eda7608eb9">1.3. Unified Control Group hierarchy</h2>
+
+<a id="line-27"></a><a id="line-28"></a><p>Control groups allow to create groups of arbitrary processes and apply CPU, disk or memory constraints to the processes in these control groups. The current implementation allows to create several hierarchies and apply different constraints to each hierarchy. For several reasons, detailed in the article below, this approach is not considered appropriate, and work has been done to migrate towards an implementation where only one hierarchy will be available. This release includes for first time this unified control group hierarchy (optional for now) <a id="line-29"></a></p>
+<a id="line-30"></a><p>For more information, read this recommended LWN article: <a class="external" href="http://lwn.net/Articles/601840/">The unified control group hierarchy in 3.16</a> <a id="line-31"></a></p>
+<a id="line-32"></a><p>Code <a class="external" href="http://git.kernel.org/linus/657315780005a676d294c7edf7548650c7e57f76">commit</a>, <a class="external" href="http://git.kernel.org/linus/f8f22e53a262ebee37fc98004f16b066cf5bc125">commit</a> <a id="line-33"></a><a class="www" href="http://lwn.net/Articles/601840/">http://lwn.net/Articles/601840/</a> <a id="line-34"></a></p>
+<a id="line-35"></a><a id="line-36"></a>
+<h2 id="head-42e03cfe84cece01b59e07958221dc509de9715a">1.4. XFS free inode btree, for faster inode allocation</h2>
+
+<a id="line-37"></a><a id="line-38"></a><p>In this release, XFS has added a btree that tracks free inodes. It is equivalent to the existing inode allocation btree with the exception that the free inode btree tracks inode chunks with at least one free inode. The purpose is to improve lookups for free inode clusters for inode allocation. <a id="line-39"></a></p>
+<a id="line-40"></a><p>This feature adds does not change existing on-disk structures, but adds a new one that must remain consistent with the inode allocation btree; for this reason older kernels will only be able to mount read-only filesystems with the free inode btree feature. <a id="line-41"></a></p>
+<a id="line-42"></a><p>Code: <a class="external" href="https://git.kernel.org/linus/412dd3a6daf0cadce1b2d6a34fa3713f40255579">merge commit</a> <a id="line-43"></a></p>
+<a id="line-44"></a>
+<h2 id="head-26d40d2f96db5b9ea1b4c0cdaabf5c43cbbbe930">1.5. Allow booting ARM 64 kernels as EFI stubs</h2>
+
+<a id="line-45"></a><a id="line-46"></a><p>This release allows to boot a Linux kernel for ARM64 platforms as an an EFI application in systems with UEFI firmware, without needing a bootloader. <a id="line-47"></a></p>
+<a id="line-48"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/f84d02755f5a9f3b88e8d15d6384da25ad6dcf5e">commit</a>, <a class="external" href="http://git.kernel.org/linus/3c7f255039a2ad6ee1e3890505caf0d029b22e29">commit</a> <a id="line-49"></a></p>
+<a id="line-50"></a><a id="line-51"></a><a id="line-52"></a>
+<h2 id="head-93fbb9abc6149e9c3055322f27cdc3a8fcc198e6">1.6. TCP Fast Open server mode on IPv6 support</h2>
+
+<a id="line-53"></a><a id="line-54"></a><p>TCP Fast Open is a <a class="external" href="http://lwn.net/Articles/508865/">TCP feature</a> designed to make TCP connections faster. First support was <a class="external" href="http://kernelnewbies.org/Linux_3.6#head-ac78950a7b57d92d5835642926f0e147c680b99c">added on Linux 3.6</a> for clients, in 3.7 support was <a class="external" href="http://kernelnewbies.org/Linux_3.7">added for servers</a> and in 3.13 Fast Open was <a class="external" href="http://kernelnewbies.org/Linux_3.13#head-159ff61ea3acfd67b88855e75dbbb140f8825c4a">enabled by default</a>. This release adds Fast Open support for IPv6 for servers. <a id="line-55"></a></p>
+<a id="line-56"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/3a19ce0eec32667b835d8dc887002019fc6b3a02">commit</a> <a id="line-57"></a></p>
+<a id="line-58"></a>
+<h2 id="head-84c429498d299d7c8e4c1672623672a347f5f90a">1.7. Intel Cherryview graphics support</h2>
+
+<a id="line-59"></a><a id="line-60"></a><p>This release includes support for <a class="external" href="http://en.wikipedia.org/wiki/Intel_HD_and_Iris_Graphics#Broadwell">Broadwell</a> GPUs <a id="line-61"></a><a class="www" href="http://en.wikipedia.org/wiki/Intel_HD_and_Iris_Graphics#Broadwell">http://en.wikipedia.org/wiki/Intel_HD_and_Iris_Graphics#Broadwell</a>] to be found in <a class="external" href="http://en.wikipedia.org/wiki/Atom_%28system_on_chip%29#List_of_systems">Cherryview</a> <a class="nonexistent" href="/SoCs">SoCs</a>. <a id="line-62"></a></p>
+<a id="line-63"></a><p><a class="external" href="http://git.kernel.org/linus/7d87a7f709650bde4d7d63117f25ee1c095da5dd">commit</a> <a id="line-64"></a></p>
+<a id="line-65"></a>
+<h2 id="head-96c9f8ef11da0a44f511e14d58733751dffe4b84">1.8. Radeon performance improvements through improved APU power management have been enabled in some APUs</h2>
+
+<a id="line-66"></a><a id="line-67"></a><p>bapm, or "bidirectional application power management" is a power management feature that allows the GPU and CPU to share TDP, so it allows for extra performance out of the GPU and CPU when  the headroom is available.  In this release, bpam has been enabled by default, but only in a few devices and cases. Future work will improve support for bapm. <a id="line-68"></a></p>
+<a id="line-69"></a><p>Code: <a class="external" href="http://git.kernel.org/linus/09f95d5b8ca64a9ebb5e206ed936c1a70dc8e9c8">commit </a>, <a class="external" href="http://git.kernel.org/linus/0c78a44964db3d483b0c09a8236e0fe123aa9cfc">commit </a>, <a class="external" href="http://git.kernel.org/linus/730a336c33a3398d65896e8ee3ef9f5679fe30a9">commit </a> <a id="line-70"></a></p>
+<a id="line-71"></a>
+<h1 id="head-d6be981655047381117ee6008795542c22f17ea3">2. Drivers and architectures</h1>
+
+<a id="line-72"></a><p>All the driver and architecture-specific changes can be found in the <a class="external" href="http://kernelnewbies.org/Linux_3.16-DriversArch">Linux_3.16-DriversArch page</a> <a id="line-73"></a></p>
+<a id="line-74"></a>
+<h1 id="head-344911eda1ee97f7164fff8149d663f79b379dd7">3. Core</h1>
+
+<a id="line-75"></a><ul>
+<li><p>IPC System V shared memory: increase the defaults for SHMALL, SHMMAX <a class="external" href="http://git.kernel.org/linus/060028bac94bf60a65415d1d55a359c3a17d5c31">commit</a> <a id="line-76"></a></p>
+</li>
+<li><p>locking <a id="line-77"></a></p>
+<ul>
+<li><p>Introduce 'qrwlocks' - fair, queued rwlocks <a class="external" href="https://git.kernel.org/linus/70af2f8a4f48d6cebdf92d533d3aef37853ce6de">commit</a> <a id="line-78"></a></p>
+</li>
+<li><p>rwsem: Support optimistic spinning <a class="external" href="https://git.kernel.org/linus/4fc828e24cd9c385d3a44e1b499ec7fc70239d8a">commit</a> <a id="line-79"></a></p>
+</li>
+</ul>
+</li>
+<li><p>fanotify: create FAN_ACCESS event for readdir <a class="external" href="https://git.kernel.org/linus/d4c7cf6cffb1bc711a833b5e304ba5bcfe76398b">commit</a> <a id="line-80"></a></p>
+</li>
+<li><p>Add "crash_kexec_post_notifiers" option for kdump after panic_notifers <a class="external" href="https://git.kernel.org/linus/f06e5153f4ae2e2f3b0300f0e260e40cb7fefd45">commit</a> <a id="line-81"></a></p>
+</li>
+<li><p>Add initcall_blacklist kernel parameter <a class="external" href="https://git.kernel.org/linus/7b0b73d76651e5f88c88b76efa18d719f832bf6f">commit</a> <a id="line-82"></a></p>
+</li>
+<li><p>seccomp: use internal BPF JIT to speed up filters <a class="external" href="http://git.kernel.org/linus/8f577cadf7181243d336be9aba40c1bcc02c4c54">commit</a> <a id="line-83"></a></p>
+</li>
+<li><p>Add generic PCI host controller driver <a class="external" href="https://git.kernel.org/linus/ce292991d88b77160f348fb8a3a2cf6e78f4b456">commit</a> <a id="line-84"></a></p>
+</li>
+<li><p>Virtual terminal: emulate 8- and 24-bit colour codes. <a class="external" href="http://git.kernel.org/linus/cec5b2a97a11ade56a701e83044d0a2a984c67b4">commit</a> <a id="line-85"></a></p>
+</li>
+<li><p>Add CONFIG_SGETMASK_SYSCALL option to optionally disable sys_sgetmask/sys_ssetmask syscalls, which are no longer supported by older libcs<a class="external" href="http://git.kernel.org/linus/f6187769dae48234f3877df3c4d99294cc2254fa">commit</a> <a id="line-86"></a></p>
+</li>
+<li><p>proc: Allow for strict write position handling <a class="external" href="http://git.kernel.org/linus/f4aacea2f5d1a5f7e3154e967d70cf3f711bcd61">commit</a> <a id="line-87"></a></p>
+<a id="line-88"></a></li>
+</ul>
+
+<h1 id="head-44c450bc2e9e188bb11ed9be9023f85ed963b07d">4. Memory management</h1>
+
+<a id="line-89"></a><ul>
+<li><p>hugetlb: add support for gigantic page allocation at runtime instead of just at boot time <a class="external" href="https://git.kernel.org/linus/944d9fec8d7aee3f2e16573e9b6a16634b33f403">commit</a> <a id="line-90"></a></p>
+<a id="line-91"></a><a id="line-92"></a></li>
+<li class="gap"><p>Introduce a CONFIG_DEBUG_VM_VMACACHE option to enable counting the cache hit rate -- exported in /proc/vmstat <a class="external" href="http://git.kernel.org/linus/4f115147ff802267d0aa41e361c5aa5bd933d896">commit</a> <a id="line-93"></a></p>
+</li>
+<li><p>Disable zone_reclaim_mode by default <a class="external" href="http://git.kernel.org/linus/4f9b16a64753d0bb607454347036dc997fd03b82">commit</a> <a id="line-94"></a></p>
+</li>
+<li><p>memcontrol cgroup: remove hierarchy restrictions for swappiness and oom_control <a class="external" href="http://git.kernel.org/linus/3dae7fec5e884a4e72e5416db0894de66f586201">commit</a> <a id="line-95"></a></p>
+</li>
+<li><p>non-atomically mark page accessed during page cache allocation where possible <a class="external" href="http://git.kernel.org/linus/2457aec63745e235bcafb7ef312b182d8682f0fc">commit</a> <a id="line-96"></a></p>
+</li>
+<li><p>Only force scan in reclaim when none of the LRUs are big enough. <a class="external" href="http://git.kernel.org/linus/6f04f48dc9c0433e2bb687f5f7f7af1aba97b04d">commit</a> <a id="line-97"></a></p>
+</li>
+<li><p>Use proportional scanning during direct reclaim and full scan at DEF_PRIORITY <a class="external" href="http://git.kernel.org/linus/1a501907bbea8e6ebb0b16cf6db9e9cbf1d2c813">commit</a> <a id="line-98"></a></p>
+<a id="line-99"></a></li>
+</ul>
+
+<h1 id="head-842cbff1a92d67b7cf85d79ff4861e15cbcc3e2e">5. Block layer</h1>
+
+<a id="line-100"></a><ul>
+<li><p>lots of development effort has gone into <a class="external" href="http://kernelnewbies.org/Linux_3.13#head-3e5f0c2bcebc98efd197e3036dd814eadd62839c">blk-mq</a> in the last 3 months. It's heading to where 3.16 will be a feature complete and performant blk-mq <a id="line-101"></a></p>
+</li>
+<li><p>raid5: speedup sync_request processing (speeds up rebuild speed) <a class="external" href="http://git.kernel.org/linus/053f5b6525ae32da397e6c47721961f800d2c924">commit</a> <a id="line-102"></a></p>
+</li>
+<li><p>raid5: add an option to avoid copy data from bio to stripe cache (in 1M randwrite tests, avoid the copy can increase the performance more than 30%)  <a class="external" href="http://git.kernel.org/linus/d592a9969141e67a3874c808999a4db4bf82ed83">commit</a> <a id="line-103"></a></p>
+</li>
+<li><p>rbd: add ioctl for blockdev command compatibility <a class="external" href="http://git.kernel.org/linus/131fd9f6fc89ad2cc993f80664d18ca49d6f8483">commit</a> <a id="line-104"></a></p>
+</li>
+<li><p>ore: Support for raid 6 <a class="external" href="http://git.kernel.org/linus/ce5d36aac26cc395fe3bc45525cdbad3644f01e5">commit</a> <a id="line-105"></a></p>
+<a id="line-106"></a><a id="line-107"></a></li>
+</ul>
+
+<h1 id="head-590c78e8554275014aab95fecf35129f5020809f">6. Power management</h1>
+
+<a id="line-108"></a><ul>
+<li><p>cpufreq <a id="line-109"></a></p>
+<ul>
+<li><p>Add support for intermediate (stable) frequencies for platforms that may temporarily switch to a stable frequency while transitioning between frequencies <a class="external" href="https://git.kernel.org/linus/1c03a2d04d7ab6d27c1fef8614f08187d974bd21">commit</a> <a id="line-110"></a></p>
+</li>
+<li><p>governor: Improve performance of latency-sensitive bursty workloads <a class="external" href="https://git.kernel.org/linus/18b46abd0009516c1973a57ccf4d01b9eaa3422a">commit</a> <a id="line-111"></a></p>
+</li>
+</ul>
+</li>
+<li><p>Introduce "nohibernate" boot parameter to disable both hibernation and resume at boot time - useful to use kernel features that are not compatible with hibernation <a class="external" href="https://git.kernel.org/linus/a6e15a39048ec3229b9a53425f4384f55f6cc1b3">commit</a> <a id="line-112"></a></p>
+</li>
+<li><p>Introduce command line argument, relative_sleep_states, that allows to change the way in which the kernel assigns labels to system sleep states <a class="external" href="https://git.kernel.org/linus/0399d4db3edf5c58b6ec7f672f089f5085e49ed5">commit</a> <a id="line-113"></a></p>
+<a id="line-114"></a></li>
+</ul>
+
+<h1 id="head-a693f6e8159146a83d6f1a0c27977a761fc56127">7. File systems</h1>
+
+<a id="line-115"></a><ul>
+<li><p>Btrfs <a id="line-116"></a></p>
+<ul>
+<li><p>New ioctl TREE_SEARCH_V2: it allows the user to supply a buffer of varying size in which a tree search can store its results. This is much more flexible if you want to receive items which are larger than the current fixed buffer of 3992 bytes or if you want to fetch more items at once. Items larger than this buffer are for example some of the type EXTENT_CSUM <a class="external" href="http://git.kernel.org/linus/cc68a8a5a4330a4bb72922d0c7a7044ae13ee692">commit</a> <a id="line-117"></a></p>
+</li>
+<li><p>Implement O_TMPFILE support <a class="external" href="http://git.kernel.org/linus/ef3b9af50bfa6a1f02cd7b3f5124b712b1ba3e3c">commit</a> <a id="line-118"></a></p>
+</li>
+<li><p>Don't restrict DEV_INFO ioctl to CAP_SYSADMIN <a class="external" href="http://git.kernel.org/linus/7d6213c5a764d0591afeb9faa3f7ee18e8e74c25">commit</a> <a id="line-119"></a></p>
+</li>
+<li><p>Don't restrict FS_INFO ioctl to CAP_SYSADMIN <a class="external" href="http://git.kernel.org/linus/e4ef90ff6198ac58d4c7dbbeae8cc7b24867d1ca">commit</a> <a id="line-120"></a></p>
+</li>
+<li><p>Retrieve more info from FS_INFO ioctl <a class="external" href="http://git.kernel.org/linus/80a773fbfc2d6b5b2478377e8ac271d495f55e73">commit</a> <a id="line-121"></a></p>
+</li>
+<li><p>Export more from FS_INFO to sysfs <a class="external" href="http://git.kernel.org/linus/df93589a17378277c0ac394858dd8a2a41e5fb5a">commit</a> <a id="line-122"></a></p>
+</li>
+<li><p>Reclaim the reserved metadata space at background (improves performance in some cases) <a class="external" href="http://git.kernel.org/linus/21c7e75654b77b53a4436bf28496aac11536b6ba">commit</a> <a id="line-123"></a></p>
+</li>
+<li><p>async delayed refs: Allows to batch delayed extent operations <a class="external" href="http://git.kernel.org/linus/a79b7d4b3e8118f265dcb4bdf9a572c392f02708">commit</a> <a id="line-124"></a></p>
+</li>
+<li><p>rework qgroup accounting <a class="external" href="http://git.kernel.org/linus/fcebe4562dec83b3f8d3088d77584727b09130b2">commit</a> <a id="line-125"></a></p>
+</li>
+</ul>
+</li>
+<li><p>XFS <a id="line-126"></a></p>
+<ul>
+<li><p>Add filestream allocator tracepoints <a class="external" href="http://git.kernel.org/linus/b94acd4786dce4379e986e6d58bdd74f8986af2f">commit</a> <a id="line-127"></a></p>
+</li>
+<li><p>Turn NLINK feature on by default <a class="external" href="http://git.kernel.org/linus/263997a6842b27a49f42bd795c5dd12242917b22">commit</a> <a id="line-128"></a></p>
+<a id="line-129"></a><a id="line-130"></a></li>
+</ul>
+</li>
+<li class="gap"><p>F2FS <a id="line-131"></a></p>
+<ul>
+<li><p>Large volume support <a class="external" href="https://git.kernel.org/linus/1dbe4152168d44fa164edbdc9f1243de70b98f7a">commit</a> <a id="line-132"></a></p>
+</li>
+<li><p>Support SEEK_{DATA, HOLE} in llseek <a class="external" href="https://git.kernel.org/linus/267378d4de696d4397cd611e62957d19b2a61357">commit</a> <a id="line-133"></a></p>
+</li>
+</ul>
+</li>
+<li><p>FAT <a id="line-134"></a></p>
+<ul>
+<li><p>Add support for DOS 1.x formatted volumes <a class="external" href="https://git.kernel.org/linus/190a8843ded231638d0e7ae7d8ca6a712472d114">commit</a> <a id="line-135"></a></p>
+<a id="line-136"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-a17f041e140fe01822c9ad6e794b38daf6825579">8. Networking</h1>
+
+<a id="line-137"></a><ul>
+<li><p>Add support to configure SR-IOV VF minimum and maximum transmission rate through ip tool <a class="external" href="http://git.kernel.org/linus/ed616689a3d95eb6c9bdbb1ef74b0f50cbdf276a">commit</a> <a id="line-138"></a></p>
+</li>
+<li><p>ipv6: setting IFA_F_MANAGETEMPADDR with RTM_DELADDR will indicate that the kernel should delete all related temporary addresses (similar to using IFA_F_MANAGETEMPADDR with RTM_NEWADDR <a class="external" href="http://git.kernel.org/linus/6046d5b4e464ba9b2cc8f0407069456624598dd5">commit</a> <a id="line-139"></a></p>
+</li>
+<li><p>l2tp: Add support for zero IPv6 checksums <a class="external" href="http://git.kernel.org/linus/6b649feafe10b293f4bd5a74aca95faf625ae525">commit</a> <a id="line-140"></a></p>
+</li>
+<li><p>Wireless <a id="line-141"></a></p>
+<ul>
+<li><p>Support for dynamic channel bandwidth changes (e.g., HT 20/40 MHz changes)<a class="external" href="http://git.kernel.org/linus/3b1700bde4f03ca68b058257f54d744cc8c84c72">commit</a> <a id="line-142"></a></p>
+</li>
+</ul>
+</li>
+<li><p>macvlan: Support bonding events <a class="external" href="http://git.kernel.org/linus/4c9912556867bf89e7bb6946fd218a40b1d12139">commit</a> <a id="line-143"></a></p>
+</li>
+<li><p>macvlan: add netpoll support <a class="external" href="http://git.kernel.org/linus/688cea83f4396fa98b77a126ed278b89daccccdc">commit</a> <a id="line-144"></a></p>
+</li>
+<li><p>Add Generic Segmentation Offload support for UDP tunnels with checksum <a class="external" href="http://git.kernel.org/linus/0f4f4ffa7b7c3d29d0537a126145c9f8d8ed5dbc">commit</a> <a id="line-145"></a></p>
+</li>
+<li><p>Implemement zero RX checksums for UDP/IPv6 (<a class="external" href="http://tools.ietf.org/html/rfc6936">RFC 6936</a>). RFC 6936 relaxes the requirement of RFC 2460 that UDP/IPv6 packets which are received with a zero UDP checksum value must be dropped. RFC 6936 allows zero checksums to support tunnels over UDP <a class="external" href="http://git.kernel.org/linus/4068579e1e098fa81d48db9ba4432ab664c58561">commit</a> <a id="line-146"></a></p>
+</li>
+<li><p>Kernel-originated IP packets that have no user socket associated with them (e.g., ICMP errors and echo replies, TCP RSTs, etc.) are emitted with a mark of zero. Add a sysctl to make them have the same mark as the packet they are replying to <a class="external" href="http://git.kernel.org/linus/e110861f86094cd78cc85593b873970092deb43a">commit</a> <a id="line-147"></a></p>
+</li>
+<li><p>When using mark-based routing, sockets returned from accept() may need to be marked differently depending on the incoming connection request. This patch adds a sysctl to mark TCP sockets based on the fwmark of the incoming SYN packet. If enabled, and an unmarked socket receives a SYN, then the SYN packet's fwmark is written to the connection's inet_request_sock, and later written back to the accepted socket when the connection is established. If the socket already has a nonzero mark, then the behaviour is the same as it is today, i.e., the listening socket's fwmark is used <a class="external" href="http://git.kernel.org/linus/84f39b08d7868ce10eeaf640627cb89777f0ae93">commit</a> <a id="line-148"></a></p>
+</li>
+</ul>
+<p>tcp: Add a TCP_FASTOPEN socket option to get a max backlog on its listner <a class="external" href="http://git.kernel.org/linus/1536e2857bd38e3bcd19963fd6b3c3287b4747c4">commit</a> <a id="line-149"></a></p>
+<ul>
+<li><p>tipc: add ioctl to fetch link names <a class="external" href="http://git.kernel.org/linus/78acb1f9b898e85fa2c1e28e700b54b66b288e8d">commit</a> <a id="line-150"></a></p>
+</li>
+<li><p>tipc: add support for link state subscriptions <a class="external" href="http://git.kernel.org/linus/a89778d8baf19cd7e728d81121a294a06cedaad1">commit</a> <a id="line-151"></a></p>
+</li>
+<li><p>sctp: add support for busy polling to sctp protocol <a class="external" href="http://git.kernel.org/linus/8465a5fcd1ceba8f2b55121d47b73f4025401490">commit</a> <a id="line-152"></a></p>
+</li>
+<li><p>vxlan: Add support for UDP checksums (v4 sending, v6 zero csums) <a class="external" href="http://git.kernel.org/linus/359a0ea9875ef4f32c8425bbe1ae348e1fd2ed2a">commit</a>, add x-netns support <a class="external" href="http://git.kernel.org/linus/f01ec1c017dead42092997a2b8684fcab4cbf126">commit</a> <a id="line-153"></a></p>
+<a id="line-154"></a><a id="line-155"></a></li>
+<li class="gap"><p>tunnels - enable module autoloading <a class="external" href="http://git.kernel.org/linus/f98f89a0104454f35a62d681683c844f6dbf4043">commit</a> <a id="line-156"></a></p>
+</li>
+<li><p>netfilter <a id="line-157"></a></p>
+<ul>
+<li><p>nf_tables: allow to delete several objects from a batch <a class="external" href="http://git.kernel.org/linus/4fefee570d8e35d950e6b7294618e2035e669308">commit</a> <a id="line-158"></a></p>
+</li>
+<li><p>nfnetlink: Adding quota support to accounting framework <a class="external" href="http://git.kernel.org/linus/683399eddb9fff742b1a14c5a5d03e12bfc0afff">commit</a> <a id="line-159"></a></p>
+</li>
+</ul>
+</li>
+<li><p>ethtool: Support for configurable RSS hash key <a class="external" href="https://git.kernel.org/linus/3de0b592394d17b2c41a261a6a493a521213f299">commit</a> <a id="line-160"></a></p>
+</li>
+<li><p>bonding: Support macvlans on top of TLB/RLB mode bonds <a class="external" href="https://git.kernel.org/linus/14af9963ba1e5e8400c9de9267bdcab895109f6a">commit</a> <a id="line-161"></a></p>
+</li>
+<li><p>bridge: Automatically manage port promiscuous mode <a class="external" href="https://git.kernel.org/linus/f3a6ddf15209cfad90b83e04168f42a5d9c8cc17">commit</a>, <a class="external" href="https://git.kernel.org/linus/2796d0c648c940b4796f84384fbcfb0a2399db84">commit</a> <a id="line-162"></a></p>
+</li>
+<li><p>bridge: Add 802.1ad tx VLAN acceleration <a class="external" href="https://git.kernel.org/linus/1c5abb6c77a2e79537373143d2c1708e40b9f6ca">commit</a> <a id="line-163"></a></p>
+</li>
+<li><p>bridge: Support 802.1ad VLAN filtering <a class="external" href="https://git.kernel.org/linus/204177f3f30c2dbd2db0aa62b5e9cf9029786450">commit</a> <a id="line-164"></a></p>
+</li>
+<li><p>Bluetooth: Perform directed advertising support through connect() when we're in peripheral mode <a class="external" href="https://git.kernel.org/linus/3c857757ef6e5a4e472bd3e5c934709c2eb482af">commit</a> <a id="line-165"></a></p>
+</li>
+<li><p>NFC: Add RAW socket type support for SOCKPROTO_RAW to read RAW NFC frames <a class="external" href="https://git.kernel.org/linus/57be1f3f3ec1ccab6432615ca161c4c9ece2a2aa">commit</a> <a id="line-166"></a></p>
+<a id="line-167"></a></li>
+<li class="gap"><p>Wireless <a id="line-168"></a></p>
+<ul>
+<li><p>Add an option to hint the wireless core that the user is operating in an indoor environment <a class="external" href="https://git.kernel.org/linus/52616f2b446eaad8eb2cd78bbd052f0066069757">commit</a> <a id="line-169"></a></p>
+</li>
+</ul>
+</li>
+<li><p>cfg80211: Support multiple CSA counters <a class="external" href="https://git.kernel.org/linus/9a774c78e2114c7e8605e3a168ccd552cbe3d922">commit</a> <a id="line-170"></a></p>
+</li>
+<li><p>Allow userspace to take ownership of interfaces. If an interface is owned by a netlink socket, then it will be destroyed if the netlink socket is closed for any reason, including if the process it belongs to crashed. This gives us a race-free way to get rid of any such interfaces <a class="external" href="https://git.kernel.org/linus/78f22b6a3a9254460d23060530b48ae02a9394e3">commit</a> <a id="line-171"></a></p>
+<a id="line-172"></a></li>
+</ul>
+
+<h1 id="head-a8df1fce7a5a427c3f5bf9d7f6e5ff7a37643408">9. Virtualization</h1>
+
+<a id="line-173"></a><ul>
+<li><p>hyperv: Add support for virtual Receive Side Scaling (vRSS) <a class="external" href="https://git.kernel.org/linus/5b54dac856cb5bd6f33f4159012773e4a33704f7">commit</a> <a id="line-174"></a></p>
+</li>
+<li><p>xen-netback: Add support for multiple queues <a class="external" href="http://git.kernel.org/linus/8d3d53b3e43363e79ab9a9ecc149b06c1314b25d">commit</a> <a id="line-175"></a></p>
+</li>
+<li><p>xen-netfront: Add support for multiple queues <a class="external" href="http://git.kernel.org/linus/50ee60611bf0c7328e5cae438ea5c26590f3f747">commit</a> <a id="line-176"></a></p>
+</li>
+<li><p>virtio-rng: support multiple virtio-rng devices <a class="external" href="http://git.kernel.org/linus/08e53fbdb85c0f6f45c0f7c1ea3defc1752a95ce">commit</a> <a id="line-177"></a></p>
+<a id="line-178"></a><a id="line-179"></a></li>
+</ul>
+
+<h1 id="head-faef5bc471130be516156fed056725ee3644cc11">10. Tracing/perf</h1>
+
+<a id="line-180"></a><ul>
+<li><p>Allow probing on some kprobes and ftrace functions <a class="external" href="https://git.kernel.org/linus/fbc1963d2c1c4eb4651132a2c5c9d6111ada17d3">commit</a> <a id="line-181"></a></p>
+</li>
+<li><p>Add tracepoint benchmark tracepoint <a class="external" href="http://git.kernel.org/linus/81dc9f0ef21e40114cc895894c7acf3055f6d1fb">commit</a> <a id="line-182"></a></p>
+</li>
+<li><p>perf <a id="line-183"></a></p>
+<ul>
+<li><p>Add conditional branch filter 'cond' to perf record <a class="external" href="http://git.kernel.org/linus/0fffa5df4cf3e22be4f40f6698ab9e49f3ffd6fa">commit</a>, <a class="external" href="http://git.kernel.org/linus/37548914fbfcd56e1955a9b7e55dc3b84a3e9e25">commit</a>, <a class="external" href="http://git.kernel.org/linus/3e39db4ae2a92ae9e338e8066411b694b0edcb31">commit</a> <a id="line-184"></a></p>
+</li>
+<li><p>diff: Add --percentage option <a class="external" href="http://git.kernel.org/linus/8810f6ced73556c1a63b6269a6cdad8d630aaaf0">commit</a> <a id="line-185"></a></p>
+</li>
+<li><p>report: Add --children option <a class="external" href="http://git.kernel.org/linus/793aaaabb79803a0154fc6a98c472a29bb6d5cc9">commit</a>, add --percentage option <a class="external" href="http://git.kernel.org/linus/f2148330544a697481219b5bc34261f6dd049bfb">commit</a>, add -F option to specify output fields <a class="external" href="http://git.kernel.org/linus/a7d945bc91602f916d2d0c794c179d9a784859e7">commit</a>, add report.children config option <a class="external" href="http://git.kernel.org/linus/8d8e645ceafd726b8317949f899e4b3acfb20d29">commit</a> <a id="line-186"></a></p>
+</li>
+<li><p>Add dcacheline sort <a class="external" href="http://git.kernel.org/linus/9b32ba71ba905b90610fc2aad77cb98a373c5624">commit</a> <a id="line-187"></a></p>
+</li>
+<li><p>Add hist.percentage config option <a class="external" href="http://git.kernel.org/linus/0b93da1756df4fe930ee0220a6addce263a6e0ab">commit</a> <a id="line-188"></a></p>
+</li>
+<li><p>Allow hpp fields to be sort keys <a class="external" href="http://git.kernel.org/linus/a2ce067e55e328f1a6fe3dddf77a173381ffdfe1">commit</a> <a id="line-189"></a></p>
+</li>
+<li><p>top: Add --children option <a class="external" href="http://git.kernel.org/linus/1432ec342ece6a7ef78825ae3a9ba1c91686f71d">commit</a>, add --fields option to specify output fields <a class="external" href="http://git.kernel.org/linus/6fe8c26d7ab9fbd6748fc40ca5fea1e3131e7236">commit</a>, add --percentage option <a class="external" href="http://git.kernel.org/linus/33db4568e1f41efe6d0e4695483f968fc1135bf3">commit</a>, add top.children config option <a class="external" href="http://git.kernel.org/linus/104ac991bd821773cba6f262f97a4a752ed76dd5">commit</a> <a id="line-190"></a></p>
+</li>
+<li><p>tui: Add 'F' hotkey to toggle percentage output <a class="external" href="http://git.kernel.org/linus/105eb30f18197a217695eac4ddf87526f2cba867">commit</a> <a id="line-191"></a></p>
+<a id="line-192"></a></li>
+</ul>
+</li>
+</ul>
+
+<h1 id="head-641cd3651026bdbfedd63befd6a0ba0b99da5924">11. Security</h1>
+
+<a id="line-193"></a><ul>
+<li><p>Smack: adds smackfs/ptrace interface <a class="external" href="https://git.kernel.org/linus/668678185247303450e60df14569f94cf5775fea">commit</a> <a id="line-194"></a></p>
+</li>
+<li><p>Smack: Verify read access on file open - v3 <a class="external" href="https://git.kernel.org/linus/a6834c0b9114c06106efee8e9f2a11fbbb104567">commit</a> <a id="line-195"></a></p>
+</li>
+<li><p>audit: add netlink multicast socket with one group to kaudit for "best-effort" delivery to read-only userspace clients such as systemd <a class="external" href="https://git.kernel.org/linus/451f921639fea4600dfb9ab2889332bdcc7b48d3">commit</a> <a id="line-196"></a></p>
+</li>
+<li><p>ima: audit log files opened with O_DIRECT flag <a class="external" href="https://git.kernel.org/linus/f9b2a735bdddf836214b5dca74f6ca7712e5a08c">commit</a> <a id="line-197"></a></p>
+<a id="line-198"></a></li>
+</ul>
+
+<h1 id="head-fcd0a202a9d99f7993ce6f67ca301d2f7c793046">12. Crypto</h1>
+
+<a id="line-199"></a><a id="line-200"></a>
+<h1 id="head-707fdad03ba3aa85a9721ef1ed698faab9d657ef">13. Other news sites that track the changes of this release</h1>
+
+<a id="line-201"></a><ul>
+<li><p>LWN Merge window, <a class="external" href="http://lwn.net/Articles/601152/">part 1</a>, <a class="external" href="http://lwn.net/Articles/601726/">part 2</a> and <a class="external" href="http://lwn.net/Articles/602212/">part 3</a> <a id="line-202"></a></p>
+</li>
+</ul>
+<a id="bottom"></a>
+<p><a class="external" href="http://kernelnewbies.org/Linux_3.16">Linux 3.16</a> by <a class="external" href="http://kernelnewbies.org">kernelnewbies.org</a> is licensed under <a class="external" href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></p>
+</div>
+</body>

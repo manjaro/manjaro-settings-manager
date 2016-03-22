@@ -1,6 +1,6 @@
 /*
  *  Manjaro Settings Manager
- *  Ramon Buldó <ramon@manjaro.org>
+ *  Roland Singer <roland@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -18,83 +18,172 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "IconThemeImageProvider.h"
 #include "MsmWindow.h"
-#include "ModuleView.h"
+#include "ui_MsmWindow.h"
 
+#include <QtCore/QPropertyAnimation>
 #include <QtCore/QSettings>
-#include <QtQuick/QQuickView>
-#include <QtQuick/QQuickItem>
+#include <QtWidgets/QGraphicsOpacityEffect>
 
-#include <KCModuleInfo>
-
-#include <QDebug>
 
 MsmWindow::MsmWindow( QWidget* parent ) :
-    QMainWindow( parent )
+    QMainWindow( parent ),
+    ui( new Ui::MsmWindow )
 {
-    // Prepare the view area
-    m_stackedWidget = new QStackedWidget( this );
-    setCentralWidget( m_stackedWidget );
+    ui->setupUi( this );
 
-    QQuickView* view = new QQuickView;
+    /* Center the window */
+    move( qApp->desktop()->availableGeometry().center() - rect().center() );
 
-    QQmlEngine* engine = view->engine();
-    engine->addImageProvider( QLatin1String( "icon" ),
-                              new IconThemeImageProvider( QQuickImageProvider::Pixmap ) );
-
-    m_menuView = QWidget::createWindowContainer( view, this );
-    m_menuView->setFocusPolicy( Qt::TabFocus );
-    view->setSource( QUrl( "qrc:/qml/main.qml" ) );
-    m_stackedWidget->addWidget( m_menuView );
-    m_stackedWidget->setCurrentWidget( m_menuView );
-
-    m_moduleView = new ModuleView();
-    m_stackedWidget->addWidget( m_moduleView );
-
-    QQuickItem* rootObject = view->rootObject();
-    QQuickItem::connect( rootObject, SIGNAL( itemClicked( QString ) ),
-                         this, SLOT( loadModule( QString ) ) );
-
-    ModuleView::connect( m_moduleView, &ModuleView::closeRequest,
-                         [=]()
-    {
-        m_moduleView->resolveChanges();
-        m_moduleView->closeModules();
-        m_stackedWidget->setCurrentWidget( m_menuView );
-    } );
-
-    init();
     readPositionSettings();
+
+    // Trigger method to setup titels and icons
+    buttonShowAllSettings_clicked();
+
+    ui->listWidget->addSeparator( tr( "System" ) );
+    addPageWidget( pageLanguage );
+    addPageWidget( pageLanguagePackages );
+    addPageWidget( pageKernel );
+    addPageWidget( pageUsers );
+    addPageWidget( pageTimeDate );
+    addPageWidget( pageNotifications );
+
+    ui->listWidget->addSeparator( tr( "Hardware" ) );
+    addPageWidget( pageKeyboard );
+    addPageWidget( pageMhwd );
+
+    // Connect signals and slots
+    connect( ui->buttonQuit, &QPushButton::clicked,
+             qApp, &qApp->closeAllWindows );
+    connect( ui->listWidget, &ListWidget::itemClicked,
+             this, &MsmWindow::listWidget_itemClicked );
+    connect( ui->buttonAllSettings, &QPushButton::clicked,
+             this, &MsmWindow::buttonShowAllSettings_clicked );
+    connect( ui->buttonApply, &QPushButton::clicked,
+             this, &MsmWindow::buttonApply_clicked );
 }
+
 
 
 MsmWindow::~MsmWindow()
 {
-    delete m_moduleView;
-}
-
-
-void
-MsmWindow::init()
-{
-    QStringList moduleList = QStringList() << "msm_kernel" << "msm_keyboard" << "msm_language_packages"
-                             << "msm_locale" << "msm_mhwd" << "msm_timedate" << "msm_users";
-    for ( QString module : moduleList )
-        m_moduleInfoList.insert( module, new KCModuleInfo( module ) );
+    delete ui;
 }
 
 
 void
 MsmWindow::loadModule( QString moduleName )
 {
-    qDebug() << QString( "Loading module '%1'" ).arg( moduleName );
-    if ( m_moduleInfoList.contains( moduleName ) )
+
+    for ( int i = 0; i < ui->listWidget->count(); i++ )
     {
-        m_moduleView->addModule( m_moduleInfoList.value( moduleName ) );
-        emit m_moduleView->moduleChanged( false );
+        ListWidgetItem* item = dynamic_cast<ListWidgetItem*>( ui->listWidget->item( i ) );
+        if ( !item || !item->page )
+            continue;
+        // TODO SEARCH FOR CORRECT MODULENAME
+        if ( item->page->getName() == moduleName )
+        {
+            listWidget_itemClicked( item );
+            break;
+        }
     }
-    m_stackedWidget->setCurrentWidget( m_moduleView );
+
+}
+
+
+void
+MsmWindow::addPageWidget( PageWidget& page )
+{
+    // Add list widget item
+    ListWidgetItem* item = new ListWidgetItem( ui->listWidget );
+    item->setText( page.getTitel() );
+    item->setIcon( QIcon( page.getIcon() ) );
+    item->setSizeHint( QSize( 135, 100 ) );
+    item->page = &page;
+
+    // Add to stacked widget
+    ui->stackedWidget->addWidget( &page );
+
+    connect( &page, &PageWidget::setApplyEnabled,
+             this, &MsmWindow::setApplyEnabled );
+    connect( &page, &PageWidget::closePage,
+             this, &MsmWindow::closePageRequested );
+}
+
+
+void
+MsmWindow::listWidget_itemClicked( QListWidgetItem* current )
+{
+    ListWidgetItem* item = dynamic_cast<ListWidgetItem*>( current );
+    if ( !item || !item->page )
+        return;
+
+    // Show page and buttons
+    ui->stackedWidget->setCurrentWidget( item->page );
+    ui->buttonAllSettings->setVisible( true );
+    ui->buttonApply->setEnabled( true );
+    ui->buttonApply->setVisible( item->page->getShowApplyButton() );
+
+    // Setup icon and titel
+    ui->labelHeader->setText( item->page->getTitel() );
+    ui->labelIcon->setPixmap( item->page->getIcon() );
+
+    // Remove list widget selection
+    ui->listWidget->clearSelection();
+
+    // Trigger activated method of page
+    item->page->activated();
+}
+
+
+void
+MsmWindow::buttonShowAllSettings_clicked()
+{
+    PageWidget* page = dynamic_cast<PageWidget*>( ui->stackedWidget->currentWidget() );
+    if ( page && !page->showAllSettingsRequested() )
+        return;
+
+    // Remove list widget selection
+    ui->listWidget->clearSelection();
+
+    // Setup icon and titel
+    ui->labelHeader->setText( tr( "Manjaro Settings" ) );
+    ui->labelIcon->setPixmap( QPixmap( ":/images/resources/settings.png" ) );
+
+    // Hide buttons
+    ui->buttonAllSettings->setVisible( false );
+    ui->buttonApply->setVisible( false );
+
+    // Show all settings
+    ui->stackedWidget->setCurrentIndex( 0 );
+}
+
+
+void
+MsmWindow::setApplyEnabled( PageWidget* page, bool enabled )
+{
+    if ( dynamic_cast<PageWidget*>( ui->stackedWidget->currentWidget() ) != page )
+        return;
+    ui->buttonApply->setEnabled( enabled );
+}
+
+
+void
+MsmWindow::buttonApply_clicked()
+{
+    PageWidget* page = dynamic_cast<PageWidget*>( ui->stackedWidget->currentWidget() );
+    if ( !page )
+        return;
+    page->apply_clicked();
+}
+
+
+void
+MsmWindow::closePageRequested( PageWidget* page )
+{
+    if ( dynamic_cast<PageWidget*>( ui->stackedWidget->currentWidget() ) != page )
+        return;
+    buttonShowAllSettings_clicked();
 }
 
 
@@ -128,7 +217,7 @@ MsmWindow::readPositionSettings()
     restoreGeometry( settings.value( "geometry", saveGeometry() ).toByteArray() );
     restoreState( settings.value( "savestate", saveState() ).toByteArray() );
     move( settings.value( "pos", pos() ).toPoint() );
-    resize( settings.value( "size", QSize(740, 520) ).toSize() );
+    resize( settings.value( "size", size() ).toSize() );
     if ( settings.value( "maximized", isMaximized() ).toBool() )
         showMaximized();
 

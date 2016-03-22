@@ -1,6 +1,6 @@
 /*
  *  Manjaro Settings Manager
- *  Ramon Buldó <ramon@manjaro.org>
+ *  Roland Singer <roland@manjaro.org>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -21,11 +21,37 @@
 #ifndef MSMWINDOW_H
 #define MSMWINDOW_H
 
-#include "ModuleView.h"
+#include "pages/PageKernel.h"
+#include "pages/PageKeyboard.h"
+#include "pages/PageLanguage.h"
+#include "pages/PageLanguagePackages.h"
+#include "pages/PageMhwd.h"
+#include "pages/PageNotifications.h"
+#include "pages/PageTimeDate.h"
+#include "pages/PageUsers.h"
+#include "widgets/PageWidget.h"
 
-#include <QtWidgets/QListWidgetItem>
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QStackedWidget>
+#include <QApplication>
+#include <QMainWindow>
+#include <QString>
+#include <QListWidget>
+#include <QPixmap>
+#include <QIcon>
+#include <QLabel>
+#include <QPushButton>
+#include <QListWidgetItem>
+#include <QDesktopWidget>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
+#include <QMessageBox>
+
+
+namespace Ui
+{
+class MsmWindow;
+}
+
 
 class MsmWindow : public QMainWindow
 {
@@ -35,19 +61,42 @@ public:
     explicit MsmWindow( QWidget* parent = 0 );
     ~MsmWindow();
     void readPositionSettings();
+    void loadModule( QString moduleName );
 
 private:
-    QStackedWidget* m_stackedWidget;
-    ModuleView* m_moduleView;
-    QMap<QString, KCModuleInfo*> m_moduleInfoList;
-    QWidget* m_menuView;
+    class ListWidgetItem : public QListWidgetItem
+    {
+    public:
+        ListWidgetItem( QListWidget* parent ) : QListWidgetItem( parent )
+        {
+            page = NULL;
+        }
 
-    void init();
+        PageWidget* page;
+    };
+
+    Ui::MsmWindow* ui;
+    PageKernel pageKernel;
+    PageKeyboard pageKeyboard;
+    PageLanguage pageLanguage;
+    PageLanguagePackages pageLanguagePackages;
+    PageMhwd pageMhwd;
+    PageNotifications pageNotifications;
+    PageTimeDate pageTimeDate;
+    PageUsers pageUsers;
+
+    void addPageWidget( PageWidget& page );
     void closeEvent( QCloseEvent* );
     void writePositionSettings();
 
-public slots:
-    void loadModule( QString text );
+protected slots:
+    void listWidget_itemClicked( QListWidgetItem* );
+    void buttonShowAllSettings_clicked();
+    void setApplyEnabled( PageWidget* page, bool enabled );
+    void buttonApply_clicked();
+    void closePageRequested( PageWidget* page );
+
 };
+
 
 #endif // MSMWINDOW_H
