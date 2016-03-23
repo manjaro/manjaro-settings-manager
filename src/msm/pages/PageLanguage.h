@@ -43,8 +43,9 @@ public:
     explicit PageLanguage( QWidget* parent = 0 );
     ~PageLanguage();
 
-    void activated();
-    void apply_clicked();
+    void load();
+    void save();
+    void defaults();
 
 private:
     Ui::PageLanguage* ui;
@@ -62,7 +63,6 @@ private:
 protected slots:
     void addLocale();
     void removeLocale();
-    void restoreLocaleList();
     void disableRemoveButton( const QModelIndex& current, const QModelIndex& previous );
 
 };

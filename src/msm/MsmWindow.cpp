@@ -96,7 +96,7 @@ MsmWindow::addPageWidget( PageWidget& page )
 {
     // Add list widget item
     ListWidgetItem* item = new ListWidgetItem( ui->listWidget );
-    item->setText( page.getTitel() );
+    item->setText( page.getTitle() );
     item->setIcon( QIcon( page.getIcon() ) );
     item->setSizeHint( QSize( 135, 100 ) );
     item->page = &page;
@@ -125,14 +125,14 @@ MsmWindow::listWidget_itemClicked( QListWidgetItem* current )
     ui->buttonApply->setVisible( item->page->getShowApplyButton() );
 
     // Setup icon and titel
-    ui->labelHeader->setText( item->page->getTitel() );
+    ui->labelHeader->setText( item->page->getTitle() );
     ui->labelIcon->setPixmap( item->page->getIcon() );
 
     // Remove list widget selection
     ui->listWidget->clearSelection();
 
-    // Trigger activated method of page
-    item->page->activated();
+    // Trigger load method of page
+    item->page->load();
 }
 
 
@@ -174,7 +174,7 @@ MsmWindow::buttonApply_clicked()
     PageWidget* page = dynamic_cast<PageWidget*>( ui->stackedWidget->currentWidget() );
     if ( !page )
         return;
-    page->apply_clicked();
+    page->load();
 }
 
 

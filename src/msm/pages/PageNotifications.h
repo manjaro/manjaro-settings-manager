@@ -38,8 +38,8 @@ public:
     explicit PageNotifications( QWidget* parent = 0 );
     ~PageNotifications();
 
-    void activated();
-    void apply_clicked();
+    void load();
+    void save();
 
 private:
     Ui::PageNotifications* ui;

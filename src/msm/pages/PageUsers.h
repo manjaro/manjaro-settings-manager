@@ -56,7 +56,7 @@ public:
     explicit PageUsers( QWidget* parent = 0 );
     ~PageUsers();
 
-    void activated();
+    void load();
 
 private:
     class ListWidgetItem : public QListWidgetItem

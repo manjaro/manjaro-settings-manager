@@ -35,7 +35,7 @@ PageKernel::PageKernel( QWidget* parent ) :
     kernelInfoDialog( new KernelInfoDialog )
 {
     ui->setupUi( this );
-    setTitel( tr( "Kernel" ) );
+    setTitle( tr( "Kernel" ) );
     setIcon( QPixmap( ":/images/resources/tux-manjaro.png" ) );
 
     KernelSortFilterProxyModel* proxyKernelModel = new KernelSortFilterProxyModel( this );
@@ -60,7 +60,7 @@ PageKernel::~PageKernel()
 
 
 void
-PageKernel::activated()
+PageKernel::load()
 {
     kernelModel->update();
 }

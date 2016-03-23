@@ -33,7 +33,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     languageListViewDelegate_( new LanguageListViewDelegate )
 {
     ui->setupUi( this );
-    setTitel( tr( "Language" ) );
+    setTitle( tr( "Language" ) );
     setIcon( QPixmap( ":/images/resources/locale.png" ) );
     setShowApplyButton( true );
 
@@ -65,7 +65,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     connect( ui->buttonRemove, &QPushButton::clicked,
              this, &PageLanguage::removeLocale );
     connect( ui->buttonRestore, &QPushButton::clicked,
-             this, &PageLanguage::restoreLocaleList );
+             this, &PageLanguage::defaults );
     connect( ui->buttonAdd, &QPushButton::clicked,
              this, &PageLanguage::addLocale );
 
@@ -313,7 +313,7 @@ PageLanguage::~PageLanguage()
 
 
 void
-PageLanguage::activated()
+PageLanguage::load()
 {
     ui->buttonRemove->setDisabled( true );
     enabledLocalesModel_->init();
@@ -324,7 +324,7 @@ PageLanguage::activated()
 
 
 void
-PageLanguage::apply_clicked()
+PageLanguage::save()
 {
     if ( isLocaleListModified_ )
         updateLocaleGen();
@@ -524,9 +524,9 @@ PageLanguage::removeLocale()
 
 
 void
-PageLanguage::restoreLocaleList()
+PageLanguage::defaults()
 {
-    activated();
+    load();
 }
 
 

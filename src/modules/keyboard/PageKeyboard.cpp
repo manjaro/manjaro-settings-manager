@@ -45,7 +45,7 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
     keyboardPreview_( new KeyBoardPreview )
 {
     ui->setupUi( this );
-    setTitel( tr( "Keyboard Settings" ) );
+    setTitle( tr( "Keyboard Settings" ) );
     setIcon( QPixmap( ":/images/resources/keyboard.png" ) );
     setShowApplyButton( true );
 
@@ -148,7 +148,7 @@ PageKeyboard::~PageKeyboard()
 
 
 void
-PageKeyboard::apply_clicked()
+PageKeyboard::save()
 {
     setKeyboardLayout();
 }
@@ -267,7 +267,7 @@ PageKeyboard::configureKeystroke()
 
 
 void
-PageKeyboard::activated()
+PageKeyboard::load()
 {
     // Default focus
     ui->layoutsListView->setFocus();

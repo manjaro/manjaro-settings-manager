@@ -39,8 +39,8 @@ class PageTimeDate : public PageWidget
 public:
     explicit PageTimeDate( QWidget* parent = 0 );
     ~PageTimeDate();
-    void activated();
-    void apply_clicked();
+    void load();
+    void save();
 
 public slots:
     void updateFields();

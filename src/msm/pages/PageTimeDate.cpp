@@ -36,7 +36,7 @@ PageTimeDate::PageTimeDate( QWidget* parent ) :
     timeDate( new TimeDate )
 {
     ui->setupUi( this );
-    setTitel( tr( "Time and Date" ) );
+    setTitle( tr( "Time and Date" ) );
     setIcon( QPixmap( ":/images/resources/timedate.png" ) );
     setShowApplyButton( true );
 
@@ -55,7 +55,7 @@ PageTimeDate::~PageTimeDate()
 
 
 void
-PageTimeDate::activated()
+PageTimeDate::load()
 {
     isTimeEdited_ = false;
     isDateEdited_ = false;
@@ -69,7 +69,7 @@ PageTimeDate::activated()
 
 
 void
-PageTimeDate::apply_clicked()
+PageTimeDate::save()
 {
     if ( ui->isNtpEnabledCheckBox->isChecked() != timeDate->isNtpEnabled() )
         timeDate->setNtp( ui->isNtpEnabledCheckBox->isChecked() );

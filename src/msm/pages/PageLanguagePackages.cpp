@@ -27,7 +27,7 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent ) :
     ui( new Ui::PageLanguagePackages )
 {
     ui->setupUi( this );
-    setTitel( tr( "Language Packages" ) );
+    setTitle( tr( "Language Packages" ) );
     setIcon( QPixmap( ":/images/resources/locale-package.png" ) );
     setShowApplyButton( true );
 
@@ -50,7 +50,7 @@ PageLanguagePackages::~PageLanguagePackages()
 
 
 void
-PageLanguagePackages::activated()
+PageLanguagePackages::load()
 {
     // Clean up first
     ui->treeWidgetAvailable->clear();
@@ -69,7 +69,7 @@ PageLanguagePackages::activated()
 
 
 void
-PageLanguagePackages::apply_clicked()
+PageLanguagePackages::save()
 {
     ApplyDialog dialog( this );
 

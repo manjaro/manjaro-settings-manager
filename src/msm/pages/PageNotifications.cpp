@@ -30,7 +30,7 @@ PageNotifications::PageNotifications( QWidget* parent ) :
     ui( new Ui::PageNotifications )
 {
     ui->setupUi( this );
-    setTitel( tr( "Notifications" ) );
+    setTitle( tr( "Notifications" ) );
     setIcon( QPixmap( ":/images/resources/notifications.png" ) );
     setShowApplyButton( true );
 
@@ -48,7 +48,7 @@ PageNotifications::~PageNotifications()
 
 
 void
-PageNotifications::activated()
+PageNotifications::load()
 {
     QSettings settings( "manjaro", "manjaro-settings-manager" );
     bool checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
@@ -76,7 +76,7 @@ PageNotifications::activated()
 
 
 void
-PageNotifications::apply_clicked()
+PageNotifications::save()
 {
     bool checkLanguagePackage = ui->checkLanguagePackage->isChecked();
     bool checkUnsupportedKernel = ui->checkUnsupportedKernelBox->isChecked();

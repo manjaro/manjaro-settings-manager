@@ -50,7 +50,7 @@ public:
     explicit PageMhwd( QWidget* parent = 0 );
     ~PageMhwd();
 
-    void activated();
+    void load();
 
 private:
     Ui::PageMhwd* ui;
@@ -65,7 +65,6 @@ private slots:
     void installAction_triggered();
     void removeAction_triggered();
     void forceReinstallationAction_triggered();
-    void checkBoxShowAll_toggled();
 };
 
 #endif // PAGEMHWD_H

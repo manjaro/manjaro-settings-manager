@@ -47,8 +47,8 @@ public:
     explicit PageLanguagePackages( QWidget* parent = 0 );
     ~PageLanguagePackages();
 
-    void activated();
-    void apply_clicked();
+    void load();
+    void save();
 
 private:
     Ui::PageLanguagePackages* ui;

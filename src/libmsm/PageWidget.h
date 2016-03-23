@@ -33,32 +33,32 @@ public:
     explicit PageWidget( QWidget* parent = 0 );
 
     QPixmap getIcon();
-    QString getTitel();
+    QString getTitle();
     QString getName();
     bool getShowApplyButton();
 
-    virtual void activated() {}
+    virtual void load() {}
     virtual bool showAllSettingsRequested()
     {
         return true;
     }
-    virtual void apply_clicked() {}
+    virtual void save() {}
 
 signals:
     void setApplyEnabled( PageWidget* page, bool enabled );
     void closePage( PageWidget* page );
 
 protected:
-    void setTitel( QString titel );
+    void setTitle( QString title );
     void setIcon( QPixmap icon );
     void setName( QString name );
     void setShowApplyButton( bool visible );
 
 private:
-    QPixmap icon;
-    QString titel;
-    QString name;
-    bool showApplyButton;
+    QPixmap m_icon;
+    QString m_title;
+    QString m_name;
+    bool m_showApplyButton;
 
 };
 

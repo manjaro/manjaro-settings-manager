@@ -29,7 +29,7 @@ PageMhwd::PageMhwd( QWidget* parent ) :
     ui( new Ui::PageMhwd )
 {
     ui->setupUi( this );
-    setTitel( tr( "Hardware Detection" ) );
+    setTitle( tr( "Hardware Detection" ) );
     setIcon( QPixmap( ":/images/resources/gpudriver.png" ) );
     setShowApplyButton( false );
 
@@ -60,7 +60,7 @@ PageMhwd::PageMhwd( QWidget* parent ) :
     connect( forceReinstallationAction, &QAction::triggered,
              this, &PageMhwd::forceReinstallationAction_triggered );
     connect( ui->checkBoxShowAll, &QCheckBox::toggled,
-             this, &PageMhwd::checkBoxShowAll_toggled );
+             this, &PageMhwd::load );
 }
 
 
@@ -71,7 +71,7 @@ PageMhwd::~PageMhwd()
 
 
 void
-PageMhwd::activated()
+PageMhwd::load()
 {
     ui->treeWidget->clear();
     ui->buttonInstallFree->setEnabled( false );
@@ -170,7 +170,7 @@ PageMhwd::buttonInstallFree_clicked()
         ApplyDialog dialog( this );
         dialog.exec( "mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr( "Installing open-source graphic driver..." ), false );
     }
-    activated();
+    load();
 }
 
 
@@ -187,7 +187,7 @@ PageMhwd::buttonInstallNonFree_clicked()
         ApplyDialog dialog( this );
         dialog.exec( "mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr( "Installing proprietary graphic driver..." ), false );
     }
-    activated();
+    load();
 }
 
 
@@ -225,7 +225,7 @@ PageMhwd::installAction_triggered()
         ApplyDialog dialog( this );
         dialog.exec( "mhwd", QStringList() << "-i" << "pci" << configuration, tr( "Installing driver..." ), false );
     }
-    activated();
+    load();
 }
 
 
@@ -244,7 +244,7 @@ PageMhwd::removeAction_triggered()
         ApplyDialog dialog( this );
         dialog.exec( "mhwd", QStringList() << "-r" << "pci" << configuration, tr( "Removing driver..." ), false );
     }
-    activated();
+    load();
 }
 
 
@@ -263,12 +263,5 @@ PageMhwd::forceReinstallationAction_triggered()
         ApplyDialog dialog( this );
         dialog.exec( "mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr( "Reinstalling driver..." ), false );
     }
-    activated();
-}
-
-
-void
-PageMhwd::checkBoxShowAll_toggled()
-{
-    activated();
+    load();
 }

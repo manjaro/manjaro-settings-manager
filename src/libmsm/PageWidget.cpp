@@ -24,61 +24,61 @@
 PageWidget::PageWidget( QWidget* parent ) :
     QWidget( parent )
 {
-    showApplyButton = false;
+    m_showApplyButton = false;
 }
 
 
 QPixmap
 PageWidget::getIcon()
 {
-    return icon;
+    return m_icon;
 }
 
 
 QString
-PageWidget::getTitel()
+PageWidget::getTitle()
 {
-    return titel;
+    return m_title;
 }
 
 
 QString
 PageWidget::getName()
 {
-    return name;
+    return m_name;
 }
 
 
 bool
 PageWidget::getShowApplyButton()
 {
-    return showApplyButton;
+    return m_showApplyButton;
 }
 
 
 void
-PageWidget::setTitel( QString titel )
+PageWidget::setTitle( QString title )
 {
-    this->titel = titel;
+    this->m_title = title;
 }
 
 
 void
 PageWidget::setIcon( QPixmap icon )
 {
-    this->icon = icon;
+    this->m_icon = icon;
 }
 
 
 void
 PageWidget::setName( QString name )
 {
-    this->name = name;
+    this->m_name = name;
 }
 
 
 void
 PageWidget::setShowApplyButton( bool visible )
 {
-    this->showApplyButton = visible;
+    this->m_showApplyButton = visible;
 }

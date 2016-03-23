@@ -38,7 +38,7 @@ class PageKernel : public PageWidget
 public:
     explicit PageKernel( QWidget* parent = 0 );
     ~PageKernel();
-    void activated();
+    void load();
 
 public slots:
     void installButtonClicked( const QModelIndex& index );

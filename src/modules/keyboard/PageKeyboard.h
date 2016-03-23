@@ -45,8 +45,8 @@ public:
     explicit PageKeyboard( QWidget* parent = 0 );
     ~PageKeyboard();
 
-    void activated();
-    void apply_clicked();
+    void load();
+    void save();
 
 private:
     Ui::PageKeyboard* ui;

@@ -27,7 +27,7 @@ PageUsers::PageUsers( QWidget* parent ) :
     ui( new Ui::PageUsers )
 {
     ui->setupUi( this );
-    setTitel( tr( "User Accounts" ) );
+    setTitle( tr( "User Accounts" ) );
     setIcon( QPixmap( ":/images/resources/users.png" ) );
 
     // Connect signals and slots
@@ -47,7 +47,7 @@ PageUsers::~PageUsers()
 
 
 void
-PageUsers::activated()
+PageUsers::load()
 {
     ui->listWidget->clear();
 
@@ -203,7 +203,7 @@ PageUsers::buttonAddUser_clicked()
 
     // Refresh list if required
     if ( dialog.userDataChanged() )
-        activated();
+        load();
 }
 
 
@@ -233,7 +233,7 @@ PageUsers::buttonRemoveUser_clicked()
 
 
     // Refresh list
-    activated();
+    load();
 }
 
 
