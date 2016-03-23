@@ -31,6 +31,9 @@
 #include <QtDBus/QDBusReply>
 #include <QtWidgets/QMessageBox>
 
+#include <fstream>
+#include <iostream>
+
 #include <QDebug>
 
 
@@ -46,6 +49,7 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
     setIcon( QPixmap( ":/images/resources/keyboard.png" ) );
     setShowApplyButton( true );
 
+
     // Keyboard preview widget
     ui->KBPreviewLayout->addWidget( keyboardPreview_ );
     keyboardPreview_->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
@@ -57,7 +61,17 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
              this, &PageKeyboard::setDefaultIndexToVariantListView );
     connect( ui->variantsListView, &QListView::clicked,
              this, &PageKeyboard::setKeyboardPreviewLayout );
-
+    // Disable or enable apply button
+    connect( ui->layoutsListView, &QListView::clicked,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->variantsListView, &QListView::clicked,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
 
     keyboardProxyModel_->setSourceModel( keyboardModel_ );
     keyboardProxyModel_->setSortLocaleAware( true );
@@ -100,6 +114,25 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
     }
     else
         qDebug() << "Can't find keyboard model list";
+
+    //setting the current values for delay and rate
+    ui -> sliderDelay -> setValue( this -> getKeyboardDelay() );
+    ui -> sliderRate -> setValue( this -> getKeyboardRate() );
+    ui -> label_2 -> setText( QString::number( this -> getKeyboardDelay() ) );
+    ui -> label_3 -> setText( QString::number( this -> getKeyboardRate() ) );
+    //adding signals and slots for the delay and rate slider
+    connect( ui -> sliderDelay, &QSlider::valueChanged,
+             [=] ( int value )
+    {
+        ui -> label_2 -> setText( QString::number( value ) );
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui -> sliderRate, &QSlider::valueChanged,
+             [=] ( int value )
+    {
+        ui -> label_3 -> setText( QString::number( value ) );
+        this -> setApplyEnabled( this, true );
+    } );
 }
 
 
@@ -199,6 +232,41 @@ PageKeyboard::setKeyboardLayout()
 
 
 void
+PageKeyboard::configureKeystroke()
+{
+    int delay = ui -> sliderDelay -> value();
+    int rate  = ui -> sliderRate  -> value();
+    char command[100];
+    sprintf( command,"xset r rate %d %d",delay,rate );
+    system( command );
+    //time to make the changes persistant throughout the reboot
+    bool added_to_xinitrc = false;
+    std::ifstream filein( "~/.xinitrc" );
+    std::string buffer;
+    std::string new_xinitrc;
+    std::string prefix = "xset r rate";
+    while ( std::getline( filein,buffer ) )
+    {
+        qDebug() << buffer.c_str();
+        //condition to check if xset prev defined
+        if ( buffer.substr( 0,prefix.length() ) == prefix )
+        {
+            buffer = command;
+            added_to_xinitrc = true;
+        }
+        new_xinitrc = new_xinitrc + buffer + "\n";
+    }
+    filein.close();
+    if ( !added_to_xinitrc )
+        new_xinitrc = new_xinitrc + command + "\n";
+    qDebug() << new_xinitrc.c_str();
+    std::ofstream fileout( "~/.xinitrc",std::ios_base::app );
+    fileout.write( new_xinitrc.c_str(),new_xinitrc.length() );
+    fileout.close();
+}
+
+
+void
 PageKeyboard::activated()
 {
     // Default focus
@@ -218,6 +286,9 @@ PageKeyboard::activated()
     setLayoutsListViewIndex( currentLayout_ );
     setVariantsListViewIndex( currentVariant_ );
     setModelComboBoxIndex( currentModel_ );
+
+    // Disable apply button
+    this -> setApplyEnabled( this, false );
 }
 
 
@@ -282,6 +353,8 @@ PageKeyboard::buttonRestore_clicked()
     setLayoutsListViewIndex( currentLayout_ );
     setVariantsListViewIndex( currentVariant_ );
     setModelComboBoxIndex( currentModel_ );
+
+    this -> setApplyEnabled( this, false );
 }
 
 
@@ -303,4 +376,23 @@ PageKeyboard::setKeyboardPreviewLayout( const QModelIndex& index )
         keyboardPreview_->setLayout( layout );
         keyboardPreview_->setVariant( variant );
     }
+}
+
+
+int PageKeyboard::getKeyboardDelay()
+{
+    FILE* file = popen( "xset q | grep rate","r" );
+    int delay,rate;
+    fscanf( file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate );
+    pclose( file );
+    return delay;
+}
+
+int PageKeyboard::getKeyboardRate()
+{
+    FILE* file = popen( "xset q | grep rate","r" );
+    int delay,rate;
+    fscanf( file,"%*[^0123456789]%d%*[^0123456789]%d",&delay,&rate );
+    pclose( file );
+    return rate;
 }

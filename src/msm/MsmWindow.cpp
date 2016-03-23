@@ -121,7 +121,7 @@ MsmWindow::listWidget_itemClicked( QListWidgetItem* current )
     // Show page and buttons
     ui->stackedWidget->setCurrentWidget( item->page );
     ui->buttonAllSettings->setVisible( true );
-    ui->buttonApply->setEnabled( true );
+    ui->buttonApply->setEnabled( false );
     ui->buttonApply->setVisible( item->page->getShowApplyButton() );
 
     // Setup icon and titel

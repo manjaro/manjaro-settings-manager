@@ -29,7 +29,6 @@ set(MSM_SRCS
     pages/PageNotifications.cpp
     pages/PageTimeDate.cpp
     pages/PageUsers.cpp
-    pages/SetKeyboardLayoutJob.cpp
     widgets/FlatButton.cpp
     widgets/ListWidget.cpp
     widgets/LocaleGlobal.cpp

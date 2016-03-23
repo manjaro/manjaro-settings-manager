@@ -200,7 +200,8 @@ PageKeyboard::defaults()
 }
 
 
-void PageKeyboard::configureKeystroke()
+void
+PageKeyboard::configureKeystroke()
 {
     int delay = ui -> sliderDelay -> value();
     int rate  = ui -> sliderRate  -> value();
@@ -232,6 +233,7 @@ void PageKeyboard::configureKeystroke()
     fileout.write( new_xinitrc.c_str(),new_xinitrc.length() );
     fileout.close();
 }
+
 
 void
 PageKeyboard::setKeyboardLayout()

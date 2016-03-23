@@ -61,9 +61,13 @@ private:
     QString currentModel_;
 
     void setKeyboardLayout();
+    void configureKeystroke();
     void setLayoutsListViewIndex( const QString& layout );
     void setVariantsListViewIndex( const QString& variant );
     void setModelComboBoxIndex( const QString& model );
+
+    int getKeyboardRate();
+    int getKeyboardDelay();
 
 protected slots:
     void buttonRestore_clicked();

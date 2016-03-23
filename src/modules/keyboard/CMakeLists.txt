@@ -43,10 +43,9 @@ set(MSM_KEYBOARD_PAGE_SRCS
     KeyboardItem.cpp
     KeyboardModel.cpp
     KeyboardPreview.cpp
-    PageKeyboard.cpp)
-set(MSM_KEYBOARD_PAGE_UI
-    PageKeyboard.ui)
-qt5_wrap_ui(MSM_KEYBOARD_PAGE_SRCS ${MSM_KEYBOARD_PAGE_UI})
+    PageKeyboard.cpp
+    SetKeyboardLayoutJob.cpp)
+qt5_wrap_ui(MSM_KEYBOARD_PAGE_SRCS ${MSM_KEYBOARD_UI})
 QT5_ADD_RESOURCES (MSM_KEYBOARD_PAGE_SRCS ${MSM_KEYBOARD_RESOURCES})
 
 add_library(msm_page_keyboard STATIC ${MSM_KEYBOARD_PAGE_SRCS})
