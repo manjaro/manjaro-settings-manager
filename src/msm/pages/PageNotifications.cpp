@@ -38,6 +38,36 @@ PageNotifications::PageNotifications( QWidget* parent ) :
              this, &PageNotifications::unsupportedKernelStateBoxChanged );
     connect( ui->checkNewKernelBox, &QCheckBox::stateChanged,
              this, &PageNotifications::newKernelStateBoxChanged );
+    connect( ui->checkLanguagePackage, &QCheckBox::stateChanged,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->checkUnsupportedKernelRunningBox, &QCheckBox::stateChanged,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->checkNewKernelBox, &QCheckBox::stateChanged,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->checkNewKernelLtsBox, &QCheckBox::stateChanged,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->checkNewKernelRecommendedBox, &QCheckBox::stateChanged,
+             [=] ( )
+    {
+        this -> setApplyEnabled( this, true );
+    } );
 }
 
 
@@ -72,6 +102,8 @@ PageNotifications::load()
         ui->checkNewKernelLtsBox->setEnabled( false );
         ui->checkNewKernelRecommendedBox->setEnabled( false );
     }
+
+    this -> setApplyEnabled( this, false );
 }
 
 
