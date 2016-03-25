@@ -23,7 +23,7 @@
 
 #include "PageKernel.h"
 #include "PageKeyboard.h"
-#include "pages/PageLanguage.h"
+#include "PageLanguage.h"
 #include "pages/PageLanguagePackages.h"
 #include "pages/PageMhwd.h"
 #include "pages/PageNotifications.h"

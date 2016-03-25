@@ -107,3 +107,45 @@ LanguageCommon::supportedLocales( bool clean )
     }
     return localeList.toList();
 }
+
+
+QString
+LanguageCommon::localeToLocaleGenFormat( const QString locale )
+{
+    QSet<QString> localeList;
+
+    QFile localeGen( "/etc/locale.gen" );
+    QString lines;
+    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in( &localeGen );
+        lines.append( in.readAll() );
+    }
+
+    QFile localeGenPacnew( "/etc/locale.gen.pacnew" );
+    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        QTextStream in( &localeGenPacnew );
+        lines.append( in.readAll() );
+    }
+
+    for ( const QString line : lines.split( '\n' ) )
+    {
+        if ( line.startsWith( "# " ) || line.simplified() == "#"
+                || line.isEmpty() )
+            continue;
+
+        if ( line.simplified().startsWith( "#" ) )
+            localeList.insert( line.simplified().remove( '#' ) );
+        else
+            localeList.insert( line.simplified() );
+    }
+
+    for ( const QString line : localeList )
+    {
+        if ( line.startsWith( locale + " " ) )
+            return line;
+    }
+
+    return "";
+}

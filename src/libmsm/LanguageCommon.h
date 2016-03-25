@@ -28,6 +28,14 @@ class LanguageCommon
 public:
     static QStringList enabledLocales( bool clean = false );
     static QStringList supportedLocales( bool clean = false );
+
+    /**
+     * @brief localeToLocaleGenFormat converts a locale string to the format
+     *                                used by /etc/locale.gen
+     * @param locale locale string
+     * @return converted locale, or empty if it fails
+     */
+    static QString localeToLocaleGenFormat( const QString locale );
 };
 
 #endif // LANGUAGECOMMON_H

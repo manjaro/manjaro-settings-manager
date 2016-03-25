@@ -19,6 +19,7 @@
  */
 
 #include "LocaleAuthHelper.h"
+#include "LanguageCommon.h"
 
 #include <QtDBus/QDBusInterface>
 #include <QtCore/QFile>
@@ -96,7 +97,7 @@ LocaleAuthHelper::updateLocaleGen( QStringList locales )
     // Add missing locales in the file
     for ( QString locale : locales )
     {
-        QString validLocale = localeToLocaleGenFormat( locale );
+        QString validLocale = LanguageCommon::localeToLocaleGenFormat( locale );
         if ( validLocale.isEmpty() )
         {
             qDebug() << QString( "warning: failed to obtain valid locale string"
@@ -163,47 +164,6 @@ LocaleAuthHelper::setSystemLocale( const QStringList localeList )
     return true;
 }
 
-
-QString
-LocaleAuthHelper::localeToLocaleGenFormat( const QString locale )
-{
-    QSet<QString> localeList;
-
-    QFile localeGen( "/etc/locale.gen" );
-    QString lines;
-    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGen );
-        lines.append( in.readAll() );
-    }
-
-    QFile localeGenPacnew( "/etc/locale.gen.pacnew" );
-    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGenPacnew );
-        lines.append( in.readAll() );
-    }
-
-    for ( const QString line : lines.split( '\n' ) )
-    {
-        if ( line.startsWith( "# " ) || line.simplified() == "#"
-                || line.isEmpty() )
-            continue;
-
-        if ( line.simplified().startsWith( "#" ) )
-            localeList.insert( line.simplified().remove( '#' ) );
-        else
-            localeList.insert( line.simplified() );
-    }
-
-    for ( const QString line : localeList )
-    {
-        if ( line.startsWith( locale + " " ) )
-            return line;
-    }
-
-    return "";
-}
 
 KAUTH_HELPER_MAIN( "org.manjaro.msm.locale", LocaleAuthHelper )
 #include "moc_LocaleAuthHelper.cpp"

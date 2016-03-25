@@ -22,11 +22,10 @@
 #ifndef PAGELANGUAGE_H
 #define PAGELANGUAGE_H
 
-#include "global/Global.h"
 #include "ApplyDialog.h"
-#include "dialogs/SelectLocalesDialog.h"
-#include "delegates/LanguageListViewDelegate.h"
-#include "models/EnabledLocalesModel.h"
+#include "SelectLocalesDialog.h"
+#include "LanguageListViewDelegate.h"
+#include "EnabledLocalesModel.h"
 #include "PageWidget.h"
 
 namespace Ui

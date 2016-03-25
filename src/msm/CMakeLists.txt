@@ -8,22 +8,16 @@ set(MSM_SRCS
     main.cpp
     MsmApplication.cpp
     MsmWindow.cpp
-    delegates/LanguageListViewDelegate.cpp
     dialogs/AccountTypeDialog.cpp
     dialogs/AddUserDialog.cpp
     dialogs/ChangePasswordDialog.cpp
-    dialogs/SelectLocalesDialog.cpp
     dialogs/TimeZoneDialog.cpp
     dialogs/PreviewFileDialog.cpp
     global/Global.cpp
     global/Const.h
     mhwd/mhwd.cpp
     mhwd/vita/string.cpp
-    models/EnabledLocalesModel.cpp
-    models/SupportedLocalesItem.cpp
-    models/SupportedLocalesModel.cpp
     models/TimeDate.cpp
-    pages/PageLanguage.cpp
     pages/PageLanguagePackages.cpp
     pages/PageMhwd.cpp
     pages/PageNotifications.cpp
@@ -39,9 +33,7 @@ set(MSM_UI
     dialogs/AccountTypeDialog.ui
     dialogs/AddUserDialog.ui
     dialogs/ChangePasswordDialog.ui
-    dialogs/SelectLocalesDialog.ui
     dialogs/TimeZoneDialog.ui
-    pages/PageLanguage.ui
     pages/PageLanguagePackages.ui
     pages/PageMhwd.ui
     pages/PageNotifications.ui
@@ -62,6 +54,7 @@ SET_TARGET_PROPERTIES(msm_bin
 target_link_libraries(msm_bin
     msm_page_kernel
     msm_page_keyboard
+    msm_page_locale
     Qt5::Core
     Qt5::Widgets
     Qt5::DBus

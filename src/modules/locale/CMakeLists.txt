@@ -36,6 +36,26 @@ install(FILES msm_locale.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 kauth_install_actions(org.manjaro.msm.locale msm_locale.actions)
 
 add_executable(msm_locale_authhelper LocaleAuthHelper.cpp)
-target_link_libraries(msm_locale_authhelper Qt5::DBus KF5::Auth KF5::ConfigCore)
+target_link_libraries(msm_locale_authhelper msm Qt5::DBus KF5::Auth KF5::ConfigCore)
 install(TARGETS msm_locale_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_locale_authhelper org.manjaro.msm.locale root)
+
+
+#msm_page_kernel library
+set(MSM_LOCALE_PAGE_SRCS
+    ${MSM_LOCALE_GLOB}
+    EnabledLocalesModel.cpp
+    LanguageListViewDelegate.cpp
+    PageLanguage.cpp
+    SelectLocalesDialog.cpp
+    SupportedLocalesItem.cpp
+    SupportedLocalesModel.cpp)
+set(MSM_LOCALE_PAGE_UI
+    ui/PageLanguage.ui)
+qt5_wrap_ui(MSM_LOCALE_PAGE_SRCS ${MSM_LOCALE_PAGE_UI})
+QT5_ADD_RESOURCES (MSM_LOCALE_PAGE_SRCS ${MSM_LOCALE_RESOURCES})
+
+add_library(msm_page_locale STATIC ${MSM_LOCALE_PAGE_SRCS})
+target_compile_definitions(msm_page_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_link_libraries(msm_page_locale
+    msm)

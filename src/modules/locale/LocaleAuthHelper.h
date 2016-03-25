@@ -72,14 +72,6 @@ private:
      * @return true if succesfull, false otherwise.
      */
     bool setSystemLocale( const QStringList locale );
-
-    /**
-     * @brief localeToLocaleGenFormat converts a locale string to the format
-     *                                used by /etc/locale.gen
-     * @param locale locale string
-     * @return converted locale, or empty if it fails
-     */
-    QString localeToLocaleGenFormat( const QString locale );
 };
 
 #endif // LOCALEAUTHHELPER_H

@@ -21,7 +21,10 @@
 
 #include "PageLanguage.h"
 #include "ui_PageLanguage.h"
+#include "LanguageCommon.h"
 
+#include <QtCore/QFile>
+#include <QtCore/QTextStream>
 #include <QtDBus/QDBusInterface>
 #include <QtWidgets/QMenu>
 
@@ -395,7 +398,7 @@ PageLanguage::updateLocaleGen()
     // Add missing locales in the file
     for ( QString locale : locales )
     {
-        QString str = Global::localeToValidLocaleGenString( locale );
+        QString str = LanguageCommon::localeToLocaleGenFormat( locale );
 
         if ( str.isEmpty() )
         {

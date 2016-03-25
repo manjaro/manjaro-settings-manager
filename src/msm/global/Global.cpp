@@ -237,49 +237,6 @@ Global::isSystemUpToDate()
 }
 
 
-QString
-Global::localeToValidLocaleGenString( QString locale )
-{
-
-    QSet<QString> localeList;
-
-    QFile localeGen( "/etc/locale.gen" );
-    QString lines;
-    if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGen );
-        lines.append( in.readAll() );
-    }
-
-    QFile localeGenPacnew( "/etc/locale.gen.pacnew" );
-    if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGenPacnew );
-        lines.append( in.readAll() );
-    }
-    for ( const QString line : lines.split( '\n' ) )
-    {
-        if ( line.startsWith( "# " ) || line.simplified() == "#" || line.isEmpty() )
-            continue;
-
-        QString lineString = line.simplified();
-
-        if ( lineString.startsWith( "#" ) )
-            lineString.remove( '#' );
-
-        localeList.insert( lineString );
-    }
-
-    for ( const QString line : localeList )
-    {
-        if ( line.startsWith( locale + " " ) )
-            return line;
-    }
-
-    return "";
-}
-
-
 QList<Global::User>
 Global::getAllUsers()
 {
@@ -465,50 +422,6 @@ Global::getAllEnabledLocalesSplit()
     }
 
     return locales;
-}
-
-
-/*
- * Get the current running kernel using uname -r
- */
-QString
-Global::getRunningKernel()
-{
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert( "LANG", "C" );
-    env.insert( "LC_MESSAGES", "C" );
-    env.insert( "LC_ALL", "C" );
-
-    QProcess uname;
-    uname.setProcessEnvironment( env );
-
-    uname.start( "uname", QStringList() << "-r" );
-    uname.waitForFinished();
-    QString result = uname.readAllStandardOutput();
-    uname.close();
-    QStringList aux = result.split( ".", QString::SkipEmptyParts );
-    return QString( "linux%1%2" ).arg( aux.at( 0 ) ).arg( aux.at( 1 ) );
-}
-
-
-QStringList
-Global::getLtsKernels()
-{
-    return QStringList() << "linux310" << "linux312" << "linux314" << "linux318" << "linux41" << "linux44";
-}
-
-
-QStringList
-Global::getSesKernels()
-{
-    return QStringList() << "linux313" << "linux316" << "linux319" << "linux42";
-}
-
-
-QStringList
-Global::getRecommendedKernels()
-{
-    return QStringList() << "linux44";
 }
 
 

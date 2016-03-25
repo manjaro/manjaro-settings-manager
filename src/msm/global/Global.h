@@ -77,15 +77,8 @@ public:
     static bool getLanguagePackages( QList<Global::LanguagePackage>* availablePackages, QList<Global::LanguagePackage>* installedPackages );
     static bool isSystemUpToDate();
 
-    static QString localeToValidLocaleGenString( QString locale );
-
     static QList<Global::User> getAllUsers();
     static QList<Global::Group> getAllGroups();
-
-    static QString getRunningKernel();
-    static QStringList getLtsKernels();
-    static QStringList getSesKernels();
-    static QStringList getRecommendedKernels();
 
     static QByteArray performQuery( const QStringList args );
     static QByteArray performQuery( const QString& args );
