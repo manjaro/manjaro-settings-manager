@@ -102,6 +102,5 @@
         <file>translations/msm_vi.qm</file>
         <file>translations/msm_zh_CN.qm</file>
         <file>translations/msm_zh_TW.qm</file>
-        <file>resources/kbd-model-map</file>
     </qresource>
 </RCC>
