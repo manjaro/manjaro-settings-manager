@@ -182,66 +182,79 @@ PageLanguage::PageLanguage( QWidget* parent ) :
         {
             ui->addressComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::CollateRole ) )
         {
             ui->collateComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::CtypeRole ) )
         {
             ui->ctypeComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::IdentificationRole ) )
         {
             ui->identificationComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::LangRole ) )
         {
             ui->langComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::MeasurementRole ) )
         {
             ui->measurementComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::MonetaryRole ) )
         {
             ui->monetaryComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::MessagesRole ) )
         {
             ui->messagesComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::NameRole ) )
         {
             ui->nameComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::NumericRole ) )
         {
             ui->numericComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::PaperRole ) )
         {
             ui->paperComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::TelephoneRole ) )
         {
             ui->telephoneComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::TimeRole ) )
         {
             ui->timeComboBox->setCurrentIndex( topLeft.row() );
             isSystemLocalesModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
     } );
 
@@ -323,6 +336,7 @@ PageLanguage::load()
     enabledLocalesModel_->updateSystemLocales();
     isLocaleListModified_ = false;
     isSystemLocalesModified_ = false;
+    this -> setApplyEnabled( this, false );
 }
 
 
@@ -507,7 +521,10 @@ PageLanguage::addLocale()
 
     QString localeCode = dialog.getLocale();
     if ( enabledLocalesModel_->insertLocale( enabledLocalesModel_->rowCount( QModelIndex() ), 1, localeCode ) )
+    {
         isLocaleListModified_ = true;
+        this -> setApplyEnabled( this, true );
+    }
 }
 
 
@@ -521,6 +538,7 @@ PageLanguage::removeLocale()
         {
             ui->localeListView->setCurrentIndex( QModelIndex() );
             isLocaleListModified_ = true;
+            this -> setApplyEnabled( this, true );
         }
     }
 }
