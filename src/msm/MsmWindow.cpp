@@ -174,7 +174,7 @@ MsmWindow::buttonApply_clicked()
     PageWidget* page = dynamic_cast<PageWidget*>( ui->stackedWidget->currentWidget() );
     if ( !page )
         return;
-    page->load();
+    page->save();
 }
 
 
