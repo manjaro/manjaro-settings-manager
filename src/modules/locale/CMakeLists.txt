@@ -50,9 +50,7 @@ set(MSM_LOCALE_PAGE_SRCS
     SelectLocalesDialog.cpp
     SupportedLocalesItem.cpp
     SupportedLocalesModel.cpp)
-set(MSM_LOCALE_PAGE_UI
-    ui/PageLanguage.ui)
-qt5_wrap_ui(MSM_LOCALE_PAGE_SRCS ${MSM_LOCALE_PAGE_UI})
+qt5_wrap_ui(MSM_LOCALE_PAGE_SRCS ${MSM_LOCALE_UI})
 QT5_ADD_RESOURCES (MSM_LOCALE_PAGE_SRCS ${MSM_LOCALE_RESOURCES})
 
 add_library(msm_page_locale STATIC ${MSM_LOCALE_PAGE_SRCS})

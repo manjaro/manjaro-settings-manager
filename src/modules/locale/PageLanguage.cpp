@@ -20,7 +20,7 @@
  */
 
 #include "PageLanguage.h"
-#include "ui_PageLanguage.h"
+#include "ui_LocaleModule.h"
 #include "LanguageCommon.h"
 
 #include <QtCore/QFile>
@@ -31,7 +31,7 @@
 
 PageLanguage::PageLanguage( QWidget* parent ) :
     PageWidget( parent ),
-    ui( new Ui::PageLanguage ),
+    ui( new Ui::LocaleModule ),
     enabledLocalesModel_( new EnabledLocalesModel ),
     languageListViewDelegate_( new LanguageListViewDelegate )
 {

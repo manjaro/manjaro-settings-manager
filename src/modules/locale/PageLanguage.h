@@ -30,7 +30,7 @@
 
 namespace Ui
 {
-class PageLanguage;
+class LocaleModule;
 }
 
 
@@ -47,7 +47,7 @@ public:
     void defaults();
 
 private:
-    Ui::PageLanguage* ui;
+    Ui::LocaleModule* ui;
     EnabledLocalesModel* enabledLocalesModel_;
     LanguageListViewDelegate* languageListViewDelegate_;
     QString currentLocale_;
