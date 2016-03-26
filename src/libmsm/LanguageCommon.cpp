@@ -79,8 +79,6 @@ LanguageCommon::supportedLocales( bool clean )
         QTextStream in( &localeGenPacnew );
         lines.append( in.readAll() );
     }
-    else
-        qDebug() << "warning: failed to open '/etc/locale.gen.pacnew'";
 
     QSet<QString> localeList;
     for ( QString line : lines.split( '\n' ) )
