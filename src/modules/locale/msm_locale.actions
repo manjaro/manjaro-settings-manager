@@ -6,6 +6,8 @@ URL=https://github.com/manjaro/manjaro-settings-manager
 
 [org.manjaro.msm.locale.save]
 Name=Save Locale Settings
+Name[pl]=Zapisz ustawienia regionalne
 Description=Save Locale Settings
+Description[pl]=Zapisz ustawienia regionalne
 Policy=auth_admin
 Persistence=session

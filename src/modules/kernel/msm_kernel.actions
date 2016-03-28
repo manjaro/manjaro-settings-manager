@@ -6,12 +6,16 @@ URL=https://github.com/manjaro/manjaro-settings-manager
 
 [org.manjaro.msm.kernel.install]
 Name=Install Kernel
+Name[pl]=Zainstaluj jądro
 Description=Install Kernel
+Description[pl]=Zainstaluj jądro
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.kernel.remove]
 Name=Remove Kernel
+Name[pl]=Usuń jądro
 Description=Remove Kernel
+Description[pl]=Usuń jądro
 Policy=auth_admin
 Persistence=session
