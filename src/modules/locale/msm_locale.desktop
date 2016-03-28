@@ -14,5 +14,7 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Locale
 Name[x-test]=xxLocalexx
+Name[pl]=Język
 Comment=Locale Settings
 Comment[x-test]=xxLocale Settingssxx
+Comment[pl]=Ustawienia dotyczące języka

@@ -14,5 +14,7 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Keyboard
 Name[x-test]=xxKeyboardxx
+Name[pl]=Klawiatura
 Comment=Keyboard Settings
 Comment[x-test]=xxKeyboard Settingssxx
+Comment[pl]=Ustawienia klawiatury
