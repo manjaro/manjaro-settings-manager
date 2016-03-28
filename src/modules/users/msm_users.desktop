@@ -14,5 +14,7 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=User Accounts
 Name[x-test]=xxUser Accountsxx
+Name[pl]=Użytkownicy
 Comment=User Accounts
 Comment[x-test]=xxUser Accountsxx
+Comment[pl]=Konta użytkowników

@@ -14,5 +14,7 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Language Packages
 Name[x-test]=xxLanguage Packagesxx
+Name[pl]=Paczki językowe
 Comment=Language Packages
 Comment[x-test]=xxLanguage Packagesxx
+Comment[pl]=Paczki językowe

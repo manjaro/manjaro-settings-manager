@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Type=Service
 Icon=audio-card
@@ -14,5 +15,6 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Hardware Detection
 Name[x-test]=xxHardware Detectionxx
+Name[pl]=Sterowniki
 Comment=Hardware detection and installation
 Comment[x-test]=xxHardware detection and installationxx
