@@ -3,7 +3,7 @@
         {
             "name": "Firefox",
             "l10n_package": "firefox-i18n-%",
-            "parent_packages": ["firefox"]
+            "parent_packages": ["firefox","firefox-gtk2"]
         },
         {
             "name": "Firefox for KDE",
@@ -23,9 +23,10 @@
         {
             "name": "Calligra Suite",
             "l10n_package": "calligra-l10n-%",
-            "parent_packages": ["calligra-braindump","calligra-flow","calligra-karbon",
-                         "calligra-kexi","calligra-krita","calligra-plan",
-                         "calligra-stage","calligra-sheets","calligra-words"]
+            "parent_packages": [
+                "calligra-braindump","calligra-flow","calligra-karbon","calligra-kexi",
+                "calligra-krita","calligra-plan","calligra-stage","calligra-sheets",
+                "calligra-words"]
         },
         {
             "name": "Gimp",
@@ -45,7 +46,9 @@
         {
             "name": "KDE Applications",
             "l10n_package": "kde-l10n-%",
-            "parent_packages": ["kdebase-runtime"]
+            "parent_packages": [
+                "ark","cantor","dolphin","filelight","gwenview","kate","kcalc","kdebase-runtime",
+                "kleopatra","kmail","kompare","konsole","okteta","marble","spectacle"]
         },
         {
             "name": "Libreoffice Still",
