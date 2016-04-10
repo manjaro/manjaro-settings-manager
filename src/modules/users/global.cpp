@@ -24,6 +24,29 @@
 #include <QtCore/QProcessEnvironment>
 #include <QtNetwork/QNetworkInterface>
 
+int
+Global::runProcess( QString cmd, QStringList args, QStringList writeArgs, QString& error )
+{
+    QProcess process;
+    process.setProcessChannelMode( QProcess::MergedChannels );
+    process.start( cmd, args );
+
+    if ( !process.waitForStarted( 5000 ) )
+        return -1;
+
+    foreach ( QString arg, writeArgs )
+        process.write( QString( arg + "\n" ).toUtf8() );
+
+    process.closeWriteChannel();
+
+    if ( !process.waitForFinished( 15000 ) )
+        return -1;
+
+    error = QString::fromUtf8( process.readAll() );
+    return process.exitCode();
+}
+
+
 QList<Global::User>
 Global::getAllUsers()
 {

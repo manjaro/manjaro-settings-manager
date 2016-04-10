@@ -43,3 +43,22 @@ add_executable(msm_users_authhelper UsersAuthHelper.cpp)
 target_link_libraries(msm_users_authhelper KF5::Auth KF5::ConfigCore)
 install(TARGETS msm_users_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_users_authhelper org.manjaro.msm.users root)
+
+
+#msm_users_page library
+set(MSM_USERS_PAGE_SRCS
+    AccountTypeDialog.cpp
+    AddUserDialog.cpp
+    ChangePasswordDialog.cpp
+    FlatButton.cpp
+    global.cpp
+    ListWidget.cpp
+    PageUsers.cpp
+    PreviewFileDialog.cpp)
+qt5_wrap_ui(MSM_USERS_PAGE_SRCS ${MSM_USERS_UI})
+QT5_ADD_RESOURCES (MSM_USERS_PAGE_SRCS ${MSM_USERS_RESOURCES})
+
+add_library(msm_page_users STATIC ${MSM_USERS_PAGE_SRCS})
+target_compile_definitions(msm_page_users PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_link_libraries(msm_page_users
+    msm)

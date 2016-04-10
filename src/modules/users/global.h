@@ -52,6 +52,7 @@ public:
         QStringList members;
     };
 
+    static int runProcess( QString cmd, QStringList args, QStringList writeArgs, QString& error );
     static QList<Global::User> getAllUsers();
     static QList<Global::Group> getAllGroups();
 

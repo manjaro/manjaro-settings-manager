@@ -21,14 +21,14 @@
 #ifndef PAGEUSERS_H
 #define PAGEUSERS_H
 
-#include "dialogs/AddUserDialog.h"
-#include "dialogs/ChangePasswordDialog.h"
-#include "dialogs/AccountTypeDialog.h"
-#include "dialogs/PreviewFileDialog.h"
+#include "AddUserDialog.h"
+#include "ChangePasswordDialog.h"
+#include "AccountTypeDialog.h"
+#include "PreviewFileDialog.h"
 #include "PageWidget.h"
 
-#include "global/Global.h"
-#include "global/Const.h"
+#include "global.h"
+#include "const.h"
 
 #include <QIcon>
 #include <QPixmap>

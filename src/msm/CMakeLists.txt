@@ -8,27 +8,16 @@ set(MSM_SRCS
     main.cpp
     MsmApplication.cpp
     MsmWindow.cpp
-    dialogs/AccountTypeDialog.cpp
-    dialogs/AddUserDialog.cpp
-    dialogs/ChangePasswordDialog.cpp
-    dialogs/PreviewFileDialog.cpp
     global/Global.cpp
     global/Const.h
     pages/PageLanguagePackages.cpp
     pages/PageNotifications.cpp
-    pages/PageUsers.cpp
-    widgets/FlatButton.cpp
-    widgets/ListWidget.cpp
     widgets/LocaleGlobal.cpp)
 
 set(MSM_UI
     MsmWindow.ui
-    dialogs/AccountTypeDialog.ui
-    dialogs/AddUserDialog.ui
-    dialogs/ChangePasswordDialog.ui
     pages/PageLanguagePackages.ui
-    pages/PageNotifications.ui
-    pages/PageUsers.ui)
+    pages/PageNotifications.ui)
 qt5_wrap_ui(MSM_SRCS ${MSM_UI})
 
 set(MSM_RESOURCES
@@ -47,6 +36,7 @@ target_link_libraries(msm_bin
     msm_page_locale
     msm_page_mhwd
     msm_page_timedate
+    msm_page_users
     Qt5::Core
     Qt5::Widgets
     Qt5::DBus
