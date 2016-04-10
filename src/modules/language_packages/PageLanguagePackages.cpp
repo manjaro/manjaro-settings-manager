@@ -60,19 +60,6 @@ PageLanguagePackages::load()
 {
     loadLanguagePackages();
     loadNotificationsSettings();
-    // Clean up first
-    /*ui->treeWidgetAvailable->clear();
-    ui->treeWidgetInstalled->clear();
-
-    QList<Global::LanguagePackage> availablePackages, installedPackages;
-
-    if ( Global::getLanguagePackages( &availablePackages, &installedPackages ) )
-    {
-        addLanguagePackagesToTreeWidget( ui->treeWidgetAvailable, &availablePackages, true );
-        addLanguagePackagesToTreeWidget( ui->treeWidgetInstalled, &installedPackages, false );
-    }
-
-    updateApplyEnabledState();*/
 }
 
 
