@@ -11,29 +11,23 @@ set(MSM_SRCS
     dialogs/AccountTypeDialog.cpp
     dialogs/AddUserDialog.cpp
     dialogs/ChangePasswordDialog.cpp
-    dialogs/TimeZoneDialog.cpp
     dialogs/PreviewFileDialog.cpp
     global/Global.cpp
     global/Const.h
-    models/TimeDate.cpp
     pages/PageLanguagePackages.cpp
     pages/PageNotifications.cpp
-    pages/PageTimeDate.cpp
     pages/PageUsers.cpp
     widgets/FlatButton.cpp
     widgets/ListWidget.cpp
-    widgets/LocaleGlobal.cpp
-    widgets/TimeZoneWidget.cpp)
+    widgets/LocaleGlobal.cpp)
 
 set(MSM_UI
     MsmWindow.ui
     dialogs/AccountTypeDialog.ui
     dialogs/AddUserDialog.ui
     dialogs/ChangePasswordDialog.ui
-    dialogs/TimeZoneDialog.ui
     pages/PageLanguagePackages.ui
     pages/PageNotifications.ui
-    pages/PageTimeDate.ui
     pages/PageUsers.ui)
 qt5_wrap_ui(MSM_SRCS ${MSM_UI})
 
@@ -52,6 +46,7 @@ target_link_libraries(msm_bin
     msm_page_keyboard
     msm_page_locale
     msm_page_mhwd
+    msm_page_timedate
     Qt5::Core
     Qt5::Widgets
     Qt5::DBus

@@ -20,17 +20,22 @@
 
 #include "TimeZoneDialog.h"
 #include "TimeDateModule.h"
-#include "ui_TimeDateModule.h"
+#include "ui_PageTimeDate.h"
+
+#include <KAboutData>
+#include <KPluginFactory>
 
 #include <QtCore/QStringList>
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
 #include <QtCore/QTimer>
 
+K_PLUGIN_FACTORY( MsmTimeDateFactory,
+                  registerPlugin<TimeDateModule>( "msm_timedate" ); )
 
-TimeDateModule::TimeDateModule( QWidget* parent ) :
-    QWidget( parent ),
-    ui( new Ui::TimeDateModule ),
+TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
+    KCModule( parent, args ),
+    ui( new Ui::PageTimeDate ),
     m_timeDate( new TimeDate ),
     m_timeFieldsTimer ( new QTimer ( this ) )
 {
@@ -243,3 +248,5 @@ TimeDateModule::timeZoneClicked()
         emit changed();
     }
 }
+
+#include "TimeDateModule.moc"

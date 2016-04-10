@@ -23,16 +23,14 @@
 
 #include "TimeDate.h"
 
-#include <KAboutData>
-
-#include <QtWidgets/QWidget>
+#include <KCModule>
 
 namespace Ui
 {
-class TimeDateModule;
+class PageTimeDate;
 }
 
-class TimeDateModule : public QWidget
+class TimeDateModule : public KCModule
 {
     Q_OBJECT
 
@@ -42,7 +40,7 @@ public:
      *
      * @param parent Parent widget of the module
      */
-    explicit TimeDateModule( QWidget* parent );
+    explicit TimeDateModule( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -75,7 +73,7 @@ public slots:
     void timeZoneClicked();
 
 private:
-    Ui::TimeDateModule* ui;
+    Ui::PageTimeDate* ui;
     TimeDate* m_timeDate;
     KAboutData* m_aboutData;
     QTimer* m_timeFieldsTimer;

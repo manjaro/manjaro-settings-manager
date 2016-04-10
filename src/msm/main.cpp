@@ -30,8 +30,10 @@
 int main( int argc, char* argv[] )
 {
     MsmApplication app( argc, argv );
+    // Needed for resources in libs
     Q_INIT_RESOURCE(kernel);
     Q_INIT_RESOURCE(keyboard);
+    Q_INIT_RESOURCE(timedate);
 
     QCommandLineParser parser;
     parser.setApplicationDescription( app.applicationName() );

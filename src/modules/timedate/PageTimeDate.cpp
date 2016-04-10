@@ -21,7 +21,7 @@
 #include "PageTimeDate.h"
 #include "ui_PageTimeDate.h"
 
-#include "dialogs/TimeZoneDialog.h"
+#include "TimeZoneDialog.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>
@@ -33,33 +33,49 @@
 PageTimeDate::PageTimeDate( QWidget* parent ) :
     PageWidget( parent ),
     ui( new Ui::PageTimeDate ),
-    timeDate( new TimeDate )
+    m_timeDate( new TimeDate )
 {
     ui->setupUi( this );
     setTitle( tr( "Time and Date" ) );
     setIcon( QPixmap( ":/images/resources/timedate.png" ) );
     setShowApplyButton( true );
 
-    connect( ui->timeEdit, &QTimeEdit::timeChanged, this, &PageTimeDate::timeEdited );
-    connect( ui->dateEdit, &QTimeEdit::dateChanged, this, &PageTimeDate::dateEdited );
     connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &PageTimeDate::isNtpEnabledToggled );
     connect( ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked );
+
+    connect( ui->timeEdit, &QTimeEdit::timeChanged,
+             [this] ()
+    {
+        m_isTimeEdited = true;
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->dateEdit, &QTimeEdit::dateChanged,
+             [this] ()
+    {
+        m_isDateEdited = true;
+        this -> setApplyEnabled( this, true );
+    } );
+    connect( ui->isRtcLocalCheckBox, &QCheckBox::toggled,
+             [this] ()
+    {
+        this -> setApplyEnabled( this, true );
+    } );
 }
 
 
 PageTimeDate::~PageTimeDate()
 {
     delete ui;
-    delete timeDate;
+    delete m_timeDate;
 }
 
 
 void
 PageTimeDate::load()
 {
-    isTimeEdited_ = false;
-    isDateEdited_ = false;
-    timeZone_ = timeDate->timeZone();
+    m_isTimeEdited = false;
+    m_isDateEdited = false;
+    m_timeZone = m_timeDate->timeZone();
     updateFields();
     updateTimeFields();
     QTimer* timer = new QTimer( this );
@@ -71,27 +87,27 @@ PageTimeDate::load()
 void
 PageTimeDate::save()
 {
-    if ( ui->isNtpEnabledCheckBox->isChecked() != timeDate->isNtpEnabled() )
-        timeDate->setNtp( ui->isNtpEnabledCheckBox->isChecked() );
+    if ( ui->isNtpEnabledCheckBox->isChecked() != m_timeDate->isNtpEnabled() )
+        m_timeDate->setNtp( ui->isNtpEnabledCheckBox->isChecked() );
 
     // Only possible to modify date if ntp is disabled
-    if ( ( isTimeEdited_ || isDateEdited_ ) && !ui->isNtpEnabledCheckBox->isChecked() )
+    if ( ( m_isTimeEdited || m_isDateEdited ) && !ui->isNtpEnabledCheckBox->isChecked() )
     {
         QDateTime time( ui->dateEdit->date(), ui->timeEdit->time() );
-        timeDate->setTime( time );
+        m_timeDate->setTime( time );
     }
 
-    if ( ui->isRtcLocalCheckBox->isChecked() != timeDate->isRtcInLocalTimeZone() )
-        timeDate->setLocalRtc( ui->isRtcLocalCheckBox->isChecked() );
+    if ( ui->isRtcLocalCheckBox->isChecked() != m_timeDate->isRtcInLocalTimeZone() )
+        m_timeDate->setLocalRtc( ui->isRtcLocalCheckBox->isChecked() );
 
-    if ( !timeZone_.isEmpty() && QTimeZone( timeZone_.toLatin1() ).isValid() )
+    if ( !m_timeZone.isEmpty() && QTimeZone( m_timeZone.toLatin1() ).isValid() )
     {
-        if ( timeZone_ != timeDate->timeZone() )
-            timeDate->setTimeZone( timeZone_ );
+        if ( m_timeZone != m_timeDate->timeZone() )
+            m_timeDate->setTimeZone( m_timeZone );
     }
 
-    isTimeEdited_ = false;
-    isDateEdited_ = false;
+    m_isTimeEdited = false;
+    m_isDateEdited = false;
     updateFields();
     updateTimeFields();
 }
@@ -100,24 +116,38 @@ PageTimeDate::save()
 void
 PageTimeDate::updateFields()
 {
-    if ( timeDate->canNtp() )
-        ui->isNtpEnabledCheckBox->setChecked( timeDate->isNtpEnabled() );
+    if ( m_timeDate->canNtp() )
+        ui->isNtpEnabledCheckBox->setChecked( m_timeDate->isNtpEnabled() );
     else
     {
         ui->isNtpEnabledCheckBox->setChecked( false );
         ui->isNtpEnabledCheckBox->setEnabled( false );
     }
 
-    ui->isRtcLocalCheckBox->setChecked( timeDate->isRtcInLocalTimeZone() );
+    ui->isRtcLocalCheckBox->setChecked( m_timeDate->isRtcInLocalTimeZone() );
 
-    QTimeZone timeZone = QTimeZone( timeZone_.toLatin1() );
+    QTimeZone timeZone = QTimeZone( m_timeZone.toLatin1() );
     if ( timeZone.isValid() )
     {
-        ui->timeZoneLabel_2->setText( timeZone_ );
+        ui->timeZoneLabel_2->setText( m_timeZone );
         ui->countryLabel_2->setText( QLocale::countryToString( timeZone.country() ) );
-        ui->hasDaylightTimeCheckBox->setChecked( timeZone.hasDaylightTime() );
-        ui->isDaylightTimeCheckBox->setChecked( timeZone.isDaylightTime( QDateTime::currentDateTime() ) );
-        ui->hasTransitionsCheckBox->setChecked( timeZone.hasTransitions() );
+
+        QIcon yesIcon = QIcon();
+        yesIcon.addFile( ":/images/yes.svg", QSize( 16, 16 ) );
+        QIcon noIcon = QIcon();
+        noIcon.addFile( ":/images/no.svg", QSize( 16, 16 ) );
+        if ( timeZone.hasDaylightTime() )
+            ui->hasDaylightTimeIcon->setPixmap( yesIcon.pixmap( QSize( 16, 16 ) ) );
+        else
+            ui->hasDaylightTimeIcon->setPixmap( noIcon.pixmap( QSize( 16, 16 ) ) );
+        if ( timeZone.isDaylightTime( QDateTime::currentDateTime() ) )
+            ui->isDaylightTimeIcon->setPixmap( yesIcon.pixmap( QSize( 16, 16 ) ) );
+        else
+            ui->isDaylightTimeIcon->setPixmap( noIcon.pixmap( QSize( 16, 16 ) ) );
+        if ( timeZone.hasTransitions() )
+            ui->hasTransitionsIcon->setPixmap( yesIcon.pixmap( QSize( 16, 16 ) ) );
+        else
+            ui->hasTransitionsIcon->setPixmap( noIcon.pixmap( QSize( 16, 16 ) ) );
 
         QTimeZone::OffsetData offset = timeZone.nextTransition( QDateTime::currentDateTime() );
         if ( offset.atUtc != QDateTime() )
@@ -139,34 +169,20 @@ PageTimeDate::updateFields()
 void
 PageTimeDate::updateTimeFields()
 {
-    if ( !isTimeEdited_ )
+    if ( !m_isTimeEdited )
     {
         ui->timeEdit->blockSignals( true );
-        ui->timeEdit->setTime( timeDate->localDateTime().time() );
+        ui->timeEdit->setTime( m_timeDate->localDateTime().time() );
         ui->timeEdit->blockSignals( false );
     }
-    if ( !isDateEdited_ )
+    if ( !m_isDateEdited )
     {
         ui->dateEdit->blockSignals( true );
-        ui->dateEdit->setDate( timeDate->localDateTime().date() );
+        ui->dateEdit->setDate( m_timeDate->localDateTime().date() );
         ui->dateEdit->blockSignals( false );
     }
-    ui->utcTimeLabel->setText( timeDate->utcDateTime().toString( "dddd yyyy-MM-dd HH:mm:ss" ) );
-    ui->rtcTimeLabel->setText( timeDate->rtcDateTime().toString( "dddd yyyy-MM-dd HH:mm:ss" ) );
-}
-
-
-void
-PageTimeDate::timeEdited()
-{
-    isTimeEdited_ = true;
-}
-
-
-void
-PageTimeDate::dateEdited()
-{
-    isDateEdited_ = true;
+    ui->utcTimeLabel->setText( m_timeDate->utcDateTime().toString( "dddd yyyy-MM-dd HH:mm:ss" ) );
+    ui->rtcTimeLabel->setText( m_timeDate->rtcDateTime().toString( "dddd yyyy-MM-dd HH:mm:ss" ) );
 }
 
 
@@ -183,6 +199,7 @@ PageTimeDate::isNtpEnabledToggled()
         ui->timeEdit->setEnabled( true );
         ui->dateEdit->setEnabled( true );
     }
+    this -> setApplyEnabled( this, true );
 }
 
 
@@ -190,14 +207,15 @@ void
 PageTimeDate::timeZoneClicked()
 {
     TimeZoneDialog dialog( this );
-    QString region = timeZone_.split( "/" ).value( 0 );
-    QString zone = timeZone_.split( "/" ).value( 1 );
+    QString region = m_timeZone.split( "/" ).value( 0 );
+    QString zone = m_timeZone.split( "/" ).value( 1 );
     dialog.init( region, zone );
     dialog.exec();
-    if ( dialog.getCurrentLocation() != timeZone_ )
+    if ( dialog.currentLocation() != m_timeZone )
     {
-        timeZone_ = dialog.getCurrentLocation();
+        m_timeZone = dialog.currentLocation();
         updateFields();
         updateTimeFields();
+        this -> setApplyEnabled( this, true );
     }
 }
