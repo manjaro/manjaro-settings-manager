@@ -23,7 +23,6 @@
 #ifndef PAGEMHWD_H
 #define PAGEMHWD_H
 
-#include "global/Global.h"
 #include "ApplyDialog.h"
 #include "PageWidget.h"
 

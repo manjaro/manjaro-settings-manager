@@ -15,11 +15,8 @@ set(MSM_SRCS
     dialogs/PreviewFileDialog.cpp
     global/Global.cpp
     global/Const.h
-    mhwd/mhwd.cpp
-    mhwd/vita/string.cpp
     models/TimeDate.cpp
     pages/PageLanguagePackages.cpp
-    pages/PageMhwd.cpp
     pages/PageNotifications.cpp
     pages/PageTimeDate.cpp
     pages/PageUsers.cpp
@@ -35,7 +32,6 @@ set(MSM_UI
     dialogs/ChangePasswordDialog.ui
     dialogs/TimeZoneDialog.ui
     pages/PageLanguagePackages.ui
-    pages/PageMhwd.ui
     pages/PageNotifications.ui
     pages/PageTimeDate.ui
     pages/PageUsers.ui)
@@ -55,6 +51,7 @@ target_link_libraries(msm_bin
     msm_page_kernel
     msm_page_keyboard
     msm_page_locale
+    msm_page_mhwd
     Qt5::Core
     Qt5::Widgets
     Qt5::DBus

@@ -22,7 +22,7 @@
 #include "PageMhwd.h"
 #include "ui_PageMhwd.h"
 
-#include "mhwd/mhwd.h"
+#include "libmhwd/mhwd.h"
 
 PageMhwd::PageMhwd( QWidget* parent ) :
     PageWidget( parent ),

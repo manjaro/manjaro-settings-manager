@@ -37,3 +37,18 @@ add_executable(msm_mhwd_authhelper MhwdAuthHelper.cpp)
 target_link_libraries(msm_mhwd_authhelper KF5::Auth KF5::ConfigCore)
 install(TARGETS msm_mhwd_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_mhwd_authhelper org.manjaro.msm.mhwd root)
+
+
+#msm_page_mhwd library
+set(MSM_MHWD_PAGE_SRCS
+    ${MSM_MHWD_GLOB}
+    PageMhwd.cpp
+    libmhwd/mhwd.cpp
+    libmhwd/vita/string.cpp)
+qt5_wrap_ui(MSM_MHWD_PAGE_SRCS ${MSM_MHWD_UI})
+QT5_ADD_RESOURCES (MSM_MHWD_PAGE_SRCS ${MSM_MHWD_RESOURCES})
+
+add_library(msm_page_mhwd STATIC ${MSM_MHWD_PAGE_SRCS})
+target_compile_definitions(msm_page_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_link_libraries(msm_page_mhwd
+    msm)
