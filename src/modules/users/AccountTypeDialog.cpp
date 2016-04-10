@@ -71,11 +71,11 @@ AccountTypeDialog::exec( QString username )
     this->m_username = username;
     ui->treeWidget->clear();
 
-    QList<Global::Group> groups = Global::getAllGroups();
+    QList<UsersCommon::Group> groups = UsersCommon::getAllGroups();
 
     for ( int i = 0; i < groups.size(); i++ )
     {
-        const Global::Group* group = &groups.at( i );
+        const UsersCommon::Group* group = &groups.at( i );
 
         QTreeWidgetItem* item = new QTreeWidgetItem( ui->treeWidget );
         item->setText( 0, group->name );

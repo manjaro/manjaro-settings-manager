@@ -25,8 +25,7 @@
 #include "ChangePasswordDialog.h"
 #include "AccountTypeDialog.h"
 #include "PreviewFileDialog.h"
-#include "global.h"
-#include "const.h"
+#include "UsersCommon.h"
 
 #include <KCModule>
 
@@ -81,7 +80,7 @@ private:
     {
     public:
         ListWidgetItem( QListWidget* parent ) : QListWidgetItem( parent ) {}
-        Global::User user;
+        UsersCommon::User user;
     };
 
     Ui::PageUsers* ui;

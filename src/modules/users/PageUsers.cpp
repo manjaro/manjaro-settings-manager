@@ -51,11 +51,11 @@ PageUsers::load()
 {
     ui->listWidget->clear();
 
-    QList<Global::User> users = Global::getAllUsers();
+    QList<UsersCommon::User> users = UsersCommon::getAllUsers();
 
     for ( int i = 0; i < users.size(); i++ )
     {
-        const Global::User* user = &users.at( i );
+        const UsersCommon::User* user = &users.at( i );
 
         ListWidgetItem* item = new ListWidgetItem( ui->listWidget );
         item->setText( user->username );
@@ -88,11 +88,11 @@ PageUsers::setupUserData( QListWidgetItem* current )
     ui->buttonAccountType->setText( tr( "Standard" ) );
     ui->userWidget->setEnabled( true );
 
-    QList<Global::Group> groups = Global::getAllGroups();
+    QList<UsersCommon::Group> groups = UsersCommon::getAllGroups();
 
     for ( int i = 0; i < groups.size(); i++ )
     {
-        const Global::Group* group = &groups.at( i );
+        const UsersCommon::Group* group = &groups.at( i );
         if ( group->name != ADMIN_GROUP || !group->members.contains( current->text() ) )
             continue;
 
@@ -225,7 +225,7 @@ PageUsers::buttonRemoveUser_clicked()
     // Remove user
     QString errorMessage;
 
-    if ( Global::runProcess( "userdel",
+    if ( UsersCommon::runProcess( "userdel",
                              args << item->text(),
                              QStringList(),
                              errorMessage ) != 0 )

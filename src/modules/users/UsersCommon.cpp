@@ -19,13 +19,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "global.h"
+#include "UsersCommon.h"
 
 #include <QtCore/QProcessEnvironment>
 #include <QtNetwork/QNetworkInterface>
 
 int
-Global::runProcess( QString cmd, QStringList args, QStringList writeArgs, QString& error )
+UsersCommon::runProcess( QString cmd, QStringList args, QStringList writeArgs, QString& error )
 {
     QProcess process;
     process.setProcessChannelMode( QProcess::MergedChannels );
@@ -47,10 +47,10 @@ Global::runProcess( QString cmd, QStringList args, QStringList writeArgs, QStrin
 }
 
 
-QList<Global::User>
-Global::getAllUsers()
+QList<UsersCommon::User>
+UsersCommon::getAllUsers()
 {
-    QList<Global::User> users;
+    QList<UsersCommon::User> users;
 
     const QString passwdFilePath { "/etc/passwd" };
     QFile file( passwdFilePath );
@@ -83,10 +83,10 @@ Global::getAllUsers()
 }
 
 
-QList<Global::Group>
-Global::getAllGroups()
+QList<UsersCommon::Group>
+UsersCommon::getAllGroups()
 {
-    QList<Global::Group> groups;
+    QList<UsersCommon::Group> groups;
 
     const QString groupconfFilePath { "/etc/group" };
     QFile file( groupconfFilePath  );

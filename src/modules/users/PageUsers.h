@@ -26,9 +26,7 @@
 #include "AccountTypeDialog.h"
 #include "PreviewFileDialog.h"
 #include "PageWidget.h"
-
-#include "global.h"
-#include "const.h"
+#include "UsersCommon.h"
 
 #include <QIcon>
 #include <QPixmap>
@@ -63,7 +61,7 @@ private:
     {
     public:
         ListWidgetItem( QListWidget* parent ) : QListWidgetItem( parent ) {}
-        Global::User user;
+        UsersCommon::User user;
     };
 
     Ui::PageUsers* ui;

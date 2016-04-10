@@ -19,8 +19,22 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GLOBAL_H
-#define GLOBAL_H
+#ifndef USERSCOMMON_H
+#define USERSCOMMON_H
+
+#define LANGUAGE_PACKAGES_FILE  "/var/lib/manjaro-system-settings/language_packages.list"
+#define LOCALE_GEN              "/etc/locale.gen"
+#define LOCALE_CONF              "/etc/locale.conf"
+#define LOCALESSUPPORTED "/usr/share/i18n/SUPPORTED"
+#define LOCALESINFO "/usr/share/i18n/LOCALESINFO"
+#define XKB_FILE "/usr/share/X11/xkb/rules/base.lst"
+#define MIN_USER_UUID 1000
+#define PASSWD "/etc/passwd"
+#define GROUPCONF "/etc/group"
+#define FACES_IMAGE_FOLDER "/usr/share/pixmaps/faces"
+#define DEFAULT_USER_GROUPS "video,audio,power,disk,storage,optical,network,lp,scanner"
+#define ADMIN_GROUP "wheel"
+#define SUDOERSFILE "/etc/sudoers"
 
 #include <QString>
 #include <QFile>
@@ -36,7 +50,7 @@
 #include <QDir>
 #include <QtCore/QByteArray>
 
-class Global
+class UsersCommon
 {
 public:
 
@@ -53,11 +67,11 @@ public:
     };
 
     static int runProcess( QString cmd, QStringList args, QStringList writeArgs, QString& error );
-    static QList<Global::User> getAllUsers();
-    static QList<Global::Group> getAllGroups();
+    static QList<UsersCommon::User> getAllUsers();
+    static QList<UsersCommon::Group> getAllGroups();
 
 private:
 
 };
 
-#endif // GLOBAL_H
+#endif // USERSCOMMON_H

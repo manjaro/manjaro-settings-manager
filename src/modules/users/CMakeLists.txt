@@ -9,7 +9,7 @@ set(MSM_USERS_SRCS
     AddUserDialog.cpp
     ChangePasswordDialog.cpp
     FlatButton.cpp
-    global.cpp
+    UsersCommon.cpp
     PreviewFileDialog.cpp
     UsersModule.cpp)
 
@@ -51,7 +51,7 @@ set(MSM_USERS_PAGE_SRCS
     AddUserDialog.cpp
     ChangePasswordDialog.cpp
     FlatButton.cpp
-    global.cpp
+    UsersCommon.cpp
     PageUsers.cpp
     PreviewFileDialog.cpp)
 qt5_wrap_ui(MSM_USERS_PAGE_SRCS ${MSM_USERS_UI})

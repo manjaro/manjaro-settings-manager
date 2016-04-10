@@ -21,7 +21,7 @@
 #ifndef ADDUSERDIALOG_H
 #define ADDUSERDIALOG_H
 
-#include "const.h"
+#include "UsersCommon.h"
 
 #include <QDialog>
 #include <QMessageBox>

@@ -21,8 +21,7 @@
 #ifndef ACCOUNTTYPEDIALOG_H
 #define ACCOUNTTYPEDIALOG_H
 
-#include "const.h"
-#include "global.h"
+#include "UsersCommon.h"
 
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QTreeWidgetItem>
