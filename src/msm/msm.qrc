@@ -1,69 +1,17 @@
 <RCC>
     <qresource prefix="/images">
         <file>resources/settings.png</file>
-        <file>resources/help.png</file>
         <file>resources/apply.png</file>
         <file>resources/back.png</file>
         <file>resources/quit.png</file>
         <file>resources/locale.png</file>
         <file>resources/keyboard.png</file>
         <file>resources/locale-package.png</file>
-        <file>resources/language.png</file>
-        <file>resources/restore.png</file>
-        <file>resources/user.png</file>
         <file>resources/users.png</file>
-        <file>resources/add.png</file>
-        <file>resources/remove.png</file>
-        <file>resources/adduser.png</file>
-        <file>resources/lock.png</file>
-        <file>resources/ati.png</file>
         <file>resources/gpudriver.png</file>
-        <file>resources/nvidia.png</file>
-        <file>resources/intel.png</file>
-        <file>resources/intel-nvidia.png</file>
         <file>resources/tux-manjaro.png</file>
         <file>resources/notifications.png</file>
         <file>resources/timedate.png</file>
-        <file>resources/timezone/bg.png</file>
-        <file>resources/timezone/pin.png</file>
-        <file>resources/timezone/timezone_-1.0.png</file>
-        <file>resources/timezone/timezone_-10.0.png</file>
-        <file>resources/timezone/timezone_-11.0.png</file>
-        <file>resources/timezone/timezone_-2.0.png</file>
-        <file>resources/timezone/timezone_-3.0.png</file>
-        <file>resources/timezone/timezone_-3.5.png</file>
-        <file>resources/timezone/timezone_-4.0.png</file>
-        <file>resources/timezone/timezone_-4.5.png</file>
-        <file>resources/timezone/timezone_-5.0.png</file>
-        <file>resources/timezone/timezone_-5.5.png</file>
-        <file>resources/timezone/timezone_-6.0.png</file>
-        <file>resources/timezone/timezone_-7.0.png</file>
-        <file>resources/timezone/timezone_-8.0.png</file>
-        <file>resources/timezone/timezone_-9.0.png</file>
-        <file>resources/timezone/timezone_-9.5.png</file>
-        <file>resources/timezone/timezone_0.0.png</file>
-        <file>resources/timezone/timezone_1.0.png</file>
-        <file>resources/timezone/timezone_10.0.png</file>
-        <file>resources/timezone/timezone_10.5.png</file>
-        <file>resources/timezone/timezone_11.0.png</file>
-        <file>resources/timezone/timezone_11.5.png</file>
-        <file>resources/timezone/timezone_12.0.png</file>
-        <file>resources/timezone/timezone_12.75.png</file>
-        <file>resources/timezone/timezone_13.0.png</file>
-        <file>resources/timezone/timezone_2.0.png</file>
-        <file>resources/timezone/timezone_3.0.png</file>
-        <file>resources/timezone/timezone_3.5.png</file>
-        <file>resources/timezone/timezone_4.0.png</file>
-        <file>resources/timezone/timezone_4.5.png</file>
-        <file>resources/timezone/timezone_5.0.png</file>
-        <file>resources/timezone/timezone_5.5.png</file>
-        <file>resources/timezone/timezone_5.75.png</file>
-        <file>resources/timezone/timezone_6.0.png</file>
-        <file>resources/timezone/timezone_6.5.png</file>
-        <file>resources/timezone/timezone_7.0.png</file>
-        <file>resources/timezone/timezone_8.0.png</file>
-        <file>resources/timezone/timezone_9.0.png</file>
-        <file>resources/timezone/timezone_9.5.png</file>
     </qresource>
     <qresource prefix="/">
         <file>translations/msm_ast.qm</file>
