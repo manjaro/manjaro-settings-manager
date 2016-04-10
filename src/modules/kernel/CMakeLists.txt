@@ -4,11 +4,6 @@ file(GLOB MSM_KERNEL_GLOB
      msm_kernel.desktop
      changelogs/linux34.html
      changelogs/linux38.html
-     changelogs/linux40.html
-     changelogs/linux41.html
-     changelogs/linux42.html
-     changelogs/linux43.html
-     changelogs/linux44.html
      changelogs/linux310.html
      changelogs/linux311.html
      changelogs/linux312.html
@@ -18,7 +13,13 @@ file(GLOB MSM_KERNEL_GLOB
      changelogs/linux316.html
      changelogs/linux317.html
      changelogs/linux318.html
-     changelogs/linux319.html)
+     changelogs/linux319.html
+     changelogs/linux40.html
+     changelogs/linux41.html
+     changelogs/linux42.html
+     changelogs/linux43.html
+     changelogs/linux44.html
+     changelogs/linux45.html)
 
 set(MSM_KERNEL_SRCS
     ${MSM_KERNEL_GLOB}
