@@ -279,3 +279,23 @@ LanguagePackagesCommon::getAllEnabledLocalesSplit()
     }
     return locales;
 }
+
+
+bool
+LanguagePackagesCommon::isSystemUpToDate()
+{
+    QProcess process;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
+    process.start( "pacman", QStringList() << "-Sup" );
+    if ( !process.waitForFinished() )
+    {
+        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
+        return false;
+    }
+
+    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts ) ==
+           ( QStringList() << ":: Starting full system upgrade..." );
+}

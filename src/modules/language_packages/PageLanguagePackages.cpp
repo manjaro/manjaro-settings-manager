@@ -21,6 +21,12 @@
 #include "PageLanguagePackages.h"
 #include "ui_PageLanguagePackages.h"
 
+#include <QtCore/QFile>
+#include <QtCore/QJsonArray>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QProcess>
+#include <QtCore/QDebug>
+#include <QtCore/QSettings>
 
 PageLanguagePackages::PageLanguagePackages( QWidget* parent ) :
     PageWidget( parent ),
@@ -52,8 +58,10 @@ PageLanguagePackages::~PageLanguagePackages()
 void
 PageLanguagePackages::load()
 {
+    loadLanguagePackages();
+    loadNotificationsSettings();
     // Clean up first
-    ui->treeWidgetAvailable->clear();
+    /*ui->treeWidgetAvailable->clear();
     ui->treeWidgetInstalled->clear();
 
     QList<Global::LanguagePackage> availablePackages, installedPackages;
@@ -64,7 +72,39 @@ PageLanguagePackages::load()
         addLanguagePackagesToTreeWidget( ui->treeWidgetInstalled, &installedPackages, false );
     }
 
-    updateApplyEnabledState();
+    updateApplyEnabledState();*/
+}
+
+
+void
+PageLanguagePackages::loadLanguagePackages()
+{
+    ui->treeWidgetAvailable->clear();
+    ui->treeWidgetInstalled->clear();
+
+    LanguagePackages languagePackages;
+
+    QList<LanguagePackagesCommon::LanguagePackage> availablePackages, installedPackages;
+    QList<LanguagePackagesItem> lpiList { languagePackages.languagePackages() };
+
+    if ( LanguagePackagesCommon::getLanguagePackages( &availablePackages, &installedPackages, lpiList ) )
+    {
+        addLanguagePackagesToTreeWidget( ui->treeWidgetAvailable, &availablePackages, true );
+        if ( availablePackages.size() > 0 )
+            ui->installPackagesButton->setEnabled( true );
+        else
+            ui->installPackagesButton->setEnabled( false );
+        addLanguagePackagesToTreeWidget( ui->treeWidgetInstalled, &installedPackages, false );
+    }
+}
+
+
+void
+PageLanguagePackages::loadNotificationsSettings()
+{
+    QSettings settings( "manjaro", "manjaro-settings-manager" );
+    bool checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
+    ui->checkLanguagePackage->setChecked( checkLanguagePackage );
 }
 
 
@@ -83,7 +123,7 @@ PageLanguagePackages::save()
     }
 
     // Check if system is up-to-date
-    if ( !Global::isSystemUpToDate() )
+    if ( !LanguagePackagesCommon::isSystemUpToDate() )
     {
         QMessageBox::warning( this, tr( "System is out-of-date" ), tr( "Your System is not up-to-date! You have to update it first to continue!" ), QMessageBox::Ok, QMessageBox::Ok );
         emit closePage( this );
@@ -133,13 +173,13 @@ PageLanguagePackages::updateApplyEnabledState()
 
 
 void
-PageLanguagePackages::addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<Global::LanguagePackage>* languagePackages, bool checkable )
+PageLanguagePackages::addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<LanguagePackagesCommon::LanguagePackage>* languagePackages, bool checkable )
 {
-    QMap<QString, QList<Global::LanguagePackage> > sortedPackagesLocale;
+    QMap<QString, QList<LanguagePackagesCommon::LanguagePackage> > sortedPackagesLocale;
 
     for ( int i = 0; i < languagePackages->size(); i++ )
     {
-        const Global::LanguagePackage* languagePackage = &languagePackages->at( i );
+        const LanguagePackagesCommon::LanguagePackage* languagePackage = &languagePackages->at( i );
         sortedPackagesLocale[languagePackage->locale].append( *languagePackage );
     }
 
@@ -147,7 +187,8 @@ PageLanguagePackages::addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, 
     font.setBold( true );
     font.setWeight( 75 );
 
-    QMapIterator<QString, QList<Global::LanguagePackage> > i( sortedPackagesLocale );
+    QMapIterator<QString, QList<LanguagePackagesCommon::LanguagePackage> > i( sortedPackagesLocale );
+
     while ( i.hasNext() )
     {
         i.next();
@@ -158,7 +199,7 @@ PageLanguagePackages::addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, 
 
         for ( int x = 0; x < i.value().size(); x++ )
         {
-            const Global::LanguagePackage* languagePackage = &i.value().at( x );
+            const LanguagePackagesCommon::LanguagePackage* languagePackage = &i.value().at( x );
 
             QTreeWidgetItem* item = new QTreeWidgetItem( parentItem );
             item->setText( 0, languagePackage->languagePackage );

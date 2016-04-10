@@ -49,6 +49,8 @@ public:
                                      QList<LanguagePackagesItem> lpiList );
     static QList<LanguagePackagesCommon::LocaleInfo> getAllEnabledLocales();
 
+    static bool isSystemUpToDate();
+
 private:
     struct LocaleSplit
     {
@@ -57,7 +59,7 @@ private:
 
     static QStringList getAllInstalledPackages( const QStringList& checkPackages );
     static QStringList getAllAvailableRepoPackages( const QStringList& checkPackages );
-    static QList<LocaleSplit> getAllEnabledLocalesSplit();
+    static QList<LocaleSplit> getAllEnabledLocalesSplit();    
 };
 
 

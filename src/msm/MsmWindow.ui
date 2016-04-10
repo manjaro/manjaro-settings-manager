@@ -265,7 +265,7 @@
   <customwidget>
    <class>ListWidget</class>
    <extends>QListWidget</extends>
-   <header>widgets/ListWidget.h</header>
+   <header>ListWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -81,7 +81,6 @@ private:
     void loadNotificationsSettings();
     void installPackages();
     void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<LanguagePackagesCommon::LanguagePackage>* languagePackages, bool checkable );
-    bool isSystemUpToDate();
 };
 
 #endif // LANGUAGEPACKAGESMODULE_H

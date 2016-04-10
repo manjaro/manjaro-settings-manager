@@ -137,7 +137,7 @@ void
 PageLanguagePackages::installPackages()
 {
     // Check if system is up-to-date
-    if ( !isSystemUpToDate() )
+    if ( !LanguagePackagesCommon::isSystemUpToDate() )
     {
         QMessageBox::warning( this, tr( "System is out-of-date" ), tr( "Your System is not up-to-date! You have to update it first to continue!" ), QMessageBox::Ok, QMessageBox::Ok );
         return;
@@ -226,26 +226,6 @@ PageLanguagePackages::addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, 
         parentItem->setFlags( Qt::ItemIsEnabled );
         parentItem->setIcon( 0, QIcon( ":/images/resources/language.png" ) );
     }
-}
-
-
-bool
-PageLanguagePackages::isSystemUpToDate()
-{
-    QProcess process;
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert( "LANG", "C" );
-    env.insert( "LC_MESSAGES", "C" );
-    process.setProcessEnvironment( env );
-    process.start( "pacman", QStringList() << "-Sup" );
-    if ( !process.waitForFinished() )
-    {
-        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
-        return false;
-    }
-
-    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts ) ==
-           ( QStringList() << ":: Starting full system upgrade..." );
 }
 
 #include "LanguagePackagesModule.moc"

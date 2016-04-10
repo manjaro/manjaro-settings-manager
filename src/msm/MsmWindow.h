@@ -24,7 +24,7 @@
 #include "PageKernel.h"
 #include "PageKeyboard.h"
 #include "PageLanguage.h"
-#include "pages/PageLanguagePackages.h"
+#include "PageLanguagePackages.h"
 #include "PageMhwd.h"
 #include "pages/PageNotifications.h"
 #include "PageTimeDate.h"

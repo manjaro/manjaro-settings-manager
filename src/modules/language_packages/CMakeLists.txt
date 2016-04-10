@@ -35,3 +35,15 @@ add_executable(msm_language_packages_authhelper LanguagePackagesAuthHelper.cpp)
 target_link_libraries(msm_language_packages_authhelper KF5::Auth KF5::ConfigCore)
 install(TARGETS msm_language_packages_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_language_packages_authhelper org.manjaro.msm.languagepackages root)
+
+
+#msm_page_language_packages library
+set(MSM_LANGUAGE_PACKAGES_PAGE_SRCS
+    PageLanguagePackages.cpp)
+qt5_wrap_ui(MSM_LANGUAGE_PACKAGES_PAGE_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
+QT5_ADD_RESOURCES (MSM_LANGUAGE_PACKAGES_PAGE_SRCS ${MSM_LANGUAGE_PACKAGES_RESOURCES})
+
+add_library(msm_page_language_packages STATIC ${MSM_LANGUAGE_PACKAGES_PAGE_SRCS})
+target_compile_definitions(msm_page_language_packages PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_link_libraries(msm_page_language_packages
+    msm)

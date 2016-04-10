@@ -8,15 +8,10 @@ set(MSM_SRCS
     main.cpp
     MsmApplication.cpp
     MsmWindow.cpp
-    global/Global.cpp
-    global/Const.h
-    pages/PageLanguagePackages.cpp
-    pages/PageNotifications.cpp
-    widgets/LocaleGlobal.cpp)
+    pages/PageNotifications.cpp)
 
 set(MSM_UI
     MsmWindow.ui
-    pages/PageLanguagePackages.ui
     pages/PageNotifications.ui)
 qt5_wrap_ui(MSM_SRCS ${MSM_UI})
 
@@ -33,6 +28,7 @@ SET_TARGET_PROPERTIES(msm_bin
 target_link_libraries(msm_bin
     msm_page_kernel
     msm_page_keyboard
+    msm_page_language_packages
     msm_page_locale
     msm_page_mhwd
     msm_page_timedate
