@@ -17,6 +17,7 @@ set(LIBMSM_SRCS
     LanguagePackages.cpp
     LanguagePackagesCommon.cpp
     LanguagePackagesItem.cpp
+    ListWidget.cpp
     PageWidget.cpp
     ApplyDialog.cpp
 

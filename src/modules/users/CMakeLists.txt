@@ -10,7 +10,6 @@ set(MSM_USERS_SRCS
     ChangePasswordDialog.cpp
     FlatButton.cpp
     global.cpp
-    ListWidget.cpp
     PreviewFileDialog.cpp
     UsersModule.cpp)
 
@@ -30,6 +29,7 @@ cmake_policy(SET CMP0063 NEW)
 add_library(msm_users MODULE ${MSM_USERS_SRCS})
 target_compile_definitions(msm_users PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_users
+    msm
     Qt5::Widgets
     KF5::ConfigWidgets
     KF5::CoreAddons)
@@ -52,7 +52,6 @@ set(MSM_USERS_PAGE_SRCS
     ChangePasswordDialog.cpp
     FlatButton.cpp
     global.cpp
-    ListWidget.cpp
     PageUsers.cpp
     PreviewFileDialog.cpp)
 qt5_wrap_ui(MSM_USERS_PAGE_SRCS ${MSM_USERS_UI})

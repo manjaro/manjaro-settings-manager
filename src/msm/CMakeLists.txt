@@ -37,6 +37,7 @@ target_link_libraries(msm_bin
     msm_page_mhwd
     msm_page_timedate
     msm_page_users
+    msm
     Qt5::Core
     Qt5::Widgets
     Qt5::DBus
