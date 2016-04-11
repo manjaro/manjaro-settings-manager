@@ -27,13 +27,14 @@
 #include <KAboutData>
 #include <KAuth>
 #include <KAuthAction>
+#include <KPluginFactory>
 
+#include <QtCore/QTranslator>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMessageBox>
 
 #include <QtDebug>
 
-#include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmMhwdFactory,
                   registerPlugin<PageMhwd>( "msm_mhwd" ); )
 
@@ -41,17 +42,20 @@ PageMhwd::PageMhwd( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
     ui( new Ui::PageMhwd )
 {
+    Q_INIT_RESOURCE( translations );
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( &appTranslator );
+
     KAboutData* aboutData = new KAboutData( "msm_mhwd",
                                             tr( "Hardware Configuration", "@title" ),
                                             PROJECT_VERSION,
                                             QStringLiteral( "" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
                                             "Copyright 2014-15 Ramon Buldó" );
-
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
-
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

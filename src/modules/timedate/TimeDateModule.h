@@ -61,11 +61,6 @@ public:
      */
     void defaults();
 
-    KAboutData* aboutData() const;
-
-signals:
-    void changed();
-
 public slots:
     void updateFields();
     void updateTimeFields();
@@ -75,9 +70,7 @@ public slots:
 private:
     Ui::PageTimeDate* ui;
     TimeDate* m_timeDate;
-    KAboutData* m_aboutData;
     QTimer* m_timeFieldsTimer;
-
     bool m_isTimeEdited;
     bool m_isDateEdited;
     QString m_timeZone;

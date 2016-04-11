@@ -32,6 +32,7 @@
 #include <QtCore/QProcess>
 #include <QtCore/QDebug>
 #include <QtCore/QSettings>
+#include <QtCore/QTranslator>
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmLanguagePackagesFactory,
@@ -41,20 +42,23 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent, const QVariantList&
     KCModule( parent, args ),
     ui( new Ui::PageLanguagePackages )
 {
+    Q_INIT_RESOURCE( translations );
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( &appTranslator );
+
     KAboutData* aboutData = new KAboutData( "msm_language_packages",
                                             tr( "Keyboard Settings", "@title" ),
                                             PROJECT_VERSION,
                                             QStringLiteral( "" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
                                             "Copyright 2014-2015 Ramon Buldó" );
-
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
-
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

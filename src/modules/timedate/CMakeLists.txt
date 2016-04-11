@@ -25,6 +25,7 @@ QT5_ADD_RESOURCES (MSM_TIMEDATE_SRCS ${MSM_TIMEDATE_RESOURCES})
 add_library(msm_timedate MODULE ${MSM_TIMEDATE_SRCS})
 target_compile_definitions(msm_timedate PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_timedate
+    msm
     Qt5::DBus
     Qt5::Widgets
     KF5::CoreAddons

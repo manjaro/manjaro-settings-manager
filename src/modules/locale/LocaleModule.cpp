@@ -25,12 +25,13 @@
 #include <KAboutData>
 #include <KAuth>
 #include <KAuthAction>
+#include <KPluginFactory>
 
+#include <QtCore/QTranslator>
 #include <QtWidgets/QMenu>
 
 #include <QDebug>
 
-#include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmLocaleFactory,
                   registerPlugin<LocaleModule>( "msm_locale" ); )
 
@@ -40,20 +41,23 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
     enabledLocalesModel_( new EnabledLocalesModel ),
     m_languageListViewDelegate( new LanguageListViewDelegate )
 {
+    Q_INIT_RESOURCE( translations );
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( &appTranslator );
+
     KAboutData* aboutData = new KAboutData( "msm_locale",
                                             tr( "Locale Settings", "@title" ),
                                             PROJECT_VERSION,
                                             QStringLiteral( "" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
                                             "Copyright 2014-2015 Ramon Buldó" );
-
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
-
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );
 

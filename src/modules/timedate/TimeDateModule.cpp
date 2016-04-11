@@ -29,6 +29,7 @@
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
 #include <QtCore/QTimer>
+#include <QtCore/QTranslator>
 
 K_PLUGIN_FACTORY( MsmTimeDateFactory,
                   registerPlugin<TimeDateModule>( "msm_timedate" ); )
@@ -39,22 +40,27 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
     m_timeDate( new TimeDate ),
     m_timeFieldsTimer ( new QTimer ( this ) )
 {
-    ui->setupUi( this );
+    Q_INIT_RESOURCE( translations );
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( &appTranslator );
 
-    m_aboutData = new KAboutData( "msm_timedate",
+    KAboutData* aboutData = new KAboutData( "msm_timedate",
                                   tr( "Time and Date", "@title" ),
                                   PROJECT_VERSION,
                                   tr( "Time and date configuration." ),
                                   KAboutLicense::LicenseKey::GPL_V3,
                                   "Copyright 2014-2015 Ramon Buldó" );
-
-    m_aboutData->addAuthor( "Ramon Buldó",
+    aboutData->addAuthor( "Ramon Buldó",
                             tr( "Author", "@info:credit" ),
                             QStringLiteral( "ramon@manjaro.org" ) );
-
-    m_aboutData->setCustomAuthorText( QString(),
+    aboutData->setCustomAuthorText( QString(),
                                       tr( "Please use <a href='%1'>%1</a> to report bugs." )
                                       .arg( "https://github.com/manjaro/manjaro-settings-manager/issues" ) );
+    setAboutData( aboutData );
+    setButtons( KCModule::NoAdditionalButton );
+
+    ui->setupUi( this );
 
     connect( m_timeFieldsTimer, &QTimer::timeout, this, &TimeDateModule::updateTimeFields );
     connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &TimeDateModule::isNtpEnabledToggled );
@@ -83,7 +89,6 @@ TimeDateModule::~TimeDateModule()
 {
     delete ui;
     delete m_timeDate;
-    delete m_aboutData;
 }
 
 
@@ -132,13 +137,6 @@ void
 TimeDateModule::defaults()
 {
     this->load();
-}
-
-
-KAboutData*
-TimeDateModule::aboutData() const
-{
-    return m_aboutData;
 }
 
 

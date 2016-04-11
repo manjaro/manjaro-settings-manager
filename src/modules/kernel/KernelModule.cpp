@@ -30,6 +30,7 @@
 #include <QtCore/QSettings>
 
 #include <QDebug>
+#include <QTranslator>
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmKernelFactory,
@@ -41,17 +42,20 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     m_kernelModel( new KernelModel ),
     m_kernelInfoDialog( new KernelInfoDialog )
 {
+    Q_INIT_RESOURCE( translations );
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( &appTranslator );
+
     KAboutData* aboutData = new KAboutData( "msm_kernel",
                                             tr( "Kernel", "@title" ),
                                             PROJECT_VERSION,
                                             QStringLiteral( "" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
                                             "Copyright 2014 Ramon Buldó", "@info:credit" );
-
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
-
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

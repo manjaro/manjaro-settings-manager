@@ -27,6 +27,10 @@ set(LIBMSM_UI
     ApplyDialog.ui)
 qt5_wrap_ui(LIBMSM_SRCS ${LIBMSM_UI})
 
+set(LIBMSM_RESOURCES
+    translations.qrc)
+QT5_ADD_RESOURCES (LIBMSM_SRCS ${LIBMSM_RESOURCES})
+
 cmake_policy(SET CMP0063 NEW)
 
 add_library (msm STATIC ${LIBMSM_SRCS})

@@ -41,7 +41,6 @@ target_link_libraries(msm_bin
     Qt5::Widgets
     Qt5::DBus
     KF5::ConfigWidgets
-    KF5::KCMUtils
     KF5::IconThemes
     KF5::ItemModels
     hd

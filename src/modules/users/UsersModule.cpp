@@ -24,6 +24,7 @@
 #include <KAboutData>
 #include <KAuth>
 #include <KAuthAction>
+#include <QTranslator>
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmUsersFactory,
@@ -33,25 +34,27 @@ PageUsers::PageUsers( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
     ui( new Ui::PageUsers )
 {
+    Q_INIT_RESOURCE( translations );
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( &appTranslator );
+
     KAboutData* aboutData = new KAboutData( "msm_users",
                                             tr( "User Accounts", "@title" ),
                                             PROJECT_VERSION,
                                             QStringLiteral( "" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
                                             "Copyright 2015 Ramon Buldó" );
-
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
-
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
     ui->setupUi( this );
-
 
     // Connect signals and slots
     connect( ui->listWidget, SIGNAL( currentItemChanged( QListWidgetItem*,QListWidgetItem* ) )   ,   this, SLOT( setupUserData( QListWidgetItem* ) ) );

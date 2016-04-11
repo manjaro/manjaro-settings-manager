@@ -24,7 +24,7 @@
 #include <QtCore/QPropertyAnimation>
 #include <QtCore/QSettings>
 #include <QtWidgets/QGraphicsOpacityEffect>
-
+#include <QTranslator>
 
 MsmWindow::MsmWindow( QWidget* parent ) :
     QMainWindow( parent ),
