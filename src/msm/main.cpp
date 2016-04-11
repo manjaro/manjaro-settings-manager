@@ -33,7 +33,7 @@ int main( int argc, char* argv[] )
 {
     MsmApplication app( argc, argv );
 
-    // Needed for resources in libs    
+    // Needed for resources in libs
     Q_INIT_RESOURCE( kernel );
     Q_INIT_RESOURCE( keyboard );
     Q_INIT_RESOURCE( language_packages );
@@ -68,7 +68,7 @@ int main( int argc, char* argv[] )
     app.installTranslator( &qtTranslator );
 
     QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name());
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
     app.installTranslator( &appTranslator );
 
     app.init();

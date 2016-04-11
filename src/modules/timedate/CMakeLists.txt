@@ -34,7 +34,6 @@ target_link_libraries(msm_timedate
 install(TARGETS msm_timedate DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_timedate.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
-
 #msm_page_timedate library
 set(MSM_TIMEDATE_PAGE_SRCS
     LocaleGlobal.cpp
