@@ -22,11 +22,11 @@ cmake_policy(SET CMP0063 NEW)
 add_library(msm_mhwd MODULE ${MSM_MHWD_SRCS})
 target_compile_definitions(msm_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_mhwd
-    hd
     msm
     Qt5::Widgets
     KF5::ConfigWidgets
-    KF5::CoreAddons)
+    KF5::CoreAddons
+    hd)
 
 install(TARGETS msm_mhwd DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_mhwd.desktop DESTINATION ${SERVICES_INSTALL_DIR})
@@ -51,4 +51,5 @@ QT5_ADD_RESOURCES (MSM_MHWD_PAGE_SRCS ${MSM_MHWD_RESOURCES})
 add_library(msm_page_mhwd STATIC ${MSM_MHWD_PAGE_SRCS})
 target_compile_definitions(msm_page_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_mhwd
-    msm)
+    msm
+    hd)

@@ -51,4 +51,6 @@ QT5_ADD_RESOURCES (MSM_KEYBOARD_PAGE_SRCS ${MSM_KEYBOARD_RESOURCES})
 add_library(msm_page_keyboard STATIC ${MSM_KEYBOARD_PAGE_SRCS})
 target_compile_definitions(msm_page_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_keyboard
-    msm)
+    msm
+    Qt5::DBus
+    KF5::ItemModels)

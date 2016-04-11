@@ -38,14 +38,7 @@ target_link_libraries(msm_bin
     msm_page_users
     msm
     Qt5::Core
-    Qt5::Widgets
-    Qt5::DBus
-    KF5::ConfigWidgets
-    KF5::IconThemes
-    KF5::ItemModels
-    hd
-    icudata
-    icuuc)
+    Qt5::Widgets)
 
 install(TARGETS msm_bin
     # BUNDLE DESTINATION .

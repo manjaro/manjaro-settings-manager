@@ -47,4 +47,5 @@ QT5_ADD_RESOURCES (MSM_TIMEDATE_PAGE_SRCS ${MSM_TIMEDATE_RESOURCES})
 add_library(msm_page_timedate STATIC ${MSM_TIMEDATE_PAGE_SRCS})
 target_compile_definitions(msm_page_timedate PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_timedate
-    msm)
+    msm
+    Qt5::DBus)

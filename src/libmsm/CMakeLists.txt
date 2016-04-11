@@ -34,6 +34,6 @@ QT5_ADD_RESOURCES (LIBMSM_SRCS ${LIBMSM_RESOURCES})
 cmake_policy(SET CMP0063 NEW)
 
 add_library (msm STATIC ${LIBMSM_SRCS})
-target_link_libraries (msm KF5::ConfigWidgets
-    KF5::CoreAddons)
+target_link_libraries (msm
+    KF5::ConfigWidgets)
 target_include_directories (msm PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

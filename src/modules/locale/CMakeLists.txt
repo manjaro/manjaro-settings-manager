@@ -56,4 +56,7 @@ QT5_ADD_RESOURCES (MSM_LOCALE_PAGE_SRCS ${MSM_LOCALE_RESOURCES})
 add_library(msm_page_locale STATIC ${MSM_LOCALE_PAGE_SRCS})
 target_compile_definitions(msm_page_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_locale
-    msm)
+    msm
+    Qt5::DBus
+    icudata
+    icuuc)
