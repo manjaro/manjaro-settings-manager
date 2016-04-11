@@ -26,7 +26,7 @@
 #include "PageLanguage.h"
 #include "PageLanguagePackages.h"
 #include "PageMhwd.h"
-#include "pages/PageNotifications.h"
+#include "PageNotifications.h"
 #include "PageTimeDate.h"
 #include "PageUsers.h"
 #include "PageWidget.h"

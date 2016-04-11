@@ -10,12 +10,10 @@ set(MSM_SRCS
     ${MSM_GLOB}
     main.cpp
     MsmApplication.cpp
-    MsmWindow.cpp
-    pages/PageNotifications.cpp)
+    MsmWindow.cpp)
 
 set(MSM_UI
-    MsmWindow.ui
-    pages/PageNotifications.ui)
+    MsmWindow.ui)
 qt5_wrap_ui(MSM_SRCS ${MSM_UI})
 
 set(MSM_RESOURCES
@@ -34,6 +32,7 @@ target_link_libraries(msm_bin
     msm_page_language_packages
     msm_page_locale
     msm_page_mhwd
+    msm_page_notifications
     msm_page_timedate
     msm_page_users
     msm
