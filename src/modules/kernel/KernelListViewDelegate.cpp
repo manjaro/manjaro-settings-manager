@@ -244,6 +244,9 @@ KernelListViewDelegate::editorEvent( QEvent* event, QAbstractItemModel* model,
                                      const QStyleOptionViewItem& option,
                                      const QModelIndex& index )
 {
+    QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
+    QString changelog = QString( ":/changelogs/%1.html" ).arg( package );
+
     Q_UNUSED( model )
     if ( event->type() == QEvent::MouseButtonPress ||
             event->type() == QEvent::MouseButtonRelease )
@@ -307,7 +310,10 @@ KernelListViewDelegate::editorEvent( QEvent* event, QAbstractItemModel* model,
         if ( installButtonRect.contains( mouseEvent->pos() ) )
             emit installButtonClicked( index );
         if ( infoButtonRect.contains( mouseEvent->pos() ) )
-            emit infoButtonClicked( index );
+        {
+            if ( QFile( changelog ).exists() )
+                emit infoButtonClicked( index );
+        }
     }
 
     return true;
