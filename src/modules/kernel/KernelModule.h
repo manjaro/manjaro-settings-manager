@@ -29,6 +29,11 @@
 
 #include <QtWidgets/QCheckBox>
 
+namespace Ui
+{
+class PageKernel;
+}
+
 class PageKernel : public KCModule
 {
     Q_OBJECT
@@ -66,16 +71,11 @@ public slots:
     void infoButtonClicked( const QModelIndex& index );
 
 private:
+    Ui::PageKernel* ui;
     KernelModel* m_kernelModel;
     KernelInfoDialog* m_kernelInfoDialog;
     void installKernel( const QModelIndex& index );
     void removeKernel( const QModelIndex& index );
-
-    QCheckBox* m_checkUnsupportedKernelBox;
-    QCheckBox* m_checkUnsupportedKernelRunningBox;
-    QCheckBox* m_checkNewKernelBox;
-    QCheckBox* m_checkNewKernelLtsBox;
-    QCheckBox* m_checkNewKernelRecommendedBox;
 };
 
 #endif // KERNELMODULE_H

@@ -19,7 +19,7 @@
  */
 
 #include "KernelModule.h"
-
+#include "ui_PageKernel.h"
 #include "KernelListViewDelegate.h"
 
 #include <KAboutData>
@@ -28,11 +28,6 @@
 
 #include <QtCore/QProcess>
 #include <QtCore/QSettings>
-#include <QtWidgets/QGroupBox>
-#include <QtWidgets/QMessageBox>
-#include <QtWidgets/QListView>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QVBoxLayout>
 
 #include <QDebug>
 
@@ -42,6 +37,7 @@ K_PLUGIN_FACTORY( MsmKernelFactory,
 
 PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
+    ui( new Ui::PageKernel ),
     m_kernelModel( new KernelModel ),
     m_kernelInfoDialog( new KernelInfoDialog )
 {
@@ -59,65 +55,17 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
-    QHBoxLayout* hBoxLayout = new QHBoxLayout();
-    this->setLayout( hBoxLayout );
+    ui->setupUi( this );
 
-    QTabWidget* tabWidget = new QTabWidget();
-    hBoxLayout->addWidget( tabWidget );
-
-    // Setup Kernel tab
-    QListView* kernelListView = new QListView();
-    kernelListView->setAlternatingRowColors( true );
-
+    // Setup ListView
     KernelSortFilterProxyModel* proxyKernelModel = new KernelSortFilterProxyModel( this );
     proxyKernelModel->setSourceModel( m_kernelModel );
     proxyKernelModel->setSortRole( KernelModel::VersionRole );
     proxyKernelModel->sort( 0, Qt::DescendingOrder );
-    kernelListView->setModel( proxyKernelModel );
+    ui->kernelListView->setModel( proxyKernelModel );
 
     KernelListViewDelegate* kernelListViewDelegate = new KernelListViewDelegate;
-    kernelListView->setItemDelegate( kernelListViewDelegate );
-
-    // Setup options tab
-    QWidget* optionsWidget = new QWidget();
-    QVBoxLayout* optionsVBox = new QVBoxLayout();
-    optionsWidget->setLayout( optionsVBox );
-
-    QGroupBox* groupBox = new QGroupBox( tr( "Notifications" ) );
-    optionsVBox->addWidget( groupBox );
-    optionsVBox->addStretch( 1 );
-
-    m_checkUnsupportedKernelBox = new QCheckBox( tr( "Check unsupported kernels" ) );
-
-    m_checkUnsupportedKernelRunningBox = new QCheckBox( tr( "Only if running an unsupported kernel" ) );
-    QHBoxLayout* hBox1 = new QHBoxLayout();
-    hBox1->addSpacing( 40 );
-    hBox1->addWidget( m_checkUnsupportedKernelRunningBox );
-
-    m_checkNewKernelBox = new QCheckBox( tr( "Check new kernels" ) );
-
-    m_checkNewKernelLtsBox = new QCheckBox( tr( "Only LTS kernels" ) );
-    QHBoxLayout* hBox2 = new QHBoxLayout();
-    hBox2->addSpacing( 40 );
-    hBox2->addWidget( m_checkNewKernelLtsBox );
-
-    m_checkNewKernelRecommendedBox = new QCheckBox( tr( "Only recommended kernels" ) );
-    QHBoxLayout* hBox3 = new QHBoxLayout();
-    hBox3->addSpacing( 40 );
-    hBox3->addWidget( m_checkNewKernelRecommendedBox );
-
-    QVBoxLayout* groupVBox = new QVBoxLayout();
-    groupVBox->addWidget( m_checkUnsupportedKernelBox );
-    groupVBox->addLayout( hBox1 );
-    groupVBox->addWidget( m_checkNewKernelBox );
-    groupVBox->addLayout( hBox2 );
-    groupVBox->addLayout( hBox3 );
-
-    groupBox->setLayout( groupVBox );
-
-    // Add tabs
-    tabWidget->addTab( kernelListView, tr( "Kernels" ) );
-    tabWidget->addTab( optionsWidget, tr( "Notifications" ) );
+    ui->kernelListView->setItemDelegate( kernelListViewDelegate );
 
     // Connect kernel tab slots
     connect( kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
@@ -126,68 +74,68 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
              this, &PageKernel::infoButtonClicked );
 
     // Connect notifications tab slots
-    connect( m_checkUnsupportedKernelBox, &QCheckBox::stateChanged,
+    connect( ui->unsupportedKernelCheckBox, &QCheckBox::stateChanged,
              [=] ( int checkState )
     {
         QSettings settings( "manjaro", "manjaro-settings-manager" );
         settings.setValue( "notifications/checkUnsupportedKernel",
-                           m_checkUnsupportedKernelBox->isChecked() );
+                           ui->unsupportedKernelCheckBox->isChecked() );
         settings.sync();
 
         switch ( checkState )
         {
         case Qt::Unchecked:
-            m_checkUnsupportedKernelRunningBox->setEnabled( false );
+            ui->unsupportedKernelRunningCheckBox->setEnabled( false );
             break;
         case Qt::Checked:
-            m_checkUnsupportedKernelRunningBox->setEnabled( true );
+            ui->unsupportedKernelRunningCheckBox->setEnabled( true );
         }
     } );
 
-    connect( m_checkNewKernelBox, &QCheckBox::stateChanged,
+    connect( ui->newKernelCheckBox, &QCheckBox::stateChanged,
              [=] ( int checkState )
     {
         QSettings settings( "manjaro", "manjaro-settings-manager" );
         settings.setValue( "notifications/checkNewKernel",
-                           m_checkNewKernelBox->isChecked() );
+                           ui->newKernelCheckBox->isChecked() );
         settings.sync();
 
         switch ( checkState )
         {
         case Qt::Unchecked:
-            m_checkNewKernelLtsBox->setEnabled( false );
-            m_checkNewKernelRecommendedBox->setEnabled( false );
+            ui->newKernelLtsCheckBox->setEnabled( false );
+            ui->newKernelRecommendedCheckBox->setEnabled( false );
             break;
         case Qt::Checked:
-            m_checkNewKernelLtsBox->setEnabled( true );
-            m_checkNewKernelRecommendedBox->setEnabled( true );
+            ui->newKernelLtsCheckBox->setEnabled( true );
+            ui->newKernelRecommendedCheckBox->setEnabled( true );
         }
     } );
 
-    connect( m_checkUnsupportedKernelRunningBox, &QCheckBox::stateChanged,
+    connect( ui->unsupportedKernelRunningCheckBox, &QCheckBox::stateChanged,
              [=] ()
     {
         QSettings settings( "manjaro", "manjaro-settings-manager" );
         settings.setValue( "notifications/checkUnsupportedKernelRunning",
-                           m_checkUnsupportedKernelRunningBox->isChecked() );
+                           ui->unsupportedKernelRunningCheckBox->isChecked() );
         settings.sync();
     } );
 
-    connect( m_checkNewKernelLtsBox, &QCheckBox::stateChanged,
+    connect( ui->newKernelLtsCheckBox, &QCheckBox::stateChanged,
              [=] ()
     {
         QSettings settings( "manjaro", "manjaro-settings-manager" );
         settings.setValue( "notifications/checkNewKernelLts",
-                           m_checkNewKernelLtsBox->isChecked() );
+                           ui->newKernelLtsCheckBox->isChecked() );
         settings.sync();
     } );
 
-    connect( m_checkNewKernelRecommendedBox, &QCheckBox::stateChanged,
+    connect( ui->newKernelRecommendedCheckBox, &QCheckBox::stateChanged,
              [=] ()
     {
         QSettings settings( "manjaro", "manjaro-settings-manager" );
         settings.setValue( "notifications/checkNewKernelRecommended",
-                           m_checkNewKernelRecommendedBox->isChecked() );
+                           ui->newKernelRecommendedCheckBox->isChecked() );
         settings.sync();
     } );
 }
@@ -195,6 +143,7 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
 
 PageKernel::~PageKernel()
 {
+    delete ui;
     delete m_kernelModel;
 }
 
@@ -211,18 +160,18 @@ PageKernel::load()
     bool checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", false ).toBool();
     bool checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", true ).toBool();
 
-    m_checkUnsupportedKernelBox->setChecked( checkUnsupportedKernel );
-    m_checkUnsupportedKernelRunningBox->setChecked( checkUnsupportedKernelRunning );
-    m_checkNewKernelBox->setChecked( checkNewKernel );
-    m_checkNewKernelLtsBox->setChecked( checkNewKernelLts );
-    m_checkNewKernelRecommendedBox->setChecked( checkNewKernelRecommended );
+    ui->unsupportedKernelCheckBox->setChecked( checkUnsupportedKernel );
+    ui->unsupportedKernelRunningCheckBox->setChecked( checkUnsupportedKernelRunning );
+    ui->newKernelCheckBox->setChecked( checkNewKernel );
+    ui->newKernelLtsCheckBox->setChecked( checkNewKernelLts );
+    ui->newKernelRecommendedCheckBox->setChecked( checkNewKernelRecommended );
 
     if ( !checkUnsupportedKernel )
-        m_checkUnsupportedKernelRunningBox->setEnabled( false );
+        ui->unsupportedKernelRunningCheckBox->setEnabled( false );
     if ( !checkNewKernel )
     {
-        m_checkNewKernelLtsBox->setEnabled( false );
-        m_checkNewKernelRecommendedBox->setEnabled( false );
+        ui->newKernelLtsCheckBox->setEnabled( false );
+        ui->newKernelRecommendedCheckBox->setEnabled( false );
     }
 }
 
@@ -236,11 +185,11 @@ PageKernel::save()
 void
 PageKernel::defaults()
 {
-    m_checkUnsupportedKernelBox->setChecked( true );
-    m_checkUnsupportedKernelRunningBox->setChecked( false );
-    m_checkNewKernelBox->setChecked( true );
-    m_checkNewKernelLtsBox->setChecked( false );
-    m_checkNewKernelRecommendedBox->setChecked( true );
+    ui->unsupportedKernelCheckBox->setChecked( true );
+    ui->unsupportedKernelRunningCheckBox->setChecked( false );
+    ui->newKernelCheckBox->setChecked( true );
+    ui->newKernelLtsCheckBox->setChecked( false );
+    ui->newKernelRecommendedCheckBox->setChecked( true );
 }
 
 

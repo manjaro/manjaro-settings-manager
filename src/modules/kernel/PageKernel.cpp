@@ -20,7 +20,6 @@
 
 #include "PageKernel.h"
 #include "ui_PageKernel.h"
-
 #include "KernelListViewDelegate.h"
 #include "ApplyDialog.h"
 

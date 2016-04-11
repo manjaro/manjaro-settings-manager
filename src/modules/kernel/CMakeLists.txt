@@ -27,6 +27,9 @@ set(MSM_KERNEL_SRCS
     KernelListViewDelegate.cpp
     KernelModule.cpp)
 
+set(MSM_KERNEL_UI
+    ui/PageKernel.ui)
+qt5_wrap_ui(MSM_KERNEL_SRCS ${MSM_KERNEL_UI})
 set(MSM_KERNEL_RESOURCES
     kernel.qrc)
 QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
@@ -58,9 +61,7 @@ set(MSM_KERNEL_PAGE_SRCS
     KernelInfoDialog.cpp
     KernelListViewDelegate.cpp
     PageKernel.cpp)
-set(MSM_KERNEL_PAGE_UI
-    PageKernel.ui)
-qt5_wrap_ui(MSM_KERNEL_PAGE_SRCS ${MSM_KERNEL_PAGE_UI})
+qt5_wrap_ui(MSM_KERNEL_PAGE_SRCS ${MSM_KERNEL_UI})
 QT5_ADD_RESOURCES (MSM_KERNEL_PAGE_SRCS ${MSM_KERNEL_RESOURCES})
 
 add_library(msm_page_kernel STATIC ${MSM_KERNEL_PAGE_SRCS})
