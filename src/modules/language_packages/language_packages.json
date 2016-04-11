@@ -94,6 +94,11 @@
             "name": "Poppler",
             "l10n_package": "poppler-data",
             "parent_packages": ["poppler"]
+        },
+        {
+            "name": "QT5",
+            "l10n_package": "qt5-translations",
+            "parent_packages": ["qt5-base"]
         }
     ]
 }
