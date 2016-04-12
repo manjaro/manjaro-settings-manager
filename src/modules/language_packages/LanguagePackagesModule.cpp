@@ -42,7 +42,9 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent, const QVariantList&
     KCModule( parent, args ),
     ui( new Ui::PageLanguagePackages )
 {
+    Q_INIT_RESOURCE( language_packages );
     Q_INIT_RESOURCE( translations );
+
     QTranslator appTranslator;
     appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( &appTranslator );

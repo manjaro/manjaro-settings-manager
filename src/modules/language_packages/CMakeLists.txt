@@ -8,10 +8,6 @@ set(MSM_LANGUAGE_PACKAGES_SRCS
     ${MSM_LANGUAGE_PACKAGES_GLOB}
     LanguagePackagesModule.cpp)
 
-set(MSM_LANGUAGE_PACKAGES_RESOURCES
-    language_packages.qrc)
-QT5_ADD_RESOURCES (MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_RESOURCES})
-
 set(MSM_LANGUAGE_PACKAGES_UI
     ui/PageLanguagePackages.ui)
 qt5_wrap_ui(MSM_LANGUAGE_PACKAGES_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
@@ -41,7 +37,6 @@ kauth_install_helper_files(msm_language_packages_authhelper org.manjaro.msm.lang
 set(MSM_LANGUAGE_PACKAGES_PAGE_SRCS
     PageLanguagePackages.cpp)
 qt5_wrap_ui(MSM_LANGUAGE_PACKAGES_PAGE_SRCS ${MSM_LANGUAGE_PACKAGES_UI})
-QT5_ADD_RESOURCES (MSM_LANGUAGE_PACKAGES_PAGE_SRCS ${MSM_LANGUAGE_PACKAGES_RESOURCES})
 
 add_library(msm_page_language_packages STATIC ${MSM_LANGUAGE_PACKAGES_PAGE_SRCS})
 target_compile_definitions(msm_page_language_packages PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
