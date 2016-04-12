@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[manjaro-settings-manager.msmts]
+file_filter = src/libmsm/translations/msm_<lang>.ts
+source_lang = en
+type = QT
