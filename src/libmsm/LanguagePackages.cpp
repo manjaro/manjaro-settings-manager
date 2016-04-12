@@ -56,17 +56,17 @@ LanguagePackages::languagePackages()
     QList<QVariantMap> packages;
     if ( packagesValue.isArray() )
     {
-        for ( auto val : packagesValue.toArray() )
+        foreach ( const auto val, packagesValue.toArray() )
             packages.append( val.toObject().toVariantMap() );
     }
 
     QList<LanguagePackagesItem> lpiList;
-    for ( QVariantMap package : packages )
+    foreach ( QVariantMap package, packages )
     {
         QByteArray name { package["name"].toByteArray() };
         QByteArray languagePackage { package["l10n_package"].toByteArray() };
         QList<QByteArray> parentPackages;
-        for ( auto val : package["parent_packages"].toList() )
+        foreach ( const auto val, package["parent_packages"].toList() )
             parentPackages << val.toByteArray();
         QList<QByteArray> parentPkgInstalled { intersect( parentPackages, installedPkg ) };
         QList<QByteArray> languagePkgInstalled { filterLanguagePackage( languagePackage, installedPkg ) };
@@ -104,7 +104,7 @@ LanguagePackages::filterLanguagePackage( QByteArray package, const QList<QByteAr
         result.append( package );
     else
     {
-        for ( auto i : installedPackages )
+        foreach ( const auto i, installedPackages )
         {
             if ( i.startsWith( package.left( position ) ) )
                 result.append( i );
@@ -166,7 +166,7 @@ LanguagePackages::installedPackages()
     }
 
     QList<QByteArray> installedPackages;
-    for ( QByteArray line : process->readAll().split( '\n' ) )
+    foreach ( const QByteArray line, process->readAll().split( '\n' ) )
     {
         if ( line.isEmpty() )
             continue;

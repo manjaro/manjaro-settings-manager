@@ -81,7 +81,7 @@ LanguageCommon::supportedLocales( bool clean )
     }
 
     QSet<QString> localeList;
-    for ( QString line : lines.split( '\n' ) )
+    foreach ( QString line, lines.split( '\n' ) )
     {
         if ( line.startsWith( "# " ) || line.simplified() == "#" ||
                 line.isEmpty() )
@@ -127,7 +127,7 @@ LanguageCommon::localeToLocaleGenFormat( const QString locale )
         lines.append( in.readAll() );
     }
 
-    for ( const QString line : lines.split( '\n' ) )
+    foreach ( const QString line, lines.split( '\n' ) )
     {
         if ( line.startsWith( "# " ) || line.simplified() == "#"
                 || line.isEmpty() )
@@ -139,7 +139,7 @@ LanguageCommon::localeToLocaleGenFormat( const QString locale )
             localeList.insert( line.simplified() );
     }
 
-    for ( const QString line : localeList )
+    foreach ( const QString line, localeList )
     {
         if ( line.startsWith( locale + " " ) )
             return line;

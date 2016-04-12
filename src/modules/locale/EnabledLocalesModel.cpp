@@ -412,7 +412,7 @@ EnabledLocalesModel::updateSystemLocales()
 
     QModelIndex defaultIndex = QModelIndex();
 
-    for ( QString lev : localeEnviromentVariables )
+    foreach ( const QString lev, localeEnviromentVariables )
     {
         if ( lev.startsWith( "LANG=" ) )
         {
@@ -436,7 +436,7 @@ EnabledLocalesModel::updateSystemLocales()
     setTelephone( defaultIndex );
     setTime( defaultIndex );
 
-    for ( QString lev : localeEnviromentVariables )
+    foreach ( const QString lev, localeEnviromentVariables )
     {
         QString value = lev.section( '=', 1 );
         if ( lev.startsWith( "LC_ADDRESS=" ) )

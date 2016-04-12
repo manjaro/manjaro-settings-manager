@@ -147,7 +147,7 @@ Notifier::cKernel()
     QList< Kernel > unsupportedKernels = kernelModel.unsupportedKernels();
     if ( m_checkUnsupportedKernel && !unsupportedKernels.isEmpty() )
     {
-        for ( Kernel kernel : unsupportedKernels )
+        foreach ( Kernel kernel, unsupportedKernels )
         {
             if ( isPackageIgnored( kernel.package(), "unsupported_kernel" ) )
             {
@@ -174,7 +174,7 @@ Notifier::cKernel()
     QList<Kernel> newNotIgnoredKernels;
     if ( m_checkNewKernel )
     {
-        for ( Kernel kernel : newKernels )
+        foreach ( Kernel kernel, newKernels )
         {
             if ( isPackageIgnored( kernel.package(), "new_kernel" ) )
             {
@@ -254,7 +254,7 @@ Notifier::cKernel()
                                  QString( "dialog-information" ),
                                  10000 );
         }
-        for ( Kernel kernel : unsupportedKernels )
+        foreach ( Kernel kernel, unsupportedKernels )
             addToConfig( kernel.package(), "unsupported_kernel" );
     }
 
@@ -265,7 +265,7 @@ Notifier::cKernel()
                              QString( tr( "Newer kernel is available, please update." ) ),
                              QString( "dialog-information" ),
                              10000 );
-        for ( Kernel kernel : newNotIgnoredKernels )
+        foreach ( Kernel kernel, newNotIgnoredKernels )
             addToConfig( kernel.package(), "new_kernel" );
     }
 }
@@ -313,7 +313,7 @@ Notifier::hasPacmanEverSynced()
 {
     QString path( "/var/lib/pacman/sync/" );
     QStringList files = QStringList() << "core.db" << "community.db" << "extra.db";
-    for ( QString f : files )
+    foreach ( QString f, files )
     {
         if ( !QFile::exists( path + f ) )
             return false;

@@ -46,9 +46,9 @@ LanguagePackagesCommon::getLanguagePackages( QList<LanguagePackagesCommon::Langu
         return false;
     }
 
-    for ( const auto& lpi : lpiList )
+    foreach ( const auto& lpi, lpiList )
     {
-        for ( const auto parentPkg : lpi.parentPackages() )
+        foreach ( const auto parentPkg, lpi.parentPackages() )
         {
             LanguagePackage lp;
             lp.parentPackage = parentPkg;
@@ -214,7 +214,7 @@ LanguagePackagesCommon::getAllInstalledPackages( const QStringList& checkPackage
     QStringList output = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 
     QStringList result;
-    for ( QString package : checkPackages )
+    foreach ( const QString package, checkPackages )
     {
         if ( output.contains( package ) )
             result.append( package );
@@ -243,7 +243,7 @@ LanguagePackagesCommon::getAllAvailableRepoPackages( const QStringList& checkPac
     QStringList output = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
 
     QStringList result;
-    for ( QString line : output )
+    foreach ( QString line, output )
     {
         line = line.remove( " " ).remove( "\t" );
 
@@ -265,7 +265,7 @@ LanguagePackagesCommon::getAllEnabledLocalesSplit()
 {
     QStringList localesList { LanguageCommon::enabledLocales( true ) };
     QList<LanguagePackagesCommon::LocaleSplit> locales;
-    for ( const QString locale : localesList )
+    foreach ( const QString locale, localesList )
     {
         QStringList split = locale.split( "_", QString::SkipEmptyParts );
         if ( split.size() != 2 )

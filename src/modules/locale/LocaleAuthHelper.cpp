@@ -66,7 +66,7 @@ LocaleAuthHelper::updateLocaleGen( QStringList locales )
 
         bool found = false;
 
-        for ( QString locale : locales )
+        foreach ( const QString locale, locales )
         {
             if ( line.startsWith( locale + " " ) )
             {
@@ -95,7 +95,7 @@ LocaleAuthHelper::updateLocaleGen( QStringList locales )
     file.close();
 
     // Add missing locales in the file
-    for ( QString locale : locales )
+    foreach ( const QString locale, locales )
     {
         QString validLocale = LanguageCommon::localeToLocaleGenFormat( locale );
         if ( validLocale.isEmpty() )

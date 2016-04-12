@@ -323,7 +323,7 @@ KeyboardModel::getCurrentKeyboardLayout( QString& layout, QString& variant, QStr
      * ...
      */
     QStringList list = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
-    for ( QString line : list )
+    foreach ( QString line, list )
     {
         line = line.trimmed();
         if ( line.startsWith( "layout" ) )

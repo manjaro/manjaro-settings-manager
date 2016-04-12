@@ -52,7 +52,7 @@ KernelModel::update()
     QStringList recommendedKernels = getRecommendedKernels();
 
     QSet<QString> modulesToInstall;
-    for ( const QString& module : QStringList( installedKernelPackages.keys() ).filter( QRegularExpression( "^linux[0-9][0-9]?([0-9])-" ) ) )
+    foreach ( const QString& module, QStringList( installedKernelPackages.keys() ).filter( QRegularExpression( "^linux[0-9][0-9]?([0-9])-" ) ) )
     {
         QString aux = QString( module ).remove( QRegularExpression( "^linux[0-9][0-9]?([0-9])-" ) );
         modulesToInstall.insert( aux );
@@ -60,7 +60,7 @@ KernelModel::update()
 
     beginResetModel();
     m_kernels.clear();
-    for ( const QString& kernel : QStringList( allKernelPackages.keys() ).filter( QRegularExpression( "^linux[0-9][0-9]?([0-9])$" ) ) )
+    foreach ( const QString& kernel, QStringList( allKernelPackages.keys() ).filter( QRegularExpression( "^linux[0-9][0-9]?([0-9])$" ) ) )
     {
         Kernel newKernel;
 
@@ -78,7 +78,7 @@ KernelModel::update()
         else
         {
             QStringList installableModules;
-            for ( const QString& module : modulesToInstall )
+            foreach ( const QString& module, modulesToInstall )
             {
                 QString modulePackage = QString( "%1-%2" ).arg( kernel ).arg( module );
                 if ( availableKernelPackages.contains( modulePackage ) )
@@ -192,7 +192,7 @@ KernelModel::getAvailablePackages() const
     QString result = process.readAll();
 
     QHash<QString, QString> packages;
-    for ( QString line : result.split( "\n", QString::SkipEmptyParts ) )
+    foreach ( const QString line, result.split( "\n", QString::SkipEmptyParts ) )
     {
         if ( line.isEmpty() )
             continue;
@@ -220,7 +220,7 @@ KernelModel::getInstalledPackages() const
     QString result = process.readAll();
 
     QHash<QString, QString> packages;
-    for ( QString line : result.split( "\n", QString::SkipEmptyParts ) )
+    foreach ( const QString line, result.split( "\n", QString::SkipEmptyParts ) )
     {
         if ( line.isEmpty() )
             continue;
@@ -241,7 +241,7 @@ Kernel
 KernelModel::latestInstalledKernel()
 {
     Kernel auxKernel;
-    for ( Kernel& kernel : m_kernels )
+    foreach ( const Kernel& kernel, m_kernels )
     {
         if ( !kernel.isInstalled() )
             continue;
@@ -264,7 +264,7 @@ QList<Kernel>
 KernelModel::unsupportedKernels() const
 {
     QList<Kernel> auxList;
-    for ( const Kernel& kernel : m_kernels )
+    foreach ( const Kernel& kernel, m_kernels )
     {
         if ( kernel.isUnsupported() )
             auxList << kernel;
@@ -283,7 +283,7 @@ QList<Kernel>
 KernelModel::newerKernels( const Kernel& auxKernel )
 {
     QList<Kernel> auxList;
-    for ( Kernel& kernel : m_kernels )
+    foreach ( const Kernel& kernel, m_kernels )
     {
         if ( !kernel.isAvailable() )
             continue;

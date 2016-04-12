@@ -185,7 +185,7 @@ PageUsers::buttonImage_clicked()
     symlinkHomeDest << QString( "%1/.face.icon" ).arg( item->user.homePath )
                     << QString( "%1/.icon" ).arg( item->user.homePath );
 
-    for ( QString dest : symlinkHomeDest )
+    foreach ( const QString dest, symlinkHomeDest )
     {
         if ( QFile::exists( dest ) )
             QFile::remove( dest );

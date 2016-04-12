@@ -220,7 +220,7 @@ PageKernel::installKernel( const QModelIndex& index )
     QString title = QString( tr( "Install Linux %1" ) ).arg( version );
     QString message = QString( tr( "The following packages will be installed:" ) );
     QString information = QString();
-    for ( QString p : packageList )
+    foreach ( const QString p, packageList )
     {
         information.append( p );
         information.append( "\n" );
@@ -257,7 +257,7 @@ PageKernel::removeKernel( const QModelIndex& index )
     QString title = QString( tr( "Remove Linux %1" ) ).arg( version );
     QString message = QString( tr( "The following packages will be removed:" ) );
     QString information = QString();
-    for ( QString p : packageList )
+    foreach ( const QString p, packageList )
     {
         information.append( p );
         information.append( "\n" );

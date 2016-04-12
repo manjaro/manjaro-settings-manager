@@ -382,7 +382,7 @@ PageLanguage::updateLocaleGen()
 
         bool found = false;
 
-        for ( QString locale : locales )
+        foreach ( const QString locale, locales )
         {
             if ( line.startsWith( locale + " " ) )
             {
@@ -410,7 +410,7 @@ PageLanguage::updateLocaleGen()
     file.close();
 
     // Add missing locales in the file
-    for ( QString locale : locales )
+    foreach ( const QString locale, locales )
     {
         QString str = LanguageCommon::localeToLocaleGenFormat( locale );
 

@@ -136,7 +136,7 @@ ApplyDialog::process_readyRead()
     if ( !data.isEmpty() )
     {
         QStringList dataList = data.split( QRegularExpression( "[\r\n]" ), QString::SkipEmptyParts );
-        for ( auto line : dataList )
+        foreach ( auto line, dataList )
         {
             if ( line != lastMessage )
             {

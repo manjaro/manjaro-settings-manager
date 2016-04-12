@@ -102,7 +102,7 @@ UsersAuthHelper::changepassword( const QVariantMap& args )
     if ( !passwd->waitForStarted( 5000 ) )
         return ActionReply::HelperErrorReply();
 
-    for ( QString arg : args["writeArgs"].toStringList() )
+    foreach ( const QString arg, args["writeArgs"].toStringList() )
         passwd->write( QString( arg + "\n" ).toUtf8() );
 
     passwd->closeWriteChannel();
@@ -150,7 +150,7 @@ ActionReply
 UsersAuthHelper::changeimage( const QVariantMap& args )
 {
     QString filename = args["filename"].toString();
-    for ( QString dest : args["copyDest"].toStringList() )
+    foreach ( const QString dest, args["copyDest"].toStringList() )
     {
         if ( QFile::exists( dest ) )
             QFile::remove( dest );

@@ -167,7 +167,7 @@ void
 SupportedLocalesModel::init( SupportedLocalesItem* parent )
 {
     QStringList localeList { LanguageCommon::supportedLocales() };
-    for ( const QString localeString : localeList )
+    foreach ( const QString localeString, localeList )
     {
         Locale locale( localeString.toLatin1() );
         // Get language and country in current system locale
