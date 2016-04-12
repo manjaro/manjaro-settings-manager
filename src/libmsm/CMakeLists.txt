@@ -28,6 +28,7 @@ set(LIBMSM_UI
 qt5_wrap_ui(LIBMSM_SRCS ${LIBMSM_UI})
 
 set(LIBMSM_RESOURCES
+    language_packages.qrc
     translations.qrc)
 QT5_ADD_RESOURCES (LIBMSM_SRCS ${LIBMSM_RESOURCES})
 
