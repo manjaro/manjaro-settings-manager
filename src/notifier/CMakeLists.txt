@@ -2,8 +2,8 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB MSM_NOTIFIER_GLOB
      msm_notifier.desktop
-     resources/language.png
-     resources/tux-manjaro.png)
+     icons/language.png
+     icons/tux-manjaro.png)
 
 set(MSM_NOTIFIER_SRCS
     ${MSM_NOTIFIER_GLOB}

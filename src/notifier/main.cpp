@@ -33,6 +33,9 @@ int main( int argc, char* argv[] )
 {
     NotifierApp app( argc, argv );
 
+    Q_INIT_RESOURCE( language_packages );
+    Q_INIT_RESOURCE( translations );
+
     QTranslator appTranslator;
     appTranslator.load( ":/translations/msmd_" + QLocale::system().name() );
     app.installTranslator( &appTranslator );

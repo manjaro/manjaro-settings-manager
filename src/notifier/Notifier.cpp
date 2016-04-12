@@ -67,7 +67,7 @@ Notifier::Notifier( QObject* parent ) :
 
     m_timer = new QTimer( this );
     // 1 min
-    m_timer->setInterval( 60 * 1000 );
+    m_timer->setInterval( 60 * 1 );
     m_timer->start();
 
     connect( m_timer, &QTimer::timeout, [=] ()
