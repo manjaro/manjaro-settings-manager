@@ -15,7 +15,6 @@ set(LIBMSM_SRCS
     KernelModel.cpp
     LanguageCommon.cpp
     LanguagePackages.cpp
-    LanguagePackagesCommon.cpp
     LanguagePackagesItem.cpp
     ListWidget.cpp
     PageWidget.cpp

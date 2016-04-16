@@ -19,6 +19,7 @@
  */
 
 #include "LanguagePackages.h"
+#include "LanguageCommon.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
@@ -87,29 +88,28 @@ LanguagePackages::languagePackages()
 
 
 const QList<QByteArray>
-LanguagePackages::intersect( const QList<QByteArray>& packages, const QList<QByteArray>& installedPackages )
+LanguagePackages::intersect( const QList<QByteArray>& packages1, const QList<QByteArray>& packages2 )
 {
-    QSet<QByteArray> intersection = packages.toSet().intersect( installedPackages.toSet() );
+    QSet<QByteArray> intersection = packages1.toSet().intersect( packages2.toSet() );
     return intersection.toList();
 }
 
 
 const QList<QByteArray>
-LanguagePackages::filterLanguagePackage( QByteArray package, const QList<QByteArray>& installedPackages )
+LanguagePackages::filterLanguagePackage( const QByteArray package, const QList<QByteArray>& packages )
 {
-    int position = package.indexOf( '%' );
-
-    QList<QByteArray> result;
-    if ( position == -1 )
-        result.append( package );
+    QByteArray pkg;
+    if ( package.contains( "%" ) )
+        pkg = package.left( package.indexOf( '%' ) );
     else
+        pkg = package;
+    QList<QByteArray> result;
+    foreach ( const auto i, packages )
     {
-        foreach ( const auto i, installedPackages )
-        {
-            if ( i.startsWith( package.left( position ) ) )
-                result.append( i );
-        }
+        if ( i.startsWith( pkg ) )
+            result.append( i );
     }
+
     return result;
 }
 

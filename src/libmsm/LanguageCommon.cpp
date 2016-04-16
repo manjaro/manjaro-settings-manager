@@ -20,9 +20,10 @@
 
 #include "LanguageCommon.h"
 
+#include <QtCore/QFile>
+#include <QtCore/QProcessEnvironment>
 #include <QtCore/QRegularExpression>
 #include <QtCore/QStringList>
-#include <QtCore/QFile>
 #include <QtCore/QTextStream>
 #include <QDebug>
 
@@ -40,7 +41,7 @@ LanguageCommon::enabledLocales( bool clean )
     QTextStream in( &localeGen );
     while ( !in.atEnd() )
     {
-        QString line = in.readLine();
+        QString line = localeGen.readLine();
         if ( line.isEmpty() || line.startsWith( "#" ) )
             continue;
         line = QString( line.split( " ", QString::SkipEmptyParts )
@@ -56,6 +57,7 @@ LanguageCommon::enabledLocales( bool clean )
         locales << line;
     }
     localeGen.close();
+    locales.removeDuplicates();
     return locales;
 }
 
@@ -80,7 +82,7 @@ LanguageCommon::supportedLocales( bool clean )
         lines.append( in.readAll() );
     }
 
-    QSet<QString> localeList;
+    QStringList locales;
     foreach ( QString line, lines.split( '\n' ) )
     {
         if ( line.startsWith( "# " ) || line.simplified() == "#" ||
@@ -101,9 +103,10 @@ LanguageCommon::supportedLocales( bool clean )
                                QString::SkipEmptyParts )
                    .first();
         }
-        localeList.insert( line );
+        locales << line;
     }
-    return localeList.toList();
+    locales.removeDuplicates();
+    return locales;
 }
 
 
@@ -146,4 +149,24 @@ LanguageCommon::localeToLocaleGenFormat( const QString locale )
     }
 
     return "";
+}
+
+
+bool
+LanguageCommon::isSystemUpToDate()
+{
+    QProcess process;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert( "LANG", "C" );
+    env.insert( "LC_MESSAGES", "C" );
+    process.setProcessEnvironment( env );
+    process.start( "pacman", QStringList() << "-Sup" );
+    if ( !process.waitForFinished() )
+    {
+        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
+        return false;
+    }
+
+    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts ) ==
+           ( QStringList() << ":: Starting full system upgrade..." );
 }

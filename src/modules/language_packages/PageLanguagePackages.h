@@ -22,7 +22,6 @@
 #define PAGELANGUAGEPACKAGES_H
 
 #include "ApplyDialog.h"
-#include "LanguagePackagesCommon.h"
 #include "LanguagePackages.h"
 #include "LanguagePackagesItem.h"
 #include "PageWidget.h"
@@ -56,11 +55,7 @@ private:
 
     void loadLanguagePackages();
     void loadNotificationsSettings();
-    void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<LanguagePackagesCommon::LanguagePackage>* languagePackages, bool checkable );
-
-protected slots:
-    void updateApplyEnabledState();
-
+    QTreeWidgetItem* newParentTreeWidgetItem( QTreeWidget* parent );
 };
 
 #endif // PAGELANGUAGEPACKAGES_H

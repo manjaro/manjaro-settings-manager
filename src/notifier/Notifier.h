@@ -63,7 +63,6 @@ private:
 
     bool hasPacmanEverSynced();
     bool isPacmanUpdating();
-    bool isSystemUpToDate();
 
 protected slots:
     void loadConfiguration();

@@ -20,6 +20,7 @@
 
 #include "PageLanguagePackages.h"
 #include "ui_PageLanguagePackages.h"
+#include "LanguageCommon.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QJsonArray>
@@ -35,17 +36,25 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent ) :
     ui->setupUi( this );
     setTitle( tr( "Language Packages" ) );
     setIcon( QPixmap( ":/images/resources/locale-package.png" ) );
-    setShowApplyButton( true );
 
     ui->treeWidgetAvailable->setColumnWidth( 0, 250 );
-    ui->treeWidgetAvailable->setColumnWidth( 1, 250 );
+    ui->treeWidgetAvailable->setColumnWidth( 1, 300 );
     ui->treeWidgetAvailable->setColumnWidth( 2, 30 );
 
     ui->treeWidgetInstalled->setColumnWidth( 0, 300 );
     ui->treeWidgetInstalled->setColumnWidth( 1, 300 );
 
-    connect( ui->treeWidgetAvailable, &QTreeWidget::clicked,
-             this, &PageLanguagePackages::updateApplyEnabledState );
+    connect( ui->installPackagesButton, &QPushButton::clicked,
+             this, &PageLanguagePackages::save );
+
+    connect( ui->checkLanguagePackage, &QCheckBox::stateChanged,
+             [=] ()
+    {
+        QSettings settings( "manjaro", "manjaro-settings-manager" );
+        settings.setValue( "notifications/checkLanguagePackages",
+                           ui->checkLanguagePackage->isChecked() );
+        settings.sync();
+    } );
 }
 
 
@@ -68,20 +77,95 @@ PageLanguagePackages::loadLanguagePackages()
 {
     ui->treeWidgetAvailable->clear();
     ui->treeWidgetInstalled->clear();
+    ui->installPackagesButton->setEnabled( false );
 
     LanguagePackages languagePackages;
-
-    QList<LanguagePackagesCommon::LanguagePackage> availablePackages, installedPackages;
     QList<LanguagePackagesItem> lpiList { languagePackages.languagePackages() };
 
-    if ( LanguagePackagesCommon::getLanguagePackages( &availablePackages, &installedPackages, lpiList ) )
+    // Global language packages
+    QTreeWidgetItem* parentItemAvailable = newParentTreeWidgetItem( ui->treeWidgetAvailable );
+    QTreeWidgetItem* parentItemInstalled = newParentTreeWidgetItem( ui->treeWidgetInstalled );
+    foreach ( const auto item, lpiList )
     {
-        addLanguagePackagesToTreeWidget( ui->treeWidgetAvailable, &availablePackages, true );
-        if ( availablePackages.size() > 0 )
-            ui->installPackagesButton->setEnabled( true );
-        else
-            ui->installPackagesButton->setEnabled( false );
-        addLanguagePackagesToTreeWidget( ui->treeWidgetInstalled, &installedPackages, false );
+        if ( item.parentPkgInstalled().length() == 0 )
+            continue;
+        if ( item.languagePackage().contains( "%" ) )
+            continue;
+
+        if ( item.languagePkgInstalled().contains( item.languagePackage() ) )
+        {
+            QTreeWidgetItem* widgetItem = new QTreeWidgetItem( parentItemInstalled );
+            widgetItem->setText( 0, item.languagePackage() );
+            widgetItem->setText( 1, item.name() );
+            // Don't list package in installed tree
+            continue;
+        }
+        if ( item.languagePkgAvailable().contains( item.languagePackage() ) )
+        {
+            QTreeWidgetItem* widgetItem = new QTreeWidgetItem( parentItemAvailable );
+            widgetItem->setText( 0, item.languagePackage() );
+            widgetItem->setText( 1, item.name() );
+            widgetItem->setCheckState( 2, Qt::Checked );
+            if ( !ui->installPackagesButton->isEnabled() )
+                ui->installPackagesButton->setEnabled( true );
+        }
+    }
+
+    // Split language packages
+    QStringList locales { LanguageCommon::enabledLocales( true ) };
+    qSort( locales );
+    foreach ( const QString locale, locales )
+    {
+        QStringList split = locale.split( "_", QString::SkipEmptyParts );
+        if ( split.size() != 2 )
+            continue;
+        QByteArray language = QString( split.at( 0 ) ).toUtf8();
+        QByteArray territory = QString( split.at( 1 ) ).toUtf8();
+
+        QTreeWidgetItem* parentItemAvailable = newParentTreeWidgetItem( ui->treeWidgetAvailable );
+        parentItemAvailable->setText( 0, tr( "%1 language packages" ).arg( locale ) );
+        QTreeWidgetItem* parentItemInstalled = newParentTreeWidgetItem( ui->treeWidgetInstalled );
+        parentItemInstalled->setText( 0, tr( "%1 language packages" ).arg( locale ) );
+        foreach ( const auto item, lpiList )
+        {
+            if ( item.parentPkgInstalled().length() == 0 )
+                continue;
+            if ( !item.languagePackage().contains( "%" ) )
+                continue;
+
+            QList<QByteArray> checkPkgs;
+            // Example: firefox-i18n-% -> firefox-i18n-en-US
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "-" + territory );
+            // Example: firefox-i18n-% -> firefox-i18n-en-us
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "-" + territory.toLower() );
+            // Example: firefox-i18n-% -> firefox-i18n-en_US
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "_" + territory );
+            // Example: firefox-i18n-% -> firefox-i18n-en_us
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "_" + territory.toLower() );
+            // Example: firefox-i18n-% -> firefox-i18n-en
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() );
+
+            foreach ( const auto checkPkg, checkPkgs )
+            {
+                if ( item.languagePkgInstalled().contains( checkPkg ) )
+                {
+                    QTreeWidgetItem* widgetItem = new QTreeWidgetItem( parentItemInstalled );
+                    widgetItem->setText( 0, checkPkg );
+                    widgetItem->setText( 1, item.name() );
+                    // Don't list package in installed tree
+                    continue;
+                }
+                if ( item.languagePkgAvailable().contains( checkPkg ) )
+                {
+                    QTreeWidgetItem* widgetItem = new QTreeWidgetItem( parentItemAvailable );
+                    widgetItem->setText( 0, checkPkg );
+                    widgetItem->setText( 1, item.name() );
+                    widgetItem->setCheckState( 2, Qt::Checked );
+                    if ( !ui->installPackagesButton->isEnabled() )
+                        ui->installPackagesButton->setEnabled( true );
+                }
+            }
+        }
     }
 }
 
@@ -110,7 +194,7 @@ PageLanguagePackages::save()
     }
 
     // Check if system is up-to-date
-    if ( !LanguagePackagesCommon::isSystemUpToDate() )
+    if ( !LanguageCommon::isSystemUpToDate() )
     {
         QMessageBox::warning( this, tr( "System is out-of-date" ), tr( "Your System is not up-to-date! You have to update it first to continue!" ), QMessageBox::Ok, QMessageBox::Ok );
         emit closePage( this );
@@ -138,68 +222,22 @@ PageLanguagePackages::save()
 }
 
 
-void
-PageLanguagePackages::updateApplyEnabledState()
+QTreeWidgetItem*
+PageLanguagePackages::newParentTreeWidgetItem( QTreeWidget* parent )
 {
-    for ( int i = 0; i < ui->treeWidgetAvailable->topLevelItemCount(); ++i )
-    {
-        QTreeWidgetItem* topItem = ui->treeWidgetAvailable->topLevelItem( i );
-
-        for ( int x = 0; x < topItem->childCount(); ++x )
-        {
-            if ( topItem->child( x )->checkState( 2 ) )
-            {
-                emit setApplyEnabled( this, true );
-                return;
-            }
-        }
-    }
-
-    emit setApplyEnabled( this, false );
-}
-
-
-void
-PageLanguagePackages::addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<LanguagePackagesCommon::LanguagePackage>* languagePackages, bool checkable )
-{
-    QMap<QString, QList<LanguagePackagesCommon::LanguagePackage> > sortedPackagesLocale;
-
-    for ( int i = 0; i < languagePackages->size(); i++ )
-    {
-        const LanguagePackagesCommon::LanguagePackage* languagePackage = &languagePackages->at( i );
-        sortedPackagesLocale[languagePackage->locale].append( *languagePackage );
-    }
+    QTreeWidgetItem* item = new QTreeWidgetItem( parent );
+    ui->treeWidgetAvailable->addTopLevelItem( item );
+    ui->treeWidgetAvailable->setFirstItemColumnSpanned( item, true );
+    item->setText( 0, tr( "Global language packages" ) );
 
     QFont font;
     font.setBold( true );
     font.setWeight( 75 );
+    item->setFont( 0, font );
 
-    QMapIterator<QString, QList<LanguagePackagesCommon::LanguagePackage> > i( sortedPackagesLocale );
-
-    while ( i.hasNext() )
-    {
-        i.next();
-        QTreeWidgetItem* parentItem = new QTreeWidgetItem( treeWidget );
-        ui->treeWidgetAvailable->addTopLevelItem( parentItem );
-        ui->treeWidgetAvailable->setFirstItemColumnSpanned( parentItem, true );
-        parentItem->setText( 0, tr( "%1 language packages" ).arg( i.key() ) );
-
-        for ( int x = 0; x < i.value().size(); x++ )
-        {
-            const LanguagePackagesCommon::LanguagePackage* languagePackage = &i.value().at( x );
-
-            QTreeWidgetItem* item = new QTreeWidgetItem( parentItem );
-            item->setText( 0, languagePackage->languagePackage );
-            item->setText( 1, languagePackage->parentPackage );
-
-            if ( checkable )
-                item->setCheckState( 2, Qt::Checked );
-        }
-
-        parentItem->setFont( 0, font );
-        parentItem->setSizeHint( 0, QSize( 0, 24 ) );
-        parentItem->setExpanded( true );
-        parentItem->setFlags( Qt::ItemIsEnabled );
-        parentItem->setIcon( 0, QIcon( ":/images/resources/language.png" ) );
-    }
+    item->setSizeHint( 0, QSize( 0, 24 ) );
+    item->setExpanded( true );
+    item->setFlags( Qt::ItemIsEnabled );
+    item->setIcon( 0, QIcon( ":/images/resources/language.png" ) );
+    return item;
 }

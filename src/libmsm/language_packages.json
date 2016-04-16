@@ -29,7 +29,7 @@
                 "calligra-words"]
         },
         {
-            "name": "Gimp",
+            "name": "Gimp help",
             "l10n_package": "gimp-help-%",
             "parent_packages": ["gimp"]
         },
@@ -71,7 +71,7 @@
             "parent_packages": ["libmythes"]
         },
         {
-            "name": "Vim",
+            "name": "Vim spell checking",
             "l10n_package": "vim-spell-%",
             "parent_packages": ["vim"]
         },
@@ -91,12 +91,12 @@
             "parent_packages": ["psi"]
         },
         {
-            "name": "Poppler",
+            "name": "Display CKJ characters in PDF documents",
             "l10n_package": "poppler-data",
             "parent_packages": ["poppler"]
         },
         {
-            "name": "QT5",
+            "name": "Qt5 translations",
             "l10n_package": "qt5-translations",
             "parent_packages": ["qt5-base"]
         }

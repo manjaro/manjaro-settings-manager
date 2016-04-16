@@ -26,7 +26,18 @@
 class LanguageCommon
 {
 public:
+    /**
+     * @brief enabledLocales get a list of enabled locales in the system
+     * @param clean if set to true, it cleans up the locale sufix (ex: removes .UTF-8)
+     * @return list of enabled locales
+     */
     static QStringList enabledLocales( bool clean = false );
+
+    /**
+     * @brief supportedLocales get a list of supported locales in the system
+     * @param clean if set to true, it cleans up the locale sufix (ex: removes .UTF-8)
+     * @return list of enabled locales
+     */
     static QStringList supportedLocales( bool clean = false );
 
     /**
@@ -36,6 +47,8 @@ public:
      * @return converted locale, or empty if it fails
      */
     static QString localeToLocaleGenFormat( const QString locale );
+
+    static bool isSystemUpToDate();
 };
 
 #endif // LANGUAGECOMMON_H

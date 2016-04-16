@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Roland Singer <roland@manjaro.org>
+ *  Ramon Buldó <rbuldo@gmail.com>
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -21,7 +22,6 @@
 #ifndef LANGUAGEPACKAGESMODULE_H
 #define LANGUAGEPACKAGESMODULE_H
 
-#include "LanguagePackagesCommon.h"
 #include "LanguagePackages.h"
 #include "LanguagePackagesItem.h"
 
@@ -80,7 +80,7 @@ private:
     void loadLanguagePackages();
     void loadNotificationsSettings();
     void installPackages();
-    void addLanguagePackagesToTreeWidget( QTreeWidget* treeWidget, QList<LanguagePackagesCommon::LanguagePackage>* languagePackages, bool checkable );
+    QTreeWidgetItem* newParentTreeWidgetItem( QTreeWidget* parent );
 };
 
 #endif // LANGUAGEPACKAGESMODULE_H

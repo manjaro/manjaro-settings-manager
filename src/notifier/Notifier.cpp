@@ -19,7 +19,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "LanguagePackagesCommon.h"
+#include "LanguageCommon.h"
 #include "LanguagePackages.h"
 #include "Notifier.h"
 #include "NotifierApp.h"
@@ -67,7 +67,7 @@ Notifier::Notifier( QObject* parent ) :
 
     m_timer = new QTimer( this );
     // 1 min
-    m_timer->setInterval( 60 * 1 );
+    m_timer->setInterval( 60 * 1000 );
     m_timer->start();
 
     connect( m_timer, &QTimer::timeout, [=] ()
@@ -102,20 +102,63 @@ Notifier::~Notifier()
 void
 Notifier::cLanguagePackage()
 {
-    LanguagePackages lpkg;
-
-    // Check if language packages are available
-    QList<LanguagePackagesCommon::LanguagePackage> availablePackages, installedPackages, packages;
-    QList<LanguagePackagesItem> lpiList { lpkg.languagePackages() };
-
-    LanguagePackagesCommon::getLanguagePackages( &availablePackages, &installedPackages, lpiList );
-
-    // Check if packages should be ignored
-    for ( int i = 0; i < availablePackages.size(); i++ )
+    int packageNumber = 0;
+    QStringList packages;
+    LanguagePackages languagePackages;
+    QList<LanguagePackagesItem> lpiList { languagePackages.languagePackages() };
+    QStringList locales { LanguageCommon::enabledLocales( true ) };
+    foreach ( const QString locale, locales )
     {
-        const LanguagePackagesCommon::LanguagePackage* l = &availablePackages.at( i );
-        if ( !isPackageIgnored( l->languagePackage, "language_package" ) )
-            packages.append( *l );
+        QStringList split = locale.split( "_", QString::SkipEmptyParts );
+        if ( split.size() != 2 )
+            continue;
+        QByteArray language = QString( split.at( 0 ) ).toUtf8();
+        QByteArray territory = QString( split.at( 1 ) ).toUtf8();
+
+        foreach ( const auto item, lpiList )
+        {
+            if ( item.parentPkgInstalled().length() == 0 )
+                continue;
+            if ( !item.languagePackage().contains( "%" ) )
+                continue;
+
+            QList<QByteArray> checkPkgs;
+            // Example: firefox-i18n-% -> firefox-i18n-en-US
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "-" + territory );
+            // Example: firefox-i18n-% -> firefox-i18n-en-us
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "-" + territory.toLower() );
+            // Example: firefox-i18n-% -> firefox-i18n-en_US
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "_" + territory );
+            // Example: firefox-i18n-% -> firefox-i18n-en_us
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() + "_" + territory.toLower() );
+            // Example: firefox-i18n-% -> firefox-i18n-en
+            checkPkgs << item.languagePackage().replace( "%", language.toLower() );
+
+            foreach ( const auto checkPkg, checkPkgs )
+            {
+                if ( item.languagePkgInstalled().contains( checkPkg ) )
+                    continue;
+                if ( item.languagePkgAvailable().contains( checkPkg ) )
+                {
+                    ++packageNumber;
+                    if ( !isPackageIgnored( checkPkg, "language_package" ) )
+                        packages << checkPkg;
+                }
+            }
+        }
+    }
+    foreach ( const auto item, lpiList )
+    {
+        if ( item.parentPkgInstalled().length() == 0 )
+            continue;
+        if ( !item.languagePackage().contains( "%" )
+                && !item.languagePkgInstalled().contains( item.languagePackage() ) )
+        {
+            qDebug() << item.languagePackage();
+            ++packageNumber;
+            if ( !isPackageIgnored( item.languagePackage(), "language_package" ) )
+                packages << item.languagePackage();
+        }
     }
 
     if ( !packages.isEmpty() )
@@ -123,16 +166,13 @@ Notifier::cLanguagePackage()
         qDebug() << "Missing language packages found, notifying user...";
         m_tray->setStatus( KStatusNotifierItem::Active );
         m_tray->showMessage( tr( "Manjaro Settings Manager" ),
-                             QString( tr( "%n new additional language package(s) available", "", packages.size() ) ),
+                             QString( tr( "%n new additional language package(s) available", "", packageNumber ) ),
                              QString( "dialog-information" ),
                              10000 );
 
         // Add to Config
-        for ( int i = 0; i < packages.size(); i++ )
-        {
-            const LanguagePackagesCommon::LanguagePackage* l = &packages.at( i );
-            addToConfig( l->languagePackage, "language_package" );
-        }
+        foreach ( const QString package, packages )
+            addToConfig( package, "language_package" );
     }
 }
 
@@ -326,21 +366,4 @@ bool
 Notifier::isPacmanUpdating()
 {
     return QFile::exists( "/var/lib/pacman/db.lck" );
-}
-
-
-bool
-Notifier::isSystemUpToDate()
-{
-    QProcess process;
-    process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
-    process.start( "pacman", QStringList() << "-Sup" );
-    if ( !process.waitForFinished() )
-    {
-        qDebug() << "error: failed to determine if system is up-to-date (pacman)!";
-        return false;
-    }
-
-    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts ) ==
-           ( QStringList() << ":: Starting full system upgrade..." );
 }

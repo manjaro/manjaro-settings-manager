@@ -82,7 +82,7 @@
          </column>
          <column>
           <property name="text">
-           <string>Parent Package</string>
+           <string>Description</string>
           </property>
          </column>
          <column>
