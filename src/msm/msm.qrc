@@ -1,17 +1,17 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>resources/settings.png</file>
+    <qresource prefix="/images">        
         <file>resources/apply.png</file>
         <file>resources/back.png</file>
-        <file>resources/quit.png</file>
+        <file>resources/keyboard.png</file>
         <file>resources/language.png</file>
         <file>resources/locale.png</file>
-        <file>resources/keyboard.png</file>
-        <file>resources/locale-package.png</file>
-        <file>resources/users.png</file>
-        <file>resources/gpudriver.png</file>
-        <file>resources/tux-manjaro.png</file>
+        <file>resources/locale-package.png</file>   
         <file>resources/notifications.png</file>
+        <file>resources/gpudriver.png</file>
+        <file>resources/quit.png</file>
+        <file>resources/settings.png</file>
+        <file>resources/tux-manjaro.png</file>
         <file>resources/timedate.png</file>
+        <file>resources/users.png</file>
     </qresource>
 </RCC>

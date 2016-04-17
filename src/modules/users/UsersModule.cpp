@@ -57,12 +57,18 @@ PageUsers::PageUsers( QWidget* parent, const QVariantList& args ) :
     ui->setupUi( this );
 
     // Connect signals and slots
-    connect( ui->listWidget, SIGNAL( currentItemChanged( QListWidgetItem*,QListWidgetItem* ) )   ,   this, SLOT( setupUserData( QListWidgetItem* ) ) );
-    connect( ui->buttonImage, SIGNAL( clicked() )  ,   this, SLOT( buttonImage_clicked() ) );
-    connect( ui->buttonAdd, SIGNAL( clicked() )    ,   this, SLOT( buttonAddUser_clicked() ) );
-    connect( ui->buttonRemove, SIGNAL( clicked() ) ,   this, SLOT( buttonRemoveUser_clicked() ) );
-    connect( ui->buttonPassword, SIGNAL( clicked() )   ,   this, SLOT( buttonChangePassword_clicked() ) );
-    connect( ui->buttonAccountType, SIGNAL( clicked() )    ,   this, SLOT( buttonChangeAccountType_clicked() ) );
+    connect( ui->listWidget, SIGNAL( currentItemChanged( QListWidgetItem*,QListWidgetItem* ) ),
+             this, SLOT( setupUserData( QListWidgetItem* ) ) );
+    connect( ui->buttonImage, SIGNAL( clicked() ),
+             this, SLOT( buttonImage_clicked() ) );
+    connect( ui->buttonAdd, SIGNAL( clicked() ),
+             this, SLOT( buttonAddUser_clicked() ) );
+    connect( ui->buttonRemove, SIGNAL( clicked() ),
+             this, SLOT( buttonRemoveUser_clicked() ) );
+    connect( ui->buttonPassword, SIGNAL( clicked() ),
+             this, SLOT( buttonChangePassword_clicked() ) );
+    connect( ui->buttonAccountType, SIGNAL( clicked() ),
+             this, SLOT( buttonChangeAccountType_clicked() ) );
 }
 
 
@@ -133,7 +139,7 @@ PageUsers::setupUserData( QListWidgetItem* current )
     for ( int i = 0; i < groups.size(); i++ )
     {
         const UsersCommon::Group* group = &groups.at( i );
-        if ( group->name != QStringLiteral("wheel") || !group->members.contains( current->text() ) )
+        if ( group->name != QStringLiteral( "wheel" ) || !group->members.contains( current->text() ) )
             continue;
 
         ui->buttonAccountType->setText( tr( "Administrator" ) );

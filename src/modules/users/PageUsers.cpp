@@ -63,7 +63,7 @@ PageUsers::load()
         if ( QFile::exists( user->homePath + "/.face" ) )
             item->setIcon( QIcon( user->homePath + "/.face" ) );
         else
-            item->setIcon( QIcon( ":/images/resources/user.png" ) );
+            item->setIcon( QIcon( ":/icons/user.png" ) );
     }
 
     setupUserData( ui->listWidget->currentItem() );
@@ -75,7 +75,7 @@ PageUsers::setupUserData( QListWidgetItem* current )
 {
     if ( !current )
     {
-        ui->buttonImage->setIcon( QIcon( ":/images/resources/user.png" ) );
+        ui->buttonImage->setIcon( QIcon( ":/icons/user.png" ) );
         ui->labelUsername->setText( "" );
         ui->buttonAccountType->setText( tr( "Standard" ) );
         ui->userWidget->setEnabled( false );

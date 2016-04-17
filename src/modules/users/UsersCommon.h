@@ -21,8 +21,6 @@
 #ifndef USERSCOMMON_H
 #define USERSCOMMON_H
 
-#define DEFAULT_USER_GROUPS "video,audio,power,disk,storage,optical,network,lp,scanner"
-
 #include <QString>
 #include <QFile>
 #include <QTextStream>
