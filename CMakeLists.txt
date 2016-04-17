@@ -12,7 +12,12 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Gui Widgets DBus)
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    Core
+    Gui
+    Widgets
+    DBus
+    LinguistTools)
 find_package(KF5 REQUIRED COMPONENTS
     CoreAddons
     Auth
