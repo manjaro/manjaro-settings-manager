@@ -2,8 +2,6 @@
  *  mhwd - Manjaro Hardware Detection
  *  Roland Singer <roland@manjaro.org>
  *
- *  Copyright (C) 2007 Free Software Foundation, Inc.
- *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
