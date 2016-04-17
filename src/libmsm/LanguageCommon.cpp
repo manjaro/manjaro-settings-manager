@@ -40,7 +40,7 @@ LanguageCommon::enabledLocales( bool clean )
     QTextStream in( &localeGen );
     while ( !in.atEnd() )
     {
-        QString line = localeGen.readLine();
+        QString line = in.readLine();
         if ( line.isEmpty() || line.startsWith( "#" ) )
             continue;
         line = QString( line.split( " ", QString::SkipEmptyParts )
