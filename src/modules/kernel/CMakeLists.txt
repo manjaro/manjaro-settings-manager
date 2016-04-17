@@ -29,9 +29,9 @@ set(KERNEL_SRCS
     KernelInfoDialog.cpp
     KernelListViewDelegate.cpp)
 
-set(MSM_KERNEL_UI
+set(KERNEL_UI
     ui/PageKernel.ui)
-qt5_wrap_ui(MSM_KERNEL_SRCS ${KERNEL_UI})
+qt5_wrap_ui(KERNEL_SRCS ${KERNEL_UI})
 
 set(KERNEL_RESOURCES
     kernel.qrc)
