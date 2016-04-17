@@ -92,7 +92,7 @@ PageUsers::setupUserData( QListWidgetItem* current )
     for ( int i = 0; i < groups.size(); i++ )
     {
         const UsersCommon::Group* group = &groups.at( i );
-        if ( group->name != ADMIN_GROUP || !group->members.contains( current->text() ) )
+        if ( group->name != QStringLiteral("wheel") || !group->members.contains( current->text() ) )
             continue;
 
         ui->buttonAccountType->setText( tr( "Administrator" ) );
@@ -112,7 +112,7 @@ PageUsers::buttonImage_clicked()
     dialog.setFileMode( QFileDialog::ExistingFile );
     dialog.setNameFilter( tr( "Images (*.png *.jpg *.bmp)" ) );
     dialog.setViewMode( QFileDialog::Detail );
-    dialog.setDirectory( FACES_IMAGE_FOLDER );
+    dialog.setDirectory( QStringLiteral( "/usr/share/pixmaps/faces" ) );
 
     if ( !dialog.exec() || dialog.selectedFiles().isEmpty() )
         return;
@@ -225,9 +225,9 @@ PageUsers::buttonRemoveUser_clicked()
     QString errorMessage;
 
     if ( UsersCommon::runProcess( "userdel",
-                             args << item->text(),
-                             QStringList(),
-                             errorMessage ) != 0 )
+                                  args << item->text(),
+                                  QStringList(),
+                                  errorMessage ) != 0 )
         QMessageBox::warning( this, tr( "Error!" ), QString( tr( "Failed to remove user %1!" ).arg( item->text() ) + "\n" + errorMessage ), QMessageBox::Ok, QMessageBox::Ok );
 
 

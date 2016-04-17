@@ -48,8 +48,8 @@ private:
     Ui::AccountTypeDialog* ui;
     QString m_username;
     bool m_userGroupDataChanged;
-
     void checkSudoersFile();
+    QString m_adminGroup;
 
 private slots:
     void buttonApply_clicked();

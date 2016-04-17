@@ -21,19 +21,7 @@
 #ifndef USERSCOMMON_H
 #define USERSCOMMON_H
 
-#define LANGUAGE_PACKAGES_FILE  "/var/lib/manjaro-system-settings/language_packages.list"
-#define LOCALE_GEN              "/etc/locale.gen"
-#define LOCALE_CONF              "/etc/locale.conf"
-#define LOCALESSUPPORTED "/usr/share/i18n/SUPPORTED"
-#define LOCALESINFO "/usr/share/i18n/LOCALESINFO"
-#define XKB_FILE "/usr/share/X11/xkb/rules/base.lst"
-#define MIN_USER_UUID 1000
-#define PASSWD "/etc/passwd"
-#define GROUPCONF "/etc/group"
-#define FACES_IMAGE_FOLDER "/usr/share/pixmaps/faces"
 #define DEFAULT_USER_GROUPS "video,audio,power,disk,storage,optical,network,lp,scanner"
-#define ADMIN_GROUP "wheel"
-#define SUDOERSFILE "/etc/sudoers"
 
 #include <QString>
 #include <QFile>

@@ -31,6 +31,7 @@ AccountTypeDialog::AccountTypeDialog( QWidget* parent ) :
 {
     ui->setupUi( this );
     m_userGroupDataChanged = false;
+    m_adminGroup ="wheel";
 
     // Hide treeWidget
     checkBoxShowGroups_toggled( false );
@@ -85,7 +86,7 @@ AccountTypeDialog::exec( QString username )
             item->setCheckState( 1, Qt::Unchecked );
 
         // Check the account type
-        if ( group->name == ADMIN_GROUP )
+        if ( group->name == m_adminGroup )
         {
             if ( group->members.contains( username ) )
                 ui->comboBoxAccountType->setCurrentIndex( 1 );
@@ -109,7 +110,8 @@ AccountTypeDialog::exec( QString username )
 void
 AccountTypeDialog::checkSudoersFile()
 {
-    QFile file( SUDOERSFILE );
+    const QString sudoersFile {"/etc/sudoers"};
+    QFile file( sudoersFile );
     if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
         return;
 
@@ -120,7 +122,7 @@ AccountTypeDialog::checkSudoersFile()
     {
         QString line = in.readLine().split( "#", QString::KeepEmptyParts ).first().remove( " " );
 
-        if ( line == "%" + QString( ADMIN_GROUP ) + "ALL=(ALL)ALL" )
+        if ( line == "%" + m_adminGroup + "ALL=(ALL)ALL" )
         {
             found = true;
             break;
@@ -132,7 +134,7 @@ AccountTypeDialog::checkSudoersFile()
     if ( !found )
         QMessageBox::warning( this,
                               tr( "Warning!" ),
-                              tr( "Admin group %1 isn't enabled in '%2'! You have to enable it to be able to set admin rights..." ).arg( ADMIN_GROUP, SUDOERSFILE ),
+                              tr( "Admin group %1 isn't enabled in '%2'! You have to enable it to be able to set admin rights..." ).arg( m_adminGroup, sudoersFile ),
                               QMessageBox::Ok, QMessageBox::Ok );
 }
 
@@ -151,7 +153,9 @@ AccountTypeDialog::buttonApply_clicked()
     }
 
     // Check if default groups have been disabled
-    QStringList missingDefaultGroups, defaultGroups = QString( DEFAULT_USER_GROUPS ).split( ",", QString::SkipEmptyParts );
+    QStringList missingDefaultGroups;
+    QStringList defaultGroups = QStringList() << "video" << "audio" << "power" << "disk" << "storage"
+                                << "optical" << "network" << "lp" << "scanner";
     foreach ( QString defaultGroup, defaultGroups )
     {
         if ( !groups.contains( defaultGroup ) )
@@ -204,7 +208,7 @@ AccountTypeDialog::checkBoxShowGroups_toggled( bool toggled )
 void
 AccountTypeDialog::treeWidget_itemChanged( QTreeWidgetItem* item, int column )
 {
-    if ( item->text( 0 ) != ADMIN_GROUP || column != 1 )
+    if ( item->text( 0 ) != m_adminGroup || column != 1 )
         return;
 
     if ( item->checkState( 1 ) == Qt::Checked )
@@ -220,7 +224,7 @@ AccountTypeDialog::comboBoxAccountType_currentIndexChanged( int index )
     for ( int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i )
     {
         QTreeWidgetItem* item = ui->treeWidget->topLevelItem( i );
-        if ( item->text( 0 ) != ADMIN_GROUP )
+        if ( item->text( 0 ) != m_adminGroup )
             continue;
 
         if ( index == 0 )
