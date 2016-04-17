@@ -1,6 +1,9 @@
+cmake_policy(SET CMP0063 NEW)
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-file(GLOB MSM_KERNEL_GLOB
+# Common
+file(GLOB KERNEL_GLOB
      msm_kernel.desktop
      changelogs/linux34.html
      changelogs/linux38.html
@@ -21,22 +24,24 @@ file(GLOB MSM_KERNEL_GLOB
      changelogs/linux44.html
      changelogs/linux45.html)
 
-set(MSM_KERNEL_SRCS
-    ${MSM_KERNEL_GLOB}
+set(KERNEL_SRCS
+    ${KERNEL_GLOB}
     KernelInfoDialog.cpp
-    KernelListViewDelegate.cpp
-    KernelModule.cpp)
+    KernelListViewDelegate.cpp)
 
 set(MSM_KERNEL_UI
     ui/PageKernel.ui)
-qt5_wrap_ui(MSM_KERNEL_SRCS ${MSM_KERNEL_UI})
-set(MSM_KERNEL_RESOURCES
+qt5_wrap_ui(MSM_KERNEL_SRCS ${KERNEL_UI})
+
+set(KERNEL_RESOURCES
     kernel.qrc)
-QT5_ADD_RESOURCES (MSM_KERNEL_SRCS ${MSM_KERNEL_RESOURCES})
+QT5_ADD_RESOURCES (KERNEL_SRCS ${KERNEL_RESOURCES})
 
-cmake_policy(SET CMP0063 NEW)
-
-add_library(msm_kernel MODULE ${MSM_KERNEL_SRCS})
+# KCM Module
+set(KERNEL_KCM_SRCS
+    ${KERNEL_SRCS}
+    KernelModule.cpp)
+add_library(msm_kernel MODULE ${KERNEL_KCM_SRCS})
 target_compile_definitions(msm_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_kernel
     msm
@@ -46,24 +51,22 @@ target_link_libraries(msm_kernel
 install(TARGETS msm_kernel DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_kernel.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
-kauth_install_actions(org.manjaro.msm.kernel msm_kernel.actions)
-
-add_executable(msm_kernel_authhelper KernelAuthHelper.cpp)
-target_link_libraries(msm_kernel_authhelper KF5::Auth KF5::ConfigCore)
-install(TARGETS msm_kernel_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
-kauth_install_helper_files(msm_kernel_authhelper org.manjaro.msm.kernel root)
-
-
-#msm_page_kernel library
-set(MSM_KERNEL_PAGE_SRCS
-    ${MSM_KERNEL_GLOB}
-    KernelInfoDialog.cpp
-    KernelListViewDelegate.cpp
+# MSM Page
+set(KERNEL_PAGE_SRCS
+    ${KERNEL_SRCS}
     PageKernel.cpp)
-qt5_wrap_ui(MSM_KERNEL_PAGE_SRCS ${MSM_KERNEL_UI})
-QT5_ADD_RESOURCES (MSM_KERNEL_PAGE_SRCS ${MSM_KERNEL_RESOURCES})
 
-add_library(msm_page_kernel STATIC ${MSM_KERNEL_PAGE_SRCS})
+add_library(msm_page_kernel STATIC ${KERNEL_PAGE_SRCS})
 target_compile_definitions(msm_page_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_kernel
     msm)
+
+# Auth Helper
+add_executable(msm_kernel_authhelper KernelAuthHelper.cpp)
+target_link_libraries(msm_kernel_authhelper
+    KF5::Auth
+    KF5::ConfigCore)
+
+install(TARGETS msm_kernel_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+kauth_install_helper_files(msm_kernel_authhelper org.manjaro.msm.kernel root)
+kauth_install_actions(org.manjaro.msm.kernel msm_kernel.actions)

@@ -1,25 +1,37 @@
+cmake_policy(SET CMP0063 NEW)
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-file(GLOB MSM_MHWD_GLOB
+# Common
+file(GLOB MHWD_GLOB
+     icons/add.png
+     icons/ati.png
+     icons/gpudriver.png
+     icons/intel-nvidia.png
+     icons/intel.png
+     icons/nvidia.png
+     icons/remove.png
+     icons/restore.png
      msm_mhwd.desktop)
 
-set(MSM_MHWD_SRCS
-    ${MSM_MHWD_GLOB}
-    MhwdModule.cpp
+set(MHWD_SRCS
+    ${MHWD_GLOB}
     libmhwd/mhwd.cpp
     libmhwd/vita/string.cpp)
 
-set(MSM_MHWD_UI
+set(MHWD_UI
     ui/PageMhwd.ui)
-qt5_wrap_ui(MSM_MHWD_SRCS ${MSM_MHWD_UI})
+qt5_wrap_ui(MHWD_SRCS ${MHWD_UI})
 
-set(MSM_MHWD_RESOURCES
+set(MHWD_RESOURCES
     mhwd.qrc)
-QT5_ADD_RESOURCES (MSM_MHWD_SRCS ${MSM_MHWD_RESOURCES})
+QT5_ADD_RESOURCES (MHWD_SRCS ${MHWD_RESOURCES})
 
-cmake_policy(SET CMP0063 NEW)
-
-add_library(msm_mhwd MODULE ${MSM_MHWD_SRCS})
+# KCM Module
+set(MHWD_KCM_SRCS
+    ${MHWD_SRCS}
+    MhwdModule.cpp)
+add_library(msm_mhwd MODULE ${MHWD_KCM_SRCS})
 target_compile_definitions(msm_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_mhwd
     msm
@@ -31,25 +43,23 @@ target_link_libraries(msm_mhwd
 install(TARGETS msm_mhwd DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES msm_mhwd.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
-kauth_install_actions(org.manjaro.msm.mhwd msm_mhwd.actions)
-
-add_executable(msm_mhwd_authhelper MhwdAuthHelper.cpp)
-target_link_libraries(msm_mhwd_authhelper KF5::Auth KF5::ConfigCore)
-install(TARGETS msm_mhwd_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
-kauth_install_helper_files(msm_mhwd_authhelper org.manjaro.msm.mhwd root)
-
-
-#msm_page_mhwd library
-set(MSM_MHWD_PAGE_SRCS
-    ${MSM_MHWD_GLOB}
-    PageMhwd.cpp
-    libmhwd/mhwd.cpp
-    libmhwd/vita/string.cpp)
-qt5_wrap_ui(MSM_MHWD_PAGE_SRCS ${MSM_MHWD_UI})
-QT5_ADD_RESOURCES (MSM_MHWD_PAGE_SRCS ${MSM_MHWD_RESOURCES})
-
-add_library(msm_page_mhwd STATIC ${MSM_MHWD_PAGE_SRCS})
+# MSM PAGE
+set(MHWD_PAGE_SRCS
+    ${MHWD_SRCS}
+    PageMhwd.cpp)
+add_library(msm_page_mhwd STATIC ${MHWD_PAGE_SRCS})
 target_compile_definitions(msm_page_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_mhwd
     msm
+    Qt5::Widgets
     hd)
+
+# Auth Helper
+add_executable(msm_mhwd_authhelper MhwdAuthHelper.cpp)
+target_link_libraries(msm_mhwd_authhelper
+    KF5::Auth
+    KF5::ConfigCore)
+
+install(TARGETS msm_mhwd_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+kauth_install_helper_files(msm_mhwd_authhelper org.manjaro.msm.mhwd root)
+kauth_install_actions(org.manjaro.msm.mhwd msm_mhwd.actions)

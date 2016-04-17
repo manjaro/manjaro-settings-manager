@@ -1,23 +1,23 @@
+cmake_policy(SET CMP0063 NEW)
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-file(GLOB MSM_NOTIFIER_GLOB
+file(GLOB NOTIFIER_GLOB
      msm_notifier.desktop
      icons/language.png
      icons/tux-manjaro.png)
 
-set(MSM_NOTIFIER_SRCS
-    ${MSM_NOTIFIER_GLOB}
+set(NOTIFIER_SRCS
+    ${NOTIFIER_GLOB}
     main.cpp
     Notifier.cpp
     NotifierApp.cpp)
 
-set(MSM_NOTIFIER_RESOURCES
+set(NOTIFIER_RESOURCES
     notifier.qrc)
-QT5_ADD_RESOURCES (MSM_NOTIFIER_SRCS ${MSM_NOTIFIER_RESOURCES})
+QT5_ADD_RESOURCES (NOTIFIER_SRCS ${NOTIFIER_RESOURCES})
 
-cmake_policy(SET CMP0063 NEW)
-
-add_executable(msm_notifier ${MSM_NOTIFIER_SRCS})
+add_executable(msm_notifier ${NOTIFIER_SRCS})
 target_compile_definitions(msm_notifier PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_notifier
     msm

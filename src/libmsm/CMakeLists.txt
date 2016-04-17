@@ -1,3 +1,8 @@
+cmake_policy(SET CMP0063 NEW)
+
+file(GLOB LIBMSM_GLOB
+     language_packages.json)
+
 set(KDSINGLEAPPLICATIONGUARD
     kdsingleapplicationguard/kdsingleapplicationguard.cpp
     kdsingleapplicationguard/kdsharedmemorylocker.cpp
@@ -10,17 +15,17 @@ set_source_files_properties(
     COMPILE_FLAGS "-Wno-unused-function")
 
 set(LIBMSM_SRCS
+    ${LIBMSM_GLOB}
+    ${KDSINGLEAPPLICATIONGUARD}
     ActionDialog.cpp
+    ApplyDialog.cpp
     Kernel.cpp
     KernelModel.cpp
     LanguageCommon.cpp
     LanguagePackages.cpp
     LanguagePackagesItem.cpp
     ListWidget.cpp
-    PageWidget.cpp
-    ApplyDialog.cpp
-
-    ${KDSINGLEAPPLICATIONGUARD})
+    PageWidget.cpp)
 
 set(LIBMSM_UI
     ApplyDialog.ui)
@@ -30,8 +35,6 @@ set(LIBMSM_RESOURCES
     language_packages.qrc
     translations.qrc)
 QT5_ADD_RESOURCES (LIBMSM_SRCS ${LIBMSM_RESOURCES})
-
-cmake_policy(SET CMP0063 NEW)
 
 add_library (msm STATIC ${LIBMSM_SRCS})
 target_link_libraries (msm
