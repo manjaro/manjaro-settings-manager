@@ -6,31 +6,41 @@ URL=https://github.com/manjaro/manjaro-settings-manager
 
 [org.manjaro.msm.users.add]
 Name=Add User
+Name[pl]=Dodaj użytkownika
 Description=Add User
+Description[pl]=Dodaj użytkownika
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.users.remove]
 Name=Remove User
+Name[pl]=Usuń użytkownika
 Description=Remove User
+Description[pl]=Usuń użytkownika
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.users.changepassword]
 Name=Change Password
+Name[pl]=Zmień hasło
 Description=Change Password
+Description[pl]=Zmień hasło
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.users.changeaccounttype]
 Name=Change Account Type
+Name[pl]=Zmień typ konta
 Description=Change Account Type
+Description[pl]=Zmień typ konta
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.users.changeimage]
 Name=Change Image
+Name[pl]=Zmiana obrazu użytkownika
 Description=Change Image
+Description[pl]=Zmiana obrazu użytkownika
 Policy=auth_admin
 Persistence=session
 

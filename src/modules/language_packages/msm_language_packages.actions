@@ -6,12 +6,16 @@ URL=https://github.com/manjaro/manjaro-settings-manager
 
 [org.manjaro.msm.languagepackages.install]
 Name=Install Language Packages
+Name[pl]=Zainstaluj paczki językowe
 Description=Install Language Packages
+Description[pl]=Zainstaluj paczki językowe
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.languagepackages.remove]
 Name=Remove Language Packages
+Name[pl]=Usuń paczki językowe
 Description=Remove Language Packages
+Description[pl]=Usuń paczki językowe
 Policy=auth_admin
 Persistence=session

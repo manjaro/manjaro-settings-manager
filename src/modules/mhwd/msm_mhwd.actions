@@ -6,12 +6,16 @@ URL=https://github.com/manjaro/manjaro-settings-manager
 
 [org.manjaro.msm.mhwd.install]
 Name=Install MHWD Configuration
+Name[pl]=Zainstaluj sterownik
 Description=Install MHWD Configuration
+Description[pl]=Zainstaluj sterownik
 Policy=auth_admin
 Persistence=session
 
 [org.manjaro.msm.mhwd.remove]
 Name=Remove MHWD Configuration
+Name[pl]=Usuń sterownik
 Description=Remove MHWD Configuration
+Description[pl]=Usuń sterownik
 Policy=auth_admin
 Persistence=session

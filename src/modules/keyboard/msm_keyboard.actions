@@ -6,6 +6,8 @@ URL=https://github.com/manjaro/manjaro-settings-manager
 
 [org.manjaro.msm.keyboard.save]
 Name=Save Keyboard Settings
+Name[pl]=Zapisz ustawienia klawiatury
 Description=Save Keyboard Settings
+Description[pl]=Zapisz ustawienia klawiatury
 Policy=auth_admin
 Persistence=session
