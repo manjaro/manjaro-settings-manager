@@ -42,11 +42,11 @@ Notifier::Notifier( QObject* parent ) :
 
     auto menu = m_tray->contextMenu();
 
-    QAction* msmKernel = new QAction( QIcon( ":/images/resources/tux-manjaro.png" ),
+    QAction* msmKernel = new QAction( QIcon( ":/icons/tux-manjaro.png" ),
                                       QString( tr ( "Kernels" ) ),
                                       menu );
     QAction* msmLanguagePackages = new QAction(
-        QIcon( ":/images/resources/language.png" ),
+        QIcon( ":/icons/language.png" ),
         QString( tr ( "Language packages" ) ),
         menu );
     menu->addAction( msmKernel );
@@ -54,12 +54,12 @@ Notifier::Notifier( QObject* parent ) :
 
     connect( msmKernel, &QAction::triggered, this, [msmKernel, this]()
     {
-        QProcess::startDetached( "msm", QStringList() << "-m" << "msm_kernel" );
+        QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_kernel" );
         m_tray->setStatus( KStatusNotifierItem::Passive );
     } );
     connect( msmLanguagePackages, &QAction::triggered, this, [msmLanguagePackages, this]()
     {
-        QProcess::startDetached( "msm", QStringList() << "-m" << "msm_language_packages" );
+        QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_language_packages" );
         m_tray->setStatus( KStatusNotifierItem::Passive );
     } );
 

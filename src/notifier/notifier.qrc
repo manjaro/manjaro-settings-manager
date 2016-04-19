@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/images">
+    <qresource prefix="/">
         <file>icons/language.png</file>
         <file>icons/tux-manjaro.png</file>
     </qresource>

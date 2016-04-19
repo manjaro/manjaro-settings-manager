@@ -32,6 +32,7 @@ PageNotifications::PageNotifications( QWidget* parent ) :
     setTitle( tr( "Notifications" ) );
     setIcon( QPixmap( ":/images/resources/notifications.png" ) );
     setShowApplyButton( true );
+    setName( "msm_notifications" );
 
     connect( ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
              this, &PageNotifications::unsupportedKernelStateBoxChanged );

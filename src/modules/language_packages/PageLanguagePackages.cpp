@@ -36,6 +36,7 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent ) :
     ui->setupUi( this );
     setTitle( tr( "Language Packages" ) );
     setIcon( QPixmap( ":/images/resources/locale-package.png" ) );
+    setName( "msm_language_packages" );
 
     ui->treeWidgetAvailable->setColumnWidth( 0, 250 );
     ui->treeWidgetAvailable->setColumnWidth( 1, 300 );

@@ -46,7 +46,7 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
     setTitle( tr( "Keyboard Settings" ) );
     setIcon( QPixmap( ":/images/resources/keyboard.png" ) );
     setShowApplyButton( true );
-
+    setName( "msm_keyboard" );
 
     // Keyboard preview widget
     ui->KBPreviewLayout->addWidget( keyboardPreview_ );

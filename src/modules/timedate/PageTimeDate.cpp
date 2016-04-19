@@ -38,6 +38,7 @@ PageTimeDate::PageTimeDate( QWidget* parent ) :
     setTitle( tr( "Time and Date" ) );
     setIcon( QPixmap( ":/images/resources/timedate.png" ) );
     setShowApplyButton( true );
+    setName( "msm_timedate" );
 
     connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled, this, &PageTimeDate::isNtpEnabledToggled );
     connect( ui->timeZonePushButton, &QPushButton::clicked, this, &PageTimeDate::timeZoneClicked );

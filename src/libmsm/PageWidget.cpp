@@ -41,7 +41,7 @@ PageWidget::getTitle()
 }
 
 
-QString
+QByteArray
 PageWidget::getName()
 {
     return m_name;
@@ -70,7 +70,7 @@ PageWidget::setIcon( QPixmap icon )
 
 
 void
-PageWidget::setName( QString name )
+PageWidget::setName( QByteArray name )
 {
     this->m_name = name;
 }

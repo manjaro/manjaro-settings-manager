@@ -38,6 +38,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     setTitle( tr( "Language" ) );
     setIcon( QPixmap( ":/images/resources/locale.png" ) );
     setShowApplyButton( true );
+    setName( "msm_locale" );
 
     /* Set Models */
     ui->localeListView->setModel( enabledLocalesModel_ );

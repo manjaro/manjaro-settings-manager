@@ -28,6 +28,7 @@ PageUsers::PageUsers( QWidget* parent ) :
     ui->setupUi( this );
     setTitle( tr( "User Accounts" ) );
     setIcon( QPixmap( ":/images/resources/users.png" ) );
+    setName( "msm_users" );
 
     // Connect signals and slots
     connect( ui->listWidget, SIGNAL( currentItemChanged( QListWidgetItem*,QListWidgetItem* ) )   ,   this, SLOT( setupUserData( QListWidgetItem* ) ) );
@@ -92,7 +93,7 @@ PageUsers::setupUserData( QListWidgetItem* current )
     for ( int i = 0; i < groups.size(); i++ )
     {
         const UsersCommon::Group* group = &groups.at( i );
-        if ( group->name != QStringLiteral("wheel") || !group->members.contains( current->text() ) )
+        if ( group->name != QStringLiteral( "wheel" ) || !group->members.contains( current->text() ) )
             continue;
 
         ui->buttonAccountType->setText( tr( "Administrator" ) );
