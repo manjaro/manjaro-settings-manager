@@ -37,25 +37,33 @@ LanguageCommon::enabledLocales( bool clean )
         return QStringList();
     }
 
-    QTextStream in( &localeGen );
-    while ( !in.atEnd() )
+    QByteArray in = localeGen.readAll();
+    foreach ( QByteArray line, in.split( '\n' ) )
     {
-        QString line = in.readLine();
-        if ( line.isEmpty() || line.startsWith( "#" ) )
+        line = line.simplified();
+
+        if ( line.startsWith( "#" ) ||
+                line.isEmpty() )
             continue;
-        line = QString( line.split( " ", QString::SkipEmptyParts )
-                        .first()
-                        .trimmed() );
-        // Remove .UTF-8, @euro ...
+
+        // Remove UTF-8, ISO-8895-15, etc
+        QString lineString = QString::fromUtf8( line );
+        lineString =  lineString.split( " ", QString::SkipEmptyParts )
+                      .first()
+                      .trimmed();
+
         if ( clean )
         {
-            line = line.split( QRegularExpression( "[ .@]" ),
-                               QString::SkipEmptyParts )
-                   .first();
+            // Remove .UTF-8, @euro ...
+            locales << lineString.split( QRegularExpression( "[ .@]" ),
+                                         QString::SkipEmptyParts )
+                    .first()
+                    .trimmed();
         }
-        locales << line;
+        else
+            locales << lineString;
     }
-    localeGen.close();
+
     locales.removeDuplicates();
     return locales;
 }
@@ -65,45 +73,53 @@ QStringList
 LanguageCommon::supportedLocales( bool clean )
 {
     QFile localeGen( "/etc/locale.gen" );
-    QString lines;
+    QByteArray in;
     if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGen );
-        lines.append( in.readAll() );
-    }
+        in.append( localeGen.readAll() );
     else
         qDebug() << "error: failed to open '/etc/locale.gen'";
 
     QFile localeGenPacnew( "/etc/locale.gen.pacnew" );
     if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGenPacnew );
-        lines.append( in.readAll() );
-    }
+        in.append( localeGen.readAll() );
 
     QStringList locales;
-    foreach ( QString line, lines.split( '\n' ) )
+    foreach ( QByteArray line, in.split( '\n' ) )
     {
-        if ( line.startsWith( "# " ) || line.simplified() == "#" ||
+        line = line.simplified();
+
+        if ( line.startsWith( "# " ) ||
+                line == "#" ||
                 line.isEmpty() )
             continue;
 
-        line = line.simplified();
-        if ( line.startsWith( "#" ) )
-            line.remove( '#' );
+        qDebug() << line;
 
-        line = line.split( " ", QString::SkipEmptyParts )
-               .first()
-               .trimmed();
-        // Remove .UTF-8, @euro ...
+        if ( line.startsWith( "#" ) )
+            line.remove( 0, 1 );
+
+        qDebug() << line;
+
+        // Remove UTF-8, ISO-8895-15, etc
+        QString lineString = QString::fromUtf8( line );
+        lineString = lineString.split( " ", QString::SkipEmptyParts )
+                     .first()
+                     .trimmed();
+
+        qDebug() << lineString;
+
         if ( clean )
         {
-            line = line.split( QRegularExpression( "[ .@]" ),
-                               QString::SkipEmptyParts )
-                   .first();
+            // Remove .UTF-8, @euro ...
+            locales << lineString.split( QRegularExpression( "[ .@]" ),
+                                         QString::SkipEmptyParts )
+                    .first()
+                    .trimmed();
         }
-        locales << line;
+        else
+            locales << lineString;
     }
+
     locales.removeDuplicates();
     return locales;
 }
@@ -112,42 +128,36 @@ LanguageCommon::supportedLocales( bool clean )
 QString
 LanguageCommon::localeToLocaleGenFormat( const QString locale )
 {
-    QSet<QString> localeList;
+    QSet<QByteArray> localeList;
 
     QFile localeGen( "/etc/locale.gen" );
-    QString lines;
+    QByteArray in;
     if ( localeGen.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGen );
-        lines.append( in.readAll() );
-    }
+        in.append( localeGen.readAll() );
+    else
+        qDebug() << "error: failed to open '/etc/locale.gen'";
 
     QFile localeGenPacnew( "/etc/locale.gen.pacnew" );
     if ( localeGenPacnew.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        QTextStream in( &localeGenPacnew );
-        lines.append( in.readAll() );
-    }
+        in.append( localeGen.readAll() );
 
-    foreach ( const QString line, lines.split( '\n' ) )
+    foreach ( QByteArray line, in.split( '\n' ) )
     {
-        if ( line.startsWith( "# " ) || line.simplified() == "#"
-                || line.isEmpty() )
+        line = line.simplified();
+
+        if ( line.startsWith( "# " ) ||
+                line == "#"||
+                line.isEmpty() )
             continue;
 
-        if ( line.simplified().startsWith( "#" ) )
-            localeList.insert( line.simplified().remove( '#' ) );
-        else
-            localeList.insert( line.simplified() );
-    }
+        if ( line.startsWith( "#" ) )
+            line.remove( 0, 1 );
 
-    foreach ( const QString line, localeList )
-    {
-        if ( line.startsWith( locale + " " ) )
+        if ( locale.toUtf8() == line )
             return line;
     }
 
-    return "";
+    return QString();
 }
 
 
