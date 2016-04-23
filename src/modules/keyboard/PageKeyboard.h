@@ -49,15 +49,15 @@ public:
 
 private:
     Ui::PageKeyboard* ui;
-    KeyboardModel* keyboardModel_;
-    QSortFilterProxyModel* keyboardProxyModel_;
-    KeyBoardPreview* keyboardPreview_;
-    KSelectionProxyModel* layoutsSelectionProxy_;
-    QSortFilterProxyModel* variantsSortProxy_;
+    KeyboardModel* m_keyboardModel;
+    QSortFilterProxyModel* m_keyboardProxyModel;
+    KeyBoardPreview* m_keyboardPreview;
+    KSelectionProxyModel* m_layoutsSelectionProxy;
+    QSortFilterProxyModel* m_variantsSortProxy;
 
-    QString currentLayout_;
-    QString currentVariant_;
-    QString currentModel_;
+    QString m_currentLayout;
+    QString m_currentVariant;
+    QString m_currentModel;
 
     void setKeyboardLayout();
     void configureKeystroke();
