@@ -22,17 +22,21 @@
 #include "ui_LocaleModule.h"
 #include "LanguageCommon.h"
 
+#include <KAuth>
+#include <KAuthAction>
+
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
 #include <QtDBus/QDBusInterface>
 #include <QtWidgets/QMenu>
 
+#include <QDebug>
 
 PageLanguage::PageLanguage( QWidget* parent ) :
     PageWidget( parent ),
     ui( new Ui::LocaleModule ),
-    enabledLocalesModel_( new EnabledLocalesModel ),
-    languageListViewDelegate_( new LanguageListViewDelegate )
+    m_enabledLocalesModel( new EnabledLocalesModel ),
+    m_languageListViewDelegate( new LanguageListViewDelegate )
 {
     ui->setupUi( this );
     setTitle( tr( "Language" ) );
@@ -41,28 +45,28 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     setName( "msm_locale" );
 
     /* Set Models */
-    ui->localeListView->setModel( enabledLocalesModel_ );
-    ui->addressComboBox->setModel( enabledLocalesModel_ );
-    ui->collateComboBox->setModel( enabledLocalesModel_ );
-    ui->ctypeComboBox->setModel( enabledLocalesModel_ );
-    ui->identificationComboBox->setModel( enabledLocalesModel_ );
-    ui->langComboBox->setModel( enabledLocalesModel_ );
-    ui->measurementComboBox->setModel( enabledLocalesModel_ );
-    ui->messagesComboBox->setModel( enabledLocalesModel_ );
-    ui->monetaryComboBox->setModel( enabledLocalesModel_ );
-    ui->nameComboBox->setModel( enabledLocalesModel_ );
-    ui->numericComboBox->setModel( enabledLocalesModel_ );
-    ui->paperComboBox->setModel( enabledLocalesModel_ );
-    ui->telephoneComboBox->setModel( enabledLocalesModel_ );
-    ui->timeComboBox->setModel( enabledLocalesModel_ );
+    ui->localeListView->setModel( m_enabledLocalesModel );
+    ui->addressComboBox->setModel( m_enabledLocalesModel );
+    ui->collateComboBox->setModel( m_enabledLocalesModel );
+    ui->ctypeComboBox->setModel( m_enabledLocalesModel );
+    ui->identificationComboBox->setModel( m_enabledLocalesModel );
+    ui->langComboBox->setModel( m_enabledLocalesModel );
+    ui->measurementComboBox->setModel( m_enabledLocalesModel );
+    ui->messagesComboBox->setModel( m_enabledLocalesModel );
+    ui->monetaryComboBox->setModel( m_enabledLocalesModel );
+    ui->nameComboBox->setModel( m_enabledLocalesModel );
+    ui->numericComboBox->setModel( m_enabledLocalesModel );
+    ui->paperComboBox->setModel( m_enabledLocalesModel );
+    ui->telephoneComboBox->setModel( m_enabledLocalesModel );
+    ui->timeComboBox->setModel( m_enabledLocalesModel );
 
     /* Set localeListView delegate */
-    ui->localeListView->setItemDelegate( languageListViewDelegate_ );
+    ui->localeListView->setItemDelegate( m_languageListViewDelegate );
 
     /* Define QActions */
-    setRegionAndFormatsAction_ = new QAction( tr( "Set as default display language and format" ), ui->localeListView );
-    setRegionAction_ = new QAction( tr( "Set as default display language" ), ui->localeListView );
-    setFormatsAction_ = new QAction( tr( "Set as default format" ), ui->localeListView );
+    m_setRegionAndFormatsAction = new QAction( tr( "Set as default display language and format" ), ui->localeListView );
+    m_setRegionAction = new QAction( tr( "Set as default display language" ), ui->localeListView );
+    m_setFormatsAction = new QAction( tr( "Set as default format" ), ui->localeListView );
 
     /* Connect top buttons signal/slot */
     connect( ui->buttonRemove, &QPushButton::clicked,
@@ -78,182 +82,182 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     connect( ui->localeListView, &QListView::doubleClicked,
              [=] ( const QModelIndex &index )
     {
-        enabledLocalesModel_->setLang( index );
-        enabledLocalesModel_->setLanguage( index );
-        enabledLocalesModel_->setCtype( index );
-        enabledLocalesModel_->setCollate( index );
-        enabledLocalesModel_->setMessages( index );
-        enabledLocalesModel_->setAddress( index );
-        enabledLocalesModel_->setIdentification( index );
-        enabledLocalesModel_->setMeasurement( index );
-        enabledLocalesModel_->setMonetary( index );
-        enabledLocalesModel_->setName( index );
-        enabledLocalesModel_->setNumeric( index );
-        enabledLocalesModel_->setPaper( index );
-        enabledLocalesModel_->setTelephone( index );
-        enabledLocalesModel_->setTime( index );
+        m_enabledLocalesModel->setLang( index );
+        m_enabledLocalesModel->setLanguage( index );
+        m_enabledLocalesModel->setCtype( index );
+        m_enabledLocalesModel->setCollate( index );
+        m_enabledLocalesModel->setMessages( index );
+        m_enabledLocalesModel->setAddress( index );
+        m_enabledLocalesModel->setIdentification( index );
+        m_enabledLocalesModel->setMeasurement( index );
+        m_enabledLocalesModel->setMonetary( index );
+        m_enabledLocalesModel->setName( index );
+        m_enabledLocalesModel->setNumeric( index );
+        m_enabledLocalesModel->setPaper( index );
+        m_enabledLocalesModel->setTelephone( index );
+        m_enabledLocalesModel->setTime( index );
     } );
 
     /* Connect "Detailed Settings" tab signal/slots */
     connect( ui->addressComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setAddress( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setAddress( index );
     } );
     connect( ui->collateComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setCollate( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setCollate( index );
     } );
     connect( ui->ctypeComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setCtype( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setCtype( index );
     } );
     connect( ui->identificationComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setIdentification( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setIdentification( index );
     } );
     connect( ui->langComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setLang( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setLang( index );
     } );
     connect( ui->measurementComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setMeasurement( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setMeasurement( index );
     } );
     connect( ui->messagesComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setMessages( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setMessages( index );
     } );
     connect( ui->monetaryComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setMonetary( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setMonetary( index );
     } );
     connect( ui->nameComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setName( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setName( index );
     } );
     connect( ui->numericComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setNumeric( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setNumeric( index );
     } );
     connect( ui->paperComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setPaper( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setPaper( index );
     } );
     connect( ui->telephoneComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setTelephone( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setTelephone( index );
     } );
     connect( ui->timeComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
-        QModelIndex index = enabledLocalesModel_->index( row, 0 );
-        enabledLocalesModel_->setTime( index );
+        QModelIndex index = m_enabledLocalesModel->index( row, 0 );
+        m_enabledLocalesModel->setTime( index );
     } );
 
-    connect( enabledLocalesModel_, &QAbstractListModel::dataChanged,
+    connect( m_enabledLocalesModel, &QAbstractListModel::dataChanged,
              [=] ( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int>& roles )
     {
         Q_UNUSED( bottomRight );
         if ( roles.contains( EnabledLocalesModel::AddressRole ) )
         {
             ui->addressComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::CollateRole ) )
         {
             ui->collateComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::CtypeRole ) )
         {
             ui->ctypeComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::IdentificationRole ) )
         {
             ui->identificationComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::LangRole ) )
         {
             ui->langComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::MeasurementRole ) )
         {
             ui->measurementComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::MonetaryRole ) )
         {
             ui->monetaryComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::MessagesRole ) )
         {
             ui->messagesComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::NameRole ) )
         {
             ui->nameComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::NumericRole ) )
         {
             ui->numericComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::PaperRole ) )
         {
             ui->paperComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::TelephoneRole ) )
         {
             ui->telephoneComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
         else if ( roles.contains( EnabledLocalesModel::TimeRole ) )
         {
             ui->timeComboBox->setCurrentIndex( topLeft.row() );
-            isSystemLocalesModified_ = true;
+            m_isSystemLocalesModified = true;
             this -> setApplyEnabled( this, true );
         }
     } );
@@ -263,56 +267,56 @@ PageLanguage::PageLanguage( QWidget* parent ) :
              [=] ( const QPoint &pos )
     {
         QMenu localeListViewMenu;
-        localeListViewMenu.addAction( setRegionAndFormatsAction_ );
-        localeListViewMenu.addAction( setRegionAction_ );
-        localeListViewMenu.addAction( setFormatsAction_ );
+        localeListViewMenu.addAction( m_setRegionAndFormatsAction );
+        localeListViewMenu.addAction( m_setRegionAction );
+        localeListViewMenu.addAction( m_setFormatsAction );
         localeListViewMenu.exec( ui->localeListView->mapToGlobal( pos ) );
     } );
 
-    connect( setRegionAndFormatsAction_, &QAction::triggered,
+    connect( m_setRegionAndFormatsAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
-        enabledLocalesModel_->setLang( index );
-        enabledLocalesModel_->setLanguage( index );
-        enabledLocalesModel_->setCtype( index );
-        enabledLocalesModel_->setCollate( index );
-        enabledLocalesModel_->setMessages( index );
-        enabledLocalesModel_->setAddress( index );
-        enabledLocalesModel_->setIdentification( index );
-        enabledLocalesModel_->setMeasurement( index );
-        enabledLocalesModel_->setMonetary( index );
-        enabledLocalesModel_->setName( index );
-        enabledLocalesModel_->setNumeric( index );
-        enabledLocalesModel_->setPaper( index );
-        enabledLocalesModel_->setTelephone( index );
-        enabledLocalesModel_->setTime( index );
+        m_enabledLocalesModel->setLang( index );
+        m_enabledLocalesModel->setLanguage( index );
+        m_enabledLocalesModel->setCtype( index );
+        m_enabledLocalesModel->setCollate( index );
+        m_enabledLocalesModel->setMessages( index );
+        m_enabledLocalesModel->setAddress( index );
+        m_enabledLocalesModel->setIdentification( index );
+        m_enabledLocalesModel->setMeasurement( index );
+        m_enabledLocalesModel->setMonetary( index );
+        m_enabledLocalesModel->setName( index );
+        m_enabledLocalesModel->setNumeric( index );
+        m_enabledLocalesModel->setPaper( index );
+        m_enabledLocalesModel->setTelephone( index );
+        m_enabledLocalesModel->setTime( index );
     } );
 
-    connect( setRegionAction_, &QAction::triggered,
+    connect( m_setRegionAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
-        enabledLocalesModel_->setLang( index );
-        enabledLocalesModel_->setLanguage( index );
-        enabledLocalesModel_->setCtype( index );
-        enabledLocalesModel_->setCollate( index );
-        enabledLocalesModel_->setMessages( index );
+        m_enabledLocalesModel->setLang( index );
+        m_enabledLocalesModel->setLanguage( index );
+        m_enabledLocalesModel->setCtype( index );
+        m_enabledLocalesModel->setCollate( index );
+        m_enabledLocalesModel->setMessages( index );
     } );
 
-    connect( setFormatsAction_, &QAction::triggered,
+    connect( m_setFormatsAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
-        enabledLocalesModel_->setAddress( index );
-        enabledLocalesModel_->setIdentification( index );
-        enabledLocalesModel_->setMeasurement( index );
-        enabledLocalesModel_->setMonetary( index );
-        enabledLocalesModel_->setName( index );
-        enabledLocalesModel_->setNumeric( index );
-        enabledLocalesModel_->setPaper( index );
-        enabledLocalesModel_->setTelephone( index );
-        enabledLocalesModel_->setTime( index );
+        m_enabledLocalesModel->setAddress( index );
+        m_enabledLocalesModel->setIdentification( index );
+        m_enabledLocalesModel->setMeasurement( index );
+        m_enabledLocalesModel->setMonetary( index );
+        m_enabledLocalesModel->setName( index );
+        m_enabledLocalesModel->setNumeric( index );
+        m_enabledLocalesModel->setPaper( index );
+        m_enabledLocalesModel->setTelephone( index );
+        m_enabledLocalesModel->setTime( index );
     } );
 }
 
@@ -320,11 +324,11 @@ PageLanguage::PageLanguage( QWidget* parent ) :
 PageLanguage::~PageLanguage()
 {
     delete ui;
-    delete enabledLocalesModel_;
-    delete languageListViewDelegate_;
-    delete setRegionAndFormatsAction_;
-    delete setRegionAction_;
-    delete setFormatsAction_;
+    delete m_enabledLocalesModel;
+    delete m_languageListViewDelegate;
+    delete m_setRegionAndFormatsAction;
+    delete m_setRegionAction;
+    delete m_setFormatsAction;
 }
 
 
@@ -332,10 +336,10 @@ void
 PageLanguage::load()
 {
     ui->buttonRemove->setDisabled( true );
-    enabledLocalesModel_->init();
-    enabledLocalesModel_->updateSystemLocales();
-    isLocaleListModified_ = false;
-    isSystemLocalesModified_ = false;
+    m_enabledLocalesModel->init();
+    m_enabledLocalesModel->updateSystemLocales();
+    m_isLocaleListModified = false;
+    m_isSystemLocalesModified = false;
     this -> setApplyEnabled( this, false );
 }
 
@@ -343,170 +347,63 @@ PageLanguage::load()
 void
 PageLanguage::save()
 {
-    if ( isLocaleListModified_ )
-        updateLocaleGen();
-    if ( isSystemLocalesModified_ )
-        setSystemLocale();
-}
-
-
-/*
- * Update /etc/locale.gen file and run locale-gen
- * Return true if successful
- */
-bool
-PageLanguage::updateLocaleGen()
-{
-    const QString localeGen = "/etc/locale.gen";
-
-    QStringList locales = enabledLocalesModel_->locales();
-
-    QFile file( localeGen );
-    if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    if ( m_isLocaleListModified || m_isSystemLocalesModified )
     {
-        QMessageBox::warning( this,
-                              tr( "Error!" ),
-                              tr( "Failed to open file '%1'!" ).arg( localeGen ),
-                              QMessageBox::Ok, QMessageBox::Ok );
-        return false;
-    }
+        QVariantMap args;
+        args["isLocaleListModified"] = m_isLocaleListModified;
+        args["isSystemLocalesModified"] = m_isSystemLocalesModified;
+        args["locales"] = m_enabledLocalesModel->locales();
 
-    QStringList content;
+        QStringList localeList;
+        if ( !m_enabledLocalesModel->lang().isEmpty() )
+            localeList << QString( "LANG=%1" ).arg( m_enabledLocalesModel->lang() );
+        if ( !m_enabledLocalesModel->language().isEmpty() )
+            localeList << QString( "LANGUAGE=%1" ).arg( m_enabledLocalesModel->language() );
+        if ( !m_enabledLocalesModel->ctype().isEmpty() )
+            localeList << QString( "LC_CTYPE=%1" ).arg( m_enabledLocalesModel->ctype() );
+        if ( !m_enabledLocalesModel->numeric().isEmpty() )
+            localeList << QString( "LC_NUMERIC=%1" ).arg( m_enabledLocalesModel->numeric() );
+        if ( !m_enabledLocalesModel->time().isEmpty() )
+            localeList << QString( "LC_TIME=%1" ).arg( m_enabledLocalesModel->time() );
+        if ( !m_enabledLocalesModel->collate().isEmpty() )
+            localeList << QString( "LC_COLLATE=%1" ).arg( m_enabledLocalesModel->collate() );
+        if ( !m_enabledLocalesModel->monetary().isEmpty() )
+            localeList << QString( "LC_MONETARY=%1" ).arg( m_enabledLocalesModel->monetary() );
+        if ( !m_enabledLocalesModel->messages().isEmpty() )
+            localeList << QString( "LC_MESSAGES=%1" ).arg( m_enabledLocalesModel->messages() );
+        if ( !m_enabledLocalesModel->paper().isEmpty() )
+            localeList << QString( "LC_PAPER=%1" ).arg( m_enabledLocalesModel->paper() );
+        if ( !m_enabledLocalesModel->name().isEmpty() )
+            localeList << QString( "LC_NAME=%1" ).arg( m_enabledLocalesModel->name() );
+        if ( !m_enabledLocalesModel->address().isEmpty() )
+            localeList << QString( "LC_ADDRESS=%1" ).arg( m_enabledLocalesModel->address() );
+        if ( !m_enabledLocalesModel->telephone().isEmpty() )
+            localeList << QString( "LC_TELEPHONE=%1" ).arg( m_enabledLocalesModel->telephone() );
+        if ( !m_enabledLocalesModel->measurement().isEmpty() )
+            localeList << QString( "LC_MEASUREMENT=%1" ).arg( m_enabledLocalesModel->measurement() );
+        if ( !m_enabledLocalesModel->identification().isEmpty() )
+            localeList << QString( "LC_IDENTIFICATION=%1" ).arg( m_enabledLocalesModel->identification() );
 
-    QTextStream in( &file );
-    while ( !in.atEnd() )
-    {
-        QString line = in.readLine();
-        content.append( line );
-        line = line.trimmed();
+        args["localeList"] = localeList;
 
-        bool found = false;
-
-        foreach ( const QString locale, locales )
+        // TODO: Progress UI
+        KAuth::Action installAction( QLatin1String( "org.manjaro.msm.locale.save" ) );
+        installAction.setHelperId( QLatin1String( "org.manjaro.msm.locale" ) );
+        installAction.setArguments( args );
+        KAuth::ExecuteJob* job = installAction.execute();
+        if ( job->exec() )
         {
-            if ( line.startsWith( locale + " " ) )
-            {
-                found = true;
-                locales.removeAll( locale );
-                break;
-            }
-
-            if ( line.startsWith( "#" + locale + " " ) )
-            {
-                content.removeLast();
-                content.append( line.remove( 0, 1 ) );
-                found = true;
-                locales.removeAll( locale );
-                break;
-            }
+            // tr("You might have to restart the graphical environment to apply the new settings...")
+            qDebug() << "Locale changes succesfully set";
+        }
+        else
+        {
+            // QString(tr("Failed to set locale!")
+            qDebug() << "Failed to set locale";
         }
 
-        if ( !found && !line.split( "#", QString::KeepEmptyParts ).first().trimmed().isEmpty() )
-        {
-            content.removeLast();
-            content.append( "#" + line );
-        }
+        load();
     }
-    file.close();
-
-    // Add missing locales in the file
-    foreach ( const QString locale, locales )
-    {
-        QString str = LanguageCommon::localeToLocaleGenFormat( locale );
-
-        if ( str.isEmpty() )
-        {
-            QMessageBox::warning( this,
-                                  tr( "Error!" ),
-                                  tr( "Failed to obtain valid locale string for locale '%1'!" ).arg( locale ),
-                                  QMessageBox::Ok, QMessageBox::Ok );
-            continue;
-        }
-
-        content.append( str );
-    }
-
-
-    if ( !file.open( QIODevice::WriteOnly | QIODevice::Text ) )
-    {
-        QMessageBox::warning( this,
-                              tr( "Error!" ),
-                              tr( "Failed to open file '%1'!" ).arg( localeGen ),
-                              QMessageBox::Ok, QMessageBox::Ok );
-        return false;
-    }
-
-    QTextStream out( &file );
-    out << content.join( "\n" );
-    file.close();
-
-
-    /* Generate new locales */
-    ApplyDialog dialog( this );
-    dialog.exec( "locale-gen", QStringList(), tr( "Generating locale.gen file..." ), false );
-
-    if ( dialog.processSuccess() )
-        QMessageBox::information( this, tr( "Hint" ), tr( "You might have to restart the graphical environment to apply the new settings..." ), QMessageBox::Ok, QMessageBox::Ok );
-    return true;
-}
-
-
-/*
- * Modify /etc/locale.conf using systemd-localed
- */
-bool
-PageLanguage::setSystemLocale()
-{
-    QStringList localeList;
-    if ( !enabledLocalesModel_->lang().isEmpty() )
-        localeList << QString( "LANG=%1" ).arg( enabledLocalesModel_->lang() );
-    if ( !enabledLocalesModel_->language().isEmpty() )
-        localeList << QString( "LANGUAGE=%1" ).arg( enabledLocalesModel_->language() );
-    if ( !enabledLocalesModel_->ctype().isEmpty() )
-        localeList << QString( "LC_CTYPE=%1" ).arg( enabledLocalesModel_->ctype() );
-    if ( !enabledLocalesModel_->numeric().isEmpty() )
-        localeList << QString( "LC_NUMERIC=%1" ).arg( enabledLocalesModel_->numeric() );
-    if ( !enabledLocalesModel_->time().isEmpty() )
-        localeList << QString( "LC_TIME=%1" ).arg( enabledLocalesModel_->time() );
-    if ( !enabledLocalesModel_->collate().isEmpty() )
-        localeList << QString( "LC_COLLATE=%1" ).arg( enabledLocalesModel_->collate() );
-    if ( !enabledLocalesModel_->monetary().isEmpty() )
-        localeList << QString( "LC_MONETARY=%1" ).arg( enabledLocalesModel_->monetary() );
-    if ( !enabledLocalesModel_->messages().isEmpty() )
-        localeList << QString( "LC_MESSAGES=%1" ).arg( enabledLocalesModel_->messages() );
-    if ( !enabledLocalesModel_->paper().isEmpty() )
-        localeList << QString( "LC_PAPER=%1" ).arg( enabledLocalesModel_->paper() );
-    if ( !enabledLocalesModel_->name().isEmpty() )
-        localeList << QString( "LC_NAME=%1" ).arg( enabledLocalesModel_->name() );
-    if ( !enabledLocalesModel_->address().isEmpty() )
-        localeList << QString( "LC_ADDRESS=%1" ).arg( enabledLocalesModel_->address() );
-    if ( !enabledLocalesModel_->telephone().isEmpty() )
-        localeList << QString( "LC_TELEPHONE=%1" ).arg( enabledLocalesModel_->telephone() );
-    if ( !enabledLocalesModel_->measurement().isEmpty() )
-        localeList << QString( "LC_MEASUREMENT=%1" ).arg( enabledLocalesModel_->measurement() );
-    if ( !enabledLocalesModel_->identification().isEmpty() )
-        localeList << QString( "LC_IDENTIFICATION=%1" ).arg( enabledLocalesModel_->identification() );
-
-    QDBusInterface dbusInterface( "org.freedesktop.locale1",
-                                  "/org/freedesktop/locale1",
-                                  "org.freedesktop.locale1",
-                                  QDBusConnection::systemBus() );
-    /*
-     * asb
-     * array_string -> locale
-     * boolean -> arg_ask_password
-     */
-    QDBusMessage reply;
-    reply = dbusInterface.call( "SetLocale", localeList, true );
-    if ( reply.type() == QDBusMessage::ErrorMessage )
-    {
-        QMessageBox::warning( this,
-                              tr( "Error!" ),
-                              QString( tr( "Failed to set locale!" ) + "\n" + reply.errorMessage() ),
-                              QMessageBox::Ok, QMessageBox::Ok );
-        return false;
-    }
-    return true;
 }
 
 
@@ -520,9 +417,9 @@ PageLanguage::addLocale()
         return;
 
     QString localeCode = dialog.getLocale();
-    if ( enabledLocalesModel_->insertLocale( enabledLocalesModel_->rowCount( QModelIndex() ), 1, localeCode ) )
+    if ( m_enabledLocalesModel->insertLocale( m_enabledLocalesModel->rowCount( QModelIndex() ), 1, localeCode ) )
     {
-        isLocaleListModified_ = true;
+        m_isLocaleListModified = true;
         this -> setApplyEnabled( this, true );
     }
 }
@@ -534,10 +431,10 @@ PageLanguage::removeLocale()
     QModelIndex localeCurrentIndex = ui->localeListView->currentIndex();
     if ( localeCurrentIndex.isValid() )
     {
-        if ( enabledLocalesModel_->removeLocale( localeCurrentIndex.row(), 1 ) )
+        if ( m_enabledLocalesModel->removeLocale( localeCurrentIndex.row(), 1 ) )
         {
             ui->localeListView->setCurrentIndex( QModelIndex() );
-            isLocaleListModified_ = true;
+            m_isLocaleListModified = true;
             this -> setApplyEnabled( this, true );
         }
     }
@@ -557,7 +454,7 @@ PageLanguage::defaults()
 void
 PageLanguage::disableRemoveButton( const QModelIndex& current, const QModelIndex& previous )
 {
-    if ( enabledLocalesModel_->rowCount( QModelIndex() ) == 1 )
+    if ( m_enabledLocalesModel->rowCount( QModelIndex() ) == 1 )
         ui->buttonRemove->setDisabled( true );
     else
     {
