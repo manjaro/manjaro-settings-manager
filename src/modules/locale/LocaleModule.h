@@ -27,7 +27,8 @@
 
 #include <KCModule>
 
-namespace Ui {
+namespace Ui
+{
 class LocaleModule;
 }
 
@@ -43,7 +44,7 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit LocaleModule(QWidget *parent, const QVariantList &args = QVariantList());
+    explicit LocaleModule( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
@@ -65,20 +66,19 @@ public:
     void defaults();
 
 private:
-    Ui::LocaleModule *ui;
-    EnabledLocalesModel *enabledLocalesModel_;
-    LanguageListViewDelegate *m_languageListViewDelegate;
-    QString m_currentLocale;
+    Ui::LocaleModule* ui;
+    EnabledLocalesModel* m_enabledLocalesModel;
+    LanguageListViewDelegate* m_languageListViewDelegate;
     bool m_isLocaleListModified;
     bool m_isSystemLocalesModified;
-    QAction *m_setRegionAndFormatsAction;
-    QAction *m_setRegionAction;
-    QAction *m_setFormatsAction;
+    QAction* m_setRegionAndFormatsAction;
+    QAction* m_setRegionAction;
+    QAction* m_setFormatsAction;
 
 protected slots:
     void addLocale();
     void removeLocale();
-    void disableRemoveButton(const QModelIndex &current, const QModelIndex &previous);
+    void disableRemoveButton( const QModelIndex& current, const QModelIndex& previous );
 
 };
 
