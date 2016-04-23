@@ -81,11 +81,6 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
     // Set localeListView delegate
     ui->localeListView->setItemDelegate( m_languageListViewDelegate );
 
-    // Define QActions
-    m_setRegionAndFormatsAction = new QAction( tr( "Set as default display language and format" ), ui->localeListView );
-    m_setRegionAction = new QAction( tr( "Set as default display language" ), ui->localeListView );
-    m_setFormatsAction = new QAction( tr( "Set as default format" ), ui->localeListView );
-
     // Connect top buttons signal/slot
     connect( ui->buttonRemove, &QPushButton::clicked,
              this, &LocaleModule::removeLocale );
@@ -285,13 +280,13 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
              [=] ( const QPoint &pos )
     {
         QMenu localeListViewMenu;
-        localeListViewMenu.addAction( m_setRegionAndFormatsAction );
-        localeListViewMenu.addAction( m_setRegionAction );
-        localeListViewMenu.addAction( m_setFormatsAction );
+        localeListViewMenu.addAction( ui->setRegionAndFormatsAction );
+        localeListViewMenu.addAction( ui->setRegionAction );
+        localeListViewMenu.addAction( ui->setFormatsAction );
         localeListViewMenu.exec( ui->localeListView->mapToGlobal( pos ) );
     } );
 
-    connect( m_setRegionAndFormatsAction, &QAction::triggered,
+    connect( ui->setRegionAndFormatsAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
@@ -311,7 +306,7 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
         m_enabledLocalesModel->setTime( index );
     } );
 
-    connect( m_setRegionAction, &QAction::triggered,
+    connect( ui->setRegionAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
@@ -322,7 +317,7 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
         m_enabledLocalesModel->setMessages( index );
     } );
 
-    connect( m_setFormatsAction, &QAction::triggered,
+    connect( ui->setFormatsAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
@@ -344,9 +339,6 @@ LocaleModule::~LocaleModule()
     delete ui;
     delete m_enabledLocalesModel;
     delete m_languageListViewDelegate;
-    delete m_setRegionAndFormatsAction;
-    delete m_setRegionAction;
-    delete m_setFormatsAction;
 }
 
 

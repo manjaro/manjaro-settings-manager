@@ -49,12 +49,8 @@ private:
     Ui::LocaleModule* ui;
     EnabledLocalesModel* m_enabledLocalesModel;
     LanguageListViewDelegate* m_languageListViewDelegate;
-    QString m_currentLocale;
     bool m_isLocaleListModified;
     bool m_isSystemLocalesModified;
-    QAction* m_setRegionAndFormatsAction;
-    QAction* m_setRegionAction;
-    QAction* m_setFormatsAction;
 
 protected slots:
     void addLocale();

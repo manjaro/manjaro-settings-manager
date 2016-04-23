@@ -78,8 +78,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>568</width>
-            <height>335</height>
+            <width>560</width>
+            <height>338</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -144,8 +144,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>542</width>
-            <height>557</height>
+            <width>546</width>
+            <height>500</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -358,6 +358,21 @@
     </widget>
    </item>
   </layout>
+  <action name="setRegionAndFormatsAction">
+   <property name="text">
+    <string>Set as default display language and format</string>
+   </property>
+  </action>
+  <action name="setRegionAction">
+   <property name="text">
+    <string>Set as default display language</string>
+   </property>
+  </action>
+  <action name="setFormatsAction">
+   <property name="text">
+    <string>Set as default format</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

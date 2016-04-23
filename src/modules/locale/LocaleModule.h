@@ -71,9 +71,6 @@ private:
     LanguageListViewDelegate* m_languageListViewDelegate;
     bool m_isLocaleListModified;
     bool m_isSystemLocalesModified;
-    QAction* m_setRegionAndFormatsAction;
-    QAction* m_setRegionAction;
-    QAction* m_setFormatsAction;
 
 protected slots:
     void addLocale();

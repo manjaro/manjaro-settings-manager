@@ -44,7 +44,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     setShowApplyButton( true );
     setName( "msm_locale" );
 
-    /* Set Models */
+    // Set Models
     ui->localeListView->setModel( m_enabledLocalesModel );
     ui->addressComboBox->setModel( m_enabledLocalesModel );
     ui->collateComboBox->setModel( m_enabledLocalesModel );
@@ -60,15 +60,10 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     ui->telephoneComboBox->setModel( m_enabledLocalesModel );
     ui->timeComboBox->setModel( m_enabledLocalesModel );
 
-    /* Set localeListView delegate */
+    // Set localeListView delegate
     ui->localeListView->setItemDelegate( m_languageListViewDelegate );
 
-    /* Define QActions */
-    m_setRegionAndFormatsAction = new QAction( tr( "Set as default display language and format" ), ui->localeListView );
-    m_setRegionAction = new QAction( tr( "Set as default display language" ), ui->localeListView );
-    m_setFormatsAction = new QAction( tr( "Set as default format" ), ui->localeListView );
-
-    /* Connect top buttons signal/slot */
+    // Connect top buttons signal/slot
     connect( ui->buttonRemove, &QPushButton::clicked,
              this, &PageLanguage::removeLocale );
     connect( ui->buttonRestore, &QPushButton::clicked,
@@ -76,7 +71,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     connect( ui->buttonAdd, &QPushButton::clicked,
              this, &PageLanguage::addLocale );
 
-    /* Connect "System Locales" tab signal/slots */
+    // Connect "System Locales" tab signal/slots
     connect( ui->localeListView->selectionModel(), &QItemSelectionModel::currentRowChanged,
              this, &PageLanguage::disableRemoveButton );
     connect( ui->localeListView, &QListView::doubleClicked,
@@ -98,7 +93,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
         m_enabledLocalesModel->setTime( index );
     } );
 
-    /* Connect "Detailed Settings" tab signal/slots */
+    // Connect "Detailed Settings" tab signal/slots
     connect( ui->addressComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int row )
     {
@@ -262,18 +257,18 @@ PageLanguage::PageLanguage( QWidget* parent ) :
         }
     } );
 
-    /* Context menu for the list view in "System Locales" tab */
+    // Context menu for the list view in "System Locales" tab
     connect( ui->localeListView, &QListView::customContextMenuRequested,
              [=] ( const QPoint &pos )
     {
         QMenu localeListViewMenu;
-        localeListViewMenu.addAction( m_setRegionAndFormatsAction );
-        localeListViewMenu.addAction( m_setRegionAction );
-        localeListViewMenu.addAction( m_setFormatsAction );
+        localeListViewMenu.addAction( ui->setRegionAndFormatsAction );
+        localeListViewMenu.addAction( ui->setRegionAction );
+        localeListViewMenu.addAction( ui->setFormatsAction );
         localeListViewMenu.exec( ui->localeListView->mapToGlobal( pos ) );
     } );
 
-    connect( m_setRegionAndFormatsAction, &QAction::triggered,
+    connect( ui->setRegionAndFormatsAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
@@ -293,7 +288,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
         m_enabledLocalesModel->setTime( index );
     } );
 
-    connect( m_setRegionAction, &QAction::triggered,
+    connect( ui->setRegionAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
@@ -304,7 +299,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
         m_enabledLocalesModel->setMessages( index );
     } );
 
-    connect( m_setFormatsAction, &QAction::triggered,
+    connect( ui->setFormatsAction, &QAction::triggered,
              [=]
     {
         QModelIndex index = ui->localeListView->currentIndex();
@@ -326,9 +321,6 @@ PageLanguage::~PageLanguage()
     delete ui;
     delete m_enabledLocalesModel;
     delete m_languageListViewDelegate;
-    delete m_setRegionAndFormatsAction;
-    delete m_setRegionAction;
-    delete m_setFormatsAction;
 }
 
 
