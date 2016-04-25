@@ -3,7 +3,7 @@
 pkgbase=manjaro-settings-manager
 pkgname=('manjaro-settings-manager' 'manjaro-settings-manager-kcm')
 pkgver=0.4.95
-pkgrel=1
+pkgrel=2
 _pkgver=0.4.95
 pkgdesc="Manjaro Linux System Settings Tool"
 arch=('i686' 'x86_64')
@@ -18,11 +18,11 @@ install=${pkgname}.install
 source=(git+$url.git)
 sha256sums=(SKIP)
 
-pkgver() {
-  cd "$srcdir/manjaro-settings-manager"
-  _git=".r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
-  echo -e "${_pkgver}${_git}"
-}
+#pkgver() {
+#  cd "$srcdir/manjaro-settings-manager"
+#  _git=".r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
+#  echo -e "${_pkgver}${_git}"
+#}
 
 build() {
   cd "$srcdir/manjaro-settings-manager"
@@ -47,7 +47,6 @@ package_manjaro-settings-manager() {
 package_manjaro-settings-manager-kcm() {
   pkgdesc="Manjaro Linux System Settings Tool (KCM for Plasma 5)"
   depends=('manjaro-settings-manager' 'kcmutils' 'kconfigwidgets')
-  provides=('kcm-msm')
   replaces=('kcm-msm')
   cd "$srcdir/manjaro-settings-manager/build"
   make DESTDIR=${pkgdir} install
