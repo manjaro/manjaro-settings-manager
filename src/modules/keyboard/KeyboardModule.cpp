@@ -162,8 +162,6 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     }
     else
         qDebug() << "Can't find keyboard model list";
-
-
 }
 
 
