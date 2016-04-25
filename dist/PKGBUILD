@@ -2,17 +2,17 @@
 
 pkgbase=manjaro-settings-manager
 pkgname=('manjaro-settings-manager' 'manjaro-settings-manager-kcm')
-pkgver=0.4.95.r454.3e4776c
+pkgver=0.4.95
 pkgrel=1
 _pkgver=0.4.95
-pkgdesc="Manjaro Linux System Settings Tool (KCM for Plasma 5)"
+pkgdesc="Manjaro Linux System Settings Tool"
 arch=('i686' 'x86_64')
 url="https://github.com/manjaro/manjaro-settings-manager"
 license=("GPL")
 depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth' 
-         'kcoreaddons' 'ckbcomp' 'knotifications' 'xdg-utils'
-         'kcmutils' 'kconfigwidgets')
-makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools')
+         'kcoreaddons' 'ckbcomp' 'knotifications' 'xdg-utils')
+makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools'
+             'kcmutils' 'kconfigwidgets')
 conflicts=('kcm-msm')
 install=${pkgname}.install
 source=(git+$url.git)
@@ -38,8 +38,6 @@ build() {
 }
 
 package_manjaro-settings-manager() {
-  depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth' 
-           'kcoreaddons' 'ckbcomp' 'knotifications' 'xdg-utils')
   cd "$srcdir/manjaro-settings-manager/build"
   make DESTDIR=${pkgdir} install  
   rm -rf $pkgdir/usr/lib/qt
@@ -47,9 +45,9 @@ package_manjaro-settings-manager() {
 }
 
 package_manjaro-settings-manager-kcm() {
-  depends=('manjaro-settings-manager' 'icu' 'qt5-base' 'hwinfo' 'kitemmodels' 
-           'kauth' 'kcoreaddons' 'ckbcomp' 'knotifications' 'xdg-utils'
-           'kcmutils' 'kconfigwidgets')
+  pkgdesc="Manjaro Linux System Settings Tool (KCM for Plasma 5)"
+  depends=('manjaro-settings-manager' 'kcmutils' 'kconfigwidgets')
+  provides=('kcm-msm')
   replaces=('kcm-msm')
   cd "$srcdir/manjaro-settings-manager/build"
   make DESTDIR=${pkgdir} install
