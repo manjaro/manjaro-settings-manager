@@ -12,7 +12,7 @@ license=("GPL")
 depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth' 'kconfigwidgets'
          'kcoreaddons' 'ckbcomp' 'knotifications' 'xdg-utils')
 makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools'
-             'kcmutils' 'kconfigwidgets')
+             'kcmutils')
 conflicts=('kcm-msm')
 install=${pkgname}.install
 source=(git+$url.git)
