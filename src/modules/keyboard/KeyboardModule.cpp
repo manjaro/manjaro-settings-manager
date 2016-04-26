@@ -162,6 +162,10 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     }
     else
         qDebug() << "Can't find keyboard model list";
+
+    // hide restore button as it isn't connected or used in kcmodule.
+    ui->buttonRestore->setVisible(false);
+
 }
 
 

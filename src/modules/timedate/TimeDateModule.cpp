@@ -57,7 +57,7 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
                                       tr( "Please use <a href='%1'>%1</a> to report bugs." )
                                       .arg( "https://github.com/manjaro/manjaro-settings-manager/issues" ) );
     setAboutData( aboutData );
-    setButtons( KCModule::NoAdditionalButton );
+    setButtons( KCModule::Default | KCModule::Apply );
 
     ui->setupUi( this );
 

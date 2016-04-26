@@ -37,6 +37,9 @@ PageUsers::PageUsers( QWidget* parent ) :
     connect( ui->buttonRemove, SIGNAL( clicked() ) ,   this, SLOT( buttonRemoveUser_clicked() ) );
     connect( ui->buttonPassword, SIGNAL( clicked() )   ,   this, SLOT( buttonChangePassword_clicked() ) );
     connect( ui->buttonAccountType, SIGNAL( clicked() )    ,   this, SLOT( buttonChangeAccountType_clicked() ) );
+
+    ui->buttonAdd->setIcon(QIcon::fromTheme("list-add", QIcon(":/icons/add.png")));
+    ui->buttonRemove->setIcon(QIcon::fromTheme("list-remove", QIcon(":/icons/remove.png")));
 }
 
 
