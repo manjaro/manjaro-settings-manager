@@ -52,9 +52,8 @@ add_executable(msm_keyboard_authhelper
     KeyboardAuthHelper.cpp
     SetKeyboardLayoutJob.cpp)
 target_link_libraries(msm_keyboard_authhelper
-    KF5::Auth
-    KF5::ConfigCore
-    Qt5::DBus)
+    Qt5::DBus
+    KF5::Auth)
 
 install(TARGETS msm_keyboard_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_keyboard_authhelper org.manjaro.msm.keyboard root)
