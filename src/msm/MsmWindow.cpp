@@ -64,7 +64,7 @@ MsmWindow::MsmWindow( QWidget* parent ) :
 
     ui->buttonAllSettings->setIcon(QIcon::fromTheme("draw-arrow-back", QIcon(":/images/resources/back.png") ) );
     ui->buttonApply->setIcon(QIcon::fromTheme("dialog-ok-apply", QIcon(":/images/resources/apply.png") ) );
-    ui->buttonQuit->setIcon(QIcon::fromTheme("gtk-quit.svg", QIcon(":/images/resources/quit.png") ) );
+    ui->buttonQuit->setIcon(QIcon::fromTheme("gtk-quit", QIcon(":/images/resources/quit.png") ) );
 }
 
 
