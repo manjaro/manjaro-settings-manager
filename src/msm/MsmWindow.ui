@@ -178,16 +178,6 @@
          <property name="text">
           <string>All Settings</string>
          </property>
-         <property name="icon">
-          <iconset resource="msm.qrc">
-           <normaloff>:/images/resources/back.png</normaloff>:/images/resources/back.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>16</width>
-           <height>16</height>
-          </size>
-         </property>
         </widget>
        </item>
        <item>
@@ -214,16 +204,6 @@
          <property name="text">
           <string>Quit</string>
          </property>
-         <property name="icon">
-          <iconset resource="msm.qrc">
-           <normaloff>:/images/resources/quit.png</normaloff>:/images/resources/quit.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>13</width>
-           <height>13</height>
-          </size>
-         </property>
         </widget>
        </item>
        <item>
@@ -236,16 +216,6 @@
          </property>
          <property name="text">
           <string>Apply</string>
-         </property>
-         <property name="icon">
-          <iconset resource="msm.qrc">
-           <normaloff>:/images/resources/apply.png</normaloff>:/images/resources/apply.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>16</width>
-           <height>16</height>
-          </size>
          </property>
         </widget>
        </item>

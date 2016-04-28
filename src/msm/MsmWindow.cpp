@@ -61,6 +61,10 @@ MsmWindow::MsmWindow( QWidget* parent ) :
              this, &MsmWindow::buttonShowAllSettings_clicked );
     connect( ui->buttonApply, &QPushButton::clicked,
              this, &MsmWindow::buttonApply_clicked );
+
+    ui->buttonAllSettings->setIcon(QIcon::fromTheme("draw-arrow-back", QIcon(":/images/resources/back.png") ) );
+    ui->buttonApply->setIcon(QIcon::fromTheme("dialog-ok-apply", QIcon(":/images/resources/apply.png") ) );
+    ui->buttonQuit->setIcon(QIcon::fromTheme("gtk-quit.svg", QIcon(":/images/resources/quit.png") ) );
 }
 
 

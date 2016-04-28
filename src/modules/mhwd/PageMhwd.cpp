@@ -40,11 +40,11 @@ PageMhwd::PageMhwd( QWidget* parent ) :
 
     // Context menu actions and icons
     installAction = new QAction( tr( "Install" ), ui->treeWidget );
-    installAction->setIcon(QIcon::fromTheme("list-add", QPixmap( ":/icons/add.png") ));
+    installAction->setIcon(QIcon::fromTheme("list-add", QIcon( ":/icons/add.png") ));
     removeAction = new QAction( tr( "Remove" ), ui->treeWidget );
-    removeAction->setIcon(QIcon::fromTheme("list-remove", QPixmap( ":/icons/remove.png") ));
+    removeAction->setIcon(QIcon::fromTheme("list-remove", QIcon( ":/icons/remove.png") ));
     forceReinstallationAction = new QAction( tr( "Force Reinstallation" ), ui->treeWidget );
-    forceReinstallationAction->setIcon( QIcon::fromTheme("view-refresh",  QPixmap( ":/icons/restore.png")) );
+    forceReinstallationAction->setIcon( QIcon::fromTheme("view-refresh",  QIcon( ":/icons/restore.png")) );
 
     // Connect signals and slots
     connect( ui->buttonInstallFree, &QPushButton::clicked,
@@ -61,7 +61,6 @@ PageMhwd::PageMhwd( QWidget* parent ) :
              this, &PageMhwd::forceReinstallationAction_triggered );
     connect( ui->checkBoxShowAll, &QCheckBox::toggled,
              this, &PageMhwd::load );
-
 }
 
 
