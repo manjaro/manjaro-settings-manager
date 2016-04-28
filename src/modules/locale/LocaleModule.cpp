@@ -78,16 +78,19 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
     ui->telephoneComboBox->setModel( m_enabledLocalesModel );
     ui->timeComboBox->setModel( m_enabledLocalesModel );
 
+    ui->buttonAdd->setIcon(QIcon::fromTheme("list-add"));
+    ui->buttonRemove->setIcon(QIcon::fromTheme("list-remove"));
     // Set localeListView delegate
     ui->localeListView->setItemDelegate( m_languageListViewDelegate );
 
     // Connect top buttons signal/slot
     connect( ui->buttonRemove, &QPushButton::clicked,
              this, &LocaleModule::removeLocale );
-    connect( ui->buttonRestore, &QPushButton::clicked,
-             this, &LocaleModule::defaults );
     connect( ui->buttonAdd, &QPushButton::clicked,
              this, &LocaleModule::addLocale );
+
+    // Hide restore top button only usefull for non kcm module, use kmodule buttom button
+    ui->buttonRestore->setVisible(false);
 
     // Connect "System Locales" tab signal/slots
     connect( ui->localeListView->selectionModel(), &QItemSelectionModel::currentRowChanged,
