@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Karbon, part of Calligra: http://www.calligra.org/karbon -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102.4pt" height="102.4pt">
+<defs/>
+<g id="layer1">
+  <g id="g4371" transform="translate(-1.25, -1.25)" fill="none">
+   <rect id="rect3861" transform="matrix(2 0 0 2 1.25 1.25)" fill="#ffffff" opacity="0.00000000000" width="51.20000000000pt" height="51.20000000000pt"/>
+   <g id="brilliant" transform="translate(17.1562, 7.65625)" fill="none">
+    <path id="path4" transform="matrix(0.95 0 0 0.95 0.59375 0.59375)" fill="#35bf5c" d="M0 0L0 50L30 50L30 35L65 35L65 0Z"/>
+    <rect id="rect6" transform="matrix(0.95 0 0 0.95 0.59375 52.8437)" fill="#35bf5c" width="24.00000000000pt" height="52.00000000000pt"/>
+    <rect id="rect8" transform="matrix(0.95 0 0 0.95 33.8437 38.5938)" fill="#35bf5c" width="24.00000000000pt" height="64.00000000000pt"/>
+    <rect id="rect10" transform="matrix(0.95 0 0 0.95 67.0938 0.59375)" fill="#35bf5c" width="24.00000000000pt" height="96.00000000000pt"/>
+   </g>
+  </g>
+ </g>
+</svg>

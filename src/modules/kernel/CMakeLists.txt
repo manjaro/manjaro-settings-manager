@@ -64,8 +64,7 @@ target_link_libraries(msm_page_kernel
 # Auth Helper
 add_executable(msm_kernel_authhelper KernelAuthHelper.cpp)
 target_link_libraries(msm_kernel_authhelper
-    KF5::Auth
-    KF5::ConfigCore)
+    KF5::Auth)
 
 install(TARGETS msm_kernel_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_kernel_authhelper org.manjaro.msm.kernel root)

@@ -12,9 +12,8 @@ depends=('icu' 'qt5-base' 'hwinfo' 'kitemmodels' 'kauth'
          'kconfigwidgets' 'kcoreaddons' 'kcmutils' 'ckbcomp'
          'knotifications' 'xdg-utils')
 makedepends=('git' 'extra-cmake-modules' 'kdoctools' 'qt5-tools')
-conflicts=('manjaro-settings-manager')
-provides=("manjaro-settings-manager=$pkgver")
-install=${pkgname}.install
+conflicts=('manjaro-settings-manager' 'manjaro-settings-manager-kcm')
+provides=("manjaro-settings-manager" 'manjaro-settings-manager-kcm')
 
 build() {
   cd ..

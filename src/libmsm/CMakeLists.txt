@@ -45,5 +45,7 @@ qt5_add_resources(LIBMSM_SRCS ${LIBMSM_RESOURCES})
 
 add_library (msm STATIC ${LIBMSM_SRCS})
 target_link_libraries (msm
-    KF5::ConfigWidgets)
+    Qt5::Core
+    Qt5::Widgets
+    KF5::Auth)
 target_include_directories (msm PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

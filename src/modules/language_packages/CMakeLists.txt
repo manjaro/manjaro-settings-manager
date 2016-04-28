@@ -42,8 +42,7 @@ target_link_libraries(msm_page_language_packages
 # Auth Helper
 add_executable(msm_language_packages_authhelper LanguagePackagesAuthHelper.cpp)
 target_link_libraries(msm_language_packages_authhelper
-    KF5::Auth
-    KF5::ConfigCore)
+    KF5::Auth)
 
 install(TARGETS msm_language_packages_authhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(msm_language_packages_authhelper org.manjaro.msm.languagepackages root)
