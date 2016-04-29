@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/language.png</file>
+        <file>icons/tux-manjaro.png</file>
+    </qresource>
+</RCC>
