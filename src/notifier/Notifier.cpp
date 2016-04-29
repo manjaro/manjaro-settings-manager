@@ -35,13 +35,12 @@
 Notifier::Notifier( QObject* parent ) :
     QObject( parent )
 {
-    m_tray = new KStatusNotifierItem( this );
-    m_tray->setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
-    m_tray->setIconByName( "manjaro-settings-manager" );
-    m_tray->setStatus( KStatusNotifierItem::Passive );
+    m_tray = new QSystemTrayIcon( this );
+    //m_tray->setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
+    m_tray->setIcon( QIcon::fromTheme( "manjaro-settings-manager" ) );
 
-    auto menu = m_tray->contextMenu();
-
+    QMenu* menu = new QMenu();
+    m_tray->setContextMenu( menu );
     QAction* msmKernel = new QAction( QIcon( ":/icons/tux-manjaro.png" ),
                                       QString( tr ( "Kernels" ) ),
                                       menu );
@@ -49,18 +48,29 @@ Notifier::Notifier( QObject* parent ) :
         QIcon( ":/icons/language.png" ),
         QString( tr ( "Language packages" ) ),
         menu );
+    QAction* quitAction = new QAction(
+        QIcon::fromTheme( "application-exit"  ),
+        QString( tr ( "Quit" ) ),
+        menu );
+
     menu->addAction( msmKernel );
     menu->addAction( msmLanguagePackages );
+    menu->addSeparator();
+    menu->addAction( quitAction );
 
     connect( msmKernel, &QAction::triggered, this, [msmKernel, this]()
     {
         QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_kernel" );
-        m_tray->setStatus( KStatusNotifierItem::Passive );
+        m_tray->hide();
     } );
     connect( msmLanguagePackages, &QAction::triggered, this, [msmLanguagePackages, this]()
     {
         QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_language_packages" );
-        m_tray->setStatus( KStatusNotifierItem::Passive );
+        m_tray->hide();
+    } );
+    connect( msmLanguagePackages, &QAction::triggered, this, [quitAction, this]()
+    {
+        qApp->quit();
     } );
 
     m_timer = new QTimer( this );
@@ -162,10 +172,10 @@ Notifier::cLanguagePackage()
     if ( !packages.isEmpty() )
     {
         qDebug() << "Missing language packages found, notifying user...";
-        m_tray->setStatus( KStatusNotifierItem::Active );
+        m_tray->show();
         m_tray->showMessage( tr( "Manjaro Settings Manager" ),
                              QString( tr( "%n new additional language package(s) available", "", packageNumber ) ),
-                             QString( "dialog-information" ),
+                             QSystemTrayIcon::Information,
                              10000 );
 
         // Add to Config
@@ -201,18 +211,18 @@ Notifier::cKernel()
 
         if ( foundRunning )
         {
-            m_tray->setStatus( KStatusNotifierItem::Active );
+            m_tray->show();
             m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
                                  QString( tr( "Running an unsupported kernel, please update." ) ),
-                                 QString( "dialog-warning" ),
+                                 QSystemTrayIcon::Warning,
                                  10000 );
         }
         else if ( found )
         {
-            m_tray->setStatus( KStatusNotifierItem::Active );
+            m_tray->show();
             m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
                                  QString( tr( "Unsupported kernel installed in your system, please remove it." ) ),
-                                 QString( "dialog-information" ),
+                                 QSystemTrayIcon::Information,
                                  10000 );
         }
     }
@@ -258,10 +268,10 @@ Notifier::cKernel()
 
 void Notifier::showNewKernelNotification()
 {
-    m_tray->setStatus( KStatusNotifierItem::Active );
+    m_tray->show();
     m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
                          QString( tr( "Newer kernel is available, please update." ) ),
-                         QString( "dialog-information" ),
+                         QSystemTrayIcon::Information,
                          10000 );
 }
 
