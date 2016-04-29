@@ -188,8 +188,8 @@ Notifier::cKernel()
         bool found = false;
         foreach ( Kernel kernel, unsupportedKernels )
         {
-            /*if ( isPackageIgnored( kernel.package(), "unsupported_kernel" ) )
-                continue;*/
+            if ( isPackageIgnored( kernel.package(), "unsupported_kernel" ) )
+                continue;
 
             if ( m_checkUnsupportedKernelRunning && kernel.isRunning() )
                 foundRunning = true;
@@ -198,6 +198,7 @@ Notifier::cKernel()
 
             addToConfig( kernel.package(), "unsupported_kernel" );
         }
+
         if ( foundRunning )
         {
             m_tray->setStatus( KStatusNotifierItem::Active );
