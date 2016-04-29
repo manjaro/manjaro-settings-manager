@@ -54,7 +54,6 @@ private:
     Ui::PageLanguagePackages* ui;
 
     void loadLanguagePackages();
-    void loadNotificationsSettings();
     QTreeWidgetItem* newParentTreeWidgetItem( QTreeWidget* parent );
 };
 

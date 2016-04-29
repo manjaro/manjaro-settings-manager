@@ -75,72 +75,6 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
              this, &PageKernel::installButtonClicked );
     connect( kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
              this, &PageKernel::infoButtonClicked );
-
-    // Connect notifications tab slots
-    connect( ui->unsupportedKernelCheckBox, &QCheckBox::stateChanged,
-             [=] ( int checkState )
-    {
-        QSettings settings( "manjaro", "manjaro-settings-manager" );
-        settings.setValue( "notifications/checkUnsupportedKernel",
-                           ui->unsupportedKernelCheckBox->isChecked() );
-        settings.sync();
-
-        switch ( checkState )
-        {
-        case Qt::Unchecked:
-            ui->unsupportedKernelRunningCheckBox->setEnabled( false );
-            break;
-        case Qt::Checked:
-            ui->unsupportedKernelRunningCheckBox->setEnabled( true );
-        }
-    } );
-
-    connect( ui->newKernelCheckBox, &QCheckBox::stateChanged,
-             [=] ( int checkState )
-    {
-        QSettings settings( "manjaro", "manjaro-settings-manager" );
-        settings.setValue( "notifications/checkNewKernel",
-                           ui->newKernelCheckBox->isChecked() );
-        settings.sync();
-
-        switch ( checkState )
-        {
-        case Qt::Unchecked:
-            ui->newKernelLtsCheckBox->setEnabled( false );
-            ui->newKernelRecommendedCheckBox->setEnabled( false );
-            break;
-        case Qt::Checked:
-            ui->newKernelLtsCheckBox->setEnabled( true );
-            ui->newKernelRecommendedCheckBox->setEnabled( true );
-        }
-    } );
-
-    connect( ui->unsupportedKernelRunningCheckBox, &QCheckBox::stateChanged,
-             [=] ()
-    {
-        QSettings settings( "manjaro", "manjaro-settings-manager" );
-        settings.setValue( "notifications/checkUnsupportedKernelRunning",
-                           ui->unsupportedKernelRunningCheckBox->isChecked() );
-        settings.sync();
-    } );
-
-    connect( ui->newKernelLtsCheckBox, &QCheckBox::stateChanged,
-             [=] ()
-    {
-        QSettings settings( "manjaro", "manjaro-settings-manager" );
-        settings.setValue( "notifications/checkNewKernelLts",
-                           ui->newKernelLtsCheckBox->isChecked() );
-        settings.sync();
-    } );
-
-    connect( ui->newKernelRecommendedCheckBox, &QCheckBox::stateChanged,
-             [=] ()
-    {
-        QSettings settings( "manjaro", "manjaro-settings-manager" );
-        settings.setValue( "notifications/checkNewKernelRecommended",
-                           ui->newKernelRecommendedCheckBox->isChecked() );
-        settings.sync();
-    } );
 }
 
 
@@ -155,27 +89,6 @@ void
 PageKernel::load()
 {
     m_kernelModel->update();
-
-    QSettings settings( "manjaro", "manjaro-settings-manager" );
-    bool checkUnsupportedKernel = settings.value( "notifications/checkUnsupportedKernel", true ).toBool();
-    bool checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", false ).toBool();
-    bool checkNewKernel = settings.value( "notifications/checkNewKernel", true ).toBool();
-    bool checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", false ).toBool();
-    bool checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", true ).toBool();
-
-    ui->unsupportedKernelCheckBox->setChecked( checkUnsupportedKernel );
-    ui->unsupportedKernelRunningCheckBox->setChecked( checkUnsupportedKernelRunning );
-    ui->newKernelCheckBox->setChecked( checkNewKernel );
-    ui->newKernelLtsCheckBox->setChecked( checkNewKernelLts );
-    ui->newKernelRecommendedCheckBox->setChecked( checkNewKernelRecommended );
-
-    if ( !checkUnsupportedKernel )
-        ui->unsupportedKernelRunningCheckBox->setEnabled( false );
-    if ( !checkNewKernel )
-    {
-        ui->newKernelLtsCheckBox->setEnabled( false );
-        ui->newKernelRecommendedCheckBox->setEnabled( false );
-    }
 }
 
 
@@ -188,11 +101,6 @@ PageKernel::save()
 void
 PageKernel::defaults()
 {
-    ui->unsupportedKernelCheckBox->setChecked( true );
-    ui->unsupportedKernelRunningCheckBox->setChecked( false );
-    ui->newKernelCheckBox->setChecked( true );
-    ui->newKernelLtsCheckBox->setChecked( false );
-    ui->newKernelRecommendedCheckBox->setChecked( true );
 }
 
 

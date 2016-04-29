@@ -32,7 +32,6 @@
 #include <QtCore/QJsonDocument>
 #include <QtCore/QProcess>
 #include <QtCore/QDebug>
-#include <QtCore/QSettings>
 #include <QtCore/QTranslator>
 
 #include <KPluginFactory>
@@ -76,15 +75,6 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent, const QVariantList&
 
     connect( ui->installPackagesButton, &QPushButton::clicked,
              this, &PageLanguagePackages::installPackages );
-
-    connect( ui->checkLanguagePackage, &QCheckBox::stateChanged,
-             [=] ()
-    {
-        QSettings settings( "manjaro", "manjaro-settings-manager" );
-        settings.setValue( "notifications/checkLanguagePackages",
-                           ui->checkLanguagePackage->isChecked() );
-        settings.sync();
-    } );
 }
 
 
@@ -98,7 +88,6 @@ void
 PageLanguagePackages::load()
 {
     loadLanguagePackages();
-    loadNotificationsSettings();
 }
 
 
@@ -199,16 +188,6 @@ PageLanguagePackages::loadLanguagePackages()
     }
 }
 
-
-void
-PageLanguagePackages::loadNotificationsSettings()
-{
-    QSettings settings( "manjaro", "manjaro-settings-manager" );
-    bool checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
-    ui->checkLanguagePackage->setChecked( checkLanguagePackage );
-}
-
-
 void
 PageLanguagePackages::save()
 {
@@ -264,7 +243,6 @@ PageLanguagePackages::installPackages()
 void
 PageLanguagePackages::defaults()
 {
-    ui->checkLanguagePackage->setChecked( true );
 }
 
 
