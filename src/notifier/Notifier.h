@@ -34,15 +34,6 @@ public:
     explicit Notifier( QObject* parent = 0 );
     virtual ~Notifier();
 
-    enum KernelFlag
-    {
-        Unsupported = 0x01,
-        Running = 0x02,
-        New = 0x04,
-    };
-    Q_DECLARE_FLAGS( KernelFlags, KernelFlag )
-
-
 private:
     KStatusNotifierItem* m_tray;
     QTimer* m_timer;
@@ -56,6 +47,7 @@ private:
 
     void cLanguagePackage();
     void cKernel();
+    void showNewKernelNotification();
     bool isPackageIgnored( const QString package, const QString group );
     void addToConfig( const QString package, const QString group );
 
@@ -66,7 +58,5 @@ protected slots:
     void loadConfiguration();
 
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS( Notifier::KernelFlags )
 
 #endif // NOTIFIER_H
