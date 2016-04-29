@@ -178,33 +178,44 @@ Notifier::cLanguagePackage()
 void
 Notifier::cKernel()
 {
-    Notifier::KernelFlags kernelFlags;
     KernelModel kernelModel;
     kernelModel.update();
 
     QList< Kernel > unsupportedKernels = kernelModel.unsupportedKernels();
     if ( m_checkUnsupportedKernel && !unsupportedKernels.isEmpty() )
     {
+        bool foundRunning = false;
+        bool found = false;
         foreach ( Kernel kernel, unsupportedKernels )
         {
-            if ( isPackageIgnored( kernel.package(), "unsupported_kernel" ) )
-            {
-                qDebug() << "Found ignored unsupported kernel: " << kernel.version();
-                continue;
-            }
+            /*if ( isPackageIgnored( kernel.package(), "unsupported_kernel" ) )
+                continue;*/
 
-            kernelFlags |= KernelFlag::Unsupported;
             if ( m_checkUnsupportedKernelRunning && kernel.isRunning() )
-            {
-                kernelFlags |= KernelFlag::Running;
-                qDebug() << "Found unsupported kernel running: " << kernel.version();
-            }
+                foundRunning = true;
             else
-                qDebug() << "Found unsupported kernel: " << kernel.version();
+                found = true;
+
+            addToConfig( kernel.package(), "unsupported_kernel" );
+        }
+        if ( foundRunning )
+        {
+            m_tray->setStatus( KStatusNotifierItem::Active );
+            m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
+                                 QString( tr( "Running an unsupported kernel, please update." ) ),
+                                 QString( "dialog-warning" ),
+                                 10000 );
+        }
+        else if ( found )
+        {
+            m_tray->setStatus( KStatusNotifierItem::Active );
+            m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
+                                 QString( tr( "Unsupported kernel installed in your system, please remove it." ) ),
+                                 QString( "dialog-information" ),
+                                 10000 );
         }
     }
 
-    qDebug() << "Latest installed kernel: " << kernelModel.latestInstalledKernel().version();
     QList<Kernel> newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
     QList<Kernel> newLtsRecommendedKernels;
     QList<Kernel> newLtsKernels;
@@ -215,98 +226,44 @@ Notifier::cKernel()
         foreach ( Kernel kernel, newKernels )
         {
             if ( isPackageIgnored( kernel.package(), "new_kernel" ) )
-            {
-                qDebug() << "Found newer kernel, but ignored: " << kernel.version();
                 continue;
-            }
+
             newNotIgnoredKernels << kernel;
             if ( kernel.isRecommended() && kernel.isLts() )
             {
-                qDebug() << "Found newer kernel LTS and recommended: " << kernel.version();
                 newLtsRecommendedKernels << kernel;
                 newLtsKernels << kernel;
                 newRecommendedKernels << kernel;
             }
             else if ( kernel.isLts() )
-            {
-                qDebug() << "Found newer kernel LTS: " << kernel.version();
                 newLtsKernels << kernel;
-            }
             else if ( kernel.isRecommended() )
-            {
-                qDebug() << "Found newer kernel recommended: " << kernel.version();
                 newRecommendedKernels << kernel;
-            }
-            else
-                qDebug() << "Found newer kernel: " << kernel.version();
-        }
 
-
-        if ( m_checkNewKernelLts && m_checkNewKernelRecommended )
-        {
-            if ( !newLtsRecommendedKernels.isEmpty() )
-                kernelFlags |= KernelFlag::New;
-        }
-        else if ( m_checkNewKernelLts )
-        {
-            if ( !newLtsKernels.isEmpty() )
-                kernelFlags |= KernelFlag::New;
-        }
-        else if ( m_checkNewKernelRecommended )
-        {
-            if ( !newRecommendedKernels.isEmpty() )
-                kernelFlags |= KernelFlag::New;
-        }
-        else
-        {
-            if ( !newNotIgnoredKernels.isEmpty() )
-                kernelFlags |= KernelFlag::New;
-        }
-    }
-
-    /*
-    kernelFlags = 0;
-    kernelFlags |= KernelFlag::Unsupported;
-    kernelFlags |= KernelFlag::Running;
-    kernelFlags |= KernelFlag::New;
-    */
-
-    if  ( kernelFlags.testFlag( KernelFlag::Unsupported ) || kernelFlags.testFlag( KernelFlag::New ) )
-        m_tray->setStatus( KStatusNotifierItem::Active );
-
-    // Notify about unsupported kernels
-    if ( kernelFlags.testFlag( KernelFlag::Unsupported ) )
-    {
-        QString messageTitle = QString( tr( "Manjaro Settings Manager" ) );
-        if ( kernelFlags.testFlag( KernelFlag::Running ) )
-        {
-            m_tray->showMessage( messageTitle,
-                                 QString( tr( "Running an unsupported kernel, please update." ) ),
-                                 QString( "dialog-warning" ),
-                                 10000 );
-        }
-        else
-        {
-            m_tray->showMessage( messageTitle,
-                                 QString( tr( "Unsupported kernel installed in your system, please remove it." ) ),
-                                 QString( "dialog-information" ),
-                                 10000 );
-        }
-        foreach ( Kernel kernel, unsupportedKernels )
-            addToConfig( kernel.package(), "unsupported_kernel" );
-    }
-
-    // Notify about new kernels
-    if ( kernelFlags.testFlag( KernelFlag::New ) )
-    {
-        m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
-                             QString( tr( "Newer kernel is available, please update." ) ),
-                             QString( "dialog-information" ),
-                             10000 );
-        foreach ( Kernel kernel, newNotIgnoredKernels )
             addToConfig( kernel.package(), "new_kernel" );
+        }
+
+        if ( m_checkNewKernelLts && m_checkNewKernelRecommended && !newLtsRecommendedKernels.isEmpty() )
+            showNewKernelNotification();
+        else if ( m_checkNewKernelLts && !newLtsKernels.isEmpty() )
+            showNewKernelNotification();
+        else if ( m_checkNewKernelRecommended && !newRecommendedKernels.isEmpty() )
+            showNewKernelNotification();
+        else if ( !newNotIgnoredKernels.isEmpty() )
+            showNewKernelNotification();
     }
 }
+
+
+void Notifier::showNewKernelNotification()
+{
+    m_tray->setStatus( KStatusNotifierItem::Active );
+    m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
+                         QString( tr( "Newer kernel is available, please update." ) ),
+                         QString( "dialog-information" ),
+                         10000 );
+}
+
 
 void
 Notifier::loadConfiguration()
