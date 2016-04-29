@@ -22,9 +22,8 @@
 
 #include "LanguagePackagesItem.h"
 
-#include <KNotifications/KStatusNotifierItem>
-
 #include <QtCore/QTimer>
+#include <QtWidgets/QSystemTrayIcon>
 
 class Notifier : public QObject
 {
@@ -35,7 +34,7 @@ public:
     virtual ~Notifier();
 
 private:
-    KStatusNotifierItem* m_tray;
+    QSystemTrayIcon* m_tray;
     QTimer* m_timer;
     bool m_checkLanguagePackage;
     bool m_checkKernel;
