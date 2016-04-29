@@ -1,7 +1,6 @@
 /*
  *  This file is part of Manjaro Settings Manager.
  *
- *  Roland Singer <roland@manjaro.org>
  *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
@@ -18,43 +17,52 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGELANGUAGEPACKAGES_H
-#define PAGELANGUAGEPACKAGES_H
+#ifndef NOTIFICATIONSMODULES_H
+#define NOTIFICATIONSMODULES_H
 
-#include "ApplyDialog.h"
-#include "LanguagePackages.h"
-#include "LanguagePackagesItem.h"
-#include "PageWidget.h"
-
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QMap>
-#include <QMapIterator>
-#include <QMessageBox>
-
+#include <KCModule>
 
 namespace Ui
 {
-class PageLanguagePackages;
+class PageNotifications;
 }
 
 
-class PageLanguagePackages : public PageWidget
+class PageNotifications : public KCModule
 {
     Q_OBJECT
 
 public:
-    explicit PageLanguagePackages( QWidget* parent = 0 );
-    ~PageLanguagePackages();
-
+    /**
+     * Constructor.
+     *
+     * @param parent Parent widget of the module
+     * @param args Arguments for the module
+     */
+    explicit PageNotifications( QWidget* parent, const QVariantList& args = QVariantList() );
+    /**
+     * Destructor.
+     */
+    ~PageNotifications();
+    /**
+     * Overloading the KCModule load() function.
+     */
     void load();
+    /**
+     * Overloading the KCModule save() function.
+    */
     void save();
+    /**
+     * Overloading the KCModule defaults() function.
+     */
+    void defaults();
 
 private:
-    Ui::PageLanguagePackages* ui;
+    Ui::PageNotifications* ui;
 
-    void loadLanguagePackages();
-    QTreeWidgetItem* newParentTreeWidgetItem( QTreeWidget* parent );
+protected slots:
+    void unsupportedKernelStateBoxChanged( int );
+    void newKernelStateBoxChanged( int );
 };
 
-#endif // PAGELANGUAGEPACKAGES_H
+#endif // NOTIFICATIONSMODULES_H
