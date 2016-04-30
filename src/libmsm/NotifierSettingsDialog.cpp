@@ -104,14 +104,16 @@ NotifierSettingsDialog::buttonApply_clicked()
         break;
     case QSettings::FormatError :
         qDebug() << "Format error when saving your notifications settings";
-        msgBox.setText(tr("Format error when saving your notifications settings"));
+        msgBox.setText( tr("Format error when saving your notifications settings") );
         break;
     case QSettings::AccessError :
         qDebug() << "Access error when saving your notifications settings";
-        msgBox.setText(tr("Access error when saving your notifications settings"));
+        msgBox.setText( tr("Access error when saving your notifications settings") );
         break;
     }
-    if( result != QSettings::NoError )
+    if( result == QSettings::NoError )
+        ui->buttonApply->setEnabled( false );
+    else
         msgBox.exec();
 }
 
