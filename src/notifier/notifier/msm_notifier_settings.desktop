@@ -10,5 +10,4 @@ Exec=msm_notifier --settings
 Icon=preferences-desktop
 Terminal=false
 Type=Application
-Categories=Settings;DesktopSettings;X-LXDE-Settings;X-KDE-Settings;
-NotShowIn=XFCE;GNOME;Unity;X-Cinnamon;MATE;
+Categories=Settings;DesktopSettings;X-LXDE-Settings;X-XFCE-SettingsDialog;X-KDE-Settings;X-XFCE-SystemSettings;
