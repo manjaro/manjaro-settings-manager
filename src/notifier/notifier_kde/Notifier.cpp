@@ -49,8 +49,15 @@ Notifier::Notifier( QObject* parent ) :
         QIcon( ":/icons/language.png" ),
         QString( tr ( "Language packages" ) ),
         menu );
+
+    QAction* optionsAction = new QAction(
+        QIcon::fromTheme( "gtk-preferences"  ),
+        QString( tr ( "Options" ) ),
+        menu );
+
     menu->addAction( msmKernel );
     menu->addAction( msmLanguagePackages );
+    menu->addAction( optionsAction );
 
     connect( msmKernel, &QAction::triggered, this, [msmKernel, this]()
     {
@@ -61,6 +68,13 @@ Notifier::Notifier( QObject* parent ) :
     {
         QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_language_packages" );
         m_tray->setStatus( KStatusNotifierItem::Passive );
+    } );
+
+    connect( optionsAction, &QAction::triggered, this, [optionsAction, this]()
+    {
+        m_settingsDialog = new NotifierSettingsDialog(NULL);
+        m_settingsDialog->setAttribute(Qt::WidgetAttribute::WA_DeleteOnClose, true);
+        m_settingsDialog->exec();
     } );
 
     m_timer = new QTimer( this );

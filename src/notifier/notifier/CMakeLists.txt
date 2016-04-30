@@ -4,6 +4,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB NOTIFIER_GLOB
      msm_notifier.desktop
+     msm_notifier_settings.desktop
      icons/language.png
      icons/tux-manjaro.png)
 
@@ -25,3 +26,4 @@ target_link_libraries(msm_notifier
 
 install(TARGETS msm_notifier DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(PROGRAMS msm_notifier.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
+install(FILES msm_notifier_settings.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

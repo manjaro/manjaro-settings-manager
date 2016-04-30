@@ -21,6 +21,7 @@
 #define NOTIFIER_H
 
 #include "LanguagePackagesItem.h"
+#include "NotifierSettingsDialog.h"
 
 #include <QtCore/QTimer>
 #include <QtWidgets/QSystemTrayIcon>
@@ -36,6 +37,7 @@ public:
 private:
     QSystemTrayIcon* m_tray;
     QTimer* m_timer;
+    NotifierSettingsDialog* m_settingsDialog;
     bool m_checkLanguagePackage;
     bool m_checkKernel;
     bool m_checkUnsupportedKernel;

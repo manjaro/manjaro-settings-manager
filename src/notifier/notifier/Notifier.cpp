@@ -35,6 +35,8 @@
 Notifier::Notifier( QObject* parent ) :
     QObject( parent )
 {
+
+
     m_tray = new QSystemTrayIcon( this );
     //m_tray->setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
     m_tray->setIcon( QIcon::fromTheme( "manjaro-settings-manager" ) );
@@ -52,9 +54,14 @@ Notifier::Notifier( QObject* parent ) :
         QIcon::fromTheme( "application-exit"  ),
         QString( tr ( "Quit" ) ),
         menu );
+    QAction* optionsAction = new QAction(
+        QIcon::fromTheme( "gtk-preferences"  ),
+        QString( tr ( "Options" ) ),
+        menu );
 
     menu->addAction( msmKernel );
     menu->addAction( msmLanguagePackages );
+    menu->addAction( optionsAction );
     menu->addSeparator();
     menu->addAction( quitAction );
 
@@ -68,9 +75,17 @@ Notifier::Notifier( QObject* parent ) :
         QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_language_packages" );
         m_tray->hide();
     } );
-    connect( msmLanguagePackages, &QAction::triggered, this, [quitAction, this]()
+
+    connect( quitAction, &QAction::triggered, this, [quitAction, this]()
     {
         qApp->quit();
+    } );
+
+    connect( optionsAction, &QAction::triggered, this, [optionsAction, this]()
+    {
+        m_settingsDialog = new NotifierSettingsDialog(NULL);
+        m_settingsDialog->setAttribute(Qt::WidgetAttribute::WA_DeleteOnClose, true);
+        m_settingsDialog->exec();
     } );
 
     m_timer = new QTimer( this );

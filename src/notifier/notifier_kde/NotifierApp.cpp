@@ -28,7 +28,7 @@ NotifierApp::NotifierApp( int& argc, char* argv[] )
 {
     setOrganizationName( "Manjaro" );
     setOrganizationDomain( "Manjaro" );
-    setApplicationName( "MSM Notifier" );
+    setApplicationName( "MSM Notifier KDE" );
     setApplicationVersion( "0.5.0" );
 }
 
