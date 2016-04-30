@@ -101,7 +101,6 @@ NotifierSettingsDialog::buttonApply_clicked()
     {
     case QSettings::NoError :
         qDebug() << "Your notifications settings have been saved";
-        msgBox.setText(tr("Your notifications settings have been saved"));
         break;
     case QSettings::FormatError :
         qDebug() << "Format error when saving your notifications settings";
@@ -112,11 +111,8 @@ NotifierSettingsDialog::buttonApply_clicked()
         msgBox.setText(tr("Access error when saving your notifications settings"));
         break;
     }
-    msgBox.exec();
-
-    if(result == QSettings::NoError)
-        close();
-
+    if( result != QSettings::NoError )
+        msgBox.exec();
 }
 
 void
