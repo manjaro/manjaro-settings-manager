@@ -24,6 +24,7 @@
 #include <QtWidgets/QApplication>
 #include <QtCore/QTranslator>
 #include <QtCore/QFile>
+#include <QtCore/QCommandLineParser>
 #include <QtCore/QDir>
 
 #include <QDebug>
@@ -35,9 +36,25 @@ int main( int argc, char* argv[] )
     Q_INIT_RESOURCE( language_packages );
     Q_INIT_RESOURCE( translations );
 
+    QCommandLineParser parser;
+    QCommandLineOption settingsOption( QStringList() << "s" << "settings",
+                                    "Show msm notifier options" );
+    parser.addOption( settingsOption );
+    parser.process( app );
+
     QTranslator appTranslator;
     appTranslator.load( ":/translations/msmd_" + QLocale::system().name() );
     app.installTranslator( &appTranslator );
+
+    // Workaround to enable to call the dialog to change settings with a command argument
+    // because if the application is running and tray icon is hidden there is no way to change settings.
+    if ( parser.isSet( settingsOption ) )
+    {
+        NotifierSettingsDialog* m_settingsDialog = new NotifierSettingsDialog( NULL );
+        m_settingsDialog->setAttribute( Qt::WidgetAttribute::WA_DeleteOnClose, true );
+        m_settingsDialog->exec();
+        return 0;
+    }
 
     KDSingleApplicationGuard guard( KDSingleApplicationGuard::AutoKillOtherInstances );
 

@@ -26,7 +26,6 @@
 #include "PageLanguage.h"
 #include "PageLanguagePackages.h"
 #include "PageMhwd.h"
-#include "PageNotifications.h"
 #include "PageTimeDate.h"
 #include "PageUsers.h"
 #include "PageWidget.h"
@@ -81,7 +80,6 @@ private:
     PageLanguage pageLanguage;
     PageLanguagePackages pageLanguagePackages;
     PageMhwd pageMhwd;
-    PageNotifications pageNotifications;
     PageTimeDate pageTimeDate;
     PageUsers pageUsers;
 

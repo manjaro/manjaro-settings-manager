@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=msm_kde_notifier
+Name=MSM Notifier
+Type=Application
+StartupNotify=false
+Terminal=false
+Hidden=false

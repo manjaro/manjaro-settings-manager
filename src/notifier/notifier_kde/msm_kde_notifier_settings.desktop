@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Manjaro Notifier KDE Settings
+Name[fr]=Paramètres du Notifieur KDE Manjaro
+
+Comment=Graphical Settings for Manjaro Notifier KDE
+Comment[de]=Grafische Einstellungsverwaltung für Manjaro
+Comment[fr]=Gestionnaire graphique de paramètres pour Notifieur Manjaro
+
+Exec=msm_kde_notifier --settings
+Icon=preferences-desktop
+Terminal=false
+Type=Application
+Categories=Settings;DesktopSettings;X-LXDE-Settings;X-XFCE-SettingsDialog;X-KDE-Settings;X-XFCE-SystemSettings;

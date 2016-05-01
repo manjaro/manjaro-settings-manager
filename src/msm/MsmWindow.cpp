@@ -46,8 +46,6 @@ MsmWindow::MsmWindow( QWidget* parent ) :
     addPageWidget( pageKernel );
     addPageWidget( pageUsers );
     addPageWidget( pageTimeDate );
-    addPageWidget( pageNotifications );
-
     ui->listWidget->addSeparator( tr( "Hardware" ) );
     addPageWidget( pageKeyboard );
     addPageWidget( pageMhwd );

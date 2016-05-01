@@ -35,12 +35,13 @@
 Notifier::Notifier( QObject* parent ) :
     QObject( parent )
 {
-    m_tray = new QSystemTrayIcon( this );
-    //m_tray->setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
-    m_tray->setIcon( QIcon::fromTheme( "manjaro-settings-manager" ) );
+    m_tray = new KStatusNotifierItem( this );
+    m_tray->setTitle( QString( tr ( "Manjaro Settings Manager" ) ) );
+    m_tray->setIconByName( "manjaro-settings-manager" );
+    m_tray->setStatus( KStatusNotifierItem::Passive );
 
-    QMenu* menu = new QMenu();
-    m_tray->setContextMenu( menu );
+    auto menu = m_tray->contextMenu();
+
     QAction* msmKernel = new QAction( QIcon( ":/icons/tux-manjaro.png" ),
                                       QString( tr ( "Kernels" ) ),
                                       menu );
@@ -48,29 +49,32 @@ Notifier::Notifier( QObject* parent ) :
         QIcon( ":/icons/language.png" ),
         QString( tr ( "Language packages" ) ),
         menu );
-    QAction* quitAction = new QAction(
-        QIcon::fromTheme( "application-exit"  ),
-        QString( tr ( "Quit" ) ),
+
+    QAction* optionsAction = new QAction(
+        QIcon::fromTheme( "gtk-preferences"  ),
+        QString( tr ( "Options" ) ),
         menu );
 
     menu->addAction( msmKernel );
     menu->addAction( msmLanguagePackages );
-    menu->addSeparator();
-    menu->addAction( quitAction );
+    menu->addAction( optionsAction );
 
     connect( msmKernel, &QAction::triggered, this, [msmKernel, this]()
     {
         QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_kernel" );
-        m_tray->hide();
+        m_tray->setStatus( KStatusNotifierItem::Passive );
     } );
     connect( msmLanguagePackages, &QAction::triggered, this, [msmLanguagePackages, this]()
     {
         QProcess::startDetached( "manjaro-settings-manager", QStringList() << "-m" << "msm_language_packages" );
-        m_tray->hide();
+        m_tray->setStatus( KStatusNotifierItem::Passive );
     } );
-    connect( msmLanguagePackages, &QAction::triggered, this, [quitAction, this]()
+
+    connect( optionsAction, &QAction::triggered, this, [optionsAction, this]()
     {
-        qApp->quit();
+        m_settingsDialog = new NotifierSettingsDialog(NULL);
+        m_settingsDialog->setAttribute(Qt::WidgetAttribute::WA_DeleteOnClose, true);
+        m_settingsDialog->exec();
     } );
 
     m_timer = new QTimer( this );
@@ -172,10 +176,10 @@ Notifier::cLanguagePackage()
     if ( !packages.isEmpty() )
     {
         qDebug() << "Missing language packages found, notifying user...";
-        m_tray->show();
+        m_tray->setStatus( KStatusNotifierItem::Active );
         m_tray->showMessage( tr( "Manjaro Settings Manager" ),
                              QString( tr( "%n new additional language package(s) available", "", packageNumber ) ),
-                             QSystemTrayIcon::Information,
+                             QString( "dialog-information" ),
                              10000 );
 
         // Add to Config
@@ -211,18 +215,18 @@ Notifier::cKernel()
 
         if ( foundRunning )
         {
-            m_tray->show();
+            m_tray->setStatus( KStatusNotifierItem::Active );
             m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
                                  QString( tr( "Running an unsupported kernel, please update." ) ),
-                                 QSystemTrayIcon::Warning,
+                                 QString( "dialog-warning" ),
                                  10000 );
         }
         else if ( found )
         {
-            m_tray->show();
+            m_tray->setStatus( KStatusNotifierItem::Active );
             m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
                                  QString( tr( "Unsupported kernel installed in your system, please remove it." ) ),
-                                 QSystemTrayIcon::Information,
+                                 QString( "dialog-information" ),
                                  10000 );
         }
     }
@@ -268,10 +272,10 @@ Notifier::cKernel()
 
 void Notifier::showNewKernelNotification()
 {
-    m_tray->show();
+    m_tray->setStatus( KStatusNotifierItem::Active );
     m_tray->showMessage( QString( tr( "Manjaro Settings Manager" ) ),
                          QString( tr( "Newer kernel is available, please update." ) ),
-                         QSystemTrayIcon::Information,
+                         QString( "dialog-information" ),
                          10000 );
 }
 

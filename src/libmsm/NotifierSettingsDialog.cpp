@@ -1,7 +1,7 @@
 /*
  *  This file is part of Manjaro Settings Manager.
  *
- *  Ramon Buldó <ramon@manjaro.org>
+ *  Roland Singer <roland@manjaro.org>
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,88 +17,108 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "NotificationsModule.h"
-#include "ui_PageNotifications.h"
+#include "NotifierSettingsDialog.h"
+#include "ui_NotifierSettingsDialog.h"
 
-#include <KAboutData>
-#include <KPluginFactory>
-
-#include <QtCore/QSettings>
-#include <QtCore/QTranslator>
 #include <QDebug>
 
-
-K_PLUGIN_FACTORY( MsmNotificationsFactory,
-                  registerPlugin<PageNotifications>( "msm_notifications" ); )
-
-PageNotifications::PageNotifications( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
-    ui( new Ui::PageNotifications )
+NotifierSettingsDialog::NotifierSettingsDialog( QWidget* parent ) :
+    QDialog( parent ),
+    ui( new Ui::NotifierSettingsDialog )
 {
-    Q_INIT_RESOURCE( translations );
-    QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( &appTranslator );
-
-    KAboutData* aboutData = new KAboutData( "msm_notifications",
-                                            tr( "Notifications", "@title" ),
-                                            PROJECT_VERSION,
-                                            QStringLiteral( "" ),
-                                            KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014-15 Ramon Buldó" );
-    aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
-                          QStringLiteral( "ramon@manjaro.org" ) );
-    setAboutData( aboutData );
-    setButtons( KCModule::Default | KCModule::Apply );
-
     ui->setupUi( this );
 
+
+    this->setWindowTitle(tr( "Notifications settings" ));
+    this->setWindowIcon(QIcon::fromTheme("gtk-preferences"));
+    ui->buttonApply->setIcon(QIcon::fromTheme("dialog-ok-apply"));
+    ui->buttonQuit->setIcon(QIcon::fromTheme("gtk-quit"));
+
     connect( ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
-             this, &PageNotifications::unsupportedKernelStateBoxChanged );
+             this, &NotifierSettingsDialog::unsupportedKernelStateBoxChanged );
     connect( ui->checkNewKernelBox, &QCheckBox::stateChanged,
-             this, &PageNotifications::newKernelStateBoxChanged );
+             this, &NotifierSettingsDialog::newKernelStateBoxChanged );
+    connect( ui->buttonApply, &QPushButton::clicked,
+             this, &NotifierSettingsDialog::buttonApply_clicked );
+    connect( ui->buttonQuit, &QPushButton::clicked,
+             this, &NotifierSettingsDialog::buttonQuit_clicked );
+
     connect( ui->checkLanguagePackage, &QCheckBox::stateChanged,
-             [this] ( )
+             [=] ( )
     {
-        emit changed();
+        ui->buttonApply->setEnabled(true);
     } );
     connect( ui->checkUnsupportedKernelBox, &QCheckBox::stateChanged,
-             [this] ( )
+             [=] ( )
     {
-        emit changed();
+        ui->buttonApply->setEnabled(true);
     } );
     connect( ui->checkUnsupportedKernelRunningBox, &QCheckBox::stateChanged,
-             [this] ( )
+             [=] ( )
     {
-        emit changed();
+        ui->buttonApply->setEnabled(true);
     } );
     connect( ui->checkNewKernelBox, &QCheckBox::stateChanged,
-             [this] ( )
+             [=] ( )
     {
-        emit changed();
+        ui->buttonApply->setEnabled(true);
     } );
     connect( ui->checkNewKernelLtsBox, &QCheckBox::stateChanged,
-             [this] ( )
+             [=] ( )
     {
-        emit changed();
+        ui->buttonApply->setEnabled(true);
     } );
     connect( ui->checkNewKernelRecommendedBox, &QCheckBox::stateChanged,
-             [this] ( )
+             [=] ( )
     {
-        emit changed();
+        ui->buttonApply->setEnabled(true);
     } );
+
+    this->load();
+
+    ui->buttonApply->setEnabled(false);
 }
 
 
-PageNotifications::~PageNotifications()
+NotifierSettingsDialog::~NotifierSettingsDialog()
 {
     delete ui;
 }
 
+void
+NotifierSettingsDialog::buttonQuit_clicked()
+{
+    close();
+}
 
 void
-PageNotifications::load()
+NotifierSettingsDialog::buttonApply_clicked()
+{
+    QMessageBox msgBox;
+
+    QSettings::Status result = this->save();
+    switch ( result )
+    {
+    case QSettings::NoError :
+        qDebug() << "Your notifications settings have been saved";
+        break;
+    case QSettings::FormatError :
+        qDebug() << "Format error when saving your notifications settings";
+        msgBox.setText( tr("Format error when saving your notifications settings") );
+        break;
+    case QSettings::AccessError :
+        qDebug() << "Access error when saving your notifications settings";
+        msgBox.setText( tr("Access error when saving your notifications settings") );
+        break;
+    }
+    if( result == QSettings::NoError )
+        ui->buttonApply->setEnabled( false );
+    else
+        msgBox.exec();
+}
+
+void
+NotifierSettingsDialog::load()
 {
     QSettings settings( "manjaro", "manjaro-settings-manager" );
     bool checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
@@ -122,17 +142,11 @@ PageNotifications::load()
         ui->checkNewKernelLtsBox->setEnabled( false );
         ui->checkNewKernelRecommendedBox->setEnabled( false );
     }
-
 }
 
-void
-PageNotifications::defaults()
-{
-    this->load();
-}
 
-void
-PageNotifications::save()
+QSettings::Status
+NotifierSettingsDialog::save()
 {
     bool checkLanguagePackage = ui->checkLanguagePackage->isChecked();
     bool checkUnsupportedKernel = ui->checkUnsupportedKernelBox->isChecked();
@@ -149,24 +163,12 @@ PageNotifications::save()
     settings.setValue( "notifications/checkNewKernelLts", checkNewKernelLts );
     settings.setValue( "notifications/checkNewKernelRecommended", checkNewKernelRecommended );
     settings.sync();
-
-    switch ( settings.status() )
-    {
-    case QSettings::NoError :
-        qDebug() << "Your notifications settings have been saved";
-        break;
-    case QSettings::FormatError :
-        qDebug() << "Format error when saving your notifications settings";
-        break;
-    case QSettings::AccessError :
-        qDebug() << "Access error when saving your notifications settings";
-        break;
-    }
+    return settings.status();
 }
 
 
 void
-PageNotifications::unsupportedKernelStateBoxChanged( int checkState )
+NotifierSettingsDialog::unsupportedKernelStateBoxChanged( int checkState )
 {
     switch ( checkState )
     {
@@ -181,7 +183,7 @@ PageNotifications::unsupportedKernelStateBoxChanged( int checkState )
 
 
 void
-PageNotifications::newKernelStateBoxChanged( int checkState )
+NotifierSettingsDialog::newKernelStateBoxChanged( int checkState )
 {
     switch ( checkState )
     {
@@ -194,5 +196,3 @@ PageNotifications::newKernelStateBoxChanged( int checkState )
         ui->checkNewKernelRecommendedBox->setEnabled( true );
     }
 }
-
-#include "NotificationsModule.moc"

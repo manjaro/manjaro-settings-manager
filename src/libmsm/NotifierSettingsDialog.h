@@ -1,7 +1,7 @@
 /*
  *  This file is part of Manjaro Settings Manager.
  *
- *  Ramon Buldó <ramon@manjaro.org>
+ *  Roland Singer <roland@manjaro.org>
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,52 +17,44 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NOTIFICATIONSMODULES_H
-#define NOTIFICATIONSMODULES_H
+#ifndef NOTIFIERSETTINGSDIALOG_H
+#define NOTIFIERSETTINGSDIALOG_H
 
-#include <KCModule>
+#include <QDialog>
+#include <QProcess>
+#include <QString>
+#include <QStringList>
+#include <QPushButton>
+#include <QTextEdit>
+#include <QMessageBox>
+#include <QtCore/QSettings>
 
 namespace Ui
 {
-class PageNotifications;
+class NotifierSettingsDialog;
 }
 
 
-class PageNotifications : public KCModule
+class NotifierSettingsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    /**
-     * Constructor.
-     *
-     * @param parent Parent widget of the module
-     * @param args Arguments for the module
-     */
-    explicit PageNotifications( QWidget* parent, const QVariantList& args = QVariantList() );
-    /**
-     * Destructor.
-     */
-    ~PageNotifications();
-    /**
-     * Overloading the KCModule load() function.
-     */
+    explicit NotifierSettingsDialog( QWidget* parent = 0 );
+    ~NotifierSettingsDialog();
+
     void load();
-    /**
-     * Overloading the KCModule save() function.
-    */
-    void save();
-    /**
-     * Overloading the KCModule defaults() function.
-     */
-    void defaults();
+    QSettings::Status save();
 
 private:
-    Ui::PageNotifications* ui;
+    Ui::NotifierSettingsDialog* ui;
+
 
 protected slots:
+    void buttonQuit_clicked();
+    void buttonApply_clicked();
     void unsupportedKernelStateBoxChanged( int );
     void newKernelStateBoxChanged( int );
 };
 
-#endif // NOTIFICATIONSMODULES_H
+#endif // APPLYDIALOG_H

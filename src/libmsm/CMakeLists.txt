@@ -28,10 +28,12 @@ set(LIBMSM_SRCS
     LanguagePackages.cpp
     LanguagePackagesItem.cpp
     ListWidget.cpp
-    PageWidget.cpp)
+    PageWidget.cpp
+    NotifierSettingsDialog.cpp)
 
 set(LIBMSM_UI
-    ApplyDialog.ui)
+    ApplyDialog.ui
+    NotifierSettingsDialog.ui)
 qt5_wrap_ui(LIBMSM_SRCS ${LIBMSM_UI})
 
 set(translations_qrc "translations.qrc")

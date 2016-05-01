@@ -17,35 +17,37 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGENOTIFICATIONS_H
-#define PAGENOTIFICATIONS_H
+#include "NotifierApp.h"
 
-#include "PageWidget.h"
+#include <QtGui/QIcon>
 
+#include <QDebug>
 
-namespace Ui
+NotifierApp::NotifierApp( int& argc, char* argv[] )
+    : QApplication( argc, argv )
 {
-class PageNotifications;
+    setOrganizationName( "Manjaro" );
+    setOrganizationDomain( "Manjaro" );
+    setApplicationName( "MSM Notifier KDE" );
+    setApplicationVersion( "0.5.0" );
 }
 
 
-class PageNotifications : public PageWidget
+NotifierApp::~NotifierApp()
 {
-    Q_OBJECT
+    qDebug() << "Shutting down MSM Notifier...";
+}
 
-public:
-    explicit PageNotifications( QWidget* parent = 0 );
-    ~PageNotifications();
 
-    void load();
-    void save();
+void
+NotifierApp::init()
+{
+    setWindowIcon( QIcon::fromTheme( "preferences-system" ) );
+}
 
-private:
-    Ui::PageNotifications* ui;
 
-protected slots:
-    void unsupportedKernelStateBoxChanged( int );
-    void newKernelStateBoxChanged( int );
-};
-
-#endif // PAGENOTIFICATIONS_H
+NotifierApp*
+NotifierApp::instance()
+{
+    return qobject_cast<NotifierApp*>( QApplication::instance() );
+}
