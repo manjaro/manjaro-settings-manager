@@ -28,8 +28,9 @@ set(LIBMSM_SRCS
     LanguagePackages.cpp
     LanguagePackagesItem.cpp
     ListWidget.cpp
-    PageWidget.cpp
-    NotifierSettingsDialog.cpp)
+    NotifierSettingsDialog.cpp
+    PacmanUtils.cpp
+    PageWidget.cpp)
 
 set(LIBMSM_UI
     ApplyDialog.ui

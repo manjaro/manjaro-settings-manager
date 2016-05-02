@@ -23,6 +23,7 @@
 #include "NotifierApp.h"
 #include "Kernel.h"
 #include "KernelModel.h"
+#include "PacmanUtils.h"
 
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
@@ -85,7 +86,7 @@ Notifier::Notifier( QObject* parent ) :
     connect( m_timer, &QTimer::timeout, [=] ()
     {
         loadConfiguration();
-        if ( !isPacmanUpdating() && hasPacmanEverSynced() )
+        if ( !PacmanUtils::isPacmanUpdating() && PacmanUtils::hasPacmanEverSynced() )
         {
             if ( m_checkLanguagePackage )
                 cLanguagePackage();
@@ -315,25 +316,4 @@ Notifier::addToConfig( const QString package, const QString group )
     if ( value < 3 )
         settings.setValue( "notify_count_" + package, value );
     settings.endGroup();
-}
-
-
-bool
-Notifier::hasPacmanEverSynced()
-{
-    QString path( "/var/lib/pacman/sync/" );
-    QStringList files = QStringList() << "core.db" << "community.db" << "extra.db";
-    foreach ( QString f, files )
-    {
-        if ( !QFile::exists( path + f ) )
-            return false;
-    }
-    return true;
-}
-
-
-bool
-Notifier::isPacmanUpdating()
-{
-    return QFile::exists( "/var/lib/pacman/db.lck" );
 }

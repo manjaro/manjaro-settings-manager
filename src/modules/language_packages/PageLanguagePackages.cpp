@@ -21,6 +21,7 @@
 #include "PageLanguagePackages.h"
 #include "ui_PageLanguagePackages.h"
 #include "LanguageCommon.h"
+#include "PacmanUtils.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QJsonArray>
@@ -174,7 +175,7 @@ PageLanguagePackages::save()
     }
 
     // Check if system is up-to-date
-    if ( !LanguageCommon::isSystemUpToDate() )
+    if ( !PacmanUtils::isSystemUpToDate() )
     {
         QMessageBox::warning( this, tr( "System is out-of-date" ), tr( "Your System is not up-to-date! You have to update it first to continue!" ), QMessageBox::Ok, QMessageBox::Ok );
         emit closePage( this );

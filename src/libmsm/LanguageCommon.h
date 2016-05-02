@@ -46,8 +46,6 @@ public:
      * @return converted locale, or empty if it fails
      */
     static QString localeToLocaleGenFormat( const QString locale );
-
-    static bool isSystemUpToDate();
 };
 
 #endif // LANGUAGECOMMON_H

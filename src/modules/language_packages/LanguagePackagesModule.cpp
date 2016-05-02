@@ -22,6 +22,7 @@
 #include "ui_PageLanguagePackages.h"
 #include "ActionDialog.h"
 #include "LanguageCommon.h"
+#include "PacmanUtils.h"
 
 #include <KAboutData>
 #include <KAuth>
@@ -198,7 +199,7 @@ void
 PageLanguagePackages::installPackages()
 {
     // Check if system is up-to-date
-    if ( !LanguageCommon::isSystemUpToDate() )
+    if ( !PacmanUtils::isSystemUpToDate() )
     {
         QMessageBox::warning( this,
                               tr( "System is out-of-date" ),
