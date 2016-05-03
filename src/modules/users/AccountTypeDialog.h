@@ -42,7 +42,7 @@ public:
     using QDialog::exec;
 
 public slots:
-    int exec( QString m_username );
+    int exec( QString m_username, QList<UsersCommon::Group> groups);
 
 private:
     Ui::AccountTypeDialog* ui;

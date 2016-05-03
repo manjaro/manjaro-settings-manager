@@ -20,24 +20,8 @@
 #ifndef PAGEUSERS_H
 #define PAGEUSERS_H
 
-#include "AddUserDialog.h"
-#include "ChangePasswordDialog.h"
-#include "AccountTypeDialog.h"
-#include "PreviewFileDialog.h"
 #include "PageWidget.h"
 #include "UsersCommon.h"
-
-#include <QIcon>
-#include <QPixmap>
-#include <QFile>
-#include <QListWidgetItem>
-#include <QFileDialog>
-#include <QMessageBox>
-
-#include <unistd.h>
-#include <pwd.h>
-#include <grp.h>
-
 
 namespace Ui
 {
@@ -45,13 +29,13 @@ class PageUsers;
 }
 
 
-class PageUsers : public PageWidget
+class UsersPage : public PageWidget
 {
     Q_OBJECT
 
 public:
-    explicit PageUsers( QWidget* parent = 0 );
-    ~PageUsers();
+    explicit UsersPage( QWidget* parent = 0 );
+    ~UsersPage();
 
     void load();
 
@@ -64,15 +48,6 @@ private:
     };
 
     Ui::PageUsers* ui;
-
-private slots:
-    void setupUserData( QListWidgetItem* current );
-    void buttonImage_clicked();
-    void buttonAddUser_clicked();
-    void buttonRemoveUser_clicked();
-    void buttonChangePassword_clicked();
-    void buttonChangeAccountType_clicked();
-
 };
 
 #endif // PAGEUSERS_H

@@ -51,7 +51,7 @@ install(FILES msm_users.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 # MSM Page
 set(USERS_PAGE_SRCS
     ${USERS_SRCS}
-    PageUsers.cpp)
+    UsersPage.cpp)
 
 add_library(msm_page_users STATIC ${USERS_PAGE_SRCS})
 target_compile_definitions(msm_page_users PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")

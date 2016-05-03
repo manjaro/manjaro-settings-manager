@@ -21,21 +21,9 @@
 #ifndef USERSMODULE_H
 #define USERSMODULE_H
 
-#include "AddUserDialog.h"
-#include "ChangePasswordDialog.h"
-#include "AccountTypeDialog.h"
-#include "PreviewFileDialog.h"
 #include "UsersCommon.h"
 
 #include <KCModule>
-
-#include <QIcon>
-#include <QPixmap>
-#include <QFile>
-#include <QListWidgetItem>
-#include <QFileDialog>
-#include <QMessageBox>
-
 
 namespace Ui
 {
@@ -43,7 +31,7 @@ class PageUsers;
 }
 
 
-class PageUsers : public KCModule
+class UsersModule : public KCModule
 {
     Q_OBJECT
 
@@ -54,11 +42,11 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageUsers( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit UsersModule( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~PageUsers();
+    ~UsersModule();
 
     /**
      * Overloading the KCModule load() function.
@@ -84,15 +72,6 @@ private:
     };
 
     Ui::PageUsers* ui;
-
-private slots:
-    void setupUserData( QListWidgetItem* current );
-    void buttonImage_clicked();
-    void buttonAddUser_clicked();
-    void buttonRemoveUser_clicked();
-    void buttonChangePassword_clicked();
-    void buttonChangeAccountType_clicked();
-
 };
 
 #endif // USERSMODULE_H

@@ -27,7 +27,7 @@
 #include "PageLanguagePackages.h"
 #include "PageMhwd.h"
 #include "PageTimeDate.h"
-#include "PageUsers.h"
+#include "UsersPage.h"
 #include "PageWidget.h"
 
 #include <QApplication>
@@ -81,7 +81,7 @@ private:
     PageLanguagePackages pageLanguagePackages;
     PageMhwd pageMhwd;
     PageTimeDate pageTimeDate;
-    PageUsers pageUsers;
+    UsersPage pageUsers;
 
     void addPageWidget( PageWidget& page );
     void closeEvent( QCloseEvent* );

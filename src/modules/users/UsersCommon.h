@@ -21,27 +21,19 @@
 #ifndef USERSCOMMON_H
 #define USERSCOMMON_H
 
-#include <QString>
-#include <QFile>
-#include <QTextStream>
-#include <QDir>
-#include <QStringList>
-#include <QList>
-#include <QHash>
-#include <QMap>
-#include <QRegExp>
-#include <QDebug>
-#include <QProcess>
-#include <QDir>
-#include <QtCore/QByteArray>
+#include "ui_PageUsers.h"
 
-class UsersCommon
+#include "ListWidget.h"
+
+class UsersCommon : public QObject
 {
+    Q_OBJECT
 public:
 
     struct User
     {
-        QString username, homePath;
+        QString username;
+        QString homePath;
         int uuid;
     };
 
@@ -51,12 +43,24 @@ public:
         QStringList members;
     };
 
-    static int runProcess( QString cmd, QStringList args, QStringList writeArgs, QString& error );
-    static QList<UsersCommon::User> getAllUsers();
-    static QList<UsersCommon::Group> getAllGroups();
+    static bool addUser();
+    static void changePassword( QListWidgetItem* currentItem );
+    static bool changeAccountType( Ui::PageUsers* ui );
+    static void loadUsers( ListWidget* listWidget );
+    static void removeUser( QListWidgetItem* currentItem );
+    static void setUserImage( Ui::PageUsers* ui );
+    static void setupUserData( Ui::PageUsers* ui, QListWidgetItem* current );
 
 private:
+    class ListWidgetItem : public QListWidgetItem
+    {
+    public:
+        ListWidgetItem( QListWidget* parent ) : QListWidgetItem( parent ) {}
+        UsersCommon::User user;
+    };
 
+    static QList<UsersCommon::User> Users();
+    static QList<UsersCommon::Group> Groups();
 };
 
 #endif // USERSCOMMON_H

@@ -2,7 +2,6 @@
  *  This file is part of Manjaro Settings Manager.
  *
  *  Roland Singer <roland@manjaro.org>
- *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,46 +17,21 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "UsersModule.h"
+#include "UsersPage.h"
 #include "ui_PageUsers.h"
 
-#include <KAboutData>
-#include <KAuth>
-#include <KAuthAction>
-#include <KPluginFactory>
 
-#include <QTranslator>
-
-K_PLUGIN_FACTORY( MsmUsersFactory,
-                  registerPlugin<UsersModule>( "msm_users" ); )
-
-UsersModule::UsersModule( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
+UsersPage::UsersPage( QWidget* parent ) :
+    PageWidget( parent ),
     ui( new Ui::PageUsers )
 {
-    Q_INIT_RESOURCE( translations );
-    QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( &appTranslator );
-
-    KAboutData* aboutData = new KAboutData( "msm_users",
-                                            tr( "User Accounts", "@title" ),
-                                            PROJECT_VERSION,
-                                            QStringLiteral( "" ),
-                                            KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2015 Ramon Buldó" );
-    aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
-                          QStringLiteral( "ramon@manjaro.org" ) );
-    aboutData->addAuthor( "Roland Singer",
-                          tr( "Author", "@info:credit" ),
-                          QStringLiteral( "roland@manjaro.org" ) );
-    setAboutData( aboutData );
-    setButtons( KCModule::NoAdditionalButton );
-
     ui->setupUi( this );
     ui->buttonAdd->setIcon( QIcon::fromTheme( "list-add", QIcon( ":/icons/add.png" ) ) );
     ui->buttonRemove->setIcon( QIcon::fromTheme( "list-remove", QIcon( ":/icons/remove.png" ) ) );
+
+    setTitle( tr( "User Accounts" ) );
+    setIcon( QPixmap( ":/images/resources/users.png" ) );
+    setName( "msm_users" );
 
     // Connect signals and slots
     connect( ui->listWidget, &ListWidget::currentItemChanged,
@@ -103,31 +77,15 @@ UsersModule::UsersModule( QWidget* parent, const QVariantList& args ) :
 }
 
 
-UsersModule::~UsersModule()
+UsersPage::~UsersPage()
 {
     delete ui;
 }
 
 
 void
-UsersModule::load()
+UsersPage::load()
 {
     UsersCommon::loadUsers( ui->listWidget );
     UsersCommon::setupUserData( ui, ui->listWidget->currentItem() );
 }
-
-
-void
-UsersModule::save()
-{
-    return;
-}
-
-
-void
-UsersModule::defaults()
-{
-    this->load();
-}
-
-#include "UsersModule.moc"

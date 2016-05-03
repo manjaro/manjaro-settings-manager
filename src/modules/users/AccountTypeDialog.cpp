@@ -23,7 +23,11 @@
 #include <KAuth>
 #include <KAuthAction>
 
+#include <QtCore/QFile>
+#include <QtCore/QTextStream>
 #include <QtWidgets/QMessageBox>
+
+#include <QDebug>
 
 AccountTypeDialog::AccountTypeDialog( QWidget* parent ) :
     QDialog( parent ),
@@ -62,7 +66,7 @@ AccountTypeDialog::userGroupsChanged() const
 
 
 int
-AccountTypeDialog::exec( QString username )
+AccountTypeDialog::exec( QString username, QList<UsersCommon::Group> groups )
 {
     // Block signals
     ui->treeWidget->blockSignals( true );
@@ -71,24 +75,20 @@ AccountTypeDialog::exec( QString username )
     this->m_username = username;
     ui->treeWidget->clear();
 
-    QList<UsersCommon::Group> groups = UsersCommon::getAllGroups();
-
-    for ( int i = 0; i < groups.size(); i++ )
+    foreach ( const auto group, groups )
     {
-        const UsersCommon::Group* group = &groups.at( i );
-
         QTreeWidgetItem* item = new QTreeWidgetItem( ui->treeWidget );
-        item->setText( 0, group->name );
+        item->setText( 0, group.name );
 
-        if ( group->members.contains( username ) )
+        if ( group.members.contains( username ) )
             item->setCheckState( 1, Qt::Checked );
         else
             item->setCheckState( 1, Qt::Unchecked );
 
         // Check the account type
-        if ( group->name == m_adminGroup )
+        if ( group.name == m_adminGroup )
         {
-            if ( group->members.contains( username ) )
+            if ( group.members.contains( username ) )
                 ui->comboBoxAccountType->setCurrentIndex( 1 );
             else
                 ui->comboBoxAccountType->setCurrentIndex( 0 );
