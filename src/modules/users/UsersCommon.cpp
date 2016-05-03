@@ -166,38 +166,19 @@ UsersCommon::setUserImage( Ui::PageUsers* ui )
     // Copy .face file to home dir
     QString faceDest;
     faceDest = QString( "%1/.face" ).arg( item->user.homePath );
-
     if ( QFile::exists( faceDest ) )
         QFile::remove( faceDest );
-    if ( !QFile::copy( filename, faceDest ) )
-    {
-        QMessageBox::warning( nullptr,
-                              tr( "Error!" ),
-                              tr( "Failed to copy image to '%1'!" ).arg( faceDest ),
-                              QMessageBox::Ok,
-                              QMessageBox::Ok );
-        return;
-    }
+    QFile::copy( filename, faceDest );
 
     // Create symlinks to ~/.face
     QStringList symlinkHomeDest;
     symlinkHomeDest << QString( "%1/.face.icon" ).arg( item->user.homePath )
                     << QString( "%1/.icon" ).arg( item->user.homePath );
-
     foreach ( const QString dest, symlinkHomeDest )
     {
         if ( QFile::exists( dest ) )
             QFile::remove( dest );
-
-        if ( !QFile::link( ".face", dest ) )
-        {
-            QMessageBox::warning( nullptr,
-                                  tr( "Error!" ),
-                                  tr( "Failed to symlink '%1' to '%2'!" ).arg( ".face", dest ),
-                                  QMessageBox::Ok,
-                                  QMessageBox::Ok );
-            return;
-        }
+        QFile::link( faceDest, dest );
     }
 
     // Copy face image to dirs that need admin rights
