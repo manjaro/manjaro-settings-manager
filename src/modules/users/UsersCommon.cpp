@@ -89,8 +89,13 @@ UsersCommon::loadUsers( ListWidget* listWidget )
         item->setText( user.username );
         item->user = user;
 
-        if ( QFile::exists( user.homePath + "/.face" ) )
-            item->setIcon( QIcon( user.homePath + "/.face" ) );
+        QString faceIcon { user.homePath + "/.face" };
+        QString accSerIcon { "/var/lib/AccountsService/icons/" + user.username } ;
+
+        if ( QFile::exists( faceIcon ) )
+            item->setIcon( QIcon( faceIcon ) );
+        else if ( QFile::exists( accSerIcon ) )
+            item->setIcon( QIcon( accSerIcon ) );
         else
             item->setIcon( QIcon( ":/icons/user.png" ) );
     }
@@ -184,15 +189,9 @@ UsersCommon::setUserImage( Ui::PageUsers* ui )
     // Copy face image to dirs that need admin rights
     QStringList copyDest;
     if ( QDir( "/var/lib/AccountsService/icons/" ).exists() )
-    {
-        qDebug() << "/var/lib/AccountsService/icons/";
         copyDest << QString( "/var/lib/AccountsService/icons/%1" ).arg( item->user.username );
-    }
     if ( QDir( "/usr/share/sddm/faces/" ).exists() )
-    {
-        qDebug() << "/usr/share/sddm/faces/";
         copyDest  << QString( "/usr/share/sddm/faces/%1.face.icon" ).arg( item->user.username );
-    }
 
     if ( !copyDest.isEmpty() )
     {
