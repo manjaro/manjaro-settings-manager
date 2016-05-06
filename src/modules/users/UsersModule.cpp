@@ -22,8 +22,6 @@
 #include "ui_PageUsers.h"
 
 #include <KAboutData>
-#include <KAuth>
-#include <KAuthAction>
 #include <KPluginFactory>
 
 #include <QTranslator>
