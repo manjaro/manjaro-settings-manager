@@ -17,56 +17,38 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TIMEDATEMODULE_H
-#define TIMEDATEMODULE_H
+#ifndef TIMEDATEPAGE_H
+#define TIMEDATEPAGE_H
 
 #include "TimeDateService.h"
+#include "TimeZoneWidget.h"
+#include "PageWidget.h"
 
-#include <KCModule>
 
 namespace Ui
 {
 class PageTimeDate;
 }
 
-class TimeDateModule : public KCModule
+
+class TimeDatePage : public PageWidget
 {
     Q_OBJECT
 
 public:
-    /**
-     * Constructor.
-     *
-     * @param parent Parent widget of the module
-     */
-    explicit TimeDateModule( QWidget* parent, const QVariantList& args = QVariantList() );
-    /**
-     * Destructor.
-     */
-    ~TimeDateModule();
-
-    /**
-     * Overloading the KCModule load() function.
-     */
+    explicit TimeDatePage( QWidget* parent = 0 );
+    ~TimeDatePage();
     void load();
-
-    /**
-     * Overloading the KCModule save() function.
-     */
     void save();
-
-    /**
-     * Overloading the KCModule defaults() function.
-     */
-    void defaults();
 
 private:
     Ui::PageTimeDate* ui;
     TimeDateService* m_timeDateService;
     QTimer* m_timeFieldsTimer;
+    TimeZoneWidget m_timeZoneWidget;
     bool m_isTimeEdited;
     bool m_isDateEdited;
     QString m_timeZone;
 };
 
-#endif // TIMEDATEMODULE_H
+#endif // TIMEDATEPAGE_H

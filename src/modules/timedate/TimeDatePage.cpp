@@ -18,49 +18,29 @@
  */
 
 #include "TimeDateCommon.h"
-#include "TimeZoneDialog.h"
-#include "TimeDateModule.h"
+#include "TimeDatePage.h"
 #include "ui_PageTimeDate.h"
 
-#include <KAboutData>
-#include <KPluginFactory>
+#include "TimeZoneDialog.h"
 
+#include <QtCore/QDebug>
 #include <QtCore/QStringList>
 #include <QtCore/QTimeZone>
 #include <QtCore/QDateTime>
 #include <QtCore/QTimer>
-#include <QtCore/QTranslator>
 
-K_PLUGIN_FACTORY( MsmTimeDateFactory,
-                  registerPlugin<TimeDateModule>( "msm_timedate" ); )
 
-TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
+TimeDatePage::TimeDatePage( QWidget* parent ) :
+    PageWidget( parent ),
     ui( new Ui::PageTimeDate ),
     m_timeDateService( new TimeDateService ),
     m_timeFieldsTimer ( new QTimer ( this ) )
 {
-    Q_INIT_RESOURCE( translations );
-    QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( &appTranslator );
-
-    KAboutData* aboutData = new KAboutData( "msm_timedate",
-                                            tr( "Time and Date", "@title" ),
-                                            PROJECT_VERSION,
-                                            tr( "Time and date configuration." ),
-                                            KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014-2015 Ramon Buldó" );
-    aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
-                          QStringLiteral( "ramon@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(),
-                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
-                                    .arg( "https://github.com/manjaro/manjaro-settings-manager/issues" ) );
-    setAboutData( aboutData );
-    setButtons( KCModule::Default | KCModule::Apply );
-
     ui->setupUi( this );
+    setTitle( tr( "Time and Date" ) );
+    setIcon( QPixmap( ":/images/resources/timedate.png" ) );
+    setShowApplyButton( true );
+    setName( "msm_timedate" );
 
     connect( m_timeFieldsTimer, &QTimer::timeout,
              [=] ( )
@@ -73,7 +53,8 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
         ui->timeEdit->setEnabled( !checked );
         ui->dateEdit->setEnabled( !checked );
     } );
-    connect( ui->timeZonePushButton, &QPushButton::clicked, [=] ( bool checked )
+    connect( ui->timeZonePushButton, &QPushButton::clicked,
+             [=] ( bool checked )
     {
         Q_UNUSED( checked )
         QString newTimeZone = TimeDateCommon::showTimeZoneSelector( m_timeZone );
@@ -81,30 +62,31 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
         {
             m_timeZone = newTimeZone;
             TimeDateCommon::updateUi( ui, m_timeDateService, m_isTimeEdited, m_isDateEdited, m_timeZone );
-            emit changed();
+            this -> setApplyEnabled( this, true );
         }
     } );
+
     connect( ui->timeEdit, &QTimeEdit::timeChanged,
              [this] ()
     {
         m_isTimeEdited = true;
-        emit changed();
+        this -> setApplyEnabled( this, true );
     } );
     connect( ui->dateEdit, &QTimeEdit::dateChanged,
              [this] ()
     {
         m_isDateEdited = true;
-        emit changed();
+        this -> setApplyEnabled( this, true );
     } );
     connect( ui->isRtcLocalCheckBox, &QCheckBox::toggled,
              [this] ()
     {
-        emit changed();
+        this -> setApplyEnabled( this, true );
     } );
 }
 
 
-TimeDateModule::~TimeDateModule()
+TimeDatePage::~TimeDatePage()
 {
     delete ui;
     delete m_timeDateService;
@@ -112,7 +94,7 @@ TimeDateModule::~TimeDateModule()
 
 
 void
-TimeDateModule::load()
+TimeDatePage::load()
 {
     m_isTimeEdited = false;
     m_isDateEdited = false;
@@ -123,18 +105,9 @@ TimeDateModule::load()
 
 
 void
-TimeDateModule::save()
+TimeDatePage::save()
 {
     TimeDateCommon::save( ui, m_timeDateService, m_isTimeEdited, m_isDateEdited, m_timeZone );
+    this -> setApplyEnabled( this, false );
     load();
 }
-
-
-void
-TimeDateModule::defaults()
-{
-    load();
-}
-
-
-#include "TimeDateModule.moc"

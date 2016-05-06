@@ -17,11 +17,11 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "TimeDate.h"
+#include "TimeDateService.h"
 
 #include <QtCore/QDebug>
 
-TimeDate::TimeDate( QObject* parent ) :
+TimeDateService::TimeDateService( QObject* parent ) :
     QObject( parent )
 {
     m_dbusInterface = new QDBusInterface( "org.freedesktop.timedate1",
@@ -31,21 +31,21 @@ TimeDate::TimeDate( QObject* parent ) :
                                          0 );
 }
 
-TimeDate::~TimeDate()
+TimeDateService::~TimeDateService()
 {
     delete m_dbusInterface;
 }
 
 
 QDateTime
-TimeDate::localDateTime()
+TimeDateService::localDateTime()
 {
     return QDateTime::fromMSecsSinceEpoch( m_dbusInterface->property( "TimeUSec" ).toLongLong() / 1000 );
 }
 
 
 QDateTime
-TimeDate::utcDateTime()
+TimeDateService::utcDateTime()
 {
     QDateTime aux;
     aux.setMSecsSinceEpoch( ( m_dbusInterface->property( "TimeUSec" ) ).toLongLong() / 1000 );
@@ -55,7 +55,7 @@ TimeDate::utcDateTime()
 
 
 QDateTime
-TimeDate::rtcDateTime()
+TimeDateService::rtcDateTime()
 {
     QDateTime aux;
     aux.setMSecsSinceEpoch( ( m_dbusInterface->property( "RTCTimeUSec" ) ).toLongLong() / 1000 );
@@ -65,42 +65,42 @@ TimeDate::rtcDateTime()
 
 
 QString
-TimeDate::timeZone()
+TimeDateService::timeZone()
 {
     return m_dbusInterface->property( "Timezone" ).toString();
 }
 
 
 bool
-TimeDate::canNtp()
+TimeDateService::canNtp()
 {
     return m_dbusInterface->property( "CanNTP" ).toBool();
 }
 
 
 bool
-TimeDate::isNtpEnabled()
+TimeDateService::isNtpEnabled()
 {
     return m_dbusInterface->property( "NTP" ).toBool();
 }
 
 
 bool
-TimeDate::isNtpSynchronized()
+TimeDateService::isNtpSynchronized()
 {
     return m_dbusInterface->property( "NTPSynchronized" ).toBool();
 }
 
 
 bool
-TimeDate::isRtcInLocalTimeZone()
+TimeDateService::isRtcInLocalTimeZone()
 {
     return m_dbusInterface->property( "LocalRTC" ).toBool();
 }
 
 
 void
-TimeDate::setTime( const QDateTime& time )
+TimeDateService::setTime( const QDateTime& time )
 {
     /*
      * xbb
@@ -116,7 +116,7 @@ TimeDate::setTime( const QDateTime& time )
 
 
 void
-TimeDate::setTimeZone( const QString& timeZone )
+TimeDateService::setTimeZone( const QString& timeZone )
 {
     /*
      * sb
@@ -130,7 +130,7 @@ TimeDate::setTimeZone( const QString& timeZone )
 
 
 void
-TimeDate::setLocalRtc( const bool local )
+TimeDateService::setLocalRtc( const bool local )
 {
     /*
      * bbb
@@ -145,7 +145,7 @@ TimeDate::setLocalRtc( const bool local )
 
 
 void
-TimeDate::setNtp( const bool ntp )
+TimeDateService::setNtp( const bool ntp )
 {
     /*
      * bb

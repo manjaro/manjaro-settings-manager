@@ -50,9 +50,10 @@ file(GLOB TIMEDATE_GLOB
 
 set(TIMEDATE_SRCS
     ${TIMEDATE_GLOB}
-    LocaleGlobal.cpp
-    TimeDate.cpp    
+    LocaleGlobal.cpp    
+    TimeDateCommon.cpp
     TimeZoneDialog.cpp
+    TimeDateService.cpp
     TimeZoneWidget.cpp)
 
 set(TIMEDATE_UI
@@ -83,7 +84,7 @@ install(FILES msm_timedate.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 # MSM Page
 set(TIMEDATE_PAGE_SRCS
     ${TIMEDATE_SRCS}
-    PageTimeDate.cpp)
+    TimeDatePage.cpp)
 add_library(msm_page_timedate STATIC ${TIMEDATE_PAGE_SRCS})
 target_compile_definitions(msm_page_timedate PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_timedate

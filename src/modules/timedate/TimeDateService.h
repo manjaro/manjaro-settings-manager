@@ -17,44 +17,38 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGETIMEDATE_H
-#define PAGETIMEDATE_H
+#ifndef TIMEDATESERVICE_H
+#define TIMEDATESERVICE_H
 
-#include "TimeDate.h"
-#include "TimeZoneWidget.h"
-#include "PageWidget.h"
+#include <QtCore/QDateTime>
+#include <QtCore/QObject>
+#include <QtCore/QString>
+#include <QtCore/QStringListModel>
+#include <QtDBus/QDBusInterface>
 
-
-namespace Ui
-{
-class PageTimeDate;
-}
-
-
-class PageTimeDate : public PageWidget
+class TimeDateService : public QObject
 {
     Q_OBJECT
-
 public:
-    explicit PageTimeDate( QWidget* parent = 0 );
-    ~PageTimeDate();
-    void load();
-    void save();
+    explicit TimeDateService( QObject* parent = 0 );
+    ~TimeDateService();
 
-public slots:
-    void updateFields();
-    void updateTimeFields();
-    void isNtpEnabledToggled();
-    void timeZoneClicked();
+    QDateTime localDateTime();
+    QDateTime utcDateTime();
+    QDateTime rtcDateTime();
+    QString timeZone();
+    bool canNtp();
+    bool isNtpEnabled();
+    bool isNtpSynchronized();
+    bool isRtcInLocalTimeZone();
+
+    void setTime( const QDateTime& time );
+    void setTimeZone( const QString& timeZone );
+    void setLocalRtc( const bool local );
+    void setNtp( const bool ntp );
 
 private:
-    Ui::PageTimeDate* ui;
-    TimeDate* m_timeDate;
-    TimeZoneWidget m_timeZoneWidget;
-    bool m_isTimeEdited;
-    bool m_isDateEdited;
-    QString m_timeZone;
-
+    QDBusInterface* m_dbusInterface;
 };
 
-#endif // PAGETIMEDATE_H
+#endif // TIMEDATESERVICE_H

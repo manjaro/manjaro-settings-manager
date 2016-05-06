@@ -26,7 +26,7 @@
 #include "PageLanguage.h"
 #include "PageLanguagePackages.h"
 #include "PageMhwd.h"
-#include "PageTimeDate.h"
+#include "TimeDatePage.h"
 #include "UsersPage.h"
 #include "PageWidget.h"
 
@@ -80,7 +80,7 @@ private:
     PageLanguage pageLanguage;
     PageLanguagePackages pageLanguagePackages;
     PageMhwd pageMhwd;
-    PageTimeDate pageTimeDate;
+    TimeDatePage pageTimeDate;
     UsersPage pageUsers;
 
     void addPageWidget( PageWidget& page );

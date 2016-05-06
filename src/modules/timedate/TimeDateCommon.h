@@ -17,38 +17,23 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TIMEDATE_H
-#define TIMEDATE_H
+#ifndef TIMEDATECOMMON_H
+#define TIMEDATECOMMON_H
 
-#include <QtCore/QDateTime>
-#include <QtCore/QObject>
-#include <QtCore/QString>
-#include <QtCore/QStringListModel>
-#include <QtDBus/QDBusInterface>
+#include "TimeDateService.h"
+#include "ui_PageTimeDate.h"
 
-class TimeDate : public QObject
+class TimeDateCommon : public QObject
 {
     Q_OBJECT
 public:
-    explicit TimeDate( QObject* parent = 0 );
-    ~TimeDate();
-
-    QDateTime localDateTime();
-    QDateTime utcDateTime();
-    QDateTime rtcDateTime();
-    QString timeZone();
-    bool canNtp();
-    bool isNtpEnabled();
-    bool isNtpSynchronized();
-    bool isRtcInLocalTimeZone();
-
-    void setTime( const QDateTime& time );
-    void setTimeZone( const QString& timeZone );
-    void setLocalRtc( const bool local );
-    void setNtp( const bool ntp );
-
-private:
-    QDBusInterface* m_dbusInterface;
+    static void save( Ui::PageTimeDate* ui, TimeDateService* timeDateService,
+                      bool isTimeEdited, bool isDateEdited, QString timeZone );
+    static QString showTimeZoneSelector( QString& currentTimeZone );
+    static void updateUi( Ui::PageTimeDate* ui, TimeDateService* timeDateService,
+                          bool isTimeEdited, bool isDateEdited, QString currentTimeZone );
+    static void updateTimeFields( Ui::PageTimeDate* ui, TimeDateService* timeDateService,
+                                  bool isTimeEdited, bool isDateEdited );
 };
 
-#endif // TIMEDATE_H
+#endif // TIMEDATECOMMON_H
