@@ -29,7 +29,7 @@ PageMhwd::PageMhwd( QWidget* parent ) :
 {
     ui->setupUi( this );
     setTitle( tr( "Hardware Detection" ) );
-    setIcon( QPixmap( ":/images/resources/gpudriver.png" ) );
+    setIcon( QPixmap( ":/icons/gpudriver.png" ) );
     setShowApplyButton( false );
     setName( "msm_mhwd" );
 
@@ -122,15 +122,15 @@ PageMhwd::load()
             item->setText( 0, configName );
             if ( ( configName.toLower().contains( "nvidia" ) || configName.toLower().contains( "nouveau" ) ) &&
                     configName.toLower().contains( "intel" ) )
-                item->setIcon( 0, QIcon( ":/images/resources/intel-nvidia.png" ) );
+                item->setIcon( 0, QIcon( ":/icons/intel-nvidia.png" ) );
             else if ( configName.toLower().contains( "intel" ) )
-                item->setIcon( 0, QIcon( ":/images/resources/intel.png" ) );
+                item->setIcon( 0, QIcon( ":/icons/intel.png" ) );
             else if ( configName.toLower().contains( "nvidia" ) || configName.toLower().contains( "nouveau" ) )
-                item->setIcon( 0, QIcon( ":/images/resources/nvidia.png" ) );
+                item->setIcon( 0, QIcon( ":/icons/nvidia.png" ) );
             else if ( configName.toLower().contains( "catalyst" ) )
-                item->setIcon( 0, QIcon( ":/images/resources/ati.png" ) );
+                item->setIcon( 0, QIcon( ":/icons/ati.png" ) );
             else
-                item->setIcon( 0, QIcon( ":/images/resources/gpudriver.png" ) );
+                item->setIcon( 0, QIcon( ":/icons/gpudriver.png" ) );
 
             //Check if freedriver
             if ( ( *conf_iter )->freedriver )
