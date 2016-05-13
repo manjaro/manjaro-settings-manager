@@ -18,6 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "MhwdCommon.h"
 #include "MhwdModule.h"
 #include "ui_PageMhwd.h"
 #include "libmhwd/mhwd.h"
@@ -35,9 +36,9 @@
 #include <QtDebug>
 
 K_PLUGIN_FACTORY( MsmMhwdFactory,
-                  registerPlugin<PageMhwd>( "msm_mhwd" ); )
+                  registerPlugin<MhwdModule>( "msm_mhwd" ); )
 
-PageMhwd::PageMhwd( QWidget* parent, const QVariantList& args ) :
+MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
     ui( new Ui::PageMhwd )
 {
@@ -66,39 +67,64 @@ PageMhwd::PageMhwd( QWidget* parent, const QVariantList& args ) :
     ui->treeWidget->setColumnWidth( 2, 100 );
 
     // Context menu actions and icons
-    m_installAction = new QAction( tr( "Install" ), ui->treeWidget );
-    m_installAction->setIcon(QIcon::fromTheme("list-add", QIcon( ":/icons/add.png") ));
-    m_removeAction = new QAction( tr( "Remove" ), ui->treeWidget );
-    m_removeAction->setIcon(QIcon::fromTheme("list-remove", QIcon( ":/icons/remove.png") ));
-    m_forceReinstallationAction = new QAction( tr( "Force Reinstallation" ), ui->treeWidget );
-    m_forceReinstallationAction->setIcon( QIcon::fromTheme("view-refresh",  QIcon( ":/icons/restore.png")) );
+    ui->installAction->setIcon( QIcon::fromTheme( "list-add", QIcon( ":/icons/add.png" ) ) );
+    ui->removeAction->setIcon( QIcon::fromTheme( "list-remove", QIcon( ":/icons/remove.png" ) ) );
+    ui->reinstallAction->setIcon( QIcon::fromTheme( "view-refresh",  QIcon( ":/icons/restore.png" ) ) );
 
     // Connect signals and slots
     connect( ui->buttonInstallFree, &QPushButton::clicked,
-             this, &PageMhwd::installFreeConfiguration );
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::installFreeConfiguration( true );
+    } );
     connect( ui->buttonInstallNonFree, &QPushButton::clicked,
-             this, &PageMhwd::installNonFreeConfiguration );
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::installNonFreeConfiguration( true );
+    } );
+    connect( ui->installAction, &QAction::triggered,
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::installConfiguration( configuration, true );
+    } );
+    connect( ui->reinstallAction, &QAction::triggered,
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::reinstallConfiguration( configuration, true );
+    } );
+    connect( ui->removeAction, &QAction::triggered,
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::removeConfiguration( configuration, true );
+    } );
     connect( ui->treeWidget, &QTreeWidget::customContextMenuRequested,
-             this, &PageMhwd::showContextMenuForTreeWidget );
-    connect( m_installAction, &QAction::triggered,
-             this, &PageMhwd::installConfiguration );
-    connect( m_removeAction, &QAction::triggered,
-             this, &PageMhwd::removeConfiguration );
-    connect( m_forceReinstallationAction, &QAction::triggered,
-             this, &PageMhwd::reinstallConfiguration );
+             [=] ( const QPoint &pos )
+    {
+        MhwdCommon::showItemContextMenu( ui, pos );
+    } );
     connect( ui->checkBoxShowAll, &QCheckBox::toggled,
-             this, &PageMhwd::load );
+             this, &MhwdModule::load );
 }
 
 
-PageMhwd::~PageMhwd()
+MhwdModule::~MhwdModule()
 {
     delete ui;
 }
 
 
 void
-PageMhwd::load()
+MhwdModule::load()
 {
     ui->treeWidget->clear();
     ui->buttonInstallFree->setEnabled( false );
@@ -185,152 +211,14 @@ PageMhwd::load()
 
 
 void
-PageMhwd::save()
+MhwdModule::save()
 {
 }
 
 
 void
-PageMhwd::defaults()
+MhwdModule::defaults()
 {
-}
-
-
-void
-PageMhwd::installFreeConfiguration()
-{
-    QString title = QString( tr( "Install open-source graphic driver" ) );
-    QString message = QString( tr( "MHWD will autodetect your open-source graphic drivers and install it" ) );
-
-    QVariantMap args;
-    args["arguments"] = QStringList() << "-a" << "pci" << "free" << "0300";
-    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-    installAction.setArguments( args );
-
-    ActionDialog actionDialog;
-    actionDialog.setInstallAction( installAction );
-    actionDialog.setWindowTitle( title );
-    actionDialog.setMessage( message );
-    actionDialog.exec();
-    if ( actionDialog.isJobSuccesful() )
-        load();
-}
-
-
-void
-PageMhwd::installNonFreeConfiguration()
-{
-    QString title = QString( tr( "Install proprietary graphic driver" ) );
-    QString message = QString( tr( "MHWD will autodetect your proprietary graphic drivers and install it" ) );
-
-    QVariantMap args;
-    args["arguments"] = QStringList() << "-a" << "pci" << "nonfree" << "0300";
-    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-    installAction.setArguments( args );
-
-    ActionDialog actionDialog;
-    actionDialog.setInstallAction( installAction );
-    actionDialog.setWindowTitle( title );
-    actionDialog.setMessage( message );
-    actionDialog.exec();
-    if ( actionDialog.isJobSuccesful() )
-        load();
-}
-
-
-void
-PageMhwd::showContextMenuForTreeWidget( const QPoint& pos )
-{
-    QMenu contextMenu( this );
-    QTreeWidgetItem* temp = ui->treeWidget->itemAt( pos );
-    if ( ( temp != NULL ) && ( temp->text( 0 ).contains( "video-" ) || temp->text( 0 ).contains( "network-" ) ) )
-    {
-        if ( temp->checkState( 2 ) )
-        {
-            contextMenu.addAction( m_removeAction );
-            contextMenu.addAction( m_forceReinstallationAction );
-        }
-        else
-            contextMenu.addAction( m_installAction );
-        contextMenu.exec( ui->treeWidget->viewport()->mapToGlobal( pos ) );
-    }
-}
-
-
-void
-PageMhwd::installConfiguration()
-{
-    QString configuration = ui->treeWidget->currentItem()->text( 0 );
-
-    QString title = QString( tr( "Install configuration" ) );
-    QString message = QString( tr( "MHWD will install the '%1' configuration" ) )
-                      .arg( configuration );
-
-    QVariantMap args;
-    args["arguments"] = QStringList() << "-i" << "pci" << configuration;
-    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-    installAction.setArguments( args );
-
-    ActionDialog actionDialog;
-    actionDialog.setInstallAction( installAction );
-    actionDialog.setWindowTitle( title );
-    actionDialog.setMessage( message );
-    actionDialog.exec();
-    if ( actionDialog.isJobSuccesful() )
-        load();
-}
-
-
-void
-PageMhwd::removeConfiguration()
-{
-    QString configuration = ui->treeWidget->currentItem()->text( 0 );
-
-    QString title = QString( tr( "Remove configuration" ) );
-    QString message = QString( tr( "MHWD will remove the '%1' configuration" ) )
-                      .arg( configuration );
-
-    QVariantMap args;
-    args["arguments"] = QStringList() << "-r" << "pci" << configuration;
-    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.remove" ) );
-    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-    installAction.setArguments( args );
-
-    ActionDialog actionDialog;
-    actionDialog.setInstallAction( installAction );
-    actionDialog.setWindowTitle( title );
-    actionDialog.setMessage( message );
-    actionDialog.exec();
-    if ( actionDialog.isJobSuccesful() )
-        load();
-}
-
-
-void
-PageMhwd::reinstallConfiguration()
-{
-    QString configuration = ui->treeWidget->currentItem()->text( 0 );
-
-    QString title = QString( tr( "Reinstall configuration" ) );
-    QString message = QString( tr( "MHWD will reinstall the '%1' configuration" ) )
-                      .arg( configuration );
-
-    QVariantMap args;
-    args["arguments"] = QStringList() << "-f" << "-i" << "pci" << configuration;
-    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-    installAction.setArguments( args );
-
-    ActionDialog actionDialog;
-    actionDialog.setInstallAction( installAction );
-    actionDialog.setWindowTitle( title );
-    actionDialog.setMessage( message );
-    actionDialog.exec();
-    if ( actionDialog.isJobSuccesful() )
-        load();
 }
 
 #include "MhwdModule.moc"

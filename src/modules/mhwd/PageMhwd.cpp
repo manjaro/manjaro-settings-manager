@@ -18,6 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "MhwdCommon.h"
 #include "PageMhwd.h"
 #include "ui_PageMhwd.h"
 
@@ -39,26 +40,51 @@ PageMhwd::PageMhwd( QWidget* parent ) :
     ui->treeWidget->setColumnWidth( 2, 100 );
 
     // Context menu actions and icons
-    installAction = new QAction( tr( "Install" ), ui->treeWidget );
-    installAction->setIcon(QIcon::fromTheme("list-add", QIcon( ":/icons/add.png") ));
-    removeAction = new QAction( tr( "Remove" ), ui->treeWidget );
-    removeAction->setIcon(QIcon::fromTheme("list-remove", QIcon( ":/icons/remove.png") ));
-    forceReinstallationAction = new QAction( tr( "Force Reinstallation" ), ui->treeWidget );
-    forceReinstallationAction->setIcon( QIcon::fromTheme("view-refresh",  QIcon( ":/icons/restore.png")) );
+    ui->installAction->setIcon( QIcon::fromTheme( "list-add", QIcon( ":/icons/add.png" ) ) );
+    ui->removeAction->setIcon( QIcon::fromTheme( "list-remove", QIcon( ":/icons/remove.png" ) ) );
+    ui->reinstallAction->setIcon( QIcon::fromTheme( "view-refresh",  QIcon( ":/icons/restore.png" ) ) );
 
     // Connect signals and slots
     connect( ui->buttonInstallFree, &QPushButton::clicked,
-             this, &PageMhwd::buttonInstallFree_clicked );
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::installFreeConfiguration();
+    } );
     connect( ui->buttonInstallNonFree, &QPushButton::clicked,
-             this, &PageMhwd::buttonInstallNonFree_clicked );
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::installNonFreeConfiguration();
+    } );
+    connect( ui->installAction, &QAction::triggered,
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::installConfiguration( configuration );
+    } );
+    connect( ui->reinstallAction, &QAction::triggered,
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::reinstallConfiguration( configuration );
+    } );
+    connect( ui->removeAction, &QAction::triggered,
+             [=] ( bool checked )
+    {
+        Q_UNUSED( checked )
+        QString configuration = ui->treeWidget->currentItem()->text( 0 );
+        MhwdCommon::removeConfiguration( configuration );
+    } );
     connect( ui->treeWidget, &QTreeWidget::customContextMenuRequested,
-             this, &PageMhwd::showContextMenuForTreeWidget );
-    connect( installAction, &QAction::triggered,
-             this, &PageMhwd::installAction_triggered );
-    connect( removeAction, &QAction::triggered,
-             this, &PageMhwd::removeAction_triggered );
-    connect( forceReinstallationAction, &QAction::triggered,
-             this, &PageMhwd::forceReinstallationAction_triggered );
+             [=] ( const QPoint &pos )
+    {
+        MhwdCommon::showItemContextMenu( ui, pos );
+    } );
     connect( ui->checkBoxShowAll, &QCheckBox::toggled,
              this, &PageMhwd::load );
 }
@@ -154,114 +180,4 @@ PageMhwd::load()
     }
     // Free data object again
     mhwd::freeData( &data );
-}
-
-
-void
-PageMhwd::buttonInstallFree_clicked()
-{
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question( this,
-                                   tr( "Auto Install Configuration" ),
-                                   tr( "Do you really want to auto install\n the open-source graphic driver?" ),
-                                   QMessageBox::Yes | QMessageBox::No );
-    if ( reply == QMessageBox::Yes )
-    {
-        ApplyDialog dialog( this );
-        dialog.exec( "mhwd", QStringList() << "-a" << "pci" << "free" << "0300", tr( "Installing open-source graphic driver..." ), false );
-    }
-    load();
-}
-
-
-void
-PageMhwd::buttonInstallNonFree_clicked()
-{
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question( this,
-                                   tr( "Auto Install Configuration" ),
-                                   tr( "Do you really want to auto install\n the proprietary graphic driver?" ),
-                                   QMessageBox::Yes | QMessageBox::No );
-    if ( reply == QMessageBox::Yes )
-    {
-        ApplyDialog dialog( this );
-        dialog.exec( "mhwd", QStringList() << "-a" << "pci" << "nonfree" << "0300", tr( "Installing proprietary graphic driver..." ), false );
-    }
-    load();
-}
-
-
-void
-PageMhwd::showContextMenuForTreeWidget( const QPoint& pos )
-{
-    QMenu contextMenu( this );
-    QTreeWidgetItem* temp = ui->treeWidget->itemAt( pos );
-    if ( ( temp != NULL ) && ( temp->text( 0 ).contains( "video-" ) || temp->text( 0 ).contains( "network-" ) ) )
-    {
-        if ( temp->checkState( 2 ) )
-        {
-            contextMenu.addAction( removeAction );
-            contextMenu.addAction( forceReinstallationAction );
-        }
-        else
-            contextMenu.addAction( installAction );
-        contextMenu.exec( ui->treeWidget->viewport()->mapToGlobal( pos ) );
-    }
-}
-
-
-void
-PageMhwd::installAction_triggered()
-{
-    QTreeWidgetItem* temp = ui->treeWidget->currentItem();
-    QString configuration = temp->text( 0 );
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question( this,
-                                   tr( "Install Configuration" ),
-                                   tr( "Do you really want to install\n%1?" ).arg( configuration ),
-                                   QMessageBox::Yes | QMessageBox::No );
-    if ( reply == QMessageBox::Yes )
-    {
-        ApplyDialog dialog( this );
-        dialog.exec( "mhwd", QStringList() << "-i" << "pci" << configuration, tr( "Installing driver..." ), false );
-    }
-    load();
-}
-
-
-void
-PageMhwd::removeAction_triggered()
-{
-    QTreeWidgetItem* temp = ui->treeWidget->currentItem();
-    QString configuration = temp->text( 0 );
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question( this,
-                                   tr( "Remove Configuration" ),
-                                   tr( "Do you really want to remove\n%1?" ).arg( configuration ),
-                                   QMessageBox::Yes | QMessageBox::No );
-    if ( reply == QMessageBox::Yes )
-    {
-        ApplyDialog dialog( this );
-        dialog.exec( "mhwd", QStringList() << "-r" << "pci" << configuration, tr( "Removing driver..." ), false );
-    }
-    load();
-}
-
-
-void
-PageMhwd::forceReinstallationAction_triggered()
-{
-    QTreeWidgetItem* temp = ui->treeWidget->currentItem();
-    QString configuration = temp->text( 0 );
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question( this,
-                                   tr( "Force Reinstallation" ),
-                                   tr( "Do you really want to force the reinstallation of\n%1?" ).arg( configuration ),
-                                   QMessageBox::Yes | QMessageBox::No );
-    if ( reply == QMessageBox::Yes )
-    {
-        ApplyDialog dialog( this );
-        dialog.exec( "mhwd", QStringList() << "-f" << "-i" << "pci" << configuration, tr( "Reinstalling driver..." ), false );
-    }
-    load();
 }

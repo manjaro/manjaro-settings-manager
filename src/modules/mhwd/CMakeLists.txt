@@ -17,7 +17,8 @@ file(GLOB MHWD_GLOB
 set(MHWD_SRCS
     ${MHWD_GLOB}
     libmhwd/mhwd.cpp
-    libmhwd/vita/string.cpp)
+    libmhwd/vita/string.cpp
+    MhwdCommon.cpp)
 
 set(MHWD_UI
     ui/PageMhwd.ui)

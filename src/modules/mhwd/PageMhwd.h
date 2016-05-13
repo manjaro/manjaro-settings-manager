@@ -51,17 +51,6 @@ public:
 
 private:
     Ui::PageMhwd* ui;
-    QAction* installAction;
-    QAction* removeAction;
-    QAction* forceReinstallationAction;
-
-private slots:
-    void buttonInstallFree_clicked();
-    void buttonInstallNonFree_clicked();
-    void showContextMenuForTreeWidget( const QPoint& );
-    void installAction_triggered();
-    void removeAction_triggered();
-    void forceReinstallationAction_triggered();
 };
 
 #endif // PAGEMHWD_H

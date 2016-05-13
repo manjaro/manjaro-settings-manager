@@ -1,7 +1,6 @@
 /*
  *  This file is part of Manjaro Settings Manager.
  *
- *  Roland Singer <roland@manjaro.org>
  *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
@@ -18,50 +17,21 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MHWDMODULE_H
-#define MHWDMODULE_H
+#ifndef MHWDCOMMON_H
+#define MHWDCOMMON_H
 
-#include <KCModule>
+#include "ui_PageMhwd.h"
 
-namespace Ui
-{
-class PageMhwd;
-}
-
-class MhwdModule : public KCModule
+class MhwdCommon : public QObject
 {
     Q_OBJECT
-
 public:
-    /**
-     * Constructor.
-     *
-     * @param parent Parent widget of the module
-     * @param args Arguments for the module
-     */
-    explicit MhwdModule( QWidget* parent, const QVariantList& args = QVariantList() );
-    /**
-     * Destructor.
-     */
-    ~MhwdModule();
-
-    /**
-     * Overloading the KCModule load() function.
-     */
-    void load();
-
-    /**
-     * Overloading the KCModule save() function.
-     */
-    void save();
-
-    /**
-     * Overloading the KCModule defaults() function.
-     */
-    void defaults();
-
-private:
-    Ui::PageMhwd* ui;
+    static bool installConfiguration( QString configuration, bool useKAuth = false );
+    static bool installFreeConfiguration( bool useKAuth = false );
+    static bool installNonFreeConfiguration( bool useKAuth = false );
+    static bool reinstallConfiguration( QString configuration, bool useKAuth = false );
+    static bool removeConfiguration( QString configuration, bool useKAuth = false );
+    static void showItemContextMenu( Ui::PageMhwd* ui, const QPoint& pos );
 };
 
-#endif // MHWDMODULE_H
+#endif // MHWDCOMMON_H

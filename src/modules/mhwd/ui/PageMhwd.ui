@@ -89,6 +89,21 @@ Proprietary Driver</string>
     </layout>
    </item>
   </layout>
+  <action name="installAction">
+   <property name="text">
+    <string>Install</string>
+   </property>
+  </action>
+  <action name="removeAction">
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </action>
+  <action name="reinstallAction">
+   <property name="text">
+    <string>Reinstall</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
