@@ -25,7 +25,7 @@
 #include "PageKeyboard.h"
 #include "PageLanguage.h"
 #include "PageLanguagePackages.h"
-#include "PageMhwd.h"
+#include "MhwdPage.h"
 #include "TimeDatePage.h"
 #include "UsersPage.h"
 #include "PageWidget.h"
@@ -79,7 +79,7 @@ private:
     PageKeyboard pageKeyboard;
     PageLanguage pageLanguage;
     PageLanguagePackages pageLanguagePackages;
-    PageMhwd pageMhwd;
+    MhwdPage pageMhwd;
     TimeDatePage pageTimeDate;
     UsersPage pageUsers;
 

@@ -19,42 +19,18 @@
  */
 
 #include "MhwdCommon.h"
-#include "MhwdModule.h"
+#include "MhwdPage.h"
 #include "ui_PageMhwd.h"
-#include "libmhwd/mhwd.h"
 
-#include <KAboutData>
-#include <KPluginFactory>
-
-#include <QtCore/QTranslator>
-
-#include <QtDebug>
-
-K_PLUGIN_FACTORY( MsmMhwdFactory,
-                  registerPlugin<MhwdModule>( "msm_mhwd" ); )
-
-MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
-    KCModule( parent, args ),
+MhwdPage::MhwdPage( QWidget* parent ) :
+    PageWidget( parent ),
     ui( new Ui::PageMhwd )
 {
-    Q_INIT_RESOURCE( translations );
-    QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( &appTranslator );
-
-    KAboutData* aboutData = new KAboutData( "msm_mhwd",
-                                            tr( "Hardware Configuration", "@title" ),
-                                            PROJECT_VERSION,
-                                            QStringLiteral( "" ),
-                                            KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014-15 Ramon Buldó" );
-    aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
-                          QStringLiteral( "ramon@manjaro.org" ) );
-    setAboutData( aboutData );
-    setButtons( KCModule::NoAdditionalButton );
-
     ui->setupUi( this );
+    setTitle( tr( "Hardware Detection" ) );
+    setIcon( QPixmap( ":/icons/gpudriver.png" ) );
+    setShowApplyButton( false );
+    setName( "msm_mhwd" );
 
     ui->treeWidget->setContextMenuPolicy( Qt::CustomContextMenu );
     ui->treeWidget->setColumnWidth( 0, 450 );
@@ -72,7 +48,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::installFreeConfiguration( true );
+        MhwdCommon::installFreeConfiguration();
         load();
     } );
     connect( ui->buttonInstallNonFree, &QPushButton::clicked,
@@ -80,7 +56,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::installNonFreeConfiguration( true );
+        MhwdCommon::installNonFreeConfiguration();
         load();
     } );
     connect( ui->installAction, &QAction::triggered,
@@ -88,7 +64,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::installConfiguration( configuration, true );
+        MhwdCommon::installConfiguration( configuration );
         load();
     } );
     connect( ui->reinstallAction, &QAction::triggered,
@@ -96,7 +72,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::reinstallConfiguration( configuration, true );
+        MhwdCommon::reinstallConfiguration( configuration );
         load();
     } );
     connect( ui->removeAction, &QAction::triggered,
@@ -104,7 +80,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::removeConfiguration( configuration, true );
+        MhwdCommon::removeConfiguration( configuration );
         load();
     } );
     connect( ui->treeWidget, &QTreeWidget::customContextMenuRequested,
@@ -113,32 +89,18 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
         MhwdCommon::showItemContextMenu( ui, pos );
     } );
     connect( ui->checkBoxShowAll, &QCheckBox::toggled,
-             this, &MhwdModule::load );
+             this, &MhwdPage::load );
 }
 
 
-MhwdModule::~MhwdModule()
+MhwdPage::~MhwdPage()
 {
     delete ui;
 }
 
 
 void
-MhwdModule::load()
+MhwdPage::load()
 {
     MhwdCommon::load( ui );
 }
-
-
-void
-MhwdModule::save()
-{
-}
-
-
-void
-MhwdModule::defaults()
-{
-}
-
-#include "MhwdModule.moc"

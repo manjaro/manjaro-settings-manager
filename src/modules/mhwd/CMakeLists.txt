@@ -47,7 +47,7 @@ install(FILES msm_mhwd.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 # MSM PAGE
 set(MHWD_PAGE_SRCS
     ${MHWD_SRCS}
-    PageMhwd.cpp)
+    MhwdPage.cpp)
 add_library(msm_page_mhwd STATIC ${MHWD_PAGE_SRCS})
 target_compile_definitions(msm_page_mhwd PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_page_mhwd

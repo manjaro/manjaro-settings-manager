@@ -20,10 +20,98 @@
 #include "ActionDialog.h"
 #include "ApplyDialog.h"
 #include "MhwdCommon.h"
+#include "libmhwd/mhwd.h"
 
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMessageBox>
 #include <QDebug>
+
+
+void
+MhwdCommon::load( Ui::PageMhwd* ui )
+{
+    ui->treeWidget->clear();
+    ui->buttonInstallFree->setEnabled( false );
+    ui->buttonInstallNonFree->setEnabled( false );
+    // Create mhwd data object and fill it with hardware informations
+    mhwd::Data data;
+    mhwd::initData( &data );
+    mhwd::fillData( &data );
+
+    for ( std::vector<mhwd::Device*>::iterator dev_iter = data.PCIDevices.begin();
+            dev_iter != data.PCIDevices.end();
+            dev_iter++ )
+    {
+        QTreeWidgetItem* deviceItem = new QTreeWidgetItem();
+        // Check if deviceClass node its already added
+        QString deviceClassName = QString::fromStdString( ( *dev_iter )->className );
+        QList<QTreeWidgetItem*> found = ui->treeWidget->findItems( deviceClassName, Qt::MatchCaseSensitive, 0 );
+        if ( found.isEmpty() )
+        {
+            QTreeWidgetItem* deviceClassItem = new QTreeWidgetItem( ui->treeWidget );
+            deviceClassItem->setText( 0, deviceClassName );
+            deviceClassItem->addChild( deviceItem );
+            if ( !ui->checkBoxShowAll->isChecked() )
+                deviceClassItem->setHidden( true );
+        }
+        else
+            found.first()->addChild( deviceItem );
+
+        QString deviceName = QString::fromStdString( ( *dev_iter )->deviceName );
+        QString vendorName = QString::fromStdString( ( *dev_iter )->vendorName );
+        if ( deviceName.isEmpty() )
+            deviceName = tr( "Unknown device name" );
+        deviceItem->setText( 0, QString( "%1 (%2)" ).arg( deviceName, vendorName ) );
+
+
+        for ( std::vector<mhwd::Config*>::iterator conf_iter = ( *dev_iter )->availableConfigs.begin();
+                conf_iter != ( *dev_iter )->availableConfigs.end(); conf_iter++ )
+        {
+            //Always expand and show devices with configuration
+            deviceItem->parent()->setHidden( false );
+            deviceItem->parent()->setExpanded( true );
+            deviceItem->setExpanded( true );
+
+            QTreeWidgetItem* item = new QTreeWidgetItem( deviceItem );
+            item->setFlags( Qt::ItemIsEnabled );
+
+            QString configName = QString::fromStdString( ( *conf_iter )->name );
+            item->setText( 0, configName );
+            if ( ( configName.toLower().contains( "nvidia" ) || configName.toLower().contains( "nouveau" ) ) &&
+                    configName.toLower().contains( "intel" ) )
+                item->setIcon( 0, QIcon( ":/icons/intel-nvidia.png" ) );
+            else if ( configName.toLower().contains( "intel" ) )
+                item->setIcon( 0, QIcon( ":/icons/intel.png" ) );
+            else if ( configName.toLower().contains( "nvidia" ) || configName.toLower().contains( "nouveau" ) )
+                item->setIcon( 0, QIcon( ":/icons/nvidia.png" ) );
+            else if ( configName.toLower().contains( "catalyst" ) )
+                item->setIcon( 0, QIcon( ":/icons/ati.png" ) );
+            else
+                item->setIcon( 0, QIcon( ":/icons/gpudriver.png" ) );
+
+            //Check if freedriver
+            if ( ( *conf_iter )->freedriver )
+            {
+                item->setCheckState( 1, Qt::Checked );
+                ui->buttonInstallFree->setEnabled( true );
+            }
+            else
+            {
+                item->setCheckState( 1, Qt::Unchecked );
+                ui->buttonInstallNonFree->setEnabled( true );
+            }
+
+            //Check if installed
+            mhwd::Config* installedConfig = getInstalledConfig( &data, ( *conf_iter )->name, ( *conf_iter )->type );
+            if ( installedConfig == NULL )
+                item->setCheckState( 2, Qt::Unchecked );
+            else
+                item->setCheckState( 2, Qt::Checked );
+        }
+    }
+    // Free data object again
+    mhwd::freeData( &data );
+}
 
 
 bool

@@ -21,17 +21,7 @@
 #ifndef PAGEMHWD_H
 #define PAGEMHWD_H
 
-#include "ApplyDialog.h"
 #include "PageWidget.h"
-
-#include <QString>
-#include <QStringList>
-#include <QList>
-#include <QIcon>
-#include <QMenu>
-#include <QAction>
-#include <string>
-#include <vector>
 
 namespace Ui
 {
@@ -39,13 +29,13 @@ class PageMhwd;
 }
 
 
-class PageMhwd : public PageWidget
+class MhwdPage : public PageWidget
 {
     Q_OBJECT
 
 public:
-    explicit PageMhwd( QWidget* parent = 0 );
-    ~PageMhwd();
+    explicit MhwdPage( QWidget* parent = 0 );
+    ~MhwdPage();
 
     void load();
 

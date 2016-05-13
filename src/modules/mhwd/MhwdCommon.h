@@ -26,6 +26,7 @@ class MhwdCommon : public QObject
 {
     Q_OBJECT
 public:
+    static void load( Ui::PageMhwd* ui );
     static bool installConfiguration( QString configuration, bool useKAuth = false );
     static bool installFreeConfiguration( bool useKAuth = false );
     static bool installNonFreeConfiguration( bool useKAuth = false );
