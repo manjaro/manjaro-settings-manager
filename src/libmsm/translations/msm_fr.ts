@@ -705,7 +705,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
         <source>Updating pacman databases...</source>
-        <translation>Mise à jour de la base de donnée de pacman...</translation>
+        <translation>Mise à jour de la base de données de pacman...</translation>
     </message>
     <message>
         <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
