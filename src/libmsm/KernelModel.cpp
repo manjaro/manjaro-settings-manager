@@ -51,15 +51,15 @@ KernelModel::update()
     QStringList recommendedKernels = getRecommendedKernels();
 
     QSet<QString> modulesToInstall;
-    foreach ( const QString& module, QStringList( installedKernelPackages.keys() ).filter( QRegularExpression( "^linux[0-9][0-9]?([0-9])-" ) ) )
+    foreach ( const QString& module, QStringList( installedKernelPackages.keys() ).filter( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro)-" ) ) )
     {
-        QString aux = QString( module ).remove( QRegularExpression( "^linux[0-9][0-9]?([0-9])-" ) );
+        QString aux = QString( module ).remove( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro)-" ) );
         modulesToInstall.insert( aux );
     }
 
     beginResetModel();
     m_kernels.clear();
-    foreach ( const QString& kernel, QStringList( allKernelPackages.keys() ).filter( QRegularExpression( "^linux[0-9][0-9]?([0-9])$" ) ) )
+    foreach ( const QString& kernel, QStringList( allKernelPackages.keys() ).filter( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro)$" ) ) )
     {
         Kernel newKernel;
 
@@ -185,9 +185,9 @@ KernelModel::getAvailablePackages() const
 {
     QProcess process;
     process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
-    process.start( "pacman", QStringList() << "-Ss" << "^linux[0-9][0-9]?([0-9])" );
+    process.start( "pacman", QStringList() << "-Ss" << "^linux([0-9][0-9]?([0-9])|-rt-manjaro)" );
     if ( !process.waitForFinished( 15000 ) )
-        qDebug() << "error: failed to get all installed kernels";
+        qDebug() << "error: failed to get installed kernels";
     QString result = process.readAll();
 
     QHash<QString, QString> packages;
@@ -213,9 +213,9 @@ KernelModel::getInstalledPackages() const
 {
     QProcess process;
     process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
-    process.start( "pacman", QStringList() << "-Qs" << "^linux[0-9][0-9]?([0-9])" );
+    process.start( "pacman", QStringList() << "-Qs" << "^linux([0-9][0-9]?([0-9])|-rt-manjaro)" );
     if ( !process.waitForFinished( 15000 ) )
-        qDebug() << "error: failed to get all installed kernels";
+        qDebug() << "error: failed to get installed kernels";
     QString result = process.readAll();
 
     QHash<QString, QString> packages;
@@ -315,8 +315,15 @@ KernelModel::getRunningKernel() const
     uname.waitForFinished();
     QString result = uname.readAllStandardOutput();
     uname.close();
-    QStringList aux = result.split( ".", QString::SkipEmptyParts );
-    return QString( "linux%1%2" ).arg( aux.at( 0 ) ).arg( aux.at( 1 ) );
+    if ( result.contains( "-rt" ) )
+    {
+        return "linux-rt-manjaro";
+    }
+    else
+    {
+        QStringList aux = result.split( ".", QString::SkipEmptyParts );
+        return QString( "linux%1%2" ).arg( aux.at( 0 ) ).arg( aux.at( 1 ) );
+    }
 }
 
 
