@@ -62,7 +62,9 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     bool isInstalled = qvariant_cast<bool>( index.data( KernelModel::IsInstalledRole ) );
     bool isLts = qvariant_cast<bool>( index.data( KernelModel::IsLtsRole ) );
     bool isRecommended = qvariant_cast<bool>( index.data( KernelModel::IsRecommendedRole ) );
-    bool isRunning = qvariant_cast<bool>( index.data( KernelModel::IsRunningRole ) );
+    bool isRunning = qvariant_cast<bool>( index.data( KernelModel::IsRunningRole ) );    
+    bool isRc = qvariant_cast<bool>( index.data( KernelModel::IsRcRole ) );
+    bool isRealtime = qvariant_cast<bool>( index.data( KernelModel::IsRealtimeRole ) );
 
     /* draw name */
     QFont nameFont = option.font;
@@ -96,10 +98,10 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     QString unsupportedStr( tr( "Unsupported" ) );
     QString customStr( tr( "Custom" ) );
     QString experimentalStr( tr( "Experimental" ) );
-    QString realTimeStr( tr( "Real-time" ) );
+    QString realtimeStr( tr( "Real-time" ) );
     QStringList labelStringList = ( QStringList() << ltsStr << recommendedStr
                                     << runningStr << installedStr << unsupportedStr
-                                    << customStr << experimentalStr );
+                                    << customStr << experimentalStr << realtimeStr );
 
     QFont labelFont = option.font;
     labelFont.setPointSize( option.font.pointSize() );
@@ -143,17 +145,17 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
         labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
     }
 
-    if ( version.contains( "rc" ) || version.contains( "rt" ))
+    if ( isRc || isRealtime )
     {
         painter->fillRect( labelRect, QColor( "#FCF8E3" ) );
         painter->setPen( QColor( "#FAEBCC" ) );
         painter->drawRect( labelRect );
         labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
         painter->setPen( QColor( "#8A6D3B" ) );
-        if ( version.contains( "rc" ) )
+        if ( isRc )
             painter->drawText( labelRect, Qt::AlignCenter, experimentalStr );
-        else if ( version.contains( "rt" ) )
-            painter->drawText( labelRect, Qt::AlignCenter, realTimeStr );
+        else if ( isRealtime )
+            painter->drawText( labelRect, Qt::AlignCenter, realtimeStr );
     }
 
     /* draw second column (running, installed, unsupported) */

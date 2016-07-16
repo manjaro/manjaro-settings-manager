@@ -83,8 +83,8 @@ Notifier::Notifier( QObject* parent ) :
 
     connect( optionsAction, &QAction::triggered, this, [optionsAction, this]()
     {
-        m_settingsDialog = new NotifierSettingsDialog(NULL);
-        m_settingsDialog->setAttribute(Qt::WidgetAttribute::WA_DeleteOnClose, true);
+        m_settingsDialog = new NotifierSettingsDialog( NULL );
+        m_settingsDialog->setAttribute( Qt::WidgetAttribute::WA_DeleteOnClose, true );
         m_settingsDialog->exec();
     } );
 
@@ -242,13 +242,16 @@ Notifier::cKernel()
         }
     }
 
-    QList<Kernel> newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
-    QList<Kernel> newLtsRecommendedKernels;
-    QList<Kernel> newLtsKernels;
-    QList<Kernel> newRecommendedKernels;
-    QList<Kernel> newNotIgnoredKernels;
     if ( m_checkNewKernel )
     {
+        QList<Kernel> newKernels;
+        Kernel latestInstalled = kernelModel.latestInstalledKernel();
+        if ( !latestInstalled.package.isEmpty() )
+            newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
+        QList<Kernel> newLtsRecommendedKernels;
+        QList<Kernel> newLtsKernels;
+        QList<Kernel> newRecommendedKernels;
+        QList<Kernel> newNotIgnoredKernels;
         foreach ( Kernel kernel, newKernels )
         {
             if ( isPackageIgnored( kernel.package(), "new_kernel" ) )

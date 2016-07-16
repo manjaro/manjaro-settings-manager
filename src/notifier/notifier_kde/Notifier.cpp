@@ -232,7 +232,11 @@ Notifier::cKernel()
         }
     }
 
-    QList<Kernel> newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
+    QList<Kernel> newKernels;
+    Kernel latestInstalled = kernelModel.latestInstalledKernel();
+    if (!latestInstalled.package.isEmpty()) {
+        newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
+    }
     QList<Kernel> newLtsRecommendedKernels;
     QList<Kernel> newLtsKernels;
     QList<Kernel> newRecommendedKernels;

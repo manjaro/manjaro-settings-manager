@@ -50,6 +50,8 @@ public:
     bool isRecommended() const;
     bool isRunning() const;
     bool isUnsupported() const;
+    bool isRc() const;
+    bool isRealtime() const;
     void setPackage( const QString& package );
     void setVersion( const QString& version );
     void setInstalledModules( const QStringList& modules );

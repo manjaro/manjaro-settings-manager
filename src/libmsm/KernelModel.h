@@ -43,7 +43,9 @@ public:
         IsLtsRole,
         IsRecommendedRole,
         IsRunningRole,
-        IsUnsupportedRole
+        IsUnsupportedRole,
+        IsRcRole,
+        IsRealtimeRole
     };
 
     KernelModel( QObject* parent = 0 );

@@ -154,6 +154,22 @@ Kernel::isUnsupported() const
     return false;
 }
 
+bool
+Kernel::isRc() const
+{
+    if ( m_version.contains( "rc" ) )
+        return true;
+    return false;
+}
+
+bool
+
+Kernel::isRealtime() const
+{
+    if ( m_version.contains( "rt" ) )
+        return true;
+    return false;
+}
 
 void
 Kernel::setPackage( const QString& package )
@@ -231,6 +247,8 @@ QString Kernel::toString()
                     "isLts: '%9', "
                     "isRecommended: '%10', "
                     "isRunning: '%11', "
+                    "isRc: '%12', "
+                    "isRt: '%13', "
                     "}" )
            .arg( m_package )
            .arg( m_version )
@@ -242,5 +260,7 @@ QString Kernel::toString()
            .arg( m_isInstalled )
            .arg( m_isLts )
            .arg( m_isRecommended )
-           .arg( m_isRunning );
+           .arg( m_isRunning )
+           .arg( isRc() )
+           .arg( isRealtime() );
 }

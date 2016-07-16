@@ -156,6 +156,10 @@ KernelModel::data( const QModelIndex& index, int role ) const
         return kernel.isRunning();
     case IsUnsupportedRole:
         return kernel.isUnsupported();
+    case IsRcRole:
+        return kernel.isRc();
+    case IsRealtimeRole:
+        return kernel.isRealtime();
     }
     return QVariant();
 }
@@ -274,7 +278,9 @@ KernelModel::unsupportedKernels() const
 
 /**
  * @brief KernelModel::newerKernels Returns a list of all kernels with a higher
- * version than the kernel supplied and available in the repos
+ * version than the kernel supplied and available in the repos.
+ * Ignores realtime and release candidate kernels for new kernel candidates.
+ * If the supplied kernel is realtime, it returns an empty list.
  * @param auxKernel a kernel
  * @return QList of kernels with higher version comapre to auxKernel
  */
@@ -282,9 +288,12 @@ QList<Kernel>
 KernelModel::newerKernels( const Kernel& auxKernel )
 {
     QList<Kernel> auxList;
+    if ( auxKernel.isRealtime() )
+        return auxList;
+
     foreach ( const Kernel& kernel, m_kernels )
     {
-        if ( !kernel.isAvailable() )
+        if ( !kernel.isAvailable() || kernel.isRealtime() || kernel.isRc() )
             continue;
         if ( kernel.majorVersion() > auxKernel.majorVersion() )
             auxList << kernel;
@@ -316,9 +325,7 @@ KernelModel::getRunningKernel() const
     QString result = uname.readAllStandardOutput();
     uname.close();
     if ( result.contains( "-rt" ) )
-    {
         return "linux-rt-manjaro";
-    }
     else
     {
         QStringList aux = result.split( ".", QString::SkipEmptyParts );
