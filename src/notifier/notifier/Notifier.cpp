@@ -246,7 +246,8 @@ Notifier::cKernel()
     {
         QList<Kernel> newKernels;
         Kernel latestInstalled = kernelModel.latestInstalledKernel();
-        if ( !latestInstalled.package.isEmpty() )
+        // When it return and empty package string, it means we couldn't find the latest kernel
+        if ( !latestInstalled.package().isEmpty() )
             newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
         QList<Kernel> newLtsRecommendedKernels;
         QList<Kernel> newLtsKernels;

@@ -232,17 +232,17 @@ Notifier::cKernel()
         }
     }
 
-    QList<Kernel> newKernels;
-    Kernel latestInstalled = kernelModel.latestInstalledKernel();
-    if (!latestInstalled.package.isEmpty()) {
-        newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
-    }
-    QList<Kernel> newLtsRecommendedKernels;
-    QList<Kernel> newLtsKernels;
-    QList<Kernel> newRecommendedKernels;
-    QList<Kernel> newNotIgnoredKernels;
     if ( m_checkNewKernel )
     {
+        QList<Kernel> newKernels;
+        Kernel latestInstalled = kernelModel.latestInstalledKernel();
+        // When it return and empty package string, it means we couldn't find the latest kernel
+        if ( !latestInstalled.package().isEmpty() )
+            newKernels = kernelModel.newerKernels( kernelModel.latestInstalledKernel() );
+        QList<Kernel> newLtsRecommendedKernels;
+        QList<Kernel> newLtsKernels;
+        QList<Kernel> newRecommendedKernels;
+        QList<Kernel> newNotIgnoredKernels;
         foreach ( Kernel kernel, newKernels )
         {
             if ( isPackageIgnored( kernel.package(), "new_kernel" ) )
