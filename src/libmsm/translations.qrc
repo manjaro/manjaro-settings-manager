@@ -1,25 +1,37 @@
 <RCC>
     <qresource prefix="/translations">
+        <file>msm_ar.qm</file>
         <file>msm_ast.qm</file>
+        <file>msm_az_AZ.qm</file>
         <file>msm_bg_BG.qm</file>
         <file>msm_ca.qm</file>
         <file>msm_cs_CZ.qm</file>
+        <file>msm_cy.qm</file>
         <file>msm_da.qm</file>
         <file>msm_de.qm</file>
-        <file>msm_en.qm</file>
         <file>msm_el.qm</file>
+        <file>msm_en.qm</file>
+        <file>msm_es_419.qm</file>
+        <file>msm_es_AR.qm</file>
         <file>msm_es.qm</file>
         <file>msm_fa.qm</file>
         <file>msm_fa_IR.qm</file>
+        <file>msm_fi.qm</file>
         <file>msm_fo.qm</file>
         <file>msm_fr.qm</file>
+        <file>msm_gl_ES.qm</file>
         <file>msm_he.qm</file>
         <file>msm_hi.qm</file>
         <file>msm_hr.qm</file>
         <file>msm_hu.qm</file>
         <file>msm_id_ID.qm</file>
+        <file>msm_is.qm</file>
         <file>msm_it.qm</file>
         <file>msm_ja.qm</file>
+        <file>msm_ka.qm</file>
+        <file>msm_lt.qm</file>
+        <file>msm_ml.qm</file>
+        <file>msm_ms.qm</file>
         <file>msm_nb.qm</file>
         <file>msm_nl.qm</file>
         <file>msm_pl.qm</file>
@@ -29,10 +41,14 @@
         <file>msm_ru.qm</file>
         <file>msm_sk_SK.qm</file>
         <file>msm_sl.qm</file>
+        <file>msm_sr.qm</file>
         <file>msm_sr@latin.qm</file>
         <file>msm_sv.qm</file>
+        <file>msm_th_TH.qm</file>
         <file>msm_tr.qm</file>
         <file>msm_uk.qm</file>
+        <file>msm_ur_PK.qm</file>
+        <file>msm_uz@Latn.qm</file>
         <file>msm_vi.qm</file>
         <file>msm_zh_CN.qm</file>
         <file>msm_zh_TW.qm</file>

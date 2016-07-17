@@ -1,51 +1,51 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="az_AZ" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_AR" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Cuenta</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="64"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar Grupos</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="93"/>
         <source>Group</source>
-        <translation type="unfinished"/>
+        <translation>Grupo</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="98"/>
         <source>Member</source>
-        <translation type="unfinished"/>
+        <translation>Miembro</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="135"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="136"/>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="167"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>Alerta!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="137"/>
@@ -108,7 +108,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="184"/>
@@ -153,7 +153,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ApplyDialog.ui" line="46"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../ApplyDialog.ui" line="53"/>
@@ -194,12 +194,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="149"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
@@ -1178,7 +1178,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="168"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Cuenta</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="175"/>
@@ -1245,7 +1245,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="182"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="189"/>

@@ -2,58 +2,58 @@
 <context>
     <name>AccountTypeDialog</name>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="14"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="14"/>
         <source>Account Type</source>
         <translation>Tipo di account</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="64"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="64"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="69"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="69"/>
         <source>Administrator</source>
         <translation>Amministratore</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="79"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="79"/>
         <source>Show Groups</source>
         <translation>Mostra gruppi</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="93"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="93"/>
         <source>Group</source>
         <translation>Gruppi</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="98"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="98"/>
         <source>Member</source>
         <translation>Membri</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="115"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="115"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.ui" line="135"/>
+        <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="135"/>
         <source>Apply</source>
         <translation>Applica</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.cpp" line="123"/>
-        <location filename="../dialogs/accounttypedialog.cpp" line="150"/>
+        <location filename="../../modules/users/AccountTypeDialog.cpp" line="136"/>
+        <location filename="../../modules/users/AccountTypeDialog.cpp" line="167"/>
         <source>Warning!</source>
         <translation>Attenzione!</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.cpp" line="124"/>
+        <location filename="../../modules/users/AccountTypeDialog.cpp" line="137"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
         <translation>Gruppo admin %1 non è abilitato in &apos;%2&apos;! È necessario  abilitare per poter impostare i diritti di amministratore...</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.cpp" line="151"/>
+        <location filename="../../modules/users/AccountTypeDialog.cpp" line="168"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
@@ -62,72 +62,85 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
+        <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
     <message>
-        <location filename="../dialogs/accounttypedialog.cpp" line="163"/>
+        <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Failed to set groups!</source>
         <translation>Impossibile impostare gruppi!</translation>
     </message>
 </context>
 <context>
+    <name>ActionDialog</name>
+    <message>
+        <location filename="../ActionDialog.cpp" line="39"/>
+        <source>Do you really want to continue?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="87"/>
+        <source>Done ...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../dialogs/adduserdialog.ui" line="14"/>
+        <location filename="../../modules/users/ui/AddUserDialog.ui" line="14"/>
         <source>Add User</source>
         <translation>Aggiungi utente</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.ui" line="71"/>
+        <location filename="../../modules/users/ui/AddUserDialog.ui" line="71"/>
         <source>Username</source>
         <translation>Nome utente</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.ui" line="93"/>
+        <location filename="../../modules/users/ui/AddUserDialog.ui" line="93"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.ui" line="115"/>
+        <location filename="../../modules/users/ui/AddUserDialog.ui" line="115"/>
         <source>Retype Password</source>
         <translation>Riscrivi la password</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.ui" line="164"/>
+        <location filename="../../modules/users/ui/AddUserDialog.ui" line="164"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.ui" line="184"/>
+        <location filename="../../modules/users/ui/AddUserDialog.ui" line="184"/>
         <source>Create</source>
         <translation>Crea</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.cpp" line="89"/>
+        <location filename="../../modules/users/AddUserDialog.cpp" line="87"/>
         <source>Your username contains invalid characters!</source>
         <translation>Il tuo nome utente contiene caratteri non validi!</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.cpp" line="93"/>
+        <location filename="../../modules/users/AddUserDialog.cpp" line="91"/>
         <source>Your passwords do not match!</source>
         <translation>Le password non corrispondono!</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.cpp" line="97"/>
-        <location filename="../dialogs/adduserdialog.cpp" line="109"/>
-        <location filename="../dialogs/adduserdialog.cpp" line="120"/>
+        <location filename="../../modules/users/AddUserDialog.cpp" line="96"/>
+        <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
+        <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.cpp" line="109"/>
+        <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <source>Failed to add user!</source>
         <translation>Impossibile aggiungere l&apos;utente!</translation>
     </message>
     <message>
-        <location filename="../dialogs/adduserdialog.cpp" line="120"/>
+        <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Failed to set user&apos;s password!</source>
         <translation>Impossibile impostare la password dell&apos;utente!</translation>
     </message>
@@ -135,34 +148,34 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>ApplyDialog</name>
     <message>
-        <location filename="../dialogs/applydialog.ui" line="14"/>
+        <location filename="../ApplyDialog.ui" line="14"/>
         <source>Processing...</source>
         <translation>Elaborazione in corso...</translation>
     </message>
     <message>
-        <location filename="../dialogs/applydialog.ui" line="46"/>
+        <location filename="../ApplyDialog.ui" line="46"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../dialogs/applydialog.ui" line="53"/>
-        <location filename="../dialogs/applydialog.cpp" line="55"/>
+        <location filename="../ApplyDialog.ui" line="53"/>
+        <location filename="../ApplyDialog.cpp" line="56"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
     <message>
-        <location filename="../dialogs/applydialog.cpp" line="102"/>
+        <location filename="../ApplyDialog.cpp" line="100"/>
         <source>Process finished!</source>
         <translation>Processo finito!</translation>
     </message>
     <message>
-        <location filename="../dialogs/applydialog.cpp" line="109"/>
-        <location filename="../dialogs/applydialog.cpp" line="122"/>
+        <location filename="../ApplyDialog.cpp" line="107"/>
+        <location filename="../ApplyDialog.cpp" line="120"/>
         <source>Close (%1)</source>
         <translation>Chiudi (%1)</translation>
     </message>
     <message>
-        <location filename="../dialogs/applydialog.cpp" line="114"/>
+        <location filename="../ApplyDialog.cpp" line="112"/>
         <source>Process failed!</source>
         <translation>Processo non riuscito!</translation>
     </message>
@@ -170,108 +183,100 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>ChangePasswordDialog</name>
     <message>
-        <location filename="../dialogs/changepassworddialog.ui" line="14"/>
-        <location filename="../dialogs/changepassworddialog.ui" line="74"/>
+        <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
+        <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="74"/>
         <source>New Password</source>
         <translation>Nuova Password</translation>
     </message>
     <message>
-        <location filename="../dialogs/changepassworddialog.ui" line="96"/>
+        <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="96"/>
         <source>Retype Password</source>
         <translation>Riscrivi la password</translation>
     </message>
     <message>
-        <location filename="../dialogs/changepassworddialog.ui" line="129"/>
+        <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="129"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../dialogs/changepassworddialog.ui" line="149"/>
+        <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="149"/>
         <source>Apply</source>
         <translation>Applica</translation>
     </message>
     <message>
-        <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
-        <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
+        <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
+        <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
     <message>
-        <location filename="../dialogs/changepassworddialog.cpp" line="77"/>
+        <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <source>Your passwords do not match!</source>
         <translation>Le password non corrispondono!</translation>
     </message>
     <message>
-        <location filename="../dialogs/changepassworddialog.cpp" line="88"/>
+        <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Failed to set user&apos;s password!</source>
         <translation>Impossibile impostare la password dell&apos;utente!</translation>
     </message>
 </context>
 <context>
-    <name>KernelInfoDialog</name>
-    <message>
-        <location filename="../dialogs/KernelInfoDialog.ui" line="17"/>
-        <source>Changelog</source>
-        <translation>Changelog</translation>
-    </message>
-    <message>
-        <location filename="../dialogs/KernelInfoDialog.ui" line="26"/>
-        <source>about:blank</source>
-        <translation>about:blank</translation>
-    </message>
-</context>
-<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="88"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="89"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>Recommended</source>
         <translation>Raccomandato</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="90"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Running</source>
         <translation>In esecuzione</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="91"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Installed</source>
         <translation>Installato</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="92"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Unsupported</source>
         <translation>Non supportato</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="180"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="245"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
+        <source>Real-time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Changelog</source>
         <translation>Changelog</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="93"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Custom</source>
         <translation>Personalizzato</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Experimental</source>
         <translation>Sperimentale</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="178"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="243"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="197"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="268"/>
         <source>Remove</source>
         <translation>Rimuovi</translation>
     </message>
     <message>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="179"/>
-        <location filename="../delegates/KernelListViewDelegate.cpp" line="244"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Install</source>
         <translation>Installa</translation>
     </message>
@@ -279,13 +284,13 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>KeyboardModel</name>
     <message>
-        <location filename="../models/KeyboardModel.cpp" line="208"/>
-        <location filename="../models/KeyboardModel.cpp" line="246"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="210"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="254"/>
         <source>Default</source>
         <translation>Predeterminato</translation>
     </message>
     <message>
-        <location filename="../models/KeyboardModel.cpp" line="284"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="296"/>
         <source>Default Keyboard Model</source>
         <translation>Modello di tastiera predeterminato</translation>
     </message>
@@ -293,170 +298,555 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>LanguageListViewDelegate</name>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="75"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="96"/>
         <source>Display Language</source>
         <translation>Lingua da visualizzare</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="77"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="99"/>
         <source>Language</source>
         <translation>Lingua</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="79"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="101"/>
         <source>Collation and Sorting</source>
         <translation>Confronto e Ordinamento</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="80"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="102"/>
         <source>Messages</source>
         <translation>Messaggi</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="110"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="132"/>
         <source>Formats</source>
         <translation>Formati</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="112"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="135"/>
         <source>Address</source>
         <translation>Indirizzo</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="113"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="136"/>
         <source>Identification</source>
         <translation>Identificazione</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="114"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="137"/>
         <source>Measurement Units</source>
         <translation>Unità di misura</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="115"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="138"/>
         <source>Currency</source>
         <translation>Valuta</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="116"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="139"/>
         <source>Names</source>
         <translation>Nomi</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="117"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="140"/>
         <source>Numbers</source>
         <translation>Numeri</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="118"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="141"/>
         <source>Paper</source>
         <translation>Carta</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="119"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="142"/>
         <source>Telephone</source>
         <translation>Telefono</translation>
     </message>
     <message>
-        <location filename="../delegates/LanguageListViewDelegate.cpp" line="120"/>
+        <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
         <translation>Ora</translation>
     </message>
 </context>
 <context>
-    <name>MainWindow</name>
+    <name>LocaleModule</name>
     <message>
-        <location filename="../mainwindow.ui" line="14"/>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
+        <source>Restore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
+        <source>System Locales</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
+        <source>Detailed Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
+        <source>Display Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
+        <source>Collation and Sorting:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
+        <source>Messages:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
+        <source>CType:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
+        <source>Formats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
+        <source>Numbers:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
+        <source>Time:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
+        <source>Currency:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
+        <source>Measurement Units:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
+        <source>Names:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
+        <source>Telephone:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
+        <source>Identification:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
+        <source>Paper:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
+        <source>Set as default display language and format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
+        <source>Set as default display language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
+        <source>Set as default format</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
+        <source>Locale Settings</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
+        <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MhwdCommon</name>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
+        <source>Unknown device name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
+        <source>Install configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
+        <source>MHWD will install the &apos;%1&apos; configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
+        <source>Installing driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
+        <source>Install open-source graphic driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
+        <source>MHWD will autodetect your open-source graphic drivers and install it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
+        <source>Install proprietary graphic driver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
+        <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
+        <source>Reinstall configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
+        <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
+        <source>Reinstalling driver...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
+        <source>Remove configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
+        <source>MHWD will remove the &apos;%1&apos; configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
+        <source>Removing driver...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MhwdModule</name>
+    <message>
+        <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
+        <source>Hardware Configuration</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MhwdPage</name>
+    <message>
+        <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
+        <source>Hardware Detection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MsmWindow</name>
+    <message>
+        <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Settings Manager</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="179"/>
+        <location filename="../../msm/MsmWindow.ui" line="179"/>
         <source>All Settings</source>
-        <translation>Tutte le impostazioni</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="215"/>
-        <location filename="../mainwindow.ui" line="259"/>
+        <location filename="../../msm/MsmWindow.ui" line="205"/>
+        <location filename="../../msm/MsmWindow.ui" line="229"/>
         <source>Quit</source>
-        <translation>Esci</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="238"/>
+        <location filename="../../msm/MsmWindow.ui" line="218"/>
         <source>Apply</source>
-        <translation>Applica</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="42"/>
+        <location filename="../../msm/MsmWindow.cpp" line="43"/>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../../msm/MsmWindow.cpp" line="49"/>
         <source>Hardware</source>
-        <translation>Hardware</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="211"/>
+        <location filename="../../msm/MsmWindow.cpp" line="152"/>
         <source>Manjaro Settings</source>
-        <translation>Impostazioni di Manjaro</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Notifier</name>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
+        <source>Kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
+        <source>Language packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
+        <source>Quit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
+        <source>Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="230"/>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="238"/>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="291"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="40"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="181"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="220"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
+        <source>Manjaro Settings Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
+        <source>%n new additional language package(s) available</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
+        <source>Running an unsupported kernel, please update.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
+        <source>Unsupported kernel installed in your system, please remove it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
+        <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
+        <source>Newer kernel is available, please update.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>NotifierSettingsDialog</name>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="20"/>
+        <source>Kernel Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="26"/>
+        <source>Check unsupported kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="51"/>
+        <source>Only notify if running an unsupported kernel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="60"/>
+        <source>Check new kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="85"/>
+        <source>Only notify LTS kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="112"/>
+        <source>Only notify recommended kernels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="124"/>
+        <source>Language Packs Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="130"/>
+        <source>Check missing language packs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="168"/>
+        <source>Quit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.ui" line="181"/>
+        <source>Apply</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.cpp" line="32"/>
+        <source>Notifications settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.cpp" line="107"/>
+        <source>Format error when saving your notifications settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../NotifierSettingsDialog.cpp" line="111"/>
+        <source>Access error when saving your notifications settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PageKernel</name>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="37"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="36"/>
         <source>Kernel</source>
         <translation>Kernel</translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="81"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
+        <source>Kernel</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="86"/>
         <source>Install Linux %1</source>
         <translation>Installa Linux %1</translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="82"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
+        <source>The following packages will be installed:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
+        <source>The following packages will be removed:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
         <source>Do you really want to install this kernel?
 </source>
         <translation>Sicuro di voler installare questo kernel?
 </translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="83"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="88"/>
         <source>This will install the following packages:
 </source>
         <translation>Verranno installati i seguenti pacchetti:
 </translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="101"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="108"/>
         <source>Installing new kernel.</source>
         <translation>Installazione nuovo kernel.</translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="114"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="164"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="123"/>
         <source>Remove Linux %1</source>
         <translation>Rimozione Linux %1</translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="115"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="124"/>
         <source>Do you really want to remove this kernel?</source>
         <translation>Sicuro di voler rimuovere questo kernel?</translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="116"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="125"/>
         <source>This will remove the following packages:
 </source>
         <translation>Verranno rimossi i seguenti pacchetti:
 </translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="134"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="145"/>
         <source>Removing kernel...</source>
         <translation>Rimozione kernel...</translation>
     </message>
     <message>
-        <location filename="../pages/PageKernel.cpp" line="147"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="198"/>
+        <location filename="../../modules/kernel/PageKernel.cpp" line="159"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Linux %1.%2 changelog</translation>
     </message>
@@ -464,34 +854,72 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>PageKeyboard</name>
     <message>
-        <location filename="../pages/PageKeyboard.ui" line="25"/>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
         <translation>Modello tastiera:</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.ui" line="131"/>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
         <translation>Scrivere qui per provare la propria tastiera</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="42"/>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
+        <source>Delay:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="158"/>
+        <source>Delay</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="165"/>
+        <source>Set delay</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
+        <source>Rate:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
+        <source>Rate  </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
+        <source>Set Rate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
         <source>Keyboard Settings</source>
         <translation>Impostazioni della tastiera</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="140"/>
-        <source>Setting new keyboard layout...</source>
-        <translation>Imposta un nuovo layout per la tastiera...</translation>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
+        <source>Keyboard Settings</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="148"/>
-        <location filename="../pages/PageKeyboard.cpp" line="171"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
+        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
     <message>
-        <location filename="../pages/PageKeyboard.cpp" line="149"/>
-        <location filename="../pages/PageKeyboard.cpp" line="172"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
+        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
         <source>Failed to set keyboard layout</source>
         <translation>Impossibile impostare il layout della tastiera</translation>
     </message>
@@ -499,231 +927,115 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../pages/PageLanguage.ui" line="62"/>
-        <source>System Locales</source>
-        <translation>System Locales</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="35"/>
-        <source>Add</source>
-        <translation>Aggiungi</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="42"/>
-        <source>Remove</source>
-        <translation>Rimuovi</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="49"/>
-        <source>Restore</source>
-        <translation>Ripristina</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="125"/>
-        <source>Detailed Settings</source>
-        <translation>Impostazioni dettagliate</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="170"/>
-        <source>Display Language</source>
-        <translation>Lingua da visualizzare</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="188"/>
-        <source>Language:</source>
-        <translation>Lingua:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="198"/>
-        <source>Collation and Sorting:</source>
-        <translation>Confronto e Ordinamento:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="208"/>
-        <source>Messages:</source>
-        <translation>Messaggi:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="218"/>
-        <source>CType:</source>
-        <translation>CType:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="249"/>
-        <source>Numbers:</source>
-        <translation>Numeri:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="259"/>
-        <source>Time:</source>
-        <translation>Ora:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="269"/>
-        <source>Currency:</source>
-        <translation>Valuta:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="279"/>
-        <source>Measurement Units:</source>
-        <translation>Unità di misura:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="289"/>
-        <source>Address:</source>
-        <translation>Indirizzo:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="299"/>
-        <source>Names:</source>
-        <translation>Nomi:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="309"/>
-        <source>Telephone:</source>
-        <translation>Telefono:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="319"/>
-        <source>Identification:</source>
-        <translation>Identificazione:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="329"/>
-        <source>Paper:</source>
-        <translation>Carta:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.ui" line="231"/>
-        <source>Formats</source>
-        <translation>Formati</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="35"/>
+        <location filename="../../modules/locale/PageLanguage.cpp" line="42"/>
         <source>Language</source>
         <translation>Lingua</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="323"/>
-        <location filename="../pages/PageLanguage.cpp" line="368"/>
-        <location filename="../pages/PageLanguage.cpp" line="380"/>
-        <location filename="../pages/PageLanguage.cpp" line="464"/>
-        <source>Error!</source>
-        <translation>Errore!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="324"/>
-        <location filename="../pages/PageLanguage.cpp" line="381"/>
-        <source>Failed to open file &apos;%1&apos;!</source>
-        <translation>Impossibile aprire il file &apos;%1&apos;!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="369"/>
-        <source>Failed to obtain valid locale string for locale &apos;%1&apos;!</source>
-        <translation>Impossibile ottenere stringa locale valido per locale &apos;%1&apos;!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="465"/>
-        <source>Failed to set locale!</source>
-        <translation>Impossibile impostare locale!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="393"/>
-        <source>Generating locale.gen file...</source>
-        <translation>Creazione file locale.gen...</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="59"/>
-        <source>Set as default display language and format</source>
-        <translation>Imposta come lingua e formato predefiniti</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="60"/>
-        <source>Set as default display language</source>
-        <translation>Imposta come lingua predefinita</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="61"/>
-        <source>Set as default format</source>
-        <translation>Imposta come formato predefinito</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="396"/>
-        <source>Hint</source>
-        <translation>Suggerimento</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageLanguage.cpp" line="396"/>
-        <source>You might have to restart the graphical environment to apply the new settings...</source>
-        <translation>Potrebbe essere necessario riavviare l&apos;ambiente grafico per applicare le nuove impostazioni...</translation>
     </message>
 </context>
 <context>
     <name>PageLanguagePackages</name>
     <message>
-        <location filename="../pages/PageLanguagePackages.ui" line="24"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
         <translation>Pacchetti della lingua disponibili</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.ui" line="30"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="32"/>
         <source>Additional language packages can be installed:</source>
         <translation>Possono essere installati ulteriori pacchetti della lingua:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.ui" line="53"/>
-        <location filename="../pages/PageLanguagePackages.ui" line="101"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
+        <source>Install Packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="128"/>
         <source>Package</source>
         <translation>Pacchetto</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.ui" line="58"/>
-        <location filename="../pages/PageLanguagePackages.ui" line="106"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
         <source>Parent Package</source>
         <translation>Pacchetto contenitore</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.ui" line="63"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="90"/>
         <source>Install</source>
         <translation>Installa</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.ui" line="72"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="99"/>
         <source>Installed Language Packages</source>
         <translation>Pacchetti della lingua installati</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.ui" line="78"/>
+        <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
         <translation>Pacchetti della lingua installati:</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.cpp" line="30"/>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="37"/>
         <source>Language Packages</source>
         <translation>Pacchetti della lingua</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.cpp" line="75"/>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="169"/>
         <source>Updating pacman databases...</source>
         <translation>Aggiornamento dei database di pacman...</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
+        <source>Language Packages</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
         <source>System is out-of-date</source>
         <translation>Il sistema non è aggiornato</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.cpp" line="84"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="206"/>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
         <translation>Il sistema non è aggiornato! È necessario un aggiornamento prima di proseguire!</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.cpp" line="102"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
+        <source>Install language packages.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
+        <source>Global language packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
         <source>Installing language packages...</source>
         <translation>Installazione dei pacchetti della lingua...</translation>
     </message>
     <message>
-        <location filename="../pages/PageLanguagePackages.cpp" line="144"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="146"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="148"/>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="117"/>
+        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="119"/>
         <source>%1 language packages</source>
         <translation>%1 pacchetti della lingua</translation>
     </message>
@@ -731,404 +1043,186 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>PageMhwd</name>
     <message>
-        <location filename="../pages/PageMhwd.ui" line="37"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
         <translation>Auto installa
 Driver open-source</translation>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.ui" line="45"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
         <translation>Auto Installa
 Driver proprietario</translation>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.ui" line="67"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="67"/>
         <source>Driver</source>
         <translation>Driver</translation>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.ui" line="72"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
         <translation>Open-source</translation>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.ui" line="77"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="77"/>
         <source>Installed</source>
         <translation>Installato</translation>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.ui" line="85"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
         <translation>Mostra tutti i dispositivi</translation>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.cpp" line="32"/>
-        <source>Hardware Detection</source>
-        <translation>Rilevamento hardware</translation>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
+        <source>Reinstall</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.cpp" line="42"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
         <source>Install</source>
         <translation>Installa</translation>
     </message>
     <message>
-        <location filename="../pages/PageMhwd.cpp" line="44"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="99"/>
         <source>Remove</source>
         <translation>Rimuovi</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="46"/>
-        <location filename="../pages/PageMhwd.cpp" line="254"/>
-        <source>Force Reinstallation</source>
-        <translation>Forza reinstallazione</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="106"/>
-        <source>Unknown device name</source>
-        <translation>Nome del dispositivo sconosciuto</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="166"/>
-        <location filename="../pages/PageMhwd.cpp" line="182"/>
-        <source>Auto Install Configuration</source>
-        <translation>Installa automaticamente la configurazione</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="167"/>
-        <source>Do you really want to auto install
- the open-source graphic driver?</source>
-        <translation>Si è sicuri di voler installare automaticamente
-i driver grafici open-source?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="171"/>
-        <source>Installing open-source graphic driver...</source>
-        <translation>Installazione driver grafici open-source...</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="183"/>
-        <source>Do you really want to auto install
- the proprietary graphic driver?</source>
-        <translation>Si è sicuri di voler installare automaticamente
-i driver grafici proprietari?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="187"/>
-        <source>Installing proprietary graphic driver...</source>
-        <translation>Installazione dei driver grafici proprietari...</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="218"/>
-        <source>Install Configuration</source>
-        <translation>Installa la configurazione</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="219"/>
-        <source>Do you really want to install
-%1?</source>
-        <translation>Si vuole veramente installare
-%1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="223"/>
-        <source>Installing driver...</source>
-        <translation>Installazione driver...</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="236"/>
-        <source>Remove Configuration</source>
-        <translation>Rimuovi configurazione</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="237"/>
-        <source>Do you really want to remove
-%1?</source>
-        <translation>Si vuole veramente rimuovere
-%1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="241"/>
-        <source>Removing driver...</source>
-        <translation>Rimozione driver...</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="255"/>
-        <source>Do you really want to force the reinstallation of
-%1?</source>
-        <translation>Si vuole veramente forzare la reinstallazione di
-%1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageMhwd.cpp" line="259"/>
-        <source>Reinstalling driver...</source>
-        <translation>Reinstallazione driver...</translation>
-    </message>
-</context>
-<context>
-    <name>PageNotifications</name>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="20"/>
-        <source>Kernel Notifications</source>
-        <translation>Notifiche sui kernel</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="26"/>
-        <source>Check unsupported kernels</source>
-        <translation>Controllare kernel non supportati</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="51"/>
-        <source>Only notify if running an unsupported kernel</source>
-        <translation>Notificare solo se è in esecuzione un kernel non supportato</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="60"/>
-        <source>Check new kernels</source>
-        <translation>Controllare i nuovi kernels</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="85"/>
-        <source>Only notify LTS kernels</source>
-        <translation>Notificare solo sui kernels LTS</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="112"/>
-        <source>Only notify recommended kernels</source>
-        <translation>Notificare solo sui kernels raccomandati</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="130"/>
-        <source>Check missing language packs</source>
-        <translation>Controllare pacchetti di lingua mancanti</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.ui" line="124"/>
-        <source>Language Packs Notifications</source>
-        <translation>Notifiche sui pacchetti di lingua</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageNotifications.cpp" line="32"/>
-        <source>Notifications</source>
-        <translation>Notifiche</translation>
     </message>
 </context>
 <context>
     <name>PageTimeDate</name>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="20"/>
-        <location filename="../pages/PageTimeDate.cpp" line="38"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="20"/>
         <source>Time and Date</source>
         <translation>Data e Ora</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="26"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
         <translation>Imposta ora e data automaticamente</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="148"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
         <translation>Fuso orario</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="197"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
         <translation>Modifica fuso orario</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="33"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
         <translation>Orologio hardware nel fuso orario locale</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="51"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
         <translation>Ora:</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="86"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
         <translation>Data:</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="115"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
         <translation>Orologio hardware:</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="122"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
         <translation>Ora Universale:</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="165"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
         <translation>Fuso orario:</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="206"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
         <translation>Nazione:</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="225"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="246"/>
         <source>Has daylight time?</source>
         <translation>Ha ora legale?</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="232"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="276"/>
         <source>Is daylight time?</source>
         <translation>È in corso l&apos;ora legale?</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="239"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="306"/>
         <source>Has transitions?</source>
         <translation>Ha transizioni?</translation>
     </message>
     <message>
-        <location filename="../pages/PageTimeDate.ui" line="248"/>
+        <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="317"/>
         <source>Next transition:</source>
         <translation>Prossima transizione:</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageTimeDate.cpp" line="121"/>
-        <source>none</source>
-        <translation>nessuna</translation>
     </message>
 </context>
 <context>
     <name>PageUsers</name>
     <message>
-        <location filename="../pages/PageUsers.ui" line="162"/>
+        <location filename="../../modules/users/ui/PageUsers.ui" line="154"/>
         <source>Image</source>
         <translation>Immagine</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.ui" line="169"/>
+        <location filename="../../modules/users/ui/PageUsers.ui" line="161"/>
         <source>Username</source>
         <translation>Nome utente</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.ui" line="176"/>
+        <location filename="../../modules/users/ui/PageUsers.ui" line="168"/>
         <source>Account Type</source>
         <translation>Tipo di account</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.ui" line="183"/>
+        <location filename="../../modules/users/ui/PageUsers.ui" line="175"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location filename="../pages/PageUsers.ui" line="231"/>
+        <location filename="../../modules/users/ui/PageUsers.ui" line="223"/>
         <source>●●●●●●</source>
         <translation>●●●●●●</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="29"/>
-        <source>User Accounts</source>
-        <translation>Accounts utente</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="74"/>
-        <location filename="../pages/PageUsers.cpp" line="81"/>
-        <source>Standard</source>
-        <translation>Standard</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="91"/>
-        <source>Administrator</source>
-        <translation>Amministratore</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="104"/>
-        <source>Images (*.png *.jpg *.bmp)</source>
-        <translation>Immagini (*.png *.jpg *.bmp)</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="136"/>
-        <location filename="../pages/PageUsers.cpp" line="150"/>
-        <location filename="../pages/PageUsers.cpp" line="156"/>
-        <location filename="../pages/PageUsers.cpp" line="168"/>
-        <location filename="../pages/PageUsers.cpp" line="174"/>
-        <location filename="../pages/PageUsers.cpp" line="211"/>
-        <source>Error!</source>
-        <translation>Errore!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="136"/>
-        <source>Failed to get user permission structures!</source>
-        <translation>Impossibile ottenere le strutture dei permessi utente!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="150"/>
-        <source>Failed to copy image to &apos;%1&apos;!</source>
-        <translation>Impossibile copiare l&apos;immagine in &apos;%1&apos;!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="156"/>
-        <location filename="../pages/PageUsers.cpp" line="174"/>
-        <source>Failed to set permission of file &apos;%1&apos;!</source>
-        <translation>Impossibile impostare il permesso del file &apos;%1&apos;!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="168"/>
-        <source>Failed to symlink &apos;%1&apos; to &apos;%2&apos;!</source>
-        <translation>Impossibile creare un link simbolico da &apos;%1&apos; a &apos;%2&apos;!</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="196"/>
-        <source>Continue?</source>
-        <translation>Continuare?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="196"/>
-        <source>Do you really want to remove the user %1?</source>
-        <translation>Si vuole davvero rimuovere l&apos;utente %1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="201"/>
-        <source>Remove Home?</source>
-        <translation>Rimuovere Home?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="201"/>
-        <source>Do you want to remove the home folder of the user %1?</source>
-        <translation>Si vuole rimuovere la cartella home dell&apos;utente %1?</translation>
-    </message>
-    <message>
-        <location filename="../pages/PageUsers.cpp" line="211"/>
-        <source>Failed to remove user %1!</source>
-        <translation>Impossibile rimuovere l&apos;utente %1!</translation>
     </message>
 </context>
 <context>
     <name>PreviewFileDialog</name>
     <message>
-        <location filename="../dialogs/previewfiledialog.cpp" line="91"/>
+        <location filename="../../modules/users/PreviewFileDialog.cpp" line="93"/>
         <source>Width:</source>
         <translation>Larghezza:</translation>
     </message>
     <message>
-        <location filename="../dialogs/previewfiledialog.cpp" line="92"/>
+        <location filename="../../modules/users/PreviewFileDialog.cpp" line="94"/>
         <source>Height:</source>
         <translation>Altezza:</translation>
     </message>
     <message>
-        <location filename="../dialogs/previewfiledialog.cpp" line="93"/>
+        <location filename="../../modules/users/PreviewFileDialog.cpp" line="95"/>
         <source>Ratio:</source>
         <translation>Ratio:</translation>
     </message>
     <message>
-        <location filename="../dialogs/previewfiledialog.cpp" line="94"/>
-        <location filename="../dialogs/previewfiledialog.cpp" line="95"/>
+        <location filename="../../modules/users/PreviewFileDialog.cpp" line="96"/>
+        <location filename="../../modules/users/PreviewFileDialog.cpp" line="97"/>
         <source>%1 px</source>
         <translation>%1 px</translation>
     </message>
     <message>
-        <location filename="../dialogs/previewfiledialog.cpp" line="96"/>
+        <location filename="../../modules/users/PreviewFileDialog.cpp" line="98"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
@@ -1136,52 +1230,171 @@ i driver grafici proprietari?</translation>
 <context>
     <name>SelectLocalesDialog</name>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="14"/>
+        <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
         <translation>Aggiungi Locale</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="34"/>
+        <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
         <translation>Lingua</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="70"/>
+        <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="70"/>
         <source>Territory</source>
         <translation>Ubicazione</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="122"/>
+        <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
         <translation>Locale:</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="182"/>
+        <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="182"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../dialogs/SelectLocalesDialog.ui" line="189"/>
+        <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
 </context>
 <context>
+    <name>TimeDateCommon</name>
+    <message>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
+        <source>none</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TimeDateModule</name>
+    <message>
+        <location filename="../../modules/timedate/TimeDateModule.cpp" line="49"/>
+        <source>Time and Date</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
+        <source>Time and date configuration.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
+        <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TimeDatePage</name>
+    <message>
+        <location filename="../../modules/timedate/TimeDatePage.cpp" line="40"/>
+        <source>Time and Date</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TimeZoneDialog</name>
     <message>
-        <location filename="../dialogs/TimeZoneDialog.ui" line="14"/>
+        <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
         <translation>Selezione del fuso orario</translation>
     </message>
     <message>
-        <location filename="../dialogs/TimeZoneDialog.ui" line="25"/>
+        <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
         <translation>Regione:</translation>
     </message>
     <message>
-        <location filename="../dialogs/TimeZoneDialog.ui" line="61"/>
+        <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
         <translation>Zona:</translation>
+    </message>
+</context>
+<context>
+    <name>UsersCommon</name>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
+        <source>Continue?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
+        <source>Do you really want to remove the user %1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
+        <source>Remove Home?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
+        <source>Do you want to remove the home folder of the user %1?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
+        <source>Error!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
+        <source>Failed to remove user %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
+        <source>Images (*.png *.jpg *.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
+        <source>Failed to change user image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
+        <source>Standard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
+        <source>Administrator</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UsersModule</name>
+    <message>
+        <location filename="../../modules/users/UsersModule.cpp" line="42"/>
+        <source>User Accounts</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersModule.cpp" line="48"/>
+        <location filename="../../modules/users/UsersModule.cpp" line="51"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UsersPage</name>
+    <message>
+        <location filename="../../modules/users/UsersPage.cpp" line="32"/>
+        <source>User Accounts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
