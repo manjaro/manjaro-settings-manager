@@ -37,9 +37,10 @@ MsmWindow::MsmWindow( QWidget* parent ) :
 
     readPositionSettings();
 
-    // Trigger method to setup titels and icons
+    // Trigger method to setup titles and icons
     buttonShowAllSettings_clicked();
 
+    ui->listWidget->setWordWrap( true );
     ui->listWidget->addSeparator( tr( "System" ) );
     addPageWidget( pageLanguage );
     addPageWidget( pageLanguagePackages );
@@ -60,9 +61,9 @@ MsmWindow::MsmWindow( QWidget* parent ) :
     connect( ui->buttonApply, &QPushButton::clicked,
              this, &MsmWindow::buttonApply_clicked );
 
-    ui->buttonAllSettings->setIcon(QIcon::fromTheme("draw-arrow-back", QIcon(":/images/resources/back.png") ) );
-    ui->buttonApply->setIcon(QIcon::fromTheme("dialog-ok-apply", QIcon(":/images/resources/apply.png") ) );
-    ui->buttonQuit->setIcon(QIcon::fromTheme("gtk-quit", QIcon(":/images/resources/quit.png") ) );
+    ui->buttonAllSettings->setIcon( QIcon::fromTheme( "draw-arrow-back", QIcon( ":/images/resources/back.png" ) ) );
+    ui->buttonApply->setIcon( QIcon::fromTheme( "dialog-ok-apply", QIcon( ":/images/resources/apply.png" ) ) );
+    ui->buttonQuit->setIcon( QIcon::fromTheme( "gtk-quit", QIcon( ":/images/resources/quit.png" ) ) );
 }
 
 
