@@ -16,5 +16,7 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 Name=Hardware Detection
 Name[x-test]=xxHardware Detectionxx
 Name[pl]=Sterowniki
+Name[fr]=Détection du Matériel
 Comment=Hardware detection and installation
 Comment[x-test]=xxHardware detection and installationxx
+Comment[fr]=Détection du matériel et installation
