@@ -45,7 +45,7 @@ int main( int argc, char* argv[] )
     parser.process( app );
 
     QTranslator appTranslator;
-    appTranslator.load( ":/translations/msmd_" + QLocale::system().name() );
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
     app.installTranslator( &appTranslator );
 
     // Workaround to enable to call the dialog to change settings with a command argument
