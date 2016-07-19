@@ -14,9 +14,11 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Kernel
 Name[x-test]=xxKernelxx
-Name[pl]=Jądro
 Name[fr]=Noyau
+Name[pl]=Jądro
+Name[sk]=Jadro
 Comment=Add and remove manjaro kernels
 Comment[x-test]=xxAdd and remove manjaro kernelsxx
-Comment[pl]=Zarządzaj jądrami Manjaro
 Comment[fr]=Ajouter et supprimer des noyaux manjaro
+Comment[pl]=Zarządzaj jądrami Manjaro
+Comment[sk]=Pridáva a odstraňuje jadrá systému Manjaro
