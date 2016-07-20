@@ -14,9 +14,11 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Time and Date
 Name[x-test]=xxTime and Datesxx
-Name[pl]=Data i czas
 Name[fr]=Date et heure
+Name[pl]=Data i czas
+Name[sk]=Čas a dátum
 Comment=Time and Date Settings
 Comment[x-test]=xxTime and Date Settingsxx
-Comment[pl]=Ustawienia daty i czasu
 Comment[fr]=Paramètres de date et heure
+Comment[pl]=Ustawienia daty i czasu
+Comment[sk]=Nastavenia času a dátumu
