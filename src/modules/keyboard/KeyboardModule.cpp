@@ -35,6 +35,7 @@
 #include <iostream>
 
 #include <QDebug>
+#include <QTranslator>
 
 K_PLUGIN_FACTORY( MsmKeyboardFactory,
                   registerPlugin<PageKeyboard>( "msm_keyboard" ); )
@@ -46,6 +47,11 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     m_keyboardProxyModel( new QSortFilterProxyModel ),
     m_keyboardPreview( new KeyBoardPreview )
 {
+    Q_INIT_RESOURCE( translations );
+    QTranslator appTranslator;
+    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( &appTranslator );
+    
     KAboutData* aboutData = new KAboutData( "msm_keyboard",
                                             tr( "Keyboard Settings", "@title" ),
                                             PROJECT_VERSION,

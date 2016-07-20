@@ -28,6 +28,7 @@ set(KEYBOARD_KCM_SRCS
 add_library(msm_keyboard MODULE ${KEYBOARD_KCM_SRCS})
 target_compile_definitions(msm_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(msm_keyboard
+    msm
     KF5::ConfigWidgets
     KF5::CoreAddons
     KF5::ItemModels)
