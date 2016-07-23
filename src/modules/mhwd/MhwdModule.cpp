@@ -38,7 +38,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     ui( new Ui::PageMhwd )
 {
     Q_INIT_RESOURCE( translations );
-    QTranslator *appTranslator = new QTranslator;
+    QTranslator* appTranslator = new QTranslator;
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 

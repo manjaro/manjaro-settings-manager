@@ -41,7 +41,7 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
     m_languageListViewDelegate( new LanguageListViewDelegate )
 {
     Q_INIT_RESOURCE( translations );
-    QTranslator *appTranslator = new QTranslator;
+    QTranslator* appTranslator = new QTranslator;
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
@@ -78,8 +78,8 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
     ui->telephoneComboBox->setModel( m_enabledLocalesModel );
     ui->timeComboBox->setModel( m_enabledLocalesModel );
 
-    ui->buttonAdd->setIcon(QIcon::fromTheme("list-add"));
-    ui->buttonRemove->setIcon(QIcon::fromTheme("list-remove"));
+    ui->buttonAdd->setIcon( QIcon::fromTheme( "list-add" ) );
+    ui->buttonRemove->setIcon( QIcon::fromTheme( "list-remove" ) );
     // Set localeListView delegate
     ui->localeListView->setItemDelegate( m_languageListViewDelegate );
 
@@ -90,7 +90,7 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
              this, &LocaleModule::addLocale );
 
     // Hide restore top button only usefull for non kcm module, use kmodule buttom button
-    ui->buttonRestore->setVisible(false);
+    ui->buttonRestore->setVisible( false );
 
     // Connect "System Locales" tab signal/slots
     connect( ui->localeListView->selectionModel(), &QItemSelectionModel::currentRowChanged,
@@ -410,9 +410,7 @@ LocaleModule::save()
             qDebug() << "Locale changes succesfully set";
         }
         else
-        {
             qDebug() << "Failed to set locale";
-        }
 
         load();
     }

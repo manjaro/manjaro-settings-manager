@@ -42,7 +42,7 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     m_kernelInfoDialog( new KernelInfoDialog )
 {
     Q_INIT_RESOURCE( translations );
-    QTranslator *appTranslator = new QTranslator;
+    QTranslator* appTranslator = new QTranslator;
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
@@ -51,7 +51,7 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
                                             PROJECT_VERSION,
                                             QStringLiteral( "" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014 Ramon Buldó", "@info:credit" );
+                                            "Copyright 2014 Ramon Buldó" );
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );

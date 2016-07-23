@@ -48,10 +48,10 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     m_keyboardPreview( new KeyBoardPreview )
 {
     Q_INIT_RESOURCE( translations );
-    QTranslator *appTranslator = new QTranslator;
+    QTranslator* appTranslator = new QTranslator;
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
-    
+
     KAboutData* aboutData = new KAboutData( "msm_keyboard",
                                             tr( "Keyboard Settings", "@title" ),
                                             PROJECT_VERSION,
@@ -170,7 +170,7 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
         qDebug() << "Can't find keyboard model list";
 
     // hide restore button as it isn't connected or used in kcmodule.
-    ui->buttonRestore->setVisible(false);
+    ui->buttonRestore->setVisible( false );
 
 }
 
