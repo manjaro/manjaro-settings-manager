@@ -388,7 +388,7 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation>Lokalizácia systému</translation>
+        <translation>Miestne nastavenia systému</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
@@ -489,7 +489,7 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation>Nastavenia lokalizácie</translation>
+        <translation>Miestne nastavenia</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
@@ -1232,7 +1232,7 @@ ovládač s uzavretým zdrojom</translation>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Pridanie lokalizácie</translation>
+        <translation>Pridanie miestneho nastavenia</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="34"/>
@@ -1247,7 +1247,7 @@ ovládač s uzavretým zdrojom</translation>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
-        <translation>Lokalizácia:</translation>
+        <translation>Miestne nastavenie:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="182"/>

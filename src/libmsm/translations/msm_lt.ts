@@ -250,7 +250,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>Tikralaikis</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
@@ -413,7 +413,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Pranešimai:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
@@ -453,7 +453,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Vardai:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
@@ -463,7 +463,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identifikavimas:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
@@ -473,7 +473,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Nustatyti kaip numatytąją rodymo kalbą ir formatus</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
@@ -483,20 +483,20 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Nustatyti kaip numatytuosius formatus</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Lokalės nustatymai</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
         <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autorius</translation>
     </message>
 </context>
 <context>
@@ -546,12 +546,12 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
         <source>Reinstall configuration</source>
-        <translation type="unfinished"/>
+        <translation>Iš naujo įdiegti konfigūraciją</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD iš naujo įdiegs &quot;%1&quot; konfigūraciją</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
@@ -580,13 +580,13 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
         <source>Hardware Configuration</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Aparatinės įrangos konfigūravimas</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autorius</translation>
     </message>
 </context>
 <context>
@@ -594,7 +594,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Aparatinės įrangos aptikimas</translation>
     </message>
 </context>
 <context>
@@ -648,7 +648,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation type="unfinished"/>
+        <translation>Kalbos paketai</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
@@ -659,7 +659,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>Parinktys</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -678,7 +678,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Yra prieinamas %n naujas papildomas kalbos paketas</numerusform><numerusform>Yra prieinami %n nauji papildomi kalbos paketai</numerusform><numerusform>Yra prieinama %n naujų papildomų kalbos paketų</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
@@ -724,7 +724,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Pranešti tik apie LTS (ilgalaikio palaikymo) branduolius</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
@@ -734,12 +734,12 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Kalbos paketų pranešimai</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Tikrinti trūkstamus kalbos paketus</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
@@ -754,17 +754,17 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Pranešimų nustatymai</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Įrašant jūsų pranešimų nustatymus įvyko klaida</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Įrašant jūsų pranešimų nustatymus įvyko prieigos klaida</translation>
     </message>
 </context>
 <context>
@@ -778,13 +778,13 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
         <source>Kernel</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Branduolys</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autorius</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
@@ -795,12 +795,12 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Bus įdiegti šie paketai:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Šie paketai bus pašalinti:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
@@ -866,32 +866,32 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
         <source>Delay:</source>
-        <translation type="unfinished"/>
+        <translation>Delsa:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="158"/>
         <source>Delay</source>
-        <translation type="unfinished"/>
+        <translation>Delsa</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="165"/>
         <source>Set delay</source>
-        <translation type="unfinished"/>
+        <translation>Nustatyti delsą</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation type="unfinished"/>
+        <translation>Sparta:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation type="unfinished"/>
+        <translation>Sparta</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation type="unfinished"/>
+        <translation>Nustatyti spartą</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
@@ -909,7 +909,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autorius</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
@@ -947,7 +947,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation type="unfinished"/>
+        <translation>Įdiegti paketus</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
@@ -994,14 +994,14 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
         <source>Language Packages</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Kalbos paketai</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autorius</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
@@ -1018,13 +1018,13 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Įdiegti kalbos paketus.</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Visuotiniai kalbos paketai</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
@@ -1079,7 +1079,7 @@ Nuosavybinę tvarkyklę</translation>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation type="unfinished"/>
+        <translation>Įdiegti iš naujo</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
@@ -1265,7 +1265,7 @@ Nuosavybinę tvarkyklę</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>nėra</translation>
     </message>
 </context>
 <context>
@@ -1279,18 +1279,18 @@ Nuosavybinę tvarkyklę</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
         <source>Time and date configuration.</source>
-        <translation type="unfinished"/>
+        <translation>Laiko ir datos konfigūravimas.</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autorius</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Norėdami pranešti apie klaidas, naudokite &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1386,7 +1386,7 @@ Nuosavybinę tvarkyklę</translation>
         <location filename="../../modules/users/UsersModule.cpp" line="51"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autorius</translation>
     </message>
 </context>
 <context>

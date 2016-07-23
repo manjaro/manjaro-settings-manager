@@ -62,7 +62,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>¡Error!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
@@ -80,7 +80,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>Listo ...</translation>
     </message>
 </context>
 <context>
@@ -88,22 +88,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="14"/>
         <source>Add User</source>
-        <translation type="unfinished"/>
+        <translation>Agregar usuario</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="71"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="93"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>Reescribir contraseña</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="164"/>
@@ -113,29 +113,29 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="184"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Crear</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="87"/>
         <source>Your username contains invalid characters!</source>
-        <translation type="unfinished"/>
+        <translation>Tu nombre de usuario contiene caracteres invalidos</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="91"/>
         <source>Your passwords do not match!</source>
-        <translation type="unfinished"/>
+        <translation>Tus contraseñas no coinciden</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="96"/>
         <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>¡Error!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <source>Failed to add user!</source>
-        <translation type="unfinished"/>
+        <translation>¡Fallo al agregar el usuario!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
@@ -148,7 +148,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ApplyDialog.ui" line="14"/>
         <source>Processing...</source>
-        <translation type="unfinished"/>
+        <translation>Procesando...</translation>
     </message>
     <message>
         <location filename="../ApplyDialog.ui" line="46"/>
@@ -159,12 +159,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../ApplyDialog.ui" line="53"/>
         <location filename="../ApplyDialog.cpp" line="56"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <location filename="../ApplyDialog.cpp" line="100"/>
         <source>Process finished!</source>
-        <translation type="unfinished"/>
+        <translation>¡Proceso terminado!</translation>
     </message>
     <message>
         <location filename="../ApplyDialog.cpp" line="107"/>
@@ -175,7 +175,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ApplyDialog.cpp" line="112"/>
         <source>Process failed!</source>
-        <translation type="unfinished"/>
+        <translation>¡Falló proceso!</translation>
     </message>
 </context>
 <context>
@@ -184,12 +184,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="74"/>
         <source>New Password</source>
-        <translation type="unfinished"/>
+        <translation>Nueva contraseña</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>Reescribir contrasela</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="129"/>
@@ -205,12 +205,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>¡Error!</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <source>Your passwords do not match!</source>
-        <translation type="unfinished"/>
+        <translation>Tus contraseñas no coinciden</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
@@ -223,32 +223,32 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomendado</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Ejecutando</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Instalado</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>No soportado</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo-real</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
@@ -259,24 +259,24 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizado</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Experimental</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="197"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="268"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Quitar</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalar</translation>
     </message>
 </context>
 <context>
@@ -298,12 +298,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="96"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar lenguaje</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="99"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Lenguaje</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="101"/>
@@ -313,22 +313,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="102"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Mensajes</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="132"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="135"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Dirección</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="136"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identificación</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="137"/>
@@ -343,12 +343,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="139"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Nombres</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="140"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Números</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="141"/>
@@ -358,12 +358,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="142"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Telefono</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo</translation>
     </message>
 </context>
 <context>
@@ -371,17 +371,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Agregar</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Quitar</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
@@ -401,7 +401,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Lenguaje:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
@@ -411,7 +411,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Mensajes:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
@@ -421,17 +421,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formatos</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Números:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
@@ -446,22 +446,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Dirección:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Nombres:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefono:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identificación:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
@@ -494,7 +494,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -502,12 +502,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo desconocido</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
         <source>Install configuration</source>
-        <translation type="unfinished"/>
+        <translation>Instalar configuración</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
@@ -519,7 +519,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instalarndo driver...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
@@ -544,7 +544,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
         <source>Reinstall configuration</source>
-        <translation type="unfinished"/>
+        <translation>Reinstalando configuración</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
@@ -559,7 +559,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
         <source>Remove configuration</source>
-        <translation type="unfinished"/>
+        <translation>Quitar configuración</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
@@ -584,7 +584,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -611,12 +611,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../msm/MsmWindow.ui" line="205"/>
         <location filename="../../msm/MsmWindow.ui" line="229"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Salir</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="218"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="43"/>
@@ -640,24 +640,24 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kernels</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation type="unfinished"/>
+        <translation>Paquetes de lenguajes</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Salir</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -742,12 +742,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Salir</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
@@ -770,25 +770,25 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="36"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
         <source>Kernel</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
         <location filename="../../modules/kernel/PageKernel.cpp" line="86"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalar Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
@@ -815,13 +815,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="108"/>
         <source>Installing new kernel.</source>
-        <translation type="unfinished"/>
+        <translation>Instalando nuevo kernel.</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="164"/>
         <location filename="../../modules/kernel/PageKernel.cpp" line="123"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Quitar Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="124"/>
@@ -904,13 +904,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>¡Error!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
@@ -924,7 +924,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/PageLanguage.cpp" line="42"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Lenguaje</translation>
     </message>
 </context>
 <context>
@@ -948,7 +948,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="128"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>Paquete</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
@@ -996,7 +996,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
@@ -1072,17 +1072,17 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation type="unfinished"/>
+        <translation>Reinstalar</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalar</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="99"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Quitar</translation>
     </message>
 </context>
 <context>
@@ -1090,7 +1090,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="20"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Hora y Fecha</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="26"/>
@@ -1100,12 +1100,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Zona horaria</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar zora horaria</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="33"/>
@@ -1168,12 +1168,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="154"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Imagen</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="161"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="168"/>
@@ -1183,12 +1183,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="175"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="223"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>******</translation>
     </message>
 </context>
 <context>
@@ -1196,12 +1196,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="93"/>
         <source>Width:</source>
-        <translation type="unfinished"/>
+        <translation>Ancho:</translation>
     </message>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="94"/>
         <source>Height:</source>
-        <translation type="unfinished"/>
+        <translation>Alto:</translation>
     </message>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="95"/>
@@ -1230,7 +1230,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Lenguaje</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="70"/>
@@ -1250,7 +1250,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Agregar</translation>
     </message>
 </context>
 <context>
@@ -1278,7 +1278,7 @@ Proprietary Driver</source>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
@@ -1299,17 +1299,17 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation type="unfinished"/>
+        <translation>Zona Horaria Seleccionada</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation type="unfinished"/>
+        <translation>Región:</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zona:</translation>
     </message>
 </context>
 <context>
@@ -1348,7 +1348,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Imagenes (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
@@ -1358,12 +1358,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Estandar</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador</translation>
     </message>
 </context>
 <context>
@@ -1372,14 +1372,14 @@ Proprietary Driver</source>
         <location filename="../../modules/users/UsersModule.cpp" line="42"/>
         <source>User Accounts</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Cuenta de usuario</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersModule.cpp" line="48"/>
         <location filename="../../modules/users/UsersModule.cpp" line="51"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -1387,7 +1387,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersPage.cpp" line="32"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Cuenta de usuario</translation>
     </message>
 </context>
 </TS>

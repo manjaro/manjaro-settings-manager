@@ -77,12 +77,12 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Stvarno želite nastaviti?</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>Gotovo ...</translation>
     </message>
 </context>
 <context>
@@ -250,7 +250,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>Stvarno-vrijeme</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
@@ -373,130 +373,130 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ukloni</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Vrati</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Jezične sheme sustava</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Detaljne postavke</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Jezik za prikaz</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Jezik:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Razvrstavanja i sortiranja:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Poruke:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CTip:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formati</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Brojevi:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Vrijeme:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Valuta:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Mjerne jedinice:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresa:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Imena:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefon:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identifikacija:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Papir:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Postavi kao zadani jezik prikaza i oblik</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Postavi kao zadani jezik prikaza</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Postavi kao zadani oblik</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Postavke za jezične sheme</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
         <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -504,74 +504,74 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Nepoznato ime uređaja</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
         <source>Install configuration</source>
-        <translation type="unfinished"/>
+        <translation>Instaliraj konfiguraciju</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MGWD će instalirati &apos;%1&apos; konfiguraciju</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Instaliram upravljački program...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
         <source>Install open-source graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Instaliraj upravljački program otvorenog koda</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD će automatski otkriti vaš upravljački program otvorenog koda i instalirati ga</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
         <source>Install proprietary graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Instaliraj vlasnički upravljački program</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD će automatski otkriti vaš vlasnički upravljački program i instalirati ga</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
         <source>Reinstall configuration</source>
-        <translation type="unfinished"/>
+        <translation>Ponovno instaliraj konfiguraciju</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD će ponovno instalirati &apos;%1&apos; konfiguraciju</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Ponovno instaliram upravljački program...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
         <source>Remove configuration</source>
-        <translation type="unfinished"/>
+        <translation>Ukloni konfiguraciju</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD će ukloniti &apos;%1&apos; konfiguraciju</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Uklanjam upravljački program...</translation>
     </message>
 </context>
 <context>
@@ -580,13 +580,13 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
         <source>Hardware Configuration</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Konfiguracija sklopovlja</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -594,7 +594,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Detekcija sklopovlja</translation>
     </message>
 </context>
 <context>
@@ -602,38 +602,38 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro upravitelj postavki</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="179"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Sve postavke</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="205"/>
         <location filename="../../msm/MsmWindow.ui" line="229"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Izađi</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="218"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Potvrdi</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="43"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sustav</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="49"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Sklopovlje</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="152"/>
         <source>Manjaro Settings</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro postavke</translation>
     </message>
 </context>
 <context>
@@ -642,24 +642,24 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kerneli</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation type="unfinished"/>
+        <translation>Jezični paketi</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Izađi</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcije</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -672,31 +672,31 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro upravitelj postavki</translation>
     </message>
     <message numerus="yes">
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n dostupan novi dodatni jezični paket</numerusform><numerusform>%n dostupna nova dodatna jezični paket(a)</numerusform><numerusform>%n dostupna nova dodatna jezični paket(a)</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation type="unfinished"/>
+        <translation>Koristite nepodržani kernel, molim nadogradite.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation type="unfinished"/>
+        <translation>Nepodržani kernel je instaliran na vašem sustavu, molimo vas da ga uklonite.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation type="unfinished"/>
+        <translation>Dostupan novi kernel, ažurirajte sustav.</translation>
     </message>
 </context>
 <context>
@@ -704,67 +704,67 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Obavijesti o kernelu</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Provjeri nepodržane kernele</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Obavijesti me samo ako koristim nepodržani kernel</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Provjeri nove kernele</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Obavijesti me samo za LTS kernele</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Obavijesti me samo za preporučene kernele</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Obavijesti jezičnih paketa</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Provjeri za nedostajuće jezične pakete</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Izađi</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Potvrdi</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Postavke obavijesti</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Greška formata prilikom spremanja vaših postavki obavijesti</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Greška pristupa prilikom spremanja postavki obavijesti</translation>
     </message>
 </context>
 <context>
@@ -778,13 +778,13 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
         <source>Kernel</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
@@ -795,12 +795,12 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Sljedeći paketi će se instalirati:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Sljedeći paketi će se ukloniti:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
@@ -866,32 +866,32 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
         <source>Delay:</source>
-        <translation type="unfinished"/>
+        <translation>Otkaži:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="158"/>
         <source>Delay</source>
-        <translation type="unfinished"/>
+        <translation>Otkaži</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="165"/>
         <source>Set delay</source>
-        <translation type="unfinished"/>
+        <translation>Postavi otkazivanje</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation type="unfinished"/>
+        <translation>Ocjena:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation type="unfinished"/>
+        <translation>Ocjena</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation type="unfinished"/>
+        <translation>Postavi ocjenu</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
@@ -902,14 +902,14 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Postavke tipkovnice</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
@@ -947,7 +947,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation type="unfinished"/>
+        <translation>Instaliraj pakete</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
@@ -958,7 +958,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Opis</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
@@ -994,14 +994,14 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
         <source>Language Packages</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Jezični paketi</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
@@ -1018,13 +1018,13 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Instaliraj jezične pakete.</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Globalni jezični paketi</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
@@ -1079,7 +1079,7 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation type="unfinished"/>
+        <translation>Ponovno instaliraj</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
@@ -1265,7 +1265,7 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>niti jedan</translation>
     </message>
 </context>
 <context>
@@ -1274,23 +1274,23 @@ Vlasnički upravljački program</translation>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="49"/>
         <source>Time and Date</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Vrijeme i datum</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
         <source>Time and date configuration.</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguracija vremena i datuma.</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Koristite &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; za prijavu pogrešaka.</translation>
     </message>
 </context>
 <context>
@@ -1298,7 +1298,7 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/timedate/TimeDatePage.cpp" line="40"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Vrijeme i datum</translation>
     </message>
 </context>
 <context>
@@ -1324,53 +1324,53 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Želite li nastaviti?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Stvarno želite ukloniti korisnika %1?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Ukloni Home?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Stvarno želite ukloniti mapu korisnika %1?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
         <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Greška!</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
         <source>Failed to remove user %1</source>
-        <translation type="unfinished"/>
+        <translation>Neuspješno uklanjanje korisnika %1</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Slike (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
         <source>Failed to change user image</source>
-        <translation type="unfinished"/>
+        <translation>Nije uspjela promjena korisničke slike</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standardni</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
 </context>
 <context>
@@ -1379,14 +1379,14 @@ Vlasnički upravljački program</translation>
         <location filename="../../modules/users/UsersModule.cpp" line="42"/>
         <source>User Accounts</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Korisnički računi</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersModule.cpp" line="48"/>
         <location filename="../../modules/users/UsersModule.cpp" line="51"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -1394,7 +1394,7 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/users/UsersPage.cpp" line="32"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Korisnički računi</translation>
     </message>
 </context>
 </TS>

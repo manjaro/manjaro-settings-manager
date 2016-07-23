@@ -77,12 +77,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>האם באמת ברצונך להמשיך?</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>סוים ...</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>LTS</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
@@ -305,7 +305,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="99"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>שפה</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="101"/>
@@ -315,57 +315,57 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="102"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>הודעות</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="132"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>פורמטים</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="135"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>כתובת</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="136"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>זיהוי</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="137"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>אמות מידה</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="138"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>מטבע</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="139"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>שמות</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="140"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>מספרים</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="141"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>נייר</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="142"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>טלפון</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>זמן</translation>
     </message>
 </context>
 <context>
@@ -373,22 +373,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>הוסף</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>הסר</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>שחזר</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>מקומויות מערכת</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
@@ -403,7 +403,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>שפה:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
@@ -413,7 +413,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>הודעות:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
@@ -423,52 +423,52 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>פורמטים</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>מספרים:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>זמן:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>מטבע:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>אמות מידה:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>כתובת:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>שמות:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>טלפון:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>זיהוי:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>נייר:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
@@ -489,14 +489,14 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>הגדרות מקומיות</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
         <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>מחבר</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>מחבר</translation>
     </message>
 </context>
 <context>
@@ -594,7 +594,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>איתור חומרה</translation>
     </message>
 </context>
 <context>
@@ -602,38 +602,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>מנהל הגדרות Manjaro</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="179"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>כל ההגדרות</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="205"/>
         <location filename="../../msm/MsmWindow.ui" line="229"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>יציאה</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="218"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>החל</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="43"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>מערכת</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="49"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>חומרה</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="152"/>
         <source>Manjaro Settings</source>
-        <translation type="unfinished"/>
+        <translation>הגדרות Manjaro</translation>
     </message>
 </context>
 <context>
@@ -642,24 +642,24 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation type="unfinished"/>
+        <translation>ליבות</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation type="unfinished"/>
+        <translation>חבילות שפה</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>יציאה</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>אפשרויות</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -672,7 +672,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>מנהל הגדרות Manjaro</translation>
     </message>
     <message numerus="yes">
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
@@ -744,12 +744,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>יציאה</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>החל</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
@@ -778,13 +778,13 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
         <source>Kernel</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>קרנל</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>מחבר</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
@@ -879,17 +879,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation type="unfinished"/>
+        <translation>שיעור:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation type="unfinished"/>
+        <translation>שיעור</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation type="unfinished"/>
+        <translation>קבע שיעור</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
@@ -900,20 +900,20 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>הגדרות מקלדת</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>מחבר</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>שגיאה!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
@@ -945,28 +945,28 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation type="unfinished"/>
+        <translation>התקן חבילות</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="128"/>
         <source>Package</source>
-        <translation type="unfinished"/>
+        <translation>חבילה</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>תיאור</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
         <source>Parent Package</source>
-        <translation type="unfinished"/>
+        <translation>חבילת הורה</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="90"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>התקן</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="99"/>
@@ -992,14 +992,14 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
         <source>Language Packages</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>חבילות שפה</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>מחבר</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
@@ -1055,37 +1055,37 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation type="unfinished"/>
+        <translation>דרייבר</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation type="unfinished"/>
+        <translation>קוד-פתוח</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>מותקנת</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation type="unfinished"/>
+        <translation>הצג את כל ההתקנים</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation type="unfinished"/>
+        <translation>התקן שוב</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>התקן</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="99"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>הסר</translation>
     </message>
 </context>
 <context>
@@ -1118,7 +1118,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation>שעה:</translation>
+        <translation>זמן:</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="86"/>
@@ -1171,27 +1171,27 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="154"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>תמונה</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="161"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>שם משתמש</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="168"/>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>טיפוס חשבון</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="175"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>סיסמה</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="223"/>
         <source>●●●●●●</source>
-        <translation type="unfinished"/>
+        <translation>●●●●●●</translation>
     </message>
 </context>
 <context>
@@ -1220,7 +1220,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="98"/>
         <source>%1</source>
-        <translation type="unfinished"/>
+        <translation>%1</translation>
     </message>
 </context>
 <context>
@@ -1281,7 +1281,7 @@ Proprietary Driver</source>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>מחבר</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
@@ -1320,7 +1320,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>להמשיך?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
@@ -1330,7 +1330,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>להסיר את Home?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
@@ -1341,7 +1341,7 @@ Proprietary Driver</source>
         <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
         <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>שגיאה!</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
@@ -1361,12 +1361,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>תקן</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>מנהל</translation>
     </message>
 </context>
 <context>
@@ -1375,14 +1375,14 @@ Proprietary Driver</source>
         <location filename="../../modules/users/UsersModule.cpp" line="42"/>
         <source>User Accounts</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>חשבונות משתמש</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersModule.cpp" line="48"/>
         <location filename="../../modules/users/UsersModule.cpp" line="51"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>מחבר</translation>
     </message>
 </context>
 <context>
@@ -1390,7 +1390,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersPage.cpp" line="32"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>חשבונות משתמש</translation>
     </message>
 </context>
 </TS>
