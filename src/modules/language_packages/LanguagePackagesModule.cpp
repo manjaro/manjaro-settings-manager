@@ -45,10 +45,9 @@ PageLanguagePackages::PageLanguagePackages( QWidget* parent, const QVariantList&
 {
     Q_INIT_RESOURCE( language_packages );
     Q_INIT_RESOURCE( translations );
-
-    QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( &appTranslator );
+    QTranslator *appTranslator = new QTranslator;
+    appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( appTranslator );
 
     KAboutData* aboutData = new KAboutData( "msm_language_packages",
                                             tr( "Language Packages", "@title" ),

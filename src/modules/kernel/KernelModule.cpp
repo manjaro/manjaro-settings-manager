@@ -42,9 +42,9 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     m_kernelInfoDialog( new KernelInfoDialog )
 {
     Q_INIT_RESOURCE( translations );
-    QTranslator appTranslator;
-    appTranslator.load( ":/translations/msm_" + QLocale::system().name() );
-    qApp->installTranslator( &appTranslator );
+    QTranslator *appTranslator = new QTranslator;
+    appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
+    qApp->installTranslator( appTranslator );
 
     KAboutData* aboutData = new KAboutData( "msm_kernel",
                                             tr( "Kernel", "@title" ),
