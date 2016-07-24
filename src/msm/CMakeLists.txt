@@ -47,7 +47,6 @@ install(PROGRAMS
     DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES
     manjaro-settings-manager.desktop
-    manjaro-settings-manager-gtk.desktop
     DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
 install(FILES
     org.manjaro.pkexec.manjaro-settings-manager-gui.policy

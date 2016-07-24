@@ -1,14 +1,18 @@
 [Desktop Entry]
 Name=Manjaro Settings Manager
+Name[ca]=Gestor de configuració de Manjaro
 Name[de]=Manjaro Einstellungen
 Name[en_GB]=Manjaro Settings Manager
+Name[es]=Gestor de configuración de Manjaro
 Name[fr]=Manjaro Gestionnaire de paramètres
 Name[ro]=Gestionar de Setări Manjaro
 Name[sk]=Správca nastavení systému Manjaro
 
 Comment=Graphical Settings Manager for Manjaro
+Comment[ca]=Gestor de configuració gràfic de Manjaro
 Comment[de]=Grafische Einstellungsverwaltung für Manjaro
 Comment[en_GB]=Graphical Settings Manager for Manjaro
+Comment[es]=Gestor de configuración gráfico de Manjaro
 Comment[fr]=Gestionnaire graphique de paramètres pour Manjaro
 Comment[ro]=Gestionar grafic de setări de sistem pt. Manjaro
 Comment[sk]=Grafický správca nastavení pre systém Manjaro
@@ -17,5 +21,4 @@ Exec=manjaro-settings-manager
 Icon=preferences-desktop
 Terminal=false
 Type=Application
-Categories=Settings;DesktopSettings;X-LXDE-Settings;X-KDE-Settings;
-NotShowIn=XFCE;GNOME;Unity;X-Cinnamon;MATE;
+Categories=Settings;DesktopSettings;X-LXDE-Settings;X-KDE-Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
