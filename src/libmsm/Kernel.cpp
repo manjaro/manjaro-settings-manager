@@ -149,9 +149,7 @@ Kernel::isRunning() const
 bool
 Kernel::isUnsupported() const
 {
-    if ( !m_isAvailable )
-        return m_isInstalled;
-    return false;
+    return m_isUnsupported;
 }
 
 bool
@@ -232,6 +230,14 @@ Kernel::setRunning( const bool isRunning )
 {
     m_isRunning = isRunning;
 }
+
+
+void
+Kernel::setUnsupported( const bool isUnsupported )
+{
+    m_isUnsupported = isUnsupported;
+}
+
 
 QString Kernel::toString()
 {

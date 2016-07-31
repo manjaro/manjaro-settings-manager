@@ -64,7 +64,25 @@ KernelModel::update()
         Kernel newKernel;
 
         newKernel.setPackage( kernel );
-        newKernel.setAvailable( availableKernelPackages.contains( kernel ) );
+        // The available packages can be empty if the package databases are missing
+        if ( availableKernelPackages.count() == 0 )
+        {
+            newKernel.setAvailable( false );
+            newKernel.setUnsupported( false );
+        }
+        else
+        {
+            if ( availableKernelPackages.contains( kernel ) )
+            {
+                newKernel.setAvailable( true );
+                newKernel.setUnsupported( false );
+            }
+            else
+            {
+                newKernel.setAvailable( false );
+                newKernel.setUnsupported( true );
+            }
+        }
         newKernel.setInstalled( installedKernelPackages.contains( kernel ) );
         newKernel.setVersion( allKernelPackages.value( kernel ) );
         newKernel.setAvailableModules( QStringList( availableKernelPackages.keys() )
@@ -192,7 +210,7 @@ KernelModel::getAvailablePackages() const
     process.start( "pacman", QStringList() << "-Ss" << "^linux([0-9][0-9]?([0-9])|-rt-manjaro)" );
     if ( !process.waitForFinished( 15000 ) )
         qDebug() << "error: failed to get installed kernels";
-    QString result = process.readAll();
+    QString result = process.readAllStandardOutput();
 
     QHash<QString, QString> packages;
     foreach ( const QString line, result.split( "\n", QString::SkipEmptyParts ) )

@@ -58,15 +58,16 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
     QString version = qvariant_cast<QString>( index.data( KernelModel::VersionRole ) );
     QString name = ( "Linux " + version );
-    bool isAvailable = qvariant_cast<bool>( index.data( KernelModel::IsAvailableRole ) );
+    //bool isAvailable = qvariant_cast<bool>( index.data( KernelModel::IsAvailableRole ) );
     bool isInstalled = qvariant_cast<bool>( index.data( KernelModel::IsInstalledRole ) );
     bool isLts = qvariant_cast<bool>( index.data( KernelModel::IsLtsRole ) );
     bool isRecommended = qvariant_cast<bool>( index.data( KernelModel::IsRecommendedRole ) );
-    bool isRunning = qvariant_cast<bool>( index.data( KernelModel::IsRunningRole ) );    
+    bool isRunning = qvariant_cast<bool>( index.data( KernelModel::IsRunningRole ) );
+    bool isUnsupported = qvariant_cast<bool>( index.data( KernelModel::IsUnsupportedRole ) );
     bool isRc = qvariant_cast<bool>( index.data( KernelModel::IsRcRole ) );
     bool isRealtime = qvariant_cast<bool>( index.data( KernelModel::IsRealtimeRole ) );
 
-    /* draw name */
+    // draw name
     QFont nameFont = option.font;
     nameFont.setPointSize( option.font.pointSize() * 1.75 );
     QFontMetrics nameFontMetrics( nameFont );
@@ -78,7 +79,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     painter->setFont( nameFont );
     painter->drawText( nameRect, Qt::TextSingleLine, name );
 
-    /* draw package */
+    // draw package
     QFont packageFont = option.font;
     packageFont.setPointSize( option.font.pointSize() * 0.9 );
     QFontMetrics packageFontMetrics( packageFont );
@@ -90,7 +91,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     painter->setFont( packageFont );
     painter->drawText( packageRect, Qt::TextSingleLine, package );
 
-    /* draw middle labels */
+    // draw middle labels
     QString ltsStr( tr( "LTS" ) );
     QString recommendedStr( tr( "Recommended" ) );
     QString runningStr( tr( "Running" ) );
@@ -119,7 +120,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     }
     QRectF labelRect( QPointF(), QSize( labelWidth + padding*2, labelHeight ) );
 
-    /* draw first column (lts, recommended, experimental) */
+    // draw first column (lts, recommended, experimental)
     labelRect.moveTopRight( QPointF( option.rect.center().x(),
                                      option.rect.top() + padding ) );
     painter->setFont( labelFont );
@@ -158,7 +159,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
             painter->drawText( labelRect, Qt::AlignCenter, realtimeStr );
     }
 
-    /* draw second column (running, installed, unsupported) */
+    // draw second column (running, installed, unsupported)
     labelRect.moveTopLeft( QPointF( option.rect.center().x() + 5,
                                     option.rect.top() + padding ) );
     if ( isRunning )
@@ -183,7 +184,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
         labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
     }
 
-    if ( !isAvailable && isInstalled )
+    if ( isUnsupported )
     {
         painter->fillRect( labelRect, QColor( "#f2dede" ) );
         painter->setPen( QColor( "#ebccd1" ) );
@@ -193,7 +194,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
         painter->drawText( labelRect, Qt::AlignCenter, unsupportedStr );
     }
 
-    /* draw right side buttons */
+    // draw right side buttons
     QString removeStr( tr( "Remove" ) );
     QString installStr( tr( "Install" ) );
     QString infoStr( tr( "Changelog" ) );
@@ -213,7 +214,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
             buttonHeight = buttonSize.height();
     }
 
-    /* Draw remove/install button */
+    // Draw remove/install button
     QRectF buttonRect( QPointF(), QSize( buttonWidth + 20, buttonHeight + 8 ) );
     buttonRect.moveTopRight( QPointF( option.rect.right() - padding,
                                       option.rect.center().y() - buttonHeight - 10 ) );
@@ -228,7 +229,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     painter->setFont( buttonFont );
     QApplication::style()->drawControl( QStyle::CE_PushButton, &button, painter );
 
-    /* Draw changelog/information button */
+    // Draw changelog/information button
     buttonRect.moveTopRight( QPointF( option.rect.right() - padding,
                                       option.rect.center().y() + 2 ) );
     QStyleOptionButton infoButton;
@@ -264,7 +265,7 @@ KernelListViewDelegate::editorEvent( QEvent* event, QAbstractItemModel* model,
         return true;
     }
 
-    /* Calculate where the buttons are */
+    // Calculate where the buttons are
     QString removeStr( tr( "Remove" ) );
     QString installStr( tr( "Install" ) );
     QString infoStr( tr( "Changelog" ) );
@@ -292,7 +293,7 @@ KernelListViewDelegate::editorEvent( QEvent* event, QAbstractItemModel* model,
     infoButtonRect.moveTopRight( QPointF( option.rect.right() - padding,
                                           option.rect.center().y() + 2 ) );
 
-    /* Raise or sunk buttons, and emit signals */
+    // Raise or sunk buttons, and emit signals
     QMouseEvent* mouseEvent = static_cast<QMouseEvent*>( event );
     if ( !installButtonRect.contains( mouseEvent->pos() ) &&
             !infoButtonRect.contains( mouseEvent->pos() ) )

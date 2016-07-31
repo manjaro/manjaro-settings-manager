@@ -61,6 +61,7 @@ public:
     void setLts( const bool isLts );
     void setRecommended( const bool isRecommended );
     void setRunning( const bool isRunning );
+    void setUnsupported( const bool isUnsupported );
 
     QString toString();
 
@@ -74,6 +75,7 @@ private:
     bool m_isLts;
     bool m_isRecommended;
     bool m_isRunning;
+    bool m_isUnsupported;
 };
 
 #endif // KERNEL_H
