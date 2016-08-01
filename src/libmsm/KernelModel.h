@@ -66,7 +66,7 @@ private:
     QList<Kernel> m_kernels;
     QHash<QString, QString> getInstalledPackages() const;
     QHash<QString, QString> getAvailablePackages() const;
-    QString getRunningKernel() const;
+    Kernel getRunningKernel() const;
     QStringList getLtsKernels() const;
     QStringList getRecommendedKernels() const;
 };
