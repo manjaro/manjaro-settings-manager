@@ -342,7 +342,7 @@ KernelModel::getRunningKernel() const
     uname.waitForFinished();
     QString result = uname.readAllStandardOutput();
     uname.close();
-    if ( result.contains( "-rt" ) )
+    if ( result.contains( "-rt-manjaro" ) )
         return "linux-rt-manjaro";
     else if ( result.contains( "-rt-lts" ) )
         return "linux-rt-lts-manjaro";
