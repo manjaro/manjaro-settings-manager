@@ -51,15 +51,15 @@ KernelModel::update()
     QStringList recommendedKernels = getRecommendedKernels();
 
     QSet<QString> modulesToInstall;
-    foreach ( const QString& module, QStringList( installedKernelPackages.keys() ).filter( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro)-" ) ) )
+    foreach ( const QString& module, QStringList( installedKernelPackages.keys() ).filter( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro|-rt-lts-manjaro)-" ) ) )
     {
-        QString aux = QString( module ).remove( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro)-" ) );
+        QString aux = QString( module ).remove( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro|-rt-lts-manjaro)-" ) );
         modulesToInstall.insert( aux );
     }
 
     beginResetModel();
     m_kernels.clear();
-    foreach ( const QString& kernel, QStringList( allKernelPackages.keys() ).filter( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro)$" ) ) )
+    foreach ( const QString& kernel, QStringList( allKernelPackages.keys() ).filter( QRegularExpression( "^linux([0-9][0-9]?([0-9])|-rt-manjaro|-rt-lts-manjaro)$" ) ) )
     {
         Kernel newKernel;
 
@@ -207,7 +207,7 @@ KernelModel::getAvailablePackages() const
 {
     QProcess process;
     process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
-    process.start( "pacman", QStringList() << "-Ss" << "^linux([0-9][0-9]?([0-9])|-rt-manjaro)" );
+    process.start( "pacman", QStringList() << "-Ss" << "^linux([0-9][0-9]?([0-9])|-rt-manjaro|-rt-lts-manjaro)" );
     if ( !process.waitForFinished( 15000 ) )
         qDebug() << "error: failed to get installed kernels";
     QString result = process.readAllStandardOutput();
@@ -235,7 +235,7 @@ KernelModel::getInstalledPackages() const
 {
     QProcess process;
     process.setEnvironment( QStringList() << "LANG=C" << "LC_MESSAGES=C" );
-    process.start( "pacman", QStringList() << "-Qs" << "^linux([0-9][0-9]?([0-9])|-rt-manjaro)" );
+    process.start( "pacman", QStringList() << "-Qs" << "^linux([0-9][0-9]?([0-9])|-rt-manjaro|-rt-lts-manjaro)" );
     if ( !process.waitForFinished( 15000 ) )
         qDebug() << "error: failed to get installed kernels";
     QString result = process.readAll();
@@ -344,6 +344,8 @@ KernelModel::getRunningKernel() const
     uname.close();
     if ( result.contains( "-rt" ) )
         return "linux-rt-manjaro";
+    else if ( result.contains( "-rt-lts" ) )
+        return "linux-rt-lts-manjaro";
     else
     {
         QStringList aux = result.split( ".", QString::SkipEmptyParts );
