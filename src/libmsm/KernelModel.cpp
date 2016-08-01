@@ -46,7 +46,7 @@ KernelModel::update()
         allKernelPackages.insert( i.key(), i.value() );
     }
 
-    QString runningKernel = getRunningKernel();
+    Kernel runningKernel = getRunningKernel();
     QStringList ltsKernels = getLtsKernels();
     QStringList recommendedKernels = getRecommendedKernels();
 
@@ -105,7 +105,11 @@ KernelModel::update()
         }
         newKernel.setLts( ltsKernels.contains( kernel ) );
         newKernel.setRecommended( recommendedKernels.contains( kernel ) );
-        newKernel.setRunning( QString::compare( runningKernel, kernel ) == 0 );
+
+        if ( ( runningKernel.minorVersion() == newKernel.minorVersion() ) &&
+                ( runningKernel.majorVersion() == newKernel.majorVersion() ) &&
+                ( runningKernel.isRealtime() == newKernel.isRealtime() ) )
+            newKernel.setRunning( true );
 
         m_kernels.append( newKernel );
     }
@@ -327,7 +331,7 @@ KernelModel::newerKernels( const Kernel& auxKernel )
  * @brief KernelModel::getRunningKernel get running kernel in the system
  * @return string with the version of running kernel
  */
-QString
+Kernel
 KernelModel::getRunningKernel() const
 {
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -342,15 +346,14 @@ KernelModel::getRunningKernel() const
     uname.waitForFinished();
     QString result = uname.readAllStandardOutput();
     uname.close();
+
+    Kernel kernel;
+    QStringList aux = result.split( ".", QString::SkipEmptyParts );
+    QString version = QString( "%1.%2" ).arg( aux.at( 0 ) ).arg( aux.at( 1 ) );
     if ( result.contains( "-rt" ) )
-        return "linux-rt-manjaro";
-    else if ( result.contains( "-rt-lts" ) )
-        return "linux-rt-lts-manjaro";
-    else
-    {
-        QStringList aux = result.split( ".", QString::SkipEmptyParts );
-        return QString( "linux%1%2" ).arg( aux.at( 0 ) ).arg( aux.at( 1 ) );
-    }
+        version.append( "rt" );
+    kernel.setVersion( version );
+    return kernel;
 }
 
 
