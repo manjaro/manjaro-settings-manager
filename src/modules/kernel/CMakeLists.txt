@@ -28,6 +28,7 @@ file(GLOB KERNEL_GLOB
 
 set(KERNEL_SRCS
     ${KERNEL_GLOB}
+    KernelCommon.cpp
     KernelInfoDialog.cpp
     KernelListViewDelegate.cpp)
 

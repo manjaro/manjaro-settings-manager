@@ -17,6 +17,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "KernelCommon.h"
 #include "KernelModule.h"
 #include "ui_PageKernel.h"
 #include "KernelListViewDelegate.h"
@@ -39,8 +40,7 @@ K_PLUGIN_FACTORY( MsmKernelFactory,
 PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
     ui( new Ui::PageKernel ),
-    m_kernelModel( new KernelModel ),
-    m_kernelInfoDialog( new KernelInfoDialog )
+    m_kernelModel( new KernelModel )
 {
     Q_INIT_RESOURCE( translations );
     QTranslator* appTranslator = new QTranslator;
@@ -73,9 +73,16 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
 
     // Connect kernel tab slots
     connect( kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
-             this, &PageKernel::installButtonClicked );
+             [=] (const QModelIndex& index)
+    {
+        KernelCommon::kernelAction( index );
+        load();
+    });
     connect( kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
-             this, &PageKernel::infoButtonClicked );
+             [=] (const QModelIndex& index)
+    {
+        KernelCommon::showChangelog( index );
+    });
 }
 
 
@@ -89,7 +96,7 @@ PageKernel::~PageKernel()
 void
 PageKernel::load()
 {
-    m_kernelModel->update();
+    KernelCommon::load(m_kernelModel);
 }
 
 
@@ -102,106 +109,6 @@ PageKernel::save()
 void
 PageKernel::defaults()
 {
-}
-
-
-void
-PageKernel::installButtonClicked( const QModelIndex& index )
-{
-    bool isInstalled = qvariant_cast<bool>( index.data( KernelModel::IsInstalledRole ) );
-    if ( isInstalled )
-        removeKernel( index );
-    else
-        installKernel( index );
-}
-
-
-void
-PageKernel::installKernel( const QModelIndex& index )
-{
-    QStringList modules = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
-    QString kernel = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
-    QString version = qvariant_cast<QString>( index.data( KernelModel::VersionRole ) );
-    QStringList packageList;
-    packageList << kernel << modules;
-
-    QString title = QString( tr( "Install Linux %1" ) ).arg( version );
-    QString message = QString( tr( "The following packages will be installed:" ) );
-    QString information = QString();
-    foreach ( const QString p, packageList )
-    {
-        information.append( p );
-        information.append( "\n" );
-    }
-
-    QStringList arguments;
-    arguments << "--noconfirm" << "--noprogressbar" << "-S" << packageList;
-    QVariantMap args;
-    args["arguments"] = arguments;
-    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.install" ) );
-    installAction.setHelperId( QLatin1String( "org.manjaro.msm.kernel" ) );
-    installAction.setArguments( args );
-    installAction.setTimeout( std::numeric_limits<int>::max() );
-
-    ActionDialog actionDialog;
-    actionDialog.setInstallAction( installAction );
-    actionDialog.setWindowTitle( title );
-    actionDialog.setMessage( message );
-    actionDialog.setInformation( information );
-    actionDialog.exec();
-    if ( actionDialog.isJobSuccesful() )
-        m_kernelModel->update();
-}
-
-
-void
-PageKernel::removeKernel( const QModelIndex& index )
-{
-    QStringList modules = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
-    QString kernel = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
-    QString version = qvariant_cast<QString>( index.data( KernelModel::VersionRole ) );
-    QStringList packageList;
-    packageList << kernel << modules;
-
-    QString title = QString( tr( "Remove Linux %1" ) ).arg( version );
-    QString message = QString( tr( "The following packages will be removed:" ) );
-    QString information = QString();
-    foreach ( const QString p, packageList )
-    {
-        information.append( p );
-        information.append( "\n" );
-    }
-
-    QStringList arguments;
-    arguments << "--noconfirm" << "--noprogressbar" << "-R" << packageList;
-    QVariantMap args;
-    args["arguments"] = arguments;
-    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.remove" ) );
-    installAction.setHelperId( QLatin1String( "org.manjaro.msm.kernel" ) );
-    installAction.setArguments( args );
-    installAction.setTimeout( std::numeric_limits<int>::max() );
-
-    ActionDialog actionDialog;
-    actionDialog.setInstallAction( installAction );
-    actionDialog.setWindowTitle( title );
-    actionDialog.setMessage( message );
-    actionDialog.setInformation( information );
-    actionDialog.exec();
-    if ( actionDialog.isJobSuccesful() )
-        m_kernelModel->update();
-}
-
-
-void
-PageKernel::infoButtonClicked( const QModelIndex& index )
-{
-    QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
-    QString majorVersion = qvariant_cast<QString>( index.data( KernelModel::MajorVersionRole ) );
-    QString minorVersion = qvariant_cast<QString>( index.data( KernelModel::MinorVersionRole ) );
-    QString title = QString( tr( "Linux %1.%2 changelog" ) ).arg( majorVersion, minorVersion );
-    m_kernelInfoDialog->setWindowTitle( title );
-    m_kernelInfoDialog->setPackage( package );
-    m_kernelInfoDialog->exec();
 }
 
 #include "KernelModule.moc"

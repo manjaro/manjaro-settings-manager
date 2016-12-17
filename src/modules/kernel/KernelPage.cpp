@@ -17,10 +17,10 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "KernelCommon.h"
 #include "KernelPage.h"
 #include "ui_PageKernel.h"
 #include "KernelListViewDelegate.h"
-#include "ApplyDialog.h"
 
 #include <QtCore/QProcess>
 #include <QtWidgets/QMessageBox>
@@ -29,8 +29,7 @@
 KernelPage::KernelPage( QWidget* parent ) :
     PageWidget( parent ),
     ui( new Ui::PageKernel ),
-    kernelModel( new KernelModel ),
-    kernelInfoDialog( new KernelInfoDialog )
+    m_kernelModel( new KernelModel )
 {
     ui->setupUi( this );
     setTitle( tr( "Kernel" ) );
@@ -38,7 +37,7 @@ KernelPage::KernelPage( QWidget* parent ) :
     setName( "msm_kernel" );
 
     KernelSortFilterProxyModel* proxyKernelModel = new KernelSortFilterProxyModel( this );
-    proxyKernelModel->setSourceModel( kernelModel );
+    proxyKernelModel->setSourceModel( m_kernelModel );
     proxyKernelModel->setSortRole( KernelModel::VersionRole );
     proxyKernelModel->sort( 0, Qt::DescendingOrder );
     ui->kernelListView->setModel( proxyKernelModel );
@@ -46,118 +45,27 @@ KernelPage::KernelPage( QWidget* parent ) :
     KernelListViewDelegate* kernelListViewDelegate = new KernelListViewDelegate;
     ui->kernelListView->setItemDelegate( kernelListViewDelegate );
     connect( kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
-             this, &KernelPage::installButtonClicked );
+             [=] (const QModelIndex& index)
+    {
+        KernelCommon::kernelAction( index );
+        load();
+    });
     connect( kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
-             this, &KernelPage::infoButtonClicked );
+             [=] (const QModelIndex& index)
+    {
+        KernelCommon::showChangelog( index );
+    });
 }
 
 KernelPage::~KernelPage()
 {
     delete ui;
-    delete kernelModel;
+    delete m_kernelModel;
 }
 
 
 void
 KernelPage::load()
 {
-    kernelModel->update();
-}
-
-
-void
-KernelPage::installButtonClicked( const QModelIndex& index )
-{
-    bool isInstalled = qvariant_cast<bool>( index.data( KernelModel::IsInstalledRole ) );
-    if ( isInstalled )
-        removeKernel( index );
-    else
-        installKernel( index );
-}
-
-
-void
-KernelPage::installKernel( const QModelIndex& index )
-{
-    QStringList packageList = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
-    QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
-    QString version = qvariant_cast<QString>( index.data( KernelModel::VersionRole ) );
-
-    QString title = QString( tr( "Install Linux %1" ) ).arg( version );
-    QString message = QString( tr( "Do you really want to install this kernel?\n" ) );
-    QString information = QString( tr( "This will install the following packages:\n" ) );
-    information.append( package );
-    foreach ( const QString p, packageList )
-    {
-        information.append( "\n" );
-        information.append( p );
-    }
-
-    QMessageBox messageBox;
-    messageBox.setIcon( QMessageBox::Question );
-    messageBox.setWindowTitle( title );
-    messageBox.setText( message );
-    messageBox.setDetailedText( information );
-    messageBox.setStandardButtons( QMessageBox::Yes | QMessageBox::No );
-    messageBox.setDefaultButton( QMessageBox::No );
-
-    int reply = messageBox.exec();
-    if ( reply == QMessageBox::Yes )
-    {
-        ApplyDialog dialog( this );
-        QString infoText = QString( tr( "Installing new kernel." ) );
-        dialog.exec( "pacman", QStringList() << "-S" << "--noconfirm" << "--noprogressbar" << package << packageList,
-                     infoText, false );
-        kernelModel->update();
-    }
-}
-
-
-void
-KernelPage::removeKernel( const QModelIndex& index )
-{
-    QStringList packageList = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
-    QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
-    QString version = qvariant_cast<QString>( index.data( KernelModel::VersionRole ) );
-
-    QString title = QString( tr( "Remove Linux %1" ) ).arg( version );
-    QString message = QString( tr( "Do you really want to remove this kernel?" ) );
-    QString information = QString( tr( "This will remove the following packages:\n" ) );
-    information.append( package );
-    foreach ( const QString p, packageList )
-    {
-        information.append( "\n" );
-        information.append( p );
-    }
-
-    QMessageBox messageBox;
-    messageBox.setIcon( QMessageBox::Question );
-    messageBox.setWindowTitle( title );
-    messageBox.setText( message );
-    messageBox.setDetailedText( information );
-    messageBox.setStandardButtons( QMessageBox::Yes | QMessageBox::No );
-    messageBox.setDefaultButton( QMessageBox::No );
-    int reply = messageBox.exec();
-
-    if ( reply == QMessageBox::Yes )
-    {
-        ApplyDialog dialog( this );
-        QString infoText = QString( tr( "Removing kernel..." ) );
-        dialog.exec( "pacman", QStringList() << "-R" << "--noconfirm" << "--noprogressbar" << package << packageList,
-                     infoText, false );
-        kernelModel->update();
-    }
-}
-
-
-void
-KernelPage::infoButtonClicked( const QModelIndex& index )
-{
-    QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
-    QString majorVersion = qvariant_cast<QString>( index.data( KernelModel::MajorVersionRole ) );
-    QString minorVersion = qvariant_cast<QString>( index.data( KernelModel::MinorVersionRole ) );
-    QString title = QString( tr( "Linux %1.%2 changelog" ) ).arg( majorVersion, minorVersion );
-    kernelInfoDialog->setWindowTitle( title );
-    kernelInfoDialog->setPackage( package );
-    kernelInfoDialog->exec();
+    KernelCommon::load(m_kernelModel);
 }

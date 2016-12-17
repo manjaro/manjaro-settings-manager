@@ -20,9 +20,7 @@
 #ifndef KERNELMODULE_H
 #define KERNELMODULE_H
 
-#include "KernelInfoDialog.h"
 #include "KernelModel.h"
-#include "ActionDialog.h"
 
 #include <KCModule>
 
@@ -65,16 +63,9 @@ public:
      */
     void defaults();
 
-public slots:
-    void installButtonClicked( const QModelIndex& index );
-    void infoButtonClicked( const QModelIndex& index );
-
 private:
     Ui::PageKernel* ui;
     KernelModel* m_kernelModel;
-    KernelInfoDialog* m_kernelInfoDialog;
-    void installKernel( const QModelIndex& index );
-    void removeKernel( const QModelIndex& index );
 };
 
 #endif // KERNELMODULE_H
