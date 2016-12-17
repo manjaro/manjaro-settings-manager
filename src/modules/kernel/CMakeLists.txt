@@ -56,7 +56,7 @@ install(FILES msm_kernel.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 # MSM Page
 set(KERNEL_PAGE_SRCS
     ${KERNEL_SRCS}
-    PageKernel.cpp)
+    KernelPage.cpp)
 
 add_library(msm_page_kernel STATIC ${KERNEL_PAGE_SRCS})
 target_compile_definitions(msm_page_kernel PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")

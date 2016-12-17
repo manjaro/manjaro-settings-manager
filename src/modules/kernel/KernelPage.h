@@ -30,13 +30,13 @@ namespace Ui
 class PageKernel;
 }
 
-class PageKernel : public PageWidget
+class KernelPage : public PageWidget
 {
     Q_OBJECT
 
 public:
-    explicit PageKernel( QWidget* parent = 0 );
-    ~PageKernel();
+    explicit KernelPage( QWidget* parent = 0 );
+    ~KernelPage();
     void load();
 
 public slots:

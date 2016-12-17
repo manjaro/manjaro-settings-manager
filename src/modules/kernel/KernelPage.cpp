@@ -17,7 +17,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageKernel.h"
+#include "KernelPage.h"
 #include "ui_PageKernel.h"
 #include "KernelListViewDelegate.h"
 #include "ApplyDialog.h"
@@ -26,7 +26,7 @@
 #include <QtWidgets/QMessageBox>
 
 
-PageKernel::PageKernel( QWidget* parent ) :
+KernelPage::KernelPage( QWidget* parent ) :
     PageWidget( parent ),
     ui( new Ui::PageKernel ),
     kernelModel( new KernelModel ),
@@ -46,12 +46,12 @@ PageKernel::PageKernel( QWidget* parent ) :
     KernelListViewDelegate* kernelListViewDelegate = new KernelListViewDelegate;
     ui->kernelListView->setItemDelegate( kernelListViewDelegate );
     connect( kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
-             this, &PageKernel::installButtonClicked );
+             this, &KernelPage::installButtonClicked );
     connect( kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
-             this, &PageKernel::infoButtonClicked );
+             this, &KernelPage::infoButtonClicked );
 }
 
-PageKernel::~PageKernel()
+KernelPage::~KernelPage()
 {
     delete ui;
     delete kernelModel;
@@ -59,14 +59,14 @@ PageKernel::~PageKernel()
 
 
 void
-PageKernel::load()
+KernelPage::load()
 {
     kernelModel->update();
 }
 
 
 void
-PageKernel::installButtonClicked( const QModelIndex& index )
+KernelPage::installButtonClicked( const QModelIndex& index )
 {
     bool isInstalled = qvariant_cast<bool>( index.data( KernelModel::IsInstalledRole ) );
     if ( isInstalled )
@@ -77,7 +77,7 @@ PageKernel::installButtonClicked( const QModelIndex& index )
 
 
 void
-PageKernel::installKernel( const QModelIndex& index )
+KernelPage::installKernel( const QModelIndex& index )
 {
     QStringList packageList = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
     QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
@@ -114,7 +114,7 @@ PageKernel::installKernel( const QModelIndex& index )
 
 
 void
-PageKernel::removeKernel( const QModelIndex& index )
+KernelPage::removeKernel( const QModelIndex& index )
 {
     QStringList packageList = qvariant_cast<QStringList>( index.data( KernelModel::InstalledModulesRole ) );
     QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
@@ -151,7 +151,7 @@ PageKernel::removeKernel( const QModelIndex& index )
 
 
 void
-PageKernel::infoButtonClicked( const QModelIndex& index )
+KernelPage::infoButtonClicked( const QModelIndex& index )
 {
     QString package = qvariant_cast<QString>( index.data( KernelModel::PackageRole ) );
     QString majorVersion = qvariant_cast<QString>( index.data( KernelModel::MajorVersionRole ) );
