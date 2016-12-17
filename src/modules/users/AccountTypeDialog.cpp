@@ -20,7 +20,6 @@
 #include "AccountTypeDialog.h"
 #include "ui_AccountTypeDialog.h"
 
-#include <limits>
 #include <KAuth>
 #include <KAuthAction>
 
@@ -178,7 +177,6 @@ AccountTypeDialog::buttonApply_clicked()
     QVariantMap args;
     args["arguments"] = QStringList() << "-G" << groups.join( "," ) << m_username;
     installAction.setArguments( args );
-    installAction.setTimeout( std::numeric_limits<int>::max() );
     KAuth::ExecuteJob* jobAdd = installAction.execute();
     connect( jobAdd, &KAuth::ExecuteJob::newData,
              [=] ( const QVariantMap &data )

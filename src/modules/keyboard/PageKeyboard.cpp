@@ -21,7 +21,6 @@
 #include "PageKeyboard.h"
 #include "ui_PageKeyboard.h"
 
-#include <limits>
 #include <KAuth>
 #include <KAuthAction>
 
@@ -178,7 +177,6 @@ PageKeyboard::setKeyboardLayout()
     KAuth::Action saveAction( QLatin1String( "org.manjaro.msm.keyboard.save" ) );
     saveAction.setHelperId( QLatin1String( "org.manjaro.msm.keyboard" ) );
     saveAction.setArguments( args );
-    saveAction.setTimeout( std::numeric_limits<int>::max() );
     KAuth::ExecuteJob* job = saveAction.execute();
     if ( job->exec() )
     {

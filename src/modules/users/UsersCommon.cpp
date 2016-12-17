@@ -27,7 +27,6 @@
 #include "ListWidget.h"
 #include "PreviewFileDialog.h"
 
-#include <limits>
 #include <KAuth>
 
 #include <QtWidgets/QMessageBox>
@@ -132,7 +131,6 @@ UsersCommon::removeUser( QListWidgetItem* currentItem )
     QVariantMap args;
     args["arguments"] = QStringList() << removeHome << username;
     installAction.setArguments( args );
-    installAction.setTimeout( std::numeric_limits<int>::max() );
     KAuth::ExecuteJob* jobAdd = installAction.execute();
     connect( jobAdd, &KAuth::ExecuteJob::newData,
              [=] ( const QVariantMap &data )
@@ -203,7 +201,6 @@ UsersCommon::setUserImage( Ui::PageUsers* ui )
         args["copyDest"] = copyDest;
         args["filename"] = filename;
         installAction.setArguments( args );
-        installAction.setTimeout( std::numeric_limits<int>::max() );
         KAuth::ExecuteJob* jobAdd = installAction.execute();
         connect( jobAdd, &KAuth::ExecuteJob::newData,
                  [=] ( const QVariantMap &data )

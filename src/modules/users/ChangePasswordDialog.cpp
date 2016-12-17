@@ -20,7 +20,6 @@
 #include "ChangePasswordDialog.h"
 #include "ui_ChangePasswordDialog.h"
 
-#include <limits>
 #include <KAuth>
 #include <KAuthAction>
 
@@ -85,7 +84,6 @@ void ChangePasswordDialog::buttonApply_clicked()
     args["arguments"] = QStringList() << username;
     args["writeArgs"] = QStringList() << password << password;
     installAction.setArguments( args );
-    installAction.setTimeout( std::numeric_limits<int>::max() );
     KAuth::ExecuteJob* job = installAction.execute();
     connect( job, &KAuth::ExecuteJob::newData,
              [=] ( const QVariantMap &data )

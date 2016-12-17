@@ -20,7 +20,7 @@
 
 #include "LocaleModule.h"
 #include "ui_LocaleModule.h"
-#include <limits>
+
 #include <KAboutData>
 #include <KAuth>
 #include <KAuthAction>
@@ -403,7 +403,7 @@ LocaleModule::save()
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.locale.save" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.locale" ) );
         installAction.setArguments( args );
-        installAction.setTimeout( std::numeric_limits<int>::max() );
+        installAction.setTimeout( 60000 );
         KAuth::ExecuteJob* job = installAction.execute();
         if ( job->exec() )
         {
