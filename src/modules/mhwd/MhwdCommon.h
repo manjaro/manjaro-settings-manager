@@ -27,11 +27,11 @@ class MhwdCommon : public QObject
     Q_OBJECT
 public:
     static void load( Ui::PageMhwd* ui );
-    static bool installConfiguration( QString configuration, bool useKAuth = false );
-    static bool installFreeConfiguration( bool useKAuth = false );
-    static bool installNonFreeConfiguration( bool useKAuth = false );
-    static bool reinstallConfiguration( QString configuration, bool useKAuth = false );
-    static bool removeConfiguration( QString configuration, bool useKAuth = false );
+    static bool installConfiguration( QString configuration );
+    static bool installFreeConfiguration( );
+    static bool installNonFreeConfiguration( );
+    static bool reinstallConfiguration( QString configuration );
+    static bool removeConfiguration( QString configuration );
     static void showItemContextMenu( Ui::PageMhwd* ui, const QPoint& pos );
 };
 

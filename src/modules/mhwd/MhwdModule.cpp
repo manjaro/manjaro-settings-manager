@@ -71,14 +71,14 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
              [=] ( bool checked )
     {
         Q_UNUSED( checked )
-        MhwdCommon::installFreeConfiguration( true );
+        MhwdCommon::installFreeConfiguration( );
         load();
     } );
     connect( ui->buttonInstallNonFree, &QPushButton::clicked,
              [=] ( bool checked )
     {
         Q_UNUSED( checked )
-        MhwdCommon::installNonFreeConfiguration( true );
+        MhwdCommon::installNonFreeConfiguration( );
         load();
     } );
     connect( ui->installAction, &QAction::triggered,
@@ -86,7 +86,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::installConfiguration( configuration, true );
+        MhwdCommon::installConfiguration( configuration );
         load();
     } );
     connect( ui->reinstallAction, &QAction::triggered,
@@ -94,7 +94,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::reinstallConfiguration( configuration, true );
+        MhwdCommon::reinstallConfiguration( configuration );
         load();
     } );
     connect( ui->removeAction, &QAction::triggered,
@@ -102,7 +102,7 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     {
         Q_UNUSED( checked )
         QString configuration = ui->treeWidget->currentItem()->text( 0 );
-        MhwdCommon::removeConfiguration( configuration, true );
+        MhwdCommon::removeConfiguration( configuration );
         load();
     } );
     connect( ui->treeWidget, &QTreeWidget::customContextMenuRequested,

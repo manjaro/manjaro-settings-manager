@@ -115,224 +115,115 @@ MhwdCommon::load( Ui::PageMhwd* ui )
 
 
 bool
-MhwdCommon::installConfiguration( QString configuration, bool useKAuth )
+MhwdCommon::installConfiguration( QString configuration )
 {
     QString title = QString( tr( "Install configuration" ) );
     QString message = QString( tr( "MHWD will install the '%1' configuration" ) )
                       .arg( configuration );
 
-    if ( useKAuth )
-    {
-        QVariantMap args;
-        args["arguments"] = QStringList() << "-i" << "pci" << configuration;
-        KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-        installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-        installAction.setArguments( args );
-        installAction.setTimeout( std::numeric_limits<int>::max() );
+    QVariantMap args;
+    args["arguments"] = QStringList() << "-i" << "pci" << configuration;
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
+    installAction.setArguments( args );
+    installAction.setTimeout( std::numeric_limits<int>::max() );
 
-        ActionDialog actionDialog;
-        actionDialog.setInstallAction( installAction );
-        actionDialog.setWindowTitle( title );
-        actionDialog.setMessage( message );
-        actionDialog.exec();
-        return actionDialog.isJobSuccesful();
-    }
-    else
-    {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::question( nullptr,
-                                       title,
-                                       message,
-                                       QMessageBox::Yes | QMessageBox::No );
-        if ( reply == QMessageBox::Yes )
-        {
-            ApplyDialog dialog( nullptr );
-            dialog.exec( "mhwd", QStringList() << "-i" << "pci" << configuration,
-                         tr( "Installing driver..." ),
-                         false );
-            return dialog.processSuccess();
-        }
-        else
-            return false;
-    }
+    ActionDialog actionDialog;
+    actionDialog.setInstallAction( installAction );
+    actionDialog.setWindowTitle( title );
+    actionDialog.setMessage( message );
+    actionDialog.exec();
+    return actionDialog.isJobSuccesful();
 }
 
 
 bool
-MhwdCommon::installFreeConfiguration( bool useKAuth )
+MhwdCommon::installFreeConfiguration( )
 {
     QString title = QString( tr( "Install open-source graphic driver" ) );
     QString message = QString( tr( "MHWD will autodetect your open-source graphic drivers and install it" ) );
 
-    if ( useKAuth )
-    {
-        QVariantMap args;
-        args["arguments"] = QStringList() << "-a" << "pci" << "free" << "0300";
-        KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-        installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-        installAction.setArguments( args );
-        installAction.setTimeout( std::numeric_limits<int>::max() );
+    QVariantMap args;
+    args["arguments"] = QStringList() << "-a" << "pci" << "free" << "0300";
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
+    installAction.setArguments( args );
+    installAction.setTimeout( std::numeric_limits<int>::max() );
 
-        ActionDialog actionDialog;
-        actionDialog.setInstallAction( installAction );
-        actionDialog.setWindowTitle( title );
-        actionDialog.setMessage( message );
-        actionDialog.exec();
-        return actionDialog.isJobSuccesful();
-    }
-    else
-    {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::question( nullptr,
-                                       title,
-                                       message,
-                                       QMessageBox::Yes | QMessageBox::No );
-        if ( reply == QMessageBox::Yes )
-        {
-            ApplyDialog dialog( nullptr );
-            dialog.exec( "mhwd",
-                         QStringList() << "-a" << "pci" << "free" << "0300",
-                         tr( "Installing driver..." ),
-                         false );
-            return dialog.processSuccess();
-        }
-        else
-            return false;
-    }
+    ActionDialog actionDialog;
+    actionDialog.setInstallAction( installAction );
+    actionDialog.setWindowTitle( title );
+    actionDialog.setMessage( message );
+    actionDialog.exec();
+    return actionDialog.isJobSuccesful();
 }
 
 
 bool
-MhwdCommon::installNonFreeConfiguration( bool useKAuth )
+MhwdCommon::installNonFreeConfiguration( )
 {
     QString title = QString( tr( "Install proprietary graphic driver" ) );
     QString message = QString( tr( "MHWD will autodetect your proprietary graphic drivers and install it" ) );
 
-    if ( useKAuth )
-    {
-        QVariantMap args;
-        args["arguments"] = QStringList() << "-a" << "pci" << "nonfree" << "0300";
-        KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-        installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-        installAction.setArguments( args );
-        installAction.setTimeout( std::numeric_limits<int>::max() );
+    QVariantMap args;
+    args["arguments"] = QStringList() << "-a" << "pci" << "nonfree" << "0300";
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
+    installAction.setArguments( args );
+    installAction.setTimeout( std::numeric_limits<int>::max() );
 
-        ActionDialog actionDialog;
-        actionDialog.setInstallAction( installAction );
-        actionDialog.setWindowTitle( title );
-        actionDialog.setMessage( message );
-        actionDialog.exec();
-        return actionDialog.isJobSuccesful();
-    }
-    else
-    {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::question( nullptr,
-                                       title,
-                                       message,
-                                       QMessageBox::Yes | QMessageBox::No );
-        if ( reply == QMessageBox::Yes )
-        {
-            ApplyDialog dialog( nullptr );
-            dialog.exec( "mhwd",
-                         QStringList() << "-a" << "pci" << "nonfree" << "0300",
-                         tr( "Installing driver..." ),
-                         false );
-            return dialog.processSuccess();
-        }
-        else
-            return false;
-    }
+    ActionDialog actionDialog;
+    actionDialog.setInstallAction( installAction );
+    actionDialog.setWindowTitle( title );
+    actionDialog.setMessage( message );
+    actionDialog.exec();
+    return actionDialog.isJobSuccesful();
 }
 
 
 bool
-MhwdCommon::reinstallConfiguration( QString configuration, bool useKAuth )
+MhwdCommon::reinstallConfiguration( QString configuration )
 {
     QString title = QString( tr( "Reinstall configuration" ) );
     QString message = QString( tr( "MHWD will reinstall the '%1' configuration" ) )
                       .arg( configuration );
 
-    if ( useKAuth )
-    {
-        QVariantMap args;
-        args["arguments"] = QStringList() << "-f" << "-i" << "pci" << configuration;
-        KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
-        installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-        installAction.setArguments( args );
-        installAction.setTimeout( std::numeric_limits<int>::max() );
+    QVariantMap args;
+    args["arguments"] = QStringList() << "-f" << "-i" << "pci" << configuration;
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
+    installAction.setArguments( args );
+    installAction.setTimeout( std::numeric_limits<int>::max() );
 
-        ActionDialog actionDialog;
-        actionDialog.setInstallAction( installAction );
-        actionDialog.setWindowTitle( title );
-        actionDialog.setMessage( message );
-        actionDialog.exec();
-        return actionDialog.isJobSuccesful();
-    }
-    else
-    {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::question( nullptr,
-                                       title,
-                                       message,
-                                       QMessageBox::Yes | QMessageBox::No );
-        if ( reply == QMessageBox::Yes )
-        {
-            ApplyDialog dialog( nullptr );
-            dialog.exec( "mhwd",
-                         QStringList() << "-f" << "-i" << "pci" << configuration,
-                         tr( "Reinstalling driver..." ),
-                         false );
-            return dialog.processSuccess();
-        }
-        else
-            return false;
-    }
+    ActionDialog actionDialog;
+    actionDialog.setInstallAction( installAction );
+    actionDialog.setWindowTitle( title );
+    actionDialog.setMessage( message );
+    actionDialog.exec();
+    return actionDialog.isJobSuccesful();
 }
 
 
 bool
-MhwdCommon::removeConfiguration( QString configuration, bool useKAuth )
+MhwdCommon::removeConfiguration( QString configuration )
 {
     QString title = QString( tr( "Remove configuration" ) );
     QString message = QString( tr( "MHWD will remove the '%1' configuration" ) )
                       .arg( configuration );
 
-    if ( useKAuth )
-    {
-        QVariantMap args;
-        args["arguments"] = QStringList() << "-r" << "pci" << configuration;
-        KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.remove" ) );
-        installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
-        installAction.setArguments( args );
-        installAction.setTimeout( std::numeric_limits<int>::max() );
+    QVariantMap args;
+    args["arguments"] = QStringList() << "-r" << "pci" << configuration;
+    KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.remove" ) );
+    installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
+    installAction.setArguments( args );
+    installAction.setTimeout( std::numeric_limits<int>::max() );
 
-        ActionDialog actionDialog;
-        actionDialog.setInstallAction( installAction );
-        actionDialog.setWindowTitle( title );
-        actionDialog.setMessage( message );
-        actionDialog.exec();
-        return actionDialog.isJobSuccesful();
-    }
-    else
-    {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::question( nullptr,
-                                       title,
-                                       message,
-                                       QMessageBox::Yes | QMessageBox::No );
-        if ( reply == QMessageBox::Yes )
-        {
-            ApplyDialog dialog( nullptr );
-            dialog.exec( "mhwd",
-                         QStringList() << "-r" << "pci" << configuration,
-                         tr( "Removing driver..." ),
-                         false );
-            return dialog.processSuccess();
-        }
-        else
-            return false;
-    }
+    ActionDialog actionDialog;
+    actionDialog.setInstallAction( installAction );
+    actionDialog.setWindowTitle( title );
+    actionDialog.setMessage( message );
+    actionDialog.exec();
+    return actionDialog.isJobSuccesful();
 }
 
 
