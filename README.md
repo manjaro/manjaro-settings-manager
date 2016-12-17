@@ -33,6 +33,7 @@ You can also use the provided PKGBUILD to compile and install it.
 ### DEPENDENCIES
 
 * Qt5 >= 5.3.0
+* KF5 >= 5.29
 * KF5CoreAddons
 * KF5Auth
 * KF5ConfigWidgets

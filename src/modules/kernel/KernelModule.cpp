@@ -21,6 +21,7 @@
 #include "ui_PageKernel.h"
 #include "KernelListViewDelegate.h"
 
+#include <limits>
 #include <KAboutData>
 #include <KAuth>
 #include <KAuthAction>
@@ -140,6 +141,7 @@ PageKernel::installKernel( const QModelIndex& index )
     KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.install" ) );
     installAction.setHelperId( QLatin1String( "org.manjaro.msm.kernel" ) );
     installAction.setArguments( args );
+    installAction.setTimeout( std::numeric_limits<int>::max() );
 
     ActionDialog actionDialog;
     actionDialog.setInstallAction( installAction );
@@ -177,6 +179,7 @@ PageKernel::removeKernel( const QModelIndex& index )
     KAuth::Action installAction( QLatin1String( "org.manjaro.msm.kernel.remove" ) );
     installAction.setHelperId( QLatin1String( "org.manjaro.msm.kernel" ) );
     installAction.setArguments( args );
+    installAction.setTimeout( std::numeric_limits<int>::max() );
 
     ActionDialog actionDialog;
     actionDialog.setInstallAction( installAction );

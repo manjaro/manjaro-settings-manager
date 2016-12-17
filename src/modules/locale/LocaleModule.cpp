@@ -403,6 +403,7 @@ LocaleModule::save()
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.locale.save" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.locale" ) );
         installAction.setArguments( args );
+        installAction.setTimeout( 60000 );
         KAuth::ExecuteJob* job = installAction.execute();
         if ( job->exec() )
         {

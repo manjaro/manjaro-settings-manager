@@ -16,7 +16,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+#include <limits>
 #include "ActionDialog.h"
 #include "ApplyDialog.h"
 #include "MhwdCommon.h"
@@ -128,6 +128,7 @@ MhwdCommon::installConfiguration( QString configuration, bool useKAuth )
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
         installAction.setArguments( args );
+        installAction.setTimeout( std::numeric_limits<int>::max() );
 
         ActionDialog actionDialog;
         actionDialog.setInstallAction( installAction );
@@ -170,6 +171,7 @@ MhwdCommon::installFreeConfiguration( bool useKAuth )
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
         installAction.setArguments( args );
+        installAction.setTimeout( std::numeric_limits<int>::max() );
 
         ActionDialog actionDialog;
         actionDialog.setInstallAction( installAction );
@@ -213,6 +215,7 @@ MhwdCommon::installNonFreeConfiguration( bool useKAuth )
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
         installAction.setArguments( args );
+        installAction.setTimeout( std::numeric_limits<int>::max() );
 
         ActionDialog actionDialog;
         actionDialog.setInstallAction( installAction );
@@ -257,6 +260,7 @@ MhwdCommon::reinstallConfiguration( QString configuration, bool useKAuth )
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.install" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
         installAction.setArguments( args );
+        installAction.setTimeout( std::numeric_limits<int>::max() );
 
         ActionDialog actionDialog;
         actionDialog.setInstallAction( installAction );
@@ -301,6 +305,7 @@ MhwdCommon::removeConfiguration( QString configuration, bool useKAuth )
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.mhwd.remove" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
         installAction.setArguments( args );
+        installAction.setTimeout( std::numeric_limits<int>::max() );
 
         ActionDialog actionDialog;
         actionDialog.setInstallAction( installAction );
