@@ -1,7 +1,6 @@
 /*
  *  This file is part of Manjaro Settings Manager.
  *
- *  Roland Singer <roland@manjaro.org>
  *  Ramon Buldó <ramon@manjaro.org>
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
@@ -17,54 +16,23 @@
  *  You should have received a copy of the GNU General Public License
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#include "PageLanguagePackages.h"
-#include "ui_PageLanguagePackages.h"
+#include <limits>
+#include "ActionDialog.h"
 #include "LanguageCommon.h"
+#include "LanguagePackages.h"
+#include "LanguagePackagesCommon.h"
+#include "LanguagePackagesItem.h"
 #include "PacmanUtils.h"
 
+#include <QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QJsonArray>
 #include <QtCore/QJsonDocument>
-#include <QtCore/QProcess>
-#include <QtCore/QDebug>
-
-PageLanguagePackages::PageLanguagePackages( QWidget* parent ) :
-    PageWidget( parent ),
-    ui( new Ui::PageLanguagePackages )
-{
-    ui->setupUi( this );
-    setTitle( tr( "Language Packages" ) );
-    setIcon( QPixmap( ":/images/resources/locale-package.png" ) );
-    setName( "msm_language_packages" );
-
-    ui->treeWidgetAvailable->setColumnWidth( 0, 250 );
-    ui->treeWidgetAvailable->setColumnWidth( 1, 300 );
-    ui->treeWidgetAvailable->setColumnWidth( 2, 30 );
-
-    ui->treeWidgetInstalled->setColumnWidth( 0, 300 );
-    ui->treeWidgetInstalled->setColumnWidth( 1, 300 );
-
-    connect( ui->installPackagesButton, &QPushButton::clicked,
-             this, &PageLanguagePackages::save );
-}
-
-
-PageLanguagePackages::~PageLanguagePackages()
-{
-    delete ui;
-}
-
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QTreeWidgetItem>
 
 void
-PageLanguagePackages::load()
-{
-    loadLanguagePackages();
-}
-
-
-void
-PageLanguagePackages::loadLanguagePackages()
+LanguagePackagesCommon::load( Ui::PageLanguagePackages* ui )
 {
     ui->treeWidgetAvailable->clear();
     ui->treeWidgetInstalled->clear();
@@ -74,8 +42,8 @@ PageLanguagePackages::loadLanguagePackages()
     QList<LanguagePackagesItem> lpiList { languagePackages.languagePackages() };
 
     // Global language packages
-    QTreeWidgetItem* parentItemAvailable = newParentTreeWidgetItem( ui->treeWidgetAvailable );
-    QTreeWidgetItem* parentItemInstalled = newParentTreeWidgetItem( ui->treeWidgetInstalled );
+    QTreeWidgetItem* parentItemAvailable = newParentTreeWidgetItem( ui, ui->treeWidgetAvailable );
+    QTreeWidgetItem* parentItemInstalled = newParentTreeWidgetItem( ui, ui->treeWidgetInstalled );
     foreach ( const auto item, lpiList )
     {
         if ( item.parentPkgInstalled().length() == 0 )
@@ -113,9 +81,9 @@ PageLanguagePackages::loadLanguagePackages()
         QByteArray language = QString( split.at( 0 ) ).toUtf8();
         QByteArray territory = QString( split.at( 1 ) ).toUtf8();
 
-        QTreeWidgetItem* parentItemAvailable = newParentTreeWidgetItem( ui->treeWidgetAvailable );
+        QTreeWidgetItem* parentItemAvailable = newParentTreeWidgetItem( ui, ui->treeWidgetAvailable );
         parentItemAvailable->setText( 0, tr( "%1 language packages" ).arg( locale ) );
-        QTreeWidgetItem* parentItemInstalled = newParentTreeWidgetItem( ui->treeWidgetInstalled );
+        QTreeWidgetItem* parentItemInstalled = newParentTreeWidgetItem( ui, ui->treeWidgetInstalled );
         parentItemInstalled->setText( 0, tr( "%1 language packages" ).arg( locale ) );
         foreach ( const auto item, lpiList )
         {
@@ -160,25 +128,38 @@ PageLanguagePackages::loadLanguagePackages()
     }
 }
 
-void
-PageLanguagePackages::save()
+
+QTreeWidgetItem*
+LanguagePackagesCommon::newParentTreeWidgetItem( Ui::PageLanguagePackages* ui, QTreeWidget* parent )
 {
-    ApplyDialog dialog( this );
+    QTreeWidgetItem* item = new QTreeWidgetItem( parent );
+    ui->treeWidgetAvailable->addTopLevelItem( item );
+    ui->treeWidgetAvailable->setFirstItemColumnSpanned( item, true );
+    item->setText( 0, tr( "Global language packages" ) );
 
-    // Update pacman databases first
-    dialog.exec( "pacman", QStringList() << "--noconfirm" << "--noprogressbar" << "-Sy", tr( "Updating pacman databases..." ), true );
+    QFont font;
+    font.setBold( true );
+    font.setWeight( 75 );
+    item->setFont( 0, font );
 
-    if ( !dialog.processSuccess() )
-    {
-        emit closePage( this );
-        return;
-    }
+    item->setSizeHint( 0, QSize( 0, 24 ) );
+    item->setExpanded( true );
+    item->setFlags( Qt::ItemIsEnabled );
+    item->setIcon( 0, QIcon( ":/images/resources/language.png" ) );
+    return item;
+}
 
+
+void
+LanguagePackagesCommon::installPackages( Ui::PageLanguagePackages* ui  )
+{
     // Check if system is up-to-date
     if ( !PacmanUtils::isSystemUpToDate() )
     {
-        QMessageBox::warning( this, tr( "System is out-of-date" ), tr( "Your System is not up-to-date! You have to update it first to continue!" ), QMessageBox::Ok, QMessageBox::Ok );
-        emit closePage( this );
+        QMessageBox::warning( ui->treeWidgetAvailable,
+                              tr( "System is out-of-date" ),
+                              tr( "Your System is not up-to-date! You have to update it first to continue!" ),
+                              QMessageBox::Ok, QMessageBox::Ok );
         return;
     }
 
@@ -197,28 +178,19 @@ PageLanguagePackages::save()
     }
 
     if ( !packages.isEmpty() )
-        dialog.exec( "pacman", QStringList() << "--noconfirm" << "--noprogressbar" << "-S" << packages, tr( "Installing language packages..." ), false );
+    {
+        QStringList arguments;
+        arguments << "--noconfirm" << "--noprogressbar" << "-S" << packages;
+        QVariantMap args;
+        args["arguments"] = arguments;
+        KAuth::Action installAction( QLatin1String( "org.manjaro.msm.languagepackages.install" ) );
+        installAction.setHelperId( QLatin1String( "org.manjaro.msm.languagepackages" ) );
+        installAction.setArguments( args );
+        installAction.setTimeout( std::numeric_limits<int>::max() );
 
-    emit closePage( this );
-}
-
-
-QTreeWidgetItem*
-PageLanguagePackages::newParentTreeWidgetItem( QTreeWidget* parent )
-{
-    QTreeWidgetItem* item = new QTreeWidgetItem( parent );
-    ui->treeWidgetAvailable->addTopLevelItem( item );
-    ui->treeWidgetAvailable->setFirstItemColumnSpanned( item, true );
-    item->setText( 0, tr( "Global language packages" ) );
-
-    QFont font;
-    font.setBold( true );
-    font.setWeight( 75 );
-    item->setFont( 0, font );
-
-    item->setSizeHint( 0, QSize( 0, 24 ) );
-    item->setExpanded( true );
-    item->setFlags( Qt::ItemIsEnabled );
-    item->setIcon( 0, QIcon( ":/images/resources/language.png" ) );
-    return item;
+        ActionDialog actionDialog;
+        actionDialog.setInstallAction( installAction );
+        actionDialog.setWindowTitle( tr( "Install language packages." ) );
+        actionDialog.exec();
+    }
 }

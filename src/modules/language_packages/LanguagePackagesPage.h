@@ -39,22 +39,18 @@ class PageLanguagePackages;
 }
 
 
-class PageLanguagePackages : public PageWidget
+class LanguagePackagesPage : public PageWidget
 {
     Q_OBJECT
 
 public:
-    explicit PageLanguagePackages( QWidget* parent = 0 );
-    ~PageLanguagePackages();
+    explicit LanguagePackagesPage( QWidget* parent = 0 );
+    ~LanguagePackagesPage();
 
     void load();
-    void save();
 
 private:
     Ui::PageLanguagePackages* ui;
-
-    void loadLanguagePackages();
-    QTreeWidgetItem* newParentTreeWidgetItem( QTreeWidget* parent );
 };
 
 #endif // PAGELANGUAGEPACKAGES_H

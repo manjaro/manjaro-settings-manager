@@ -7,7 +7,8 @@ file(GLOB LANGUAGE_PACKAGES_GLOB
      msm_language_packages.desktop)
 
 set(LANGUAGE_PACKAGES_SRCS
-    ${LANGUAGE_PACKAGES_GLOB})
+    ${LANGUAGE_PACKAGES_GLOB}
+    LanguagePackagesCommon.cpp)
 
 set(LANGUAGE_PACKAGES_UI
     ui/PageLanguagePackages.ui)
@@ -32,7 +33,7 @@ install(FILES msm_language_packages.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 # MSM Page
 set(LANGUAGE_PACKAGES_PAGE_SRCS
     ${LANGUAGE_PACKAGES_SRCS}
-    PageLanguagePackages.cpp)
+    LanguagePackagesPage.cpp)
 
 add_library(msm_page_language_packages STATIC ${LANGUAGE_PACKAGES_PAGE_SRCS})
 target_compile_definitions(msm_page_language_packages PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")

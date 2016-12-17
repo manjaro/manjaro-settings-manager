@@ -21,17 +21,7 @@
 #ifndef LANGUAGEPACKAGESMODULE_H
 #define LANGUAGEPACKAGESMODULE_H
 
-#include "LanguagePackages.h"
-#include "LanguagePackagesItem.h"
-
 #include <KCModule>
-
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QMap>
-#include <QMapIterator>
-#include <QMessageBox>
-
 
 namespace Ui
 {
@@ -39,7 +29,7 @@ class PageLanguagePackages;
 }
 
 
-class PageLanguagePackages : public KCModule
+class LanguagePackagesModule : public KCModule
 {
     Q_OBJECT
 
@@ -50,11 +40,11 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageLanguagePackages( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit LanguagePackagesModule( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~PageLanguagePackages();
+    ~LanguagePackagesModule();
 
     /**
      * Overloading the KCModule load() function.
@@ -75,10 +65,6 @@ public:
 
 private:
     Ui::PageLanguagePackages* ui;
-
-    void loadLanguagePackages();
-    void installPackages();
-    QTreeWidgetItem* newParentTreeWidgetItem( QTreeWidget* parent );
 };
 
 #endif // LANGUAGEPACKAGESMODULE_H
