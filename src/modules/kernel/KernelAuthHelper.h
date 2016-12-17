@@ -33,7 +33,7 @@ public Q_SLOTS:
     ActionReply remove( const QVariantMap& args );
 
 private:
-    ActionReply runPacman( const QVariantMap& args);
+    ActionReply runPacman( const QVariantMap& args );
     ActionReply actionReply;
 };
 

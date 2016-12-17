@@ -45,16 +45,16 @@ KernelPage::KernelPage( QWidget* parent ) :
     KernelListViewDelegate* kernelListViewDelegate = new KernelListViewDelegate;
     ui->kernelListView->setItemDelegate( kernelListViewDelegate );
     connect( kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
-             [=] (const QModelIndex& index)
+             [=] ( const QModelIndex& index )
     {
         KernelCommon::kernelAction( index );
         load();
-    });
+    } );
     connect( kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
-             [=] (const QModelIndex& index)
+             [=] ( const QModelIndex& index )
     {
         KernelCommon::showChangelog( index );
-    });
+    } );
 }
 
 KernelPage::~KernelPage()
@@ -67,5 +67,5 @@ KernelPage::~KernelPage()
 void
 KernelPage::load()
 {
-    KernelCommon::load(m_kernelModel);
+    KernelCommon::load( m_kernelModel );
 }

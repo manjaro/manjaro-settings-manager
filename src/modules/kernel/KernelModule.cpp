@@ -73,16 +73,16 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
 
     // Connect kernel tab slots
     connect( kernelListViewDelegate, &KernelListViewDelegate::installButtonClicked,
-             [=] (const QModelIndex& index)
+             [=] ( const QModelIndex& index )
     {
         KernelCommon::kernelAction( index );
         load();
-    });
+    } );
     connect( kernelListViewDelegate, &KernelListViewDelegate::infoButtonClicked,
-             [=] (const QModelIndex& index)
+             [=] ( const QModelIndex& index )
     {
         KernelCommon::showChangelog( index );
-    });
+    } );
 }
 
 
@@ -96,7 +96,7 @@ PageKernel::~PageKernel()
 void
 PageKernel::load()
 {
-    KernelCommon::load(m_kernelModel);
+    KernelCommon::load( m_kernelModel );
 }
 
 

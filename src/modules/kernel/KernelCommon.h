@@ -32,12 +32,6 @@ public:
     static void installKernel( const QModelIndex& index );
     static void removeKernel( const QModelIndex& index );
     static void showChangelog( const QModelIndex& index );
-   /* static bool installConfiguration( QString configuration, bool useKAuth = false );
-    static bool installFreeConfiguration( bool useKAuth = false );
-    static bool installNonFreeConfiguration( bool useKAuth = false );
-    static bool reinstallConfiguration( QString configuration, bool useKAuth = false );
-    static bool removeConfiguration( QString configuration, bool useKAuth = false );
-    static void showItemContextMenu( Ui::PageMhwd* ui, const QPoint& pos );*/
 };
 
 #endif // KERNELCOMMON_H
