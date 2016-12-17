@@ -71,7 +71,6 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
              [=] ( bool checked )
     {
         Q_UNUSED( checked )
-        QString configuration = ui->treeWidget->currentItem()->text( 0 );
         MhwdCommon::installFreeConfiguration( true );
         load();
     } );
@@ -79,7 +78,6 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
              [=] ( bool checked )
     {
         Q_UNUSED( checked )
-        QString configuration = ui->treeWidget->currentItem()->text( 0 );
         MhwdCommon::installNonFreeConfiguration( true );
         load();
     } );
