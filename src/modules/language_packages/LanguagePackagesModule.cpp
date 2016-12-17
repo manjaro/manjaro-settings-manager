@@ -18,6 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <limits>
 #include "LanguagePackagesModule.h"
 #include "ui_PageLanguagePackages.h"
 #include "ActionDialog.h"
@@ -230,6 +231,7 @@ PageLanguagePackages::installPackages()
         KAuth::Action installAction( QLatin1String( "org.manjaro.msm.languagepackages.install" ) );
         installAction.setHelperId( QLatin1String( "org.manjaro.msm.languagepackages" ) );
         installAction.setArguments( args );
+        installAction.setTimeout( std::numeric_limits<int>::max() );
 
         ActionDialog actionDialog;
         actionDialog.setInstallAction( installAction );

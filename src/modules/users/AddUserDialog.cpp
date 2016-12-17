@@ -20,6 +20,7 @@
 #include "AddUserDialog.h"
 #include "ui_AddUserDialog.h"
 
+#include <limits>
 #include <KAuth>
 #include <KAuthAction>
 
@@ -106,6 +107,7 @@ void AddUserDialog::buttonCreate_clicked()
     QString defaultUserGroups {"video,audio,power,disk,storage,optical,network,lp,scanner"};
     args["arguments"] = QStringList() << "-m" << "-p" << "" << "-U" << "-G" << defaultUserGroups << username;
     installActionAdd.setArguments( args );
+    installActionAdd.setTimeout( std::numeric_limits<int>::max() );
     KAuth::ExecuteJob* jobAdd = installActionAdd.execute();
     connect( jobAdd, &KAuth::ExecuteJob::newData,
              [=] ( const QVariantMap &data )
@@ -128,6 +130,7 @@ void AddUserDialog::buttonCreate_clicked()
     args["arguments"] = QStringList() << username;
     args["writeArgs"] = QStringList() << password << password;
     installActionUsersChangePassword.setArguments( args );
+    installActionUsersChangePassword.setTimeout( std::numeric_limits<int>::max() );
     KAuth::ExecuteJob* jobChangePassword = installActionUsersChangePassword.execute();
     connect( jobChangePassword, &KAuth::ExecuteJob::newData,
              [=] ( const QVariantMap &data )
