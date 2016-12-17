@@ -278,7 +278,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Install</source>
-        <translation>Instalirano</translation>
+        <translation>Instaliraj</translation>
     </message>
 </context>
 <context>
@@ -861,7 +861,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
-        <translation>Piši ovdje za test tipkovnice</translation>
+        <translation>Ovdje testiraj tipkovnicu</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
@@ -1037,7 +1037,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="117"/>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="119"/>
         <source>%1 language packages</source>
-        <translation>%1 jezičnih paketa</translation>
+        <translation>%1 jezični paketi</translation>
     </message>
 </context>
 <context>
@@ -1162,7 +1162,7 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="306"/>
         <source>Has transitions?</source>
-        <translation>Ima promijene?</translation>
+        <translation>Ima promjene?</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="317"/>

@@ -215,7 +215,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation type="unfinished"/>
+        <translation>Falló al establecer la contraseña del usuario!</translation>
     </message>
 </context>
 <context>
@@ -333,12 +333,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="137"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Unidades de medida</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="138"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de cambio</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="139"/>
@@ -353,7 +353,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="141"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Papel</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="142"/>
@@ -386,17 +386,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Idioma de aplicaciones locales</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Detailed Settings</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma de la pantalla</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
@@ -406,7 +406,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Clasificación y Clasificación:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
@@ -416,7 +416,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
@@ -436,12 +436,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de cambio:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Unidades de medida:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
@@ -466,28 +466,28 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Papel:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Establecer como idioma y formato predeterminados de visualización</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Establecer como idioma de visualización predeterminado</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Establecer como formato predeterminado</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Configuración regional</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
@@ -524,7 +524,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
         <source>Install open-source graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Instalar el controlador de gráficos de código abierto</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
@@ -534,7 +534,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
         <source>Install proprietary graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Instalar controlador gráfico propietario</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
@@ -554,7 +554,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Reinstalando controlador...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
@@ -569,7 +569,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Removiendo controlador...</translation>
     </message>
 </context>
 <context>
@@ -578,7 +578,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
         <source>Hardware Configuration</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Configuración de Hardware</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
@@ -592,7 +592,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Detección de Hardware</translation>
     </message>
 </context>
 <context>
@@ -600,12 +600,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de ajustes de Manjaro</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="179"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Todos los ajustes</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="205"/>
@@ -621,17 +621,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="43"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="49"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Hardware</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="152"/>
         <source>Manjaro Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Manjaro</translation>
     </message>
 </context>
 <context>
@@ -670,7 +670,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de ajustes de Manjaro</translation>
     </message>
     <message numerus="yes">
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
@@ -682,19 +682,19 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation type="unfinished"/>
+        <translation>Ejecutando un kernel no soportado, por favor remuevalo.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation type="unfinished"/>
+        <translation>Kernel instalado no soportado en sus sistema, por favor remuevalo.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation type="unfinished"/>
+        <translation>Nuevo kernel disponible, por favor actualice.</translation>
     </message>
 </context>
 <context>
@@ -702,42 +702,42 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones del Kernel</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Revisar kernels no soportados</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Solo notificar di se ejecuta un kernel no soportado</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Revisar nuevos kernels</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Solo notificar LTS kernels</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Solo notificar kernels recomendados</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones de Paquetes de Idiomas</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Revisar paquetes de lenguaje faltantes</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
@@ -752,7 +752,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Notificaciones</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>

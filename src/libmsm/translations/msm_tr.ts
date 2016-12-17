@@ -77,12 +77,12 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Gerçekten devam etmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>Tamam ...</translation>
     </message>
 </context>
 <context>
@@ -250,7 +250,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>Gerçek-zaman</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
@@ -373,130 +373,130 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Kaldır</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Onar</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Sistem Yereli</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Detaylı Ayarlar</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Arayüz Dili</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Dil:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Karşılaştırma ve Sıralama:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Mesajlar:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CTipi:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Biçimler</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Numaralar:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Zaman:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Para Birimi:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Ölçü Birimleri:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adres:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>İsimler:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefon:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Kimliklendirme:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Raporlar:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan görüntüleme biçimi ve dil ayarları</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan arayüz dili olarak ayarla</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan biçim ayarları</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Yerel Ayarları</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
         <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
 </context>
 <context>
@@ -504,74 +504,74 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Bilinmeyen aygıt adı</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
         <source>Install configuration</source>
-        <translation type="unfinished"/>
+        <translation>Yükle Yapılandır</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD &apos;%1&apos; yapılandırmalarını yükleyecek</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Sürücü yükleniyor...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
         <source>Install open-source graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Açık-kaynak ekran kartı sürücüsünü yükle</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD otomatik olarak açık-kaynak grafik sürücüleri tespit edip kuracaktır</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
         <source>Install proprietary graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Kapalı kaynaklı ekran kartı sürücüsünü yükle</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD otomatik olarak kapalı-kaynak grafik sürücüleri tespit edip kuracaktır</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
         <source>Reinstall configuration</source>
-        <translation type="unfinished"/>
+        <translation>Yapılandırmaları yeniden yükle</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD &apos;%1&apos; yapılandırmalarını yeniden yükleyecek</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Sürücü yeniden yükleniyor...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
         <source>Remove configuration</source>
-        <translation type="unfinished"/>
+        <translation>Yapılandırmayı Kaldır</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD &apos;%1&apos; yapılandırmalarını kaldıracak</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Sürücü kaldırılıyor...</translation>
     </message>
 </context>
 <context>
@@ -580,13 +580,13 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
         <source>Hardware Configuration</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Donanım Yapılandırma</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
 </context>
 <context>
@@ -594,7 +594,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Donanım Tarama</translation>
     </message>
 </context>
 <context>
@@ -602,38 +602,38 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro Ayar Yönetimi</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="179"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tüm Ayarlar</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="205"/>
         <location filename="../../msm/MsmWindow.ui" line="229"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="218"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Uygula</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="43"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="49"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Donanım</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="152"/>
         <source>Manjaro Settings</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro Ayarları</translation>
     </message>
 </context>
 <context>
@@ -642,24 +642,24 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation type="unfinished"/>
+        <translation>Linux Çekirdeği</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation type="unfinished"/>
+        <translation>Dil paketleri</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>Seçenekler</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -672,31 +672,31 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro Ayar Yönetimi</translation>
     </message>
     <message numerus="yes">
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n yeni dil paketi(leri) mevcut</numerusform><numerusform>%n yeni dil paketi(leri) mevcut</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation type="unfinished"/>
+        <translation>Desteklenmeyen bir linux çekirdeği çalışıyor, lütfen güncelleyiniz</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation type="unfinished"/>
+        <translation>Sisteminize desteklenmeyen bir linux çekirdeği yüklendi, lütfen kaldırınız.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation type="unfinished"/>
+        <translation>Yepyeni bir linux çekirdeği hazır, lütfen güncelleyin.</translation>
     </message>
 </context>
 <context>
@@ -704,67 +704,67 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Çekirdek Hatırlatmaları</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Desteklenmeyen çekirdekleri kontrol et</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Sadece desteklenmeyen çekirdek hatırlatmaları</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Yeni çekirdek kontrolü</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sadece LTS çekirdek hatırlatmaları</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Sadece önerilen çekirdek hatırlatmaları</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Dil Paketi Hatırlatmaları</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Eksik dil paketlerini kontrol et</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Uygula</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Hatırlatma ayarları</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Biçim hata bildirimleri kaydetme ayarları</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Erişim hata bildirimleri kaydetme ayarları</translation>
     </message>
 </context>
 <context>
@@ -778,13 +778,13 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
         <source>Kernel</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Çekirdek</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
@@ -795,12 +795,12 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Aşağıdaki paketler kurulacak:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Aşağıdaki paketler kaldırılacak:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
@@ -865,32 +865,32 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
         <source>Delay:</source>
-        <translation type="unfinished"/>
+        <translation>Gecikme:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="158"/>
         <source>Delay</source>
-        <translation type="unfinished"/>
+        <translation>Gecikme</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="165"/>
         <source>Set delay</source>
-        <translation type="unfinished"/>
+        <translation>Gecikme ayarı</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation type="unfinished"/>
+        <translation>Oran:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation type="unfinished"/>
+        <translation>Oran</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation type="unfinished"/>
+        <translation>Oranı Ayarla</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
@@ -901,14 +901,14 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Klavye Ayarları</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
@@ -946,7 +946,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation type="unfinished"/>
+        <translation>Paket Yükle</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
@@ -957,7 +957,7 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Açıklama</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
@@ -993,14 +993,14 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
         <source>Language Packages</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Dil Paketleri</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
@@ -1017,13 +1017,13 @@ Grupları etkinleştirmek için bu önerilir. Devam etmek istiyormusunuz?</trans
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Dil paketlerini yükle.</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Küresel dil paketleri</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
@@ -1078,7 +1078,7 @@ Kapalı Kaynak Sürücü</translation>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden yükle</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
@@ -1264,7 +1264,7 @@ Kapalı Kaynak Sürücü</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>yok</translation>
     </message>
 </context>
 <context>
@@ -1273,23 +1273,23 @@ Kapalı Kaynak Sürücü</translation>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="49"/>
         <source>Time and Date</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Tarih ve Zaman</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
         <source>Time and date configuration.</source>
-        <translation type="unfinished"/>
+        <translation>Tarih ve zaman yapılandırmaları.</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Hata bildirimi için lütfen &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; kullanın.</translation>
     </message>
 </context>
 <context>
@@ -1297,7 +1297,7 @@ Kapalı Kaynak Sürücü</translation>
     <message>
         <location filename="../../modules/timedate/TimeDatePage.cpp" line="40"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Tarih ve Zaman</translation>
     </message>
 </context>
 <context>
@@ -1323,53 +1323,53 @@ Kapalı Kaynak Sürücü</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Devam?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>%1 Kullanıcısını gerçekten kaldırmak istiyormusunuz?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Ev Dizini Kaldırılsın mı?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>%1 Kullanıcısının ev dizinini gerçekten kaldırmak istiyormusunuz?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
         <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Hata!</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
         <source>Failed to remove user %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 Kullanıcısı kaldırılamadı!</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Kullanabileceğiniz resim uzantıları (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
         <source>Failed to change user image</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı resmi değiştirilemedi</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standart</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Yetkili Kullanıcı</translation>
     </message>
 </context>
 <context>
@@ -1378,14 +1378,14 @@ Kapalı Kaynak Sürücü</translation>
         <location filename="../../modules/users/UsersModule.cpp" line="42"/>
         <source>User Accounts</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı Hesapları</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersModule.cpp" line="48"/>
         <location filename="../../modules/users/UsersModule.cpp" line="51"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
 </context>
 <context>
@@ -1393,7 +1393,7 @@ Kapalı Kaynak Sürücü</translation>
     <message>
         <location filename="../../modules/users/UsersPage.cpp" line="32"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı Hesapları</translation>
     </message>
 </context>
 </TS>

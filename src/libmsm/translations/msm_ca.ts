@@ -82,7 +82,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation>Finalitzat.</translation>
+        <translation>Fet.</translation>
     </message>
 </context>
 <context>
@@ -250,7 +250,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Real-time</source>
-        <translation>Temps-real</translation>
+        <translation>Temps real</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
@@ -388,7 +388,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation>Localització</translation>
+        <translation>Llengües del sistema</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
@@ -489,7 +489,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation>Configuració de localització</translation>
+        <translation>Configuració de llengua</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
@@ -514,7 +514,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation>MHWD instal·larà la configuració &apos;% 1&apos;</translation>
+        <translation>MHWD instal·larà la configuració &quot;% 1&quot;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
@@ -541,7 +541,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation>MHWD detectarà automàticament els controladors gràfics de propietaris i els instalarà</translation>
+        <translation>MHWD detectarà automàticament els controladors gràfics de propietat i els instalarà</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
@@ -551,7 +551,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation>MHWD reinstal·larà la configuració &apos;% 1&apos;</translation>
+        <translation>MHWD reinstal·larà la configuració &quot;% 1&quot;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
@@ -561,12 +561,12 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
         <source>Remove configuration</source>
-        <translation>Esborra la configuració</translation>
+        <translation>Elimina la configuració</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation>MHWD esborrarà la configuració &apos;% 1&apos;</translation>
+        <translation>MHWD eliminarà la configuració &quot;% 1&quot;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
@@ -594,7 +594,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
         <source>Hardware Detection</source>
-        <translation>Detecció del maquinari</translation>
+        <translation>Detecció de maquinari</translation>
     </message>
 </context>
 <context>
@@ -642,13 +642,13 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation>Kernels</translation>
+        <translation>Nuclis</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation>Paquets d&apos;idioma</translation>
+        <translation>Paquets de llengua</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
@@ -684,19 +684,19 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation>S&apos;està executant un nucli sense suport; actualitzeu-lo, si us plau.</translation>
+        <translation>S&apos;executa un nucli sense suport; actualitzeu-lo, si us plau.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation>Hi ha un nucli sense suport instal·lat al sistema, si us plau elimineu-lo.</translation>
+        <translation>Hi ha un nucli sense suport instal·lat al sistema; si us plau, elimineu-lo.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation>Hi ha un nucli nou disponible, si us plau, actualitzi.</translation>
+        <translation>Hi ha un nucli nou disponible; si us plau, feu una actualització.</translation>
     </message>
 </context>
 <context>
@@ -754,17 +754,17 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation>Configuració de notifications</translation>
+        <translation>Configuració de les notificacions</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation>Error de format al guardar la configuració de notificaions</translation>
+        <translation>Error de format en desar la configuració de les notificacions</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation>Error d&apos;accés al guardar la configuració de notificaions</translation>
+        <translation>Error d&apos;accés en desar la configuració de les notificacions</translation>
     </message>
 </context>
 <context>
@@ -778,7 +778,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
         <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
         <source>Kernel</source>
         <comment>@title</comment>
-        <translation>Kernel</translation>
+        <translation>Nucli</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
@@ -795,12 +795,12 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
         <source>The following packages will be installed:</source>
-        <translation>Els següents paquest s&apos;instal·laran:</translation>
+        <translation>S&apos;instal·laran els paquets següents:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
         <source>The following packages will be removed:</source>
-        <translation>Els següents paquets seran eliminats:</translation>
+        <translation>S&apos;eliminaran els paquets següents:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
@@ -876,7 +876,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="165"/>
         <source>Set delay</source>
-        <translation>Guarda el retard</translation>
+        <translation>Estableix el retard</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
@@ -891,7 +891,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation>Guarda la velocitat</translation>
+        <translation>Estableix la velocitat</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
@@ -947,7 +947,7 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation>Instal·lar paquets</translation>
+        <translation>Instal·la els paquets</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
@@ -988,13 +988,13 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="169"/>
         <source>Updating pacman databases...</source>
-        <translation>Actualitzant la base de dades del pacman...</translation>
+        <translation>Actualitzant les bases de dades del pacman...</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
         <source>Language Packages</source>
         <comment>@title</comment>
-        <translation>Paquets d&apos;idioma</translation>
+        <translation>Paquets de llengua</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
@@ -1018,13 +1018,13 @@ Es recomana habilitar aquests grups. Realment voleu continuar?</translation>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
         <source>Install language packages.</source>
-        <translation>Instal·lar paquets d&apos;idioma.</translation>
+        <translation>Instal·la paquets de llengua.</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
         <source>Global language packages</source>
-        <translation>Paquets d&apos;idioma globals</translation>
+        <translation>Paquets de llengua globals</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
@@ -1054,7 +1054,7 @@ del controlador de codi obert</translation>
         <source>Auto Install
 Proprietary Driver</source>
         <translation>Instal·lació automàtica
-del controlador propietari</translation>
+del controlador de propietat</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="67"/>
@@ -1107,7 +1107,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation>Zona Horària</translation>
+        <translation>Zona horària</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="197"/>
@@ -1117,7 +1117,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation>Rellotge del maquinari en la zona horària local</translation>
+        <translation>Rellotge del maquinari a la zona horària local</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="51"/>
@@ -1257,7 +1257,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
-        <translation>Nou</translation>
+        <translation>Afegeix</translation>
     </message>
 </context>
 <context>
@@ -1279,7 +1279,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
         <source>Time and date configuration.</source>
-        <translation>Configuració de la data i hora.</translation>
+        <translation>Configuració de la data i l&apos;hora.</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
@@ -1290,7 +1290,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation>Utilitza &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; per notificar d&apos;errors.</translation>
+        <translation>Si us plau, utilitzeu &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; per informar d&apos;errors.</translation>
     </message>
 </context>
 <context>
@@ -1306,7 +1306,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation>Selecció de zona horària</translation>
+        <translation>Selecció de la zona horària</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="25"/>
@@ -1324,17 +1324,17 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
         <source>Continue?</source>
-        <translation>Continuar?</translation>
+        <translation>Voleu continuar?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>Realment voleu esborrar l&apos;usuari %1?</translation>
+        <translation>Realment voleu eliminar l&apos;usuari %1?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
         <source>Remove Home?</source>
-        <translation>Esborrar la carpeta d&apos;inici?</translation>
+        <translation>Voleu eliminar la carpeta d&apos;inici?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
@@ -1350,7 +1350,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
         <source>Failed to remove user %1</source>
-        <translation>No s&apos;ha pogut esborrar l&apos;usuari %1!</translation>
+        <translation>No s&apos;ha pogut eliminar l&apos;usuari %1!</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
@@ -1360,7 +1360,7 @@ del controlador propietari</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
         <source>Failed to change user image</source>
-        <translation>No s&apos;ha pogut canviar la imatge del usuari</translation>
+        <translation>No s&apos;ha pogut canviar la imatge de l&apos;usuari</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="227"/>

@@ -77,12 +77,12 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Si vuole veramente continuare?</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>Completato ...</translation>
     </message>
 </context>
 <context>
@@ -250,7 +250,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>Real-time</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
@@ -373,130 +373,130 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Ripristina</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni internazionali di sistema</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni dettagliate</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Lingua da visualizzare</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Lingua:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>Confronto e Ordinamento:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>Messaggi:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formati</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>Numeri:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>Orario:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>Valuta:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>Unità di misura:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>Nomi:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>Telefono:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>Identificazione:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>Carta:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Imposta come lingua e formato predefiniti</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Imposta come lingua predefinita</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Imposta come formato predefinito</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
         <source>Locale Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Impostazioni locali</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
         <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
 </context>
 <context>
@@ -504,74 +504,74 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Nome del dispositivo sconosciuto</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
         <source>Install configuration</source>
-        <translation type="unfinished"/>
+        <translation>Installa configurazione</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD installerà la configurazione &apos;%1&apos;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
         <source>Installing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Installazione driver...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
         <source>Install open-source graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Installazione driver grafici open-source</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD rileverà e installerà automaticamente i driver grafici open-source</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
         <source>Install proprietary graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Installa i driver grafici proprietari</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD rileverà e installerà automaticamente i driver grafici proprietari</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
         <source>Reinstall configuration</source>
-        <translation type="unfinished"/>
+        <translation>Reinstalla la configurazione</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD reinstallerà la configurazione &apos;%1&apos;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
         <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
+        <translation>Reinstallazione driver...</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
         <source>Remove configuration</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi configurazione</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD rimuoverà la configurazione &apos;%1&apos;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
         <source>Removing driver...</source>
-        <translation type="unfinished"/>
+        <translation>Rimozione driver...</translation>
     </message>
 </context>
 <context>
@@ -580,13 +580,13 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
         <source>Hardware Configuration</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Configurazione hardware</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
 </context>
 <context>
@@ -594,7 +594,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
         <source>Hardware Detection</source>
-        <translation type="unfinished"/>
+        <translation>Rilevamento hardware</translation>
     </message>
 </context>
 <context>
@@ -602,38 +602,38 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestore delle impostazioni di Manjaro</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="179"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tutte le impostazioni</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="205"/>
         <location filename="../../msm/MsmWindow.ui" line="229"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Esci</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="218"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Applica</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="43"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="49"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Hardware</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="152"/>
         <source>Manjaro Settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni di Manjaro</translation>
     </message>
 </context>
 <context>
@@ -642,24 +642,24 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacchetti della lingua</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Esci</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>Opzioni</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -672,31 +672,31 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestore delle impostazioni di Manjaro</translation>
     </message>
     <message numerus="yes">
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n nuovo pacchetto(i) di lingua aggiuntivo disponibile</numerusform><numerusform>%n nuovo pacchetto(i) di lingua aggiuntivo disponibile</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation type="unfinished"/>
+        <translation>È in esecuzione un kernel non supportato, si prega di aggiornare.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation type="unfinished"/>
+        <translation>Un kernel non supportato è installato nel vostro sistema, si prega di rimuoverlo.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation type="unfinished"/>
+        <translation>Nuovo kernel disponibile, si prega di aggiornare.</translation>
     </message>
 </context>
 <context>
@@ -704,67 +704,67 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notifiche kernel</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>Controllare kernel non supportati</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>Notificare solo se è in esecuzione un kernel non supportato</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>Controllare nuovi kernels</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notificare solo kernels LTS</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>Notificare solo kernels raccomandati</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notifiche pacchetti di lingua</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>Controllare pacchetti di lingua mancanti</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Esci</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Applica</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni notifiche</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Errore di formato durante il salvataggio delle impostazioni di notifica</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>Errore di accesso durante il salvataggio delle impostazioni di notifica</translation>
     </message>
 </context>
 <context>
@@ -778,13 +778,13 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
         <source>Kernel</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
@@ -795,12 +795,12 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>I seguenti pacchetti saranno installati:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>I seguenti pacchetti saranno rimossi:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
@@ -866,32 +866,32 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
         <source>Delay:</source>
-        <translation type="unfinished"/>
+        <translation>Ritardo:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="158"/>
         <source>Delay</source>
-        <translation type="unfinished"/>
+        <translation>Ritardo</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="165"/>
         <source>Set delay</source>
-        <translation type="unfinished"/>
+        <translation>Imposta ritardo</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation type="unfinished"/>
+        <translation>Frequenza:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation type="unfinished"/>
+        <translation>Frequenza</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation type="unfinished"/>
+        <translation>Imposta frequenza</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
@@ -902,14 +902,14 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Impostazioni della tastiera</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
@@ -947,7 +947,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation type="unfinished"/>
+        <translation>Installa pacchetti</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
@@ -958,7 +958,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Descrizione</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
@@ -994,14 +994,14 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
         <source>Language Packages</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Pacchetti della lingua</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
@@ -1018,13 +1018,13 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Installa pacchetti di lingua.</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacchetti di lingua globali</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
@@ -1079,7 +1079,7 @@ Driver proprietario</translation>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation type="unfinished"/>
+        <translation>Reinstalla</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
@@ -1265,7 +1265,7 @@ Driver proprietario</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>nessuna</translation>
     </message>
 </context>
 <context>
@@ -1274,23 +1274,23 @@ Driver proprietario</translation>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="49"/>
         <source>Time and Date</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Data e Ora</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
         <source>Time and date configuration.</source>
-        <translation type="unfinished"/>
+        <translation>Configurazione di data e ora.</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Per favore utilizzare &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; per segnalare bug.</translation>
     </message>
 </context>
 <context>
@@ -1298,7 +1298,7 @@ Driver proprietario</translation>
     <message>
         <location filename="../../modules/timedate/TimeDatePage.cpp" line="40"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Data e Ora</translation>
     </message>
 </context>
 <context>
@@ -1324,53 +1324,53 @@ Driver proprietario</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Continuare?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi davvero rimuovere l&apos;utente %1?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovere Home?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>Vuoi rimuovere la cartella home dell&apos;utente %1?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
         <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Errore!</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
         <source>Failed to remove user %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile rimuovere l&apos;utente %1!</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Immagini (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
         <source>Failed to change user image</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile modificare l&apos;immagine dell&apos;utente</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Amministratore</translation>
     </message>
 </context>
 <context>
@@ -1379,14 +1379,14 @@ Driver proprietario</translation>
         <location filename="../../modules/users/UsersModule.cpp" line="42"/>
         <source>User Accounts</source>
         <comment>@title</comment>
-        <translation type="unfinished"/>
+        <translation>Account utenti</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersModule.cpp" line="48"/>
         <location filename="../../modules/users/UsersModule.cpp" line="51"/>
         <source>Author</source>
         <comment>@info:credit</comment>
-        <translation type="unfinished"/>
+        <translation>Autore</translation>
     </message>
 </context>
 <context>
@@ -1394,7 +1394,7 @@ Driver proprietario</translation>
     <message>
         <location filename="../../modules/users/UsersPage.cpp" line="32"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Account utenti</translation>
     </message>
 </context>
 </TS>

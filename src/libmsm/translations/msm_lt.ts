@@ -613,7 +613,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../msm/MsmWindow.ui" line="205"/>
         <location filename="../../msm/MsmWindow.ui" line="229"/>
         <source>Quit</source>
-        <translation>Baigti</translation>
+        <translation>Išeiti</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="218"/>
@@ -653,7 +653,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation>Baigti</translation>
+        <translation>Išeiti</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
@@ -744,7 +744,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation>Baigti</translation>
+        <translation>Išeiti</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
