@@ -63,6 +63,8 @@ MhwdCommon::load( Ui::PageMhwd* ui )
             deviceName = tr( "Unknown device name" );
         deviceItem->setText( 0, QString( "%1 (%2)" ).arg( deviceName, vendorName ) );
 
+        if ( ( *dev_iter )->availableConfigs.empty() )
+            continue;
 
         for ( std::vector<mhwd::Config*>::iterator conf_iter = ( *dev_iter )->availableConfigs.begin();
                 conf_iter != ( *dev_iter )->availableConfigs.end(); conf_iter++ )
@@ -103,7 +105,7 @@ MhwdCommon::load( Ui::PageMhwd* ui )
 
             //Check if installed
             mhwd::Config* installedConfig = getInstalledConfig( &data, ( *conf_iter )->name, ( *conf_iter )->type );
-            if ( installedConfig == NULL )
+            if ( installedConfig == nullptr )
                 item->setCheckState( 2, Qt::Unchecked );
             else
                 item->setCheckState( 2, Qt::Checked );
