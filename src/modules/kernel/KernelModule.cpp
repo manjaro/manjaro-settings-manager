@@ -50,12 +50,15 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     KAboutData* aboutData = new KAboutData( "msm_kernel",
                                             tr( "Kernel", "@title" ),
                                             PROJECT_VERSION,
-                                            QStringLiteral( "" ),
+                                            tr( "Add and remove kernels", "@comment" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Ramon Buldó" );
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
+    aboutData->setCustomAuthorText( QString(),
+                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
+                                    .arg( "https://bugs.manjaro.org/" ) );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

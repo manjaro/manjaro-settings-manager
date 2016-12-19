@@ -55,9 +55,9 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     KAboutData* aboutData = new KAboutData( "msm_keyboard",
                                             tr( "Keyboard Settings", "@title" ),
                                             PROJECT_VERSION,
-                                            QStringLiteral( "" ),
+                                            tr( "Keyboard settings", "@comment" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014-2015 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Ramon Buldó" );
 
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
@@ -65,6 +65,9 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     aboutData->addAuthor( "Roland Singer",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
+    aboutData->setCustomAuthorText( QString(),
+                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
+                                    .arg( "https://bugs.manjaro.org/" ) );
 
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );

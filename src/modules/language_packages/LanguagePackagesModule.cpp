@@ -44,15 +44,18 @@ LanguagePackagesModule::LanguagePackagesModule( QWidget* parent, const QVariantL
     KAboutData* aboutData = new KAboutData( "msm_language_packages",
                                             tr( "Language Packages", "@title" ),
                                             PROJECT_VERSION,
-                                            QStringLiteral( "" ),
+                                            tr( "Detection and installation of language packages", "@comment" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014-2016 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Ramon Buldó" );
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "rbuldo@gmail.com" ) );
     aboutData->addAuthor( "Roland Singer",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
+    aboutData->setCustomAuthorText( QString(),
+                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
+                                    .arg( "https://bugs.manjaro.org/" ) );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

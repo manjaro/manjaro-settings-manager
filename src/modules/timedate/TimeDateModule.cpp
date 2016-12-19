@@ -48,15 +48,15 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
     KAboutData* aboutData = new KAboutData( "msm_timedate",
                                             tr( "Time and Date", "@title" ),
                                             PROJECT_VERSION,
-                                            tr( "Time and date configuration." ),
+                                            tr( "Time and date configuration", "@comment" ),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2014-2015 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Ramon Buldó" );
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )
-                                    .arg( "https://github.com/manjaro/manjaro-settings-manager/issues" ) );
+                                    .arg( "https://bugs.manjaro.org/" ) );
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );
 

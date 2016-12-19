@@ -41,15 +41,18 @@ UsersModule::UsersModule( QWidget* parent, const QVariantList& args ) :
     KAboutData* aboutData = new KAboutData( "msm_users",
                                             tr( "User Accounts", "@title" ),
                                             PROJECT_VERSION,
-                                            QStringLiteral( "" ),
+                                            tr( "User accounts configuration", "@comment"),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "Copyright 2015 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Ramon Buldó" );
     aboutData->addAuthor( "Ramon Buldó",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
                           tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
+    aboutData->setCustomAuthorText( QString(),
+                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
+                                    .arg( "https://bugs.manjaro.org/" ) );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 
