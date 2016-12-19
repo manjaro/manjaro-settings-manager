@@ -42,7 +42,7 @@ install(FILES msm_locale.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 # MSM PAGE
 set(LOCALE_PAGE_SRCS
     ${LOCALE_SRCS}
-    PageLanguage.cpp)
+    LocalePage.cpp)
 
 add_library(msm_page_locale STATIC ${LOCALE_PAGE_SRCS})
 target_compile_definitions(msm_page_locale PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")

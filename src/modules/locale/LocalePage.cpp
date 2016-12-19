@@ -18,7 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "PageLanguage.h"
+#include "LocalePage.h"
 #include "ui_LocaleModule.h"
 #include "LocaleCommon.h"
 #include "LanguageCommon.h"
@@ -34,7 +34,7 @@
 
 #include <QDebug>
 
-PageLanguage::PageLanguage( QWidget* parent ) :
+LocalePage::LocalePage( QWidget* parent ) :
     PageWidget( parent ),
     ui( new Ui::LocaleModule ),
     m_enabledLocalesModel( new EnabledLocalesModel ),
@@ -67,15 +67,15 @@ PageLanguage::PageLanguage( QWidget* parent ) :
 
     // Connect top buttons signal/slot
     connect( ui->buttonRemove, &QPushButton::clicked,
-             this, &PageLanguage::removeLocale );
+             this, &LocalePage::removeLocale );
     connect( ui->buttonRestore, &QPushButton::clicked,
-             this, &PageLanguage::defaults );
+             this, &LocalePage::defaults );
     connect( ui->buttonAdd, &QPushButton::clicked,
-             this, &PageLanguage::addLocale );
+             this, &LocalePage::addLocale );
 
     // Connect "System Locales" tab signal/slots
     connect( ui->localeListView->selectionModel(), &QItemSelectionModel::currentRowChanged,
-             this, &PageLanguage::disableRemoveButton );
+             this, &LocalePage::disableRemoveButton );
     connect( ui->localeListView, &QListView::doubleClicked,
              [=] ( const QModelIndex &index )
     {
@@ -318,7 +318,7 @@ PageLanguage::PageLanguage( QWidget* parent ) :
 }
 
 
-PageLanguage::~PageLanguage()
+LocalePage::~LocalePage()
 {
     delete ui;
     delete m_enabledLocalesModel;
@@ -327,7 +327,7 @@ PageLanguage::~PageLanguage()
 
 
 void
-PageLanguage::load()
+LocalePage::load()
 {
     ui->buttonRemove->setDisabled( true );
     m_enabledLocalesModel->init();
@@ -339,7 +339,7 @@ PageLanguage::load()
 
 
 void
-PageLanguage::save()
+LocalePage::save()
 {
     if ( m_isLocaleListModified || m_isSystemLocalesModified )
     {
@@ -403,7 +403,7 @@ PageLanguage::save()
 
 
 void
-PageLanguage::addLocale()
+LocalePage::addLocale()
 {
     SelectLocalesDialog dialog( this );
     dialog.exec();
@@ -421,7 +421,7 @@ PageLanguage::addLocale()
 
 
 void
-PageLanguage::removeLocale()
+LocalePage::removeLocale()
 {
     QModelIndex localeCurrentIndex = ui->localeListView->currentIndex();
     if ( localeCurrentIndex.isValid() )
@@ -437,7 +437,7 @@ PageLanguage::removeLocale()
 
 
 void
-PageLanguage::defaults()
+LocalePage::defaults()
 {
     load();
 }
@@ -447,7 +447,7 @@ PageLanguage::defaults()
  * Disables the remove button if only one locale is in the list or no locale is selected
  */
 void
-PageLanguage::disableRemoveButton( const QModelIndex& current, const QModelIndex& previous )
+LocalePage::disableRemoveButton( const QModelIndex& current, const QModelIndex& previous )
 {
     if ( m_enabledLocalesModel->rowCount( QModelIndex() ) == 1 )
         ui->buttonRemove->setDisabled( true );

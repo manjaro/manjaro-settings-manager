@@ -23,7 +23,7 @@
 
 #include "KernelPage.h"
 #include "PageKeyboard.h"
-#include "PageLanguage.h"
+#include "LocalePage.h"
 #include "LanguagePackagesPage.h"
 #include "MhwdPage.h"
 #include "TimeDatePage.h"
@@ -77,7 +77,7 @@ private:
     Ui::MsmWindow* ui;
     KernelPage pageKernel;
     PageKeyboard pageKeyboard;
-    PageLanguage pageLanguage;
+    LocalePage pageLanguage;
     LanguagePackagesPage pageLanguagePackages;
     MhwdPage pageMhwd;
     TimeDatePage pageTimeDate;

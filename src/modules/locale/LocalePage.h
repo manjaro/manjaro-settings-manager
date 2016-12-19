@@ -32,13 +32,13 @@ class LocaleModule;
 }
 
 
-class PageLanguage : public PageWidget
+class LocalePage : public PageWidget
 {
     Q_OBJECT
 
 public:
-    explicit PageLanguage( QWidget* parent = 0 );
-    ~PageLanguage();
+    explicit LocalePage( QWidget* parent = 0 );
+    ~LocalePage();
 
     void load();
     void save();
