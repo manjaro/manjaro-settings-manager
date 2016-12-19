@@ -21,7 +21,6 @@ set(LIBMSM_SRCS
     ${LIBMSM_GLOB}
     ${KDSINGLEAPPLICATIONGUARD}
     ActionDialog.cpp
-    ApplyDialog.cpp
     Kernel.cpp
     KernelModel.cpp
     LanguageCommon.cpp
@@ -33,7 +32,6 @@ set(LIBMSM_SRCS
     PageWidget.cpp)
 
 set(LIBMSM_UI
-    ApplyDialog.ui
     NotifierSettingsDialog.ui)
 qt5_wrap_ui(LIBMSM_SRCS ${LIBMSM_UI})
 

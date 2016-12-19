@@ -57,4 +57,4 @@ protected slots:
     void newKernelStateBoxChanged( int );
 };
 
-#endif // APPLYDIALOG_H
+#endif // NOTIFIERSETTINGSDIALOG_H

@@ -21,7 +21,6 @@
 #ifndef PAGELANGUAGE_H
 #define PAGELANGUAGE_H
 
-#include "ApplyDialog.h"
 #include "SelectLocalesDialog.h"
 #include "LanguageListViewDelegate.h"
 #include "EnabledLocalesModel.h"

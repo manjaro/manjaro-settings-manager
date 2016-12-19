@@ -18,7 +18,6 @@
  */
 #include <limits>
 #include "ActionDialog.h"
-#include "ApplyDialog.h"
 #include "MhwdCommon.h"
 #include "libmhwd/mhwd.h"
 

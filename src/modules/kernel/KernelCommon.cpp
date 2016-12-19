@@ -18,7 +18,6 @@
  */
 #include <limits>
 #include "ActionDialog.h"
-#include "ApplyDialog.h"
 #include "KernelCommon.h"
 #include "KernelInfoDialog.h"
 

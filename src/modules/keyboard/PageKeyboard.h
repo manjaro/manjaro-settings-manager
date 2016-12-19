@@ -25,8 +25,6 @@
 #include "KeyboardPreview.h"
 #include "PageWidget.h"
 
-#include "ApplyDialog.h"
-
 #include <KF5/KItemModels/KSelectionProxyModel>
 
 
