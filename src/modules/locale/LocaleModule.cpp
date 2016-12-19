@@ -18,6 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "LocaleCommon.h"
 #include "LocaleModule.h"
 #include "ui_LocaleModule.h"
 
@@ -32,7 +33,7 @@
 #include <QDebug>
 
 K_PLUGIN_FACTORY( MsmLocaleFactory,
-                  registerPlugin<LocaleModule>( "msm_locale" ); )
+                  registerPlugin<LocaleModule>( LocaleCommon::getName() ); )
 
 LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
@@ -45,17 +46,15 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
-    KAboutData* aboutData = new KAboutData( "msm_locale",
-                                            tr( "Locale Settings", "@title" ),
+    KAboutData* aboutData = new KAboutData( LocaleCommon::getName(),
+                                            LocaleCommon::getTitle(),
                                             PROJECT_VERSION,
-                                            tr( "Add and configure locales", "@comment" ),
+                                            LocaleCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
 
     setAboutData( aboutData );

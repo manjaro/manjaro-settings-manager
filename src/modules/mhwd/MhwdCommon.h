@@ -26,6 +26,9 @@ class MhwdCommon : public QObject
 {
     Q_OBJECT
 public:
+    static QString getDescription();
+    static QString getName();
+    static QString getTitle();
     static void load( Ui::PageMhwd* ui );
     static bool installConfiguration( QString configuration );
     static bool installFreeConfiguration( );

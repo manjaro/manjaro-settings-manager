@@ -20,6 +20,7 @@
 
 #include "PageLanguage.h"
 #include "ui_LocaleModule.h"
+#include "LocaleCommon.h"
 #include "LanguageCommon.h"
 
 #include <limits>
@@ -40,10 +41,10 @@ PageLanguage::PageLanguage( QWidget* parent ) :
     m_languageListViewDelegate( new LanguageListViewDelegate )
 {
     ui->setupUi( this );
-    setTitle( tr( "Language" ) );
+    setTitle( LocaleCommon::getTitle() );
     setIcon( QPixmap( ":/images/resources/locale.png" ) );
     setShowApplyButton( true );
-    setName( "msm_locale" );
+    setName( LocaleCommon::getName() );
 
     // Set Models
     ui->localeListView->setModel( m_enabledLocalesModel );

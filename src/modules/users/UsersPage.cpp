@@ -29,9 +29,9 @@ UsersPage::UsersPage( QWidget* parent ) :
     ui->buttonAdd->setIcon( QIcon::fromTheme( "list-add", QIcon( ":/icons/add.png" ) ) );
     ui->buttonRemove->setIcon( QIcon::fromTheme( "list-remove", QIcon( ":/icons/remove.png" ) ) );
 
-    setTitle( tr( "User Accounts" ) );
+    setTitle( UsersCommon::getTitle() );
     setIcon( QPixmap( ":/images/resources/users.png" ) );
-    setName( "msm_users" );
+    setName( UsersCommon::getName() );
 
     // Connect signals and slots
     connect( ui->listWidget, &ListWidget::currentItemChanged,

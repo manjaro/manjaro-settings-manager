@@ -10,6 +10,7 @@ set(LOCALE_SRCS
     ${LOCALE_GLOB}
     EnabledLocalesModel.cpp
     LanguageListViewDelegate.cpp
+    LocaleCommon.cpp
     SelectLocalesDialog.cpp
     SupportedLocalesItem.cpp
     SupportedLocalesModel.cpp)

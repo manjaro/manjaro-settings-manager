@@ -34,6 +34,27 @@
 #include <QDebug>
 
 
+QString
+UsersCommon::getName()
+{
+    return QString( "msm_users" );
+}
+
+
+QString
+UsersCommon::getTitle()
+{
+    return QString( tr ( "User Accounts" ) );
+}
+
+
+QString
+UsersCommon::getDescription()
+{
+    return QString( tr ( "User accounts configuration" ) );
+}
+
+
 bool
 UsersCommon::addUser()
 {

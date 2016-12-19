@@ -18,6 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "KeyboardCommon.h"
 #include "PageKeyboard.h"
 #include "ui_PageKeyboard.h"
 
@@ -45,10 +46,10 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
     m_keyboardPreview( new KeyBoardPreview )
 {
     ui->setupUi( this );
-    setTitle( tr( "Keyboard Settings" ) );
+    setTitle( KeyboardCommon::getTitle() );
     setIcon( QPixmap( ":/images/resources/keyboard.png" ) );
     setShowApplyButton( true );
-    setName( "msm_keyboard" );
+    setName( KeyboardCommon::getName() );
 
     // Keyboard preview widget
     ui->KBPreviewLayout->addWidget( m_keyboardPreview );

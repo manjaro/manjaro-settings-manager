@@ -31,7 +31,7 @@
 #include <QtDebug>
 
 K_PLUGIN_FACTORY( MsmMhwdFactory,
-                  registerPlugin<MhwdModule>( "msm_mhwd" ); )
+                  registerPlugin<MhwdModule>( MhwdCommon::getName() ); )
 
 MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
@@ -42,14 +42,13 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
-    KAboutData* aboutData = new KAboutData( "msm_mhwd",
-                                            tr( "Hardware Configuration", "@title" ),
+    KAboutData* aboutData = new KAboutData( MhwdCommon::getName(),
+                                            MhwdCommon::getTitle(),
                                             PROJECT_VERSION,
-                                            tr( "Manjaro Hardware Detection graphical user interface", "@comment" ),
+                                            MhwdCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )

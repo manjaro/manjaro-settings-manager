@@ -31,6 +31,28 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QTreeWidgetItem>
 
+
+QString
+LanguagePackagesCommon::getName()
+{
+    return QString( "msm_language_packages" );
+}
+
+
+QString
+LanguagePackagesCommon::getTitle()
+{
+    return QString( tr ( "Language Packages" ) );
+}
+
+
+QString
+LanguagePackagesCommon::getDescription()
+{
+    return QString( tr ( "Detection and installation of language packages" ) );
+}
+
+
 void
 LanguagePackagesCommon::load( Ui::PageLanguagePackages* ui )
 {

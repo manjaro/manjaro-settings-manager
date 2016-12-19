@@ -27,10 +27,10 @@ MhwdPage::MhwdPage( QWidget* parent ) :
     ui( new Ui::PageMhwd )
 {
     ui->setupUi( this );
-    setTitle( tr( "Hardware Detection" ) );
+    setTitle( MhwdCommon::getTitle() );
     setIcon( QPixmap( ":/icons/gpudriver.png" ) );
     setShowApplyButton( false );
-    setName( "msm_mhwd" );
+    setName( MhwdCommon::getName() );
 
     ui->treeWidget->setContextMenuPolicy( Qt::CustomContextMenu );
     ui->treeWidget->setColumnWidth( 0, 450 );

@@ -29,7 +29,7 @@
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmLanguagePackagesFactory,
-                  registerPlugin<LanguagePackagesModule>( "msm_language_packages" ); )
+                  registerPlugin<LanguagePackagesModule>( LanguagePackagesCommon::getName() ); )
 
 LanguagePackagesModule::LanguagePackagesModule( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
@@ -41,17 +41,15 @@ LanguagePackagesModule::LanguagePackagesModule( QWidget* parent, const QVariantL
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
-    KAboutData* aboutData = new KAboutData( "msm_language_packages",
-                                            tr( "Language Packages", "@title" ),
+    KAboutData* aboutData = new KAboutData( LanguagePackagesCommon::getName(),
+                                            LanguagePackagesCommon::getTitle(),
                                             PROJECT_VERSION,
-                                            tr( "Detection and installation of language packages", "@comment" ),
+                                            LanguagePackagesCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "rbuldo@gmail.com" ) );
     aboutData->addAuthor( "Roland Singer",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )

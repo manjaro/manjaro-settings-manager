@@ -32,7 +32,7 @@
 #include <QtCore/QTranslator>
 
 K_PLUGIN_FACTORY( MsmTimeDateFactory,
-                  registerPlugin<TimeDateModule>( "msm_timedate" ); )
+                  registerPlugin<TimeDateModule>( TimeDateCommon::getName() ); )
 
 TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
@@ -45,14 +45,13 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
-    KAboutData* aboutData = new KAboutData( "msm_timedate",
-                                            tr( "Time and Date", "@title" ),
+    KAboutData* aboutData = new KAboutData( TimeDateCommon::getName(),
+                                            TimeDateCommon::getTitle(),
                                             PROJECT_VERSION,
-                                            tr( "Time and date configuration", "@comment" ),
+                                            TimeDateCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )

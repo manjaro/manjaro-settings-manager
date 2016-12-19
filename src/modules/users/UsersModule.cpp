@@ -27,7 +27,7 @@
 #include <QTranslator>
 
 K_PLUGIN_FACTORY( MsmUsersFactory,
-                  registerPlugin<UsersModule>( "msm_users" ); )
+                  registerPlugin<UsersModule>( UsersCommon::getName() ); )
 
 UsersModule::UsersModule( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
@@ -38,17 +38,15 @@ UsersModule::UsersModule( QWidget* parent, const QVariantList& args ) :
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
-    KAboutData* aboutData = new KAboutData( "msm_users",
-                                            tr( "User Accounts", "@title" ),
+    KAboutData* aboutData = new KAboutData( UsersCommon::getName(),
+                                            UsersCommon::getTitle(),
                                             PROJECT_VERSION,
-                                            tr( "User accounts configuration", "@comment"),
+                                            UsersCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )

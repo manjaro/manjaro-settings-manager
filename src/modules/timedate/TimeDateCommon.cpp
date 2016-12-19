@@ -25,6 +25,27 @@
 #include <QDebug>
 
 
+QString
+TimeDateCommon::getName()
+{
+    return QString( "msm_timedate" );
+}
+
+
+QString
+TimeDateCommon::getTitle()
+{
+    return QString( tr ( "Time and Date" ) );
+}
+
+
+QString
+TimeDateCommon::getDescription()
+{
+    return QString( tr ( "Time and date configuration" ) );
+}
+
+
 // TODO: return true if succesfull and do the right thing with the ui if not.
 void
 TimeDateCommon::save( Ui::PageTimeDate* ui, TimeDateService* timeDateService,

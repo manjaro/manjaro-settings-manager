@@ -17,26 +17,19 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TIMEDATECOMMON_H
-#define TIMEDATECOMMON_H
+#ifndef KEYBOARDCOMMON_H
+#define KEYBOARDCOMMON_H
 
-#include "TimeDateService.h"
-#include "ui_PageTimeDate.h"
+#include <QtCore/QString>
+#include <QtCore/QObject>
 
-class TimeDateCommon : public QObject
+class KeyboardCommon : public QObject
 {
     Q_OBJECT
 public:
     static QString getDescription();
     static QString getName();
     static QString getTitle();
-    static void save( Ui::PageTimeDate* ui, TimeDateService* timeDateService,
-                      bool isTimeEdited, bool isDateEdited, QString timeZone );
-    static QString showTimeZoneSelector( QString& currentTimeZone );
-    static void updateUi( Ui::PageTimeDate* ui, TimeDateService* timeDateService,
-                          bool isTimeEdited, bool isDateEdited, QString currentTimeZone );
-    static void updateTimeFields( Ui::PageTimeDate* ui, TimeDateService* timeDateService,
-                                  bool isTimeEdited, bool isDateEdited );
 };
 
-#endif // TIMEDATECOMMON_H
+#endif // KEYBOARDCOMMON_H

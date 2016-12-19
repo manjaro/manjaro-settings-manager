@@ -27,11 +27,15 @@ class KernelCommon : public QObject
 {
     Q_OBJECT
 public:
+    static QString getDescription();
+    static QString getName();
+    static QString getTitle();
     static void load( KernelModel* kernelModel );
     static void kernelAction( const QModelIndex& index );
-    static void installKernel( const QModelIndex& index );
-    static void removeKernel( const QModelIndex& index );
     static void showChangelog( const QModelIndex& index );
+private:
+    static void installKernel( const QModelIndex& index );
+    static void removeKernel( const QModelIndex& index );    
 };
 
 #endif // KERNELCOMMON_H

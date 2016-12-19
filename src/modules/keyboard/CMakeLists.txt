@@ -9,6 +9,7 @@ file(GLOB KEYBOARD_GLOB
 
 set(KEYBOARD_SRCS
     ${KEYBOARD_GLOB}
+    KeyboardCommon.cpp
     KeyboardItem.cpp
     KeyboardModel.cpp    
     KeyboardPreview.cpp)

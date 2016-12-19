@@ -37,10 +37,10 @@ TimeDatePage::TimeDatePage( QWidget* parent ) :
     m_timeFieldsTimer ( new QTimer ( this ) )
 {
     ui->setupUi( this );
-    setTitle( tr( "Time and Date" ) );
+    setTitle( TimeDateCommon::getTitle() );
     setIcon( QPixmap( ":/images/resources/timedate.png" ) );
     setShowApplyButton( true );
-    setName( "msm_timedate" );
+    setName( TimeDateCommon::getName() );
 
     connect( m_timeFieldsTimer, &QTimer::timeout,
              [=] ( )

@@ -26,6 +26,7 @@
 #include <QtCore/QTextStream>
 #include <QDebug>
 
+
 QStringList
 LanguageCommon::enabledLocales( bool clean )
 {

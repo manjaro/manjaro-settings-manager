@@ -26,6 +26,27 @@
 #include <QDebug>
 
 
+QString
+MhwdCommon::getName()
+{
+    return QString( "msm_mhwd" );
+}
+
+
+QString
+MhwdCommon::getTitle()
+{
+    return QString( tr ( "Hardware Configuration" ) );
+}
+
+
+QString
+MhwdCommon::getDescription()
+{
+    return QString( tr ( "Manjaro Hardware Detection graphical user interface" ) );
+}
+
+
 void
 MhwdCommon::load( Ui::PageMhwd* ui )
 {

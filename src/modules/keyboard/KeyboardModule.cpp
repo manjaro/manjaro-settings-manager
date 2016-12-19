@@ -18,6 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "KeyboardCommon.h"
 #include "KeyboardModule.h"
 #include "ui_PageKeyboard.h"
 
@@ -38,7 +39,7 @@
 #include <QTranslator>
 
 K_PLUGIN_FACTORY( MsmKeyboardFactory,
-                  registerPlugin<PageKeyboard>( "msm_keyboard" ); )
+                  registerPlugin<PageKeyboard>( KeyboardCommon::getName() ); )
 
 PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
@@ -52,18 +53,16 @@ PageKeyboard::PageKeyboard( QWidget* parent, const QVariantList& args ) :
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
-    KAboutData* aboutData = new KAboutData( "msm_keyboard",
-                                            tr( "Keyboard Settings", "@title" ),
+    KAboutData* aboutData = new KAboutData( KeyboardCommon::getName(),
+                                            KeyboardCommon::getTitle(),
                                             PROJECT_VERSION,
-                                            tr( "Keyboard settings", "@comment" ),
+                                            KeyboardCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
 
     aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "roland@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )

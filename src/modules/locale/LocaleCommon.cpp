@@ -17,22 +17,25 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANGUAGEPACKAGESCOMMON_H
-#define LANGUAGEPACKAGESCOMMON_H
+#include "LocaleCommon.h"
 
-#include "ui_PageLanguagePackages.h"
 
-class LanguagePackagesCommon : public QObject
+QString
+LocaleCommon::getName()
 {
-    Q_OBJECT
-public:
-    static QString getDescription();
-    static QString getName();
-    static QString getTitle();
-    static void load( Ui::PageLanguagePackages* ui );
-    static void installPackages( Ui::PageLanguagePackages* ui );
-private:
-    static QTreeWidgetItem* newParentTreeWidgetItem( Ui::PageLanguagePackages* ui, QTreeWidget* parent );
-};
+    return QString( "msm_locale" );
+}
 
-#endif // LANGUAGEPACKAGESCOMMON_H
+
+QString
+LocaleCommon::getTitle()
+{
+    return QString( tr ( "Locale Settings" ) );
+}
+
+
+QString
+LocaleCommon::getDescription()
+{
+    return QString( tr ( "Add and configure locales" ) );
+}

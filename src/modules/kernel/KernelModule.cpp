@@ -35,7 +35,7 @@
 
 #include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmKernelFactory,
-                  registerPlugin<PageKernel>( "msm_kernel" ); )
+                  registerPlugin<PageKernel>( KernelCommon::getName() ); )
 
 PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
@@ -47,14 +47,13 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     appTranslator->load( ":/translations/msm_" + QLocale::system().name() );
     qApp->installTranslator( appTranslator );
 
-    KAboutData* aboutData = new KAboutData( "msm_kernel",
-                                            tr( "Kernel", "@title" ),
+    KAboutData* aboutData = new KAboutData( KernelCommon::getName(),
+                                            KernelCommon::getTitle(),
                                             PROJECT_VERSION,
-                                            tr( "Add and remove kernels", "@comment" ),
+                                            KernelCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
-                                            "(c) 2014 - 2017 Ramon Buldó" );
+                                            "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
-                          tr( "Author", "@info:credit" ),
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )

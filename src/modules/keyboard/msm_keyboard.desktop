@@ -12,7 +12,7 @@ X-KDE-Keywords=keyboard
 X-KDE-Keywords[x-test]=xxkeyboardxx
 Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
-Name=Keyboard
+Name=Keyboard Settings
 Name[ast]=Axustes de tecláu
 Name[ca]=Configuració del teclat
 Name[cs_CZ]=Nastavení klávesnice

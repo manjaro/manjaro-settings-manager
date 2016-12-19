@@ -43,6 +43,9 @@ public:
         QStringList members;
     };
 
+    static QString getDescription();
+    static QString getName();
+    static QString getTitle();
     static bool addUser();
     static void changePassword( QListWidgetItem* currentItem );
     static bool changeAccountType( Ui::PageUsers* ui );

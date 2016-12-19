@@ -32,9 +32,9 @@ KernelPage::KernelPage( QWidget* parent ) :
     m_kernelModel( new KernelModel )
 {
     ui->setupUi( this );
-    setTitle( tr( "Kernel" ) );
+    setTitle( KernelCommon::getTitle() );
     setIcon( QPixmap( ":/images/resources/tux-manjaro.png" ) );
-    setName( "msm_kernel" );
+    setName( KernelCommon::getName() );
 
     KernelSortFilterProxyModel* proxyKernelModel = new KernelSortFilterProxyModel( this );
     proxyKernelModel->setSourceModel( m_kernelModel );

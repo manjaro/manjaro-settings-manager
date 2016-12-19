@@ -26,6 +26,27 @@
 #include <QDebug>
 
 
+QString
+KernelCommon::getName()
+{
+    return QString( "msm_kernel" );
+}
+
+
+QString
+KernelCommon::getTitle()
+{
+    return QString( tr ( "Kernel" ) );
+}
+
+
+QString
+KernelCommon::getDescription()
+{
+    return QString( tr ( "Add and remove manjaro kernels" ) );
+}
+
+
 void
 KernelCommon::load( KernelModel* kernelModel )
 {

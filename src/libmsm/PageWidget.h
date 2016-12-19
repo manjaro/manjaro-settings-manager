@@ -33,7 +33,7 @@ public:
 
     QPixmap getIcon();
     QString getTitle();
-    QByteArray getName();
+    QString getName();
     bool getShowApplyButton();
 
     virtual void load() {}
@@ -50,13 +50,13 @@ signals:
 protected:
     void setTitle( QString title );
     void setIcon( QPixmap icon );
-    void setName( QByteArray name );
+    void setName( QString name );
     void setShowApplyButton( bool visible );
 
 private:
     QPixmap m_icon;
     QString m_title;
-    QByteArray m_name;
+    QString m_name;
     bool m_showApplyButton;
 
 };

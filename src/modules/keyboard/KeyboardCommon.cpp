@@ -17,22 +17,25 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANGUAGEPACKAGESCOMMON_H
-#define LANGUAGEPACKAGESCOMMON_H
+#include "KeyboardCommon.h"
 
-#include "ui_PageLanguagePackages.h"
 
-class LanguagePackagesCommon : public QObject
+QString
+KeyboardCommon::getName()
 {
-    Q_OBJECT
-public:
-    static QString getDescription();
-    static QString getName();
-    static QString getTitle();
-    static void load( Ui::PageLanguagePackages* ui );
-    static void installPackages( Ui::PageLanguagePackages* ui );
-private:
-    static QTreeWidgetItem* newParentTreeWidgetItem( Ui::PageLanguagePackages* ui, QTreeWidget* parent );
-};
+    return QString( "msm_keyboard" );
+}
 
-#endif // LANGUAGEPACKAGESCOMMON_H
+
+QString
+KeyboardCommon::getTitle()
+{
+    return QString( tr ( "Keyboard Settings" ) );
+}
+
+
+QString
+KeyboardCommon::getDescription()
+{
+    return QString( tr ( "Keyboard settings" ) );
+}
