@@ -28,8 +28,8 @@ NotifierApp::NotifierApp( int& argc, char* argv[] )
 {
     setOrganizationName( "Manjaro" );
     setOrganizationDomain( "Manjaro" );
-    setApplicationName( "Manjaro Settings Manager" );
-    setApplicationVersion( "0.5.0" );
+    setApplicationName( "MSM Notifier" );
+    setApplicationVersion( PROJECT_VERSION );
     setQuitOnLastWindowClosed( false );
 }
 
