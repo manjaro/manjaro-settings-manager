@@ -40,7 +40,7 @@ install(FILES msm_keyboard.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 # MSM Page
 set(KEYBOARD_PAGE_SRCS
     ${KEYBOARD_SRCS}
-    PageKeyboard.cpp
+    KeyboardPage.cpp
     SetKeyboardLayoutJob.cpp)
 add_library(msm_page_keyboard STATIC ${KEYBOARD_PAGE_SRCS})
 target_compile_definitions(msm_page_keyboard PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")

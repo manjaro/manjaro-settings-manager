@@ -19,7 +19,7 @@
  */
 
 #include "KeyboardCommon.h"
-#include "PageKeyboard.h"
+#include "KeyboardPage.h"
 #include "ui_PageKeyboard.h"
 
 #include <KAuth>
@@ -38,7 +38,7 @@
 #include <QDebug>
 
 
-PageKeyboard::PageKeyboard( QWidget* parent ) :
+KeyboardPage::KeyboardPage( QWidget* parent ) :
     PageWidget( parent ),
     ui( new Ui::PageKeyboard ),
     m_keyboardModel( new KeyboardModel ),
@@ -57,11 +57,11 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
 
     // Connect signals and slots
     connect( ui->buttonRestore, &QPushButton::clicked,
-             this, &PageKeyboard::buttonRestore_clicked );
+             this, &KeyboardPage::buttonRestore_clicked );
     connect( ui->layoutsListView, &QListView::clicked,
-             this, &PageKeyboard::setDefaultIndexToVariantListView );
+             this, &KeyboardPage::setDefaultIndexToVariantListView );
     connect( ui->variantsListView, &QListView::clicked,
-             this, &PageKeyboard::setKeyboardPreviewLayout );
+             this, &KeyboardPage::setKeyboardPreviewLayout );
     // Disable or enable apply button
     connect( ui->modelComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int index )
@@ -144,7 +144,7 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
 }
 
 
-PageKeyboard::~PageKeyboard()
+KeyboardPage::~KeyboardPage()
 {
     delete ui;
     delete m_keyboardModel;
@@ -156,7 +156,7 @@ PageKeyboard::~PageKeyboard()
 
 
 void
-PageKeyboard::save()
+KeyboardPage::save()
 {
     setKeyboardLayout();
     configureKeystroke();
@@ -164,7 +164,7 @@ PageKeyboard::save()
 
 
 void
-PageKeyboard::setKeyboardLayout()
+KeyboardPage::setKeyboardLayout()
 {
     QString model = ui->modelComboBox->itemData( ui->modelComboBox->currentIndex(), KeyboardModel::KeyRole ).toString();
     QString layout = ui->layoutsListView->currentIndex().data( KeyboardModel::KeyRole ).toString();
@@ -202,7 +202,7 @@ PageKeyboard::setKeyboardLayout()
 
 
 void
-PageKeyboard::configureKeystroke()
+KeyboardPage::configureKeystroke()
 {
     int delay = ui->sliderDelay->value();
     int rate  = ui->sliderRate->value();
@@ -236,7 +236,7 @@ PageKeyboard::configureKeystroke()
 
 
 void
-PageKeyboard::load()
+KeyboardPage::load()
 {
     // Default focus
     ui->layoutsListView->setFocus();
@@ -262,7 +262,7 @@ PageKeyboard::load()
 
 
 void
-PageKeyboard::setLayoutsListViewIndex( const QString& layout )
+KeyboardPage::setLayoutsListViewIndex( const QString& layout )
 {
     QModelIndexList layoutIndexList = m_keyboardProxyModel->match( ui->layoutsListView->rootIndex().child( 0,0 ),
                                       KeyboardModel::KeyRole,
@@ -281,7 +281,7 @@ PageKeyboard::setLayoutsListViewIndex( const QString& layout )
 
 
 void
-PageKeyboard::setVariantsListViewIndex( const QString& variant )
+KeyboardPage::setVariantsListViewIndex( const QString& variant )
 {
     QAbstractItemModel* model = ui->variantsListView->model();
     QModelIndexList variantDefaultList = model->match( model->index( 0,0 ),
@@ -302,7 +302,7 @@ PageKeyboard::setVariantsListViewIndex( const QString& variant )
 
 
 void
-PageKeyboard::setModelComboBoxIndex( const QString& model )
+KeyboardPage::setModelComboBoxIndex( const QString& model )
 {
     QModelIndexList modelIndexList = m_keyboardProxyModel->match( ui->modelComboBox->rootModelIndex().child( 0,0 ),
                                      KeyboardModel::KeyRole,
@@ -320,7 +320,7 @@ PageKeyboard::setModelComboBoxIndex( const QString& model )
 
 
 void
-PageKeyboard::buttonRestore_clicked()
+KeyboardPage::buttonRestore_clicked()
 {
     setLayoutsListViewIndex( m_currentLayout );
     setVariantsListViewIndex( m_currentVariant );
@@ -331,7 +331,7 @@ PageKeyboard::buttonRestore_clicked()
 
 
 void
-PageKeyboard::setDefaultIndexToVariantListView( const QModelIndex& index )
+KeyboardPage::setDefaultIndexToVariantListView( const QModelIndex& index )
 {
     if ( index.isValid() )
         setVariantsListViewIndex( "default" );
@@ -339,7 +339,7 @@ PageKeyboard::setDefaultIndexToVariantListView( const QModelIndex& index )
 
 
 void
-PageKeyboard::setKeyboardPreviewLayout( const QModelIndex& index )
+KeyboardPage::setKeyboardPreviewLayout( const QModelIndex& index )
 {
     if ( index.isValid() )
     {
@@ -352,7 +352,7 @@ PageKeyboard::setKeyboardPreviewLayout( const QModelIndex& index )
 
 
 int
-PageKeyboard::getKeyboardDelay()
+KeyboardPage::getKeyboardDelay()
 {
     FILE* file = popen( "xset q | grep rate","r" );
     int delay,rate;
@@ -362,7 +362,7 @@ PageKeyboard::getKeyboardDelay()
 }
 
 int
-PageKeyboard::getKeyboardRate()
+KeyboardPage::getKeyboardRate()
 {
     FILE* file = popen( "xset q | grep rate","r" );
     int delay,rate;

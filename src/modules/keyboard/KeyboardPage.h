@@ -18,8 +18,8 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAGEKEYBOARD_H
-#define PAGEKEYBOARD_H
+#ifndef KEYBOARDPAGE_H
+#define KEYBOARDPAGE_H
 
 #include "KeyboardModel.h"
 #include "KeyboardPreview.h"
@@ -34,13 +34,13 @@ class PageKeyboard;
 }
 
 
-class PageKeyboard : public PageWidget
+class KeyboardPage : public PageWidget
 {
     Q_OBJECT
 
 public:
-    explicit PageKeyboard( QWidget* parent = 0 );
-    ~PageKeyboard();
+    explicit KeyboardPage( QWidget* parent = 0 );
+    ~KeyboardPage();
 
     void load();
     void save();
@@ -72,4 +72,4 @@ protected slots:
     void setKeyboardPreviewLayout( const QModelIndex& index );
 };
 
-#endif // PAGEKEYBOARD_H
+#endif // KEYBOARDPAGE_H
