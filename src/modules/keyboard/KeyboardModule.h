@@ -32,7 +32,7 @@ namespace Ui
 class PageKeyboard;
 }
 
-class PageKeyboard : public KCModule
+class KeyboardModule : public KCModule
 {
     Q_OBJECT
 
@@ -43,11 +43,11 @@ public:
      * @param parent Parent widget of the module
      * @param args Arguments for the module
      */
-    explicit PageKeyboard( QWidget* parent, const QVariantList& args = QVariantList() );
+    explicit KeyboardModule( QWidget* parent, const QVariantList& args = QVariantList() );
     /**
      * Destructor.
      */
-    ~PageKeyboard();
+    ~KeyboardModule();
 
     /**
      * Overloading the KCModule load() function.
