@@ -4,6 +4,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # Common
 file(GLOB KEYBOARD_GLOB
+     icons/restore.png
      kbd-model-map
      msm_keyboard.desktop)
 

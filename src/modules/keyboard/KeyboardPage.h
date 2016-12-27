@@ -53,23 +53,13 @@ private:
     KSelectionProxyModel* m_layoutsSelectionProxy;
     QSortFilterProxyModel* m_variantsSortProxy;
 
-    QString m_currentLayout;
-    QString m_currentVariant;
-    QString m_currentModel;
-
-    void setKeyboardLayout();
-    void configureKeystroke();
     void setLayoutsListViewIndex( const QString& layout );
     void setVariantsListViewIndex( const QString& variant );
     void setModelComboBoxIndex( const QString& model );
 
-    int getKeyboardRate();
-    int getKeyboardDelay();
-
 protected slots:
-    void buttonRestore_clicked();
-    void setDefaultIndexToVariantListView( const QModelIndex& index );
-    void setKeyboardPreviewLayout( const QModelIndex& index );
+    void setNewLayout( const QModelIndex& index );
+    void setNewVariant( const QModelIndex& index );
 };
 
 #endif // KEYBOARDPAGE_H

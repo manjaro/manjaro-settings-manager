@@ -1,5 +1,6 @@
 <RCC>
-  <qresource prefix="/">
-    <file>kbd-model-map</file>
-  </qresource>
-</RCC> 
+    <qresource prefix="/">
+        <file>kbd-model-map</file>
+        <file>icons/restore.png</file>
+    </qresource>
+</RCC>

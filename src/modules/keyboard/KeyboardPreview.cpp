@@ -19,8 +19,11 @@
 
 #include "KeyboardPreview.h"
 
-KeyBoardPreview::KeyBoardPreview( QWidget* parent ) :
-    QWidget( parent )
+KeyBoardPreview::KeyBoardPreview( QWidget* parent )
+    : QWidget( parent )
+    , space( 0 )
+    , usable_width( 0 )
+    , key_w( 0 )
 {
     setMaximumSize( 700, 190 );
     setMinimumSize( 600, 165 );

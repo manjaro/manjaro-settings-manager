@@ -37,7 +37,7 @@ class KeyBoardPreview : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KeyBoardPreview( QWidget* parent = 0 );
+    explicit KeyBoardPreview( QWidget* parent = nullptr );
 
     void setLayout( const QString layout );
     void setVariant( const QString variant );

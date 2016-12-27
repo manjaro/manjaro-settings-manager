@@ -20,16 +20,26 @@
 #include "KeyboardModel.h"
 #include "KeyboardItem.h"
 
+#include <KAuth>
+#include <KAuthAction>
+
+#include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QProcess>
+#include <QtWidgets/QMessageBox>
 
 #include <QDebug>
+
+#include <fstream>
+#include <iostream>
 
 KeyboardModel::KeyboardModel( QObject* parent )
     : QAbstractItemModel( parent )
 {
     m_rootItem = new KeyboardItem( QString( "key" ), QString( "description" ) );
-    init( m_rootItem );
+    initModel( m_rootItem );
+    initLayout();
+    initRateAndDelay();
 }
 
 
@@ -166,7 +176,7 @@ KeyboardModel::roleNames() const
 
 
 void
-KeyboardModel::init( KeyboardItem* parent )
+KeyboardModel::initModel( KeyboardItem* parent )
 {
     const QString xkbFile( "/usr/share/X11/xkb/rules/base.lst" );
 
@@ -300,18 +310,18 @@ KeyboardModel::init( KeyboardItem* parent )
 }
 
 
-bool
-KeyboardModel::getCurrentKeyboardLayout( QString& layout, QString& variant, QString& model )
+void
+KeyboardModel::initLayout()
 {
-    layout.clear();
-    variant.clear();
-    model.clear();
+    m_layout = "us";
+    m_variant = "default";
+    m_model = "pc105";
 
     QProcess process;
     process.start( "setxkbmap", QStringList() << "-print" << "-verbose" << "10" );
 
     if ( !process.waitForFinished() )
-        return false;
+        return;
 
     /*
      * Example output
@@ -321,8 +331,11 @@ KeyboardModel::getCurrentKeyboardLayout( QString& layout, QString& variant, QStr
      * variant:    cat,euro
      * ...
      */
+    QString layout;
+    QString variant;
+    QString model;
     QStringList list = QString( process.readAll() ).split( "\n", QString::SkipEmptyParts );
-    foreach ( QString line, list )
+    for ( QString line: list )
     {
         line = line.trimmed();
         if ( line.startsWith( "layout" ) )
@@ -344,5 +357,204 @@ KeyboardModel::getCurrentKeyboardLayout( QString& layout, QString& variant, QStr
             model = split.value( 0 ).trimmed();
         }
     }
-    return !layout.isEmpty();
+    if ( !layout.isEmpty() )
+    {
+        m_layout = layout;
+        if ( !variant.isEmpty() )
+            m_variant = variant;
+    }
+    if ( !model.isEmpty() )
+        m_model = model;
+
+    m_newLayout = m_layout;
+    m_newVariant = m_variant;
+    m_newModel = m_model;
+}
+
+
+void
+KeyboardModel::initRateAndDelay()
+{
+    m_delay = 600;
+    m_rate = 25;
+    FILE* file = popen( "xset q | grep rate", "r" );
+    int delay, rate;
+    fscanf( file, "%*[^0123456789]%d%*[^0123456789]%d", &delay, &rate );
+    pclose( file );
+    m_delay = delay;
+    m_rate = rate;
+    m_newDelay = m_delay;
+    m_newRate = m_rate;
+}
+
+
+void KeyboardModel::setNewDelay( int newDelay )
+{
+    if ( m_newDelay != newDelay )
+    {
+        m_newDelay = newDelay;
+        emit changed();
+    }
+}
+
+
+void KeyboardModel::setNewRate( int newRate )
+{
+    if ( m_newRate != newRate )
+    {
+        m_newRate = newRate;
+        emit changed();
+    }
+}
+
+
+void KeyboardModel::setNewModel( const QString& newModel )
+{
+    if ( m_newModel != newModel )
+    {
+        m_newModel = newModel;
+        emit changed();
+    }
+}
+
+
+void KeyboardModel::setNewVariant( const QString& newVariant )
+{
+    if ( m_newVariant != newVariant )
+    {
+        m_newVariant = newVariant;
+        emit changed();
+    }
+}
+
+
+void KeyboardModel::setNewLayout( const QString& newLayout )
+{
+    if ( m_newLayout != newLayout )
+    {
+        m_newLayout = newLayout;
+        emit changed();
+    }
+}
+
+
+int KeyboardModel::delay() const
+{
+    return m_delay;
+}
+
+
+int KeyboardModel::rate() const
+{
+    return m_rate;
+}
+
+
+QString KeyboardModel::model() const
+{
+    return m_model;
+}
+
+
+QString KeyboardModel::variant() const
+{
+    return m_variant;
+}
+
+
+QString KeyboardModel::layout() const
+{
+    return m_layout;
+}
+
+
+QString KeyboardModel::newVariant() const
+{
+    return m_newVariant;
+}
+
+
+QString KeyboardModel::newLayout() const
+{
+    return m_newLayout;
+}
+
+
+bool
+KeyboardModel::saveKeyboardLayout()
+{
+    QVariantMap args;
+    args["model"] = m_newModel;
+    args["layout"] = m_newLayout;
+
+    if ( QString::compare( m_newVariant, "default" ) == 0 )
+    {
+        args["variant"] = "";
+        system( QString( "setxkbmap -model \"%1\" -layout \"%2\"" ).arg( m_newModel, m_newLayout ).toUtf8() );
+    }
+    else
+    {
+        system( QString( "setxkbmap -model \"%1\" -layout \"%2\" -variant \"%3\"" ).arg( m_newModel, m_newLayout, m_newVariant ).toUtf8() );
+        args["variant"] = m_newVariant;
+    }
+
+    KAuth::Action saveAction( QLatin1String( "org.manjaro.msm.keyboard.save" ) );
+    saveAction.setHelperId( QLatin1String( "org.manjaro.msm.keyboard" ) );
+    saveAction.setArguments( args );
+    KAuth::ExecuteJob* job = saveAction.execute();
+    if ( job->exec() )
+    {
+        m_model = m_newModel;
+        m_layout = m_newLayout;
+        m_variant = m_newVariant;
+        return true;
+    }
+    else
+    {
+        QMessageBox::warning( nullptr,
+                              tr( "Error!" ),
+                              QString( tr( "Failed to set keyboard layout" ) ),
+                              QMessageBox::Ok, QMessageBox::Ok );
+        return false;
+    }
+}
+
+
+void
+KeyboardModel::saveRateAndDelay()
+{
+    std::string command = "xset r rate " + std::to_string( m_newDelay ) + " " + std::to_string( m_newRate );
+    system( command.c_str() );
+
+    // Make the changes persistant throughout the reboot usin ~/.xinitrc
+    QString filePath = QDir::homePath() + "/.xinitrc";
+    QFile fileIn( filePath );
+    if ( !fileIn.open( QIODevice::ReadOnly | QIODevice::Text ) )
+        qDebug() << "can't open '~/.xinitrc' to read";
+
+    bool addedToXinitrc = false;
+    QByteArray newXinitRc;
+    while ( !fileIn.atEnd() )
+    {
+        QByteArray line = fileIn.readLine();
+        if ( line.startsWith( "xset r rate" ) )
+        {
+            line = QByteArray::fromStdString( command ) + "\n";
+            addedToXinitrc = true;
+        }
+        newXinitRc = newXinitRc + line;
+    }
+    fileIn.close();
+
+    if ( !addedToXinitrc )
+        newXinitRc = newXinitRc + QByteArray::fromStdString( command ) + "\n";
+
+    QFile fileOut( filePath );
+    if ( !fileOut.open( QIODevice::WriteOnly | QIODevice::Text ) )
+        qDebug() << "can't open '~/.xinitrc' to write";
+    fileOut.write( newXinitRc );
+    fileOut.close();
+
+    m_delay = m_newDelay;
+    m_rate = m_newRate;
 }

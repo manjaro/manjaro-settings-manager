@@ -49,20 +49,46 @@ public:
     int rowCount( const QModelIndex& parent = QModelIndex() ) const;
     int columnCount( const QModelIndex& parent = QModelIndex() ) const;
 
-    bool getCurrentKeyboardLayout( QString& layout, QString& variant, QString& model );
+    QString layout() const;
+    QString variant() const;
+    QString model() const;
+    int rate() const;
+    int delay() const;
+    QString newLayout() const;
+    QString newVariant() const;
+
+    void setNewLayout(const QString &newLayout);
+    void setNewVariant(const QString &newVariant);
+    void setNewModel(const QString &newModel);
+    void setNewRate(int newRate);
+    void setNewDelay(int newDelay);
+
+    bool saveKeyboardLayout();
+    void saveRateAndDelay();
 
 protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    void init( KeyboardItem* parent );
+    void initModel( KeyboardItem* parent );
+    void initLayout();
+    void initRateAndDelay();
 
     KeyboardItem* m_rootItem;
+    QString m_layout;
+    QString m_variant;
+    QString m_model;
+    int m_rate;
+    int m_delay;
+
+    QString m_newLayout;
+    QString m_newVariant;
+    QString m_newModel;
+    int m_newRate;
+    int m_newDelay;
 
 signals:
-
-public slots:
-
+    void changed();
 };
 
 #endif // KEYBOARDMODEL__H

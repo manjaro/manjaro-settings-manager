@@ -23,20 +23,16 @@
 #include "ui_PageKeyboard.h"
 
 #include <KAboutData>
-#include <KAuth>
-#include <KAuthAction>
 #include <KPluginFactory>
 
-#include <QtCore/QFile>
-#include <QtCore/QProcess>
 #include <QtCore/QMapIterator>
+#include <QTranslator>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QMessageBox>
 
-#include <fstream>
-#include <iostream>
-
 #include <QDebug>
-#include <QTranslator>
 
 K_PLUGIN_FACTORY( MsmKeyboardFactory,
                   registerPlugin<KeyboardModule>( KeyboardCommon::getName() ); )
@@ -70,6 +66,8 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
 
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );
+    // hide restore button as it isn't connected or used in kcmodule.
+    ui->buttonRestore->setVisible( false );
 
     ui->setupUi( this );
 
@@ -78,57 +76,42 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
     m_keyboardPreview->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 
     // Connect signals and slots
-    connect( ui->modelComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
+    connect( ui->modelComboBox,
+             static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int index )
     {
-        Q_UNUSED ( index )
-        this->changed();
+        Q_UNUSED(index);
+        QString model = ui->modelComboBox->itemData(
+                            ui->modelComboBox->currentIndex(),
+                            KeyboardModel::KeyRole )
+                        .toString();
+        m_keyboardModel->setNewModel( model );
     } );
+    connect( ui->buttonRestore, &QPushButton::clicked,
+             this, &KeyboardModule::defaults );
     connect( ui->layoutsListView, &QListView::clicked,
-             [=] ( const QModelIndex &index )
-    {
-        if ( index.isValid() )
-        {
-            // select "default" variant
-            setVariantsListViewIndex( "default" );
-        }
-        this->changed();
-    } );
+             this, &KeyboardModule::setNewLayout );
     connect( ui->variantsListView, &QListView::clicked,
-             [=] ( const QModelIndex &index )
+             this, &KeyboardModule::setNewVariant );
+    connect( m_keyboardModel, &KeyboardModel::changed,
+             [=] ()
     {
-        if ( index.isValid() )
-        {
-            // change keyboard preview
-            QString layout = ui->layoutsListView->currentIndex().data( KeyboardModel::KeyRole ).toString();
-            QString variant = ui->variantsListView->currentIndex().data( KeyboardModel::KeyRole ).toString();
-            m_keyboardPreview->setLayout( layout );
-            m_keyboardPreview->setVariant( variant );
-        }
         this->changed();
     } );
-
-
-    // Setting the current values for delay and rate
-    ui->sliderDelay->setValue( this->getKeyboardDelay() );
-    ui->sliderRate->setValue( this->getKeyboardRate() );
-    ui->label_2->setText( QString::number( this->getKeyboardDelay() ) );
-    ui->label_3->setText( QString::number( this->getKeyboardRate() ) );
-
-    // Adding signals and slots for the delay and rate slider
     connect( ui->sliderDelay, &QSlider::valueChanged,
              [=] ( int value )
     {
+        m_keyboardModel->setNewDelay( value );
         ui->label_2->setText( QString::number( value ) );
-        this->changed();
     } );
     connect( ui->sliderRate, &QSlider::valueChanged,
              [=] ( int value )
     {
+        m_keyboardModel->setNewRate( value );
         ui->label_3->setText( QString::number( value ) );
-        this->changed();
     } );
 
+    // Setup Layout and Variant QListViews
     m_keyboardProxyModel->setSourceModel( m_keyboardModel );
     m_keyboardProxyModel->setSortLocaleAware( true );
     m_keyboardProxyModel->setSortRole( KeyboardModel::DescriptionRole );
@@ -170,10 +153,6 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
     }
     else
         qDebug() << "Can't find keyboard model list";
-
-    // hide restore button as it isn't connected or used in kcmodule.
-    ui->buttonRestore->setVisible( false );
-
 }
 
 
@@ -191,93 +170,15 @@ KeyboardModule::~KeyboardModule()
 void
 KeyboardModule::save()
 {
-    setKeyboardLayout();
-    configureKeystroke();
+    m_keyboardModel->saveKeyboardLayout();
+    m_keyboardModel->saveRateAndDelay();
 }
 
 
 void
 KeyboardModule::defaults()
 {
-    setLayoutsListViewIndex( m_currentLayout );
-    setVariantsListViewIndex( m_currentVariant );
-    setModelComboBoxIndex( m_currentModel );
-    ui->sliderDelay->setValue( this->getKeyboardDelay() );
-    ui->sliderRate->setValue( this->getKeyboardRate() );
-    ui->label_2->setText( QString::number( this->getKeyboardDelay() ) );
-    ui->label_3->setText( QString::number( this->getKeyboardRate() ) );
-}
-
-
-void
-KeyboardModule::configureKeystroke()
-{
-    int delay = ui->sliderDelay->value();
-    int rate  = ui->sliderRate->value();
-    char command[100];
-    sprintf( command,"xset r rate %d %d", delay, rate );
-    system( command );
-    // Time to make the changes persistant throughout the reboot
-    bool added_to_xinitrc = false;
-    std::ifstream filein( "~/.xinitrc" );
-    std::string buffer;
-    std::string new_xinitrc;
-    std::string prefix = "xset r rate";
-    while ( std::getline( filein, buffer ) )
-    {
-        // Condition to check if xset prev defined
-        if ( buffer.substr( 0, prefix.length() ) == prefix )
-        {
-            buffer = command;
-            added_to_xinitrc = true;
-        }
-        new_xinitrc = new_xinitrc + buffer + "\n";
-    }
-    filein.close();
-    if ( !added_to_xinitrc )
-        new_xinitrc = new_xinitrc + command + "\n";
-    qDebug() << new_xinitrc.c_str();
-    std::ofstream fileout( "~/.xinitrc",std::ios_base::app );
-    fileout.write( new_xinitrc.c_str(), new_xinitrc.length() );
-    fileout.close();
-}
-
-
-void
-KeyboardModule::setKeyboardLayout()
-{
-    QString model = ui->modelComboBox->itemData( ui->modelComboBox->currentIndex(), KeyboardModel::KeyRole ).toString();
-    QString layout = ui->layoutsListView->currentIndex().data( KeyboardModel::KeyRole ).toString();
-    QString variant = ui->variantsListView->currentIndex().data( KeyboardModel::KeyRole ).toString();
-
-    if ( QString::compare( variant, "default" ) == 0 )
-        variant = "";
-
-    // Set Xorg keyboard layout
-    system( QString( "setxkbmap -model \"%1\" -layout \"%2\" -variant \"%3\"" ).arg( model, layout, variant ).toUtf8() );
-
-    QVariantMap args;
-    args["model"] = model;
-    args["layout"] = layout;
-    args["variant"] = variant;
-
-    KAuth::Action saveAction( QLatin1String( "org.manjaro.msm.keyboard.save" ) );
-    saveAction.setHelperId( QLatin1String( "org.manjaro.msm.keyboard" ) );
-    saveAction.setArguments( args );
-    KAuth::ExecuteJob* job = saveAction.execute();
-    if ( job->exec() )
-    {
-        m_currentLayout = layout;
-        m_currentVariant = variant;
-        m_currentModel = model;
-    }
-    else
-    {
-        QMessageBox::warning( this,
-                              tr( "Error!" ),
-                              QString( tr( "Failed to set keyboard layout" ) ),
-                              QMessageBox::Ok, QMessageBox::Ok );
-    }
+    load();
 }
 
 
@@ -287,18 +188,12 @@ KeyboardModule::load()
     // Default focus
     ui->layoutsListView->setFocus();
 
-    // Detect current keyboard layout, variant and model
-    if ( !m_keyboardModel->getCurrentKeyboardLayout( m_currentLayout, m_currentVariant, m_currentModel ) )
-        qDebug() << "Failed to determine current keyboard layout";
+    setLayoutsListViewIndex( m_keyboardModel->layout() );
+    setVariantsListViewIndex( m_keyboardModel->variant() );
+    setModelComboBoxIndex( m_keyboardModel->model() );
 
-    if ( m_currentLayout.isEmpty() )
-        m_currentLayout = "us";
-    if ( m_currentVariant.isEmpty() )
-        m_currentVariant = "default";
-    if ( m_currentModel.isEmpty() )
-        m_currentModel = "pc105";
-
-    defaults();
+    ui->sliderDelay->setValue( m_keyboardModel->delay() );
+    ui->sliderRate->setValue( m_keyboardModel->rate() );
 }
 
 
@@ -334,7 +229,7 @@ KeyboardModule::setVariantsListViewIndex( const QString& variant )
     {
         QModelIndex variantDefault = variantDefaultList.first();
         ui->variantsListView->setCurrentIndex( variantDefault );
-        // emit clicked(), to update keyboardPreview
+        // Emit clicked(), to update keyboardPreview
         emit( ui->variantsListView->clicked( variantDefault ) );
     }
     else
@@ -359,26 +254,28 @@ KeyboardModule::setModelComboBoxIndex( const QString& model )
         qDebug() << QString( "Can't find the keyboard model %1" ).arg( model );
 }
 
-
-int
-KeyboardModule::getKeyboardDelay()
+void
+KeyboardModule::setNewLayout( const QModelIndex& index )
 {
-    FILE* file = popen( "xset q | grep rate", "r" );
-    int delay, rate;
-    fscanf( file, "%*[^0123456789]%d%*[^0123456789]%d", &delay, &rate );
-    pclose( file );
-    return delay;
+    if ( index.isValid() )
+    {
+        QString layout = index.data( KeyboardModel::KeyRole ).toString();
+        m_keyboardModel->setNewLayout( layout );
+        setVariantsListViewIndex( "default" );
+    }
 }
 
 
-int
-KeyboardModule::getKeyboardRate()
+void
+KeyboardModule::setNewVariant( const QModelIndex& index )
 {
-    FILE* file = popen( "xset q | grep rate", "r" );
-    int delay, rate;
-    fscanf( file, "%*[^0123456789]%d%*[^0123456789]%d", &delay, &rate );
-    pclose( file );
-    return rate;
+    if ( index.isValid() )
+    {
+        QString variant = index.data( KeyboardModel::KeyRole ).toString();
+        m_keyboardModel->setNewVariant( variant );
+        m_keyboardPreview->setLayout( m_keyboardModel->newLayout() );
+        m_keyboardPreview->setVariant( m_keyboardModel->newVariant() );
+    }
 }
 
 #include "KeyboardModule.moc"

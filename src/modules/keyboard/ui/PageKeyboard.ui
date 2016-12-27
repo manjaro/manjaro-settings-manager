@@ -42,8 +42,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/images/resources/restore.png</normaloff>:/images/resources/restore.png</iconset>
+        <iconset resource="../keyboard.qrc">
+         <normaloff>:/icons/restore.png</normaloff>:/icons/restore.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -224,6 +224,8 @@
  <tabstops>
   <tabstop>buttonRestore</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../keyboard.qrc"/>
+ </resources>
  <connections/>
 </ui>
