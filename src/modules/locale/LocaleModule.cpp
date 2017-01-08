@@ -406,10 +406,7 @@ LocaleModule::save()
         installAction.setTimeout( 60000 );
         KAuth::ExecuteJob* job = installAction.execute();
         if ( job->exec() )
-        {
-            // tr("You might have to restart the graphical environment to apply the new settings...")
             qDebug() << "Locale changes succesfully set";
-        }
         else
             qDebug() << "Failed to set locale";
 
