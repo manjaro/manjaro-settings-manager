@@ -62,6 +62,12 @@ PageKeyboard::PageKeyboard( QWidget* parent ) :
     connect( ui->variantsListView, &QListView::clicked,
              this, &PageKeyboard::setKeyboardPreviewLayout );
     // Disable or enable apply button
+    connect( ui->modelComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
+             [=] ( int index )
+    {
+        Q_UNUSED( index )
+        this -> setApplyEnabled( this, true );
+    } );
     connect( ui->layoutsListView, &QListView::clicked,
              [=] ( )
     {
@@ -260,7 +266,8 @@ PageKeyboard::setLayoutsListViewIndex( const QString& layout )
     QModelIndexList layoutIndexList = m_keyboardProxyModel->match( ui->layoutsListView->rootIndex().child( 0,0 ),
                                       KeyboardModel::KeyRole,
                                       layout,
-                                      Qt::MatchFixedString );
+                                      -1,
+                                      Qt::MatchExactly );
 
     if ( layoutIndexList.size() == 1 )
     {
@@ -279,7 +286,8 @@ PageKeyboard::setVariantsListViewIndex( const QString& variant )
     QModelIndexList variantDefaultList = model->match( model->index( 0,0 ),
                                          KeyboardModel::KeyRole,
                                          variant,
-                                         Qt::MatchFixedString );
+                                         -1,
+                                         Qt::MatchExactly );
     if ( variantDefaultList.size() == 1 )
     {
         QModelIndex variantDefault = variantDefaultList.first();
@@ -298,7 +306,8 @@ PageKeyboard::setModelComboBoxIndex( const QString& model )
     QModelIndexList modelIndexList = m_keyboardProxyModel->match( ui->modelComboBox->rootModelIndex().child( 0,0 ),
                                      KeyboardModel::KeyRole,
                                      model,
-                                     Qt::MatchFixedString );
+                                     -1,
+                                     Qt::MatchExactly );
     if ( modelIndexList.size() == 1 )
     {
         QModelIndex modelIndex = modelIndexList.first();
