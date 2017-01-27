@@ -22,9 +22,6 @@
 #include "KeyboardPage.h"
 #include "ui_PageKeyboard.h"
 
-#include <KAuth>
-#include <KAuthAction>
-
 #include <QtCore/QMapIterator>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
@@ -68,21 +65,13 @@ KeyboardPage::KeyboardPage( QWidget* parent ) :
              this, &KeyboardPage::load );
     connect( ui->layoutsListView, &QListView::clicked,
              this, &KeyboardPage::setNewLayout );
-    connect( ui->variantsListView, &QListView::clicked,
-             this, &KeyboardPage::setKeyboardPreviewLayout );
-    // Disable or enable apply button
-    connect( ui->modelComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
-             [=] ( int index )
-    {
-        Q_UNUSED( index )
-        this -> setApplyEnabled( this, true );
-    } );
     connect( ui->layoutsListView, &QListView::clicked,
-             [=] ( )
              this, &KeyboardPage::setNewVariant );
     connect( m_keyboardModel, &KeyboardModel::changed,
              [=] ()
     {
+        m_keyboardPreview->setLayout( m_keyboardModel->newLayout() );
+        m_keyboardPreview->setVariant( m_keyboardModel->newVariant() );
         this->setApplyEnabled( this, true );
     } );
     connect( ui->sliderDelay, &QSlider::valueChanged,
@@ -173,6 +162,9 @@ KeyboardPage::load()
     setVariantsListViewIndex( m_keyboardModel->variant() );
     setModelComboBoxIndex( m_keyboardModel->model() );
 
+    m_keyboardPreview->setLayout( m_keyboardModel->layout() );
+    m_keyboardPreview->setVariant( m_keyboardModel->variant() );
+
     ui->sliderDelay->setValue( m_keyboardModel->delay() );
     ui->sliderRate->setValue( m_keyboardModel->rate() );
 
@@ -257,7 +249,5 @@ KeyboardPage::setNewVariant( const QModelIndex& index )
     {
         QString variant = index.data( KeyboardModel::KeyRole ).toString();
         m_keyboardModel->setNewVariant( variant );
-        m_keyboardPreview->setLayout( m_keyboardModel->newLayout() );
-        m_keyboardPreview->setVariant( m_keyboardModel->newVariant() );
     }
 }

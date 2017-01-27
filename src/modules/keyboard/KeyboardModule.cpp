@@ -55,7 +55,6 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
                                             KeyboardCommon::getDescription(),
                                             KAboutLicense::LicenseKey::GPL_V3,
                                             "(c) 2014 - 2017 Manjaro Settings Manager developers" );
-
     aboutData->addAuthor( "Ramon Buldó",
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
@@ -63,18 +62,15 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
     aboutData->setCustomAuthorText( QString(),
                                     tr( "Please use <a href='%1'>%1</a> to report bugs." )
                                     .arg( "https://bugs.manjaro.org/" ) );
-
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );
     // hide restore button as it isn't connected or used in kcmodule.
-    ui->buttonRestore->setVisible( false );
-
     ui->setupUi( this );
+    ui->buttonRestore->setVisible( false );
 
     // Keyboard preview widget
     ui->KBPreviewLayout->addWidget( m_keyboardPreview );
     m_keyboardPreview->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
-
     // Connect signals and slots
     connect( ui->modelComboBox,
              static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
@@ -96,6 +92,8 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
     connect( m_keyboardModel, &KeyboardModel::changed,
              [=] ()
     {
+        m_keyboardPreview->setLayout( m_keyboardModel->newLayout() );
+        m_keyboardPreview->setVariant( m_keyboardModel->newVariant() );
         this->changed();
     } );
     connect( ui->sliderDelay, &QSlider::valueChanged,
@@ -110,7 +108,6 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
         m_keyboardModel->setNewRate( value );
         ui->label_3->setText( QString::number( value ) );
     } );
-
     // Setup Layout and Variant QListViews
     m_keyboardProxyModel->setSourceModel( m_keyboardModel );
     m_keyboardProxyModel->setSortLocaleAware( true );
@@ -191,6 +188,9 @@ KeyboardModule::load()
     setLayoutsListViewIndex( m_keyboardModel->layout() );
     setVariantsListViewIndex( m_keyboardModel->variant() );
     setModelComboBoxIndex( m_keyboardModel->model() );
+
+    m_keyboardPreview->setLayout( m_keyboardModel->layout() );
+    m_keyboardPreview->setVariant( m_keyboardModel->variant() );
 
     ui->sliderDelay->setValue( m_keyboardModel->delay() );
     ui->sliderRate->setValue( m_keyboardModel->rate() );
@@ -273,8 +273,6 @@ KeyboardModule::setNewVariant( const QModelIndex& index )
     {
         QString variant = index.data( KeyboardModel::KeyRole ).toString();
         m_keyboardModel->setNewVariant( variant );
-        m_keyboardPreview->setLayout( m_keyboardModel->newLayout() );
-        m_keyboardPreview->setVariant( m_keyboardModel->newVariant() );
     }
 }
 
