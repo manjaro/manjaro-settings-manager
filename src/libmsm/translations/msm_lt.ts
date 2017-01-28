@@ -221,64 +221,100 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
     </message>
 </context>
 <context>
+    <name>KernelCommon</name>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <source>Install Linux %1</source>
+        <translation>Įdiegti Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <source>The following packages will be installed:</source>
+        <translation>Bus įdiegti šie paketai:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <source>Remove Linux %1</source>
+        <translation>Šalinti Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <source>The following packages will be removed:</source>
+        <translation>Šie paketai bus pašalinti:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation>Linux %1.%2 keitimų žurnalas</translation>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
         <translation>Rekomenduojamas</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
         <translation>Vykdomas</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
         <translation>Įdiegtas</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
         <translation>Nepalaikomas</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
         <translation>Tikralaikis</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
         <translation>Keitimų žurnalas</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
         <translation>Pasirinktinis</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
         <translation>Eksperimentinis</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="197"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="268"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Remove</source>
         <translation>Šalinti</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
         <translation>Įdiegti</translation>
+    </message>
+</context>
+<context>
+    <name>KernelPage</name>
+    <message>
+        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
+        <source>Kernel</source>
+        <translation>Branduolys</translation>
     </message>
 </context>
 <context>
@@ -366,6 +402,59 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
         <translation>Laikas</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesCommon</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <source>%1 language packages</source>
+        <translation>%1 kalbos paketų</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <source>Global language packages</source>
+        <translation>Visuotiniai kalbos paketai</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <source>System is out-of-date</source>
+        <translation>Sistema yra pasenusi</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <source>Your System is not up-to-date! You have to update it first to continue!</source>
+        <translation>Jūsų sistema yra pasenusi! Norėdami tęsti, turite ją atnaujinti!</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <source>Install language packages.</source>
+        <translation>Įdiegti kalbos paketus.</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesModule</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
+        <source>Language Packages</source>
+        <comment>@title</comment>
+        <translation>Kalbos paketai</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation>Autorius</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesPage</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
+        <source>Language Packages</source>
+        <translation>Kalbos paketai</translation>
     </message>
 </context>
 <context>
@@ -517,61 +606,44 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <translation>MHWD įdiegs &quot;%1&quot; konfigūraciją</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
-        <source>Installing driver...</source>
-        <translation>Įdiegiama tvarkyklė...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>Install open-source graphic driver</source>
         <translation>Įdiegti atviro kodo grafinę tvarkyklę</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation>MHWD automatiškai aptiks jūsų atviro kodo grafines tvarkykles ir jas įdiegs</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install proprietary graphic driver</source>
         <translation>Įdiegti nuosavybinę grafinę tvarkyklę</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation>MHWD automatiškai aptiks jūsų nuosavybines grafines tvarkykles ir jas įdiegs</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Reinstall configuration</source>
         <translation>Iš naujo įdiegti konfigūraciją</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation>MHWD iš naujo įdiegs &quot;%1&quot; konfigūraciją</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
-        <source>Reinstalling driver...</source>
-        <translation>Iš naujo įdiegiama tvarkyklė...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>Remove configuration</source>
         <translation>Šalinti konfigūraciją</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation>MHWD pašalins &quot;%1&quot; konfigūraciją</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
-        <source>Removing driver...</source>
-        <translation>Šalinama tvarkyklė...</translation>
     </message>
 </context>
 <context>
@@ -605,33 +677,33 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <translation>Manjaro nustatymų tvarkytuvė</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="179"/>
+        <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
         <translation>Visi nustatymai</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="205"/>
-        <location filename="../../msm/MsmWindow.ui" line="229"/>
+        <location filename="../../msm/MsmWindow.ui" line="211"/>
+        <location filename="../../msm/MsmWindow.ui" line="235"/>
         <source>Quit</source>
         <translation>Išeiti</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="218"/>
+        <location filename="../../msm/MsmWindow.ui" line="224"/>
         <source>Apply</source>
         <translation>Taikyti</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="43"/>
+        <location filename="../../msm/MsmWindow.cpp" line="44"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="49"/>
+        <location filename="../../msm/MsmWindow.cpp" line="50"/>
         <source>Hardware</source>
         <translation>Aparatinė įranga</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="152"/>
+        <location filename="../../msm/MsmWindow.cpp" line="153"/>
         <source>Manjaro Settings</source>
         <translation>Manjaro nustatymai</translation>
     </message>
@@ -770,85 +842,16 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
 <context>
     <name>PageKernel</name>
     <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="36"/>
-        <source>Kernel</source>
-        <translation>Branduolys</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
         <source>Kernel</source>
         <comment>@title</comment>
         <translation>Branduolys</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Autorius</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="86"/>
-        <source>Install Linux %1</source>
-        <translation>Įdiegti Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
-        <source>The following packages will be installed:</source>
-        <translation>Bus įdiegti šie paketai:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
-        <source>The following packages will be removed:</source>
-        <translation>Šie paketai bus pašalinti:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
-        <source>Do you really want to install this kernel?
-</source>
-        <translation>Ar tikrai norite įdiegti šį branduolį?
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="88"/>
-        <source>This will install the following packages:
-</source>
-        <translation>Tai įdiegs sekančius paketus:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="108"/>
-        <source>Installing new kernel.</source>
-        <translation>Įdiegiamas naujas branduolys.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="164"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="123"/>
-        <source>Remove Linux %1</source>
-        <translation>Šalinti Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="124"/>
-        <source>Do you really want to remove this kernel?</source>
-        <translation>Ar tikrai norite šalinti šį branduolį?</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="125"/>
-        <source>This will remove the following packages:
-</source>
-        <translation>Tai pašalins sekančius paketus:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="145"/>
-        <source>Removing kernel...</source>
-        <translation>Šalinamas branduolys...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="198"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="159"/>
-        <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 keitimų žurnalas</translation>
     </message>
 </context>
 <context>
@@ -899,26 +902,26 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <translation>Klaviatūros nustatymai</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
         <translation>Klaviatūros nustatymai</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Autorius</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
         <translation>Klaida!</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
         <source>Failed to set keyboard layout</source>
         <translation>Nepavyko nustatyti klaviatūros išdėstymo</translation>
@@ -927,7 +930,7 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="42"/>
+        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
         <source>Language</source>
         <translation>Kalba</translation>
     </message>
@@ -979,65 +982,6 @@ Rekomenduojama tas grupes įjungti. Ar tikrai norite tęsti?</translation>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
         <translation>Įdiegti kalbos paketai:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="37"/>
-        <source>Language Packages</source>
-        <translation>Kalbos paketai</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="169"/>
-        <source>Updating pacman databases...</source>
-        <translation>Atnaujinamos pacman duomenų bazės...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation>Kalbos paketai</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autorius</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>System is out-of-date</source>
-        <translation>Sistema yra pasenusi</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="206"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Jūsų sistema yra pasenusi! Norėdami tęsti, turite ją atnaujinti!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
-        <source>Install language packages.</source>
-        <translation>Įdiegti kalbos paketus.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
-        <source>Global language packages</source>
-        <translation>Visuotiniai kalbos paketai</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
-        <source>Installing language packages...</source>
-        <translation>Įdiegiami kalbos paketai...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="146"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="148"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="117"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="119"/>
-        <source>%1 language packages</source>
-        <translation>%1 kalbos paketų</translation>
     </message>
 </context>
 <context>

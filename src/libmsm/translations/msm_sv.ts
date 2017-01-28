@@ -221,64 +221,100 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
     </message>
 </context>
 <context>
+    <name>KernelCommon</name>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <source>Install Linux %1</source>
+        <translation>Installera Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <source>The following packages will be installed:</source>
+        <translation>Följande paket kommer att installeras:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <source>Remove Linux %1</source>
+        <translation>Ta bort Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <source>The following packages will be removed:</source>
+        <translation>Följande paket kommer att tas bort:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation>Linux %1.%2 ändringslogg</translation>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
         <translation>Rekommenderat</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
         <translation>Körs</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
         <translation>Installerat</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
         <translation>Stöds ej</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
         <translation>Realtid</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
         <translation>Ändringslogg</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
         <translation>Skräddarsydd</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
         <translation>Experimentell</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="197"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="268"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Remove</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
         <translation>Installera</translation>
+    </message>
+</context>
+<context>
+    <name>KernelPage</name>
+    <message>
+        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
+        <source>Kernel</source>
+        <translation>Kärna</translation>
     </message>
 </context>
 <context>
@@ -366,6 +402,59 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
         <translation>Tid</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesCommon</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <source>%1 language packages</source>
+        <translation>%1 språkpaket</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <source>Global language packages</source>
+        <translation>Globala språkpaket</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <source>System is out-of-date</source>
+        <translation>Systemet behöver uppdateras</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <source>Your System is not up-to-date! You have to update it first to continue!</source>
+        <translation>Ditt system behöver uppdateras! Du måste uppdatera det innan du kan fortsätta!</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <source>Install language packages.</source>
+        <translation>Installera språkpaket.</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesModule</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
+        <source>Language Packages</source>
+        <comment>@title</comment>
+        <translation>Språkpaket</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation>Upphovsman</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesPage</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
+        <source>Language Packages</source>
+        <translation>Språkpaket</translation>
     </message>
 </context>
 <context>
@@ -517,61 +606,44 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
         <translation>MHWD kommer att installera &apos;%1&apos;-konfigurationen</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
-        <source>Installing driver...</source>
-        <translation>Installerar drivrutin...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>Install open-source graphic driver</source>
         <translation>Installera öppen källkodsgrafikdrivrutin</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation>MHWD kommer automatiskt att identifiera och installera den öppna drivrutinen</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install proprietary graphic driver</source>
         <translation>Installera tillverkarens stängda grafikdrivrutin</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation>MHWD kommer automatiskt att identifiera och installera den stängda drivrutinen</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Reinstall configuration</source>
         <translation>Ominstallera konfiguration</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation>MHWD kommer att ominstallera &apos;%1&apos;-konfigurationen</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
-        <source>Reinstalling driver...</source>
-        <translation>Ominstallerar drivrutin...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>Remove configuration</source>
         <translation>Ta bort konfiguration</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation>MHWD kommer att ta bort &apos;%1&apos;-konfigurationen</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
-        <source>Removing driver...</source>
-        <translation>Tar bort drivrutin...</translation>
     </message>
 </context>
 <context>
@@ -605,33 +677,33 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
         <translation>Manjaros inställningshanterare</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="179"/>
+        <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
         <translation>Alla inställningar</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="205"/>
-        <location filename="../../msm/MsmWindow.ui" line="229"/>
+        <location filename="../../msm/MsmWindow.ui" line="211"/>
+        <location filename="../../msm/MsmWindow.ui" line="235"/>
         <source>Quit</source>
         <translation>Avsluta</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="218"/>
+        <location filename="../../msm/MsmWindow.ui" line="224"/>
         <source>Apply</source>
         <translation>Verkställ</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="43"/>
+        <location filename="../../msm/MsmWindow.cpp" line="44"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="49"/>
+        <location filename="../../msm/MsmWindow.cpp" line="50"/>
         <source>Hardware</source>
         <translation>Hårdvara</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="152"/>
+        <location filename="../../msm/MsmWindow.cpp" line="153"/>
         <source>Manjaro Settings</source>
         <translation>Manjaroinställningar</translation>
     </message>
@@ -770,85 +842,16 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
 <context>
     <name>PageKernel</name>
     <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="36"/>
-        <source>Kernel</source>
-        <translation>Kärna</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
         <source>Kernel</source>
         <comment>@title</comment>
         <translation>Kärna</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Upphovsman</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="86"/>
-        <source>Install Linux %1</source>
-        <translation>Installera Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
-        <source>The following packages will be installed:</source>
-        <translation>Följande paket kommer att installeras:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
-        <source>The following packages will be removed:</source>
-        <translation>Följande paket kommer att tas bort:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
-        <source>Do you really want to install this kernel?
-</source>
-        <translation>Vill du verkligen installera den här kärnan?
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="88"/>
-        <source>This will install the following packages:
-</source>
-        <translation>Handlingen resulterar i installation av följande paket:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="108"/>
-        <source>Installing new kernel.</source>
-        <translation>Installerar ny kärna.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="164"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="123"/>
-        <source>Remove Linux %1</source>
-        <translation>Tar bort Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="124"/>
-        <source>Do you really want to remove this kernel?</source>
-        <translation>Är du säker på att du vill ta bort den här kärnan? </translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="125"/>
-        <source>This will remove the following packages:
-</source>
-        <translation>Handlingen resulterar i avinstallation av följande paket:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="145"/>
-        <source>Removing kernel...</source>
-        <translation>Avinstallerar kärna...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="198"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="159"/>
-        <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 ändringslogg</translation>
     </message>
 </context>
 <context>
@@ -899,26 +902,26 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
         <translation>Tangentbordsinställningar</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
         <translation>Tangentbordsinställningar</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Upphovsman</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
         <translation>Fel!</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
         <source>Failed to set keyboard layout</source>
         <translation>Det gick inte att ställa in tangentbordslayouten!</translation>
@@ -927,7 +930,7 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="42"/>
+        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
         <source>Language</source>
         <translation>Språk</translation>
     </message>
@@ -979,65 +982,6 @@ Det är rekommenderat att aktivera dessa grupper. Vill du verkligen fortsätta?<
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
         <translation>Installerade språkpaket:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="37"/>
-        <source>Language Packages</source>
-        <translation>Språkpaket</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="169"/>
-        <source>Updating pacman databases...</source>
-        <translation>Uppdaterar pacmandatabaser...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation>Språkpaket</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Upphovsman</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>System is out-of-date</source>
-        <translation>Systemet behöver uppdateras</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="206"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Ditt system behöver uppdateras! Du måste uppdatera det innan du kan fortsätta!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
-        <source>Install language packages.</source>
-        <translation>Installera språkpaket.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
-        <source>Global language packages</source>
-        <translation>Globala språkpaket</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
-        <source>Installing language packages...</source>
-        <translation>Installerar språkpaket...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="146"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="148"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="117"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="119"/>
-        <source>%1 language packages</source>
-        <translation>%1 språkpaket</translation>
     </message>
 </context>
 <context>

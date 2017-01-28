@@ -222,64 +222,100 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     </message>
 </context>
 <context>
+    <name>KernelCommon</name>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <source>Install Linux %1</source>
+        <translation>Instalovat Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <source>The following packages will be installed:</source>
+        <translation>Budou instalovány následující balíčky:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <source>Remove Linux %1</source>
+        <translation>Odstranit Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <source>The following packages will be removed:</source>
+        <translation>Následující balíčky budou odstraněny:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation>Seznam změn v Linuxu %1.%2</translation>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
         <translation>Doporučené</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
         <translation>Běžící</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
         <translation>Instalované</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
         <translation>Nepodporované</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
         <translation>Real-time</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
         <translation>Seznam změn</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
         <translation>Vlastní</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
         <translation>Experimentální</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="197"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="268"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Remove</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
         <translation>Instalovat</translation>
+    </message>
+</context>
+<context>
+    <name>KernelPage</name>
+    <message>
+        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
+        <source>Kernel</source>
+        <translation>Jádro</translation>
     </message>
 </context>
 <context>
@@ -367,6 +403,59 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
         <translation>Čas</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesCommon</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <source>%1 language packages</source>
+        <translation>%1 jazykových balíčků</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <source>Global language packages</source>
+        <translation>Globální jazykové balíčky</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <source>System is out-of-date</source>
+        <translation>Systém není aktuální</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <source>Your System is not up-to-date! You have to update it first to continue!</source>
+        <translation>Váš systém není aktuální! Abyste mohli pokračovat, musíte ho nejdříve aktualizovat!</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <source>Install language packages.</source>
+        <translation>Instalovat jazykové balíčky.</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesModule</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
+        <source>Language Packages</source>
+        <comment>@title</comment>
+        <translation>Jazykové balíčky</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation>Autor</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesPage</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
+        <source>Language Packages</source>
+        <translation>Jazykové balíčky</translation>
     </message>
 </context>
 <context>
@@ -518,61 +607,44 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <translation>MHWD nainstaluje &apos;%1&apos; nastavení</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
-        <source>Installing driver...</source>
-        <translation>Instaluji ovladač...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>Install open-source graphic driver</source>
         <translation>Instalovat svobodný ovladač grafické karty</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation>MHWD automaticky nalezne a instaluje svobodný ovladač vaší grafické karty</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install proprietary graphic driver</source>
         <translation>Instalovat proprietární ovladač grafické karty</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation>MHWD automaticky nalezne a instaluje proprietární ovladač vaší grafické karty</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Reinstall configuration</source>
         <translation>Přeinstalovat nastavení</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation>MHWD přeinstaluje &apos;%1&apos; nastavení</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
-        <source>Reinstalling driver...</source>
-        <translation>Probíhá přeinstalace ovladače...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>Remove configuration</source>
         <translation>Odstranit nastavení</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation>MHWD odstraní &apos;%1&apos; nastavení</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
-        <source>Removing driver...</source>
-        <translation>Odstraňuji ovladač...</translation>
     </message>
 </context>
 <context>
@@ -606,33 +678,33 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <translation>Správce nastavení Manjaro</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="179"/>
+        <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
         <translation>Všechna nastavení</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="205"/>
-        <location filename="../../msm/MsmWindow.ui" line="229"/>
+        <location filename="../../msm/MsmWindow.ui" line="211"/>
+        <location filename="../../msm/MsmWindow.ui" line="235"/>
         <source>Quit</source>
         <translation>Ukončit</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="218"/>
+        <location filename="../../msm/MsmWindow.ui" line="224"/>
         <source>Apply</source>
         <translation>Použít</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="43"/>
+        <location filename="../../msm/MsmWindow.cpp" line="44"/>
         <source>System</source>
         <translation>Systém</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="49"/>
+        <location filename="../../msm/MsmWindow.cpp" line="50"/>
         <source>Hardware</source>
         <translation>Hardware</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="152"/>
+        <location filename="../../msm/MsmWindow.cpp" line="153"/>
         <source>Manjaro Settings</source>
         <translation>Nastavení Manjaro</translation>
     </message>
@@ -771,85 +843,16 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
 <context>
     <name>PageKernel</name>
     <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="36"/>
-        <source>Kernel</source>
-        <translation>Jádro</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
         <source>Kernel</source>
         <comment>@title</comment>
         <translation>Jádro</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="86"/>
-        <source>Install Linux %1</source>
-        <translation>Instalovat Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
-        <source>The following packages will be installed:</source>
-        <translation>Budou instalovány následující balíčky:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
-        <source>The following packages will be removed:</source>
-        <translation>Následující balíčky budou odstraněny:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
-        <source>Do you really want to install this kernel?
-</source>
-        <translation>Opravdu chcete nainstalovat tuto verzi jádra?
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="88"/>
-        <source>This will install the following packages:
-</source>
-        <translation>Chystáte se nainstalovat tyto balíčky:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="108"/>
-        <source>Installing new kernel.</source>
-        <translation>Instaluji novou verzi jádra.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="164"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="123"/>
-        <source>Remove Linux %1</source>
-        <translation>Odstranit Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="124"/>
-        <source>Do you really want to remove this kernel?</source>
-        <translation>Opravdu chcete odstranit tuto verzi jádra?</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="125"/>
-        <source>This will remove the following packages:
-</source>
-        <translation>Chystáte se odstranit tyto balíčky:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="145"/>
-        <source>Removing kernel...</source>
-        <translation>Odstraňuji jádro...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="198"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="159"/>
-        <source>Linux %1.%2 changelog</source>
-        <translation>Seznam změn v Linuxu %1.%2</translation>
     </message>
 </context>
 <context>
@@ -900,26 +903,26 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <translation>Nastavení klávesnice</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
         <translation>Nastavení klávesnice</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Autor</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
         <source>Failed to set keyboard layout</source>
         <translation>Selhalo nastavení rozložení klávesnice</translation>
@@ -928,7 +931,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="42"/>
+        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
         <source>Language</source>
         <translation>Jazyk</translation>
     </message>
@@ -980,65 +983,6 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
         <translation>Instalované jazykové balíčky:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="37"/>
-        <source>Language Packages</source>
-        <translation>Jazykové balíčky</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="169"/>
-        <source>Updating pacman databases...</source>
-        <translation>Aktualizace databází pacmanu...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation>Jazykové balíčky</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>System is out-of-date</source>
-        <translation>Systém není aktuální</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="206"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Váš systém není aktuální! Aktualizujte před pokračováním!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
-        <source>Install language packages.</source>
-        <translation>Instalovat jazykové balíčky.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
-        <source>Global language packages</source>
-        <translation>Globální jazykové balíčky</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
-        <source>Installing language packages...</source>
-        <translation>Instalace jazykových balíčků...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="146"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="148"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="117"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="119"/>
-        <source>%1 language packages</source>
-        <translation>%1 jazykových balíčků</translation>
     </message>
 </context>
 <context>

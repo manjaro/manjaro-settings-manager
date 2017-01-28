@@ -221,64 +221,100 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     </message>
 </context>
 <context>
+    <name>KernelCommon</name>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <source>Install Linux %1</source>
+        <translation>Zainstaluj Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <source>The following packages will be installed:</source>
+        <translation>Następujące pakiety zostaną zainstalowane:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <source>Remove Linux %1</source>
+        <translation>Usuń Linux %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <source>The following packages will be removed:</source>
+        <translation>Następujące pakiety zostaną usunięte:</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation>Lista zmian Linux %1.%2</translation>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
         <translation>Długi okres wsparcia</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
         <translation>Polecany</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
         <translation>Działający</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
         <translation>Zainstalowany</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
         <translation>Niewspierany</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
         <translation>W czasie rzeczywistym</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
         <translation>Lista zmian</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
         <translation>Własny</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
         <translation>Eksperymentalny</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="197"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="268"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Remove</source>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
         <translation>Zainstaluj</translation>
+    </message>
+</context>
+<context>
+    <name>KernelPage</name>
+    <message>
+        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
+        <source>Kernel</source>
+        <translation>Jądro</translation>
     </message>
 </context>
 <context>
@@ -366,6 +402,59 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
         <translation>Czas</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesCommon</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <source>%1 language packages</source>
+        <translation>%1 Pakietów językowych</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <source>Global language packages</source>
+        <translation>Pakiety ogólnojęzykowe</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <source>System is out-of-date</source>
+        <translation>System jest nieaktualny</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <source>Your System is not up-to-date! You have to update it first to continue!</source>
+        <translation>Twój system jest nieaktualny. Zaktualizuj go, aby kontynuować!</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <source>Install language packages.</source>
+        <translation>Zainstaluj pakiety językowe.</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesModule</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
+        <source>Language Packages</source>
+        <comment>@title</comment>
+        <translation>Pakiety Językowe</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation>Autor</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesPage</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
+        <source>Language Packages</source>
+        <translation>Pakiety Językowe</translation>
     </message>
 </context>
 <context>
@@ -517,61 +606,44 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <translation>MHWD zainstaluje konfigurację &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
-        <source>Installing driver...</source>
-        <translation>Instalowanie sterownika...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>Install open-source graphic driver</source>
         <translation>Zainstaluj otwartoźródłowy sterownik graficzny</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation>MHWD automatycznie wykryje otwartoźródłowe sterowniki dla Twojej karty graficznej i je zainstaluje</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install proprietary graphic driver</source>
         <translation>Zainstaluj własnościowy sterownik graficzny</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation>MHWD automatycznie wykryje własnościowe sterowniki dla Twojej karty graficznej i je zainstaluje</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Reinstall configuration</source>
         <translation>Przeinstaluj konfigurację</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation>MHWD przeinstaluje konfigurację &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
-        <source>Reinstalling driver...</source>
-        <translation>Przeinstalowanie sterownika...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>Remove configuration</source>
         <translation>Usuń konfigurację</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation>MHWD usunie konfigurację &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
-        <source>Removing driver...</source>
-        <translation>Usuwanie sterownika...</translation>
     </message>
 </context>
 <context>
@@ -605,33 +677,33 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <translation>Menedżer ustawień Manjaro</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="179"/>
+        <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
         <translation>Wszystkie ustawienia</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="205"/>
-        <location filename="../../msm/MsmWindow.ui" line="229"/>
+        <location filename="../../msm/MsmWindow.ui" line="211"/>
+        <location filename="../../msm/MsmWindow.ui" line="235"/>
         <source>Quit</source>
         <translation>Zakończ</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="218"/>
+        <location filename="../../msm/MsmWindow.ui" line="224"/>
         <source>Apply</source>
         <translation>Zastosuj</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="43"/>
+        <location filename="../../msm/MsmWindow.cpp" line="44"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="49"/>
+        <location filename="../../msm/MsmWindow.cpp" line="50"/>
         <source>Hardware</source>
         <translation>Sprzęt</translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="152"/>
+        <location filename="../../msm/MsmWindow.cpp" line="153"/>
         <source>Manjaro Settings</source>
         <translation>Ustawienia Manjaro</translation>
     </message>
@@ -770,85 +842,16 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
 <context>
     <name>PageKernel</name>
     <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="36"/>
-        <source>Kernel</source>
-        <translation>Jądro</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
         <source>Kernel</source>
         <comment>@title</comment>
         <translation>Jądro</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="86"/>
-        <source>Install Linux %1</source>
-        <translation>Zainstaluj Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
-        <source>The following packages will be installed:</source>
-        <translation>Następujące pakiety zostaną zainstalowane:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
-        <source>The following packages will be removed:</source>
-        <translation>Następujące pakiety zostaną usunięte:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
-        <source>Do you really want to install this kernel?
-</source>
-        <translation>Czy na pewno chcesz zainstalować to jądro?
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="88"/>
-        <source>This will install the following packages:
-</source>
-        <translation>Zostaną zainstalowane następujące pakiety:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="108"/>
-        <source>Installing new kernel.</source>
-        <translation>Instalowanie nowego jądra.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="164"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="123"/>
-        <source>Remove Linux %1</source>
-        <translation>Usuń Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="124"/>
-        <source>Do you really want to remove this kernel?</source>
-        <translation>Czy na pewno chcesz usunąć to jądro?</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="125"/>
-        <source>This will remove the following packages:
-</source>
-        <translation>Zostaną usunięte następujące pakiety:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="145"/>
-        <source>Removing kernel...</source>
-        <translation>Usuwanie jądra...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="198"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="159"/>
-        <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 - lista zmian</translation>
     </message>
 </context>
 <context>
@@ -899,26 +902,26 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <translation>Ustawienia klawiatury</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
         <translation>Ustawienia klawiatury</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation>Autor</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
         <translation>Błąd!</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
         <source>Failed to set keyboard layout</source>
         <translation>Wystąpił błąd przy ustawianiu układu klawiatury</translation>
@@ -927,7 +930,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="42"/>
+        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
         <source>Language</source>
         <translation>Język</translation>
     </message>
@@ -979,65 +982,6 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
         <translation>Zainstalowane pakiety językowe:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="37"/>
-        <source>Language Packages</source>
-        <translation>Pakiety językowe</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="169"/>
-        <source>Updating pacman databases...</source>
-        <translation>Aktualizowanie bazy danych pacman&apos;a...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation>Pakiety językowe</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>System is out-of-date</source>
-        <translation>System wymaga aktualizacji</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="206"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Twój system wymaga aktualizacji! Zaktualizuj go, aby kontynuować!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
-        <source>Install language packages.</source>
-        <translation>Zainstaluj pakiety językowe.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
-        <source>Global language packages</source>
-        <translation>Pakiety ogólnojęzykowe</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
-        <source>Installing language packages...</source>
-        <translation>Instalowanie pakietów językowych...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="146"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="148"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="117"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="119"/>
-        <source>%1 language packages</source>
-        <translation>Pakietów językowych: %1</translation>
     </message>
 </context>
 <context>

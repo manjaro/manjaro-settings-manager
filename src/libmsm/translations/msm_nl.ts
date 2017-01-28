@@ -221,64 +221,100 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     </message>
 </context>
 <context>
+    <name>KernelCommon</name>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <source>Install Linux %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <source>The following packages will be installed:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <source>Remove Linux %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <source>The following packages will be removed:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <source>Linux %1.%2 changelog</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>KernelListViewDelegate</name>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
         <translation>LTS</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
         <translation>Aanbevolen</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
         <translation>Actief</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
         <translation>Geïnstalleerd</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
         <translation>Niet ondersteund</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
         <translation>Changelog</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
         <translation>Custom</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
         <translation>Experimenteel</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="197"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="268"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Remove</source>
         <translation>Verwijder</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
-        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
+        <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
         <translation>Installeer</translation>
+    </message>
+</context>
+<context>
+    <name>KernelPage</name>
+    <message>
+        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -366,6 +402,59 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
         <translation>Tijd</translation>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesCommon</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <source>%1 language packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <source>Global language packages</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <source>System is out-of-date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <source>Your System is not up-to-date! You have to update it first to continue!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <source>Install language packages.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesModule</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
+        <source>Language Packages</source>
+        <comment>@title</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
+        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
+        <source>Author</source>
+        <comment>@info:credit</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LanguagePackagesPage</name>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
+        <source>Language Packages</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -517,60 +606,43 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="150"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="193"/>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="236"/>
-        <source>Installing driver...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="163"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>Install open-source graphic driver</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="164"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install proprietary graphic driver</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="207"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="249"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Reinstall configuration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="280"/>
-        <source>Reinstalling driver...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="293"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>Remove configuration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="294"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="324"/>
-        <source>Removing driver...</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -605,33 +677,33 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="179"/>
+        <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="205"/>
-        <location filename="../../msm/MsmWindow.ui" line="229"/>
+        <location filename="../../msm/MsmWindow.ui" line="211"/>
+        <location filename="../../msm/MsmWindow.ui" line="235"/>
         <source>Quit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="218"/>
+        <location filename="../../msm/MsmWindow.ui" line="224"/>
         <source>Apply</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="43"/>
+        <location filename="../../msm/MsmWindow.cpp" line="44"/>
         <source>System</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="49"/>
+        <location filename="../../msm/MsmWindow.cpp" line="50"/>
         <source>Hardware</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="152"/>
+        <location filename="../../msm/MsmWindow.cpp" line="153"/>
         <source>Manjaro Settings</source>
         <translation type="unfinished"/>
     </message>
@@ -770,85 +842,16 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
 <context>
     <name>PageKernel</name>
     <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="36"/>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="50"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
         <source>Kernel</source>
         <comment>@title</comment>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="56"/>
+        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="127"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="86"/>
-        <source>Install Linux %1</source>
-        <translation>Installeer Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="128"/>
-        <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="165"/>
-        <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="87"/>
-        <source>Do you really want to install this kernel?
-</source>
-        <translation>Wil je deze kernel echt installeren?
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="88"/>
-        <source>This will install the following packages:
-</source>
-        <translation>Volgende pakketten zullen geïnstalleerd worden:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="108"/>
-        <source>Installing new kernel.</source>
-        <translation>Installeren van nieuwe kernel.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="164"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="123"/>
-        <source>Remove Linux %1</source>
-        <translation>Verwijderen Linux %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="124"/>
-        <source>Do you really want to remove this kernel?</source>
-        <translation>Wil je deze kernel echt verwijderen?</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="125"/>
-        <source>This will remove the following packages:
-</source>
-        <translation>Volgende pakketten zullen verwijderd worden:
-</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="145"/>
-        <source>Removing kernel...</source>
-        <translation>Verwijderen kernel...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="198"/>
-        <location filename="../../modules/kernel/PageKernel.cpp" line="159"/>
-        <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 changelog</translation>
     </message>
 </context>
 <context>
@@ -899,26 +902,26 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <translation>Toetsenbord Instellingen</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="50"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
         <source>Keyboard Settings</source>
         <comment>@title</comment>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="57"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="60"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
         <source>Author</source>
         <comment>@info:credit</comment>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="269"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
         <source>Error!</source>
         <translation>Fout!</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="270"/>
+        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
         <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
         <source>Failed to set keyboard layout</source>
         <translation>Mislukt bij instellen toetsenbord opmaak</translation>
@@ -927,7 +930,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
 <context>
     <name>PageLanguage</name>
     <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="42"/>
+        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
         <source>Language</source>
         <translation>Taal</translation>
     </message>
@@ -979,65 +982,6 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
         <translation>Geïnstalleerde Taalpakketten:</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="37"/>
-        <source>Language Packages</source>
-        <translation>Taalpakketten</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="169"/>
-        <source>Updating pacman databases...</source>
-        <translation>Updaten pacman databases...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="60"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="63"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="205"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>System is out-of-date</source>
-        <translation>Systeem is out-of-date</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="206"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="180"/>
-        <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Je Systeem is niet up-to-date! Update alvorens verder te gaan!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="237"/>
-        <source>Install language packages.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="256"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="212"/>
-        <source>Global language packages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="200"/>
-        <source>Installing language packages...</source>
-        <translation>Taalpakketten installeren...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="146"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="148"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="117"/>
-        <location filename="../../modules/language_packages/PageLanguagePackages.cpp" line="119"/>
-        <source>%1 language packages</source>
-        <translation>%1 taalpakketten</translation>
     </message>
 </context>
 <context>
