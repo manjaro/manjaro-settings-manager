@@ -17,6 +17,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "MsmCommon.h"
 #include "TimeDateCommon.h"
 #include "TimeZoneDialog.h"
 #include "TimeDateModule.h"
@@ -53,9 +54,7 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
                                             "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
                           QStringLiteral( "ramon@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(),
-                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
-                                    .arg( "https://bugs.manjaro.org/" ) );
+    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );
 

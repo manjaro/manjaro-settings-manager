@@ -18,6 +18,7 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "MsmCommon.h"
 #include "UsersModule.h"
 #include "ui_PageUsers.h"
 
@@ -48,9 +49,7 @@ UsersModule::UsersModule( QWidget* parent, const QVariantList& args ) :
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
                           QStringLiteral( "roland@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(),
-                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
-                                    .arg( "https://bugs.manjaro.org/" ) );
+    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

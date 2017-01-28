@@ -18,25 +18,18 @@
  */
 
 #include "KernelCommon.h"
-#include "KernelModule.h"
-#include "ui_PageKernel.h"
 #include "KernelListViewDelegate.h"
+#include "KernelModule.h"
+#include "MsmCommon.h"
+#include "ui_PageKernel.h"
 
-#include <limits>
 #include <KAboutData>
-#include <KAuth>
-#include <KAuthAction>
+#include <KPluginFactory>
 
-#include <QtCore/QProcess>
-#include <QtCore/QSettings>
-
-#include <QDebug>
 #include <QTranslator>
 
-#include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmKernelFactory,
                   registerPlugin<PageKernel>( KernelCommon::getName() ); )
-
 PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
     KCModule( parent, args ),
     ui( new Ui::PageKernel ),
@@ -55,9 +48,7 @@ PageKernel::PageKernel( QWidget* parent, const QVariantList& args ) :
                                             "(c) 2014 - 2017 Manjaro Settings Manager developers" );
     aboutData->addAuthor( "Ramon Buldó",
                           QStringLiteral( "ramon@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(),
-                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
-                                    .arg( "https://bugs.manjaro.org/" ) );
+    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

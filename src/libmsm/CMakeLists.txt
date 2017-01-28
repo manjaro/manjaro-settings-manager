@@ -27,6 +27,7 @@ set(LIBMSM_SRCS
     LanguagePackages.cpp
     LanguagePackagesItem.cpp
     ListWidget.cpp
+    MsmCommon.cpp
     NotifierSettingsDialog.cpp
     PacmanUtils.cpp
     PageWidget.cpp)

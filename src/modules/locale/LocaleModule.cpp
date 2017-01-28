@@ -20,6 +20,7 @@
 
 #include "LocaleCommon.h"
 #include "LocaleModule.h"
+#include "MsmCommon.h"
 #include "ui_LocaleModule.h"
 
 #include <KAboutData>
@@ -56,7 +57,7 @@ LocaleModule::LocaleModule( QWidget* parent, const QVariantList& args ) :
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
                           QStringLiteral( "roland@manjaro.org" ) );
-
+    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );
 

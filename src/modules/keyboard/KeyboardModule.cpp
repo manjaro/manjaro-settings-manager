@@ -20,17 +20,17 @@
 
 #include "KeyboardCommon.h"
 #include "KeyboardModule.h"
+#include "MsmCommon.h"
 #include "ui_PageKeyboard.h"
 
 #include <KAboutData>
 #include <KPluginFactory>
 
-#include <QtCore/QMapIterator>
 #include <QTranslator>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
-#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 
 #include <QDebug>
 
@@ -59,9 +59,7 @@ KeyboardModule::KeyboardModule( QWidget* parent, const QVariantList& args ) :
                           QStringLiteral( "ramon@manjaro.org" ) );
     aboutData->addAuthor( "Roland Singer",
                           QStringLiteral( "roland@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(),
-                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
-                                    .arg( "https://bugs.manjaro.org/" ) );
+    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::Default | KCModule::Apply );
     // hide restore button as it isn't connected or used in kcmodule.

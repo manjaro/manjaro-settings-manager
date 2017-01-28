@@ -20,14 +20,15 @@
 
 #include "LanguagePackagesCommon.h"
 #include "LanguagePackagesModule.h"
+#include "MsmCommon.h"
 #include "ui_PageLanguagePackages.h"
 
 #include <KAboutData>
+#include <KPluginFactory>
 
 #include <QtCore/QDebug>
 #include <QtCore/QTranslator>
 
-#include <KPluginFactory>
 K_PLUGIN_FACTORY( MsmLanguagePackagesFactory,
                   registerPlugin<LanguagePackagesModule>( LanguagePackagesCommon::getName() ); )
 
@@ -51,9 +52,7 @@ LanguagePackagesModule::LanguagePackagesModule( QWidget* parent, const QVariantL
                           QStringLiteral( "rbuldo@gmail.com" ) );
     aboutData->addAuthor( "Roland Singer",
                           QStringLiteral( "roland@manjaro.org" ) );
-    aboutData->setCustomAuthorText( QString(),
-                                    tr( "Please use <a href='%1'>%1</a> to report bugs." )
-                                    .arg( "https://bugs.manjaro.org/" ) );
+    aboutData->setCustomAuthorText( QString(), MsmCommon::getBugReportLink() );
     setAboutData( aboutData );
     setButtons( KCModule::NoAdditionalButton );
 

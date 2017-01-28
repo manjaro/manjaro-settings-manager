@@ -22,11 +22,9 @@
 #include "KeyboardPage.h"
 #include "ui_PageKeyboard.h"
 
-#include <QtCore/QMapIterator>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
-#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 
 #include <QDebug>
