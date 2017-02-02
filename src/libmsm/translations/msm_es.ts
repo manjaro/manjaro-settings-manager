@@ -574,7 +574,7 @@ Se recomienda activar estos grupos. ¿Realmente quiere continuar?</translation>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation>interfaz gráfica de usuario para Manjaro Hardware Detection</translation>
+        <translation>Interfaz gráfica de usuario para Manjaro Hardware Detection</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
