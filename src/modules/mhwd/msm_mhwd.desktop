@@ -13,7 +13,7 @@ X-KDE-Keywords=hardware
 X-KDE-Keywords[x-test]=xxhardwarexx
 Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
-Name=Hardware Detection
+Name=Hardware Configuration
 Name[ca]=Configuració del maquinari
 Name[de]=Hardwarekonfiguration
 Name[el]=Ρύθμιση υλικού
@@ -42,7 +42,7 @@ Name[ru]=Конфигурация оборудования
 Name[sl]=Strojna nastavitev
 Name[uk]=Конфігурація обладнання
 
-Comment=Hardware detection and installation
+Comment=Manjaro Hardware Detection graphical user interface
 Comment[ca]=Interfície d&apos;usuari gràfica per a la Detecció de maquinari del Manjaro
 Comment[de]=Grafische Benutzeroberfläche der Manjaro-Hardwareerkennung
 Comment[es]=interfaz gráfica de usuario para Manjaro Hardware Detection
