@@ -146,41 +146,6 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
     </message>
 </context>
 <context>
-    <name>ApplyDialog</name>
-    <message>
-        <location filename="../ApplyDialog.ui" line="14"/>
-        <source>Processing...</source>
-        <translation>Spracovávanie...</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.ui" line="46"/>
-        <source>Cancel</source>
-        <translation>Zrušiť</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.ui" line="53"/>
-        <location filename="../ApplyDialog.cpp" line="56"/>
-        <source>Close</source>
-        <translation>Zavrieť</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="100"/>
-        <source>Process finished!</source>
-        <translation>Proces je dokončený!</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="107"/>
-        <location filename="../ApplyDialog.cpp" line="120"/>
-        <source>Close (%1)</source>
-        <translation>Zavrieť (%1)</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="112"/>
-        <source>Process failed!</source>
-        <translation>Proces zlyhal!</translation>
-    </message>
-</context>
-<context>
     <name>ChangePasswordDialog</name>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
@@ -223,27 +188,37 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
 <context>
     <name>KernelCommon</name>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
+        <source>Kernel</source>
+        <translation>Jadro</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
+        <source>Add and remove manjaro kernels</source>
+        <translation>Pridanie a odstránenie jadier systému Manjaro</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
         <translation>Inštalovať Linux %1</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
         <translation>Nasledovné balíky budú nainštalované:</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
         <translation>Odstrániť Linux %1</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
         <translation>Nasledovné balíky budú odstránené:</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Zoznam zmien pre Linux %1.%2</translation>
     </message>
@@ -310,25 +285,40 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
     </message>
 </context>
 <context>
-    <name>KernelPage</name>
+    <name>KeyboardCommon</name>
     <message>
-        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
-        <source>Kernel</source>
-        <translation>Jadro</translation>
+        <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
+        <source>Keyboard Settings</source>
+        <translation>Nastavenia klávesnice</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
+        <source>Keyboard settings</source>
+        <translation>Zmena nastavení klávesnice</translation>
     </message>
 </context>
 <context>
     <name>KeyboardModel</name>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="210"/>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="254"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="220"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="264"/>
         <source>Default</source>
         <translation>Predvolené</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="296"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="306"/>
         <source>Default Keyboard Model</source>
         <translation>Predvolený model klávesnice</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
+        <source>Error!</source>
+        <translation>Chyba!</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
+        <source>Failed to set keyboard layout</source>
+        <translation>Zlyhalo nastavenie rozloženia klávesnice</translation>
     </message>
 </context>
 <context>
@@ -407,54 +397,53 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
 <context>
     <name>LanguagePackagesCommon</name>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
+        <source>Language Packages</source>
+        <translation>Jazykové balíky</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
+        <source>Detection and installation of language packages</source>
+        <translation>Rozpoznanie a inštalácia jazykových balíkov</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
         <translation>Jazykové balíky pre jazyk %1</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
         <translation>Globálne jazykové balíky</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
         <translation>Systém nie je aktuálny</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
         <translation>Váš systém nie je aktuálny! Pre pokračovanie ho musíte najskôr aktualizovať!</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
         <translation>Inštalovanie jazykových balíkov.</translation>
     </message>
 </context>
 <context>
-    <name>LanguagePackagesModule</name>
+    <name>LocaleCommon</name>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation>Jazykové balíky</translation>
+        <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
+        <source>Locale Settings</source>
+        <translation>Miestne nastavenia</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-</context>
-<context>
-    <name>LanguagePackagesPage</name>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
-        <source>Language Packages</source>
-        <translation>Jazykové balíky</translation>
+        <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
+        <source>Add and configure locales</source>
+        <translation>Pridanie a zmena miestnych nastavení</translation>
     </message>
 </context>
 <context>
@@ -574,99 +563,81 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
         <source>Set as default format</source>
         <translation>Nastaviť ako predvolený formát </translation>
     </message>
-    <message>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
-        <source>Locale Settings</source>
-        <comment>@title</comment>
-        <translation>Miestne nastavenia</translation>
-    </message>
-    <message>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
 </context>
 <context>
     <name>MhwdCommon</name>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
+        <source>Hardware Configuration</source>
+        <translation>Konfigurácia hardvéru</translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
+        <source>Manjaro Hardware Detection graphical user interface</source>
+        <translation>Grafické rozhranie pre rozpoznanie hardvéru systému Manjaro</translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
         <translation>Neznámy názov zariadenia</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
         <source>Install configuration</source>
         <translation>Inštalovanie konfigurácie</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
         <translation>MHWD nainštaluje konfiguráciu „%1“</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install open-source graphic driver</source>
         <translation>Inštalácia grafického ovládača s otvoreným zdrojom</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation>MHWD automaticky rozpozná vaše grafické ovládače s otvoreným zdrojom a nainštaluje ich</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Install proprietary graphic driver</source>
         <translation>Inštalácia grafického ovládača s uzavretým zdrojom</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation>MHWD automaticky rozpozná vaše grafické ovládače s uzavretým zdrojom a nainštaluje ich</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>
         <source>Reinstall configuration</source>
         <translation>Preinštalovanie konfigurácie</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation>MHWD preinštaluje konfiguráciu „%1“</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
         <source>Remove configuration</source>
         <translation>Odstrániť konfiguráciu</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation>MHWD odstráni konfiguráciu „%1“</translation>
     </message>
 </context>
 <context>
-    <name>MhwdModule</name>
+    <name>MsmCommon</name>
     <message>
-        <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
-        <source>Hardware Configuration</source>
-        <comment>@title</comment>
-        <translation>Konfigurácia hardvéru</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-</context>
-<context>
-    <name>MhwdPage</name>
-    <message>
-        <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
-        <source>Hardware Detection</source>
-        <translation>Rozpoznanie hardvéru</translation>
+        <location filename="../MsmCommon.cpp" line="26"/>
+        <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
+        <translation>Prosím, chyby nahláste na adrese &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -840,21 +811,6 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
     </message>
 </context>
 <context>
-    <name>PageKernel</name>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
-        <source>Kernel</source>
-        <comment>@title</comment>
-        <translation>Jadro</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-</context>
-<context>
     <name>PageKeyboard</name>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="25"/>
@@ -895,44 +851,6 @@ Odporúča sa povoliť tieto skupiny. Naozaj chcete pokračovať?</translation>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
         <translation>Nastaví rýchlosť</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
-        <source>Keyboard Settings</source>
-        <translation>Nastavenia klávesnice</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
-        <source>Keyboard Settings</source>
-        <comment>@title</comment>
-        <translation>Nastavenia klávesnice</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
-        <source>Error!</source>
-        <translation>Chyba!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
-        <source>Failed to set keyboard layout</source>
-        <translation>Zlyhalo nastavenie rozloženia klávesnice</translation>
-    </message>
-</context>
-<context>
-    <name>PageLanguage</name>
-    <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
-        <source>Language</source>
-        <translation>Jazyk</translation>
     </message>
 </context>
 <context>
@@ -1207,42 +1125,19 @@ ovládač s uzavretým zdrojom</translation>
 <context>
     <name>TimeDateCommon</name>
     <message>
-        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
+        <source>Time and Date</source>
+        <translation>Čas a dátum</translation>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
+        <source>Time and date configuration</source>
+        <translation>Nastavenie času a dátumu</translation>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
         <source>none</source>
         <translation>žiadne</translation>
-    </message>
-</context>
-<context>
-    <name>TimeDateModule</name>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="49"/>
-        <source>Time and Date</source>
-        <comment>@title</comment>
-        <translation>Čas a dátum</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
-        <source>Time and date configuration.</source>
-        <translation>Konfigurácia času a dátumu.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
-        <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation>Prosím, chyby nahláste na adrese &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt;.</translation>
-    </message>
-</context>
-<context>
-    <name>TimeDatePage</name>
-    <message>
-        <location filename="../../modules/timedate/TimeDatePage.cpp" line="40"/>
-        <source>Time and Date</source>
-        <translation>Čas a dátum</translation>
     </message>
 </context>
 <context>
@@ -1266,79 +1161,65 @@ ovládač s uzavretým zdrojom</translation>
 <context>
     <name>UsersCommon</name>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
+        <source>User Accounts</source>
+        <translation>Používateľské účty</translation>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
+        <source>User accounts configuration</source>
+        <translation>Nastavenie používateľských účtov</translation>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="135"/>
         <source>Continue?</source>
         <translation>Pokračovať?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="136"/>
         <source>Do you really want to remove the user %1?</source>
         <translation>Skutočne chcete odstrániť používateľa %1?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="143"/>
         <source>Remove Home?</source>
         <translation>Odstrániť domovský priečinok?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="144"/>
         <source>Do you want to remove the home folder of the user %1?</source>
         <translation>Skutočne chcete odstrániť domovskú zložku používateľa %1?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
-        <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="166"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="236"/>
         <source>Error!</source>
         <translation>Chyba!</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="167"/>
         <source>Failed to remove user %1</source>
         <translation>Zlyhalo odstránenie používateľa %1</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="183"/>
         <source>Images (*.png *.jpg *.bmp)</source>
         <translation>Obrázky (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="237"/>
         <source>Failed to change user image</source>
         <translation>Zlyhala zmena obrázku používateľa</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="248"/>
         <source>Standard</source>
         <translation>Bežný</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="267"/>
         <source>Administrator</source>
         <translation>Správca</translation>
-    </message>
-</context>
-<context>
-    <name>UsersModule</name>
-    <message>
-        <location filename="../../modules/users/UsersModule.cpp" line="42"/>
-        <source>User Accounts</source>
-        <comment>@title</comment>
-        <translation>Používateľské účty</translation>
-    </message>
-    <message>
-        <location filename="../../modules/users/UsersModule.cpp" line="48"/>
-        <location filename="../../modules/users/UsersModule.cpp" line="51"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-</context>
-<context>
-    <name>UsersPage</name>
-    <message>
-        <location filename="../../modules/users/UsersPage.cpp" line="32"/>
-        <source>User Accounts</source>
-        <translation>Používateľské účty</translation>
     </message>
 </context>
 </TS>

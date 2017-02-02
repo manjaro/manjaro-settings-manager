@@ -146,41 +146,6 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     </message>
 </context>
 <context>
-    <name>ApplyDialog</name>
-    <message>
-        <location filename="../ApplyDialog.ui" line="14"/>
-        <source>Processing...</source>
-        <translation>Elaborazione in corso...</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.ui" line="46"/>
-        <source>Cancel</source>
-        <translation>Cancella</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.ui" line="53"/>
-        <location filename="../ApplyDialog.cpp" line="56"/>
-        <source>Close</source>
-        <translation>Chiudi</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="100"/>
-        <source>Process finished!</source>
-        <translation>Processo finito!</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="107"/>
-        <location filename="../ApplyDialog.cpp" line="120"/>
-        <source>Close (%1)</source>
-        <translation>Chiudi (%1)</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="112"/>
-        <source>Process failed!</source>
-        <translation>Processo non riuscito!</translation>
-    </message>
-</context>
-<context>
     <name>ChangePasswordDialog</name>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
@@ -223,27 +188,37 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>KernelCommon</name>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
+        <source>Kernel</source>
+        <translation>Kernel</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
+        <source>Add and remove manjaro kernels</source>
+        <translation>Aggiungi e rimuovi i kernel di Manjaro</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
         <translation>Installa Linux %1</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
         <translation>I seguenti pacchetti verranno installati:</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
         <translation>Rimuovi Linux %1</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
         <translation>I seguenti pacchetti verranno rimossi:</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Linux %1.%2 changelog</translation>
     </message>
@@ -310,25 +285,40 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     </message>
 </context>
 <context>
-    <name>KernelPage</name>
+    <name>KeyboardCommon</name>
     <message>
-        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
+        <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
+        <source>Keyboard Settings</source>
+        <translation>Impostazioni Tastiera</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
+        <source>Keyboard settings</source>
+        <translation>Impostazioni della tastiera</translation>
     </message>
 </context>
 <context>
     <name>KeyboardModel</name>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="210"/>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="254"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="220"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="264"/>
         <source>Default</source>
         <translation>Predeterminato</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="296"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="306"/>
         <source>Default Keyboard Model</source>
         <translation>Modello di tastiera predeterminato</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
+        <source>Error!</source>
+        <translation>Errore!</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
+        <source>Failed to set keyboard layout</source>
+        <translation>Impossibile impostare il layout della tastiera</translation>
     </message>
 </context>
 <context>
@@ -407,54 +397,53 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
 <context>
     <name>LanguagePackagesCommon</name>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
+        <source>Language Packages</source>
+        <translation>Pacchetti Linguistici</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
+        <source>Detection and installation of language packages</source>
+        <translation>Rilevamento ed installazione dei pacchetti linguistici</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
         <translation>%1 pacchetti linguistici</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
         <translation>Pacchetti linguistici globali</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
         <translation>Il sistema è obsoleto</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
         <translation>Il tuo sistema non è aggiornato! Devi aggiornare prima di continuare!</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
         <translation>Installa i pacchetti linguistici.</translation>
     </message>
 </context>
 <context>
-    <name>LanguagePackagesModule</name>
+    <name>LocaleCommon</name>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation>Pacchetti Linguistici</translation>
+        <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
+        <source>Locale Settings</source>
+        <translation>Impostazioni di Localizzazione</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autore</translation>
-    </message>
-</context>
-<context>
-    <name>LanguagePackagesPage</name>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
-        <source>Language Packages</source>
-        <translation>Pacchetti Linguistici</translation>
+        <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
+        <source>Add and configure locales</source>
+        <translation>Aggiungi e configura le localizzazioni</translation>
     </message>
 </context>
 <context>
@@ -574,99 +563,81 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <source>Set as default format</source>
         <translation>Imposta come formato predefinito</translation>
     </message>
-    <message>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
-        <source>Locale Settings</source>
-        <comment>@title</comment>
-        <translation>Impostazioni locali</translation>
-    </message>
-    <message>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autore</translation>
-    </message>
 </context>
 <context>
     <name>MhwdCommon</name>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
+        <source>Hardware Configuration</source>
+        <translation>Configurazione Hardware</translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
+        <source>Manjaro Hardware Detection graphical user interface</source>
+        <translation>Interfaccia grafica di Manjaro Hardware Detection</translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
         <translation>Nome del dispositivo sconosciuto</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
         <source>Install configuration</source>
         <translation>Installa configurazione</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
         <translation>MHWD installerà la configurazione &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install open-source graphic driver</source>
         <translation>Installazione driver grafici open-source</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation>MHWD rileverà e installerà automaticamente i driver grafici open-source</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Install proprietary graphic driver</source>
         <translation>Installa i driver grafici proprietari</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation>MHWD rileverà e installerà automaticamente i driver grafici proprietari</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>
         <source>Reinstall configuration</source>
         <translation>Reinstalla la configurazione</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation>MHWD reinstallerà la configurazione &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
         <source>Remove configuration</source>
         <translation>Rimuovi configurazione</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation>MHWD rimuoverà la configurazione &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
-    <name>MhwdModule</name>
+    <name>MsmCommon</name>
     <message>
-        <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
-        <source>Hardware Configuration</source>
-        <comment>@title</comment>
-        <translation>Configurazione hardware</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autore</translation>
-    </message>
-</context>
-<context>
-    <name>MhwdPage</name>
-    <message>
-        <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
-        <source>Hardware Detection</source>
-        <translation>Rilevamento hardware</translation>
+        <location filename="../MsmCommon.cpp" line="26"/>
+        <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
+        <translation>Si prega di utilizzare &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; per segnalare bug.</translation>
     </message>
 </context>
 <context>
@@ -750,7 +721,7 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation><numerusform>%n nuovo pacchetto(i) di lingua aggiuntivo disponibile</numerusform><numerusform>%n nuovo pacchetto(i) di lingua aggiuntivo disponibile</numerusform></translation>
+        <translation><numerusform>%n nuovo pacchetto di lingua aggiuntivo disponibile</numerusform><numerusform>%n nuovi pacchetti di lingua aggiuntivi disponibili</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
@@ -840,21 +811,6 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
     </message>
 </context>
 <context>
-    <name>PageKernel</name>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
-        <source>Kernel</source>
-        <comment>@title</comment>
-        <translation>Kernel</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autore</translation>
-    </message>
-</context>
-<context>
     <name>PageKeyboard</name>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="25"/>
@@ -895,44 +851,6 @@ Si consiglia di abilitare questi gruppi. Vuoi davvero continuare?</translation>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
         <translation>Imposta frequenza</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
-        <source>Keyboard Settings</source>
-        <translation>Impostazioni della tastiera</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
-        <source>Keyboard Settings</source>
-        <comment>@title</comment>
-        <translation>Impostazioni della tastiera</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autore</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
-        <source>Error!</source>
-        <translation>Errore!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
-        <source>Failed to set keyboard layout</source>
-        <translation>Impossibile impostare il layout della tastiera</translation>
-    </message>
-</context>
-<context>
-    <name>PageLanguage</name>
-    <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
-        <source>Language</source>
-        <translation>Lingua</translation>
     </message>
 </context>
 <context>
@@ -1207,42 +1125,19 @@ Driver proprietario</translation>
 <context>
     <name>TimeDateCommon</name>
     <message>
-        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
+        <source>Time and Date</source>
+        <translation>Data e Ora</translation>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
+        <source>Time and date configuration</source>
+        <translation>Configurazione di data e ora</translation>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
         <source>none</source>
         <translation>nessuna</translation>
-    </message>
-</context>
-<context>
-    <name>TimeDateModule</name>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="49"/>
-        <source>Time and Date</source>
-        <comment>@title</comment>
-        <translation>Data e Ora</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
-        <source>Time and date configuration.</source>
-        <translation>Configurazione di data e ora.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autore</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
-        <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation>Per favore utilizzare &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; per segnalare bug.</translation>
-    </message>
-</context>
-<context>
-    <name>TimeDatePage</name>
-    <message>
-        <location filename="../../modules/timedate/TimeDatePage.cpp" line="40"/>
-        <source>Time and Date</source>
-        <translation>Data e Ora</translation>
     </message>
 </context>
 <context>
@@ -1266,79 +1161,65 @@ Driver proprietario</translation>
 <context>
     <name>UsersCommon</name>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
+        <source>User Accounts</source>
+        <translation>Account Utenti</translation>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
+        <source>User accounts configuration</source>
+        <translation>Configurazione account utenti</translation>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="135"/>
         <source>Continue?</source>
         <translation>Continuare?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="136"/>
         <source>Do you really want to remove the user %1?</source>
         <translation>Vuoi davvero rimuovere l&apos;utente %1?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="143"/>
         <source>Remove Home?</source>
         <translation>Rimuovere Home?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="144"/>
         <source>Do you want to remove the home folder of the user %1?</source>
         <translation>Vuoi rimuovere la cartella home dell&apos;utente %1?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
-        <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="166"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="236"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="167"/>
         <source>Failed to remove user %1</source>
         <translation>Impossibile rimuovere l&apos;utente %1!</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="183"/>
         <source>Images (*.png *.jpg *.bmp)</source>
         <translation>Immagini (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="237"/>
         <source>Failed to change user image</source>
         <translation>Impossibile modificare l&apos;immagine dell&apos;utente</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="248"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="267"/>
         <source>Administrator</source>
         <translation>Amministratore</translation>
-    </message>
-</context>
-<context>
-    <name>UsersModule</name>
-    <message>
-        <location filename="../../modules/users/UsersModule.cpp" line="42"/>
-        <source>User Accounts</source>
-        <comment>@title</comment>
-        <translation>Account utenti</translation>
-    </message>
-    <message>
-        <location filename="../../modules/users/UsersModule.cpp" line="48"/>
-        <location filename="../../modules/users/UsersModule.cpp" line="51"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autore</translation>
-    </message>
-</context>
-<context>
-    <name>UsersPage</name>
-    <message>
-        <location filename="../../modules/users/UsersPage.cpp" line="32"/>
-        <source>User Accounts</source>
-        <translation>Account utenti</translation>
     </message>
 </context>
 </TS>

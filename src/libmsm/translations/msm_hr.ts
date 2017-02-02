@@ -146,41 +146,6 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     </message>
 </context>
 <context>
-    <name>ApplyDialog</name>
-    <message>
-        <location filename="../ApplyDialog.ui" line="14"/>
-        <source>Processing...</source>
-        <translation>Obrada...</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.ui" line="46"/>
-        <source>Cancel</source>
-        <translation>Otkaži</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.ui" line="53"/>
-        <location filename="../ApplyDialog.cpp" line="56"/>
-        <source>Close</source>
-        <translation>Zatvori</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="100"/>
-        <source>Process finished!</source>
-        <translation>Proces završio</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="107"/>
-        <location filename="../ApplyDialog.cpp" line="120"/>
-        <source>Close (%1)</source>
-        <translation>Zatvori (%1)</translation>
-    </message>
-    <message>
-        <location filename="../ApplyDialog.cpp" line="112"/>
-        <source>Process failed!</source>
-        <translation>Postupak nije uspio!</translation>
-    </message>
-</context>
-<context>
     <name>ChangePasswordDialog</name>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
@@ -223,27 +188,37 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
 <context>
     <name>KernelCommon</name>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="57"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
+        <source>Kernel</source>
+        <translation>Jezgra</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
+        <source>Add and remove manjaro kernels</source>
+        <translation>Dodaj i ukloni manjaro jezgre</translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
         <translation>Instaliraj Linux %1</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="58"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
         <translation>Sljedeći paketi će se instalirati:</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="93"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
         <translation>Ukloni Linux %1</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="94"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
         <translation>Sljedeći paketi će se ukloniti:</translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="126"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
         <translation>Linux %1.%2 promjene</translation>
     </message>
@@ -310,25 +285,40 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     </message>
 </context>
 <context>
-    <name>KernelPage</name>
+    <name>KeyboardCommon</name>
     <message>
-        <location filename="../../modules/kernel/KernelPage.cpp" line="35"/>
-        <source>Kernel</source>
-        <translation>Kernel</translation>
+        <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
+        <source>Keyboard Settings</source>
+        <translation>Postavke tipkovnice</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
+        <source>Keyboard settings</source>
+        <translation>Postavke tipkovnice</translation>
     </message>
 </context>
 <context>
     <name>KeyboardModel</name>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="210"/>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="254"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="220"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="264"/>
         <source>Default</source>
         <translation>Zadani</translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="296"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="306"/>
         <source>Default Keyboard Model</source>
         <translation>Zadani model tipkovnice</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
+        <source>Error!</source>
+        <translation>Greška!</translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
+        <source>Failed to set keyboard layout</source>
+        <translation>Nije uspjelo postavljanje rasporeda tipkovnice</translation>
     </message>
 </context>
 <context>
@@ -407,54 +397,53 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
 <context>
     <name>LanguagePackagesCommon</name>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="85"/>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="87"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
+        <source>Language Packages</source>
+        <translation>Jezični paketi</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
+        <source>Detection and installation of language packages</source>
+        <translation>Otkrivanje i instalacija jezičnih paketa</translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
         <translation>%1 jezični paketi</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="138"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
         <translation>Globalni jezični paketi</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
         <translation>Sustav je zastario</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="161"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
         <translation>Vaš sustav nije ažuriran! Morate ga ažurirati da bi ste nastavili!</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="193"/>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
         <translation>Instaliraj jezične pakete.</translation>
     </message>
 </context>
 <context>
-    <name>LanguagePackagesModule</name>
+    <name>LocaleCommon</name>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="45"/>
-        <source>Language Packages</source>
-        <comment>@title</comment>
-        <translation>Jezični paketi</translation>
+        <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
+        <source>Locale Settings</source>
+        <translation>Postavke za jezične sheme</translation>
     </message>
     <message>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="51"/>
-        <location filename="../../modules/language_packages/LanguagePackagesModule.cpp" line="54"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-</context>
-<context>
-    <name>LanguagePackagesPage</name>
-    <message>
-        <location filename="../../modules/language_packages/LanguagePackagesPage.cpp" line="32"/>
-        <source>Language Packages</source>
-        <translation>Jezični paketi</translation>
+        <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
+        <source>Add and configure locales</source>
+        <translation>Dodaj i konfiguriraj jezične sheme</translation>
     </message>
 </context>
 <context>
@@ -574,99 +563,81 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <source>Set as default format</source>
         <translation>Postavi kao zadani oblik</translation>
     </message>
-    <message>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="49"/>
-        <source>Locale Settings</source>
-        <comment>@title</comment>
-        <translation>Postavke za jezične sheme</translation>
-    </message>
-    <message>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="55"/>
-        <location filename="../../modules/locale/LocaleModule.cpp" line="58"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
 </context>
 <context>
     <name>MhwdCommon</name>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="63"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
+        <source>Hardware Configuration</source>
+        <translation>Konfiguracija sklopovlja</translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
+        <source>Manjaro Hardware Detection graphical user interface</source>
+        <translation>Grafičko korisničko sučelje za Manjaro Hardware Detection</translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
         <translation>Nepoznato ime uređaja</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="120"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
         <source>Install configuration</source>
         <translation>Instaliraj konfiguraciju</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="121"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
         <translation>MGWD će instalirati &apos;%1&apos; konfiguraciju</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install open-source graphic driver</source>
         <translation>Instaliraj upravljački program otvorenog koda</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="144"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation>MHWD će automatski otkriti vaš upravljački program otvorenog koda i instalirati ga</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Install proprietary graphic driver</source>
         <translation>Instaliraj vlasnički upravljački program</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation>MHWD će automatski otkriti vaš vlasnički upravljački program i instalirati ga</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>
         <source>Reinstall configuration</source>
         <translation>Ponovno instaliraj konfiguraciju</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation>MHWD će ponovno instalirati &apos;%1&apos; konfiguraciju</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
         <source>Remove configuration</source>
         <translation>Ukloni konfiguraciju</translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="211"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation>MHWD će ukloniti &apos;%1&apos; konfiguraciju</translation>
     </message>
 </context>
 <context>
-    <name>MhwdModule</name>
+    <name>MsmCommon</name>
     <message>
-        <location filename="../../modules/mhwd/MhwdModule.cpp" line="46"/>
-        <source>Hardware Configuration</source>
-        <comment>@title</comment>
-        <translation>Konfiguracija sklopovlja</translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/MhwdModule.cpp" line="52"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-</context>
-<context>
-    <name>MhwdPage</name>
-    <message>
-        <location filename="../../modules/mhwd/MhwdPage.cpp" line="30"/>
-        <source>Hardware Detection</source>
-        <translation>Detekcija sklopovlja</translation>
+        <location filename="../MsmCommon.cpp" line="26"/>
+        <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
+        <translation>Koristite &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; za prijavu pogrešaka.</translation>
     </message>
 </context>
 <context>
@@ -714,7 +685,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation>Kerneli</translation>
+        <translation>Jezgre</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
@@ -756,19 +727,19 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation>Koristite nepodržani kernel, molim nadogradite.</translation>
+        <translation>Koristite nepodržanu jezgru, molimo vas da ažurirate sustav.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation>Nepodržani kernel je instaliran na vašem sustavu, molimo vas da ga uklonite.</translation>
+        <translation>Nepodržana jezgra je instalirana na vašem sustavu, molimo vas da je uklonite.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation>Dostupan novi kernel, ažurirajte sustav.</translation>
+        <translation>Dostupna je nova jezgra, molimo vas da ažurirate sustav.</translation>
     </message>
 </context>
 <context>
@@ -776,32 +747,32 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation>Obavijesti o kernelu</translation>
+        <translation>Obavijesti o jezgri</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation>Provjeri nepodržane kernele</translation>
+        <translation>Provjeri nepodržane jezgre</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation>Obavijesti me samo ako koristim nepodržani kernel</translation>
+        <translation>Obavijesti me samo ako koristim nepodržanu jezgru</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation>Provjeri nove kernele</translation>
+        <translation>Provjeri nove jezgre</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation>Obavijesti me samo za LTS kernele</translation>
+        <translation>Obavijesti me samo za LTS jezgre</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation>Obavijesti me samo za preporučene kernele</translation>
+        <translation>Obavijesti me samo za preporučane jezgre</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
@@ -837,21 +808,6 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
         <translation>Greška pristupa prilikom spremanja postavki obavijesti</translation>
-    </message>
-</context>
-<context>
-    <name>PageKernel</name>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="51"/>
-        <source>Kernel</source>
-        <comment>@title</comment>
-        <translation>Kernel</translation>
-    </message>
-    <message>
-        <location filename="../../modules/kernel/KernelModule.cpp" line="57"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -895,44 +851,6 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
         <translation>Postavi ocjenu</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="48"/>
-        <source>Keyboard Settings</source>
-        <translation>Postavke tipkovnice</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="56"/>
-        <source>Keyboard Settings</source>
-        <comment>@title</comment>
-        <translation>Postavke tipkovnice</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="63"/>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="66"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="275"/>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="190"/>
-        <source>Error!</source>
-        <translation>Greška!</translation>
-    </message>
-    <message>
-        <location filename="../../modules/keyboard/KeyboardModule.cpp" line="276"/>
-        <location filename="../../modules/keyboard/PageKeyboard.cpp" line="191"/>
-        <source>Failed to set keyboard layout</source>
-        <translation>Nije uspjelo postavljanje rasporeda tipkovnice</translation>
-    </message>
-</context>
-<context>
-    <name>PageLanguage</name>
-    <message>
-        <location filename="../../modules/locale/PageLanguage.cpp" line="43"/>
-        <source>Language</source>
-        <translation>Jezik</translation>
     </message>
 </context>
 <context>
@@ -1207,42 +1125,19 @@ Vlasnički upravljački program</translation>
 <context>
     <name>TimeDateCommon</name>
     <message>
-        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="117"/>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
+        <source>Time and Date</source>
+        <translation>Vrijeme i datum</translation>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
+        <source>Time and date configuration</source>
+        <translation>Konfiguracija vremena i datuma</translation>
+    </message>
+    <message>
+        <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
         <source>none</source>
         <translation>niti jedan</translation>
-    </message>
-</context>
-<context>
-    <name>TimeDateModule</name>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="49"/>
-        <source>Time and Date</source>
-        <comment>@title</comment>
-        <translation>Vrijeme i datum</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="51"/>
-        <source>Time and date configuration.</source>
-        <translation>Konfiguracija vremena i datuma.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="55"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <location filename="../../modules/timedate/TimeDateModule.cpp" line="58"/>
-        <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation>Koristite &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; za prijavu pogrešaka.</translation>
-    </message>
-</context>
-<context>
-    <name>TimeDatePage</name>
-    <message>
-        <location filename="../../modules/timedate/TimeDatePage.cpp" line="40"/>
-        <source>Time and Date</source>
-        <translation>Vrijeme i datum</translation>
     </message>
 </context>
 <context>
@@ -1266,79 +1161,65 @@ Vlasnički upravljački program</translation>
 <context>
     <name>UsersCommon</name>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="114"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
+        <source>User Accounts</source>
+        <translation>Korisnički računi</translation>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
+        <source>User accounts configuration</source>
+        <translation>Konfiguracija korisničkih računa</translation>
+    </message>
+    <message>
+        <location filename="../../modules/users/UsersCommon.cpp" line="135"/>
         <source>Continue?</source>
         <translation>Želite li nastaviti?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="115"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="136"/>
         <source>Do you really want to remove the user %1?</source>
         <translation>Stvarno želite ukloniti korisnika %1?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="122"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="143"/>
         <source>Remove Home?</source>
         <translation>Ukloni Home?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="123"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="144"/>
         <source>Do you want to remove the home folder of the user %1?</source>
         <translation>Stvarno želite ukloniti mapu korisnika %1?</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="145"/>
-        <location filename="../../modules/users/UsersCommon.cpp" line="215"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="166"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="236"/>
         <source>Error!</source>
         <translation>Greška!</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="146"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="167"/>
         <source>Failed to remove user %1</source>
         <translation>Neuspješno uklanjanje korisnika %1</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="162"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="183"/>
         <source>Images (*.png *.jpg *.bmp)</source>
         <translation>Slike (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="216"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="237"/>
         <source>Failed to change user image</source>
         <translation>Nije uspjela promjena korisničke slike</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="227"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="248"/>
         <source>Standard</source>
         <translation>Standardni</translation>
     </message>
     <message>
-        <location filename="../../modules/users/UsersCommon.cpp" line="246"/>
+        <location filename="../../modules/users/UsersCommon.cpp" line="267"/>
         <source>Administrator</source>
         <translation>Administrator</translation>
-    </message>
-</context>
-<context>
-    <name>UsersModule</name>
-    <message>
-        <location filename="../../modules/users/UsersModule.cpp" line="42"/>
-        <source>User Accounts</source>
-        <comment>@title</comment>
-        <translation>Korisnički računi</translation>
-    </message>
-    <message>
-        <location filename="../../modules/users/UsersModule.cpp" line="48"/>
-        <location filename="../../modules/users/UsersModule.cpp" line="51"/>
-        <source>Author</source>
-        <comment>@info:credit</comment>
-        <translation>Autor</translation>
-    </message>
-</context>
-<context>
-    <name>UsersPage</name>
-    <message>
-        <location filename="../../modules/users/UsersPage.cpp" line="32"/>
-        <source>User Accounts</source>
-        <translation>Korisnički računi</translation>
     </message>
 </context>
 </TS>
