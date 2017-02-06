@@ -55,7 +55,7 @@ MsmWindow::MsmWindow( QWidget* parent ) :
     connect( ui->buttonQuit, &QPushButton::clicked,
              qApp, &qApp->closeAllWindows );
     connect( ui->listWidget, &ListWidget::itemActivated,
-             this, &MsmWindow::listWidgetActivated );
+             this, &MsmWindow::listWidget_itemActivated );
     connect( ui->buttonAllSettings, &QPushButton::clicked,
              this, &MsmWindow::buttonShowAllSettings_clicked );
     connect( ui->buttonApply, &QPushButton::clicked,
@@ -115,7 +115,7 @@ MsmWindow::addPageWidget( PageWidget& page )
 
 
 void
-MsmWindow::listWidgetActivated( QListWidgetItem* current )
+MsmWindow::listWidget_itemActivated( QListWidgetItem* current )
 {
     ListWidgetItem* item = dynamic_cast<ListWidgetItem*>( current );
     if ( !item || !item->page )
