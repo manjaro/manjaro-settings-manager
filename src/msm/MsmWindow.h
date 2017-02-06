@@ -88,7 +88,7 @@ private:
     void writePositionSettings();
 
 protected slots:
-    void listWidget_itemClicked( QListWidgetItem* );
+    void listWidget_itemActivated( QListWidgetItem* );
     void buttonShowAllSettings_clicked();
     void setApplyEnabled( PageWidget* page, bool enabled );
     void buttonApply_clicked();
