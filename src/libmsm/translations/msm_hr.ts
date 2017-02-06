@@ -772,7 +772,7 @@ Preporuča se omogućiti te grupe. Želite li nastaviti?</translation>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation>Obavijesti me samo za preporučane jezgre</translation>
+        <translation>Obavijesti me samo za preporučene jezgre</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
@@ -959,12 +959,12 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="20"/>
         <source>Time and Date</source>
-        <translation>Vrijeme i datum</translation>
+        <translation>Datum i vrijeme</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation>Automatsko postavljanje vremena i datuma</translation>
+        <translation>Automatsko postavljanje datuma i vremena</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="148"/>
@@ -1127,12 +1127,12 @@ Vlasnički upravljački program</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation>Vrijeme i datum</translation>
+        <translation>Datum i vrijeme</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation>Konfiguracija vremena i datuma</translation>
+        <translation>Konfiguracija datuma i vremena</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
