@@ -86,7 +86,7 @@ MsmWindow::loadModule( QString moduleName )
         // TODO SEARCH FOR CORRECT MODULENAME
         if ( item->page->getName() == moduleName )
         {
-            listWidget_itemClicked( item );
+            listWidget_itemActivated( item );
             break;
         }
     }
