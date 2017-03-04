@@ -195,7 +195,7 @@ Il est recommandé d&apos;activer ces groupes. Voulez-vous vraiment continuer ?<
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation>Ajouter et supprimer des noyau manjaro</translation>
+        <translation>Ajouter et supprimer des noyaux manjaro</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>

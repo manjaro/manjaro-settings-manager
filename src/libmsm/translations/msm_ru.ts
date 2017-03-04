@@ -190,12 +190,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Ядро</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>Добавить или удалить ядра manjaro</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
@@ -289,12 +289,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки клавиатуры</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки клавиатуры</translation>
     </message>
 </context>
 <context>
@@ -313,12 +313,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Неудача назначения раскладки</translation>
     </message>
 </context>
 <context>
@@ -399,18 +399,18 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Языковые пакеты</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
         <source>Detection and installation of language packages</source>
-        <translation type="unfinished"/>
+        <translation>Определение и установка языковых пакетов</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
-        <translation>%1 языковые пакеты</translation>
+        <translation>%1 языковых пакетов</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
@@ -425,12 +425,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Ваша система устарела! Прежде, чем продолжить, её необходимо обновить!</translation>
+        <translation>Ваша система не обновлена! Обновите, прежде, чем продолжить!</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation>Установите языковые пакеты.</translation>
+        <translation>Установить языковые пакеты.</translation>
     </message>
 </context>
 <context>
@@ -438,12 +438,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки региона</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Добавить или настроить регионы</translation>
     </message>
 </context>
 <context>
@@ -569,12 +569,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Конфигурация оборудования</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>Графический интерфейс Manjaro Hardware Detection</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
@@ -637,7 +637,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Используйте &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; чтобы сообщить об ошибках.</translation>
     </message>
 </context>
 <context>
@@ -1127,12 +1127,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Время и дата</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation type="unfinished"/>
+        <translation>Настройка даты и времени</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
@@ -1163,12 +1163,12 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Аккаунты пользователя</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation type="unfinished"/>
+        <translation>Настройка аккаунтов пользователя</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>

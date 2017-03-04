@@ -190,12 +190,12 @@ Es recomendable activar estos grupos. ¿Estás seguro que quieres continuar?</tr
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>Agregar y quitar kernels de manjaro</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
@@ -289,12 +289,12 @@ Es recomendable activar estos grupos. ¿Estás seguro que quieres continuar?</tr
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de Teclado</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de teclado</translation>
     </message>
 </context>
 <context>
@@ -313,12 +313,12 @@ Es recomendable activar estos grupos. ¿Estás seguro que quieres continuar?</tr
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Error!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Falló al definir la distribución de teclado</translation>
     </message>
 </context>
 <context>
@@ -399,12 +399,12 @@ Es recomendable activar estos grupos. ¿Estás seguro que quieres continuar?</tr
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Paquetes de Idioma</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
         <source>Detection and installation of language packages</source>
-        <translation type="unfinished"/>
+        <translation>Detección e instalación de paquetes de idioma</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
@@ -438,12 +438,12 @@ Es recomendable activar estos grupos. ¿Estás seguro que quieres continuar?</tr
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración Regional</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Añadir configuración regional</translation>
     </message>
 </context>
 <context>
@@ -569,12 +569,12 @@ Es recomendable activar estos grupos. ¿Estás seguro que quieres continuar?</tr
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de Hardware</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>Interfaz gráfica de Detección de Hardware de Manjaro</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
@@ -637,7 +637,7 @@ Es recomendable activar estos grupos. ¿Estás seguro que quieres continuar?</tr
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Por favor utilizar &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; para reportar fallos.</translation>
     </message>
 </context>
 <context>
@@ -1127,12 +1127,12 @@ Controlador de Código Propietario</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Hora y Fecha</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de fecha y hora</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
@@ -1163,12 +1163,12 @@ Controlador de Código Propietario</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Cuentas de Usuario</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de cuentas de usuario</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>

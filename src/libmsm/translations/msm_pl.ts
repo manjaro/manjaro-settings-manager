@@ -443,7 +443,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj i konfiguruj pakiety językowe</translation>
     </message>
 </context>
 <context>
@@ -574,7 +574,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>Graficzny interfejs użytkownika wykrywania sprzętu Manjaro</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
@@ -721,7 +721,7 @@ Zaleca się, aby były one włączone. Czy na pewno chcesz kontynuować?</transl
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation><numerusform>Dostępny jest %n nowy, dodatkowy pakiet językowy</numerusform><numerusform>Dostępne są %n nowe dodatkowe pakiety językowe</numerusform><numerusform>Dostępnych jest %n nowych dodatkowych pakietów językowych</numerusform></translation>
+        <translation><numerusform>Dostępny jest %n nowy, dodatkowy pakiet językowy</numerusform><numerusform>Dostępne są %n nowe dodatkowe pakiety językowe</numerusform><numerusform>Dostępnych jest %n nowych dodatkowych pakietów językowych</numerusform><numerusform>Dostępnych jest %n nowych dodatkowych pakietów językowych</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>

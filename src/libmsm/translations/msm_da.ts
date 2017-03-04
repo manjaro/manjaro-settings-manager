@@ -4,7 +4,7 @@
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Konto Type</translation>
+        <translation>Kontotype</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="64"/>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Vis Grupper</translation>
+        <translation>Vis grupper</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="93"/>
@@ -50,16 +50,16 @@
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="137"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>Administrator gruppe %1 er ikke aktiveret i  &apos;%2&apos;! Du skal aktivere den for at kunne sætte administrationsrettigheder</translation>
+        <translation>Administratorgruppe %1 er ikke aktiveret i &apos;%2&apos;! Du skal aktivere den for at kunne sætte administrationsrettigheder...</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="168"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Følgende standard brugergrupper er blevet deaktiveret
+        <translation>Følgende standardbrugergrupper er blevet deaktiveret:
 %1
-Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</translation>
+Det anbefales at aktivere disse grupper. Vil du virkelig fortsætte?</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
@@ -69,7 +69,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Failed to set groups!</source>
-        <translation>Kunne ikke oprette grupper!</translation>
+        <translation>Kunne ikke sætte grupper!</translation>
     </message>
 </context>
 <context>
@@ -77,7 +77,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation>Vil du gerne fortsætte?</translation>
+        <translation>Vil du virkelig fortsætte?</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
@@ -100,12 +100,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Kodeord</translation>
+        <translation>Adgangskode</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Gentast kodeord</translation>
+        <translation>Gentast adgangskode</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="164"/>
@@ -120,12 +120,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="87"/>
         <source>Your username contains invalid characters!</source>
-        <translation>Dit brugernavn indeholder inkorekte karakterer</translation>
+        <translation>Dit brugernavn indeholder ugyldige tegn!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="91"/>
         <source>Your passwords do not match!</source>
-        <translation>Dine kodeord er ikke ens!</translation>
+        <translation>Dine adgangskoder er ikke ens!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="96"/>
@@ -137,12 +137,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <source>Failed to add user!</source>
-        <translation>Kunne ikke tilføje bruger</translation>
+        <translation>Kunne ikke tilføje bruger!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Kunne ikke oprette brugers kodeord!</translation>
+        <translation>Kunne ikke sætte brugerens adgangskode!</translation>
     </message>
 </context>
 <context>
@@ -151,12 +151,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Nyt kodeord</translation>
+        <translation>Ny adgangskode</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Gentast kodeord</translation>
+        <translation>Gentast adgangskode</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="129"/>
@@ -177,12 +177,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <source>Your passwords do not match!</source>
-        <translation>Dine kodeord er ikke ens</translation>
+        <translation>Dine adgangskoder er ikke ens!</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Kunne ikke oprette brugerens kodeord!</translation>
+        <translation>Kunne ikke sætte brugerens adgangskode!</translation>
     </message>
 </context>
 <context>
@@ -190,37 +190,37 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kerne</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>Tilføj og fjerne manjaro-kerner</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Installér Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Følgende pakker vil blive installeret:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Fjern Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Følgende pakker vil blive fjernet:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 ændringslog</translation>
     </message>
 </context>
 <context>
@@ -248,12 +248,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
-        <translation>Uunderstøttet</translation>
+        <translation>Ikke-understøttet</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
-        <translation>Real-tid</translation>
+        <translation>Realtid</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
@@ -281,7 +281,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
-        <translation>Installer</translation>
+        <translation>Installér</translation>
     </message>
 </context>
 <context>
@@ -289,12 +289,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturindstillinger</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturindstillinger</translation>
     </message>
 </context>
 <context>
@@ -308,17 +308,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="306"/>
         <source>Default Keyboard Model</source>
-        <translation>Standard Tastatur Model</translation>
+        <translation>Standardtastaturmodel</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Fejl!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke sætte tastaturlayout</translation>
     </message>
 </context>
 <context>
@@ -326,7 +326,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="96"/>
         <source>Display Language</source>
-        <translation>Vist Sprog</translation>
+        <translation>Visningssprog</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="99"/>
@@ -361,7 +361,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="137"/>
         <source>Measurement Units</source>
-        <translation>Måle Enheder</translation>
+        <translation>Måleenheder</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="138"/>
@@ -391,7 +391,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
-        <translation>Tid</translation>
+        <translation>Klokkeslæt</translation>
     </message>
 </context>
 <context>
@@ -399,38 +399,38 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Sprogpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
         <source>Detection and installation of language packages</source>
-        <translation type="unfinished"/>
+        <translation>Registrering og installation af sprogpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 sprogpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Globale sprogpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>Systemet er ikke opdateret</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Dit system er ikke opdateret! Du skal opdatere for at fortsætte!</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Installér sprogpakker.</translation>
     </message>
 </context>
 <context>
@@ -438,12 +438,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation type="unfinished"/>
+        <translation>Regionsindstillinger</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Tilføj og konfigurér regioner</translation>
     </message>
 </context>
 <context>
@@ -466,17 +466,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation>System Områder</translation>
+        <translation>Systemregioner</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation>Detaljerede Indstillinger</translation>
+        <translation>Detaljerede indstillinger</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
         <source>Display Language</source>
-        <translation>Vist Sprog</translation>
+        <translation>Visningssprog</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
@@ -486,7 +486,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation>Sammenstilling og Sortering:</translation>
+        <translation>Sammenstilling og sortering:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
@@ -511,7 +511,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation>Tid:</translation>
+        <translation>Klokkeslæt:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
@@ -521,7 +521,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation>Måle Enheder:</translation>
+        <translation>Måleenheder:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
@@ -551,17 +551,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation>Indstil som standard vist sprog og format</translation>
+        <translation>Indstil som standardvisningssprog og format</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation>Indstil som standard vist sprog</translation>
+        <translation>Indstil som standardvisningssprog</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation>Indstil som standard format</translation>
+        <translation>Indstil som standardformat</translation>
     </message>
 </context>
 <context>
@@ -569,57 +569,57 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Hardwarekonfiguration</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro hardwareregistrering grafisk brugerflade</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
-        <translation>Ukendt enheds navn</translation>
+        <translation>Ukendt enhedsnavn</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
         <source>Install configuration</source>
-        <translation>Installer Konfiguration</translation>
+        <translation>Installér konfiguration</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation>MHWD vil &apos;%1&apos; konfigurationen</translation>
+        <translation>MHWD vil installere &quot;%1&quot;-konfigurationen</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install open-source graphic driver</source>
-        <translation>Installerer open-source grafik driver...</translation>
+        <translation>Installér open source-grafikkortdriver</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation>MHWD vil autodetektere din open-source grafik driver og installere den</translation>
+        <translation>MHWD vil autodetektere dine open source-grafikkortdrivere og installere dem</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Install proprietary graphic driver</source>
-        <translation>Installerer proprietær grafik driver</translation>
+        <translation>Installér proprietær grafikkortdriver</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation>MHWD vil autodetektere din proprietære grafik driver og installere den</translation>
+        <translation>MHWD vil autodetektere dine proprietære grafikkortdrivere og installere dem</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>
         <source>Reinstall configuration</source>
-        <translation>Geninstaller konfiguration</translation>
+        <translation>Geninstallér konfiguration</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation>MHWD vil geninstallere &apos;%1&apos; konfigurationen</translation>
+        <translation>MHWD vil geninstallere &quot;%1&quot;-konfigurationen</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
@@ -629,7 +629,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation>MHWD vil fjerne &apos;%1&apos; konfigurationen</translation>
+        <translation>MHWD vil fjerne &quot;%1&quot;-konfigurationen</translation>
     </message>
 </context>
 <context>
@@ -637,7 +637,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Brug venligst &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; til at rapportere fejl.</translation>
     </message>
 </context>
 <context>
@@ -645,18 +645,18 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Indstillings Manager</translation>
+        <translation>Manjaro-indstillingshåndtering</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
-        <translation>Alle Indstillinger</translation>
+        <translation>Alle indstillinger</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="211"/>
         <location filename="../../msm/MsmWindow.ui" line="235"/>
         <source>Quit</source>
-        <translation>Luk</translation>
+        <translation>Afslut</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="224"/>
@@ -676,7 +676,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="153"/>
         <source>Manjaro Settings</source>
-        <translation>Manjaro Indstillinger</translation>
+        <translation>Manjaro-indstillinger</translation>
     </message>
 </context>
 <context>
@@ -691,18 +691,18 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation>Sprog pakker</translation>
+        <translation>Sprogpakker</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation>Luk</translation>
+        <translation>Afslut</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation>Indstillinger</translation>
+        <translation>Valgmuligheder</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -715,31 +715,31 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
         <source>Manjaro Settings Manager</source>
-        <translation>Manjaro Indstillings Manager</translation>
+        <translation>Manjaro-indstillingshåndtering</translation>
     </message>
     <message numerus="yes">
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation><numerusform>%n ny sprogpakke(r) tilgængelig</numerusform><numerusform>%n nye sprogpakke(r) tilgængelige</numerusform></translation>
+        <translation><numerusform>yderligere %n ny sprogpakke tilgængelig</numerusform><numerusform>yderligere %n nye sprogpakker tilgængelige</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation>Kører en ikke-supporteret kerne, venligst opdatér.</translation>
+        <translation>Kører en ikke-understøttet kerne, opdatér venligst.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation>Ikke-supporteret kerne installeret på dit system, venligst fjern den.</translation>
+        <translation>Ikke-understøttet kerne installeret på dit system, fjern den venligst.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation>Ny kerne tilgængelig, venligst opdatér.</translation>
+        <translation>Ny kerne tilgængelig, opdatér venligst.</translation>
     </message>
 </context>
 <context>
@@ -747,17 +747,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation>Kerne Notifikationer</translation>
+        <translation>Kerne-notifikationer</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation>Tjek uunderstøttede kerner</translation>
+        <translation>Tjek ikke-understøttede kerner</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation>Giv kun besked hvis en ikke-supporteret kerne kører</translation>
+        <translation>Giv kun besked hvis der køres med en kerne som ikke understøttes</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
@@ -767,7 +767,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation>Kun besked ved LTS kerner</translation>
+        <translation>Kun besked ved LTS-kerner</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
@@ -777,17 +777,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation>Sprog Pakker Notifikationer</translation>
+        <translation>Sprogpakker-notifikationer</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation>Tjek manglende sprog pakker</translation>
+        <translation>Tjek manglende sprogpakker</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation>Luk</translation>
+        <translation>Afslut</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
@@ -797,17 +797,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation>Notifikation indstillinger</translation>
+        <translation>Notifikationsindstillinger</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation>Format fejl da notifikation indstillingerne skulle gemmes</translation>
+        <translation>Formatfejl da dine notifikationsindstillinger skulle gemmes</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation>Tilgå fejl da notifikation indstillingerne skulle gemmes</translation>
+        <translation>Adgangsfejl da dine notifikationsindstillinger skulle gemmes</translation>
     </message>
 </context>
 <context>
@@ -815,12 +815,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Tastatur Model:</translation>
+        <translation>Tastaturmodel:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
-        <translation>Skriv her for at teste tastatur</translation>
+        <translation>Skriv her for at teste dit tastatur</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
@@ -840,17 +840,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation>Vurdér:</translation>
+        <translation>Hastighed:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation>Vurdér</translation>
+        <translation>Hastighed  </translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation>Indstil Vurdering</translation>
+        <translation>Indstil hastighed</translation>
     </message>
 </context>
 <context>
@@ -858,17 +858,17 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Tilgængelige Sprog Pakker</translation>
+        <translation>Tilgængelige sprogpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="32"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Ekstra sprog pakker der kan installeres:</translation>
+        <translation>Yderligere sprogpakker der kan installeres:</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation>Installér Pakker</translation>
+        <translation>Installér pakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
@@ -884,7 +884,7 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
         <source>Parent Package</source>
-        <translation>Forældre Pakke</translation>
+        <translation>Forældrepakke</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="90"/>
@@ -894,12 +894,12 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="99"/>
         <source>Installed Language Packages</source>
-        <translation>Installerede Sprog Pakker</translation>
+        <translation>Installerede sprogpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
-        <translation>Installerede sprog pakker:</translation>
+        <translation>Installerede sprogpakker:</translation>
     </message>
 </context>
 <context>
@@ -909,14 +909,14 @@ Det anbefales at aktivere disse grupper. Ønkser du at fortsætte alligevel?</tr
         <source>Auto Install
 Open-source Driver</source>
         <translation>Automatisk Installering
-Open-source Driver</translation>
+Open source-driver</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
         <translation>Automatisk Installering
-Proprietær Driver</translation>
+Proprietær-driver</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="67"/>
@@ -926,7 +926,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation>Open-source</translation>
+        <translation>Open source</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="77"/>
@@ -959,12 +959,12 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="20"/>
         <source>Time and Date</source>
-        <translation>Tid og dato</translation>
+        <translation>Klokkeslæt og dato</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation>Indstil tid og dato automatisk</translation>
+        <translation>Indstil automatisk klokkeslæt og dato</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="148"/>
@@ -974,17 +974,17 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation>Ændre Tidszone</translation>
+        <translation>Skift tidszone</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation>Hardware ur i lokal tidszone</translation>
+        <translation>Hardware-ur i lokal tidszone</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation>Tid:</translation>
+        <translation>Klokkeslæt:</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="86"/>
@@ -994,7 +994,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation>Hardware ur:</translation>
+        <translation>Hardware-ur:</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="122"/>
@@ -1047,7 +1047,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="168"/>
         <source>Account Type</source>
-        <translation>Konto Type</translation>
+        <translation>Kontotype</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="175"/>
@@ -1109,7 +1109,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
-        <translation>Område</translation>
+        <translation>Område:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="182"/>
@@ -1127,12 +1127,12 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Klokkeslæt og dato</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguration af klokkeslæt og dato</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
@@ -1145,7 +1145,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation>Tidszone Valg</translation>
+        <translation>Valg af tidszone</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="25"/>
@@ -1163,12 +1163,12 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Brugerkonti</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguration af brugerkonti</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>
@@ -1178,7 +1178,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="136"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation>Vil du virkelig fjerne bruger %1?</translation>
+        <translation>Vil du virkelig fjerne brugeren %1?</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="143"/>
@@ -1199,7 +1199,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="167"/>
         <source>Failed to remove user %1</source>
-        <translation>Fejlede i at fjerne bruger %1</translation>
+        <translation>Kunne ikke fjerne bruger %1</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="183"/>
@@ -1209,7 +1209,7 @@ Proprietær Driver</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="237"/>
         <source>Failed to change user image</source>
-        <translation>Fejlede i at ændre bruger billede</translation>
+        <translation>Kunne ikke skifte brugerbillede</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="248"/>

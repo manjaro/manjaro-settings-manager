@@ -1,75 +1,73 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
     <name>AccountTypeDialog</name>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="14"/>
         <source>Account Type</source>
-        <translation>Account Type</translation>
+        <translation>Lloji Llogarisë</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="64"/>
         <source>Standard</source>
-        <translation>Standaard</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="69"/>
         <source>Administrator</source>
-        <translation>Beheerder</translation>
+        <translation>Administrator</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Toon Groepen</translation>
+        <translation>Shfaq Grupe</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="93"/>
         <source>Group</source>
-        <translation>Groep</translation>
+        <translation>Grup</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="98"/>
         <source>Member</source>
-        <translation>Lid</translation>
+        <translation>Anëtar</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="115"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation>Anulo</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="135"/>
         <source>Apply</source>
-        <translation>Toepassen</translation>
+        <translation>Apliko</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="136"/>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="167"/>
         <source>Warning!</source>
-        <translation>Waarschuwing!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="137"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation>Admin groep %1 is niet geactiveerd in &apos;%2&apos;! Activeer om admin rechten in te stellen...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="168"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation>Volgende standaard gebruikers groepen zijn gedeactiveerd:
-%1
-Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Error!</source>
-        <translation>Fout!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Failed to set groups!</source>
-        <translation>Instellen groepen is mislukt!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -82,7 +80,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>Bërë ...</translation>
     </message>
 </context>
 <context>
@@ -90,59 +88,59 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="14"/>
         <source>Add User</source>
-        <translation>Voeg gebruiker toe</translation>
+        <translation>Shto Përdorues</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="71"/>
         <source>Username</source>
-        <translation>Gebruikersnaam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="93"/>
         <source>Password</source>
-        <translation>Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation>Voer wachtwoord opnieuw in</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="184"/>
         <source>Create</source>
-        <translation>Maak</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="87"/>
         <source>Your username contains invalid characters!</source>
-        <translation>Uw gebruikersnaam bevat ongeldige karakters!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="91"/>
         <source>Your passwords do not match!</source>
-        <translation>Uw wachtwoorden komen niet overeen!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="96"/>
         <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Error!</source>
-        <translation>Fout!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <source>Failed to add user!</source>
-        <translation>Gebruiker toevoegen is mislukt!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Gebruikerswachtwoord instellen is mislukt!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -151,38 +149,38 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="74"/>
         <source>New Password</source>
-        <translation>Nieuw Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation>Voer wachtwoord opnieuw in</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="149"/>
         <source>Apply</source>
-        <translation>Toepassen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Error!</source>
-        <translation>Fout!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <source>Your passwords do not match!</source>
-        <translation>Uw wachtwoorden komen niet overheen!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Gebruikerswachtwoord instellen mislukt!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -190,37 +188,37 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation>Kernel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation>Voeg toe en verwijder manjaro kernels</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
-        <translation>Installeer Linux %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
-        <translation>De volgende pakketten zullen worden geïnstalleerd:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
-        <translation>Verwijder Linux %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
-        <translation>De volgende pakketten zullen worden verwijderd:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation>Linux %1.%2 logboek</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -228,27 +226,27 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
-        <translation>LTS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
-        <translation>Aanbevolen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
-        <translation>Actief</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
-        <translation>Geïnstalleerd</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
-        <translation>Niet ondersteund</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
@@ -259,29 +257,29 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
-        <translation>Custom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
-        <translation>Experimenteel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Remove</source>
-        <translation>Verwijder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
-        <translation>Installeer</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -289,12 +287,12 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation>Toetsenbord Instellingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation>Toetsenbord instellingen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -303,12 +301,12 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="220"/>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="264"/>
         <source>Default</source>
-        <translation>Standaard</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="306"/>
         <source>Default Keyboard Model</source>
-        <translation>Standaard Toetsenbord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
@@ -326,72 +324,72 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="96"/>
         <source>Display Language</source>
-        <translation>Weergave Taal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="99"/>
         <source>Language</source>
-        <translation>Taal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="101"/>
         <source>Collation and Sorting</source>
-        <translation>Sorteren</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="102"/>
         <source>Messages</source>
-        <translation>Berichten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="132"/>
         <source>Formats</source>
-        <translation>Formaten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="135"/>
         <source>Address</source>
-        <translation>Adres</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="136"/>
         <source>Identification</source>
-        <translation>Identificatie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="137"/>
         <source>Measurement Units</source>
-        <translation>Meeteenheden</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="138"/>
         <source>Currency</source>
-        <translation>Valuta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="139"/>
         <source>Names</source>
-        <translation>Namen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="140"/>
         <source>Numbers</source>
-        <translation>Cijfers</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="141"/>
         <source>Paper</source>
-        <translation>Papier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="142"/>
         <source>Telephone</source>
-        <translation>Telefoon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
-        <translation>Tijd</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -420,7 +418,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
-        <translation>Systeem is verouderd</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
@@ -430,7 +428,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation>Installeer taalpakketten.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -438,7 +436,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation>Lokale Instellingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
@@ -451,17 +449,17 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation>Voeg toe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation>Verwijder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation>Herstel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
@@ -506,62 +504,62 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation>Nummers:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation>Tijd:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
         <source>Currency:</source>
-        <translation>Valuta:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation>Meet-eenheiden:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
         <source>Address:</source>
-        <translation>Adress:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation>Namen:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
         <source>Telephone:</source>
-        <translation>Telefoon:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation>Identificatie:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
         <source>Paper:</source>
-        <translation>Papier:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation>Stel in als standaard scherm taal en formaat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation>Stel in als standaard scherm taal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation>Stel in als standaard formaat</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -569,7 +567,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation>Hardware Configuratie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
@@ -579,12 +577,12 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
-        <translation>Onbekend apparaat naam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
         <source>Install configuration</source>
-        <translation>Installeer configuratie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
@@ -650,7 +648,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
-        <translation>Alle instellingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="211"/>
@@ -666,12 +664,12 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="44"/>
         <source>System</source>
-        <translation>Systeem</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="50"/>
         <source>Hardware</source>
-        <translation>Hardware</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="153"/>
@@ -685,24 +683,24 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation>Kernels</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation>Taalpakketten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation>Sluit af</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation>Opties</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -762,7 +760,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation>Check voor nieuwe kernels</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
@@ -797,7 +795,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation>Notificatie instellingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
@@ -815,12 +813,12 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="25"/>
         <source>Keyboard Model:</source>
-        <translation>Toetsenbord model:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="131"/>
         <source>Type here to test your keyboard</source>
-        <translation>Test hier je toetsenbord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
@@ -858,12 +856,12 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="24"/>
         <source>Available Language Packages</source>
-        <translation>Beschikbare Taalpakketten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="32"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Aanvullende taalpakketten kunnen geïnstalleerd worden:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
@@ -874,7 +872,7 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="128"/>
         <source>Package</source>
-        <translation>Pakket</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
@@ -884,22 +882,22 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
         <source>Parent Package</source>
-        <translation>Vorige Pakket</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="90"/>
         <source>Install</source>
-        <translation>Installeer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="99"/>
         <source>Installed Language Packages</source>
-        <translation>Geïnstalleerde Taalpakketten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="105"/>
         <source>Installed language packages:</source>
-        <translation>Geïnstalleerde Taalpakketten:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -908,50 +906,48 @@ Het is aangeraden deze groepen te activeren. Wil je echt verder gaan?</translati
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="37"/>
         <source>Auto Install
 Open-source Driver</source>
-        <translation>Auto Installatie
-Open-source Driver</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="45"/>
         <source>Auto Install
 Proprietary Driver</source>
-        <translation>Auto Installatie
-Proprietary Driver</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="67"/>
         <source>Driver</source>
-        <translation>Driver</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation>Open-source</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="77"/>
         <source>Installed</source>
-        <translation>Geïnstalleerd</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="85"/>
         <source>Show all devices</source>
-        <translation>Toon alle apparaten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation>Herinstalleer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
         <source>Install</source>
-        <translation>Installeer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="99"/>
         <source>Remove</source>
-        <translation>Verwijder</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -959,77 +955,77 @@ Proprietary Driver</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="20"/>
         <source>Time and Date</source>
-        <translation>Tijd en Datum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="26"/>
         <source>Set time and date automatically</source>
-        <translation>Stel datum en tijd automatisch in</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="148"/>
         <source>Time Zone</source>
-        <translation>Tijdzone</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="197"/>
         <source>Change Time Zone</source>
-        <translation>Wijzig Tijdzone</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="33"/>
         <source>Hardware clock in local time zone</source>
-        <translation>Hardware klok in plaatselijke tijdzone</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="51"/>
         <source>Time:</source>
-        <translation>Tijd:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="86"/>
         <source>Date:</source>
-        <translation>Datum:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="115"/>
         <source>Hardware clock:</source>
-        <translation>Hardware klok:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="122"/>
         <source>Universal time:</source>
-        <translation>Universele tijd:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="165"/>
         <source>Time zone:</source>
-        <translation>Tijdzone:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="206"/>
         <source>Country:</source>
-        <translation>Land:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="246"/>
         <source>Has daylight time?</source>
-        <translation>Heeft zomertijd?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="276"/>
         <source>Is daylight time?</source>
-        <translation>Is zomertijd?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="306"/>
         <source>Has transitions?</source>
-        <translation>Heeft overgangen?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="317"/>
         <source>Next transition:</source>
-        <translation>Volgende overgang:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1037,27 +1033,27 @@ Proprietary Driver</translation>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="154"/>
         <source>Image</source>
-        <translation>Afbeelding</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="161"/>
         <source>Username</source>
-        <translation>Gebruikersnaam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="168"/>
         <source>Account Type</source>
-        <translation>Account Type</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="175"/>
         <source>Password</source>
-        <translation>Wachtwoord</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/ui/PageUsers.ui" line="223"/>
         <source>●●●●●●</source>
-        <translation>●●●●●●</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1065,28 +1061,28 @@ Proprietary Driver</translation>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="93"/>
         <source>Width:</source>
-        <translation>Breedte:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="94"/>
         <source>Height:</source>
-        <translation>Hoogte:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="95"/>
         <source>Ratio:</source>
-        <translation>Ratio:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="96"/>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="97"/>
         <source>%1 px</source>
-        <translation>%1 px</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="98"/>
         <source>%1</source>
-        <translation>%1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1094,32 +1090,32 @@ Proprietary Driver</translation>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="14"/>
         <source>Add Locale</source>
-        <translation>Voeg locale toe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="34"/>
         <source>Language</source>
-        <translation>Taal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="70"/>
         <source>Territory</source>
-        <translation>Gebied</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="122"/>
         <source>Locale:</source>
-        <translation>Locale:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="182"/>
         <source>Cancel</source>
-        <translation>Afbreken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/locale/ui/SelectLocalesDialog.ui" line="189"/>
         <source>Add</source>
-        <translation>Toevoegen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1127,17 +1123,17 @@ Proprietary Driver</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation>Tijd en Datum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation>Tijd en Datum configuratie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
         <source>none</source>
-        <translation>geen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1145,17 +1141,17 @@ Proprietary Driver</translation>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="14"/>
         <source>Time Zone Selection</source>
-        <translation>Selecteer Tijdzone</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="25"/>
         <source>Region:</source>
-        <translation>Regio:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/TimeZoneDialog.ui" line="61"/>
         <source>Zone:</source>
-        <translation>Zone:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1219,7 +1215,7 @@ Proprietary Driver</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="267"/>
         <source>Administrator</source>
-        <translation>Administrator</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

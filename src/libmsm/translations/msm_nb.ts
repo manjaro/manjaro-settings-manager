@@ -77,12 +77,12 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Vil du virkelig fortsette?</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>Ferdig...</translation>
     </message>
 </context>
 <context>
@@ -190,37 +190,37 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kjerne</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>Legg til og fjern Manjaros kjerner</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Installer Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Følgende pakker vil bli installert:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Fjern Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Følgende pakker vil bli fjernet:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 endringslogg</translation>
     </message>
 </context>
 <context>
@@ -253,7 +253,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>Sanntidskjerne</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
@@ -289,12 +289,12 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturoppsett</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Tastaturoppsett</translation>
     </message>
 </context>
 <context>
@@ -313,7 +313,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Feil!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
@@ -399,7 +399,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Språkpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
@@ -410,27 +410,27 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 språkpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Globale språkpakker</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>Systemet er utdatert</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Systemet ditt er utdatert! Du må først oppdatere det for å kunne fortsette.</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Installer språkpakker.</translation>
     </message>
 </context>
 <context>
@@ -443,7 +443,7 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Legg til og konfigurer regionaldata</translation>
     </message>
 </context>
 <context>
@@ -451,37 +451,37 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Legg til</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Fjern</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Gjenopprett</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>Regionaldata for systemet</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>Detaljerte innstillinger</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Visningsspråk</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Språk:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
@@ -551,17 +551,17 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>Bruk som standardspråk for visning og formatering</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>Bruk som standardspråk for visning</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>Bruk som standardspråk for formatering</translation>
     </message>
 </context>
 <context>
@@ -569,17 +569,17 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Maskinvareoppsett</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>Grensesnitt for Manjaro Hardware Detection</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>Ukjent enhetsnavn</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
@@ -594,22 +594,22 @@ Det anbefales å aktivere disse gruppene. Ønsker du virkelig å fortsette?</tra
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install open-source graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Installer skjermkortdriver med åpen kildekode</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD vil finne og installere skjermdrivere med åpen kildekode</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Install proprietary graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>Installer produsenteid skjermdriver</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD vil finne og installere produsenteide skjermdrivere</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>

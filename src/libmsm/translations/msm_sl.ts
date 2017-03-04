@@ -190,37 +190,37 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Jedro</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj ali odstrani manjaro jedra</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Namesti Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Nameščeni bodo naslednji paketi:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Odstranjeni bodo naslednji paketi:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 dnevnik sprememb</translation>
     </message>
 </context>
 <context>
@@ -289,12 +289,12 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitve tipkovnice</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitve tipkovnice</translation>
     </message>
 </context>
 <context>
@@ -313,12 +313,12 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Napaka!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Nastavljanje razporeditve tipkovnice je spodletelo</translation>
     </message>
 </context>
 <context>
@@ -399,38 +399,38 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Jezikovni paketi</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
         <source>Detection and installation of language packages</source>
-        <translation type="unfinished"/>
+        <translation>Zaznava in namestitev jezikovnih paketov</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 jezikovnih paketov</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Splošni jezikovni paketi</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>Sistem ni posodobljen</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Vaš sistem ni posodobljen! Najprej ga posodobite, če želite nadaljevati!</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Namesti jezikovne pakete</translation>
     </message>
 </context>
 <context>
@@ -438,12 +438,12 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation type="unfinished"/>
+        <translation>Krajevne nastavitve</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj in nastavi krajevne nastavitve.</translation>
     </message>
 </context>
 <context>
@@ -569,12 +569,12 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Strojna nastavitev</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro strojna zaznava grafičnega vmesnika</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
@@ -637,7 +637,7 @@ Priporočeno je, da te skupine omogočite. Ali res želite nadaljevati?</transla
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Za poročanje o hroščih uporabite &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1127,12 +1127,12 @@ Neprost gonilnik</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Čas in datum</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitve časa in datuma</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
@@ -1163,12 +1163,12 @@ Neprost gonilnik</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Uporabniški računi</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitev uporabniških računov</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>

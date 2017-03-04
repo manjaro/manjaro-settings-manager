@@ -19,7 +19,7 @@
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="79"/>
         <source>Show Groups</source>
-        <translation>Exibir grupos</translation>
+        <translation>Mostrar grupos</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AccountTypeDialog.ui" line="93"/>
@@ -80,7 +80,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation>Pronto ...</translation>
+        <translation>Feito ...</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="91"/>
         <source>Your passwords do not match!</source>
-        <translation>Suas senhas não correspondem!</translation>
+        <translation>Suas senhas não se correspondem!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="96"/>
@@ -175,12 +175,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <source>Your passwords do not match!</source>
-        <translation>Suas senhas não correspondem!</translation>
+        <translation>Suas senhas não se correspondem!</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation>Falha ao configurar a senha do usuário!</translation>
+        <translation>Falha ao definir a senha do usuário!</translation>
     </message>
 </context>
 <context>
@@ -188,37 +188,37 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar e remover kernels manjaro</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalar Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Os seguintes pacotes serão instalados:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Remover Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Os seguintes pacotes serão removidos:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Registro de alterações do Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -257,7 +257,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Registro de alterações</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
@@ -287,12 +287,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do teclado</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do teclado</translation>
     </message>
 </context>
 <context>
@@ -311,12 +311,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Erro!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao definir o layout do teclado</translation>
     </message>
 </context>
 <context>
@@ -397,38 +397,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de Idioma</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
         <source>Detection and installation of language packages</source>
-        <translation type="unfinished"/>
+        <translation>Detecção e instalação de pacotes de idioma</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 pacotes de idioma</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Pacotes de idioma globais</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>O sistema está desatualizado</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>Seu sistema não está atualizado! Você tem que atualizar primeiro para poder continuar!</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Instalar pacotes de idioma.</translation>
     </message>
 </context>
 <context>
@@ -436,12 +436,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de localização</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar e configurar locais</translation>
     </message>
 </context>
 <context>
@@ -567,17 +567,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuração de Hardware</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>Interface Gráfica do Usuário Manjaro Hardware Detection</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
-        <translation>Nome do dispositivo desconhecido</translation>
+        <translation>Nome de dispositivo desconhecido</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
@@ -587,17 +587,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation>O MHWD irá instalar a &apos;%1&apos; configuação</translation>
+        <translation>O MHWD irá instalar a configuração &apos;%1&apos;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install open-source graphic driver</source>
-        <translation>Instalando o driver gráfico open-source</translation>
+        <translation>Instalar driver gráfico de código aberto</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation>O MHWD irá auto-detectar seu driver gráfico open-source irá instalá-lo</translation>
+        <translation>O MHWD irá auto-detectar seu driver gráfico de código aberto e irá instalá-lo</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
@@ -617,7 +617,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation>O MHWD irá reinstalar a &apos;%1&apos; configuração</translation>
+        <translation>O MHWD irá reinstalar a configuração &apos;%1&apos;</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
@@ -627,7 +627,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation>O MHWD irá remover a &apos;%1&apos; configuração</translation>
+        <translation>O MHWD irá remover a configuração &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -635,7 +635,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Por favor utilize &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; para relatar erros.</translation>
     </message>
 </context>
 <context>
@@ -648,7 +648,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
-        <translation>Todas as Configurações</translation>
+        <translation>Todas as configurações</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="211"/>
@@ -725,7 +725,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation>Executando um kernel não suportado, por favor atualize.</translation>
+        <translation>Executando um kernel não suportado, por favor atualize-o.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
@@ -750,7 +750,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation>Checar kernels não suportados</translation>
+        <translation>Verificar kernels não suportados</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
@@ -760,7 +760,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation>Checar novos kernels</translation>
+        <translation>Verificar novos kernels</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
@@ -780,7 +780,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation>Checar pacotes de idioma faltando</translation>
+        <translation>Verificar pacotes de idioma faltantes</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
@@ -838,17 +838,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation>Frequência:</translation>
+        <translation>Taxa:</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation>Frequência</translation>
+        <translation>Taxa</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation>Definir frequência</translation>
+        <translation>Definir taxa</translation>
     </message>
 </context>
 <context>
@@ -861,7 +861,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="32"/>
         <source>Additional language packages can be installed:</source>
-        <translation>Pacotes de Idiomas adicionais podem ser instalados:</translation>
+        <translation>Pacotes de idioma adicionais podem ser instalados:</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
@@ -907,7 +907,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <source>Auto Install
 Open-source Driver</source>
         <translation>Auto Instalar
-Driver Open-source</translation>
+Driver de Código Aberto</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="45"/>
@@ -924,7 +924,7 @@ Driver proprietário</translation>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="72"/>
         <source>Open-source</source>
-        <translation>Código aberto</translation>
+        <translation>Código Aberto</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="77"/>
@@ -957,7 +957,7 @@ Driver proprietário</translation>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="20"/>
         <source>Time and Date</source>
-        <translation>Data e hora</translation>
+        <translation>Hora e Data</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/ui/PageTimeDate.ui" line="26"/>
@@ -1125,12 +1125,12 @@ Driver proprietário</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Hora e Data</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuração de hora e data</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
@@ -1161,12 +1161,12 @@ Driver proprietário</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Contas de Usuário</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuração de contas de usuário</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>
@@ -1207,7 +1207,7 @@ Driver proprietário</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="237"/>
         <source>Failed to change user image</source>
-        <translation>Falha ao trocar a imagem do usuário</translation>
+        <translation>Falha ao alterar a imagem do usuário</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="248"/>
@@ -1217,7 +1217,7 @@ Driver proprietário</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="267"/>
         <source>Administrator</source>
-        <translation>Administração</translation>
+        <translation>Administrador</translation>
     </message>
 </context>
 </TS>

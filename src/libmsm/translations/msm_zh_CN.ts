@@ -77,12 +77,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要继续吗？</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
         <source>Done ...</source>
-        <translation type="unfinished"/>
+        <translation>已完成</translation>
     </message>
 </context>
 <context>
@@ -190,37 +190,37 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>内核</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>安装或已出 Manjaro 内</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>安装 Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>以下软件包将会被安装：</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>移除 Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>以下软件包将会被移除：</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 更新</translation>
     </message>
 </context>
 <context>
@@ -253,7 +253,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>实时</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
@@ -289,12 +289,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>键盘设置</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>键盘设置</translation>
     </message>
 </context>
 <context>
@@ -313,12 +313,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>错误！</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>无法设定件</translation>
     </message>
 </context>
 <context>
@@ -399,38 +399,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>语言包</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
         <source>Detection and installation of language packages</source>
-        <translation type="unfinished"/>
+        <translation>侦测并安装语言包</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 的语言包</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>全局语言包</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
-        <translation type="unfinished"/>
+        <translation>系统并非是最新的</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation type="unfinished"/>
+        <translation>您的系统不是最新的！您需要首先进行更新以继续！</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>安装语言包。</translation>
     </message>
 </context>
 <context>
@@ -438,12 +438,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation type="unfinished"/>
+        <translation>本地化设定</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>添加并设定本地化设置</translation>
     </message>
 </context>
 <context>
@@ -451,117 +451,117 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>恢复</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
         <source>System Locales</source>
-        <translation type="unfinished"/>
+        <translation>系统本地化</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="125"/>
         <source>Detailed Settings</source>
-        <translation type="unfinished"/>
+        <translation>详细设置</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="170"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>显示语言</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>语言：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
         <source>Collation and Sorting:</source>
-        <translation type="unfinished"/>
+        <translation>对照并排序</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="208"/>
         <source>Messages:</source>
-        <translation type="unfinished"/>
+        <translation>信息：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="218"/>
         <source>CType:</source>
-        <translation type="unfinished"/>
+        <translation>CType：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="231"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>格式</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation type="unfinished"/>
+        <translation>数字：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
         <source>Time:</source>
-        <translation type="unfinished"/>
+        <translation>时间：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="269"/>
         <source>Currency:</source>
-        <translation type="unfinished"/>
+        <translation>货币：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="279"/>
         <source>Measurement Units:</source>
-        <translation type="unfinished"/>
+        <translation>计量单位：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="289"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>地址：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="299"/>
         <source>Names:</source>
-        <translation type="unfinished"/>
+        <translation>名称：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="309"/>
         <source>Telephone:</source>
-        <translation type="unfinished"/>
+        <translation>电话：</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="319"/>
         <source>Identification:</source>
-        <translation type="unfinished"/>
+        <translation>标识</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="329"/>
         <source>Paper:</source>
-        <translation type="unfinished"/>
+        <translation>纸张</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="363"/>
         <source>Set as default display language and format</source>
-        <translation type="unfinished"/>
+        <translation>设定为默认显示语言及格式</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="368"/>
         <source>Set as default display language</source>
-        <translation type="unfinished"/>
+        <translation>设定默认的显示语言</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="373"/>
         <source>Set as default format</source>
-        <translation type="unfinished"/>
+        <translation>设定默认格式</translation>
     </message>
 </context>
 <context>
@@ -569,67 +569,67 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>硬件设定</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
         <source>Manjaro Hardware Detection graphical user interface</source>
-        <translation type="unfinished"/>
+        <translation>使用 Manjaro 硬件侦测图形用户界面</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
         <source>Unknown device name</source>
-        <translation type="unfinished"/>
+        <translation>未知的设备名称</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
         <source>Install configuration</source>
-        <translation type="unfinished"/>
+        <translation>安装设定</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD 将会安装 &apos;%1&apos; 的设置</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
         <source>Install open-source graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>安装开源的显卡驱动</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD 将会自动侦测您的开源显卡驱动并进行安装</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
         <source>Install proprietary graphic driver</source>
-        <translation type="unfinished"/>
+        <translation>安装专有的显卡驱动</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation type="unfinished"/>
+        <translation>MHWD 将会自动侦测您的专有显卡驱动并进行安装</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>
         <source>Reinstall configuration</source>
-        <translation type="unfinished"/>
+        <translation>重新安装设定</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD 将会重新安装 &apos;%1&apos; 的设置</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
         <source>Remove configuration</source>
-        <translation type="unfinished"/>
+        <translation>移除设定</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation type="unfinished"/>
+        <translation>MHWD 将会移除 &apos;%1&apos; 的设置</translation>
     </message>
 </context>
 <context>
@@ -637,7 +637,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>请向 &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; 汇报缺陷。</translation>
     </message>
 </context>
 <context>
@@ -645,38 +645,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../msm/MsmWindow.ui" line="14"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro 设置管理器</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="185"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>所有设置</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="211"/>
         <location filename="../../msm/MsmWindow.ui" line="235"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.ui" line="224"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>应用</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="44"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>系统</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="50"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>硬件</translation>
     </message>
     <message>
         <location filename="../../msm/MsmWindow.cpp" line="153"/>
         <source>Manjaro Settings</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro 设定</translation>
     </message>
 </context>
 <context>
@@ -685,24 +685,24 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier/Notifier.cpp" line="47"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="47"/>
         <source>Kernels</source>
-        <translation type="unfinished"/>
+        <translation>内核</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="51"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="51"/>
         <source>Language packages</source>
-        <translation type="unfinished"/>
+        <translation>语言包</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="55"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="59"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="56"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>选项</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="191"/>
@@ -715,31 +715,31 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="228"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="281"/>
         <source>Manjaro Settings Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manjaro 设置管理器</translation>
     </message>
     <message numerus="yes">
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>有 %n 个可用的额外语言包</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="221"/>
         <source>Running an unsupported kernel, please update.</source>
-        <translation type="unfinished"/>
+        <translation>当前正在运行未受支持的内核，请更新。</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation type="unfinished"/>
+        <translation>您的系统安装的是未受支持的内核，请将其移除。</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="282"/>
         <source>Newer kernel is available, please update.</source>
-        <translation type="unfinished"/>
+        <translation>找到更新的内核了，请更新。</translation>
     </message>
 </context>
 <context>
@@ -747,67 +747,67 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="20"/>
         <source>Kernel Notifications</source>
-        <translation type="unfinished"/>
+        <translation>内核通知</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="26"/>
         <source>Check unsupported kernels</source>
-        <translation type="unfinished"/>
+        <translation>检查未受支持的内核</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="51"/>
         <source>Only notify if running an unsupported kernel</source>
-        <translation type="unfinished"/>
+        <translation>只当运行未受支持的内核时才进行提醒</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="60"/>
         <source>Check new kernels</source>
-        <translation type="unfinished"/>
+        <translation>检查新的内核</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="85"/>
         <source>Only notify LTS kernels</source>
-        <translation type="unfinished"/>
+        <translation>只通知长期支持（LTS）的内核</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="112"/>
         <source>Only notify recommended kernels</source>
-        <translation type="unfinished"/>
+        <translation>只通知推荐的内核</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="124"/>
         <source>Language Packs Notifications</source>
-        <translation type="unfinished"/>
+        <translation>语言包通知</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="130"/>
         <source>Check missing language packs</source>
-        <translation type="unfinished"/>
+        <translation>检查缺少的语言包</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="168"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.ui" line="181"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>应用</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>通知设置</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>当储存通知设定时出现格式化错误</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation type="unfinished"/>
+        <translation>当储存通知设定时出现访问错误</translation>
     </message>
 </context>
 <context>
@@ -825,32 +825,32 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="140"/>
         <source>Delay:</source>
-        <translation type="unfinished"/>
+        <translation>延迟：</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="158"/>
         <source>Delay</source>
-        <translation type="unfinished"/>
+        <translation>延迟</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="165"/>
         <source>Set delay</source>
-        <translation type="unfinished"/>
+        <translation>设定延迟</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="183"/>
         <source>Rate:</source>
-        <translation type="unfinished"/>
+        <translation>比率：</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="201"/>
         <source>Rate  </source>
-        <translation type="unfinished"/>
+        <translation>比率</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/ui/PageKeyboard.ui" line="208"/>
         <source>Set Rate</source>
-        <translation type="unfinished"/>
+        <translation>设定比率</translation>
     </message>
 </context>
 <context>
@@ -868,7 +868,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="55"/>
         <source>Install Packages</source>
-        <translation type="unfinished"/>
+        <translation>已安装的软件包</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="80"/>
@@ -879,7 +879,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/ui/PageLanguagePackages.ui" line="133"/>
@@ -941,7 +941,7 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation type="unfinished"/>
+        <translation>重新安装</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
@@ -1127,17 +1127,17 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>时间和日期</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation type="unfinished"/>
+        <translation>时间和日期设置</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>无</translation>
     </message>
 </context>
 <context>
@@ -1163,63 +1163,63 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>用户账户</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation type="unfinished"/>
+        <translation>用户账户设定</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>
         <source>Continue?</source>
-        <translation type="unfinished"/>
+        <translation>要继续吗？</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="136"/>
         <source>Do you really want to remove the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要移除用户 %1 吗？</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="143"/>
         <source>Remove Home?</source>
-        <translation type="unfinished"/>
+        <translation>要移除主目录吗？</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="144"/>
         <source>Do you want to remove the home folder of the user %1?</source>
-        <translation type="unfinished"/>
+        <translation>您真的想要移除用户 %1 的主目录吗？</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="166"/>
         <location filename="../../modules/users/UsersCommon.cpp" line="236"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>错误！</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="167"/>
         <source>Failed to remove user %1</source>
-        <translation type="unfinished"/>
+        <translation>无法移除用户 %1</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="183"/>
         <source>Images (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>图像文件（*.png *.jpg *.bmp）</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="237"/>
         <source>Failed to change user image</source>
-        <translation type="unfinished"/>
+        <translation>无法更改用户头像</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="248"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>标准</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="267"/>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>管理员</translation>
     </message>
 </context>
 </TS>
