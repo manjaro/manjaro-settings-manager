@@ -578,16 +578,16 @@ KeyboardModel::processVariant()
             if ( name.isEmpty() || description.isEmpty() )
                 return;
 
-            bool varantExist = false;
+            bool variantExist = false;
             for( int i = 0; i < m_currentlayout->childCount(); ++i )
             {
                 if( m_currentlayout->child( i )->key() == name )
                 {
-                    varantExist = true;
+                    variantExist = true;
                     break;
                 }
             }
-            if( !varantExist )
+            if( !variantExist )
             {
                 m_currentlayout->appendChild( new KeyboardItem( name, description, m_currentlayout ) );
             }
