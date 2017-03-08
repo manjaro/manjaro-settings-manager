@@ -178,133 +178,48 @@ KeyboardModel::roleNames() const
 void
 KeyboardModel::initModel( KeyboardItem* parent )
 {
-    const QString xkbFile( "/usr/share/X11/xkb/rules/base.lst" );
-
-    QFile fh( xkbFile );
-    fh.open( QIODevice::ReadOnly );
-
-    if ( !fh.isOpen() )
-        qDebug() << "X11 Keyboard layout and models definitions not found.";
-
     // Root item for layouts
-    KeyboardItem* layoutsRoot = new KeyboardItem( "layouts", "keyboard layouts", parent );
-    parent->appendChild( layoutsRoot );
+    m_layoutsRoot = new KeyboardItem( "layouts", "keyboard layouts", parent );
+    parent->appendChild( m_layoutsRoot );
 
-    // Get layouts
-    KeyboardItem* currentLayout;
-    bool layoutsFound = false;
+    m_modelsRoot = new KeyboardItem( "models", "keyboard models", parent );
+    parent->appendChild( m_modelsRoot );
 
-    while ( !fh.atEnd() )
+    QList<QString> xkbFileList;
+    xkbFileList << "base.xml" << "base.extras.xml" << "evdev.xml" << "evdev.extras.xml";
+
+    for ( int i = 0; i < xkbFileList.count(); ++i )
     {
-        QByteArray line = fh.readLine();
-
-        // Find the layout section otherwhise continue. If the layout section is at it's
-        // end, break the loop
-        if ( !layoutsFound && line.startsWith( "! layout" ) )
-            layoutsFound = true;
-        else if ( layoutsFound && line.startsWith ( "!" ) )
-            break;
-        else if ( !layoutsFound )
-            continue;
-
-        QRegExp rx;
-        rx.setPattern( "^\\s+(\\S+)\\s+(\\w.*)\n$" );
-
-        // insert into the layout model
-        if ( rx.indexIn( line ) != -1 )
+        QFile xmlFile( "/usr/share/X11/xkb/rules/" + xkbFileList[ i ] );
+        if( !xmlFile.open( QIODevice::ReadOnly ) )
         {
-            QString layoutKey = rx.cap( 1 );
-            QString layoutDescription = rx.cap( 2 );
-            currentLayout = new KeyboardItem( layoutKey, layoutDescription, layoutsRoot );
-            layoutsRoot->appendChild( currentLayout );
-            currentLayout->appendChild( new KeyboardItem( QString( "default" ), QString( tr( "Default" ) ), currentLayout ) );
-        }
-    }
-
-
-    // Get Variants
-    bool variantsFound = false;
-    // Start from the beginning
-    fh.reset();
-    while ( !fh.atEnd() )
-    {
-        QByteArray line = fh.readLine();
-
-        // Continue until we found the variant section. If found, read until the
-        // next section is found
-        if ( !variantsFound && line.startsWith( "! variant" ) )
-        {
-            variantsFound = true;
+            qDebug() << "X11 " + xkbFileList[ i ] + "Keyboard layout and models definitions not found.";
             continue;
         }
-        else if ( variantsFound && line.startsWith ( "!" ) )
-            break;
-        else if ( !variantsFound )
-            continue;
 
-        QRegExp rx;
-        rx.setPattern( "^\\s+(\\S+)\\s+(\\S+): (\\w.*)\n$" );
+        xml.setDevice( &xmlFile );
 
-        if ( rx.indexIn( line ) != -1 )
+        if ( xml.readNextStartElement() && xml.name() == "xkbConfigRegistry" )
         {
-            QString variantKey = rx.cap( 1 );
-            QString layoutKey = rx.cap( 2 );
-            QString variantDescription = rx.cap( 3 );
-
-            QModelIndexList layoutIndexList = match( index( 0,0 ).child( 0,0 ),
-                                              KeyRole,
-                                              layoutKey,
-                                              -1,
-                                              Qt::MatchExactly );
-
-            if ( layoutIndexList.isEmpty() )
+            while ( xml.readNextStartElement( ))
             {
-                currentLayout = new KeyboardItem( layoutKey, layoutKey, layoutsRoot );
-                layoutsRoot->appendChild( currentLayout );
-                currentLayout->appendChild( new KeyboardItem( QString( "default" ), QString( tr( "Default" ) ), currentLayout ) );
-                currentLayout->appendChild( new KeyboardItem( variantKey, variantDescription, currentLayout ) );
-            }
-            else
-            {
-                currentLayout = static_cast<KeyboardItem*>( layoutIndexList.first().internalPointer() );
-                currentLayout->appendChild( new KeyboardItem( variantKey, variantDescription, currentLayout ) );
-            }
 
+                if ( xml.name() == "modelList" )
+                    processModelList();
+                else if ( xml.name() == "layoutList" )
+                    processLayoutLists();
+                else if ( xml.name() == "optionList" )
+                    xml.skipCurrentElement();  // TODO: implement the day we want manage options.
+            }
         }
-    }
 
+        if ( xml.tokenType() == QXmlStreamReader::Invalid )
+            xml.readNext();
 
-    // Root item for models
-    KeyboardItem* modelsRoot = new KeyboardItem( "models", "keyboard models", parent );
-    parent->appendChild( modelsRoot );
-
-    // Get models
-    bool modelsFound = false;
-    // Start from the beginning
-    fh.reset();
-    while ( !fh.atEnd() )
-    {
-        QByteArray line = fh.readLine();
-
-        // Continue until we found the model section. If found, read until the next section is found
-        if ( !modelsFound && line.startsWith( "! model" ) )
-            modelsFound = true;
-        else if ( modelsFound && line.startsWith ( "!" ) )
-            break;
-        else if ( !modelsFound )
-            continue;
-
-        QRegExp rx;
-        rx.setPattern( "^\\s+(\\S+)\\s+(\\w.*)\n$" );
-
-        // Insert into the model
-        if ( rx.indexIn( line ) != -1 )
+        if ( xml.hasError() )
         {
-            QString modelKey = rx.cap( 1 );
-            QString modelDescription = rx.cap( 2 );
-            if ( modelKey == "pc105" )
-                modelDescription += " - " + QString( tr( "Default Keyboard Model" ) );
-            modelsRoot->appendChild( new KeyboardItem( modelKey, modelDescription, modelsRoot ) );
+            xml.raiseError();
+            qDebug() << errorString();
         }
     }
 }
@@ -557,4 +472,204 @@ KeyboardModel::saveRateAndDelay()
 
     m_delay = m_newDelay;
     m_rate = m_newRate;
+}
+
+void
+KeyboardModel::processLayoutLists()
+{
+    if ( !xml.isStartElement() || xml.name() != "layoutList" )
+        return;
+
+    while ( xml.readNextStartElement() )
+    {
+        if ( xml.name() == "layout" )
+            processLayout();
+        else
+            xml.skipCurrentElement();
+    }
+}
+
+
+void
+KeyboardModel::processLayout()
+{
+    if ( !xml.isStartElement() || xml.name() != "layout" )
+        return;
+
+    QString name;
+    QString description;
+
+    while ( xml.readNextStartElement() )
+    {
+        if ( xml.name() == "configItem" )
+        {
+            while ( xml.readNextStartElement() )
+            {
+                if ( xml.name() == "name" )
+                    name = readNextText();
+                else if ( xml.name() == "description" )
+                    description = readNextText();
+                else
+                    xml.skipCurrentElement();
+            }
+
+            if ( name.isEmpty() || description.isEmpty() )
+                return;
+
+            QModelIndexList layoutIndexList = match( index( 0,0 ).child( 0,0 ),
+                                              KeyRole,
+                                              name,
+                                              -1,
+                                              Qt::MatchExactly );
+
+            if ( layoutIndexList.isEmpty() )
+            {
+                m_currentlayout = new KeyboardItem( name, description, m_layoutsRoot );
+                m_currentlayout->appendChild( new KeyboardItem( QString( "default" ), QString( tr( "Default" ) ), m_currentlayout ) );
+                m_layoutsRoot->appendChild( m_currentlayout );
+            }
+            else
+            {
+                m_currentlayout = static_cast<KeyboardItem*>( layoutIndexList.first().internalPointer() );
+            }
+        }
+        else if ( xml.name() == "variantList" )
+            processVariantList();
+    }
+}
+
+void
+KeyboardModel::processVariantList()
+{
+    if ( !xml.isStartElement() || xml.name() != "variantList" )
+        return;
+    while ( xml.readNextStartElement() )
+    {
+        if ( xml.name() == "variant" )
+            processVariant();
+        else
+            xml.skipCurrentElement();
+    }
+}
+
+void
+KeyboardModel::processVariant()
+{
+    if ( !xml.isStartElement() || xml.name() != "variant" )
+        return;
+
+    QString name;
+    QString description;
+
+    while ( xml.readNextStartElement() )
+    {
+        if ( xml.name() == "configItem" )
+        {
+            while ( xml.readNextStartElement() )
+            {
+                if ( xml.name() == "name" )
+                    name = readNextText();
+                else if ( xml.name() == "description" )
+                    description = readNextText();
+                else
+                    xml.skipCurrentElement();
+            }
+
+            if ( name.isEmpty() || description.isEmpty() )
+                return;
+
+            bool variantExist = false;
+            for( int i = 0; i < m_currentlayout->childCount(); ++i )
+            {
+                if( m_currentlayout->child( i )->key() == name )
+                {
+                    variantExist = true;
+                    break;
+                }
+            }
+            if( !variantExist )
+            {
+                m_currentlayout->appendChild( new KeyboardItem( name, description, m_currentlayout ) );
+            }
+        }
+    }
+}
+
+void
+KeyboardModel::processModelList()
+{
+    if ( !xml.isStartElement() || xml.name() != "modelList" )
+        return;
+    while ( xml.readNextStartElement() )
+    {
+        if ( xml.name() == "model" )
+            processModel();
+        else
+            xml.skipCurrentElement();
+    }
+}
+
+
+void
+KeyboardModel::processModel()
+{
+    if ( !xml.isStartElement() || xml.name() != "model" )
+        return;
+
+    QString name;
+    QString description;
+    QString vendor;
+
+    while ( xml.readNextStartElement() )
+    {
+        if ( xml.name() == "configItem" )
+        {
+            while ( xml.readNextStartElement() )
+            {
+                if ( xml.name() == "name" )
+                    name = readNextText();
+                else if ( xml.name() == "description" )
+                    description = readNextText();
+                else if ( xml.name() == "vendor" )
+                    vendor = readNextText();
+                else
+                    xml.skipCurrentElement();
+            }
+
+            if ( name.isEmpty() || description.isEmpty() )
+                return;
+
+            if ( vendor.isEmpty() )
+                vendor = tr( "Unknown" );
+
+            if ( name == "pc105" )
+                description += " - " + QString( tr( "Default Keyboard Model" ) );
+
+            QModelIndexList layoutIndexList = match( index( 1,0 ).child( 0,0 ),
+                                              KeyRole,
+                                              name,
+                                              -1,
+                                              Qt::MatchExactly );
+
+            if ( layoutIndexList.isEmpty() )
+            {
+                m_modelsRoot->appendChild(new KeyboardItem( name, vendor + " | " + description, m_modelsRoot ) );
+            }
+        }
+    }
+}
+
+QString
+KeyboardModel::readNextText()
+{
+    return xml.readElementText();
+}
+
+QString
+KeyboardModel::errorString()
+{
+    return QObject::tr( "%1\nLine %2, column %3" )
+            .arg( xml.errorString() )
+            .arg( xml.lineNumber() )
+            .arg( xml.columnNumber() );
 }

@@ -24,6 +24,8 @@
 
 #include <QtCore/QAbstractItemModel>
 #include <QtCore/QSortFilterProxyModel>
+#include <QtCore/QXmlStreamReader>
+
 
 class KeyboardModel : public QAbstractItemModel
 {
@@ -73,8 +75,22 @@ private:
     void initModel( KeyboardItem* parent );
     void initLayout();
     void initRateAndDelay();
+    void processLayoutLists();
+    void processLayout();
+    void processVariantList();
+    void processVariant();
+    void processModelList();
+    void processModel();
+    QString readNextText();
+    QString errorString();
+
+    QXmlStreamReader xml;
 
     KeyboardItem* m_rootItem;
+    KeyboardItem* m_layoutsRoot;
+    KeyboardItem* m_modelsRoot;
+    KeyboardItem* m_currentlayout;
+
     QString m_layout;
     QString m_variant;
     QString m_model;
