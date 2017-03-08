@@ -63,7 +63,7 @@ KeyboardPage::KeyboardPage( QWidget* parent ) :
              this, &KeyboardPage::load );
     connect( ui->layoutsListView, &QListView::clicked,
              this, &KeyboardPage::setNewLayout );
-    connect( ui->layoutsListView, &QListView::clicked,
+    connect( ui->variantsListView, &QListView::clicked,
              this, &KeyboardPage::setNewVariant );
     connect( m_keyboardModel, &KeyboardModel::changed,
              [=] ()
