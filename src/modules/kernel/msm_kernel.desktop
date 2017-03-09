@@ -12,6 +12,7 @@ X-KDE-Keywords=kernel
 X-KDE-Keywords[x-test]=xxkernelxx
 Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
+Name=Kernel
 Name[ca]=Nucli
 Name[da]=Kerne
 Name[de]=Kernel
