@@ -218,7 +218,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation>Registro de alterações do Linux %1.%2</translation>
+        <translation>Changelog do Linux %1.%2</translation>
     </message>
 </context>
 <context>
@@ -257,7 +257,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
-        <translation>Registro de alterações</translation>
+        <translation>Changelog</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>

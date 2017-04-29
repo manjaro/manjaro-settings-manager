@@ -376,7 +376,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="140"/>
         <source>Numbers</source>
-        <translation>Nummern</translation>
+        <translation>Zahlen</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="141"/>
@@ -420,12 +420,12 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
         <source>System is out-of-date</source>
-        <translation>System ist auf einem veralteten Stand</translation>
+        <translation>Das System ist nicht aktuell</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="183"/>
         <source>Your System is not up-to-date! You have to update it first to continue!</source>
-        <translation>Ihr System ist nicht auf dem neuesten Stand! Sie müssen es zuerst aktualisieren, um fortzufahren!</translation>
+        <translation>Ihr System ist nicht aktuell! Sie müssen es zuerst aktualisieren, um fortzufahren!</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
@@ -506,7 +506,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="249"/>
         <source>Numbers:</source>
-        <translation>Nummern:</translation>
+        <translation>Zahlen:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="259"/>
@@ -589,7 +589,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
-        <translation>MHWD möchte die &apos;%1&apos;-Konfiguration installieren</translation>
+        <translation>MHWD wird die &apos;%1&apos;-Konfiguration installieren</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
@@ -599,7 +599,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
-        <translation>MHWD möchte Ihren quelloffenen Grafiktreiber automatisch erkennen und installieren</translation>
+        <translation>MHWD wird Ihren quelloffenen Grafiktreiber automatisch erkennen und installieren</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
@@ -609,17 +609,17 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
-        <translation>MHWD möchte Ihren proprietären Grafiktreiber automatisch erkennen und installieren</translation>
+        <translation>MHWD wird Ihren proprietären Grafiktreiber automatisch erkennen und installieren</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>
         <source>Reinstall configuration</source>
-        <translation>Konfiguration neu installieren</translation>
+        <translation>Konfiguration erneut installieren</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
-        <translation>MHWD möchte die &apos;%1&apos;-Konfiguration neu installieren</translation>
+        <translation>MHWD wird die &apos;%1&apos;-Konfiguration erneut installieren</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
@@ -629,7 +629,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
-        <translation>MHWD möchte die &apos;%1&apos;-Konfiguration entfernen</translation>
+        <translation>MHWD wird die &apos;%1&apos;-Konfiguration entfernen</translation>
     </message>
 </context>
 <context>
@@ -637,7 +637,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation>Bitte verwenden Sie &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt;, um Fehler zu melden.</translation>
+        <translation>Bitte verwenden Sie &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; für das Melden von Fehlern.</translation>
     </message>
 </context>
 <context>
@@ -721,7 +721,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <location filename="../../notifier/notifier/Notifier.cpp" line="192"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="182"/>
         <source>%n new additional language package(s) available</source>
-        <translation><numerusform>%n weiteres neues Sprachpaket verfügbar</numerusform><numerusform>%n weitere neue Sprachpakete verfügbar</numerusform></translation>
+        <translation><numerusform>%n weiteres neues Sprachpaket verfügbar</numerusform><numerusform>%n neue(s) Sprachpaket(e) verfügbar</numerusform></translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="231"/>
@@ -733,7 +733,7 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
         <location filename="../../notifier/notifier/Notifier.cpp" line="239"/>
         <location filename="../../notifier/notifier_kde/Notifier.cpp" line="229"/>
         <source>Unsupported kernel installed in your system, please remove it.</source>
-        <translation>Nicht unterstützter Kernel ist auf Ihrem System installiert, bitte entfernen Sie ihn.</translation>
+        <translation>Nicht unterstützter Kernel auf Ihrem System installiert, bitte entfernen Sie ihn.</translation>
     </message>
     <message>
         <location filename="../../notifier/notifier/Notifier.cpp" line="292"/>
@@ -797,17 +797,17 @@ Es wird empfohlen diese zu aktivieren. Wollen Sie trotzdem fortfahren?</translat
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="32"/>
         <source>Notifications settings</source>
-        <translation>Benachrichtigungseinstellungen</translation>
+        <translation>Benachrichtigungs-Einstellungen</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="107"/>
         <source>Format error when saving your notifications settings</source>
-        <translation>Formatfehler beim Speichern Ihrer Benachrichtigungseinstellungen</translation>
+        <translation>Formatfehler beim Speichern Ihrer Benachrichtigungs-Einstellungen</translation>
     </message>
     <message>
         <location filename="../NotifierSettingsDialog.cpp" line="111"/>
         <source>Access error when saving your notifications settings</source>
-        <translation>Zugriffsfehler beim Speichern Ihrer Benachrichtigungseinstellungen</translation>
+        <translation>Zugriffsfehler beim Speichern Ihrer Benachrichtigungs-Einstellungen</translation>
     </message>
 </context>
 <context>
@@ -941,7 +941,7 @@ automatisch installieren</translation>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
         <source>Reinstall</source>
-        <translation>Neu installieren</translation>
+        <translation>Erneut installieren</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
@@ -1137,7 +1137,7 @@ automatisch installieren</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
         <source>none</source>
-        <translation>kein</translation>
+        <translation>keinerlei</translation>
     </message>
 </context>
 <context>
@@ -1168,7 +1168,7 @@ automatisch installieren</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation>Benutzerkontenkonfiguration</translation>
+        <translation>Konfiguration der Benutzerkonten</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>
@@ -1209,7 +1209,7 @@ automatisch installieren</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="237"/>
         <source>Failed to change user image</source>
-        <translation>Konnte Benutzerbild nicht ändern</translation>
+        <translation>Benutzerbild konnte nicht geändert werden</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="248"/>

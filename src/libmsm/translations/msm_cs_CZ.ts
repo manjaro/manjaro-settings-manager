@@ -191,7 +191,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Jádro</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
@@ -290,12 +290,12 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení klávesnice</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení klávesnice</translation>
     </message>
 </context>
 <context>
@@ -314,12 +314,12 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Chyba!</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Selhalo nastavení rozložení klávesnice</translation>
     </message>
 </context>
 <context>
@@ -400,7 +400,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Jazykové balíčky</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
@@ -439,12 +439,12 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="33"/>
         <source>Locale Settings</source>
-        <translation type="unfinished"/>
+        <translation>Místní nastavení</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LocaleCommon.cpp" line="40"/>
         <source>Add and configure locales</source>
-        <translation type="unfinished"/>
+        <translation>Přidat a nastavit lokalizaci</translation>
     </message>
 </context>
 <context>
@@ -570,7 +570,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="39"/>
         <source>Hardware Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení hardware</translation>
     </message>
     <message>
         <location filename="../../modules/mhwd/MhwdCommon.cpp" line="46"/>
@@ -638,7 +638,7 @@ Je důrazně doporučeno připojit tyto skupiny. Opravdu chcete pokračovat?
     <message>
         <location filename="../MsmCommon.cpp" line="26"/>
         <source>Please use &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; to report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Prosíme použijte &lt;a href=&apos;%1&apos;&gt;%1&lt;/a&gt; pro nahlášení chyb.</translation>
     </message>
 </context>
 <context>
@@ -1128,12 +1128,12 @@ proprietární ovladač</translation>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="38"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum a čas</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="45"/>
         <source>Time and date configuration</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení data a času</translation>
     </message>
     <message>
         <location filename="../../modules/timedate/TimeDateCommon.cpp" line="138"/>
@@ -1164,12 +1164,12 @@ proprietární ovladač</translation>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="47"/>
         <source>User Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Účty uživatelů</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="54"/>
         <source>User accounts configuration</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení uživatelských účtů</translation>
     </message>
     <message>
         <location filename="../../modules/users/UsersCommon.cpp" line="135"/>

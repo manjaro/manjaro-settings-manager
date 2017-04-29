@@ -45,29 +45,31 @@
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="136"/>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="167"/>
         <source>Warning!</source>
-        <translation type="unfinished"/>
+        <translation>Paralajmërim!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="137"/>
         <source>Admin group %1 isn&apos;t enabled in &apos;%2&apos;! You have to enable it to be able to set admin rights...</source>
-        <translation type="unfinished"/>
+        <translation>Grupi admin %1 nuk është aktivizuar në &apos;%2&apos;! Ju duhet ta mundësoni të jenë në gjendje të vendosni të drejta admin...</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="168"/>
         <source>Following default user groups have been disabled:
 %1
 It is recommended to enable those groups. Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Grupet e përdoruesit në vazhdim janë çaktivizuar:
+%1
+Është e rekomanduar të mundësoni këto grupe. Doni vërtetë të vazhdoni?</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Gabim!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AccountTypeDialog.cpp" line="190"/>
         <source>Failed to set groups!</source>
-        <translation type="unfinished"/>
+        <translation>Dështoj në vendosjen e grupeve! </translation>
     </message>
 </context>
 <context>
@@ -75,7 +77,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../ActionDialog.cpp" line="39"/>
         <source>Do you really want to continue?</source>
-        <translation type="unfinished"/>
+        <translation>Vërtetë dëshironi të vazhdoni?</translation>
     </message>
     <message>
         <location filename="../ActionDialog.cpp" line="87"/>
@@ -93,54 +95,54 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="71"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Përdoruesi</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="93"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="115"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>Rivendos Fjalëkalimin</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="164"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anulo</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/AddUserDialog.ui" line="184"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Krijo</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="87"/>
         <source>Your username contains invalid characters!</source>
-        <translation type="unfinished"/>
+        <translation>Përdoruesi juaj përmban karaktere pa vlefshëm!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="91"/>
         <source>Your passwords do not match!</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi juaj nuk përputhet!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="96"/>
         <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Gabim!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="119"/>
         <source>Failed to add user!</source>
-        <translation type="unfinished"/>
+        <translation>Dështoj në shtimin e përdoruesit!</translation>
     </message>
     <message>
         <location filename="../../modules/users/AddUserDialog.cpp" line="141"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation type="unfinished"/>
+        <translation>Dështoj në vendosjen e fjalëkalimit përdoruesit!</translation>
     </message>
 </context>
 <context>
@@ -149,38 +151,38 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="14"/>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="74"/>
         <source>New Password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim Ri</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="96"/>
         <source>Retype Password</source>
-        <translation type="unfinished"/>
+        <translation>Rivendos Fjalëkalimin</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="129"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anulo</translation>
     </message>
     <message>
         <location filename="../../modules/users/ui/ChangePasswordDialog.ui" line="149"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Apliko</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Gabim!</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="76"/>
         <source>Your passwords do not match!</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi nuk përputhet!</translation>
     </message>
     <message>
         <location filename="../../modules/users/ChangePasswordDialog.cpp" line="97"/>
         <source>Failed to set user&apos;s password!</source>
-        <translation type="unfinished"/>
+        <translation>Dështoj në vendosjen e fjalëkalimit përdoruesit!</translation>
     </message>
 </context>
 <context>
@@ -188,37 +190,37 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="39"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="46"/>
         <source>Add and remove manjaro kernels</source>
-        <translation type="unfinished"/>
+        <translation>Shto dhe hiq kernelin manjaro</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="77"/>
         <source>Install Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Instalo Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"/>
+        <translation>Paketat në vazhdim do të instalohen:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
         <source>Remove Linux %1</source>
-        <translation type="unfinished"/>
+        <translation>Fshij Linux %1</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"/>
+        <translation>Paketat në vazhdim do të fshihen:</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
         <source>Linux %1.%2 changelog</source>
-        <translation type="unfinished"/>
+        <translation>Linux %1.%2 shenime</translation>
     </message>
 </context>
 <context>
@@ -226,60 +228,60 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="95"/>
         <source>LTS</source>
-        <translation type="unfinished"/>
+        <translation>MA</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="96"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Rekomanduar</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="97"/>
         <source>Running</source>
-        <translation type="unfinished"/>
+        <translation>Lëshuar</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="98"/>
         <source>Installed</source>
-        <translation type="unfinished"/>
+        <translation>Instaluar</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="99"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Pambështetur</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="102"/>
         <source>Real-time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë-reale</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="200"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="271"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Shenimet</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="100"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Me porosi</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="101"/>
         <source>Experimental</source>
-        <translation type="unfinished"/>
+        <translation>Eksperimental</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="198"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="269"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Fshij</translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="199"/>
         <location filename="../../modules/kernel/KernelListViewDelegate.cpp" line="270"/>
         <source>Install</source>
-        <translation type="unfinished"/>
+        <translation>Instalo</translation>
     </message>
 </context>
 <context>
@@ -287,12 +289,12 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="33"/>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Opcionet për tastaturë</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardCommon.cpp" line="40"/>
         <source>Keyboard settings</source>
-        <translation type="unfinished"/>
+        <translation>Opcionet për tastaturë</translation>
     </message>
 </context>
 <context>
@@ -301,22 +303,22 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="220"/>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="264"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>E parazgjedhur</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="306"/>
         <source>Default Keyboard Model</source>
-        <translation type="unfinished"/>
+        <translation>Modeli i parazgjedhur i tastaturës</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Gabim !</translation>
     </message>
     <message>
         <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
         <source>Failed to set keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Dështoj në vendosjen e tastieres </translation>
     </message>
 </context>
 <context>
@@ -324,72 +326,72 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="96"/>
         <source>Display Language</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq Gjuhën</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="99"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Gjuha</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="101"/>
         <source>Collation and Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Sistemim dhe Zgjidhje</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="102"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Mesazhe</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="132"/>
         <source>Formats</source>
-        <translation type="unfinished"/>
+        <translation>Formate</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="135"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adresa</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="136"/>
         <source>Identification</source>
-        <translation type="unfinished"/>
+        <translation>Identifikimi</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="137"/>
         <source>Measurement Units</source>
-        <translation type="unfinished"/>
+        <translation>Njësi Matëse</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="138"/>
         <source>Currency</source>
-        <translation type="unfinished"/>
+        <translation>Valutë</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="139"/>
         <source>Names</source>
-        <translation type="unfinished"/>
+        <translation>Emrat</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="140"/>
         <source>Numbers</source>
-        <translation type="unfinished"/>
+        <translation>Numrat</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="141"/>
         <source>Paper</source>
-        <translation type="unfinished"/>
+        <translation>Letër</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="142"/>
         <source>Telephone</source>
-        <translation type="unfinished"/>
+        <translation>Telefon</translation>
     </message>
     <message>
         <location filename="../../modules/locale/LanguageListViewDelegate.cpp" line="143"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë</translation>
     </message>
 </context>
 <context>
@@ -397,23 +399,23 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="45"/>
         <source>Language Packages</source>
-        <translation type="unfinished"/>
+        <translation>Paketat Gjuhë</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="52"/>
         <source>Detection and installation of language packages</source>
-        <translation type="unfinished"/>
+        <translation>Zbulimi dhe instalimin e paketave gjuhësore</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="107"/>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="109"/>
         <source>%1 language packages</source>
-        <translation type="unfinished"/>
+        <translation>%1 paketat gjuhësore</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="160"/>
         <source>Global language packages</source>
-        <translation type="unfinished"/>
+        <translation>Paketat e gjuhëve globale</translation>
     </message>
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="182"/>
@@ -428,7 +430,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
-        <translation type="unfinished"/>
+        <translation>Instalo paketat e gjuhës.</translation>
     </message>
 </context>
 <context>
@@ -449,17 +451,17 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="35"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Shto</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="42"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Heq</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="49"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Kthej</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="62"/>
@@ -479,7 +481,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="188"/>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Gjuhë:</translation>
     </message>
     <message>
         <location filename="../../modules/locale/ui/LocaleModule.ui" line="198"/>
