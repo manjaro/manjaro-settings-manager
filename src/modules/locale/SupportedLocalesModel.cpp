@@ -240,7 +240,7 @@ SupportedLocalesModel::init( SupportedLocalesItem* parent )
 icu::UnicodeString
 SupportedLocalesModel::qStringToUnicodeString( const QString& sourceStr )
 {
-    return UnicodeString( static_cast<const UChar*>( sourceStr.utf16() ),
+    return UnicodeString( static_cast<const ushort*>( sourceStr.utf16() ),
                           sourceStr.length() );
 }
 
