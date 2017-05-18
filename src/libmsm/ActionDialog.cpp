@@ -33,6 +33,7 @@ ActionDialog::ActionDialog( QWidget* parent ) :
 {
     QVBoxLayout* vBoxLayout = new QVBoxLayout();
     this->setLayout( vBoxLayout );
+    
     x = 400;
     y = 100;
     

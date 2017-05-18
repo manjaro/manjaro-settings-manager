@@ -149,11 +149,12 @@ MhwdCommon::installConfiguration( QString configuration )
     installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
     installAction.setArguments( args );
     installAction.setTimeout( std::numeric_limits<int>::max() );
-
+    
     ActionDialog actionDialog;
     actionDialog.setInstallAction( installAction );
     actionDialog.setWindowTitle( title );
     actionDialog.setMessage( message );
+    actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." )));
     actionDialog.exec();
     return actionDialog.isJobSuccesful();
 }
@@ -176,6 +177,7 @@ MhwdCommon::installFreeConfiguration( )
     actionDialog.setInstallAction( installAction );
     actionDialog.setWindowTitle( title );
     actionDialog.setMessage( message );
+    actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." )));
     actionDialog.exec();
     return actionDialog.isJobSuccesful();
 }
