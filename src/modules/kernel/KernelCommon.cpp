@@ -75,8 +75,9 @@ KernelCommon::installKernel( const QModelIndex& index )
     packageList << kernel << modules;
 
     QString title = QString( tr( "Install Linux %1" ) ).arg( version );
-    QString message = QString( tr( "The following packages will be installed:" ) );
-    QString information = QString();
+    QString message = QString( tr( "New Kernel package(s) is/are ready to install. \nWould you like to continue?" ) );
+
+    QString information = QString( tr( "The following packages will be installed:\n" ) );
     foreach ( const QString p, packageList )
     {
         information.append( p );
@@ -96,7 +97,7 @@ KernelCommon::installKernel( const QModelIndex& index )
     actionDialog.setInstallAction( installAction );
     actionDialog.setWindowTitle( title );
     actionDialog.setMessage( message );
-    actionDialog.setInformation( information );
+    actionDialog.writeToTerminal( information );
     actionDialog.exec();
 }
 

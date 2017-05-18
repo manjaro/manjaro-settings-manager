@@ -20,6 +20,8 @@
 #ifndef ACTIONDIALOG_H
 #define ACTIONDIALOG_H
 
+#include "ClickableLabel.h"
+
 #include <KAuth/KAuthAction>
 
 #include <QtWidgets/QDialog>
@@ -45,12 +47,16 @@ public:
 
     bool isJobSuccesful() const;
 
+    void showDetails();
+
+    void writeToTerminal(const QString& infomation);
 private:
     void startJob();
 
     QTextEdit* m_terminal;
     QLabel* m_messageLabel;
     QLabel* m_informationLabel;
+    ClickableLabel* m_showDetails;
     QDialogButtonBox* m_buttonBox;
 
     KAuth::Action m_installAction;
@@ -59,6 +65,10 @@ private:
     bool m_jobSuccesful;
 
     QString m_lastMessage;
+
+    bool m_detailOn;
+    
+    int x, y;
 };
 
 #endif // ACTIONDIALOG_H

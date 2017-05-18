@@ -18,6 +18,7 @@
  */
 
 #include "ActionDialog.h"
+#include "ClickableLabel.h"
 
 #include <KAuth/KAuthExecuteJob>
 
@@ -32,7 +33,10 @@ ActionDialog::ActionDialog( QWidget* parent ) :
 {
     QVBoxLayout* vBoxLayout = new QVBoxLayout();
     this->setLayout( vBoxLayout );
-    this->resize( 600,400 );
+    x = 400;
+    y = 100;
+    
+    this->resize( x, y );
 
     m_messageLabel = new QLabel();
     vBoxLayout->addWidget( m_messageLabel );
@@ -45,6 +49,15 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     m_terminal = new QTextEdit();
     vBoxLayout->addWidget( m_terminal );
     m_terminal->setReadOnly( true );
+    m_terminal->hide();
+    m_detailOn = false;
+
+    m_showDetails = new ClickableLabel();
+    vBoxLayout->addWidget( m_showDetails );
+    m_showDetails->setText( tr( "Show Details" ));
+
+    ClickableLabel::connect( m_showDetails, &ClickableLabel::clicked,
+                             this, &ActionDialog::showDetails );
 
     m_buttonBox = new QDialogButtonBox();
     vBoxLayout->addWidget( m_buttonBox );
@@ -57,6 +70,29 @@ ActionDialog::ActionDialog( QWidget* parent ) :
                                this, &ActionDialog::reject );
 }
 
+void
+ActionDialog::writeToTerminal( const QString& information )
+{
+    m_terminal->append(information);
+}
+
+void
+ActionDialog::showDetails()
+{
+    if (m_detailOn) 
+    {
+        m_detailOn = false;
+        m_terminal -> hide();
+        m_showDetails->setText( tr( "Show Details" ));
+        this->resize( x, y );
+    }
+    else
+    {
+        m_detailOn = true;
+        m_terminal -> show();
+        m_showDetails->setText( tr( "Hide Details" ));
+    }
+}
 
 void
 ActionDialog::startJob()

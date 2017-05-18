@@ -11,3 +11,5 @@ build-manjaro-settings-manager-Qt4_Desktop-Debug
 pkg
 *.pkg.tar.xz
 CMakeLists.txt.user
+.vscode/*
+.kdev4/*
