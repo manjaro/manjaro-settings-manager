@@ -13,3 +13,5 @@ pkg
 CMakeLists.txt.user
 .vscode/*
 .kdev4/*
+.directory
+manjaro-settings-manager.kdev4

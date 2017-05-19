@@ -42,10 +42,19 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     m_messageLabel = new QLabel();
     vBoxLayout->addWidget( m_messageLabel );
     m_messageLabel->setText( tr( "Do you really want to continue?" ) );
+    
+    m_progressBar = new QProgressBar();
+    m_progressBar->setMaximum(0);
+    m_progressBar->setMinimum(0);
+    vBoxLayout->addWidget(m_progressBar);
+    m_progressBar->hide();
 
     m_informationLabel = new QLabel();
     vBoxLayout->addWidget( m_informationLabel );
+    QFont f = font();
+    f.setItalic(true);
     m_informationLabel->setVisible( false );
+    m_informationLabel->setFont(f);
 
     m_terminal = new QTextEdit();
     vBoxLayout->addWidget( m_terminal );
@@ -86,12 +95,14 @@ ActionDialog::showDetails()
         m_terminal -> hide();
         m_showDetails->setText( tr( "Show Details" ));
         this->resize( x, y );
+        m_informationLabel->show();
     }
     else
     {
         m_detailOn = true;
         m_terminal -> show();
         m_showDetails->setText( tr( "Hide Details" ));
+        m_informationLabel->hide();
     }
 }
 
@@ -100,6 +111,14 @@ ActionDialog::startJob()
 {
     m_buttonBox->setStandardButtons( QDialogButtonBox::Close );
     m_buttonBox->setDisabled( true );
+    m_progressBar->show();
+    
+    m_messageLabel->setText( tr ( "Please wait while your system is being modified" ) );
+    m_informationLabel->setText( tr ( "Starting" ) );
+    
+    if (!m_detailOn) {
+        m_informationLabel->show();
+    }
 
     KAuth::ExecuteJob* job = m_installAction.execute();
     connect( job, &KAuth::ExecuteJob::newData,
@@ -111,18 +130,29 @@ ActionDialog::startJob()
             if ( line != m_lastMessage )
             {
                 m_terminal->append( line.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
+                m_informationLabel->setText( QString( line.remove( QRegularExpression( "\x1b[^m]*m" ) ) ) );
                 m_lastMessage = line;
             }
         }
 
     } );
-    if ( job->exec() )
+    if ( job->exec() ) 
+    {
         m_jobSuccesful = true;
-    else
+        m_messageLabel->setText( tr ( "Changes were made successfully" ) );
+    }
+    else 
+    {
         m_jobSuccesful = false;
+        m_messageLabel->setText( tr ( "Changes failed, click on 'Show Details' for more information" ) );
+    }
     m_terminal->append( QString( "\n" ) );
     m_terminal->append( QString( tr( "Done ..." ) ) );
+    m_informationLabel->setText( QString( tr( "Done ..." ) ) );
     m_buttonBox->setEnabled( true );
+    m_progressBar->setMaximum(100);
+    m_progressBar->setValue(100);
+    m_progressBar->setFormat("");
 }
 
 

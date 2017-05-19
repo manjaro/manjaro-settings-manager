@@ -28,6 +28,7 @@
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QProgressBar>
 
 class ActionDialog : public QDialog
 {
@@ -57,6 +58,7 @@ private:
     QLabel* m_messageLabel;
     QLabel* m_informationLabel;
     ClickableLabel* m_showDetails;
+    QProgressBar* m_progressBar;
     QDialogButtonBox* m_buttonBox;
 
     KAuth::Action m_installAction;

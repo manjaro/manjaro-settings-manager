@@ -112,7 +112,7 @@ KernelCommon::removeKernel( const QModelIndex& index )
     packageList << kernel << modules;
 
     QString title = QString( tr( "Remove Linux %1" ) ).arg( version );
-    QString message = QString( tr( "The following packages will be removed:" ) );
+    QString message = QString( tr( "The Linux %1 packages will be removed. \nWould you like to continue?" ) ).arg( version );
     QString information = QString();
     foreach ( const QString p, packageList )
     {
@@ -133,7 +133,7 @@ KernelCommon::removeKernel( const QModelIndex& index )
     actionDialog.setInstallAction( installAction );
     actionDialog.setWindowTitle( title );
     actionDialog.setMessage( message );
-    actionDialog.setInformation( information );
+    actionDialog.writeToTerminal( information );
     actionDialog.exec();
 }
 
