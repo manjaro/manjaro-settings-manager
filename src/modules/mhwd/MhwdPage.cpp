@@ -101,4 +101,5 @@ void
 MhwdPage::load()
 {
     MhwdCommon::load( ui );
+    QApplication::restoreOverrideCursor();
 }

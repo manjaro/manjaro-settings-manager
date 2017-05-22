@@ -88,4 +88,5 @@ UsersPage::load()
 {
     UsersCommon::loadUsers( ui->listWidget );
     UsersCommon::setupUserData( ui, ui->listWidget->currentItem() );
+    QApplication::restoreOverrideCursor();
 }

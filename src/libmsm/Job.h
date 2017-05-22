@@ -17,26 +17,34 @@
  *  along with Manjaro Settings Manager.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ClickableLabel.h"
+#ifndef JOB_H
+#define JOB_H
 
-#include <QDebug>
+#include <QThread>
+#include <KAuth/KAuthAction>
 
-ClickableLabel::ClickableLabel(const QString& text, QWidget* parent)
-    : QLabel(parent)
+class Job : public QThread
 {
-    setText(text);
-    setStyleSheet( "QLabel {color : blue;}" );
-    QFont f = font();
-    f.setUnderline(true);
-    setFont(f);
-    setCursor(Qt::PointingHandCursor);
-}
+    Q_OBJECT
+    
+private:
+    KAuth::Action m_installAction;
+    QString m_lastMessage;
+    
+public:
+    explicit Job(QObject *parent = 0, bool b = false);
+    void run();
 
-ClickableLabel::~ClickableLabel()
-{
-}
+    // if Stop = true, the thread will break
+    // out of the loop, and will be disposed
+    bool Stop;
+    void setAction (KAuth::Action action);
 
-void ClickableLabel::mousePressEvent(QMouseEvent* event)
-{
-    emit clicked();
-}
+signals:
+    // To communicate with Gui Thread
+    // we need to emit a signal
+    void valueChanged(QString);
+    void jobCompeted(bool);    
+};
+
+#endif // JOB_H

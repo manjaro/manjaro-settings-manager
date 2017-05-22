@@ -60,4 +60,5 @@ void
 LanguagePackagesPage::load()
 {
     LanguagePackagesCommon::load( ui );
+    QApplication::restoreOverrideCursor();
 }

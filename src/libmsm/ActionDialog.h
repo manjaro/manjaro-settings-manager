@@ -51,6 +51,10 @@ public:
     void showDetails();
 
     void writeToTerminal(const QString& infomation);
+    
+    void updateInfo (const QString& data);
+    
+    void jobDone (bool success);
 private:
     void startJob();
 

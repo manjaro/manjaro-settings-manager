@@ -19,6 +19,7 @@
 
 #include "ActionDialog.h"
 #include "ClickableLabel.h"
+#include "Job.h"
 
 #include <KAuth/KAuthExecuteJob>
 
@@ -115,28 +116,27 @@ ActionDialog::startJob()
     
     m_messageLabel->setText( tr ( "Please wait while your system is being modified" ) );
     m_informationLabel->setText( tr ( "Starting" ) );
+    m_terminal->append( tr ( "Starting" ) );
     
     if (!m_detailOn) {
         m_informationLabel->show();
     }
 
-    KAuth::ExecuteJob* job = m_installAction.execute();
-    connect( job, &KAuth::ExecuteJob::newData,
-             [=] ( const QVariantMap &data )
-    {
-        QString output = data.value( "Data" ).toString();
-        foreach ( auto line, output.split( QRegExp( "[\r\n]" ),QString::SkipEmptyParts ) )
-        {
-            if ( line != m_lastMessage )
-            {
-                m_terminal->append( line.remove( QRegularExpression( "\x1b[^m]*m" ) ) );
-                m_informationLabel->setText( QString( line.remove( QRegularExpression( "\x1b[^m]*m" ) ) ) );
-                m_lastMessage = line;
-            }
-        }
+    Job* job = new Job (this);
+    job->setAction (m_installAction);
+    job->connect(job, &Job::valueChanged,
+                this, &ActionDialog::updateInfo);
+    
+    job->connect(job, &Job::jobCompeted,
+                 this, &ActionDialog::jobDone);
+    
+    job->start();
+}
 
-    } );
-    if ( job->exec() ) 
+void
+ActionDialog::jobDone (bool success)
+{
+    if (success)
     {
         m_jobSuccesful = true;
         m_messageLabel->setText( tr ( "Changes were made successfully" ) );
@@ -146,6 +146,7 @@ ActionDialog::startJob()
         m_jobSuccesful = false;
         m_messageLabel->setText( tr ( "Changes failed, click on 'Show Details' for more information" ) );
     }
+    
     m_terminal->append( QString( "\n" ) );
     m_terminal->append( QString( tr( "Done ..." ) ) );
     m_informationLabel->setText( QString( tr( "Done ..." ) ) );
@@ -155,13 +156,18 @@ ActionDialog::startJob()
     m_progressBar->setFormat("");
 }
 
-
 bool
 ActionDialog::isJobSuccesful() const
 {
     return m_jobSuccesful;
 }
 
+void
+ActionDialog::updateInfo(const QString& data)
+{
+    writeToTerminal(data);
+    m_informationLabel->setText(data);
+}
 
 KAuth::Action
 ActionDialog::installAction() const
