@@ -54,7 +54,7 @@ public:
     
     void updateInfo (const QString& data);
     
-    void jobDone (bool success);
+    void jobDone (bool success, QString message = NULL);
 private:
     void startJob();
 

@@ -22,7 +22,6 @@ set(LIBMSM_SRCS
     ${KDSINGLEAPPLICATIONGUARD}
     ActionDialog.cpp
     ClickableLabel.cpp
-    Job.cpp
     Kernel.cpp
     KernelModel.cpp
     LanguageCommon.cpp

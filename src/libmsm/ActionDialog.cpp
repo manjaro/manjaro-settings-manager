@@ -19,7 +19,6 @@
 
 #include "ActionDialog.h"
 #include "ClickableLabel.h"
-#include "Job.h"
 
 #include <KAuth/KAuthExecuteJob>
 
@@ -32,13 +31,14 @@
 ActionDialog::ActionDialog( QWidget* parent ) :
     QDialog( parent )
 {
+    this->setWindowFlags(Qt::SubWindow | Qt::Dialog | Qt::WindowCloseButtonHint);
     QVBoxLayout* vBoxLayout = new QVBoxLayout();
     this->setLayout( vBoxLayout );
     
     x = 400;
     y = 100;
     
-    this->resize( x, y );
+    //this->resize( x, y );
 
     m_messageLabel = new QLabel();
     vBoxLayout->addWidget( m_messageLabel );
@@ -51,7 +51,8 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     m_progressBar->hide();
 
     m_informationLabel = new QLabel();
-    vBoxLayout->addWidget( m_informationLabel );
+    m_informationLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    vBoxLayout->addWidget( m_informationLabel);
     QFont f = font();
     f.setItalic(true);
     m_informationLabel->setVisible( false );
@@ -97,9 +98,11 @@ ActionDialog::showDetails()
         m_showDetails->setText( tr( "Show Details" ));
         this->resize( x, y );
         m_informationLabel->show();
+        this->resize( x, y );
     }
     else
     {
+        y = this->geometry().y();
         m_detailOn = true;
         m_terminal -> show();
         m_showDetails->setText( tr( "Hide Details" ));
@@ -121,30 +124,88 @@ ActionDialog::startJob()
     if (!m_detailOn) {
         m_informationLabel->show();
     }
+    
+    KAuth::ExecuteJob* kAuthJob = m_installAction.execute();
+    
+    connect( kAuthJob, &KAuth::ExecuteJob::newData,
+             [=] ( const QVariantMap &data )
+    {
+        QString output = data.value( "Data" ).toString();
+        foreach ( auto line, output.split( QRegExp( "[\r\n]" ),QString::SkipEmptyParts ) )
+        {
+            if ( line != m_lastMessage )
+            {
+                QString l = line.remove( QRegularExpression( "\x1b[^m]*m" ));
+                m_lastMessage = l;
+                updateInfo ( l );
+            }
+        }
 
-    Job* job = new Job (this);
-    job->setAction (m_installAction);
-    job->connect(job, &Job::valueChanged,
-                this, &ActionDialog::updateInfo);
+    } );
     
-    job->connect(job, &Job::jobCompeted,
-                 this, &ActionDialog::jobDone);
+    connect(kAuthJob, &KAuth::ExecuteJob::result,
+        [=] ( KJob *kjob )
+    {
+        auto job = qobject_cast<KAuth::ExecuteJob *>(kjob);
+        if (job->error() == 0)
+            jobDone(true, tr ( "Changes failed, click on 'Show Details' for more information" ));
+        else {
+            jobDone(false, tr ( "Changes failed, click on 'Show Details' for more information" ));
+        }
+    } );
     
-    job->start();
+    connect(kAuthJob, &KAuth::ExecuteJob::statusChanged,
+        [=] ( KAuth::Action::AuthStatus status ) 
+    {        
+//         switch (status) {
+//             case KAuth::Action::AuthStatus::DeniedStatus : {
+//             }
+//         };
+        // some error with switch
+        
+        if (status == KAuth::Action::AuthStatus::DeniedStatus)
+        {
+            jobDone (false, tr ( "You are not authorised to make these changes" ));
+        }
+        else if (status == KAuth::Action::AuthStatus::ErrorStatus)
+        {
+            jobDone (false, tr ( "Some Error occurred during authorization" ));
+        }
+        else if (status == KAuth::Action::AuthStatus::InvalidStatus)
+        {
+            jobDone (false, tr ( "Invalid authorization status" ));
+        }
+        else if (status == KAuth::Action::AuthStatus::UserCancelledStatus)
+        {
+            jobDone (false, tr ( "Authorization canceled by you" ));
+        }
+        else if (status == KAuth::Action::AuthStatus::AuthorizedStatus)
+        {
+            qDebug() << "All good";
+        }
+    } );
+    
+    kAuthJob->start();
 }
 
 void
-ActionDialog::jobDone (bool success)
+ActionDialog::jobDone (bool success, QString message)
 {
     if (success)
     {
         m_jobSuccesful = true;
-        m_messageLabel->setText( tr ( "Changes were made successfully" ) );
+        if (message != NULL)
+            m_messageLabel->setText( tr ( "Changes were made successfully" ) );
+        else
+            m_messageLabel->setText( message );
     }
     else 
     {
         m_jobSuccesful = false;
-        m_messageLabel->setText( tr ( "Changes failed, click on 'Show Details' for more information" ) );
+        if (message != NULL)
+            m_messageLabel->setText( tr ( "Changes failed, click on 'Show Details' for more information" ) );
+        else
+            m_messageLabel->setText( message );
     }
     
     m_terminal->append( QString( "\n" ) );
@@ -153,7 +214,6 @@ ActionDialog::jobDone (bool success)
     m_buttonBox->setEnabled( true );
     m_progressBar->setMaximum(100);
     m_progressBar->setValue(100);
-    m_progressBar->setFormat("");
 }
 
 bool
