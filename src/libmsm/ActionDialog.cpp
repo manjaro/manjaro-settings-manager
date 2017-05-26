@@ -44,6 +44,7 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     m_messageLabel = new QLabel();
     vBoxLayout->addWidget( m_messageLabel );
     m_messageLabel->setText( tr( "Do you really want to continue?" ) );
+    m_messageLabel->setWordWrap(true);
     
     m_progressBar = new QProgressBar();
     m_progressBar->setMaximum(0);

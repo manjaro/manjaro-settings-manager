@@ -66,7 +66,9 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     ui->installAction->setIcon( QIcon::fromTheme( "list-add", QIcon( ":/icons/add.png" ) ) );
     ui->removeAction->setIcon( QIcon::fromTheme( "list-remove", QIcon( ":/icons/remove.png" ) ) );
     ui->reinstallAction->setIcon( QIcon::fromTheme( "view-refresh",  QIcon( ":/icons/restore.png" ) ) );
-
+    
+    ui->buttonInstallFree->setStyleSheet("QPushButton {color: blue;}");
+    ui->buttonInstallNonFree->setStyleSheet("QPushButton {color: blue;}");
     // Connect signals and slots
     connect( ui->buttonInstallFree, &QPushButton::clicked,
              [=] ( bool checked )
