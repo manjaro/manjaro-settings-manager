@@ -36,10 +36,11 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     this->setLayout( vBoxLayout );
     
     x = 400;
-    y = 100;
+    y = 160;
     
-    //this->resize( x, y );
-
+    this->resize( x, y );
+    window()->setFixedSize(x, y);
+    
     m_messageLabel = new QLabel();
     vBoxLayout->addWidget( m_messageLabel );
     m_messageLabel->setText( tr( "Do you really want to continue?" ) );
@@ -51,7 +52,9 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     m_progressBar->hide();
 
     m_informationLabel = new QLabel();
-    m_informationLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+//     m_informationLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+//     m_informationLabel->setContentsMargins(0,0,0,0);
+    m_informationLabel->setFixedWidth(x);
     vBoxLayout->addWidget( m_informationLabel);
     QFont f = font();
     f.setItalic(true);
@@ -96,17 +99,18 @@ ActionDialog::showDetails()
         m_detailOn = false;
         m_terminal -> hide();
         m_showDetails->setText( tr( "Show Details" ));
-        this->resize( x, y );
         m_informationLabel->show();
+        window()->setFixedSize(x, y);
         this->resize( x, y );
     }
     else
     {
-        y = this->geometry().y();
         m_detailOn = true;
         m_terminal -> show();
         m_showDetails->setText( tr( "Hide Details" ));
         m_informationLabel->hide();
+        window()->setFixedSize(x, y + 100);
+        this->resize(x, y + 100);
     }
 }
 
