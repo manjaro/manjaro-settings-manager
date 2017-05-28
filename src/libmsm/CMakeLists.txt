@@ -21,7 +21,6 @@ set(LIBMSM_SRCS
     ${LIBMSM_GLOB}
     ${KDSINGLEAPPLICATIONGUARD}
     ActionDialog.cpp
-    ClickableLabel.cpp
     Kernel.cpp
     KernelModel.cpp
     LanguageCommon.cpp

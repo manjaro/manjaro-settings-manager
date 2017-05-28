@@ -20,8 +20,6 @@
 #ifndef ACTIONDIALOG_H
 #define ACTIONDIALOG_H
 
-#include "ClickableLabel.h"
-
 #include <KAuth/KAuthAction>
 
 #include <QtWidgets/QDialog>
@@ -48,7 +46,7 @@ public:
 
     bool isJobSuccesful() const;
 
-    void showDetails();
+    void showDetails( const QString& link );
 
     void writeToTerminal(const QString& infomation);
     
@@ -61,7 +59,7 @@ private:
     QTextEdit* m_terminal;
     QLabel* m_messageLabel;
     QLabel* m_informationLabel;
-    ClickableLabel* m_showDetails;
+    QLabel* m_showDetails;
     QProgressBar* m_progressBar;
     QDialogButtonBox* m_buttonBox;
 

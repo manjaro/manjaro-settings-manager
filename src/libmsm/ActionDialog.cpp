@@ -18,7 +18,6 @@
  */
 
 #include "ActionDialog.h"
-#include "ClickableLabel.h"
 
 #include <KAuth/KAuthExecuteJob>
 
@@ -53,8 +52,6 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     m_progressBar->hide();
 
     m_informationLabel = new QLabel();
-//     m_informationLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-//     m_informationLabel->setContentsMargins(0,0,0,0);
     m_informationLabel->setFixedWidth(x);
     vBoxLayout->addWidget( m_informationLabel);
     QFont f = font();
@@ -68,12 +65,20 @@ ActionDialog::ActionDialog( QWidget* parent ) :
     m_terminal->hide();
     m_detailOn = false;
 
-    m_showDetails = new ClickableLabel();
+    m_showDetails = new QLabel();
+    m_showDetails->setTextFormat( Qt::RichText );
+    m_showDetails->setTextInteractionFlags( Qt::TextBrowserInteraction );
+    m_showDetails->setText( "<a href=\"#show\">" + tr( "Show Details" ) + "</a>" );
+    m_showDetails->setStyleSheet( "QLabel {color : blue;}" );
+    f = font();
+    f.setItalic(false);
+    f.setUnderline(true);
+    m_showDetails->setFont(f);
+    m_showDetails->setCursor(Qt::PointingHandCursor);
     vBoxLayout->addWidget( m_showDetails );
-    m_showDetails->setText( tr( "Show Details" ));
-
-    ClickableLabel::connect( m_showDetails, &ClickableLabel::clicked,
+    QLabel::connect( m_showDetails, &QLabel::linkActivated,
                              this, &ActionDialog::showDetails );
+    this->showDetails( "#hide" );
 
     m_buttonBox = new QDialogButtonBox();
     vBoxLayout->addWidget( m_buttonBox );
@@ -93,22 +98,20 @@ ActionDialog::writeToTerminal( const QString& information )
 }
 
 void
-ActionDialog::showDetails()
+ActionDialog::showDetails( const QString& link )
 {
-    if (m_detailOn) 
+    if ( link == "#hide" ) 
     {
-        m_detailOn = false;
         m_terminal -> hide();
-        m_showDetails->setText( tr( "Show Details" ));
+        m_showDetails->setText( "<a href=\"#show\">" + tr( "Show Details" ) + "</a>" );
         m_informationLabel->show();
         window()->setFixedSize(x, y);
         this->resize( x, y );
     }
-    else
+    else if ( link == "#show" )
     {
-        m_detailOn = true;
         m_terminal -> show();
-        m_showDetails->setText( tr( "Hide Details" ));
+        m_showDetails->setText( "<a href=\"#hide\">" + tr( "Hide Details" ) + "</a>" );
         m_informationLabel->hide();
         window()->setFixedSize(x, y + 100);
         this->resize(x, y + 100);
