@@ -66,21 +66,19 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     ui->installAction->setIcon( QIcon::fromTheme( "list-add", QIcon( ":/icons/add.png" ) ) );
     ui->removeAction->setIcon( QIcon::fromTheme( "list-remove", QIcon( ":/icons/remove.png" ) ) );
     ui->reinstallAction->setIcon( QIcon::fromTheme( "view-refresh",  QIcon( ":/icons/restore.png" ) ) );
-    
-    ui->buttonInstallFree->setStyleSheet("QPushButton {color: blue;}");
-    ui->buttonInstallNonFree->setStyleSheet("QPushButton {color: blue;}");
+
     // Connect signals and slots
-    connect( ui->buttonInstallFree, &QPushButton::clicked,
-             [=] ( bool checked )
+    connect( ui->buttonInstallFree, &QLabel::linkActivated,
+             [=] ( const QString& link )
     {
-        Q_UNUSED( checked )
+        Q_UNUSED( link )
         MhwdCommon::installFreeConfiguration( );
         load();
     } );
-    connect( ui->buttonInstallNonFree, &QPushButton::clicked,
-             [=] ( bool checked )
+    connect( ui->buttonInstallNonFree, &QLabel::linkActivated,
+             [=] ( const QString& link )
     {
-        Q_UNUSED( checked )
+        Q_UNUSED( link )
         MhwdCommon::installNonFreeConfiguration( );
         load();
     } );

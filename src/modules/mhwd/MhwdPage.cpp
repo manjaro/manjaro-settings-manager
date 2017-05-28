@@ -43,17 +43,17 @@ MhwdPage::MhwdPage( QWidget* parent ) :
     ui->reinstallAction->setIcon( QIcon::fromTheme( "view-refresh",  QIcon( ":/icons/restore.png" ) ) );
 
     // Connect signals and slots
-    connect( ui->buttonInstallFree, &QPushButton::clicked,
-             [=] ( bool checked )
+    connect( ui->buttonInstallFree, &QLabel::linkActivated,
+             [=] ( const QString& link )
     {
-        Q_UNUSED( checked )
+        Q_UNUSED( link )
         MhwdCommon::installFreeConfiguration();
         load();
     } );
-    connect( ui->buttonInstallNonFree, &QPushButton::clicked,
-             [=] ( bool checked )
+    connect( ui->buttonInstallNonFree, &QLabel::linkActivated,
+             [=] ( const QString& link )
     {
-        Q_UNUSED( checked )
+        Q_UNUSED( link )
         MhwdCommon::installNonFreeConfiguration();
         load();
     } );

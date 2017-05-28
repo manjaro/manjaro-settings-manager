@@ -51,8 +51,8 @@ void
 MhwdCommon::load( Ui::PageMhwd* ui )
 {
     ui->treeWidget->clear();
-    ui->buttonInstallFree->setEnabled( false );
-    ui->buttonInstallNonFree->setEnabled( false );
+    ui->buttonInstallFree->hide();
+    ui->buttonInstallNonFree->hide();
     // Create mhwd data object and fill it with hardware informations
     mhwd::Data data;
     mhwd::initData( &data );
@@ -115,12 +115,12 @@ MhwdCommon::load( Ui::PageMhwd* ui )
             if ( ( *conf_iter )->freedriver )
             {
                 item->setCheckState( 1, Qt::Checked );
-                ui->buttonInstallFree->setEnabled( true );
+                ui->buttonInstallFree->show();
             }
             else
             {
                 item->setCheckState( 1, Qt::Unchecked );
-                ui->buttonInstallNonFree->setEnabled( true );
+                ui->buttonInstallNonFree->show();
             }
 
             //Check if installed
@@ -149,12 +149,12 @@ MhwdCommon::installConfiguration( QString configuration )
     installAction.setHelperId( QLatin1String( "org.manjaro.msm.mhwd" ) );
     installAction.setArguments( args );
     installAction.setTimeout( std::numeric_limits<int>::max() );
-    
+
     ActionDialog actionDialog;
     actionDialog.setInstallAction( installAction );
     actionDialog.setWindowTitle( title );
     actionDialog.setMessage( message );
-    actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." )));
+    actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." ) ) );
     actionDialog.exec();
     return actionDialog.isJobSuccesful();
 }
@@ -177,7 +177,7 @@ MhwdCommon::installFreeConfiguration( )
     actionDialog.setInstallAction( installAction );
     actionDialog.setWindowTitle( title );
     actionDialog.setMessage( message );
-    actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." )));
+    actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." ) ) );
     actionDialog.exec();
     return actionDialog.isJobSuccesful();
 }
