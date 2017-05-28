@@ -52,7 +52,7 @@ KeyboardPage::KeyboardPage( QWidget* parent ) :
              static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ),
              [=] ( int index )
     {
-        Q_UNUSED(index);
+        Q_UNUSED( index );
         QString model = ui->modelComboBox->itemData(
                             ui->modelComboBox->currentIndex(),
                             KeyboardModel::KeyRole )

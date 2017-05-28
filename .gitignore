@@ -2,6 +2,7 @@
 *.pro.user
 build
 build-debug
+build-manjaro-settings-manager-Desktop-Default
 build-manjaro-settings-manager-Desktop
 build-manjaro-settings-manager-Qt4_Desktop
 build-manjaro-settings-manager-Desktop-Debug

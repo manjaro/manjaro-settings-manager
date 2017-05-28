@@ -213,7 +213,7 @@ LanguagePackagesCommon::installPackages( Ui::PageLanguagePackages* ui  )
         ActionDialog actionDialog;
         actionDialog.setInstallAction( installAction );
         actionDialog.setWindowTitle( tr( "Install language packages." ) );
-        actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." )));
+        actionDialog.writeToTerminal( QString( tr( "Waiting for user input..." ) ) );
         actionDialog.exec();
     }
 }

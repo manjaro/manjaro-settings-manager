@@ -48,11 +48,11 @@ public:
 
     void showDetails( const QString& link );
 
-    void writeToTerminal(const QString& infomation);
-    
-    void updateInfo (const QString& data);
-    
-    void jobDone (bool success, QString message = NULL);
+    void writeToTerminal( const QString& infomation );
+
+    void updateInfo ( const QString& data );
+
+    void jobDone ( bool success, QString message = NULL );
 private:
     void startJob();
 
@@ -70,8 +70,6 @@ private:
 
     QString m_lastMessage;
 
-    bool m_detailOn;
-    
     int x, y;
 };
 
