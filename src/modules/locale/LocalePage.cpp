@@ -335,6 +335,7 @@ LocalePage::load()
     m_isLocaleListModified = false;
     m_isSystemLocalesModified = false;
     this -> setApplyEnabled( this, false );
+    QApplication::restoreOverrideCursor();
 }
 
 

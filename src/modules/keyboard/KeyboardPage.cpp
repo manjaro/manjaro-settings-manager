@@ -167,6 +167,7 @@ KeyboardPage::load()
     ui->sliderRate->setValue( m_keyboardModel->rate() );
 
     this -> setApplyEnabled( this, false );
+    QApplication::restoreOverrideCursor();
 }
 
 

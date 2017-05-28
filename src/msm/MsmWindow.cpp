@@ -117,6 +117,7 @@ MsmWindow::addPageWidget( PageWidget& page )
 void
 MsmWindow::listWidget_itemActivated( QListWidgetItem* current )
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     ListWidgetItem* item = dynamic_cast<ListWidgetItem*>( current );
     if ( !item || !item->page )
         return;

@@ -101,6 +101,7 @@ TimeDatePage::load()
     m_timeZone = m_timeDateService->timeZone();
     TimeDateCommon::updateUi( ui, m_timeDateService, m_isTimeEdited, m_isDateEdited, m_timeZone );
     m_timeFieldsTimer->start( 1000 );
+    QApplication::restoreOverrideCursor();
 }
 
 

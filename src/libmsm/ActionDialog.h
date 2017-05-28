@@ -26,6 +26,7 @@
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QProgressBar>
 
 class ActionDialog : public QDialog
 {
@@ -45,12 +46,21 @@ public:
 
     bool isJobSuccesful() const;
 
+    void showDetails( const QString& link );
+
+    void writeToTerminal(const QString& infomation);
+    
+    void updateInfo (const QString& data);
+    
+    void jobDone (bool success, QString message = NULL);
 private:
     void startJob();
 
     QTextEdit* m_terminal;
     QLabel* m_messageLabel;
     QLabel* m_informationLabel;
+    QLabel* m_showDetails;
+    QProgressBar* m_progressBar;
     QDialogButtonBox* m_buttonBox;
 
     KAuth::Action m_installAction;
@@ -59,6 +69,10 @@ private:
     bool m_jobSuccesful;
 
     QString m_lastMessage;
+
+    bool m_detailOn;
+    
+    int x, y;
 };
 
 #endif // ACTIONDIALOG_H

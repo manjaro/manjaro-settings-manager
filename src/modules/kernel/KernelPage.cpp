@@ -68,4 +68,5 @@ void
 KernelPage::load()
 {
     KernelCommon::load( m_kernelModel );
+    QApplication::restoreOverrideCursor();
 }
