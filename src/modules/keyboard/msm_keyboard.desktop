@@ -13,6 +13,7 @@ X-KDE-Keywords[x-test]=xxkeyboardxx
 Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Keyboard Settings
+Name[ast]=Axustes de tecláu
 Name[bg_BG]=Настройки на клавиатурата
 Name[ca]=Configuració del teclat
 Name[cs_CZ]=Nastavení klávesnice
@@ -46,10 +47,10 @@ Name[uk]=Налаштування Клавіатури
 Name[zh_CN]=键盘设置
 Name[zh_TW]=鍵盤設定
 
-Name[ast]=Axustes de tecláu
 Name[he]=הגדרות מקלדת
 
 Comment=Keyboard settings
+Comment[ast]=Axustes de tecláu
 Comment[bg_BG]=Настройки на клавиатурата
 Comment[ca]=Configuració del teclat
 Comment[cs_CZ]=Nastavení klávesnice

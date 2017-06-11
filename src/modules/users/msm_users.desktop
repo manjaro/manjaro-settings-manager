@@ -14,7 +14,7 @@ Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=User Accounts
 Name[bg_BG]=Потребителски профили
-Name[ca]=Comptes d&apos;usuari
+Name[ca]=Comptes d'usuari
 Name[cs_CZ]=Účty uživatelů
 Name[da]=Brugerkonti
 Name[de]=Benutzerkonten
@@ -31,7 +31,7 @@ Name[ja]=ユーザーアカウント
 Name[lt]=Naudotojų paskyros
 Name[pl]=Konta użytkowników
 Name[pt_BR]=Contas de Usuário
-Name[pt_PT]=Contas de Utilizador 
+Name[pt_PT]=Contas de Utilizador
 Name[ro]=Conturi Utilizatori
 Name[ru]=Аккаунты пользователя
 Name[sk_SK]=Používateľské účty
@@ -48,7 +48,7 @@ Name[he]=חשבונות משתמש
 
 Comment=User accounts configuration
 Comment[bg_BG]=Настройки на потребителските профили
-Comment[ca]=Configuració dels comptes d&apos;usuari
+Comment[ca]=Configuració dels comptes d'usuari
 Comment[cs_CZ]=Nastavení uživatelských účtů
 Comment[da]=Konfiguration af brugerkonti
 Comment[de]=Konfiguration der Benutzerkonten

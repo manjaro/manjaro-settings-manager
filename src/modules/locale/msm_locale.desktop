@@ -13,6 +13,7 @@ X-KDE-Keywords[x-test]=xxkeyboardxx
 Categories=Qt;KDE;X-KDE-settings-system;manjaro
 
 Name=Locale
+Name[ast]=Axustes de locale
 Name[bg_BG]=Регионални настройки
 Name[ca]=Configuració de llengua
 Name[cs_CZ]=Místní nastavení
@@ -33,7 +34,7 @@ Name[nb]=Lokale innstillinger
 Name[nl]=Lokale Instellingen
 Name[pl]=Ustawienia lokalne
 Name[pt_BR]=Configurações de localização
-Name[pt_PT]=Definições de localização 
+Name[pt_PT]=Definições de localização
 Name[ro]=Setări regionale
 Name[ru]=Настройки региона
 Name[sk_SK]=Miestne nastavenia
@@ -44,7 +45,6 @@ Name[uk]=Локальні налаштування
 Name[zh_CN]=本地化设定
 Name[zh_TW]=語言設定
 
-Name[ast]=Axustes de locale
 Name[el]=Τοπικές ρυθμίσεις
 Name[he]=הגדרות מקומיות
 
