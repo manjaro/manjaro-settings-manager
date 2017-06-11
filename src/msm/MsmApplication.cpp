@@ -31,7 +31,7 @@ MsmApplication::MsmApplication( int& argc, char* argv[] )
     setOrganizationName( "Manjaro" );
     setOrganizationDomain( "Manjaro" );
     setApplicationName( "Manjaro Settings Manager" );
-    setApplicationVersion( "0.5.2" );
+    setApplicationVersion( "0.5.3" );
 }
 
 
