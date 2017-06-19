@@ -34,14 +34,14 @@
      <item>
       <widget class="QLabel" name="buttonInstallFree">
        <property name="text">
-        <string>&lt;a href=&quot;#&quot;&gt;Auto Install Open-Source Driver&lt;/a&gt;</string>
+        <string/>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="buttonInstallNonFree">
        <property name="text">
-        <string>&lt;a href=&quot;#&quot;&gt;Auto Install Proprietary Driver&lt;/a&gt;</string>
+        <string/>
        </property>
        <property name="textFormat">
         <enum>Qt::RichText</enum>

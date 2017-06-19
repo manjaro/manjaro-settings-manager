@@ -47,6 +47,22 @@ MhwdCommon::getDescription()
 }
 
 
+QString
+MhwdCommon::getButtonFreeText()
+{
+    QString text = QString( tr ( "Auto Install Open-Source Driver" ) );
+    return QString ( "<a href=\"#\">" + text + "</a>" );
+}
+
+
+QString
+MhwdCommon::getButtonNonFreeText()
+{
+    QString text = QString( tr ( "Auto Install Proprietary Driver" ) );
+    return QString ( "<a href=\"#\">" + text + "</a>" );
+}
+
+
 void
 MhwdCommon::load( Ui::PageMhwd* ui )
 {

@@ -75,12 +75,66 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>ActionDialog</name>
     <message>
-        <location filename="../ActionDialog.cpp" line="39"/>
+        <location filename="../ActionDialog.cpp" line="45"/>
         <source>Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ActionDialog.cpp" line="87"/>
+        <location filename="../ActionDialog.cpp" line="98"/>
+        <source>Show Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="106"/>
+        <source>Hide Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="120"/>
+        <source>Please wait while your system is being modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="121"/>
+        <location filename="../ActionDialog.cpp" line="122"/>
+        <source>Starting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="147"/>
+        <location filename="../ActionDialog.cpp" line="149"/>
+        <location filename="../ActionDialog.cpp" line="191"/>
+        <source>Changes failed, click on &apos;Show Details&apos; for more information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="162"/>
+        <source>You are not authorised to make these changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="164"/>
+        <source>Some Error occurred during authorization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="166"/>
+        <source>Invalid authorization status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="168"/>
+        <source>Authorization canceled by you</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="183"/>
+        <source>Changes were made successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ActionDialog.cpp" line="197"/>
+        <location filename="../ActionDialog.cpp" line="198"/>
         <source>Done ...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -204,21 +258,29 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="78"/>
-        <source>The following packages will be installed:</source>
+        <source>New Kernel package(s) is/are ready to install. 
+Would you like to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="113"/>
-        <source>Remove Linux %1</source>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="80"/>
+        <source>The following packages will be installed:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="115"/>
+        <source>The Linux %1 packages will be removed. 
+Would you like to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../modules/kernel/KernelCommon.cpp" line="114"/>
-        <source>The following packages will be removed:</source>
+        <source>Remove Linux %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/kernel/KernelCommon.cpp" line="146"/>
+        <location filename="../../modules/kernel/KernelCommon.cpp" line="147"/>
         <source>Linux %1.%2 changelog</source>
         <translation type="unfinished"></translation>
     </message>
@@ -300,23 +362,27 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>KeyboardModel</name>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="220"/>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="264"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="528"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="306"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="643"/>
+        <source>Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="646"/>
         <source>Default Keyboard Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="515"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="430"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="516"/>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="431"/>
         <source>Failed to set keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -430,6 +496,11 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
     <message>
         <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="215"/>
         <source>Install language packages.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../modules/language_packages/LanguagePackagesCommon.cpp" line="216"/>
+        <source>Waiting for user input...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -577,57 +648,73 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="83"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="53"/>
+        <source>Auto Install Open-Source Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="61"/>
+        <source>Auto Install Proprietary Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="99"/>
         <source>Unknown device name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="142"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="158"/>
         <source>Install configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="143"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="159"/>
         <source>MHWD will install the &apos;%1&apos; configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="165"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="173"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="196"/>
+        <source>Waiting for user input...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="182"/>
         <source>Install open-source graphic driver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="166"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="183"/>
         <source>MHWD will autodetect your open-source graphic drivers and install it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="187"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="205"/>
         <source>Install proprietary graphic driver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="188"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="206"/>
         <source>MHWD will autodetect your proprietary graphic drivers and install it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="209"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="227"/>
         <source>Reinstall configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="210"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="228"/>
         <source>MHWD will reinstall the &apos;%1&apos; configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="232"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="250"/>
         <source>Remove configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="233"/>
+        <location filename="../../modules/mhwd/MhwdCommon.cpp" line="251"/>
         <source>MHWD will remove the &apos;%1&apos; configuration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -643,23 +730,23 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>MsmWindow</name>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="14"/>
+        <location filename="../../msm/MsmWindow.ui" line="20"/>
         <source>Manjaro Settings Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="185"/>
+        <location filename="../../msm/MsmWindow.ui" line="191"/>
         <source>All Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="211"/>
-        <location filename="../../msm/MsmWindow.ui" line="235"/>
+        <location filename="../../msm/MsmWindow.ui" line="217"/>
+        <location filename="../../msm/MsmWindow.ui" line="241"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.ui" line="224"/>
+        <location filename="../../msm/MsmWindow.ui" line="230"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
@@ -674,7 +761,7 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../msm/MsmWindow.cpp" line="153"/>
+        <location filename="../../msm/MsmWindow.cpp" line="154"/>
         <source>Manjaro Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -908,49 +995,37 @@ It is recommended to enable those groups. Do you really want to continue?</sourc
 <context>
     <name>PageMhwd</name>
     <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="37"/>
-        <source>Auto Install
-Open-source Driver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="45"/>
-        <source>Auto Install
-Proprietary Driver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="67"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="87"/>
         <source>Driver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="72"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="92"/>
         <source>Open-source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="77"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="97"/>
         <source>Installed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="85"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="105"/>
         <source>Show all devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="104"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="124"/>
         <source>Reinstall</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="94"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="114"/>
         <source>Install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="99"/>
+        <location filename="../../modules/mhwd/ui/PageMhwd.ui" line="119"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1087,6 +1162,15 @@ Proprietary Driver</source>
     <message>
         <location filename="../../modules/users/PreviewFileDialog.cpp" line="98"/>
         <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../../modules/keyboard/KeyboardModel.cpp" line="671"/>
+        <source>%1
+Line %2, column %3</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

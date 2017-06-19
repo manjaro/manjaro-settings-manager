@@ -67,6 +67,9 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     ui->removeAction->setIcon( QIcon::fromTheme( "list-remove", QIcon( ":/icons/remove.png" ) ) );
     ui->reinstallAction->setIcon( QIcon::fromTheme( "view-refresh",  QIcon( ":/icons/restore.png" ) ) );
 
+    ui->buttonInstallFree->setText( MhwdCommon::getButtonFreeText() );
+    ui->buttonInstallNonFree->setText( MhwdCommon::getButtonNonFreeText() );
+
     // Connect signals and slots
     connect( ui->buttonInstallFree, &QLabel::linkActivated,
              [=] ( const QString& link )

@@ -29,6 +29,8 @@ public:
     static QString getDescription();
     static QString getName();
     static QString getTitle();
+    static QString getButtonFreeText();
+    static QString getButtonNonFreeText();
     static void load( Ui::PageMhwd* ui );
     static bool installConfiguration( QString configuration );
     static bool installFreeConfiguration( );
