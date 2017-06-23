@@ -46,17 +46,15 @@ MhwdPage::MhwdPage( QWidget* parent ) :
     ui->buttonInstallNonFree->setText( MhwdCommon::getButtonNonFreeText() );
 
     // Connect signals and slots
-    connect( ui->buttonInstallFree, &QLabel::linkActivated,
-             [=] ( const QString& link )
+    connect( ui->buttonInstallFree, &QPushButton::clicked,
+             [=] ( )
     {
-        Q_UNUSED( link )
         MhwdCommon::installFreeConfiguration();
         load();
     } );
-    connect( ui->buttonInstallNonFree, &QLabel::linkActivated,
-             [=] ( const QString& link )
+    connect( ui->buttonInstallNonFree, &QPushButton::clicked,
+             [=] ( )
     {
-        Q_UNUSED( link )
         MhwdCommon::installNonFreeConfiguration();
         load();
     } );
