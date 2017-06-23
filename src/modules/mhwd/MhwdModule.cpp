@@ -71,17 +71,17 @@ MhwdModule::MhwdModule( QWidget* parent, const QVariantList& args ) :
     ui->buttonInstallNonFree->setText( MhwdCommon::getButtonNonFreeText() );
 
     // Connect signals and slots
-    connect( ui->buttonInstallFree, &QLabel::linkActivated,
-             [=] ( const QString& link )
+    connect( ui->buttonInstallFree, &QPushButton::clicked,
+             [=] ( bool checked )
     {
-        Q_UNUSED( link )
+        Q_UNUSED( checked )
         MhwdCommon::installFreeConfiguration( );
         load();
     } );
-    connect( ui->buttonInstallNonFree, &QLabel::linkActivated,
-             [=] ( const QString& link )
+    connect( ui->buttonInstallNonFree, &QPushButton::clicked,
+             [=] ( bool checked )
     {
-        Q_UNUSED( link )
+        Q_UNUSED( checked )
         MhwdCommon::installNonFreeConfiguration( );
         load();
     } );
