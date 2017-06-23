@@ -27,42 +27,23 @@
     <number>11</number>
    </property>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
      <property name="spacing">
       <number>10</number>
      </property>
      <item>
-      <widget class="QLabel" name="buttonInstallFree">
+      <widget class="QPushButton" name="buttonInstallNonFree">
        <property name="text">
-        <string>&lt;a href=&quot;#&quot;&gt;Auto Install Open-Source Driver&lt;/a&gt;</string>
+        <string>Auto Install Proprietary Driver</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="buttonInstallNonFree">
+      <widget class="QPushButton" name="buttonInstallFree">
        <property name="text">
-        <string>&lt;a href=&quot;#&quot;&gt;Auto Install Proprietary Driver&lt;/a&gt;</string>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::RichText</enum>
+        <string>Auto Install Open-Source Driver</string>
        </property>
       </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Minimum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>2</height>
-        </size>
-       </property>
-      </spacer>
      </item>
     </layout>
    </item>
