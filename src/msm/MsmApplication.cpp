@@ -28,6 +28,7 @@ MsmApplication::MsmApplication( int& argc, char* argv[] )
     : QApplication( argc, argv ),
       m_mainwindow( 0 )
 {
+    setAttribute(Qt::AA_EnableHighDpiScaling, true);
     setOrganizationName( "Manjaro" );
     setOrganizationDomain( "Manjaro" );
     setApplicationName( "Manjaro Settings Manager" );
