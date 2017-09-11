@@ -29,6 +29,7 @@
         <file>msm_it.qm</file>
         <file>msm_ja.qm</file>
         <file>msm_ka.qm</file>
+        <file>msm_ko.qm</file>
         <file>msm_lt.qm</file>
         <file>msm_ml.qm</file>
         <file>msm_ms.qm</file>
@@ -42,6 +43,7 @@
         <file>msm_sk_SK.qm</file>
         <file>msm_sl.qm</file>
         <file>msm_sq.qm</file>
+        <file>msm_sq_AL.qm</file>
         <file>msm_sr.qm</file>
         <file>msm_sr@latin.qm</file>
         <file>msm_sv.qm</file>
