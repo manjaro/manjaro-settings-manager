@@ -71,133 +71,6 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     bool isRc = qvariant_cast<bool>( index.data( KernelModel::IsRcRole ) );
     bool isRealtime = qvariant_cast<bool>( index.data( KernelModel::IsRealtimeRole ) );
 
-    // draw name
-    QFont nameFont = option.font;
-    nameFont.setPointSize( option.font.pointSize() * 1.15 );
-    QFontMetrics nameFontMetrics( nameFont );
-    QSize nameSize = nameFontMetrics.size( Qt::TextSingleLine, name );
-    QRectF nameRect( QPointF(), nameSize );
-
-    painter->setPen( option.palette.color( QPalette::Normal, QPalette::WindowText ) );
-    nameRect.moveTopLeft( option.rect.topLeft() + QPoint( padding, padding ) );
-    painter->setFont( nameFont );
-    painter->drawText( nameRect, Qt::TextSingleLine, name );
-
-    // draw package
-    QFont packageFont = option.font;
-    packageFont.setPointSize( option.font.pointSize() * 0.9 );
-    QFontMetrics packageFontMetrics( packageFont );
-    QSize packageSize = packageFontMetrics.size( Qt::TextSingleLine, package );
-    QRectF packageRect( QPointF(), packageSize );
-
-    painter->setPen( option.palette.color( QPalette::Normal, QPalette::WindowText ) );
-    packageRect.moveTopLeft( nameRect.bottomLeft() );
-    painter->setFont( packageFont );
-    painter->drawText( packageRect, Qt::TextSingleLine, package );
-
-    // draw middle labels
-    QString ltsStr( tr( "LTS" ) );
-    QString recommendedStr( tr( "Recommended" ) );
-    QString runningStr( tr( "Running" ) );
-    QString installedStr( tr( "Installed" ) );
-    QString unsupportedStr( tr( "Unsupported" ) );
-    QString customStr( tr( "Custom" ) );
-    QString experimentalStr( tr( "Experimental" ) );
-    QString realtimeStr( tr( "Real-time" ) );
-    QStringList labelStringList = ( QStringList() << ltsStr << recommendedStr
-                                    << runningStr << installedStr << unsupportedStr
-                                    << customStr << experimentalStr << realtimeStr );
-
-    QFont labelFont = option.font;
-    labelFont.setPointSize( option.font.pointSize() );
-    QFontMetrics labelFontMetrics( labelFont );
-
-    int labelWidth = 0;
-    int labelHeight = 0;
-    foreach ( const QString str, labelStringList )
-    {
-        QSize labelSize = labelFontMetrics.size( Qt::TextSingleLine, str );
-        if ( labelSize.width() > labelWidth )
-            labelWidth = labelSize.width();
-        if ( labelSize.height() > labelHeight )
-            labelHeight = labelSize.height();
-    }
-    QRectF labelRect( QPointF(), QSize( labelWidth + padding*2, labelHeight ) );
-
-    // draw first column (lts, recommended, experimental)
-    labelRect.moveTopRight( QPointF( option.rect.center().x(),
-                                     option.rect.top() + padding ) );
-    painter->setFont( labelFont );
-    if ( isLts )
-    {
-        painter->fillRect( labelRect, QColor( "#d9edf7" ) );
-        painter->setPen( QColor( "#bce8f1" ) );
-        painter->drawRect( labelRect );
-        painter->setPen( QColor( "#31708f" ) );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
-        painter->drawText( labelRect, Qt::AlignCenter, ltsStr );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
-    }
-
-    if ( isRecommended )
-    {
-        painter->fillRect( labelRect, QColor( "#d9edf7" ) );
-        painter->setPen( QColor( "#bce8f1" ) );
-        painter->drawRect( labelRect );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
-        painter->setPen( QColor( "#31708f" ) );
-        painter->drawText( labelRect, Qt::AlignCenter, recommendedStr );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
-    }
-
-    if ( isRc || isRealtime )
-    {
-        painter->fillRect( labelRect, QColor( "#FCF8E3" ) );
-        painter->setPen( QColor( "#FAEBCC" ) );
-        painter->drawRect( labelRect );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
-        painter->setPen( QColor( "#8A6D3B" ) );
-        if ( isRc )
-            painter->drawText( labelRect, Qt::AlignCenter, experimentalStr );
-        else if ( isRealtime )
-            painter->drawText( labelRect, Qt::AlignCenter, realtimeStr );
-    }
-
-    // draw second column (running, installed, unsupported)
-    labelRect.moveTopLeft( QPointF( option.rect.center().x() + 5,
-                                    option.rect.top() + padding ) );
-    if ( isRunning )
-    {
-        painter->fillRect( labelRect, QColor( "#d6e9c6" ) );
-        painter->setPen( QColor( "#dff0d8" ) );
-        painter->drawRect( labelRect );
-        painter->setPen( QColor( "#3c763d" ) );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
-        painter->drawText( labelRect, Qt::AlignCenter, runningStr );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
-    }
-
-    if ( isInstalled )
-    {
-        painter->fillRect( labelRect, QColor( "#d6e9c6" ) );
-        painter->setPen( QColor( "#dff0d8" ) );
-        painter->drawRect( labelRect );
-        painter->setPen( QColor( "#3c763d" ) );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
-        painter->drawText( labelRect, Qt::AlignCenter, installedStr );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
-    }
-
-    if ( isUnsupported )
-    {
-        painter->fillRect( labelRect, QColor( "#f2dede" ) );
-        painter->setPen( QColor( "#ebccd1" ) );
-        painter->drawRect( labelRect );
-        painter->setPen( QColor( "#a94442" ) );
-        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
-        painter->drawText( labelRect, Qt::AlignCenter, unsupportedStr );
-    }
-
     // draw right side buttons
     QString removeStr( tr( "Remove" ) );
     QString installStr( tr( "Install" ) );
@@ -244,6 +117,134 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
     QString changelog = QString( ":/changelogs/%1.html" ).arg( package );
     if ( QFile( changelog ).exists() )
         QApplication::style()->drawControl( QStyle::CE_PushButton, &infoButton, painter );
+
+    // draw middle labels
+    QString ltsStr( tr( "LTS" ) );
+    QString recommendedStr( tr( "Recommended" ) );
+    QString runningStr( tr( "Running" ) );
+    QString installedStr( tr( "Installed" ) );
+    QString unsupportedStr( tr( "Unsupported" ) );
+    QString customStr( tr( "Custom" ) );
+    QString experimentalStr( tr( "Experimental" ) );
+    QString realtimeStr( tr( "Real-time" ) );
+    QStringList labelStringList = ( QStringList() << ltsStr << recommendedStr
+                                    << runningStr << installedStr << unsupportedStr
+                                    << customStr << experimentalStr << realtimeStr );
+
+    QFont labelFont = option.font;
+    labelFont.setPointSize( option.font.pointSize() );
+    QFontMetrics labelFontMetrics( labelFont );
+
+    int labelWidth = 0;
+    int labelHeight = 0;
+    foreach ( const QString str, labelStringList )
+    {
+        QSize labelSize = labelFontMetrics.size( Qt::TextSingleLine, str );
+        if ( labelSize.width() > labelWidth )
+            labelWidth = labelSize.width();
+        if ( labelSize.height() > labelHeight )
+            labelHeight = labelSize.height();
+    }
+    QRectF labelRect( QPointF(), QSize( labelWidth + padding*2, labelHeight ) );
+
+    // draw second column (running, installed, unsupported)
+    labelRect.moveTopRight( QPointF( option.rect.right() - buttonWidth - padding*2 - 40,
+                                     option.rect.top() + padding ) );
+    if ( isRunning )
+    {
+        painter->fillRect( labelRect, QColor( "#d6e9c6" ) );
+        painter->setPen( QColor( "#dff0d8" ) );
+        painter->drawRect( labelRect );
+        painter->setPen( QColor( "#3c763d" ) );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
+        painter->drawText( labelRect, Qt::AlignCenter, runningStr );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
+    }
+
+    if ( isInstalled )
+    {
+        painter->fillRect( labelRect, QColor( "#d6e9c6" ) );
+        painter->setPen( QColor( "#dff0d8" ) );
+        painter->drawRect( labelRect );
+        painter->setPen( QColor( "#3c763d" ) );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
+        painter->drawText( labelRect, Qt::AlignCenter, installedStr );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
+    }
+
+    if ( isUnsupported )
+    {
+        painter->fillRect( labelRect, QColor( "#f2dede" ) );
+        painter->setPen( QColor( "#ebccd1" ) );
+        painter->drawRect( labelRect );
+        painter->setPen( QColor( "#a94442" ) );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
+        painter->drawText( labelRect, Qt::AlignCenter, unsupportedStr );
+    }
+
+    // draw first column (lts, recommended, experimental)
+    labelRect.moveTopRight( QPointF( labelRect.topLeft().x() - 5,
+                                     option.rect.top() + padding ) );
+    painter->setFont( labelFont );
+    if ( isLts )
+    {
+        painter->fillRect( labelRect, QColor( "#d9edf7" ) );
+        painter->setPen( QColor( "#bce8f1" ) );
+        painter->drawRect( labelRect );
+        painter->setPen( QColor( "#31708f" ) );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
+        painter->drawText( labelRect, Qt::AlignCenter, ltsStr );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
+    }
+
+    if ( isRecommended )
+    {
+        painter->fillRect( labelRect, QColor( "#d9edf7" ) );
+        painter->setPen( QColor( "#bce8f1" ) );
+        painter->drawRect( labelRect );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
+        painter->setPen( QColor( "#31708f" ) );
+        painter->drawText( labelRect, Qt::AlignCenter, recommendedStr );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, labelHeight + 2 ) );
+    }
+
+    if ( isRc || isRealtime )
+    {
+        painter->fillRect( labelRect, QColor( "#FCF8E3" ) );
+        painter->setPen( QColor( "#FAEBCC" ) );
+        painter->drawRect( labelRect );
+        labelRect.moveTopLeft( labelRect.topLeft() + QPoint( 0, 2 ) );
+        painter->setPen( QColor( "#8A6D3B" ) );
+        if ( isRc )
+            painter->drawText( labelRect, Qt::AlignCenter, experimentalStr );
+        else if ( isRealtime )
+            painter->drawText( labelRect, Qt::AlignCenter, realtimeStr );
+    }
+
+    // draw name
+    QFont nameFont = option.font;
+    nameFont.setPointSize( option.font.pointSize() * 1.75 );
+    QFontMetrics nameFontMetrics( nameFont );
+    QSize nameSize = nameFontMetrics.size( Qt::TextSingleLine, name );
+    nameSize.setWidth(labelRect.topLeft().x() - 10);
+    QRectF nameRect( QPointF(), nameSize );
+
+    painter->setPen( option.palette.color( QPalette::Normal, QPalette::WindowText ) );
+    nameRect.moveTopLeft( option.rect.topLeft() + QPoint( padding, padding ) );
+    painter->setFont( nameFont );
+    painter->drawText( nameRect, Qt::TextWrapAnywhere, name );
+
+    // draw package
+    QFont packageFont = option.font;
+    packageFont.setPointSize( option.font.pointSize() * 0.9 );
+    QFontMetrics packageFontMetrics( packageFont );
+    QSize packageSize = packageFontMetrics.size( Qt::TextSingleLine, package );
+    QRectF packageRect( QPointF(), packageSize );
+
+    painter->setPen( option.palette.color( QPalette::Normal, QPalette::WindowText ) );
+    packageRect.moveTopLeft( nameRect.bottomLeft() );
+    painter->setFont( packageFont );
+    painter->drawText( packageRect, Qt::TextSingleLine, package );
 
     painter->restore();
 }
