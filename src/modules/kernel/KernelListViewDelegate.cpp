@@ -73,7 +73,7 @@ KernelListViewDelegate::paint( QPainter* painter, const QStyleOptionViewItem& op
 
     // draw name
     QFont nameFont = option.font;
-    nameFont.setPointSize( option.font.pointSize() * 1.75 );
+    nameFont.setPointSize( option.font.pointSize() * 1.15 );
     QFontMetrics nameFontMetrics( nameFont );
     QSize nameSize = nameFontMetrics.size( Qt::TextSingleLine, name );
     QRectF nameRect( QPointF(), nameSize );
