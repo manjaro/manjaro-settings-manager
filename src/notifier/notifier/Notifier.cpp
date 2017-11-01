@@ -301,10 +301,10 @@ Notifier::loadConfiguration()
     QSettings settings( "manjaro", "manjaro-settings-manager" );
     m_checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
     m_checkUnsupportedKernel = settings.value( "notifications/checkUnsupportedKernel", true ).toBool();
-    m_checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", false ).toBool();
+    m_checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", true ).toBool();
     m_checkNewKernel = settings.value( "notifications/checkNewKernel", true ).toBool();
-    m_checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", false ).toBool();
-    m_checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", true ).toBool();
+    m_checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", true ).toBool();
+    m_checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", false ).toBool();
     m_checkKernel = m_checkUnsupportedKernel | m_checkNewKernel;
 }
 
