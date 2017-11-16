@@ -1,10 +1,12 @@
 [Desktop Entry]
 Name=Manjaro Notifier KDE Settings
+Name[da]=Manjaro-notifikator KDE-indstillinger
 Name[fr]=Paramètres du Notifieur KDE Manjaro
 Name[pl]=Ustawienia powiadomień Manjaro dla KDE
 Name[sk]=Nastavenia oznámení KDE systému Manjaro
 
 Comment=Graphical Settings for Manjaro Notifier KDE
+Comment[da]=Grafiske indstillinger til Manjaro-notifikator KDE
 Comment[de]=Grafische Einstellungsverwaltung für Manjaro
 Comment[fr]=Gestionnaire graphique de paramètres pour Notifieur Manjaro
 Comment[pl]=Graficzne ustawienia powiadomień Manjaro dla środowiska KDE
