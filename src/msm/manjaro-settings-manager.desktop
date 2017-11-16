@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Manjaro Settings Manager
 Name[ca]=Gestor de configuració de Manjaro
+Name[da]=Manjaro indstillingshåndtering
 Name[de]=Manjaro Einstellungen
 Name[en_GB]=Manjaro Settings Manager
 Name[es]=Gestor de configuración de Manjaro
@@ -11,6 +12,7 @@ Name[sk]=Správca nastavení systému Manjaro
 
 Comment=Graphical Settings Manager for Manjaro
 Comment[ca]=Gestor de configuració gràfic de Manjaro
+Comment[da]=Grafisk indstillingshåndtering til Manjaro
 Comment[de]=Grafische Einstellungsverwaltung für Manjaro
 Comment[en_GB]=Graphical Settings Manager for Manjaro
 Comment[es]=Gestor de configuración gráfico de Manjaro
