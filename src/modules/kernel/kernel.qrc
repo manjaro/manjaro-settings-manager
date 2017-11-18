@@ -24,5 +24,8 @@
     <file>changelogs/linux49.html</file>
     <file>changelogs/linux410.html</file>
     <file>changelogs/linux411.html</file>
+    <file>changelogs/linux412.html</file>
+    <file>changelogs/linux413.html</file>
+    <file>changelogs/linux414.html</file>
   </qresource>
 </RCC>
