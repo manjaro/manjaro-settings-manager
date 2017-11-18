@@ -360,14 +360,14 @@ KernelModel::getRunningKernel() const
 QStringList
 KernelModel::getLtsKernels() const
 {
-    return QStringList() << "linux310" << "linux312" << "linux314" << "linux316" << "linux318" << "linux41" << "linux44" << "linux49";
+    return QStringList() << "linux310" << "linux312" << "linux314" << "linux316" << "linux318" << "linux41" << "linux44" << "linux49" << "linux414";
 }
 
 
 QStringList
 KernelModel::getRecommendedKernels() const
 {
-    return QStringList() << "linux49";
+    return QStringList() << "linux414";
 }
 
 
