@@ -103,7 +103,7 @@ void AddUserDialog::buttonCreate_clicked()
     KAuth::Action installActionAdd( QLatin1String( "org.manjaro.msm.users.add" ) );
     installActionAdd.setHelperId( QLatin1String( "org.manjaro.msm.users" ) );
     QVariantMap args;
-    QString defaultUserGroups {"video,audio,power,disk,storage,optical,network,lp,scanner"};
+    QString defaultUserGroups {"video,audio,power,optical,network,lp,scanner,sys"};
     args["arguments"] = QStringList() << "-m" << "-p" << "" << "-U" << "-G" << defaultUserGroups << username;
     installActionAdd.setArguments( args );
     KAuth::ExecuteJob* jobAdd = installActionAdd.execute();
