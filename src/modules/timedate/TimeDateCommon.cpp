@@ -2,6 +2,7 @@
  *  This file is part of Manjaro Settings Manager.
  *
  *  Ramon Buldó <ramon@manjaro.org>
+ *  Kacper Piwiński
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -91,6 +92,7 @@ void
 TimeDateCommon::updateUi( Ui::PageTimeDate* ui, TimeDateService* timeDateService,
                           bool isTimeEdited, bool isDateEdited, QString currentTimeZone )
 {
+    ui->isNtpEnabledCheckBox->blockSignals( true );
     if ( timeDateService->canNtp() )
         ui->isNtpEnabledCheckBox->setChecked( timeDateService->isNtpEnabled() );
     else
@@ -98,8 +100,11 @@ TimeDateCommon::updateUi( Ui::PageTimeDate* ui, TimeDateService* timeDateService
         ui->isNtpEnabledCheckBox->setChecked( false );
         ui->isNtpEnabledCheckBox->setEnabled( false );
     }
+    ui->isNtpEnabledCheckBox->blockSignals( false );
 
+    ui->isRtcLocalCheckBox->blockSignals( true );
     ui->isRtcLocalCheckBox->setChecked( timeDateService->isRtcInLocalTimeZone() );
+    ui->isRtcLocalCheckBox->blockSignals( false );
 
     QTimeZone timeZone = QTimeZone( currentTimeZone.toLatin1() );
     if ( timeZone.isValid() )

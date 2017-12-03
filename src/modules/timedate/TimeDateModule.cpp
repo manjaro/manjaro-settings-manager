@@ -2,6 +2,7 @@
  *  This file is part of Manjaro Settings Manager.
  *
  *  Ramon Buldó <ramon@manjaro.org>
+ *  Kacper Piwiński
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -60,20 +61,24 @@ TimeDateModule::TimeDateModule( QWidget* parent, const QVariantList& args ) :
 
     ui->setupUi( this );
 
+    ui->timeEdit->setEnabled( !m_timeDateService->isNtpEnabled() );
+    ui->dateEdit->setEnabled( !m_timeDateService->isNtpEnabled() );
+
     connect( m_timeFieldsTimer, &QTimer::timeout,
-             [=] ( )
+             [this] ()
     {
         TimeDateCommon::updateTimeFields( ui, m_timeDateService, m_isTimeEdited, m_isDateEdited );
     } );
     connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled,
-             [=] ( bool checked )
+             [this] ( bool checked )
     {
         ui->timeEdit->setEnabled( !checked );
         ui->dateEdit->setEnabled( !checked );
+        emit changed();
     } );
-    connect( ui->timeZonePushButton, &QPushButton::clicked, [=] ( bool checked )
+    connect( ui->timeZonePushButton, &QPushButton::clicked,
+             [this] ()
     {
-        Q_UNUSED( checked )
         QString newTimeZone = TimeDateCommon::showTimeZoneSelector( m_timeZone );
         if ( !newTimeZone.isEmpty() )
         {
