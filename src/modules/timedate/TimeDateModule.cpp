@@ -113,6 +113,7 @@ TimeDateModule::~TimeDateModule()
 {
     delete ui;
     delete m_timeDateService;
+    delete m_timeFieldsTimer;
 }
 
 

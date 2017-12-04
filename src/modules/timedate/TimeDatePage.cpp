@@ -94,6 +94,7 @@ TimeDatePage::~TimeDatePage()
 {
     delete ui;
     delete m_timeDateService;
+    delete m_timeFieldsTimer;
 }
 
 
