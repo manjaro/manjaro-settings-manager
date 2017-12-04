@@ -52,6 +52,7 @@ TimeDatePage::TimeDatePage( QWidget* parent ) :
     {
         ui->timeEdit->setEnabled( !checked );
         ui->dateEdit->setEnabled( !checked );
+        this -> setApplyEnabled( this, true );
     } );
     connect( ui->timeZonePushButton, &QPushButton::clicked,
              [=] ( bool checked )
