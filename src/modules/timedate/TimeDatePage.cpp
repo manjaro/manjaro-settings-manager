@@ -2,6 +2,7 @@
  *  This file is part of Manjaro Settings Manager.
  *
  *  Ramon Buldó <ramon@manjaro.org>
+ *  Kacper Piwiński
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -29,7 +30,6 @@
 #include <QtCore/QDateTime>
 #include <QtCore/QTimer>
 
-
 TimeDatePage::TimeDatePage( QWidget* parent ) :
     PageWidget( parent ),
     ui( new Ui::PageTimeDate ),
@@ -43,20 +43,22 @@ TimeDatePage::TimeDatePage( QWidget* parent ) :
     setName( TimeDateCommon::getName() );
 
     connect( m_timeFieldsTimer, &QTimer::timeout,
-             [=] ( )
+             [this] ()
     {
         TimeDateCommon::updateTimeFields( ui, m_timeDateService, m_isTimeEdited, m_isDateEdited );
     } );
+
     connect( ui->isNtpEnabledCheckBox, &QCheckBox::toggled,
-             [=] ( bool checked )
+             [this] ( bool checked )
     {
         ui->timeEdit->setEnabled( !checked );
         ui->dateEdit->setEnabled( !checked );
+        this -> setApplyEnabled( this, true );
     } );
+
     connect( ui->timeZonePushButton, &QPushButton::clicked,
-             [=] ( bool checked )
+             [this] ()
     {
-        Q_UNUSED( checked )
         QString newTimeZone = TimeDateCommon::showTimeZoneSelector( m_timeZone );
         if ( !newTimeZone.isEmpty() )
         {
@@ -72,12 +74,14 @@ TimeDatePage::TimeDatePage( QWidget* parent ) :
         m_isTimeEdited = true;
         this -> setApplyEnabled( this, true );
     } );
+
     connect( ui->dateEdit, &QTimeEdit::dateChanged,
              [this] ()
     {
         m_isDateEdited = true;
         this -> setApplyEnabled( this, true );
     } );
+
     connect( ui->isRtcLocalCheckBox, &QCheckBox::toggled,
              [this] ()
     {

@@ -1,6 +1,7 @@
 /*
  *  Manjaro Settings Manager
  *  Ramon Buldó <ramon@manjaro.org>
+ *  Kacper Piwiński
  *
  *  Copyright (C) 2007 Free Software Foundation, Inc.
  *
@@ -43,7 +44,8 @@ TimeDateKcm::TimeDateKcm( QWidget* parent, const QVariantList& args ) :
 
     hBoxLayout->addWidget( m_timeDateModule );
 
-    connect( m_timeDateModule, &TimeDateModule::changed, [this] ()
+    connect( m_timeDateModule, &TimeDateModule::changed,
+             [this] ()
     {
         emit changed();
     } );
@@ -52,20 +54,26 @@ TimeDateKcm::TimeDateKcm( QWidget* parent, const QVariantList& args ) :
 
 TimeDateKcm::~TimeDateKcm()
 {
-
+    delete m_timeDateModule;
 }
 
-void TimeDateKcm::load()
+
+void
+TimeDateKcm::load()
 {
     m_timeDateModule->load();
 }
 
-void TimeDateKcm::save()
+
+void
+TimeDateKcm::save()
 {
     m_timeDateModule->save();
 }
 
-void TimeDateKcm::defaults()
+
+void
+TimeDateKcm::defaults()
 {
     m_timeDateModule->defaults();
 }
