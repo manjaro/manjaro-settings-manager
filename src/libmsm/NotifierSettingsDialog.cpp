@@ -123,10 +123,10 @@ NotifierSettingsDialog::load()
     QSettings settings( "manjaro", "manjaro-settings-manager" );
     bool checkLanguagePackage = settings.value( "notifications/checkLanguagePackages", true ).toBool();
     bool checkUnsupportedKernel = settings.value( "notifications/checkUnsupportedKernel", true ).toBool();
-    bool checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", false ).toBool();
+    bool checkUnsupportedKernelRunning = settings.value( "notifications/checkUnsupportedKernelRunning", true ).toBool();
     bool checkNewKernel = settings.value( "notifications/checkNewKernel", true ).toBool();
-    bool checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", false ).toBool();
-    bool checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", true ).toBool();
+    bool checkNewKernelLts = settings.value( "notifications/checkNewKernelLts", true ).toBool();
+    bool checkNewKernelRecommended = settings.value( "notifications/checkNewKernelRecommended", false ).toBool();
 
     ui->checkLanguagePackage->setChecked( checkLanguagePackage );
     ui->checkUnsupportedKernelBox->setChecked( checkUnsupportedKernel );
