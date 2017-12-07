@@ -2,6 +2,7 @@
 Name=Manjaro Notifier Settings
 Name[da]=Manjaro-notifikatorindstillinger
 Name[fr]=Paramètres du Notifieur Manjaro
+Name[hu]=Manjaro Értesítő beállítások
 Name[pl]=Ustawienia powiadomień Manjaro
 Name[sk]=Nastavenia oznámení systému Manjaro
 
@@ -9,6 +10,7 @@ Comment=Graphical Settings for Manjaro Notifier
 Comment[da]=Grafiske indstillinger til Manjaro-notifikator
 Comment[de]=Grafische Einstellungsverwaltung für Manjaro
 Comment[fr]=Gestionnaire graphique de paramètres pour Notifieur Manjaro
+Comment[hu]=A Manjaro Notifier értesítéseinek beállítása
 Comment[pl]=Graficzne ustawienia powiadomień systemu Manjaro
 Comment[sk]=Grafické nastavenia oznámení pre systém Manjaro
 
