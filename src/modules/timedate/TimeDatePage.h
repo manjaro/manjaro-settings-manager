@@ -45,7 +45,6 @@ private:
     Ui::PageTimeDate* ui;
     TimeDateService* m_timeDateService;
     QTimer* m_timeFieldsTimer;
-    TimeZoneWidget m_timeZoneWidget;
     bool m_isTimeEdited;
     bool m_isDateEdited;
     QString m_timeZone;

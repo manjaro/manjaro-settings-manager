@@ -1,6 +1,7 @@
 /* === This file is part of Calamares - <http://github.com/calamares> ===
  *
  *   Copyright 2014, Teo Mrnjavac <teo@kde.org>
+ *   Kacper Piwiński
  *
  *   Originally from the Manjaro Installation Framework
  *   by Roland Singer <roland@manjaro.org>
@@ -25,7 +26,8 @@
 QHash<QString, QHash<QString, QList<LocaleGlobal::Locale> > > LocaleGlobal::locales;
 QHash<QString, QList<LocaleGlobal::Location> > LocaleGlobal::locations;
 
-void LocaleGlobal::init()
+void
+LocaleGlobal::init()
 {
     // TODO: Error handling
     initLocales();
@@ -47,7 +49,8 @@ LocaleGlobal::getLocations()
 }
 
 
-void LocaleGlobal::initLocales()
+void
+LocaleGlobal::initLocales()
 {
     locales.clear();
 
@@ -70,7 +73,11 @@ void LocaleGlobal::initLocales()
         while ( !in.atEnd() )
         {
             QString line = in.readLine().trimmed();
-            QStringList split = line.split( commentChar, QString::KeepEmptyParts ).first().split( QRegExp( " (?=[^\"]*(\"[^\"]*\"[^\"]*)*$)" ), QString::SkipEmptyParts );
+
+            QStringList split = line
+                                .split( commentChar, QString::KeepEmptyParts )
+                                .first()
+                                .split( QRegExp( " (?=[^\"]*(\"[^\"]*\"[^\"]*)*$)" ), QString::SkipEmptyParts );
 
             if ( split.size() < 2 )
                 continue;
@@ -96,7 +103,8 @@ void LocaleGlobal::initLocales()
 }
 
 
-void LocaleGlobal::initLocations()
+void
+LocaleGlobal::initLocations()
 {
     locations.clear();
     QFile file( TZ_DATA_FILE );
@@ -131,7 +139,8 @@ void LocaleGlobal::initLocations()
 }
 
 
-double LocaleGlobal::getRightGeoLocation( QString str )
+double
+LocaleGlobal::getRightGeoLocation( QString str )
 {
     double sign = 1, num = 0.00;
 
