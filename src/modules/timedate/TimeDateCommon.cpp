@@ -79,8 +79,8 @@ TimeDateCommon::showTimeZoneSelector( QString& currentTimeZone )
     QString region = currentTimeZone.split( "/" ).value( 0 );
     QString zone = currentTimeZone.split( "/" ).value( 1 );
     dialog.init( region, zone );
-    dialog.exec();
-    if ( dialog.currentLocation() != currentTimeZone )
+
+    if ( dialog.exec() == QDialog::Accepted )
         return dialog.currentLocation();
     else
         return QString();
