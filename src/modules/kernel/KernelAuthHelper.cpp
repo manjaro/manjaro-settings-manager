@@ -49,6 +49,7 @@ KernelAuthHelper::runPacman( const QVariantMap& args )
         if ( !dataErr.isEmpty() )
         {
             actionReply = ActionReply::HelperErrorType;
+            actionReply.setError(1);
             data.append( "\n" ).append( dataErr );
         }
         if ( !data.isEmpty() )
