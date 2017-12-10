@@ -34,6 +34,7 @@ class ActionDialog : public QDialog
 
 public:
     explicit ActionDialog( QWidget* parent = 0 );
+    ~ActionDialog();
 
     KAuth::Action installAction() const;
     void setInstallAction( const KAuth::Action& installAction );
