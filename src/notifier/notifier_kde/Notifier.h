@@ -23,9 +23,8 @@
 #include "LanguagePackagesItem.h"
 #include "NotifierSettingsDialog.h"
 
-#include <KNotifications/KStatusNotifierItem>
-
 #include <QtCore/QTimer>
+#include <KNotifications/KStatusNotifierItem>
 
 class Notifier : public QObject
 {
