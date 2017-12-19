@@ -68,7 +68,9 @@ int main( int argc, char* argv[] )
         return app.exec();
     }
     else
+    {
         qDebug() << "MSM Notifier is already running, shutting down.";
+    }
 
     return 0;
 }

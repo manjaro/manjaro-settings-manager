@@ -87,7 +87,7 @@ Notifier::Notifier( QObject* parent ) :
     connect( optionsAction, &QAction::triggered,
              [this] ()
     {
-        m_settingsDialog = new NotifierSettingsDialog( NULL );
+        NotifierSettingsDialog* m_settingsDialog = new NotifierSettingsDialog( NULL );
         m_settingsDialog->setAttribute( Qt::WidgetAttribute::WA_DeleteOnClose, true );
         m_settingsDialog->exec();
     } );
@@ -123,7 +123,8 @@ Notifier::Notifier( QObject* parent ) :
 
 Notifier::~Notifier()
 {
-
+    delete m_tray;
+    delete m_timer;
 }
 
 
