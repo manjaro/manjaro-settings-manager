@@ -2,6 +2,7 @@
  *  This file is part of Manjaro Settings Manager.
  *
  *  Ramon Buldó <ramon@manjaro.org>
+ *  Kacper Piwiński
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -83,11 +84,24 @@ ActionDialog::ActionDialog( QWidget* parent ) :
                                this, &ActionDialog::reject );
 }
 
+
+ActionDialog::~ActionDialog()
+{
+    delete m_terminal;
+    delete m_messageLabel;
+    delete m_informationLabel;
+    delete m_showDetails;
+    delete m_progressBar;
+    delete m_buttonBox;
+}
+
+
 void
 ActionDialog::writeToTerminal( const QString& information )
 {
     m_terminal->append( information );
 }
+
 
 void
 ActionDialog::showDetails( const QString& link )
@@ -110,6 +124,7 @@ ActionDialog::showDetails( const QString& link )
     }
 }
 
+
 void
 ActionDialog::startJob()
 {
@@ -124,7 +139,7 @@ ActionDialog::startJob()
     KAuth::ExecuteJob* kAuthJob = m_installAction.execute();
 
     connect( kAuthJob, &KAuth::ExecuteJob::newData,
-             [=] ( const QVariantMap &data )
+             [this] ( const QVariantMap &data )
     {
         QString output = data.value( "Data" ).toString();
         foreach ( auto line, output.split( QRegExp( "[\r\n]" ),QString::SkipEmptyParts ) )
@@ -140,17 +155,16 @@ ActionDialog::startJob()
     } );
 
     connect( kAuthJob, &KAuth::ExecuteJob::result,
-             [=] ( KJob *kjob )
+             [this] ( KJob *kjob )
     {
-        auto job = qobject_cast<KAuth::ExecuteJob*>( kjob );
-        if ( job->error() == 0 )
-            jobDone( true, tr ( "Changes failed, click on 'Show Details' for more information" ) );
+        if ( kjob->error() == 0 )
+            jobDone( true, tr ( "Changes were made successfully" ) );
         else
             jobDone( false, tr ( "Changes failed, click on 'Show Details' for more information" ) );
     } );
 
     connect( kAuthJob, &KAuth::ExecuteJob::statusChanged,
-             [=] ( KAuth::Action::AuthStatus status )
+             [this] ( KAuth::Action::AuthStatus status )
     {
 //         switch (status) {
 //             case KAuth::Action::AuthStatus::DeniedStatus : {
@@ -173,25 +187,12 @@ ActionDialog::startJob()
     kAuthJob->start();
 }
 
+
 void
 ActionDialog::jobDone ( bool success, QString message )
 {
-    if ( success )
-    {
-        m_jobSuccesful = true;
-        if ( message != NULL )
-            m_messageLabel->setText( tr ( "Changes were made successfully" ) );
-        else
-            m_messageLabel->setText( message );
-    }
-    else
-    {
-        m_jobSuccesful = false;
-        if ( message != NULL )
-            m_messageLabel->setText( tr ( "Changes failed, click on 'Show Details' for more information" ) );
-        else
-            m_messageLabel->setText( message );
-    }
+    m_jobSuccesful = success;
+    m_messageLabel->setText( message );
 
     m_terminal->append( QString( "\n" ) );
     m_terminal->append( QString( tr( "Done ..." ) ) );
@@ -201,11 +202,13 @@ ActionDialog::jobDone ( bool success, QString message )
     m_progressBar->setValue( 100 );
 }
 
+
 bool
 ActionDialog::isJobSuccesful() const
 {
     return m_jobSuccesful;
 }
+
 
 void
 ActionDialog::updateInfo( const QString& data )
@@ -213,6 +216,7 @@ ActionDialog::updateInfo( const QString& data )
     writeToTerminal( data );
     m_informationLabel->setText( data );
 }
+
 
 KAuth::Action
 ActionDialog::installAction() const

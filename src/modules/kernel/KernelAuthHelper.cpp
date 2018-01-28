@@ -2,6 +2,7 @@
  *  This file is part of Manjaro Settings Manager.
  *
  *  Ramon Buldó <ramon@manjaro.org>
+ *  Kacper Piwiński
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -42,7 +43,7 @@ KernelAuthHelper::runPacman( const QVariantMap& args )
     pacman->start( "/usr/bin/pacman", args["arguments"].toStringList() );
     actionReply = ActionReply::SuccessType;
     connect( pacman, &QProcess::readyRead,
-             [=] ()
+             [&] ()
     {
         QString data = QString::fromUtf8( pacman->readAllStandardOutput() ).trimmed();
         QString dataErr = QString::fromUtf8( pacman->readAllStandardError() ).trimmed();
@@ -60,6 +61,7 @@ KernelAuthHelper::runPacman( const QVariantMap& args )
     } );
     pacman->waitForStarted();
     pacman->waitForFinished( -1 );
+    actionReply.setError( pacman->exitCode() );
     return actionReply;
 }
 
