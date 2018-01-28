@@ -155,7 +155,7 @@ Kernel::isUnsupported() const
 bool
 Kernel::isRc() const
 {
-    if ( m_version.contains( "rc" ) || m_version.contains( ".r" ) )
+    if ( m_version.contains( "rc" ) || m_version.contains( ".r" ) || m_version.contains( ".g" ) )
         return true;
     return false;
 }
