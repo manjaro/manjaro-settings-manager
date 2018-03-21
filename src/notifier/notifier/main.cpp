@@ -2,6 +2,7 @@
  *  This file is part of Manjaro Settings Manager.
  *
  *  Ramon Buldó <ramon@manjaro.org>
+ *  Kacper Piwiński
  *
  *  Manjaro Settings Manager is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -54,23 +55,22 @@ int main( int argc, char* argv[] )
     {
         NotifierSettingsDialog* m_settingsDialog = new NotifierSettingsDialog( NULL );
         m_settingsDialog->setAttribute( Qt::WidgetAttribute::WA_DeleteOnClose, true );
-        m_settingsDialog->exec();
-        return 0;
+        return m_settingsDialog->exec();
     }
 
     // ensure only one tray icon application is runnung
     KDSingleApplicationGuard guard( KDSingleApplicationGuard::AutoKillOtherInstances );
 
-    int returnCode = 0;
     if ( guard.isPrimaryInstance() )
     {
         app.init();
         Notifier notifier( &app );
-        returnCode = app.exec();
+        return app.exec();
     }
     else
+    {
         qDebug() << "MSM Notifier is already running, shutting down.";
+    }
 
-    return returnCode;
+    return 0;
 }
-
