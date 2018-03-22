@@ -154,8 +154,8 @@ AccountTypeDialog::buttonApply_clicked()
 
     // Check if default groups have been disabled
     QStringList missingDefaultGroups;
-    QStringList defaultGroups = QStringList() << "video" << "audio" << "power" << "storage"
-                                << "optical" << "network" << "lp" << "scanner";
+    QStringList defaultGroups = QStringList() << "video" << "audio" << "power" << "optical"
+                                << "network" << "lp" << "scanner" << "sys";
     foreach ( QString defaultGroup, defaultGroups )
     {
         if ( !groups.contains( defaultGroup ) )
