@@ -56,17 +56,17 @@ EnabledLocalesModel::data( const QModelIndex& index, int role ) const
         return QVariant();
     const QString& localeCode = m_locales[index.row()];
 
-    Locale locale( localeCode.toLatin1() );
+    icu::Locale locale( localeCode.toLatin1() );
 
     // Get language and country in current system locale
-    UnicodeString uDisplayLanguage;
-    UnicodeString uDisplayCountry;
+    icu::UnicodeString uDisplayLanguage;
+    icu::UnicodeString uDisplayCountry;
     locale.getDisplayLanguage( locale, uDisplayLanguage );
     locale.getDisplayCountry( locale, uDisplayCountry );
 
     // Capitalize language and country
     UErrorCode status;
-    BreakIterator* titleIterator = BreakIterator::createTitleInstance( locale, status );
+    icu::BreakIterator* titleIterator = icu::BreakIterator::createTitleInstance( locale, status );
     uDisplayLanguage = uDisplayLanguage.toTitle( titleIterator );
     uDisplayCountry = uDisplayCountry.toTitle( titleIterator );
 
@@ -339,7 +339,7 @@ EnabledLocalesModel::locales() const
 icu::UnicodeString
 EnabledLocalesModel::qStringToUnicodeString( const QString& sourceStr )
 {
-    return UnicodeString( static_cast<const ushort*>( sourceStr.utf16() ),
+    return icu::UnicodeString( static_cast<const ushort*>( sourceStr.utf16() ),
                           sourceStr.length() );
 }
 
