@@ -50,6 +50,9 @@ public Q_SLOTS:
      *         fails
      */
     ActionReply remove( const QVariantMap& args );
+
+private:
+    ActionReply actionReply;
 };
 
 #endif // MHWDAUTHHELPER_H

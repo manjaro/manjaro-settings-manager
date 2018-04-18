@@ -25,12 +25,19 @@
 ActionReply
 MhwdAuthHelper::install( const QVariantMap& args )
 {
-    QProcess mhwd;
-    mhwd.start( "/usr/bin/mhwd", args["arguments"].toStringList() );
-    connect( &mhwd, &QProcess::readyRead,
+    actionReply = ActionReply::SuccessType;
+    QProcess* mhwd = new QProcess();
+    mhwd->start( "/usr/bin/mhwd", args["arguments"].toStringList() );
+    connect( mhwd, &QProcess::readyRead,
              [&] ()
     {
-        QString data = QString::fromUtf8( mhwd.readAll() ).trimmed();
+        QString data = QString::fromUtf8( mhwd->readAllStandardOutput() ).trimmed();
+        QString dataErr = QString::fromUtf8( mhwd->readAllStandardError() ).trimmed();
+        if ( !dataErr.isEmpty() )
+        {
+            actionReply = ActionReply::HelperErrorType;
+            data.append( "\n" ).append( dataErr );
+        }
         if ( !data.isEmpty() )
         {
             QVariantMap map;
@@ -39,13 +46,16 @@ MhwdAuthHelper::install( const QVariantMap& args )
         }
     } );
 
-    if ( !mhwd.waitForStarted() )
-        return ActionReply::HelperErrorReply();
+    mhwd->waitForStarted();
+    mhwd->waitForFinished( -1 );
 
-    if ( !mhwd.waitForFinished( 600000 ) )
-        return ActionReply::HelperErrorReply();
-
-    return ActionReply::SuccessReply();
+    /* need to check as mhwd doesn't output errors in Standard Error */
+    if( mhwd->exitCode() != 0 )
+    {
+        actionReply = ActionReply::HelperErrorType;
+        actionReply.setError( mhwd->exitCode() );
+    }
+    return actionReply;
 }
 
 
