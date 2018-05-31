@@ -62,6 +62,5 @@ PacmanUtils::isSystemUpToDate()
         return false;
     }
 
-    return QString( process.readAll() ).split( "\n", QString::SkipEmptyParts ) ==
-           ( QStringList() << ":: Starting full system upgrade..." );
+    return QString( process.readAll() ).trimmed().isEmpty();
 }
