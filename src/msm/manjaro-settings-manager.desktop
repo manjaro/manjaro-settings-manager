@@ -9,6 +9,7 @@ Name[fr]=Manjaro Gestionnaire de paramètres
 Name[pl]=Menedżer ustawień Manjaro
 Name[ro]=Gestionar de Setări Manjaro
 Name[sk]=Správca nastavení systému Manjaro
+Name[et]=Manjaro seadetehaldur
 
 Comment=Graphical Settings Manager for Manjaro
 Comment[ca]=Gestor de configuració gràfic de Manjaro
@@ -20,6 +21,7 @@ Comment[fr]=Gestionnaire graphique de paramètres pour Manjaro
 Comment[pl]=Graficzny menedżer ustawień systemu Manjaro
 Comment[ro]=Gestionar grafic de setări de sistem pt. Manjaro
 Comment[sk]=Grafický správca nastavení pre systém Manjaro
+Comment[et]=Graafiline seadetehaldur Manjarole
 
 Exec=manjaro-settings-manager
 Icon=preferences-desktop
